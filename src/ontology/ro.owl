@@ -11,14 +11,14 @@
 ]>
 
 
-<rdf:RDF xmlns="&obo;rel.owl#"
-     xml:base="&obo;rel.owl"
+<rdf:RDF xmlns="&obo;ro.owl#"
+     xml:base="&obo;ro.owl"
      xmlns:obo="http://purl.obolibrary.org/obo/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:CL="http://purl.org/obo/owl/CL#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:CL="http://purl.org/obo/owl/CL#">
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
     <owl:Ontology rdf:about="&obo;ro.owl">
         <owl:imports rdf:resource="&obo;iao/dev/ontology-metadata.owl"/>
     </owl:Ontology>
@@ -33,17 +33,17 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
-    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
     
 
 
@@ -77,18 +77,33 @@
         <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
     </owl:ObjectProperty>
     
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001000 -->
+
     <owl:ObjectProperty rdf:about="&obo;RO_0001000">
         <rdfs:label xml:lang="en">derives from</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/RO_0002100 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002100">
         <rdfs:label xml:lang="en">soma located in</rdfs:label>
-        <obo:IAO_0000111 xml:lang="en">has soma part of</obo:IAO_0000111>  <!-- This is an ugly and confusing name.  Surely for macro relations, labels should be agreed by discussion with experts ??!! -->
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and an anatomical structure that its soma is part of.
+N has soma location R
+Expands to:
+N1 SubclassOf (
+   has_part some (
+    &#8216;soma ; GO:0043025&#8217; that part_of some R)
+	</obo:IAO_0000115>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0043025 and  http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)</obo:IAO_0000424>
+        <obo:IAO_0000111 xml:lang="en">soma part of</obo:IAO_0000111>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+        <rdfs:domain rdf:resource="&CL;CL_0000540"/>
     </owl:ObjectProperty>
     
 
@@ -96,8 +111,23 @@
     <!-- http://purl.obolibrary.org/obo/RO_0002101 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002101">
-        <rdfs:label xml:lang="en">fasiculates with</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:label xml:lang="en">fasciculates with</rdfs:label>
+        <obo:IAO_0000115>Description: relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.
+Instance level definition: x fasciculates_with y iff: exists some &#8216;neuron projection&#8217; (np) and np part_of x and np overlaps y and np aligned_with y
+</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;CARO_0001001"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&CL;CL_0000540"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="&CL;CL_0000540"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -112,14 +142,22 @@
 N axon_synapses_in some R
 Expands_to: 
 N SubClassOf (
-has_part some (
-	‘axon ; GO:0030424’ that has_part some (
-‘pre-synaptic membrane ; GO:0042734’ that part_of some (
-‘synapse ; GO:0045202’ that part_of some R
+    has_part some (
+       &#8216;axon ; GO:0030424&#8217; that has_part some (
+          &#8216;pre-synaptic membrane ; GO:0042734&#8217; that part_of some (
+	     &#8216;synapse ; GO:0045202&#8217; that part_of some R
 ))))
 	</obo:IAO_0000115>
-        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0030424 and http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some (http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0030424 and http://purl.obolibrary.org/obo/BFO_0000051 some (
+      http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+         http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002113"/>
+        <rdfs:domain rdf:resource="&CL;CL_0000540"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002102"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -128,19 +166,20 @@ has_part some (
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002103">
         <rdfs:label xml:lang="en">synapsed by</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
-        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000051 some (
+         http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
-        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and an anatomical structure (including cells) that chemically synapses to. Expands to: 
-N1 synapsed_to some N2 
+        <obo:IAO_0000115 xml:lang="en">Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. 
+N1 synapsed_by some N2.
 Expands to:
 N1 SubclassOf ( 
 has_part some (
-‘pre-synaptic membrane ; GO:0042734’ that part_of some ( 
-			‘synapse ; GO:0045202’ that has_part some (
-‘post-synaptic membrane ; GO:0045211’ that part_of some N2
-))))
+   &#8216;post-synaptic membrane ; GO:0045211&#8217; that part_of some ( 
+      &#8216;synapse ; GO:0045202&#8217; that has_part some (
+         &#8216;pre-synaptic membrane ; GO:0042734&#8217; that part_of some N2))))
 	</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:range>
@@ -155,14 +194,15 @@ has_part some (
             </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/RO_0002104 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002104">
         <rdfs:label xml:lang="en">has plasma membrane part</rdfs:label>
-        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0005886 and http://purl.obolibrary.org/obo/BFO_0000051 some ?Y)</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0005886 and http://purl.obolibrary.org/obo/BFO_0000051 some ?Y)</obo:IAO_0000424>
         <obo:IAO_0000112 xml:lang="en">Every B cell[CL_0000236] has plasma membrane part some immunoglobulin complex[GO_0019814]</obo:IAO_0000112>
         <obo:IAO_0000119 xml:lang="en">PMID:19243617</obo:IAO_0000119>
         <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
@@ -174,16 +214,18 @@ has_part some (
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002110">
         <rdfs:label xml:lang="en">synapsed in</rdfs:label>
-        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. Expands to: 
 N SubClassOf (
    has_part some  (
-		'post-synaptic membrane' [GO_0045211] that part_of some
+		&#39;post-synaptic membrane&#39; [GO_0045211] that part_of some
 			synapse [GO_0045202] that part_of some R )))</obo:IAO_0000115>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -201,21 +243,71 @@ N SubClassOf (
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002111 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002111">
+        <rdfs:label xml:lang="en">releases neurotransmitter</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002113 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002113">
+        <rdfs:label xml:lang="en">synapses in</rdfs:label>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0042734 and  http://purl.obolibrary.org/obo/BFO_0000050 some (
+      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
+        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input.
+N synapses_in some R
+Expands_to: 
+N SubClassOf (
+   has_part some (
+      &#8216;pre-synaptic membrane ; GO:0042734&#8217; that part_of some (
+         &#8216;synapse ; GO:0045202&#8217; that part_of some R )))
+</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&CL;CL_0000540"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="&CL;CL_0000540"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002120 -->
+
     <owl:ObjectProperty rdf:about="&obo;RO_0002120">
         <rdfs:label xml:lang="en">synapsed to</rdfs:label>
-        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some (http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
-        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
-        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and an anatomical structure (including cells) that chemically synapses to. Expands to: 
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
+   http://purl.org/obo/owl/GO#GO_0042734 and    http://purl.obolibrary.org/obo/BFO_0000050 some (
+      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000051 some (
+         http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
+        <obo:IAO_0000115 xml:lang="en"> Relation between a neuron and an anatomical structure (including cells) that itchemically synapses to.
 N1 synapsed_to some N2 
 Expands to:
 N1 SubclassOf ( 
-has_part some (
-‘pre-synaptic membrane ; GO:0042734’ that part_of some ( 
-			‘synapse ; GO:0045202’ that has_part some (
-‘post-synaptic membrane ; GO:0045211’ that part_of some N2
-))))
-	</obo:IAO_0000115>
+   has_part some (
+      &#8216;pre-synaptic membrane ; GO:0042734&#8217; that part_of some ( 
+	&#8216;synapse ; GO:0045202&#8217; that has_part some (
+	   &#8216;post-synaptic membrane ; GO:0045211&#8217; that part_of some N2))))
+  </obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <rdfs:domain>
             <owl:Class>
@@ -229,12 +321,118 @@ has_part some (
             </owl:Class>
         </rdfs:domain>
     </owl:ObjectProperty>
+    
 
 
-    <!-- http://purl.obolibrary.org/obo/RO_0002111 -->
+    <!-- http://purl.obolibrary.org/obo/RO_0002121 -->
 
-    <owl:ObjectProperty rdf:about="&obo;RO_0002111">
-        <rdfs:label xml:lang="en">releases neurotransmitter</rdfs:label>
+    <owl:ObjectProperty rdf:about="&obo;RO_0002121">
+        <rdfs:label xml:lang="en">dendrite synapsed in</rdfs:label>
+        <obo:IAO_0000424>
+http://purl.obolibrary.org/obo/BFO_0000051 some (
+	http://purl.org/obo/owl/GO#GO_0030425 and http://purl.obolibrary.org/obo/BFO_0000051 some (
+	   http://purl.org/obo/owl/GO#GO_0042734 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+	      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))
+	</obo:IAO_0000424>
+        <obo:IAO_0000115 xml:lang="en">
+Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.
+N dendrite_synapsed_in some R
+Expands_to: 
+N SubClassOf (
+has_part some (&#8216;dendrite; GO:0030425&#8217; that has_part some (
+			&#8216;pre-synaptic membrane ; GO:0042734&#8217; that part_of some (
+				&#8216;synapse ; GO:0045202&#8217; that part_of some R)))
+	</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002110"/>
+        <rdfs:domain rdf:resource="&CL;CL_0000540"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002121"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002130 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002130">
+        <rdfs:label xml:lang="en">synapse in</rdfs:label>
+        <obo:IAO_0000424>A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input.</obo:IAO_0000424>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&CL;CL_0000540"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="&CL;CL_0000540"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002131 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002131">
+        <rdfs:label xml:lang="en">overlaps</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002132 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002132">
+        <rdfs:label xml:lang="en">has fasciculating component</rdfs:label>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&obo;CARO_0001001"/>
+        <owl:inverseOf rdf:resource="&obo;RO_0002101"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&CL;CL_0000540"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                        <owl:someValuesFrom rdf:resource="&CL;CL_0000540"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002134 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002134">
+        <rdfs:label xml:lang="en">innervates</rdfs:label>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000115 xml:lang="en">Relation between a &#8216;neuron projection bundle&#8217; and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.
+T innervates some R
+Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:IAO_0000115>
+        <obo:IAO_0000424>http://purl.obolibrary.org/obo/RO_0002132 some (
+   http://purl.obolibrary.org/obo/CARO_0001001 and (
+      http://purl.obolibrary.org/obo/BFO_0000051 some (
+         http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+            http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some Y?
+         )
+      ) 
+   ) or (
+      http://purl.obolibrary.org/obo/BFO_0000051 some (
+         http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
+            http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y
+))))</obo:IAO_0000424>
+        <rdfs:domain rdf:resource="&obo;CARO_0001001"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -296,10 +494,47 @@ has_part some (
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CARO_0000003 -->
+
+    <owl:Class rdf:about="&obo;CARO_0000003">
+        <rdfs:label xml:lang="en">anatomical structure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000006"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CARO_0000006 -->
+
+    <owl:Class rdf:about="&obo;CARO_0000006">
+        <rdfs:label xml:lang="en">material anatomical entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000040"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CARO_0001000 -->
+
+    <owl:Class rdf:about="&obo;CARO_0001000">
+        <rdfs:label xml:lang="en">multi-cell-component structure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000003"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CARO_0001001 -->
+
+    <owl:Class rdf:about="&obo;CARO_0001001">
+        <rdfs:label xml:lang="en">neuron projection bundle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0001000"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/obo/owl/CL#CL_0000000 -->
+
     <owl:Class rdf:about="&CL;CL_0000000">
         <rdfs:label xml:lang="en">cell</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000040"/>
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000003"/>
         <obo:IAO_0000412 rdf:resource="http://purl.org/obo/owl/CL"/>
     </owl:Class>
     
