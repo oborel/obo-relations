@@ -272,10 +272,6 @@ N SubClassOf (
    http://purl.org/obo/owl/GO#GO_0042734 and  http://purl.obolibrary.org/obo/BFO_0000050 some (
       http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)))</obo:IAO_0000424>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002113"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -287,6 +283,10 @@ N SubClassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -451,6 +451,44 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002156 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002156">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">derived_by_descent_from</rdfs:label>
+        <obo:IAO_0000118 rdf:datatype="&xsd;string">ancestral_stucture_of</obo:IAO_0000118>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a.</obo:IAO_0000115>
+        <obo:IAO_0000118 rdf:datatype="&xsd;string">evolutionarily_descended_from</obo:IAO_0000118>
+        <owl:inverseOf rdf:resource="&obo;RO_0002157"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002157 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002157">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has_derived_by_descendant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002158 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002158">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">shares ancestor with</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">VBO calls this homologous_to</rdfs:comment>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">two individual entities d1 and d2 stand in a shares_ancestor_with relation if and only if there exists some a such that d1 derived_by_descent_from a and d2 derived_by_descent_from a.</obo:IAO_0000115>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002156"/>
+            <rdf:Description rdf:about="&obo;RO_0002157"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002200 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002200">
@@ -474,6 +512,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <owl:inverseOf rdf:resource="&obo;RO_0002200"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/RO_0002202 -->
 
@@ -481,8 +521,22 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">develops from</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000117 xml:lang="en">Terry Meehan</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Terry Meehan</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002203 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002203">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">develops into</rdfs:label>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Terry Meehan</obo:IAO_0000117>
+        <owl:inverseOf rdf:resource="&obo;RO_0002202"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -709,6 +763,29 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subClassOf rdf:resource="&CL;CL_0000000"/>
         <obo:IAO_0000412 rdf:resource="http://purl.org/obo/owl/CL"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002156 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002156">
+        <rdfs:label rdf:datatype="&xsd;string">derived_by_descent_from</rdfs:label>
+        <obo:IAO_id rdf:datatype="&xsd;string">RO:0002156</obo:IAO_id>
+        <obo:IAO_0000118 rdf:datatype="&xsd;string">ancestral_stucture_of</obo:IAO_0000118>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a.</obo:IAO_0000115>
+        <obo:IAO_0000118 rdf:datatype="&xsd;string">evolutionarily_descended_from</obo:IAO_0000118>
+    </rdf:Description>
 </rdf:RDF>
 
 
