@@ -8,6 +8,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY www2 "http://www.semanticweb.org/ontologies/2010/5/www.dave_hacky_test/" >
     <!ENTITY Ontology1275387730635 "http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl:" >
 ]>
 
@@ -20,7 +21,8 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:www="www.dave_hacky_test/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:www2="http://www.semanticweb.org/ontologies/2010/5/&www;">
     <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl"/>
     
 
@@ -120,11 +122,11 @@
         <rdfs:domain rdf:resource="&Ontology1275387730635;NRTF0000013"/>
         <rdfs:range rdf:resource="&Ontology1275387730635;NRTF0000013"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000006"/>
+            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000027"/>
             <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000002"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000027"/>
+            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000006"/>
             <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000002"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -265,6 +267,15 @@
     
 
 
+    <!-- www.dave_hacky_test/test_0100000 -->
+
+    <owl:ObjectProperty rdf:about="&www;test_0100000">
+        <rdfs:label xml:lang="en">part_of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -276,9 +287,9 @@
     
 
 
-    <!-- www.dave_hacky_test/test_0100000 -->
+    <!-- http://www.semanticweb.org/ontologies/2010/5/www.dave_hacky_test/test_0100000 -->
 
-    <owl:DatatypeProperty rdf:about="&www;test_0100000">
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000">
         <rdfs:label xml:lang="en">minutes_AEL_at_25C</rdfs:label>
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
@@ -303,14 +314,26 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
-                <owl:someValuesFrom rdf:resource="&obo;RO_0002109"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">60</xsd:maxInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">50</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -321,20 +344,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
-                <owl:someValuesFrom>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="&xsd;integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;integer">50</xsd:minInclusive>
-                            </rdf:Description>
-                            <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="&xsd;integer">60</xsd:maxInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:someValuesFrom>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
+                <owl:someValuesFrom rdf:resource="&obo;RO_0002109"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -348,19 +359,13 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000003"/>
                 <owl:someValuesFrom rdf:resource="&obo;RO_0002108"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
@@ -374,6 +379,12 @@
                         </owl:withRestrictions>
                     </rdfs:Datatype>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -403,32 +414,26 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">10</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000003"/>
                 <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000017"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
-                <owl:someValuesFrom>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="&xsd;integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="&xsd;integer">10</xsd:maxInclusive>
-                            </rdf:Description>
-                            <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -442,13 +447,31 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002124"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000029"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000003"/>
                 <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000009"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
@@ -466,26 +489,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&obo;RO_0002123"/>
                 <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&obo;RO_0002124"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -499,14 +504,14 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -517,16 +522,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
                         <owl:withRestrictions rdf:parseType="Collection">
                             <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="&xsd;integer">30</xsd:maxInclusive>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">20</xsd:minInclusive>
                             </rdf:Description>
                             <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;integer">20</xsd:minInclusive>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">30</xsd:maxInclusive>
                             </rdf:Description>
                         </owl:withRestrictions>
                     </rdfs:Datatype>
@@ -544,13 +549,7 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000003"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
@@ -568,14 +567,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:onProperty rdf:resource="&obo;RO_0002122"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&obo;RO_0002122"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000003"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -634,13 +639,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000002"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000009"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000002"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000009"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&Ontology1275387730635;NRTF0000018"/>
@@ -655,19 +660,13 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000016"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000006"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000005"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000010"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
@@ -685,8 +684,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000006"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000005"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000010"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -698,6 +697,24 @@
     <owl:Class rdf:about="&Ontology1275387730635;NRTF0000019">
         <rdfs:label xml:lang="en">stage 5</rdfs:label>
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000032"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">40</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">50</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
@@ -714,24 +731,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000004"/>
                 <owl:someValuesFrom rdf:resource="&obo;RO_0002108"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
-                <owl:someValuesFrom>
-                    <rdfs:Datatype>
-                        <owl:onDatatype rdf:resource="&xsd;integer"/>
-                        <owl:withRestrictions rdf:parseType="Collection">
-                            <rdf:Description>
-                                <xsd:minInclusive rdf:datatype="&xsd;integer">40</xsd:minInclusive>
-                            </rdf:Description>
-                            <rdf:Description>
-                                <xsd:maxInclusive rdf:datatype="&xsd;integer">50</xsd:maxInclusive>
-                            </rdf:Description>
-                        </owl:withRestrictions>
-                    </rdfs:Datatype>
-                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -755,7 +754,7 @@
         <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000016"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
                 <owl:someValuesFrom>
                     <rdfs:Datatype>
                         <owl:onDatatype rdf:resource="&xsd;integer"/>
@@ -777,12 +776,6 @@
                 <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000010"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
-                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -796,6 +789,41 @@
     
 
 
+    <!-- www.dave_hacky_test/test_0100001 -->
+
+    <owl:Class rdf:about="&www;test_0100001">
+        <rdfs:label xml:lang="en">amnio-proctodeal invagination</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000016"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&www;test_0100000"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- www.dave_hacky_test/test_0100003 -->
+
+    <owl:NamedIndividual rdf:about="&www;test_0100003">
+        <rdf:type rdf:resource="&Ontology1275387730635;NRTF0000015"/>
+        <rdfs:label xml:lang="en">S1-2 transition</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -804,6 +832,28 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:Restriction>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">0</xsd:minInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">70</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+        <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000028"/>
+    </owl:Restriction>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
@@ -816,6 +866,28 @@
             <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000019"/>
         </owl:members>
     </rdf:Description>
+    <owl:Restriction>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/5/&www;test_0100000"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">35</xsd:maxInclusive>
+                            </rdf:Description>
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">15</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+        <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000018"/>
+    </owl:Restriction>
 </rdf:RDF>
 
 
