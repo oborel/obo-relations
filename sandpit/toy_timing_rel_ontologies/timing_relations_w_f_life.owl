@@ -89,6 +89,7 @@
 
     <owl:ObjectProperty rdf:about="&obo;unregistered/scratch_0001001">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">life_of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -117,6 +118,8 @@
     <!-- http://purl.obolibrary.org/obo/unregistered/scratch_0001008 -->
 
     <owl:ObjectProperty rdf:about="&obo;unregistered/scratch_0001008">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">has_life</rdfs:label>
         <owl:inverseOf rdf:resource="&obo;unregistered/scratch_0001001"/>
         <rdfs:domain rdf:resource="&obo;unregistered/scratch_0001002"/>
@@ -143,6 +146,25 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/unregistered/scratch_0001014 -->
+
+    <owl:ObjectProperty rdf:about="&obo;unregistered/scratch_0001014">
+        <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">part_of_at_all_times</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;unregistered/scratch_0001015"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/unregistered/scratch_0001015 -->
+
+    <owl:ObjectProperty rdf:about="&obo;unregistered/scratch_0001015">
+        <rdfs:label xml:lang="en">part_of_at_some_times</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl:NRTF0000001 -->
 
     <owl:ObjectProperty rdf:about="&Ontology1275387730635;NRTF0000001">
@@ -155,11 +177,11 @@
         <rdfs:range rdf:resource="&Ontology1275387730635;NRTF0000013"/>
         <rdfs:domain rdf:resource="&Ontology1275387730635;NRTF0000013"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000005"/>
+            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000027"/>
             <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000001"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000027"/>
+            <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000005"/>
             <rdf:Description rdf:about="&Ontology1275387730635;NRTF0000001"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -508,13 +530,19 @@
         <rdfs:subClassOf rdf:resource="&obo;unregistered/scratch_0001002"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001015"/>
+                <owl:someValuesFrom rdf:resource="&obo;unregistered/scratch_0001012"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001008"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000005"/>
-                                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
+                                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000006"/>
@@ -522,35 +550,6 @@
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001011"/>
-                <owl:someValuesFrom>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001013"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001001"/>
-                                        <owl:someValuesFrom rdf:resource="&obo;unregistered/scratch_0001012"/>
-                                    </owl:Restriction>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000021"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="&obo;unregistered/scratch_0001001"/>
-                                                <owl:someValuesFrom rdf:resource="&obo;unregistered/scratch_0001010"/>
-                                            </owl:Restriction>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -571,7 +570,7 @@
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000005"/>
-                                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000012"/>
+                                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000011"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000006"/>
@@ -580,6 +579,21 @@
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/unregistered/scratch_0001016 -->
+
+    <owl:Class rdf:about="&obo;unregistered/scratch_0001016">
+        <rdfs:label xml:lang="en">amnioproctodeal invagination</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&Ontology1275387730635;NRTF0000016"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Ontology1275387730635;NRTF0000027"/>
+                <owl:someValuesFrom rdf:resource="&Ontology1275387730635;NRTF0000029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
