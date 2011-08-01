@@ -1,268 +1,345 @@
 format-version: 1.2
+ontology: ro
+import: http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl
 
 [Term]
 id: BFO:0000001
 name: entity
-namespace: BFO
 
 [Term]
 id: BFO:0000002
 name: continuant
-namespace: BFO
-is_a: BFO:0000001  ! entity
+is_a: BFO:0000001 ! entity
 
 [Term]
 id: BFO:0000004
 name: independent continuant
-namespace: BFO
-is_a: BFO:0000002  ! continuant
+is_a: BFO:0000002 ! continuant
 
 [Term]
 id: BFO:0000040
 name: material entity
-namespace: BFO
-is_a: BFO:0000004  ! independent continuant
+is_a: BFO:0000004 ! independent continuant
+
+[Term]
+id: CARO:0000003
+name: anatomical structure
+is_a: CARO:0000006 ! material anatomical entity
+
+[Term]
+id: CARO:0000006
+name: material anatomical entity
+is_a: BFO:0000040 ! material entity
+
+[Term]
+id: CARO:0000014
+name: cell component
+def: ""The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together." [GOC:go_curators]" []
+is_a: CARO:0000003 ! anatomical structure
+
+[Term]
+id: CARO:0001000
+name: multi-cell-component structure
+is_a: CARO:0000003 ! anatomical structure
+
+[Term]
+id: CARO:0001001
+name: neuron projection bundle
+is_a: CARO:0001000 ! multi-cell-component structure
+
+[Term]
+id: CL_0000000
+name: cell
+is_a: CARO:0000003 ! anatomical structure
+
+[Term]
+id: CL_0000540
+name: neuron
+is_a: CL_0000000 ! cell
+
+[Term]
+id: GO:0016020
+name: membrane
+def: ""Double layer of lipid molecules that encloses all cells, and, in eukaryotes, many organelles; may be a single or double lipid bilayer; also includes associated proteins." [GOC:mah, ISBN:0815316194]" []
+is_a: GO:0044464 ! cell part
+
+[Term]
+id: GO:0030424
+name: axon
+def: ""The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter." [GOC:nln, ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]" []
+is_a: GO:0043005 ! neuron projection
+
+[Term]
+id: GO:0030425
+name: dendrite
+def: ""A branching protoplasmic process of a neuron that receives and integrate signals coming from axons of other neurons, and conveys the resulting signal to the body of the cell." [GOC:nln, ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]" []
+is_a: GO:0043005 ! neuron projection
+
+[Term]
+id: GO:0042734
+name: presynaptic membrane
+def: ""A specialized area of membrane of the axon terminal that faces the plasma membrane of the neuron or muscle fiber with which the axon terminal establishes a synaptic junction; many synaptic junctions exhibit structural presynaptic characteristics, such as conical, electron-dense internal protrusions, that distinguish it from the remainder of the axon plasma membrane." [GOC:jl, http://cancerweb.ncl.ac.uk/]" []
+is_a: GO:0044456 ! synapse part
+is_a: GO:0016020 ! membrane
+
+[Term]
+id: GO:0042995
+name: cell projection
+def: ""A prolongation or process extending from a cell, e.g. a flagellum or axon." [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
+is_a: GO:0044464 ! cell part
+
+[Term]
+id: GO:0043005
+name: neuron projection
+def: ""A prolongation or process extending from a nerve cell, e.g. an axon or dendrite." [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
+is_a: GO:0042995 ! cell projection
+
+[Term]
+id: GO:0044456
+name: synapse part
+def: ""Any constituent part of a synapse, the junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell." [GOC:jl]" []
+is_a: CARO:0000014 ! cell component
+
+[Term]
+id: GO:0044464
+name: cell part
+def: ""Any constituent part of a cell, the basic structural and functional unit of all organisms." [GOC:jl]" []
+is_a: CARO:0000014 ! cell component
+
+[Term]
+id: GO:0045202
+name: synapse
+def: ""The junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell; the site of interneuronal communication. As the nerve fiber approaches the synapse it enlarges into a specialized structure, the presynaptic nerve ending, which contains mitochondria and synaptic vesicles. At the tip of the nerve ending is the presynaptic membrane; facing it, and separated from it by a minute cleft (the synaptic cleft) is a specialized area of membrane on the receiving cell, known as the postsynaptic membrane. In response to the arrival of nerve impulses, the presynaptic nerve ending secretes molecules of neurotransmitters into the synaptic cleft. These diffuse across the cleft and transmit the signal to the postsynaptic membrane." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]" []
+is_a: CARO:0000014 ! cell component
+
+[Term]
+id: GO:0045211
+name: postsynaptic membrane
+def: ""A specialized area of membrane facing the presynaptic membrane on the tip of the nerve ending and separated from it by a minute cleft (the synaptic cleft). Neurotransmitters across the synaptic cleft and transmit the signal to the postsynaptic membrane." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]" []
+is_a: GO:0044456 ! synapse part
+is_a: GO:0016020 ! membrane
 
 [Typedef]
 id: BFO:0000050
 name: part of
-namespace: BFO
 is_transitive: true
-inverse_of: BFO:0000051  ! has part
+is_a: RO:0002131 ! overlaps
+inverse_of: BFO:0000051 ! has part
 
 [Typedef]
 id: BFO:0000051
 name: has part
-namespace: BFO
+is_transitive: true
+is_a: RO:0002131 ! overlaps
+
+[Typedef]
+id: RO:0000300
+name: in_neural_circuit_with
+def: "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
 is_transitive: true
 
-[Term]
-id: CL:CL_0000000
-name: cell
-namespace: CL
-is_a: obo:CARO_0000003  ! anatomical structure
+[Typedef]
+id: RO:0000301
+name: upstream_in_neural_circuit_with
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+is_transitive: true
+is_a: RO:0000300 ! in_neural_circuit_with
 
-[Term]
-id: CL:CL_0000540
-name: neuron
-namespace: CL
-is_a: CL:CL_0000000  ! cell
+[Typedef]
+id: RO:0000302
+name: downstream_in_neural_circuit_with
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+is_transitive: true
+is_a: RO:0000300 ! in_neural_circuit_with
 
 [Typedef]
 id: RO:0001000
 name: derives from
-namespace: RO
 
 [Typedef]
 id: RO:0002100
-name: soma located in
-namespace: RO
-def: "Relation between a neuron and an anatomical structure that its soma is part of.\nN has soma location R\nExpands to:\nN1 SubclassOf (\n   has_part some (\n    ‘soma ; GO:0043025’ that part_of some R)\n	" []
-synonym: "soma part of" EXACT []
-is_a: RO:0002131  ! overlaps
-domain: CL:CL_0000540  ! neuron
+name: has_soma_location
+def: "Relation between a neuron and an anatomical structure that its soma is part of." []
+domain: CL_0000540 ! neuron
+is_a: RO:0002131 ! overlaps
+holds_over_chain: RO:0002100 BFO:0000050 ! has_soma_location part of
+expand_expression_to: "BFO_0000051 some (\n   GO_0043025 and   BFO_0000050 some ?Y)" []
 
 [Typedef]
 id: RO:0002101
-name: fasciculates with
-namespace: RO
-def: "Description: relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\nInstance level definition: x fasciculates_with y iff: exists some ‘neuron projection’ (np) and np part_of x and np overlaps y and np aligned_with y" []
-is_a: RO:0002131  ! overlaps
-domain: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
-range: obo:CARO_0001001  ! neuron projection bundle
+name: fasciculates_with
+def: "Description: relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
+range: CARO:0001001 ! neuron projection bundle
+is_a: RO:0002131 ! overlaps
 
 [Typedef]
 id: RO:0002102
 name: axon synapses in
-namespace: RO
-def: "Relation between a neuron and some structure its axon forms (chemical) synapses in.\nN axon_synapses_in some R\nExpands_to: \nN SubClassOf (\n    has_part some (\n       ‘axon ; GO:0030424’ that has_part some (\n          ‘pre-synaptic membrane ; GO:0042734’ that part_of some (\n	     ‘synapse ; GO:0045202’ that part_of some R\n))))\n	" []
-is_a: RO:0002113  ! synapses in
-domain: CL:CL_0000540  ! neuron
+def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
+domain: CL_0000540 ! neuron
+is_a: RO:0002113 ! has_presynaptic_terminal_in
+holds_over_chain: RO:0002102 BFO:0000050 ! axon synapses in part of
+expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\n      GO_0042734 and BFO_0000050 some (\n         GO_0045202 and BFO_0000050 some ?Y)))" []
 
 [Typedef]
 id: RO:0002103
-name: synapsed by
-namespace: RO
-def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. \nN1 synapsed_by some N2.\nExpands to:\nN1 SubclassOf ( \nhas_part some (\n   ‘post-synaptic membrane ; GO:0045211’ that part_of some ( \n      ‘synapse ; GO:0045202’ that has_part some (\n         ‘pre-synaptic membrane ; GO:0042734’ that part_of some N2))))\n	" []
-range: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: synapsed_by
+def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
+is_a: RO:0000301 ! upstream_in_neural_circuit_with
+expand_expression_to: "BFO_0000051 some (GO_0045211 that part_of some (GO_0045202 that has_part some (GO_0042734 that BFO_0000050 some Y?)))" []
 
 [Typedef]
 id: RO:0002104
 name: has plasma membrane part
-namespace: RO
-is_a: BFO:0000051  ! has part
+is_a: BFO:0000051 ! has part
+expand_expression_to: "BFO_0000051 some (GO_0005886 and BFO_0000051 some ?Y)" []
 
 [Typedef]
 id: RO:0002110
-name: synapsed in
-namespace: RO
-def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. Expands to: \nN SubClassOf (\n   has_part some  (\n		'post-synaptic membrane' [GO_0045211] that part_of some\n			synapse [GO_0045202] that part_of some R )))" []
-inverse_of: RO:0002102  ! axon synapses in
-is_a: RO:0002130  ! synapse in
-domain: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: has_postsynaptic_terminal_in
+def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
+is_a: RO:0002130 ! has_synaptic_terminal_in
+inverse_of: RO:0002102 ! axon synapses in
+holds_over_chain: RO:0002110 BFO:0000050 ! has_postsynaptic_terminal_in part of
+expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (\n   http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (\n      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))" []
 
 [Typedef]
 id: RO:0002111
 name: releases neurotransmitter
-namespace: RO
 
 [Typedef]
 id: RO:0002113
-name: synapses in
-namespace: RO
-def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input.\nN synapses_in some R\nExpands_to: \nN SubClassOf (\n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some (\n         ‘synapse ; GO:0045202’ that part_of some R )))" []
-is_a: RO:0002130  ! synapse in
-domain: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: has_presynaptic_terminal_in
+def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
+is_a: RO:0002130 ! has_synaptic_terminal_in
+holds_over_chain: RO:0002113 BFO:0000050 ! has_presynaptic_terminal_in part of
+expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000050 some Y?)" []
 
 [Typedef]
 id: RO:0002120
-name: synapsed to
-namespace: RO
-def: " Relation between a neuron and an anatomical structure (including cells) that itchemically synapses to.\nN1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))\n  " []
-domain: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: synapsed_to
+def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n  " []
+comment: N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))
+is_a: RO:0000302 ! downstream_in_neural_circuit_with
+expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_0045202 that BFO_0000051 some (GO_0045211 that BFO_0000050 some Y?)))" []
 
 [Typedef]
 id: RO:0002121
 name: dendrite synapsed in
-namespace: RO
-def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\nN dendrite_synapsed_in some R\nExpands_to: \nN SubClassOf (\nhas_part some (‘dendrite; GO:0030425’ that has_part some (\n			‘pre-synaptic membrane ; GO:0042734’ that part_of some (\n				‘synapse ; GO:0045202’ that part_of some R)))\n	" []
-is_a: RO:0002110  ! synapsed in
-domain: CL:CL_0000540  ! neuron
+def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
+domain: CL_0000540 ! neuron
+is_a: RO:0002110 ! has_postsynaptic_terminal_in
+holds_over_chain: RO:0002121 BFO:0000050 ! dendrite synapsed in part of
+expand_expression_to: "BFO_0000051 some (\n	GO_0030425 and BFO_0000051 some (\n	   http://purl.obolibrary.org/obo/GO_0042734 and BFO_0000050 some (\n	      GO_0045202 and BFO_0000050 some ?Y)))" []
 
 [Typedef]
 id: RO:0002130
-name: synapse in
-namespace: RO
-is_a: RO:0002131  ! overlaps
-domain: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: has_synaptic_terminal_in
+def: "A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input." []
+is_a: RO:0002131 ! overlaps
+holds_over_chain: RO:0002130 BFO:0000050 ! has_synaptic_terminal_in part of
+expand_expression_to: "RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)" []
 
 [Typedef]
 id: RO:0002131
 name: overlaps
-namespace: RO
+holds_over_chain: BFO:0000051 BFO:0000050 ! has part part of
+holds_over_chain: RO:0002131 BFO:0000050 ! overlaps part of
+holds_over_chain: BFO:0000051 RO:0002131 ! has part overlaps
+expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)" []
 
 [Typedef]
 id: RO:0002132
-name: has fasciculating component
-namespace: RO
-inverse_of: RO:0002101  ! fasciculates with
-is_a: RO:0002131  ! overlaps
-domain: obo:CARO_0001001  ! neuron projection bundle
-range: CL:CL_0000540|BFO:0000050(CL:CL_0000540) 
+name: has_fasciculating_neuron_projection
+def: "The relation between a neuron projection bundle and a neuron projection that is fasciculated with it." []
+domain: CARO:0001001 ! neuron projection bundle
+is_a: RO:0002131 ! overlaps
+inverse_of: RO:0002101 ! fasciculates_with
 
 [Typedef]
 id: RO:0002134
 name: innervates
-namespace: RO
-def: "Relation between a ‘neuron projection bundle’ and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T fasciculating_neuron_projection that synapse_in some R." []
-domain: obo:CARO_0001001  ! neuron projection bundle
+def: "Relation between a ‘neuron projection bundle’ and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
+domain: CARO:0001001 ! neuron projection bundle
+holds_over_chain: RO:0002134 BFO:0000050 ! innervates part of
+expand_expression_to: "RO_0002132 some (GO_0043005 that (RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)))" []
 
 [Typedef]
-id: RO:0002135
-name: has function in 
-synonym: has_function_realized_by_process EXACT []
-synonym: has_function_in EXACT []
+id: RO:0002150
+name: connected_to
+def: "X connected_to Y if and only if X and Y share a fiat boundary." []
 
-[Term]
-id: obo:CARO_0000003
-name: anatomical structure
-namespace: obo
-is_a: obo:CARO_0000006  ! material anatomical entity
+[Typedef]
+id: RO:0002151
+name: partially overlaps
+is_a: RO:0002131 ! overlaps
 
-[Term]
-id: obo:CARO_0000006
-name: material anatomical entity
-namespace: obo
-is_a: BFO:0000040  ! material entity
+[Typedef]
+id: RO:0002156
+name: derived_by_descent_from
+def: "d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a." []
+is_transitive: true
+is_a: RO:0002150 ! connected_to
+inverse_of: RO:0002157 ! has_derived_by_descendant
 
-[Term]
-id: obo:CARO_0000014
-name: cell component
-namespace: obo
-def: "\"The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.\" [GOC:go_curators]" []
-is_a: obo:CARO_0000003  ! anatomical structure
+[Typedef]
+id: RO:0002157
+name: has_derived_by_descendant
+is_transitive: true
 
-[Term]
-id: obo:CARO_0001000
-name: multi-cell-component structure
-namespace: obo
-is_a: obo:CARO_0000003  ! anatomical structure
+[Typedef]
+id: RO:0002158
+name: shares ancestor with
+def: "two individual entities d1 and d2 stand in a shares_ancestor_with relation if and only if there exists some a such that d1 derived_by_descent_from a and d2 derived_by_descent_from a." []
+comment: VBO calls this homologous_to
+is_symmetric: true
+is_transitive: true
+holds_over_chain: RO:0002156 RO:0002157 ! derived_by_descent_from has_derived_by_descendant
 
-[Term]
-id: obo:CARO_0001001
-name: neuron projection bundle
-namespace: obo
-is_a: obo:CARO_0001000  ! multi-cell-component structure
+[Typedef]
+id: RO:0002160
+name: only in taxon
+expand_expression_to: "RO_0002162 only ?Y" []
 
-[Term]
-id: obo:GO_0016020
-name: membrane
-namespace: obo
-def: "\"Double layer of lipid molecules that encloses all cells, and, in eukaryotes, many organelles; may be a single or double lipid bilayer; also includes associated proteins.\" [GOC:mah, ISBN:0815316194]" []
-is_a: obo:GO_0044464  ! cell part
+[Typedef]
+id: RO:0002161
+name: never in taxon
+expand_expression_to: "RO_0002162 only not ?Y" []
 
-[Term]
-id: obo:GO_0030424
-name: axon
-namespace: obo
-def: "\"The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.\" [GOC:nln, ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
-is_a: obo:GO_0043005  ! neuron projection
+[Typedef]
+id: RO:0002162
+name: in taxon
+comment: Connects a biological entity to its taxon of origin.
 
-[Term]
-id: obo:GO_0030425
-name: dendrite
-namespace: obo
-def: "\"A branching protoplasmic process of a neuron that receives and integrate signals coming from axons of other neurons, and conveys the resulting signal to the body of the cell.\" [GOC:nln, ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
-is_a: obo:GO_0043005  ! neuron projection
+[Typedef]
+id: RO:0002163
+name: spatially disjoint from
+expand_expression_to: "BFO_0000051 exactly 0 (BFO_0000050 some ?Y)" []
 
-[Term]
-id: obo:GO_0042734
-name: presynaptic membrane
-namespace: obo
-def: "\"A specialized area of membrane of the axon terminal that faces the plasma membrane of the neuron or muscle fiber with which the axon terminal establishes a synaptic junction; many synaptic junctions exhibit structural presynaptic characteristics, such as conical, electron-dense internal protrusions, that distinguish it from the remainder of the axon plasma membrane.\" [GOC:jl, http://cancerweb.ncl.ac.uk/]" []
-is_a: obo:GO_0016020  ! membrane
-is_a: obo:GO_0044456  ! synapse part
+[Typedef]
+id: RO:0002180
+name: has_component
+comment: For use in recording has_part with a cardinality constraint.
+is_a: BFO:0000051 ! has part
 
-[Term]
-id: obo:GO_0042995
-name: cell projection
-namespace: obo
-def: "\"A prolongation or process extending from a cell, e.g. a flagellum or axon.\" [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
-is_a: obo:GO_0044464  ! cell part
+[Typedef]
+id: RO:0002200
+name: has phenotype
 
-[Term]
-id: obo:GO_0043005
-name: neuron projection
-namespace: obo
-def: "\"A prolongation or process extending from a nerve cell, e.g. an axon or dendrite.\" [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
-is_a: obo:GO_0042995  ! cell projection
+[Typedef]
+id: RO:0002201
+name: phenotype of
+is_functional: true
+inverse_of: RO:0002200 ! has phenotype
 
-[Term]
-id: obo:GO_0044456
-name: synapse part
-namespace: obo
-def: "\"Any constituent part of a synapse, the junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell.\" [GOC:jl]" []
-is_a: obo:CARO_0000014  ! cell component
+[Typedef]
+id: RO:0002202
+name: develops from
+is_transitive: true
 
-[Term]
-id: obo:GO_0044464
-name: cell part
-namespace: obo
-def: "\"Any constituent part of a cell, the basic structural and functional unit of all organisms.\" [GOC:jl]" []
-is_a: obo:CARO_0000014  ! cell component
-
-[Term]
-id: obo:GO_0045202
-name: synapse
-namespace: obo
-def: "\"The junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell; the site of interneuronal communication. As the nerve fiber approaches the synapse it enlarges into a specialized structure, the presynaptic nerve ending, which contains mitochondria and synaptic vesicles. At the tip of the nerve ending is the presynaptic membrane; facing it, and separated from it by a minute cleft (the synaptic cleft) is a specialized area of membrane on the receiving cell, known as the postsynaptic membrane. In response to the arrival of nerve impulses, the presynaptic nerve ending secretes molecules of neurotransmitters into the synaptic cleft. These diffuse across the cleft and transmit the signal to the postsynaptic membrane.\" [ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
-is_a: obo:CARO_0000014  ! cell component
-
-[Term]
-id: obo:GO_0045211
-name: postsynaptic membrane
-namespace: obo
-def: "\"A specialized area of membrane facing the presynaptic membrane on the tip of the nerve ending and separated from it by a minute cleft (the synaptic cleft). Neurotransmitters across the synaptic cleft and transmit the signal to the postsynaptic membrane.\" [ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
-is_a: obo:GO_0016020  ! membrane
-is_a: obo:GO_0044456  ! synapse part
+[Typedef]
+id: RO:0002203
+name: develops into
+is_transitive: true
+inverse_of: RO:0002202 ! develops from
 
