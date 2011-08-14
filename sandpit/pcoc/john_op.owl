@@ -54,6 +54,30 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#brain -->
+
+    <owl:Class rdf:about="&obo;example/john.owl#brain">
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000072"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#heart -->
+
+    <owl:Class rdf:about="&obo;example/john.owl#heart">
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000072"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#heart_transplant -->
+
+    <owl:Class rdf:about="&obo;example/john.owl#heart_transplant">
+        <rdfs:subClassOf rdf:resource="&obo;example/john.owl#transplant"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/example/john.owl#human_continuant_query -->
 
     <owl:Class rdf:about="&obo;example/john.owl#human_continuant_query">
@@ -92,6 +116,22 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#operation -->
+
+    <owl:Class rdf:about="&obo;example/john.owl#operation">
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#transplant -->
+
+    <owl:Class rdf:about="&obo;example/john.owl#transplant">
+        <rdfs:subClassOf rdf:resource="&obo;example/john.owl#operation"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/testinst#human -->
 
     <owl:Class rdf:about="&obo;testinst#human">
@@ -108,6 +148,67 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#harry -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#harry">
+        <rdf:type>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/c"/>
+                    <rdf:Description rdf:about="&obo;testinst#human"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#harrys_heart -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#harrys_heart">
+        <rdf:type rdf:resource="&obo;example/john.owl#heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#harrys_heart_post_op -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#harrys_heart_post_op">
+        <rdf:type rdf:resource="&obo;example/john.owl#heart"/>
+        <pcoc:temporal_part_of_course_of rdf:resource="&obo;example/john.owl#harrys_heart"/>
+        <obo:BFO_0000050 rdf:resource="&obo;testinst#john_post_op"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#harrys_heart_pre_op -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#harrys_heart_pre_op">
+        <rdf:type rdf:resource="&obo;example/john.owl#heart"/>
+        <obo:BFO_0000050 rdf:resource="&obo;example/john.owl#harry"/>
+        <pcoc:temporal_part_of_course_of rdf:resource="&obo;example/john.owl#harrys_heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#johns_brain -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#johns_brain">
+        <rdf:type rdf:resource="&obo;example/john.owl#brain"/>
+        <obo:BFO_0000050 rdf:resource="&obo;testinst#john"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/john.owl#johns_heart -->
+
+    <owl:NamedIndividual rdf:about="&obo;example/john.owl#johns_heart">
+        <rdf:type rdf:resource="&obo;example/john.owl#heart"/>
+        <obo:BFO_0000050 rdf:resource="&obo;testinst#john_pre_op"/>
+    </owl:NamedIndividual>
     
 
 
