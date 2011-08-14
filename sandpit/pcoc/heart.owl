@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY example "http://purl.obolibrary.org/obo/example/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pcoc "http://purl.obolibrary.org/obo/example/pcoc/" >
+    <!ENTITY testinst "http://purl.obolibrary.org/obo/example/heart/" >
+    <!ENTITY heart "http://purl.obolibrary.org/obo/example/heart.owl#" >
+]>
+
+
+<rdf:RDF xmlns="&obo;testinst#"
+     xml:base="&obo;testinst"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:heart="&obo;example/heart.owl#"
+     xmlns:pcoc="&obo;example/pcoc/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:example="&obo;example/"
+     xmlns:testinst="&obo;example/heart/">
+    <owl:Ontology rdf:about="&obo;example/heart.owl">
+        <owl:imports rdf:resource="&obo;CARO.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#atrioventricular_valve -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#atrioventricular_valve">
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000019"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#heart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#atrioventricular_valve_during_ED -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#atrioventricular_valve_during_ED">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/heart.owl#atrioventricular_valve"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/during"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#early_diastole"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#atrioventricular_valve"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_000015"/>
+                <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#open"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#brain -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#brain">
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000072"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#closed -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#closed">
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#closure"/>
+        <owl:disjointWith rdf:resource="&obo;example/heart.owl#open"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#closure -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#closure">
+        <rdfs:subClassOf rdf:resource="&obo;PATO_0001241"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#developing_heart -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#developing_heart">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/heart.owl#heart"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/during"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#embryogenesis"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#heart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#early_diastole -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#early_diastole">
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#heart_cycle_phase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#embryogenesis -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#embryogenesis">
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#heart -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#heart">
+        <rdfs:subClassOf rdf:resource="&obo;CARO_0000072"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#heart_cycle_phase -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#heart_cycle_phase">
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#heart_during_ED -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#heart_during_ED">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/heart.owl#heart"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/during"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#early_diastole"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#heart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#looping_heart -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#looping_heart">
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#developing_heart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#mature_heart -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#mature_heart">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/heart.owl#heart"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/during"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#post-embryogenesis"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#heart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#atrioventricular_valve"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#open -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#open">
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#closure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#open_atrioventricular_valve -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#open_atrioventricular_valve">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/heart.owl#atrioventricular_valve"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;BFO_000015"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/heart.owl#open"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/heart.owl#atrioventricular_valve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/heart.owl#post-embryogenesis -->
+
+    <owl:Class rdf:about="&obo;example/heart.owl#post-embryogenesis">
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
+
