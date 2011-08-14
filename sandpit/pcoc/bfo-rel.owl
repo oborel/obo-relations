@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY snap "http://www.ifomis.org/bfo/1.1/snap#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="&obo;example/"
+     xml:base="&obo;example/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:snap="http://www.ifomis.org/bfo/1.1/snap#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="&obo;example/bfo-rel.owl">
+        <owl:imports rdf:resource="&obo;example/bfo-classes.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- http://purl.obolibrary.org/obo/example/has_life -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/has_life">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">has course</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">relates a continuant to its unique course</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&obo;example/c"/>
+        <rdfs:range rdf:resource="&obo;example/course"/>
+        <owl:inverseOf rdf:resource="&obo;example/life_of"/>
+    </owl:ObjectProperty>
+    
+
+
+
+    <!-- http://purl.obolibrary.org/obo/example/life_of -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/life_of">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">course of</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">relates a course to the unique continuant it is the course of</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;example/c"/>
+        <rdfs:domain rdf:resource="&obo;example/course"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://purl.obolibrary.org/obo/example/part_of_process -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/part_of_process">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label>part of process</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">A primitive relation among occurrent p1 and p2, with the constraint that the spatiotemporal projection of p1 is a part of the spatiotemporal projection of  p2</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&obo;example/o"/>
+        <rdfs:range rdf:resource="&obo;example/o"/>
+    </owl:ObjectProperty>
+
+    <!-- http://purl.obolibrary.org/obo/example/process_has_part -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/process_has_part">
+        <rdfs:label xml:lang="en">process has part</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">A primitive relation among occurrent p1 and p2, with the constraint that the spatiotemporal projection of p1 has part the spatiotemporal projection of  p2</obo:IAO_0000115>
+        <owl:inverseOf rdf:resource="&obo;example/part_of_process"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://purl.obolibrary.org/obo/example/temporal_part_of -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/temporal_part_of">
+        <rdfs:label xml:lang="en">temporal part of</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">an occurrent o1 is a temporal part of ocurrent o2 iff the o1 is part of process o2 and the temporal projection of o1 is part of the temporal projection of o2 and at all times t in the temporal projection of o1, the spatial projection of o1 equals the spatial projection of o2</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;example/o"/>
+        <rdfs:domain rdf:resource="&obo;example/o"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;example/part_of_process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_000015 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_000015">
+        <rdfs:label rdf:datatype="&xsd;string">has_function_in</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;CARO_0000000"/>
+    </owl:ObjectProperty>
+
+    <!-- http://purl.obolibrary.org/obo/BFO_000053 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_000015">
+        <rdfs:label rdf:datatype="&xsd;string">is bearer of</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;CARO_0000000"/>
+    </owl:ObjectProperty>
+
+    <!-- http://purl.obolibrary.org/obo/CARO_has_quality -->
+
+    <owl:ObjectProperty rdf:about="&obo;CARO_has_quality">
+        <rdfs:label rdf:datatype="&xsd;string">has_quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://purl.obolibrary.org/obo/RO_0000303 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0000303">
+        <obo:IAO_0000589 xml:lang="en">capable_of</obo:IAO_0000589>
+        <rdfs:comment>expands to &quot;bearer_of some (realized_by only ?Y)&quot;</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000304"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://purl.obolibrary.org/obo/RO_0002000 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002000">
+        <rdfs:label xml:lang="en">located_in</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;CARO_0000005"/>
+        <rdfs:range rdf:resource="&obo;CARO_0000006"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002001 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002001">
+        <rdfs:label xml:lang="en">contained_in</rdfs:label>
+        <rdfs:range rdf:resource="&obo;CARO_0000006"/>
+        <rdfs:domain rdf:resource="&obo;CARO_0000006"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002131 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002131">
+        <rdfs:label rdf:datatype="&xsd;string">overlaps</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002150 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002150">
+        <rdfs:label xml:lang="en">connected_to</rdfs:label>
+        <obo:IAO_0000117 rdf:datatype="&rdfs;Literal">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000115 rdf:datatype="&xsd;string">X connected_to Y if and only if X and Y share a fiat boundary.</obo:IAO_0000115>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002180 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002180">
+        <rdfs:label xml:lang="en">has_component</rdfs:label>
+        <rdfs:comment xml:lang="en">For use in recording has_part with a cardinality constraint.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Use: http://purl.obolibrary.org/obo/BFO_0000073 &#39;has cardinal part&#39; ?</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
+

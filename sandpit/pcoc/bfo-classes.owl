@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY snap "http://www.ifomis.org/bfo/1.1/snap#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="&obo;example/"
+     xml:base="&obo;example/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:snap="http://www.ifomis.org/bfo/1.1/snap#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="&obo;example/bfo-classes.owl">
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/c -->
+
+    <owl:Class rdf:about="&obo;example/c">
+        <rdfs:label>c</rdfs:label>
+        <owl:disjointWith rdf:resource="&obo;example/o"/>
+    </owl:Class>
+
+
+    <!-- http://purl.obolibrary.org/obo/example/course -->
+
+    <owl:Class rdf:about="&obo;example/course">
+        <rdfs:label xml:lang="en">course</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/o"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/life_of"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/c"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+        <obo:IAO_0000115 xml:lang="en">A course is the unique process associated with a continuant which the sum total of [fiat] processes occurring in its bounded by the boundary of the spatiotemporal region equivalent to stringing together all the spatial regions it occupies at all the successive instants of its life. </obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A course is the unique process associated with a continuant which the sum total of [fiat] processes occurring in its bounded by the boundary of the spatiotemporal region equivalent tostringing together all the spatial regions it occupies at all the successive instants of its life. </obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">Sometimes called the life of a continuant, or the existence (process) of a continuant. The 1:1 relation has-course relates the continuant to the course.
+
+Note that given the current definition and the BFO definition of qualities having the same spatial region as their bearers, this definition contradicts the 1:1 nature of the relation. Something will be done about this - there are several discussions occurring at the moment. We do believe that this mapping is 1:1. 
+
+Options: 
+
+1) Say something about the participation of the continuant in the processes of the course. Downside: might be hard to do. There is still disagreement on how to understand participation.
+
+2) Reexaming BFO&#39;s definition of the spatial region of dependent continuants
+
+3) Restrict course to be processes associated with material entities and look for another solution for dependent continuants
+
+...</obo:IAO_0000116>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/o -->
+
+    <owl:Class rdf:about="&obo;example/o">
+        <rdfs:label>o</rdfs:label>
+    </owl:Class>
+    
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
+

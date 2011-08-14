@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY example "http://purl.obolibrary.org/obo/example/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY pcoc "http://purl.obolibrary.org/obo/example/pcoc/" >
+]>
+
+
+<rdf:RDF xmlns="&obo;example/pcoc.owl"
+     xml:base="&obo;example/pcoc.owl"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pcoc="&obo;example/pcoc/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:example="&obo;example/">
+    <owl:Ontology rdf:about="&obo;example/pcoc.owl">
+        <owl:imports rdf:resource="&obo;example/bfo-rel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000050">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">part_of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000051">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">has_part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/has_part_during -->
+
+    <rdf:Description rdf:about="&obo;example/has_part_during">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/part_of_during -->
+
+    <rdf:Description rdf:about="&obo;example/part_of_during">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/part_of_process -->
+
+    <rdf:Description rdf:about="&obo;example/part_of_process">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/process_has_part -->
+
+    <rdf:Description rdf:about="&obo;example/process_has_part">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/pcoc/temporal_part_of_course_of -->
+
+    <owl:ObjectProperty rdf:about="&obo;example/pcoc/temporal_part_of_course_of">
+        <rdfs:range rdf:resource="&obo;example/c"/>
+        <rdfs:domain rdf:resource="&obo;example/pcoc/course_part"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;example/temporal_part_of"/>
+            <rdf:Description rdf:about="&obo;example/life_of"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/pcoc/PCoC -->
+
+    <owl:Class rdf:about="&obo;example/pcoc/PCoC">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/c"/>
+                    <rdf:Description rdf:about="&obo;example/course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/temporal_part_of"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/course"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/example/pcoc/course_part -->
+
+    <owl:Class rdf:about="&obo;example/pcoc/course_part">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;example/course"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;example/temporal_part_of"/>
+                        <owl:someValuesFrom rdf:resource="&obo;example/course"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;example/o"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.22702) http://owlapi.sourceforge.net -->
+
