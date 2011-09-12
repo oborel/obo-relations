@@ -33,9 +33,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&obo;IAO_id"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
     </owl:AnnotationProperty>
@@ -44,6 +45,17 @@
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
     
 
 
@@ -86,6 +98,31 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0000300">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">in_neural_circuit_with</rdfs:label>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(neural_circuit_path  ?x ?y)
+		(and
+			(&quot;neuron ; CL_0000540&quot; ?x)
+			(&quot;neuron ; CL_0000540&quot; ?y)
+			(or 
+				(synapsed_by ?x ?y) 
+				(synapsed_to ?x ?y))))) 
+
+(forall (...s ?x ?y ?z) 
+	(iff 
+		(neural_circuit_path  ...s ?x ?y ?z)
+		(and
+			(neural_circuit_path  ...s ?x ?y)
+			(&quot;neuron ; CL_0000540&quot; ?z)
+			(or 
+				(synapsed_by ?y ?z) 
+				(synapsed_to ?y ?z))))) 
+
+(forall (?x ?y) 
+	(iff 
+		(in_neural_circuit_with ?x ?y)
+		(exists (...s)
+			(neural_circuit_path  ?x ...s ?y)))) </obo:IAO_0000426>
         <obo:IAO_0000115 xml:lang="en">A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
     </owl:ObjectProperty>
@@ -97,6 +134,28 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0000301">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">upstream_in_neural_circuit_with</rdfs:label>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(upstream_neural_circuit_path  ?x ?y)
+		(and
+			(&quot;neuron ; CL_0000540&quot; ?x)
+			(&quot;neuron ; CL_0000540&quot; ?y)
+			(synapsed_to ?x ?y))))
+
+
+(forall (...s ?x ?y ?z) 
+	(iff 
+		(upstream_neural_circuit_path ...s ?x ?y ?z )
+		(and
+			(upstream_neural_circuit_path ...s ?x ?y)
+			(&quot;neuron ; CL_0000540&quot; ?z)
+			(synapsed_to ?y ?z))))
+			
+(forall (?x ?y) 
+	(iff 
+		(upstream_in_neural_circuit_with ?x ?y)
+		(exists (...s)
+			(upstream_neural_circuit_path  ?x ...s ?y))))</obo:IAO_0000426>
         <obo:IAO_0000115 xml:lang="en">A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000300"/>
@@ -109,6 +168,29 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0000302">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">downstream_in_neural_circuit_with</rdfs:label>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(downstream_neural_circuit_path  ?x ?y)
+		(and
+			(&quot;neuron ; CL_0000540&quot; ?x)
+			(&quot;neuron ; CL_0000540&quot; ?y)
+			(synapsed_by ?x ?y))))
+
+
+(forall (...s ?x ?y ?z) 
+	(iff 
+		(downstream_neural_circuit_path ...s ?x ?y ?z )
+		(and
+			(downstream_neural_circuit_path ...s ?x ?y)
+			(&quot;neuron ; CL_0000540&quot; ?z)
+			(synapsed_by ?y ?z))))
+			
+(forall (?x ?y) 
+	(iff 
+		(downstream_in_neural_circuit_with ?x ?y)
+		(exists (...s)
+			(downstream_neural_circuit_path  ?x ...s ?y)))) 
+			</obo:IAO_0000426>
         <obo:IAO_0000115 xml:lang="en">A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000300"/>
@@ -121,6 +203,15 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0001000">
         <rdfs:label xml:lang="en">derives from</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002001 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002001">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">aligned_with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -147,7 +238,26 @@
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002101">
         <rdfs:label xml:lang="en">fasciculates_with</rdfs:label>
-        <obo:IAO_0000426>x fasciculates_with y iff: ∀&#39;neuron ; CL_0000540’(x),  ∃‘neuron projection bundle ; CARO_0001001’(y), ∃‘neuron projection ; GO_0043005(np)’, np part_of x ∧ np overlaps y ∧ np aligned_with y</obo:IAO_0000426>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(fasciculates_with ?x ?y)
+		(exists (?nps ?npbs)
+			(and 
+				(&quot;neuron ; CL_0000540&quot; ?x)
+				(&quot;neuron projection bundle ; CARO_0001001&quot; ?y) 
+				(&quot;neuron projection segment ; CARO_0001502&quot; ?nps)
+				(&quot;neuron projection bundle segment ; CARO_0001500&#39; &quot; ?npbs)
+				(part_of ?npbs ?y) 			
+				(part_of ?nps ?x)
+				(part_of ?nps ?npbs)
+				(forall (?npbss)
+					(if
+						(and 
+							(&quot;neuron projection bundle subsegment ; CARO_0001501&quot; ?npbss)
+							(part_of ?npbss ?npbs) 
+						)
+						(overlaps ?nps ?npbss)
+					))))))</obo:IAO_0000426>
         <obo:IAO_0000118>fasciculates with</obo:IAO_0000118>
         <obo:IAO_0000115 xml:lang="en">Description: relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.
 </obo:IAO_0000115>
@@ -275,10 +385,6 @@
         <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input.</obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapses in</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002113"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -290,6 +396,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -384,16 +494,16 @@ N1 SubclassOf (
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)</obo:IAO_0000424>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -403,7 +513,29 @@ N1 SubclassOf (
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002132">
         <rdfs:label xml:lang="en">has_fasciculating_neuron_projection</rdfs:label>
-        <obo:IAO_0000426>T has_fasciculating_neuron_projection np iff: ∀neuron projection bundle ; CARO_0001001’(T), ∃ ‘neuron projection ; GO_0043005’(np), np overlaps T ∧ np aligned_with T</obo:IAO_0000426>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(has_fasciculating_neuron_projection ?x ?y)
+		(exists (?nps ?npbs)		
+			(and 
+				(&quot;neuron projection bundle ; CARO_0001001&quot; ?x)
+				(&quot;neuron projection ; GO0043005&quot; ?y)
+				(&quot;neuron projection segment ; CARO_0001502&quot; ?nps)
+				(&quot;neuron projection bundle segment ; CARO_0001500&quot; ?npbs)
+				(part_of ?nps ?y)
+				(part_of ?npbs ?x)
+				(part_of ?nps ?npbs)
+				(forall (?npbss)
+					(if
+						(and 
+							(&quot;neuron projection bundle subsegment ; CARO_0001501&quot; ?npbss)
+							(part_of ?npbss ?npbs) 
+						)
+						(overlaps ?nps ?npbss)
+					))))))
+
+
+</obo:IAO_0000426>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">The relation between a neuron projection bundle and a neuron projection that is fasciculated with it.</obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">has fasciculating component</obo:IAO_0000118>
@@ -457,7 +589,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002151 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002151">
-        <rdfs:label xml:lang="en">partially overlaps</rdfs:label>
+        <rdfs:label xml:lang="en">proper overlaps</rdfs:label>
+        <obo:IAO_0000426 rdf:datatype="&xsd;string">(forall (?x ?y) 
+	(iff 
+		(proper_overlaps ?x ?y)
+		(and 
+			(overlaps ?x ?y)
+			(not (part_of ?x ?y)) 
+			(not (part_of ?y ?x)))))</obo:IAO_0000426>
+        <obo:IAO_0000118 rdf:datatype="&xsd;string">partially overlaps</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
     </owl:ObjectProperty>
     
@@ -468,11 +608,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002156">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">derived_by_descent_from</rdfs:label>
+        <obo:IAO_id rdf:datatype="&xsd;string">RO:0002156</obo:IAO_id>
         <obo:IAO_0000118 rdf:datatype="&xsd;string">ancestral_stucture_of</obo:IAO_0000118>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a.</obo:IAO_0000115>
         <obo:IAO_0000118 rdf:datatype="&xsd;string">evolutionarily_descended_from</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002150"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002157"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -829,32 +970,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subClassOf rdf:resource="&CL;CL_0000000"/>
         <obo:IAO_0000412 rdf:resource="http://purl.org/obo/owl/CL"/>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002156 -->
-
-    <rdf:Description rdf:about="&obo;RO_0002156">
-        <rdfs:label rdf:datatype="&xsd;string">derived_by_descent_from</rdfs:label>
-        <obo:IAO_id rdf:datatype="&xsd;string">RO:0002156</obo:IAO_id>
-        <obo:IAO_0000118 rdf:datatype="&xsd;string">ancestral_stucture_of</obo:IAO_0000118>
-        <obo:IAO_0000115 rdf:datatype="&xsd;string">d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a.</obo:IAO_0000115>
-        <obo:IAO_0000118 rdf:datatype="&xsd;string">evolutionarily_descended_from</obo:IAO_0000118>
-    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.1.0.1642) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
 
