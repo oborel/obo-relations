@@ -1,9 +1,7 @@
 
-# Oort requires more testing before it can be used for a relations ontology.
-#  for now, just go with a simple release process
-#
-#build:
-#	ontology-release-runner ro-edit.owl
+# ========================================
+# PRODUCTION
+# ========================================
 
 build: ro.owl ro.obo
 
@@ -13,4 +11,14 @@ ro.owl: ro-edit.owl
 
 %.obo: %.owl
 	obolib-owl2obo -o $@ $<
+
+# ========================================
+# EXPERIMENTAL
+# ========================================
+
+# Oort requires more testing before it can be used for a relations ontology.
+#  for now, just go with a simple release process (see above)
+build-using-oort: ro-edit.owl
+	ontology-release-runner --simple --allow-overwrite --reasoner hermit ro-edit.owl
+	touch $@
 
