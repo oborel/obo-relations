@@ -37,21 +37,19 @@
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&obo;BFO_0000055">
         <rdfs:label xml:lang="en">realizes</rdfs:label>
-        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;BFO_0000057">
         <rdfs:label xml:lang="en">has participant</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
-        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000426"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
@@ -140,6 +138,7 @@
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000055">
         <rdfs:label xml:lang="en">realizes</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000054"/>
     </owl:ObjectProperty>
     
@@ -150,6 +149,8 @@
     <owl:ObjectProperty rdf:about="&obo;BFO_0000056">
         <rdfs:label xml:lang="en">participates in</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">participates_in</obo:IAO_0000118>
+        <rdfs:range rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
     </owl:ObjectProperty>
     
 
@@ -160,6 +161,7 @@
         <rdfs:label xml:lang="en">has participant</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000056"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000055"/>
@@ -417,11 +419,11 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0002110">
         <rdfs:label xml:lang="en">has_postsynaptic_terminal_in</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
    http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
       http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
@@ -461,6 +463,10 @@
         <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input.</obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapses in</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -472,10 +478,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002113"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -544,10 +546,6 @@ N1 SubclassOf (
         <obo:IAO_0000424>&lt;http://purl.obolibrary.org/obo/RO_0002131&gt; some (&lt;http://purl.obolibrary.org/obo/GO_0045202&gt; that &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; some Y?)</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002130"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -559,6 +557,10 @@ N1 SubclassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002130"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -570,12 +572,12 @@ N1 SubclassOf (
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)</obo:IAO_0000424>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
@@ -658,6 +660,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">connected_to</rdfs:label>
         <obo:IAO_0000117 rdf:datatype="&rdfs;Literal">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">X connected_to Y if and only if X and Y share a fiat boundary.</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
     </owl:ObjectProperty>
     
 
@@ -756,6 +760,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000115>x is in taxon y if an only if y is an organism, and x is either part of or derived from y.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
+        <rdfs:domain rdf:resource="&obo;BFO_0000001"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
     </owl:ObjectProperty>
     
 
@@ -765,7 +771,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002163">
         <rdfs:label rdf:datatype="&xsd;string">spatially disjoint from</rdfs:label>
         <obo:IAO_0000424>BFO_0000051 exactly 0 (BFO_0000050 some ?Y)</obo:IAO_0000424>
-        <obo:IAO_0000115>A is spatially_disjoint_from B if they have no parts in common</obo:IAO_0000115>
+        <obo:IAO_0000115>A is spatially_disjoint_from B if and only if they have no parts in common</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
     </owl:ObjectProperty>
     
@@ -788,6 +794,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">PMID:20971987</obo:IAO_0000119>
         <obo:IAO_0000117 xml:lang="en">Robert Hoehndorf</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -815,6 +822,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">Terry Meehan</obo:IAO_0000117>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -840,6 +849,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">gene product of</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>definition &quot;x has gene product of y if and only if y is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from x&quot;</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -853,6 +864,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>x has gene product y if and only if x is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from y</obo:IAO_0000115>
         <obo:IAO_0000112>every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene</obo:IAO_0000112>
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002204"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
@@ -865,6 +878,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">expressed in</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>x expressed in y if x or a transcript of x is the output of a gene expression process (GO:0010467) that occurs in y</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002206"/>
@@ -906,6 +921,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>GO</obo:IAO_0000119>
         <obo:IAO_0000117>David Hill</obo:IAO_0000117>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002211"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
@@ -958,6 +974,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119>PMID:20123131</obo:IAO_0000119>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>PMID:21208450</obo:IAO_0000119>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000007"/>
     </owl:ObjectProperty>
     
 
@@ -1004,7 +1022,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
-    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty">
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000002"/>
+    </owl:ObjectProperty>
     
 
 
@@ -1038,12 +1059,55 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     
 
 
+    <!-- http://purl.obolibrary.org/obo/BFO_0000003 -->
+
+    <owl:Class rdf:about="&obo;BFO_0000003">
+        <rdfs:label xml:lang="en">occurrent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000001"/>
+        <obo:IAO_0000115 xml:lang="en">An entity  that has temporal parts and that happens, unfolds or develops through time. Sometimes also called perdurants.</obo:IAO_0000115>
+        <obo:IAO_0000112 xml:lang="en">a surgical operation as processual context for a nosocomical infection</obo:IAO_0000112>
+        <obo:IAO_0000111 xml:lang="en">occurrent</obo:IAO_0000111>
+        <obo:IAO_0000118 xml:lang="en">perdurant</obo:IAO_0000118>
+        <obo:IAO_0000112 xml:lang="en">the life of an organism</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">the most interesting part of Van Gogh&#39;s life</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">the spatiotemporal context occupied by a process of cellular meiosis</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">the spatiotemporal region occupied by the development of a cancer tumor</obo:IAO_0000112>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
 
     <owl:Class rdf:about="&obo;BFO_0000004">
         <rdfs:label xml:lang="en">independent continuant</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002131"/>
+                <owl:allValuesFrom rdf:resource="&obo;BFO_0000004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000007 -->
+
+    <owl:Class rdf:about="&obo;BFO_0000007">
+        <rdfs:label xml:lang="en">process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002131"/>
+                <owl:allValuesFrom rdf:resource="&obo;BFO_0000007"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">A processual entity  that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities.</obo:IAO_0000115>
+        <obo:IAO_0000111 xml:lang="en">process</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">the life of an organism</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">the process of cell-division</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">the process of sleeping</obo:IAO_0000112>
     </owl:Class>
     
 
