@@ -427,10 +427,6 @@
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002110"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -442,6 +438,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002110"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -572,16 +572,16 @@ N1 SubclassOf (
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)</obo:IAO_0000424>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -971,11 +971,16 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">capable of</rdfs:label>
         <obo:IAO_0000424>BFO_0000053 some (BFO_0000054 only ?Y)</obo:IAO_0000424>
         <obo:IAO_0000115>A relation between a material entity (such as a cell) and a process. This is a shortcut relation, translation rule for which is: capable_of P &lt;-&gt; bearer_of (some realized_by only P). Example: osteoclast capable of bone resorption</obo:IAO_0000115>
+        <obo:IAO_0000118>has function realized in</obo:IAO_0000118>
         <obo:IAO_0000119>PMID:20123131</obo:IAO_0000119>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>PMID:21208450</obo:IAO_0000119>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <rdfs:range rdf:resource="&obo;BFO_0000007"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002214"/>
+            <rdf:Description rdf:about="&obo;RO_0002217"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -985,6 +990,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002216">
         <rdfs:label xml:lang="en">has function in</rdfs:label>
         <obo:IAO_0000115>x has function in Y if and only if x is the bearer or some dependent continuant that is realized by only part of some Y</obo:IAO_0000115>
+        <obo:IAO_0000118>capable of part of</obo:IAO_0000118>
         <obo:IAO_0000424>BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))</obo:IAO_0000424>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002215"/>
@@ -1016,6 +1022,72 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000118>has agent</obo:IAO_0000118>
         <obo:IAO_0000115>x has participant y if and only if x realizes some active role that inheres in y</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002219 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002219">
+        <rdfs:label xml:lang="en">surrounded by</rdfs:label>
+        <obo:IAO_0000115>x surrounded_by y if and only if x is adjacent to y and for every region r that is adjacent to x, r overlaps y</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002220"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002220 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002220">
+        <rdfs:label xml:lang="en">adjacent to</rdfs:label>
+        <obo:IAO_0000116>belongs in BFO?</obo:IAO_0000116>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002163"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002221 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002221">
+        <rdfs:label xml:lang="en">surrounds</rdfs:label>
+        <owl:inverseOf rdf:resource="&obo;RO_0002219"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002220"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002222 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002222">
+        <rdfs:label xml:lang="en">temporal relation</rdfs:label>
+        <obo:IAO_0000116>move to BFO?</obo:IAO_0000116>
+        <obo:IAO_0000119>Allen</obo:IAO_0000119>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002223 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002223">
+        <rdfs:label xml:lang="en">starts</rdfs:label>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115>x starts y if x is part of y and start(x) = start(y)</obo:IAO_0000115>
+        <obo:IAO_0000119>Allen</obo:IAO_0000119>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002224 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002224">
+        <rdfs:label xml:lang="en">has start</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+        <owl:inverseOf rdf:resource="&obo;RO_0002223"/>
     </owl:ObjectProperty>
     
 
