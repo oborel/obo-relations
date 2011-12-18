@@ -35,14 +35,23 @@
 
     <owl:AnnotationProperty rdf:about="&obo;IAO_id"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
+    <owl:AnnotationProperty rdf:about="&obo;BFO_0000055">
+        <rdfs:label xml:lang="en">realizes</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;BFO_0000057">
+        <rdfs:label xml:lang="en">has participant</rdfs:label>
+        <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
@@ -91,6 +100,8 @@
         <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
     </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000052 -->
 
@@ -101,6 +112,7 @@
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000053"/>
     </owl:ObjectProperty>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000053 -->
@@ -111,6 +123,7 @@
         <obo:IAO_0000118 xml:lang="en">bearer_of</obo:IAO_0000118>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
     </owl:ObjectProperty>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000054 -->
@@ -120,16 +133,17 @@
         <obo:IAO_0000118 xml:lang="en">realized by</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">realized_by</obo:IAO_0000118>
     </owl:ObjectProperty>
+    
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000055 -->
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000055">
         <rdfs:label xml:lang="en">realizes</rdfs:label>
-        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000054"/>
     </owl:ObjectProperty>
     
+
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000056 -->
 
@@ -137,6 +151,8 @@
         <rdfs:label xml:lang="en">participates in</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">participates_in</obo:IAO_0000118>
     </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
 
@@ -144,13 +160,14 @@
         <rdfs:label xml:lang="en">has participant</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000002"/>
-        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000056"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000055"/>
             <rdf:Description rdf:about="&obo;BFO_0000052"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/RO_0000300 -->
 
@@ -408,10 +425,6 @@
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002110"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -423,6 +436,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002110"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -554,14 +571,14 @@ N1 SubclassOf (
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -822,6 +839,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002204">
         <rdfs:label xml:lang="en">gene product of</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115>definition &quot;x has gene product of y if and only if y is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from x&quot;</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -831,7 +849,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002205">
         <rdfs:label xml:lang="en">has gene product</rdfs:label>
+        <obo:IAO_0000112>every HOTAIR lncRNA is the gene product of some HOXC gene</obo:IAO_0000112>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115>x has gene product y if and only if x is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from y</obo:IAO_0000115>
+        <obo:IAO_0000112>every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene</obo:IAO_0000112>
+        <owl:inverseOf rdf:resource="&obo;RO_0002204"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -842,6 +864,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002206">
         <rdfs:label xml:lang="en">expressed in</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115>x expressed in y if x or a transcript of x is the output of a gene expression process (GO:0010467) that occurs in y</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002206"/>
