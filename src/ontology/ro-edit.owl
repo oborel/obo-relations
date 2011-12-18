@@ -469,10 +469,6 @@ N1 SubclassOf (
         <obo:IAO_0000424>&lt;http://purl.obolibrary.org/obo/RO_0002131&gt; some (&lt;http://purl.obolibrary.org/obo/GO_0045202&gt; that &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; some Y?)</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002130"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -484,6 +480,10 @@ N1 SubclassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002130"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -496,14 +496,14 @@ N1 SubclassOf (
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -849,6 +849,50 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">positively regulates</rdfs:label>
         <obo:IAO_0000115>x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x increases the frequency, rate or exteny of y</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002211"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002214 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002214">
+        <rdfs:label xml:lang="en">has prototype</rdfs:label>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000112>&#39;human p53 protein&#39; SubClassOf some (&#39;participates in&#39; some &#39;DNA repair&#39;)</obo:IAO_0000112>
+        <obo:IAO_0000232>Experimental. In future there will be a formalization in which this relation is treated as a shortcut to some model logic axiom.</obo:IAO_0000232>
+        <obo:IAO_0000112>heart SubClassOf &#39;has prototype&#39; some (&#39;participates in&#39; some &#39;blood circulation&#39;)</obo:IAO_0000112>
+        <obo:IAO_0000115>x has prototype y if and only if x is an instance of C and y is a prototypical instance of C. For example, every instance of heart, both normal and abnormal is related by the has prototype relation to some instance of a &quot;canonical&quot; heart, which participates in blood circulation.</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002215 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002215">
+        <rdfs:label xml:lang="en">capable of</rdfs:label>
+        <obo:IAO_0000424>BFO_0000053 some (BFO_0000054 only ?Y)</obo:IAO_0000424>
+        <obo:IAO_0000115>A relation between a material entity (such as a cell) and a process. This is a shortcut relation, translation rule for which is: capable_of P &lt;-&gt; bearer_of (some realized_by only P). Example: osteoclast capable of bone resorption</obo:IAO_0000115>
+        <obo:IAO_0000119>PMID:20123131</obo:IAO_0000119>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000119>PMID:21208450</obo:IAO_0000119>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002216 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002216">
+        <rdfs:label xml:lang="en">has function in</rdfs:label>
+        <obo:IAO_0000115>x has function in Y if and only if x is the bearer or some dependent continuant that is realized by only part of some Y</obo:IAO_0000115>
+        <obo:IAO_0000424>BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))</obo:IAO_0000424>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002215"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002215"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
