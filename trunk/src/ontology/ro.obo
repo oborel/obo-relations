@@ -14,10 +14,37 @@ property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000001 ! entity
 
 [Term]
+id: BFO:0000003
+name: occurrent
+def: "An entity  that has temporal parts and that happens, unfolds or develops through time. Sometimes also called perdurants." []
+property_value: IAO:0000111  ""occurrent"@en"
+property_value: IAO:0000112  ""a surgical operation as processual context for a nosocomical infection"@en"
+property_value: IAO:0000112  ""the life of an organism"@en"
+property_value: IAO:0000112  ""the most interesting part of Van Gogh's life"@en"
+property_value: IAO:0000112  ""the spatiotemporal context occupied by a process of cellular meiosis"@en"
+property_value: IAO:0000112  ""the spatiotemporal region occupied by the development of a cancer tumor"@en"
+property_value: IAO:0000118  ""perdurant"@en"
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
+is_a: BFO:0000001 ! entity
+
+[Term]
 id: BFO:0000004
 name: independent continuant
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000002 ! continuant
+relationship: RO:0002131 BFO:0000004 ! independent continuant
+
+[Term]
+id: BFO:0000007
+name: process
+def: "A processual entity  that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities." []
+property_value: IAO:0000111  ""process"@en"
+property_value: IAO:0000112  ""the life of an organism"@en"
+property_value: IAO:0000112  ""the process of cell-division"@en"
+property_value: IAO:0000112  ""the process of sleeping"@en"
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
+is_a: BFO:0000003 ! occurrent
+relationship: RO:0002131 BFO:0000007 ! process
 
 [Term]
 id: BFO:0000040
@@ -28,63 +55,72 @@ is_a: BFO:0000004 ! independent continuant
 [Term]
 id: CARO:0000003
 name: anatomical structure
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0000006 ! material anatomical entity
 
 [Term]
 id: CARO:0000006
 name: material anatomical entity
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: BFO:0000040 ! material entity
 
 [Term]
 id: CARO:0000014
 name: cell component
 def: "\"The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.\" [GOC:go_curators]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0000003 ! anatomical structure
 
 [Term]
 id: CARO:0001000
 name: multi-cell-component structure
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0000003 ! anatomical structure
 
 [Term]
 id: CARO:0001001
 name: neuron projection bundle
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0001000 ! multi-cell-component structure
 
 [Term]
 id: CL_0000000
 name: cell
-property_value: IAO:0000412 http://purl.org/obo/owl/CL
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/cl.owl
 is_a: CARO:0000003 ! anatomical structure
 
 [Term]
 id: CL_0000540
 name: neuron
-property_value: IAO:0000412 http://purl.org/obo/owl/CL
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/cl.owl
 is_a: CL_0000000 ! cell
 
 [Term]
 id: GO:0016020
 name: membrane
 def: "\"Double layer of lipid molecules that encloses all cells, and, in eukaryotes, many organelles; may be a single or double lipid bilayer; also includes associated proteins.\" [GOC:mah, ISBN:0815316194]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0044464 ! cell part
 
 [Term]
 id: GO:0030424
 name: axon
 def: "\"The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.\" [GOC:nln, ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0043005 ! neuron projection
 
 [Term]
 id: GO:0030425
 name: dendrite
 def: "\"A branching protoplasmic process of a neuron that receives and integrate signals coming from axons of other neurons, and conveys the resulting signal to the body of the cell.\" [GOC:nln, ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0043005 ! neuron projection
 
 [Term]
 id: GO:0042734
 name: presynaptic membrane
 def: "\"A specialized area of membrane of the axon terminal that faces the plasma membrane of the neuron or muscle fiber with which the axon terminal establishes a synaptic junction; many synaptic junctions exhibit structural presynaptic characteristics, such as conical, electron-dense internal protrusions, that distinguish it from the remainder of the axon plasma membrane.\" [GOC:jl, http://cancerweb.ncl.ac.uk/]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0016020 ! membrane
 is_a: GO:0044456 ! synapse part
 
@@ -92,36 +128,42 @@ is_a: GO:0044456 ! synapse part
 id: GO:0042995
 name: cell projection
 def: "\"A prolongation or process extending from a cell, e.g. a flagellum or axon.\" [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0044464 ! cell part
 
 [Term]
 id: GO:0043005
 name: neuron projection
 def: "\"A prolongation or process extending from a nerve cell, e.g. an axon or dendrite.\" [GOC:jl, http://www.cogsci.princeton.edu/~wn/]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0042995 ! cell projection
 
 [Term]
 id: GO:0044456
 name: synapse part
 def: "\"Any constituent part of a synapse, the junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell.\" [GOC:jl]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: CARO:0000014 ! cell component
 
 [Term]
 id: GO:0044464
 name: cell part
 def: "\"Any constituent part of a cell, the basic structural and functional unit of all organisms.\" [GOC:jl]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: CARO:0000014 ! cell component
 
 [Term]
 id: GO:0045202
 name: synapse
 def: "\"The junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell; the site of interneuronal communication. As the nerve fiber approaches the synapse it enlarges into a specialized structure, the presynaptic nerve ending, which contains mitochondria and synaptic vesicles. At the tip of the nerve ending is the presynaptic membrane; facing it, and separated from it by a minute cleft (the synaptic cleft) is a specialized area of membrane on the receiving cell, known as the postsynaptic membrane. In response to the arrival of nerve impulses, the presynaptic nerve ending secretes molecules of neurotransmitters into the synaptic cleft. These diffuse across the cleft and transmit the signal to the postsynaptic membrane.\" [ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: CARO:0000014 ! cell component
 
 [Term]
 id: GO:0045211
 name: postsynaptic membrane
 def: "\"A specialized area of membrane facing the presynaptic membrane on the tip of the nerve ending and separated from it by a minute cleft (the synaptic cleft). Neurotransmitters across the synaptic cleft and transmit the signal to the postsynaptic membrane.\" [ISBN:0198506732 \"Oxford Dictionary of Biochemistry and Molecular Biology\"]" []
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 is_a: GO:0016020 ! membrane
 is_a: GO:0044456 ! synapse part
 
@@ -139,6 +181,49 @@ name: has part
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_transitive: true
 is_a: RO:0002131 ! overlaps
+
+[Typedef]
+id: BFO:0000052
+name: inheres in
+property_value: IAO:0000118  ""inheres_in"@en"
+range: BFO:0000004 ! independent continuant
+is_functional: true
+inverse_of: BFO:0000053 ! is bearer of
+
+[Typedef]
+id: BFO:0000053
+name: is bearer of
+property_value: IAO:0000118  ""bearer of"@en"
+property_value: IAO:0000118  ""bearer_of"@en"
+domain: BFO:0000004 ! independent continuant
+
+[Typedef]
+id: BFO:0000054
+name: is realized by
+property_value: IAO:0000118  ""realized by"@en"
+property_value: IAO:0000118  ""realized_by"@en"
+
+[Typedef]
+id: BFO:0000055
+name: realizes
+domain: BFO:0000007 ! process
+inverse_of: BFO:0000054 ! is realized by
+
+[Typedef]
+id: BFO:0000056
+name: participates in
+property_value: IAO:0000118  ""participates_in"@en"
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000003 ! occurrent
+
+[Typedef]
+id: BFO:0000057
+name: has participant
+property_value: IAO:0000118  ""has_participant"@en"
+domain: BFO:0000007 ! process
+range: BFO:0000002 ! continuant
+inverse_of: BFO:0000056 ! participates in
+holds_over_chain: BFO:0000055 BFO:0000052 ! inheres in
 
 [Typedef]
 id: RO:0000300
@@ -239,7 +324,7 @@ name: derives from
 
 [Typedef]
 id: RO:0002001
-name: aligned_with
+name: aligned with
 is_transitive: true
 
 [Typedef]
@@ -420,6 +505,8 @@ id: RO:0002150
 name: connected_to
 def: "X connected_to Y if and only if X and Y share a fiat boundary." []
 property_value: IAO:0000117  ""David Osumi-Sutherland"^^rdfs:Literal"
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000004 ! independent continuant
 
 [Typedef]
 id: RO:0002151
@@ -460,27 +547,38 @@ holds_over_chain: RO:0002156 RO:0002157 ! has_derived_by_descendant
 [Typedef]
 id: RO:0002160
 name: only in taxon
+def: "x only in taxon T if and only if T is a class, and x instantiates the class expression \"in taxon only T\". Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL." []
+property_value: IAO:0000112  ""lactation SubClassOf 'only in taxon' value 'Mammalia'""
 property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000119 "PMID:17921072"
 property_value: IAO:0000119 "PMID:20973947"@en
 expand_expression_to: "RO_0002162 only ?Y" []
 
 [Typedef]
 id: RO:0002161
 name: never in taxon
+def: "x never in taxon T if and only if T is a class, and x does not instantiate the class expression \"in taxon some T\". Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL." []
+property_value: IAO:0000112  ""tooth SubClassOf 'never in taxon' value 'Aves'""
 property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000119 "PMID:17921072"
 property_value: IAO:0000119 "PMID:20973947"@en
 expand_expression_to: "RO_0002162 only not ?Y" []
 
 [Typedef]
 id: RO:0002162
 name: in taxon
+def: "x is in taxon y if an only if y is an organism, and x is either part of or derived from y." []
 comment: Connects a biological entity to its taxon of origin.
 property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000119 "PMID:17921072"
 property_value: IAO:0000119 "PMID:20973947"@en
+domain: BFO:0000001 ! entity
+range: BFO:0000004 ! independent continuant
 
 [Typedef]
 id: RO:0002163
 name: spatially disjoint from
+def: "A is spatially_disjoint_from B if and only if they have no parts in common" []
 property_value: IAO:0000117  ""Chris Mungall"@en"
 expand_expression_to: "BFO_0000051 exactly 0 (BFO_0000050 some ?Y)" []
 
@@ -496,6 +594,7 @@ name: has phenotype
 property_value: IAO:0000117  ""Chris Mungall"@en"
 property_value: IAO:0000117  ""Robert Hoehndorf"@en"
 property_value: IAO:0000119 "PMID:20971987"@en
+domain: BFO:0000002 ! continuant
 
 [Typedef]
 id: RO:0002201
@@ -509,9 +608,12 @@ inverse_of: RO:0002200 ! has phenotype
 [Typedef]
 id: RO:0002202
 name: develops from
+comment: Candidate definition: x develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p
 property_value: IAO:0000117  ""Chris Mungall"@en"
 property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
 property_value: IAO:0000117  ""Terry Meehan"@en"
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000004 ! independent continuant
 is_transitive: true
 
 [Typedef]
@@ -526,16 +628,175 @@ inverse_of: RO:0002202 ! develops from
 [Typedef]
 id: RO:0002204
 name: gene product of
+def: "definition \"x has gene product of y if and only if y is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from x\"" []
 property_value: IAO:0000117  ""Chris Mungall"@en"
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000002 ! continuant
 
 [Typedef]
 id: RO:0002205
 name: has gene product
+def: "x has gene product y if and only if x is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from y" []
+property_value: IAO:0000112  ""every HOTAIR lncRNA is the gene product of some HOXC gene""
+property_value: IAO:0000112  ""every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene""
 property_value: IAO:0000117  ""Chris Mungall"@en"
+domain: BFO:0000002 ! continuant
+range: BFO:0000004 ! independent continuant
+inverse_of: RO:0002204 ! gene product of
 
 [Typedef]
 id: RO:0002206
 name: expressed in
+def: "x expressed in y if x or a transcript of x is the output of a gene expression process (GO:0010467) that occurs in y" []
 property_value: IAO:0000117  ""Chris Mungall"@en"
+domain: BFO:0000002 ! continuant
+range: BFO:0000004 ! independent continuant
 transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0002207
+name: directly develops from
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000117  ""David Osumi-Sutherland""
+property_value: IAO:0000119  ""FBbt""
+property_value: IAO:0000119  ""x directly develops from y if and only if x develops from y, and the start of x is coincident with or after the end of y""
+is_a: RO:0002202 ! develops from
+
+[Typedef]
+id: RO:0002210
+name: directly develops into
+is_a: RO:0002203 ! develops into
+inverse_of: RO:0002207 ! directly develops from
+
+[Typedef]
+id: RO:0002211
+name: regulates
+def: "x regulates y if and only if x is a process and y is either a process or a quality, and the progression of x exerts an effect on the frequency, rate or exteny of y" []
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000117  ""David Hill""
+property_value: IAO:0000117  ""Tanya Berardini""
+property_value: IAO:0000119  ""GO""
+domain: BFO:0000007 ! process
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0002212
+name: negatively regulates
+def: "x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x reduces the frequency, rate or exteny of y" []
+is_a: RO:0002211 ! regulates
+
+[Typedef]
+id: RO:0002213
+name: positively regulates
+def: "x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x increases the frequency, rate or exteny of y" []
+is_a: RO:0002211 ! regulates
+
+[Typedef]
+id: RO:0002214
+name: has prototype
+def: "x has prototype y if and only if x is an instance of C and y is a prototypical instance of C. For example, every instance of heart, both normal and abnormal is related by the has prototype relation to some instance of a \"canonical\" heart, which participates in blood circulation." []
+property_value: IAO:0000112  ""'human p53 protein' SubClassOf some ('participates in' some 'DNA repair')""
+property_value: IAO:0000112  ""heart SubClassOf 'has prototype' some ('participates in' some 'blood circulation')""
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000232  ""Experimental. In future there will be a formalization in which this relation is treated as a shortcut to some model logic axiom.""
+domain: BFO:0000002 ! continuant
+range: BFO:0000002 ! continuant
+
+[Typedef]
+id: RO:0002215
+name: capable of
+def: "A relation between a material entity (such as a cell) and a process. This is a shortcut relation, translation rule for which is: capable_of P <-> bearer_of (some realized_by only P). Example: osteoclast capable of bone resorption" []
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000118  ""has function realized in""
+property_value: IAO:0000119 "PMID:20123131"
+property_value: IAO:0000119 "PMID:21208450"
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000007 ! process
+holds_over_chain: RO:0002214 RO:0002217 ! actively participates in
+expand_expression_to: "BFO_0000053 some (BFO_0000054 only ?Y)" []
+
+[Typedef]
+id: RO:0002216
+name: has function in
+def: "x has function in Y if and only if x is the bearer or some dependent continuant that is realized by only part of some Y" []
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000118  ""capable of part of""
+holds_over_chain: RO:0002215 BFO:0000050 ! part of
+expand_expression_to: "BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))" []
+
+[Typedef]
+id: RO:0002217
+name: actively participates in
+def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
+property_value: IAO:0000118  ""agent in""
+is_a: BFO:0000056 ! participates in
+inverse_of: RO:0002218 ! has active participant
+
+[Typedef]
+id: RO:0002218
+name: has active participant
+name: RO_0002218
+def: "x has participant y if and only if x realizes some active role that inheres in y" []
+property_value: IAO:0000118  ""has agent""
+is_a: BFO:0000057 ! has participant
+
+[Typedef]
+id: RO:0002219
+name: surrounded by
+def: "x surrounded_by y if and only if x is adjacent to y and for every region r that is adjacent to x, r overlaps y" []
+is_a: RO:0002220 ! adjacent to
+
+[Typedef]
+id: RO:0002220
+name: adjacent to
+property_value: IAO:0000116  ""belongs in BFO?""
+domain: BFO:0000004 ! independent continuant
+range: BFO:0000004 ! independent continuant
+is_a: RO:0002163 ! spatially disjoint from
+
+[Typedef]
+id: RO:0002221
+name: surrounds
+is_a: RO:0002220 ! adjacent to
+inverse_of: RO:0002219 ! surrounded by
+
+[Typedef]
+id: RO:0002222
+name: temporal relation
+property_value: IAO:0000116  ""move to BFO?""
+property_value: IAO:0000119  ""Allen""
+
+[Typedef]
+id: RO:0002223
+name: starts
+def: "x starts y if x is part of y and start(x) = start(y)" []
+property_value: IAO:0000117  ""Chris Mungall""
+property_value: IAO:0000119  ""Allen""
+is_a: BFO:0000050 ! part of
+is_a: RO:0002222 ! temporal relation
+
+[Typedef]
+id: RO:0002224
+name: has start
+is_a: BFO:0000051 ! has part
+is_a: RO:0002222 ! temporal relation
+inverse_of: RO:0002223 ! starts
+
+[Typedef]
+id: RO:0002225
+name: develops from part of
+is_a: RO:0002202 ! develops from
+holds_over_chain: RO:0002207 BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0002226
+name: develops in
+def: "x develops_in y if x is located in x whilst x is developing" []
+property_value: IAO:0000116  ""todo - bring in containment relation from BFO""
+property_value: IAO:0000119  ""EHDAA2""
+
+[Typedef]
+id: owl:topObjectProperty
+domain: BFO:0000002 ! continuant
+range: BFO:0000002 ! continuant
 
