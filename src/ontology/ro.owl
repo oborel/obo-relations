@@ -34,6 +34,15 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&obo;RO_0002161">
+        <rdfs:label rdf:datatype="&xsd;string">never in taxon</rdfs:label>
+        <obo:IAO_0000119>PMID:17921072</obo:IAO_0000119>
+        <obo:IAO_0000112>tooth SubClassOf &#39;never in taxon&#39; value &#39;Aves&#39;</obo:IAO_0000112>
+        <obo:IAO_0000425>?X DisjointWith RO_0002162 some ?Y </obo:IAO_0000425>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
+        <obo:IAO_0000115>x never in taxon T if and only if T is a class, and x does not instantiate the class expression &quot;in taxon some T&quot;. Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL.</obo:IAO_0000115>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_id"/>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&obo;BFO_0000055">
@@ -43,14 +52,14 @@
         <rdfs:label xml:lang="en">has participant</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000119"/>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117"/>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
@@ -170,6 +179,8 @@
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
+
+
     <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000062">
@@ -178,6 +189,8 @@
         <obo:IAO_0000118 xml:lang="en">preceded by</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">preceded_by</obo:IAO_0000118>
     </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000063 -->
 
@@ -188,6 +201,37 @@
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000062"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000066 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000066">
+        <rdfs:label xml:lang="en">occurs in</rdfs:label>
+        <obo:IAO_0000118 xml:lang="en">occurs_in</obo:IAO_0000118>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
+        <owl:inverseOf rdf:resource="&obo;BFO_0000067"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000067 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000067">
+        <rdfs:label xml:lang="en">has site of</rdfs:label>
+        <obo:IAO_0000118 xml:lang="en">has_site_of</obo:IAO_0000118>
+    </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/RO_0000300 -->
 
@@ -590,7 +634,7 @@ N1 SubclassOf (
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)</obo:IAO_0000424>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -598,7 +642,7 @@ N1 SubclassOf (
             <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -676,7 +720,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002150">
         <rdfs:label xml:lang="en">connected_to</rdfs:label>
-        <obo:IAO_0000117 rdf:datatype="&rdfs;Literal">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:datatype="&xsd;string">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">X connected_to Y if and only if X and Y share a fiat boundary.</obo:IAO_0000115>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
@@ -751,20 +795,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000112>lactation SubClassOf &#39;only in taxon&#39; value &#39;Mammalia&#39;</obo:IAO_0000112>
         <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002161 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002161">
-        <rdfs:label rdf:datatype="&xsd;string">never in taxon</rdfs:label>
-        <obo:IAO_0000119>PMID:17921072</obo:IAO_0000119>
-        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
-        <obo:IAO_0000112>tooth SubClassOf &#39;never in taxon&#39; value &#39;Aves&#39;</obo:IAO_0000112>
-        <obo:IAO_0000424>RO_0002162 only not ?Y</obo:IAO_0000424>
-        <obo:IAO_0000115>x never in taxon T if and only if T is a class, and x does not instantiate the class expression &quot;in taxon some T&quot;. Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002162"/>
     </owl:ObjectProperty>
     
 
@@ -780,6 +811,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
         <rdfs:domain rdf:resource="&obo;BFO_0000001"/>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -945,6 +984,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002211"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002230"/>
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -955,6 +998,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">negatively regulates</rdfs:label>
         <obo:IAO_0000115>x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x reduces the frequency, rate or exteny of y</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002211"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002230"/>
+            <rdf:Description rdf:about="&obo;RO_0002212"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -965,6 +1012,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">positively regulates</rdfs:label>
         <obo:IAO_0000115>x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x increases the frequency, rate or exteny of y</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002211"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002230"/>
+            <rdf:Description rdf:about="&obo;RO_0002213"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1082,6 +1133,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002222">
         <rdfs:label xml:lang="en">temporal relation</rdfs:label>
         <obo:IAO_0000116>move to BFO?</obo:IAO_0000116>
+        <rdfs:comment>A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.</rdfs:comment>
         <obo:IAO_0000119>Allen</obo:IAO_0000119>
         <rdfs:range rdf:resource="&obo;BFO_0000003"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
@@ -1155,6 +1207,48 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">ends with</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002231 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002231">
+        <rdfs:label xml:lang="en">has start location</rdfs:label>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002224"/>
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002232 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002232">
+        <rdfs:label xml:lang="en">has end location</rdfs:label>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002230"/>
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002233 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002233">
+        <rdfs:label xml:lang="en">has input</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002234 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002234">
+        <rdfs:label xml:lang="en">has output</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000057"/>
     </owl:ObjectProperty>
     
 
@@ -1285,7 +1379,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;CARO_0000014">
         <rdfs:label xml:lang="en">cell component</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;CARO_0000003"/>
-        <obo:IAO_0000115>&quot;The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together.&quot; [GOC:go_curators]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;caro.owl"/>
     </owl:Class>
     
@@ -1316,7 +1409,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0016020">
         <rdfs:label xml:lang="en">membrane</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0044464"/>
-        <obo:IAO_0000115>&quot;Double layer of lipid molecules that encloses all cells, and, in eukaryotes, many organelles; may be a single or double lipid bilayer; also includes associated proteins.&quot; [GOC:mah, ISBN:0815316194]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1327,7 +1419,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0030424">
         <rdfs:label xml:lang="en">axon</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0043005"/>
-        <obo:IAO_0000115>&quot;The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.&quot; [GOC:nln, ISBN:0198506732 &quot;Oxford Dictionary of Biochemistry and Molecular Biology&quot;]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1338,7 +1429,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0030425">
         <rdfs:label xml:lang="en">dendrite</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0043005"/>
-        <obo:IAO_0000115>&quot;A branching protoplasmic process of a neuron that receives and integrate signals coming from axons of other neurons, and conveys the resulting signal to the body of the cell.&quot; [GOC:nln, ISBN:0198506732 &quot;Oxford Dictionary of Biochemistry and Molecular Biology&quot;]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1350,7 +1440,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">presynaptic membrane</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0016020"/>
         <rdfs:subClassOf rdf:resource="&obo;GO_0044456"/>
-        <obo:IAO_0000115>&quot;A specialized area of membrane of the axon terminal that faces the plasma membrane of the neuron or muscle fiber with which the axon terminal establishes a synaptic junction; many synaptic junctions exhibit structural presynaptic characteristics, such as conical, electron-dense internal protrusions, that distinguish it from the remainder of the axon plasma membrane.&quot; [GOC:jl, http://cancerweb.ncl.ac.uk/]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1361,7 +1450,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0042995">
         <rdfs:label xml:lang="en">cell projection</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0044464"/>
-        <obo:IAO_0000115>&quot;A prolongation or process extending from a cell, e.g. a flagellum or axon.&quot; [GOC:jl, http://www.cogsci.princeton.edu/~wn/]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1372,7 +1460,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0043005">
         <rdfs:label xml:lang="en">neuron projection</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0042995"/>
-        <obo:IAO_0000115>&quot;A prolongation or process extending from a nerve cell, e.g. an axon or dendrite.&quot; [GOC:jl, http://www.cogsci.princeton.edu/~wn/]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1383,7 +1470,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0044456">
         <rdfs:label xml:lang="en">synapse part</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;CARO_0000014"/>
-        <obo:IAO_0000115>&quot;Any constituent part of a synapse, the junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell.&quot; [GOC:jl]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1394,7 +1480,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0044464">
         <rdfs:label xml:lang="en">cell part</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;CARO_0000014"/>
-        <obo:IAO_0000115>&quot;Any constituent part of a cell, the basic structural and functional unit of all organisms.&quot; [GOC:jl]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1405,7 +1490,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:Class rdf:about="&obo;GO_0045202">
         <rdfs:label xml:lang="en">synapse</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;CARO_0000014"/>
-        <obo:IAO_0000115>&quot;The junction between a nerve fiber of one neuron and another neuron or muscle fiber or glial cell; the site of interneuronal communication. As the nerve fiber approaches the synapse it enlarges into a specialized structure, the presynaptic nerve ending, which contains mitochondria and synaptic vesicles. At the tip of the nerve ending is the presynaptic membrane; facing it, and separated from it by a minute cleft (the synaptic cleft) is a specialized area of membrane on the receiving cell, known as the postsynaptic membrane. In response to the arrival of nerve impulses, the presynaptic nerve ending secretes molecules of neurotransmitters into the synaptic cleft. These diffuse across the cleft and transmit the signal to the postsynaptic membrane.&quot; [ISBN:0198506732 &quot;Oxford Dictionary of Biochemistry and Molecular Biology&quot;]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
@@ -1417,7 +1501,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">postsynaptic membrane</rdfs:label>
         <rdfs:subClassOf rdf:resource="&obo;GO_0016020"/>
         <rdfs:subClassOf rdf:resource="&obo;GO_0044456"/>
-        <obo:IAO_0000115>&quot;A specialized area of membrane facing the presynaptic membrane on the tip of the nerve ending and separated from it by a minute cleft (the synaptic cleft). Neurotransmitters across the synaptic cleft and transmit the signal to the postsynaptic membrane.&quot; [ISBN:0198506732 &quot;Oxford Dictionary of Biochemistry and Molecular Biology&quot;]</obo:IAO_0000115>
         <obo:IAO_0000412 rdf:resource="&obo;go.owl"/>
     </owl:Class>
     
