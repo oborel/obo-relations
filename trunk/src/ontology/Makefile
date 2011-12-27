@@ -12,6 +12,9 @@ ro.owl: ro-edit.owl
 %.obo: %.owl
 	obolib-owl2obo -o $@ $<
 
+ro-el.owl: ro.owl
+	/Users/cjm/src/elvira/makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
+
 # ========================================
 # EXPERIMENTAL
 # ========================================
