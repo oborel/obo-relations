@@ -322,7 +322,21 @@ PropertyAssertion(has_object _:x b)
 
     <owl:Class rdf:about="&obo;RO_0002265">
         <rdfs:label xml:lang="en">non-magnitudinal binary relationship</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;RO_0002264"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0002270"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
+        <rdfs:comment>This represents the &quot;common case&quot; and there is rarely a need to reify, but is included here for completeness.
+
+One reason might be to say things like &quot;john knows that Scotland is part of the UK&quot;. Note that we can draw a distinction between reifying the statement and reifying the relationship, but it&#39;s not clear if this is important for practical purposes. Statement reification can be done e.g. using axiom annotations in OWL.</rdfs:comment>
     </owl:Class>
     
 
@@ -331,6 +345,17 @@ PropertyAssertion(has_object _:x b)
 
     <owl:Class rdf:about="&obo;RO_0002266">
         <rdfs:label xml:lang="en">non-magnitudinal unary relationship</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;RO_0002264"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0002269"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
     </owl:Class>
     
@@ -340,6 +365,17 @@ PropertyAssertion(has_object _:x b)
 
     <owl:Class rdf:about="&obo;RO_0002267">
         <rdfs:label xml:lang="en">non-magnitudinal 3+ ary relationship</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;RO_0002264"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0002270"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
     </owl:Class>
     
@@ -368,7 +404,6 @@ PropertyAssertion(has_object _:x b)
     <!-- http://purl.obolibrary.org/obo/RO_0002275 -->
 
     <owl:Class rdf:about="&obo;RO_0002275">
-        <rdfs:label xml:lang="en">RO_0002275</rdfs:label>
         <rdfs:label xml:lang="en">magnitude</rdfs:label>
     </owl:Class>
     
