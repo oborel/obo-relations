@@ -186,7 +186,7 @@ Here we treat magnitudes as disjoint from entities (although for practical purpo
     <!-- http://purl.obolibrary.org/obo/RO_0002259 -->
 
     <owl:Class rdf:about="&obo;RO_0002259">
-        <rdfs:label xml:lang="en">property</rdfs:label>
+        <rdfs:label xml:lang="en">instantiated property</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&obo;RO_0002270"/>
@@ -194,6 +194,14 @@ Here we treat magnitudes as disjoint from entities (although for practical purpo
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>A reified relationship/property that holds between one or more relata.</obo:IAO_0000115>
+        <obo:IAO_0000426>(forall (p x ...)
+  (iff (p x ...)
+        (exists i)
+            (and
+             (SubClassOf p &#39;instantiated property&#39;)
+             (ClassAssertion p i)
+             (PropertyAssertion has_relatum x)
+            (PropertyAssertion has_relatum ...))))))</obo:IAO_0000426>
         <rdfs:comment>We use the term &quot;relationship&quot; as a synonym for non-unary properties.
 
 Here we distinguish between a predicated property/relationship and a reified property/relationship. In Common Logic we would write a (binary) predicated relationship as:
@@ -460,8 +468,8 @@ One reason might be to say things like &quot;john knows that Scotland is part of
     <!-- http://purl.obolibrary.org/obo/RO_0002275 -->
 
     <owl:Class rdf:about="&obo;RO_0002275">
-        <rdfs:label xml:lang="en">magnitude</rdfs:label>
-        <rdfs:comment>Magnitudes can be considered as distinct from entities, but necessary to model as in the ontology</rdfs:comment>
+        <rdfs:label xml:lang="en">magnitudinal value</rdfs:label>
+        <rdfs:comment>Values can be considered as distinct from entities, outside of the domain of discourse</rdfs:comment>
     </owl:Class>
     
 
