@@ -17,7 +17,9 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="&obo;ro/sandpit/reified-relationships.owl"/>
+    <owl:Ontology rdf:about="&obo;ro/sandpit/reified-relationships.owl">
+        <owl:imports rdf:resource="&obo;iao/ontology-metadata.owl"/>
+    </owl:Ontology>
     
 
 
@@ -58,7 +60,10 @@
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002269">
         <rdfs:label xml:lang="en">has relatum</rdfs:label>
-        <rdfs:comment>A predicate connecting a reified relationship to one of the things is relates. Here, a relatum can be an entity in the domain of discourse (aka object), or it can be something like a number</rdfs:comment>
+        <obo:IAO_0000115>r has relatum x if and only if r is a relationship or property, and x is the thing denoted by one of the arguments of the predicatated sentence corresponding to the r</obo:IAO_0000115>
+        <rdfs:comment>A predicate connecting a reified relationship or property to one of the things is relates. Here, a relatum can be an entity in the domain of discourse (aka object), or it can be a magnitude</rdfs:comment>
+        <rdfs:domain rdf:resource="&obo;RO_0002259"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
     </owl:ObjectProperty>
     
 
@@ -67,8 +72,30 @@
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002270">
         <rdfs:label xml:lang="en">has entity relatum</rdfs:label>
-        <rdfs:comment>r has entity relatum e where r has relatum e, and e is an entity</rdfs:comment>
+        <obo:IAO_0000118>depends on</obo:IAO_0000118>
+        <obo:IAO_0000115>r has entity relatum e where r has relatum e, and e is an entity</obo:IAO_0000115>
+        <rdfs:comment>We draw a distinction between &quot;true entities&quot; and magnitudes. For example, in the following 3-argument sentence:
+
+distance(London,Paris,340km)
+
+which corresponds to an instance of the relationship class distance, London and Paris are &quot;true entities&quot; whereas 340km is a magnitude/quantity.
+
+magnitude may not be the best term. There are a number of representational choices at the level of sentences:
+
+distance(London,Paris, km(340))
+or
+distance_in_km(London,Paris,340)
+etc
+
+really these different logico-linguistic constructs refer to the same relationship that exists in the world, so we represent this one way.
+
+Typically &quot;340km&quot; is the quantity, which is broken into a magnitude of 340 and a unit of km.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002269"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:complementOf rdf:resource="&obo;RO_0002275"/>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -81,6 +108,7 @@
         <rdfs:comment>r has subject s, when s is the &quot;main&quot; entity in the relationship - the entity to which the relatonship is about. Deciding this is a matter of convention - for example, in an instance of a &quot;has_part&quot; relationship, has_subject would connect the relationship to the whole (has_object would connect the relationship to the part).
 
 The term &quot;has subject&quot; is chosen for compatibility with RDF</rdfs:comment>
+        <obo:IAO_0000118>inheres in</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002270"/>
     </owl:ObjectProperty>
     
@@ -93,7 +121,10 @@ The term &quot;has subject&quot; is chosen for compatibility with RDF</rdfs:comm
         <rdfs:label xml:lang="en">has object</rdfs:label>
         <rdfs:comment>r has object s, when s is the &quot;secondary&quot; entity in the relationship - the entity to which the relatonship is &quot;directed towards&quot;. Deciding this is a matter of convention - for example, in an instance of a &quot;has_part&quot; relationship, has_object would connect the relationship to the part (has_subject would connect the relationship to the whole).
 
-The term &quot;has object&quot; is chosen for compatibility with RDF. It&#39;s use is perhaps confusing as &quot;object&quot; is such an overloaded term</rdfs:comment>
+In the unreified predicate sentence, the object is what is denoted by the 2nd argument
+
+The term &quot;has object&quot; is chosen for compatibility with RDF. It&#39;s use is perhaps confusing as &quot;object&quot; is such an overloaded term, as &quot;object&quot; could also mean an entity in the domain of discourse</rdfs:comment>
+        <obo:IAO_0000118>towards</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002270"/>
     </owl:ObjectProperty>
     
@@ -115,6 +146,12 @@ and it is the case that Symmetric(adjacent_to), then it is clear that we have a 
 
 However, when we reify these, we switch from talking about logico-linguistic entities to actual relationships as they exist in the world. We *could* reify the two sentences above as two mutually entailed relationships with distingsuished arguments, but it is more economical (and, arguably, more &quot;realist&quot;) to reify as a single relationship with undistinguished arguments</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002270"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002269"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -123,12 +160,14 @@ However, when we reify these, we switch from talking about logico-linguistic ent
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002274">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">has magnitude relatum</rdfs:label>
+        <rdfs:label xml:lang="en">has magnitudinal relatum</rdfs:label>
         <rdfs:comment>r has magnitude relatum m if and only if r has relatum m, and m is a magnitude
 
 Here we treat magnitudes as disjoint from entities (although for practical purposes we may include them in the ontology).
 </rdfs:comment>
+        <obo:IAO_0000118>has value</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002269"/>
+        <rdfs:range rdf:resource="&obo;RO_0002275"/>
     </owl:ObjectProperty>
     
 
@@ -150,11 +189,12 @@ Here we treat magnitudes as disjoint from entities (although for practical purpo
         <rdfs:label xml:lang="en">property</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&obo;RO_0002269"/>
+                <owl:onProperty rdf:resource="&obo;RO_0002270"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>A reified relationship/property that holds between one or more relata. We use the term &quot;relationship&quot; as a synonym for non-unary properties.
+        <obo:IAO_0000115>A reified relationship/property that holds between one or more relata.</obo:IAO_0000115>
+        <rdfs:comment>We use the term &quot;relationship&quot; as a synonym for non-unary properties.
 
 Here we distinguish between a predicated property/relationship and a reified property/relationship. In Common Logic we would write a (binary) predicated relationship as:
 
@@ -173,6 +213,7 @@ The relata may be entities in the domain of discourse, but may also include magn
  * if there are more than two relata
  * if the relata include things we would not normally consider entities in the bfo sense - e.g. magnitudes or numbers
 </rdfs:comment>
+        <obo:IAO_0000118>property or relationship</obo:IAO_0000118>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002260"/>
             <rdf:Description rdf:about="&obo;RO_0002264"/>
@@ -197,6 +238,7 @@ The relata may be entities in the domain of discourse, but may also include magn
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002259"/>
+        <obo:IAO_0000115>A property in which one of the relata is a magnitude</obo:IAO_0000115>
         <rdfs:comment>A relationship in which is holds to some degree.
 
 For instance, the distance between Paris and London.
@@ -239,6 +281,7 @@ Relationships of the same type can form a partial order - for example, </rdfs:co
         <rdfs:comment>A magnitudinal relationship which has a single entity relatum. Note that this means there are two relata in total - the magnitude relatum, and the entity relatum - the entity relatum is necessarily the subject.
 
 We use the term &quot;monadic&quot; to indicate that the number of entity relata, so a monadic magnitudinal relationship has two relata</rdfs:comment>
+        <obo:IAO_0000118>monadic quality</obo:IAO_0000118>
     </owl:Class>
     
 
@@ -259,6 +302,7 @@ We use the term &quot;monadic&quot; to indicate that the number of entity relata
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002260"/>
+        <obo:IAO_0000118>relational quality</obo:IAO_0000118>
     </owl:Class>
     
 
@@ -266,7 +310,7 @@ We use the term &quot;monadic&quot; to indicate that the number of entity relata
     <!-- http://purl.obolibrary.org/obo/RO_0002263 -->
 
     <owl:Class rdf:about="&obo;RO_0002263">
-        <rdfs:label xml:lang="en">diadic magnitudinal relationship</rdfs:label>
+        <rdfs:label xml:lang="en">diadic magnitudinal property</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -314,6 +358,7 @@ ClassAssertion(R _:x)
 PropertyAssertion(has_subject _:x a)
 PropertyAssertion(has_object _:x b)
 </rdfs:comment>
+        <obo:IAO_0000118>A unary property or relationship in which none of the relata are magnitudes</obo:IAO_0000118>
     </owl:Class>
     
 
@@ -334,6 +379,7 @@ PropertyAssertion(has_object _:x b)
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
+        <obo:IAO_0000115>A non-magnitudinal relationship involving 2 entity relata</obo:IAO_0000115>
         <rdfs:comment>This represents the &quot;common case&quot; and there is rarely a need to reify, but is included here for completeness.
 
 One reason might be to say things like &quot;john knows that Scotland is part of the UK&quot;. Note that we can draw a distinction between reifying the statement and reifying the relationship, but it&#39;s not clear if this is important for practical purposes. Statement reification can be done e.g. using axiom annotations in OWL.</rdfs:comment>
@@ -357,6 +403,15 @@ One reason might be to say things like &quot;john knows that Scotland is part of
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002271"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118>unary property</obo:IAO_0000118>
+        <obo:IAO_0000115>A non-magnitudinal property that has a single entity relatum</obo:IAO_0000115>
+        <rdfs:comment>Comment note that the only entity relatum is necessarily the subject</rdfs:comment>
     </owl:Class>
     
 
@@ -377,6 +432,7 @@ One reason might be to say things like &quot;john knows that Scotland is part of
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002264"/>
+        <obo:IAO_0000115>A non-magnitudinal relationship involving 3 or more relata</obo:IAO_0000115>
     </owl:Class>
     
 
@@ -384,7 +440,7 @@ One reason might be to say things like &quot;john knows that Scotland is part of
     <!-- http://purl.obolibrary.org/obo/RO_0002268 -->
 
     <owl:Class rdf:about="&obo;RO_0002268">
-        <rdfs:label xml:lang="en">2+ adic magnitudinal relationship</rdfs:label>
+        <rdfs:label xml:lang="en">2+ adic magnitudinal property</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -405,6 +461,7 @@ One reason might be to say things like &quot;john knows that Scotland is part of
 
     <owl:Class rdf:about="&obo;RO_0002275">
         <rdfs:label xml:lang="en">magnitude</rdfs:label>
+        <rdfs:comment>Magnitudes can be considered as distinct from entities, but necessary to model as in the ontology</rdfs:comment>
     </owl:Class>
     
 
@@ -425,6 +482,18 @@ One reason might be to say things like &quot;john knows that Scotland is part of
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&obo;RO_0002263"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002271"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002272"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -455,6 +524,58 @@ One reason might be to say things like &quot;john knows that Scotland is part of
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&obo;RO_0002271"/>
                 <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002278 -->
+
+    <owl:Class rdf:about="&obo;RO_0002278">
+        <rdfs:label xml:lang="en">non-magnitudinal asymmetric binary relationship</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;RO_0002265"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0002271"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;RO_0002265"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002279 -->
+
+    <owl:Class rdf:about="&obo;RO_0002279">
+        <rdfs:label xml:lang="en">non-magnitudinal symmetric binary relationship</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;RO_0002265"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0002273"/>
+                        <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&obo;RO_0002265"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002272"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;RO_0002271"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
