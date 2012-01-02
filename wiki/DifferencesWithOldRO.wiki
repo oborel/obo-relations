@@ -1,0 +1,41 @@
+#summary A summary of differences between with the old relations ontology
+
+= Introduction =
+
+The original relations ontology (ID space "OBO_REL") was a direct translation of the 2005 RO paper into OBO format. It suffered a number of problems, such as lack of clarity in the semantics of class level relations.
+
+Here we use "RO" to refer to the obo/owl version of the current ontology, and "OBO_REL" to refer to the original 2005 version.
+
+Note that many of the differences described here [http://groups.google.com/group/obo-relations/browse_thread/thread/29fc616eb570f7dc/fc0647f190b5f178 were originally announced on the RO and BFO lists]
+
+= Differences =
+
+== Identifiers / IRIs ==
+
+OBO_REL used identifiers of the form "OBO_REL:part_of", which were translated to URIs of the form http://obofoundry.org/ro#part_of
+
+RO follows the obofoundry ID policy and uses numeric identifiers with corresponding IRIs of the form http://purl.obolibrary.org/obo/RO_nnnnnnn
+
+See [Identifiers] for more details
+
+== Ceding of relations to BFO ==
+
+We have ceded some core relations to BFO, where they are generic and are required to define BFO classes.
+
+Examples:
+
+* http://purl.obolibrary.org/obo/BFO_0000050 is part of (replaces OBO_REL:part_of)
+
+== Elimination of class-level relationships ==
+
+The original OBO_REL followed the Genome Biology paper in defining relations as class-level. However, these class-level relations caused a lot of confusion and are not really required - in OWL (and in OBO-Format, which is a subset of OWL) we have instance level relationships that are quantified (e.g. finger SubClassOf part_of *some* hand).
+
+RO makes a clean break with OBO_REL, and abandons class level relations.
+
+An exception is made for a small number of "macro" relations such as [http://purl.obolibrary.org/obo/RO_0002161 RO_0002161] (never in taxon), which is modeled as an annotation property and expanded to a more complex OWL statement using an OWL macro expansion engine. See the OWL macros section of the obo format spec for more details
+
+== Source format ==
+
+For OBO_REL, the source was obo-format, and OWL was derived from this.
+
+The source version of RO is in OWL, and a subset of this is translated to generate ro.obo
