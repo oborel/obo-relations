@@ -36,6 +36,12 @@ An exception is made for a small number of "macro" relations such as [http://pur
 
 == Source format ==
 
-For OBO_REL, the source was obo-format, and OWL was derived from this.
+For OBO_REL, the source was obo-format, and OWL was derived from this. There was an experiment to use Common Logic Interchange Format as the source, but this was abandoned.
 
 The source version of RO is in OWL, and a subset of this is translated to generate ro.obo
+
+== Elimination of builtins ==
+
+OBO_REL followed the Genome Biology paper in declaring relations "instance_of" and "is_a". These have been eliminated in RO, because they are redundant with existing OWL predicates (class assertion and subclass, respectively).
+
+Note that the differences between these relations as defined in the Genome Biology paper and the OWL predicates is a difficult and partly controversial issue. For the purposes of RO and the majority of RO users, the OWL predicates suffice, and there is no use case for additional relations
