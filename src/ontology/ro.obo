@@ -1,5 +1,4 @@
 format-version: 1.2
-import: http://purl.obolibrary.org/obo/iao/ontology-metadata.owl
 ontology: ro
 
 [Term]
@@ -17,13 +16,13 @@ is_a: BFO:0000001 ! entity
 id: BFO:0000003
 name: occurrent
 def: "An entity  that has temporal parts and that happens, unfolds or develops through time. Sometimes also called perdurants." []
-property_value: IAO:0000111  ""occurrent"@en"
-property_value: IAO:0000112  ""a surgical operation as processual context for a nosocomical infection"@en"
-property_value: IAO:0000112  ""the life of an organism"@en"
-property_value: IAO:0000112  ""the most interesting part of Van Gogh's life"@en"
-property_value: IAO:0000112  ""the spatiotemporal context occupied by a process of cellular meiosis"@en"
-property_value: IAO:0000112  ""the spatiotemporal region occupied by the development of a cancer tumor"@en"
-property_value: IAO:0000118  ""perdurant"@en"
+property_value: IAO:0000111 "occurrent" xsd:string
+property_value: IAO:0000112 "a surgical operation as processual context for a nosocomical infection" xsd:string
+property_value: IAO:0000112 "the life of an organism" xsd:string
+property_value: IAO:0000112 "the most interesting part of Van Gogh's life" xsd:string
+property_value: IAO:0000112 "the spatiotemporal context occupied by a process of cellular meiosis" xsd:string
+property_value: IAO:0000112 "the spatiotemporal region occupied by the development of a cancer tumor" xsd:string
+property_value: IAO:0000118 "perdurant" xsd:string
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000001 ! entity
 
@@ -38,10 +37,10 @@ relationship: RO:0002131 BFO:0000004 ! independent continuant
 id: BFO:0000007
 name: process
 def: "A processual entity  that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities." []
-property_value: IAO:0000111  ""process"@en"
-property_value: IAO:0000112  ""the life of an organism"@en"
-property_value: IAO:0000112  ""the process of cell-division"@en"
-property_value: IAO:0000112  ""the process of sleeping"@en"
+property_value: IAO:0000111 "process" xsd:string
+property_value: IAO:0000112 "the life of an organism" xsd:string
+property_value: IAO:0000112 "the process of cell-division" xsd:string
+property_value: IAO:0000112 "the process of sleeping" xsd:string
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000003 ! occurrent
 relationship: RO:0002131 BFO:0000007 ! process
@@ -83,10 +82,18 @@ property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0001000 ! multi-cell-component structure
 
 [Term]
+id: CARO:0010000
+name: multicellular anatomical structure
+property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
+is_a: CARO:0000003 ! anatomical structure
+relationship: RO:0002207 CARO:0010000 ! multicellular anatomical structure
+
+[Term]
 id: CL_0000000
 name: cell
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/cl.owl
 is_a: CARO:0000003 ! anatomical structure
+relationship: RO:0002207 CL_0000000 ! cell
 
 [Term]
 id: CL_0000540
@@ -174,7 +181,7 @@ is_a: RO:0002131 ! overlaps
 [Typedef]
 id: BFO:0000052
 name: inheres in
-property_value: IAO:0000118  ""inheres_in"@en"
+property_value: IAO:0000118 "inheres_in" xsd:string
 range: BFO:0000004 ! independent continuant
 is_functional: true
 inverse_of: BFO:0000053 ! is bearer of
@@ -182,15 +189,15 @@ inverse_of: BFO:0000053 ! is bearer of
 [Typedef]
 id: BFO:0000053
 name: is bearer of
-property_value: IAO:0000118  ""bearer of"@en"
-property_value: IAO:0000118  ""bearer_of"@en"
+property_value: IAO:0000118 "bearer of" xsd:string
+property_value: IAO:0000118 "bearer_of" xsd:string
 domain: BFO:0000004 ! independent continuant
 
 [Typedef]
 id: BFO:0000054
 name: is realized by
-property_value: IAO:0000118  ""realized by"@en"
-property_value: IAO:0000118  ""realized_by"@en"
+property_value: IAO:0000118 "realized by" xsd:string
+property_value: IAO:0000118 "realized_by" xsd:string
 
 [Typedef]
 id: BFO:0000055
@@ -201,14 +208,14 @@ inverse_of: BFO:0000054 ! is realized by
 [Typedef]
 id: BFO:0000056
 name: participates in
-property_value: IAO:0000118  ""participates_in"@en"
+property_value: IAO:0000118 "participates_in" xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000003 ! occurrent
 
 [Typedef]
 id: BFO:0000057
 name: has participant
-property_value: IAO:0000118  ""has_participant"@en"
+property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000007 ! process
 range: BFO:0000002 ! continuant
 inverse_of: BFO:0000056 ! participates in
@@ -217,8 +224,8 @@ holds_over_chain: BFO:0000055 BFO:0000052 ! inheres in
 [Typedef]
 id: BFO:0000062
 name: is preceded by
-property_value: IAO:0000118  ""preceded by"@en"
-property_value: IAO:0000118  ""preceded_by"@en"
+property_value: IAO:0000118 "preceded by" xsd:string
+property_value: IAO:0000118 "preceded_by" xsd:string
 is_transitive: true
 
 [Typedef]
@@ -232,7 +239,7 @@ inverse_of: BFO:0000062 ! is preceded by
 [Typedef]
 id: BFO:0000066
 name: occurs in
-property_value: IAO:0000118  ""occurs_in"@en"
+property_value: IAO:0000118 "occurs_in" xsd:string
 domain: BFO:0000007 ! process
 range: BFO:0000004 ! independent continuant
 inverse_of: BFO:0000067 ! has site of
@@ -242,67 +249,22 @@ holds_over_chain: BFO:0000050 BFO:0000066 ! occurs in
 [Typedef]
 id: BFO:0000067
 name: has site of
-property_value: IAO:0000118  ""has_site_of"@en"
+property_value: IAO:0000118 "has_site_of" xsd:string
 
 [Typedef]
 id: RO:0000300
 name: in_neural_circuit_with
 def: "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(neural_circuit_path  ?x ?y)
-		(and
-			("neuron ; CL_0000540" ?x)
-			("neuron ; CL_0000540" ?y)
-			(or 
-				(synapsed_by ?x ?y) 
-				(synapsed_to ?x ?y))))) 
-
-(forall (...s ?x ?y ?z) 
-	(iff 
-		(neural_circuit_path  ...s ?x ?y ?z)
-		(and
-			(neural_circuit_path  ...s ?x ?y)
-			("neuron ; CL_0000540" ?z)
-			(or 
-				(synapsed_by ?y ?z) 
-				(synapsed_to ?y ?z))))) 
-
-(forall (?x ?y) 
-	(iff 
-		(in_neural_circuit_with ?x ?y)
-		(exists (...s)
-			(neural_circuit_path  ?x ...s ?y)))) "^^xsd:string"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(or \n				(synapsed_by ?x ?y) \n				(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n	(iff \n		(neural_circuit_path  ...s ?x ?y ?z)\n		(and\n			(neural_circuit_path  ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(or \n				(synapsed_by ?y ?z) \n				(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n	(iff \n		(in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(neural_circuit_path  ?x ...s ?y)))) " xsd:string
 is_transitive: true
 
 [Typedef]
 id: RO:0000301
 name: upstream_in_neural_circuit_with
 def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(upstream_neural_circuit_path  ?x ?y)
-		(and
-			("neuron ; CL_0000540" ?x)
-			("neuron ; CL_0000540" ?y)
-			(synapsed_to ?x ?y))))
-
-
-(forall (...s ?x ?y ?z) 
-	(iff 
-		(upstream_neural_circuit_path ...s ?x ?y ?z )
-		(and
-			(upstream_neural_circuit_path ...s ?x ?y)
-			("neuron ; CL_0000540" ?z)
-			(synapsed_to ?y ?z))))
-			
-(forall (?x ?y) 
-	(iff 
-		(upstream_in_neural_circuit_with ?x ?y)
-		(exists (...s)
-			(upstream_neural_circuit_path  ?x ...s ?y))))"^^xsd:string"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(upstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_to ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(upstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(upstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_to ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(upstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(upstream_neural_circuit_path  ?x ...s ?y))))" xsd:string
 is_transitive: true
 is_a: RO:0000300 ! in_neural_circuit_with
 
@@ -310,30 +272,8 @@ is_a: RO:0000300 ! in_neural_circuit_with
 id: RO:0000302
 name: downstream_in_neural_circuit_with
 def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(downstream_neural_circuit_path  ?x ?y)
-		(and
-			("neuron ; CL_0000540" ?x)
-			("neuron ; CL_0000540" ?y)
-			(synapsed_by ?x ?y))))
-
-
-(forall (...s ?x ?y ?z) 
-	(iff 
-		(downstream_neural_circuit_path ...s ?x ?y ?z )
-		(and
-			(downstream_neural_circuit_path ...s ?x ?y)
-			("neuron ; CL_0000540" ?z)
-			(synapsed_by ?y ?z))))
-			
-(forall (?x ?y) 
-	(iff 
-		(downstream_in_neural_circuit_with ?x ?y)
-		(exists (...s)
-			(downstream_neural_circuit_path  ?x ...s ?y)))) 
-			"^^xsd:string"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(downstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_by ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(downstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(downstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_by ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(downstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(downstream_neural_circuit_path  ?x ...s ?y)))) \n			" xsd:string
 is_transitive: true
 is_a: RO:0000300 ! in_neural_circuit_with
 
@@ -350,7 +290,7 @@ is_transitive: true
 id: RO:0002100
 name: has_soma_location
 def: "Relation between a neuron and an anatomical structure that its soma is part of." []
-property_value: IAO:0000111  ""soma part of"@en"
+property_value: IAO:0000111 "soma part of" xsd:string
 domain: CL_0000540 ! neuron
 is_a: RO:0002131 ! overlaps
 transitive_over: BFO:0000050 ! part of
@@ -360,27 +300,8 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0043025 and   BFO_0000050 some 
 id: RO:0002101
 name: fasciculates_with
 def: "Description: relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
-property_value: IAO:0000118  ""fasciculates with""
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(fasciculates_with ?x ?y)
-		(exists (?nps ?npbs)
-			(and 
-				("neuron ; CL_0000540" ?x)
-				("neuron projection bundle ; CARO_0001001" ?y) 
-				("neuron projection segment ; CARO_0001502" ?nps)
-				("neuron projection bundle segment ; CARO_0001500' " ?npbs)
-				(part_of ?npbs ?y) 			
-				(part_of ?nps ?x)
-				(part_of ?nps ?npbs)
-				(forall (?npbss)
-					(if
-						(and 
-							("neuron projection bundle subsegment ; CARO_0001501" ?npbss)
-							(part_of ?npbss ?npbs) 
-						)
-						(overlaps ?nps ?npbss)
-					))))))"^^xsd:string"
+property_value: IAO:0000118 "fasciculates with" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(fasciculates_with ?x ?y)\n		(exists (?nps ?npbs)\n			(and \n				(\"neuron ; CL_0000540\" ?x)\n				(\"neuron projection bundle ; CARO_0001001\" ?y) \n				(\"neuron projection segment ; CARO_0001502\" ?nps)\n				(\"neuron projection bundle segment ; CARO_0001500' \" ?npbs)\n				(part_of ?npbs ?y) 			\n				(part_of ?nps ?x)\n				(part_of ?nps ?npbs)\n				(forall (?npbss)\n					(if\n						(and \n							(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n							(part_of ?npbss ?npbs) \n						)\n						(overlaps ?nps ?npbss)\n					))))))" xsd:string
 range: CARO:0001001 ! neuron projection bundle
 is_a: RO:0002131 ! overlaps
 
@@ -388,8 +309,8 @@ is_a: RO:0002131 ! overlaps
 id: RO:0002102
 name: axon synapses in
 def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 domain: CL_0000540 ! neuron
 is_a: RO:0002113 ! has_presynaptic_terminal_in
 transitive_over: BFO:0000050 ! part of
@@ -399,17 +320,17 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\
 id: RO:0002103
 name: synapsed_by
 def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 is_a: RO:0000301 ! upstream_in_neural_circuit_with
 expand_expression_to: "BFO_0000051 some (GO_0045211 that part_of some (GO_0045202 that has_part some (GO_0042734 that BFO_0000050 some Y?)))" []
 
 [Typedef]
 id: RO:0002104
 name: has plasma membrane part
-property_value: IAO:0000112  ""Every B cell[CL_0000236] has plasma membrane part some immunoglobulin complex[GO_0019814]"@en"
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000119 "PMID:19243617"@en
+property_value: IAO:0000112 "Every B cell[CL_0000236] has plasma membrane part some immunoglobulin complex[GO_0019814]" xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000119 PMID:19243617 xsd:string
 is_a: BFO:0000051 ! has part
 expand_expression_to: "BFO_0000051 some (GO_0005886 and BFO_0000051 some ?Y)" []
 
@@ -417,9 +338,9 @@ expand_expression_to: "BFO_0000051 some (GO_0005886 and BFO_0000051 some ?Y)" []
 id: RO:0002110
 name: has_postsynaptic_terminal_in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000118  ""synapsed in"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000118 "synapsed in" xsd:string
 is_a: RO:0002130 ! has_synaptic_terminal_in
 inverse_of: RO:0002102 ! axon synapses in
 transitive_over: BFO:0000050 ! part of
@@ -433,7 +354,7 @@ name: releases neurotransmitter
 id: RO:0002113
 name: has_presynaptic_terminal_in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
-property_value: IAO:0000118  ""synapses in"@en"
+property_value: IAO:0000118 "synapses in" xsd:string
 is_a: RO:0002130 ! has_synaptic_terminal_in
 transitive_over: BFO:0000050 ! part of
 expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000050 some Y?)" []
@@ -443,8 +364,8 @@ id: RO:0002120
 name: synapsed_to
 def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n  " []
 comment: N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 is_a: RO:0000302 ! downstream_in_neural_circuit_with
 expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_0045202 that BFO_0000051 some (GO_0045211 that BFO_0000050 some Y?)))" []
 
@@ -452,8 +373,8 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_004520
 id: RO:0002121
 name: dendrite synapsed in
 def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 domain: CL_0000540 ! neuron
 is_a: RO:0002110 ! has_postsynaptic_terminal_in
 transitive_over: BFO:0000050 ! part of
@@ -463,8 +384,8 @@ expand_expression_to: "BFO_0000051 some (\n	GO_0030425 and BFO_0000051 some (\n	
 id: RO:0002130
 name: has_synaptic_terminal_in
 def: "A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000118  ""has synapse in""
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000118 "has synapse in" xsd:string
 is_a: RO:0002131 ! overlaps
 transitive_over: BFO:0000050 ! part of
 expand_expression_to: "RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)" []
@@ -481,31 +402,9 @@ expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (http://p
 id: RO:0002132
 name: has_fasciculating_neuron_projection
 def: "The relation between a neuron projection bundle and a neuron projection that is fasciculated with it." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000118  ""has fasciculating component"@en"
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(has_fasciculating_neuron_projection ?x ?y)
-		(exists (?nps ?npbs)		
-			(and 
-				("neuron projection bundle ; CARO_0001001" ?x)
-				("neuron projection ; GO0043005" ?y)
-				("neuron projection segment ; CARO_0001502" ?nps)
-				("neuron projection bundle segment ; CARO_0001500" ?npbs)
-				(part_of ?nps ?y)
-				(part_of ?npbs ?x)
-				(part_of ?nps ?npbs)
-				(forall (?npbss)
-					(if
-						(and 
-							("neuron projection bundle subsegment ; CARO_0001501" ?npbss)
-							(part_of ?npbss ?npbs) 
-						)
-						(overlaps ?nps ?npbss)
-					))))))
-
-
-"^^xsd:string"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000118 "has fasciculating component" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(has_fasciculating_neuron_projection ?x ?y)\n		(exists (?nps ?npbs)		\n			(and \n				(\"neuron projection bundle ; CARO_0001001\" ?x)\n				(\"neuron projection ; GO0043005\" ?y)\n				(\"neuron projection segment ; CARO_0001502\" ?nps)\n				(\"neuron projection bundle segment ; CARO_0001500\" ?npbs)\n				(part_of ?nps ?y)\n				(part_of ?npbs ?x)\n				(part_of ?nps ?npbs)\n				(forall (?npbss)\n					(if\n						(and \n							(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n							(part_of ?npbss ?npbs) \n						)\n						(overlaps ?nps ?npbss)\n					))))))\n\n\n" xsd:string
 domain: CARO:0001001 ! neuron projection bundle
 is_a: RO:0002131 ! overlaps
 inverse_of: RO:0002101 ! fasciculates_with
@@ -514,7 +413,7 @@ inverse_of: RO:0002101 ! fasciculates_with
 id: RO:0002134
 name: innervates
 def: "Relation between a ‘neuron projection bundle’ and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 domain: CARO:0001001 ! neuron projection bundle
 transitive_over: BFO:0000050 ! part of
 expand_expression_to: "RO_0002132 some (GO_0043005 that (RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)))" []
@@ -523,29 +422,23 @@ expand_expression_to: "RO_0002132 some (GO_0043005 that (RO_0002131 some (GO_004
 id: RO:0002150
 name: connected_to
 def: "X connected_to Y if and only if X and Y share a fiat boundary." []
-property_value: IAO:0000117  ""David Osumi-Sutherland"^^rdfs:Literal"
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000004 ! independent continuant
 
 [Typedef]
 id: RO:0002151
 name: proper overlaps
-property_value: IAO:0000118  ""partially overlaps"^^xsd:string"
-property_value: IAO:0000426  ""(forall (?x ?y) 
-	(iff 
-		(proper_overlaps ?x ?y)
-		(and 
-			(overlaps ?x ?y)
-			(not (part_of ?x ?y)) 
-			(not (part_of ?y ?x)))))"^^xsd:string"
+property_value: IAO:0000118 "partially overlaps" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(proper_overlaps ?x ?y)\n		(and \n			(overlaps ?x ?y)\n			(not (part_of ?x ?y)) \n			(not (part_of ?y ?x)))))" xsd:string
 is_a: RO:0002131 ! overlaps
 
 [Typedef]
 id: RO:0002156
 name: derived_by_descent_from
 def: "d derived_by_descent_from a if d is specified by some genetic program that is sequence-inherited-from a genetic program that specifies a." []
-property_value: IAO:0000118 "ancestral_stucture_of"^^xsd:string
-property_value: IAO:0000118 "evolutionarily_descended_from"^^xsd:string
+property_value: IAO:0000118 "ancestral_stucture_of" xsd:string
+property_value: IAO:0000118 "evolutionarily_descended_from" xsd:string
 is_transitive: true
 inverse_of: RO:0002157 ! has_derived_by_descendant
 
@@ -566,30 +459,31 @@ holds_over_chain: RO:0002156 RO:0002157 ! has_derived_by_descendant
 [Typedef]
 id: RO:0002160
 name: only in taxon
-def: "x only in taxon T if and only if T is a class, and x instantiates the class expression \"in taxon only T\". Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL." []
-property_value: IAO:0000112  ""lactation SubClassOf 'only in taxon' value 'Mammalia'""
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000119 "PMID:17921072"
-property_value: IAO:0000119 "PMID:20973947"@en
+property_value: IAO:0000112 "lactation SubClassOf 'only in taxon' some 'Mammalia'" xsd:string
+property_value: IAO:0000116 "The original intent was to treat this as a macro that expands to 'in taxon' only ?Y - however, this is not necessary if we instead have supplemental axioms that state that each pair of sibling tax have a disjointness axiom using the 'in taxon' property - e.g.\n\n 'in taxon' some Eukaryota DisjointWith 'in taxon' some Eubacteria" xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000119 PMID:17921072 xsd:string
+property_value: IAO:0000119 PMID:20973947 xsd:string
 is_a: RO:0002162 ! in taxon
-expand_expression_to: "RO_0002162 only ?Y" []
 
 [Typedef]
 id: RO:0002162
 name: in taxon
 def: "x is in taxon y if an only if y is an organism, and x is either part of or derived from y." []
 comment: Connects a biological entity to its taxon of origin.
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000119 "PMID:17921072"
-property_value: IAO:0000119 "PMID:20973947"@en
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000119 PMID:17921072 xsd:string
+property_value: IAO:0000119 PMID:20973947 xsd:string
 domain: BFO:0000001 ! entity
 range: BFO:0000004 ! independent continuant
+holds_over_chain: BFO:0000050 RO:0002162 ! in taxon
+holds_over_chain: BFO:0000051 RO:0002162 ! in taxon
 
 [Typedef]
 id: RO:0002163
 name: spatially disjoint from
 def: "A is spatially_disjoint_from B if and only if they have no parts in common" []
-property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
 expand_expression_to: "BFO_0000051 exactly 0 (BFO_0000050 some ?Y)" []
 
 [Typedef]
@@ -601,45 +495,49 @@ is_a: BFO:0000051 ! has part
 [Typedef]
 id: RO:0002200
 name: has phenotype
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""Robert Hoehndorf"@en"
-property_value: IAO:0000119 "PMID:20971987"@en
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "Robert Hoehndorf" xsd:string
+property_value: IAO:0000119 PMID:20971987 xsd:string
 domain: BFO:0000002 ! continuant
 
 [Typedef]
 id: RO:0002201
 name: phenotype of
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""Robert Hoehndorf"@en"
-property_value: IAO:0000119 "PMID:20971987"@en
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "Robert Hoehndorf" xsd:string
+property_value: IAO:0000119 PMID:20971987 xsd:string
 is_functional: true
 inverse_of: RO:0002200 ! has phenotype
 
 [Typedef]
 id: RO:0002202
 name: develops from
-comment: Candidate definition: x develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000117  ""Terry Meehan"@en"
+def: "x develops from y if and only if either (a) x directly develops from y or (b) there exists some z such that x directly develops from z and z develops from y" []
+comment: This is the transitive form of the develops from relation
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000117 "Melissa Haendel" xsd:string
+property_value: IAO:0000117 "Terry Meehan" xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000004 ! independent continuant
 is_transitive: true
+is_a: RO:0002258 ! developmentally preceded by
 
 [Typedef]
 id: RO:0002203
 name: develops into
-property_value: IAO:0000117  ""Chris Mungall"@en"
-property_value: IAO:0000117  ""David Osumi-Sutherland"@en"
-property_value: IAO:0000117  ""Terry Meehan"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000117 "Terry Meehan" xsd:string
 is_transitive: true
+is_a: RO:0002286 ! developmentally succeeded by
 inverse_of: RO:0002202 ! develops from
 
 [Typedef]
 id: RO:0002204
 name: gene product of
 def: "definition \"x has gene product of y if and only if y is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from x\"" []
-property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000002 ! continuant
 
@@ -647,9 +545,9 @@ range: BFO:0000002 ! continuant
 id: RO:0002205
 name: has gene product
 def: "x has gene product y if and only if x is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from y" []
-property_value: IAO:0000112  ""every HOTAIR lncRNA is the gene product of some HOXC gene""
-property_value: IAO:0000112  ""every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene""
-property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000112 "every HOTAIR lncRNA is the gene product of some HOXC gene" xsd:string
+property_value: IAO:0000112 "every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene" xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: BFO:0000002 ! continuant
 range: BFO:0000004 ! independent continuant
 inverse_of: RO:0002204 ! gene product of
@@ -658,7 +556,7 @@ inverse_of: RO:0002204 ! gene product of
 id: RO:0002206
 name: expressed in
 def: "x expressed in y if x or a transcript of x is the output of a gene expression process (GO:0010467) that occurs in y" []
-property_value: IAO:0000117  ""Chris Mungall"@en"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: BFO:0000002 ! continuant
 range: BFO:0000004 ! independent continuant
 transitive_over: BFO:0000050 ! part of
@@ -666,15 +564,17 @@ transitive_over: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002207
 name: directly develops from
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000117  ""David Osumi-Sutherland""
-property_value: IAO:0000119  ""FBbt""
-property_value: IAO:0000119  ""x directly develops from y if and only if x develops from y, and the start of x is coincident with or after the end of y""
+def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of y comes from x, and the start of x is coincident with or after the end of y" []
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000117 "has developmental precursor" xsd:string
+property_value: IAO:0000119 "FBbt" xsd:string
 is_a: RO:0002202 ! develops from
 
 [Typedef]
 id: RO:0002210
 name: directly develops into
+property_value: IAO:0000118 "developmental precursor of" xsd:string
 is_a: RO:0002203 ! develops into
 inverse_of: RO:0002207 ! directly develops from
 
@@ -682,10 +582,10 @@ inverse_of: RO:0002207 ! directly develops from
 id: RO:0002211
 name: regulates
 def: "x regulates y if and only if x is a process and y is either a process or a quality, and the progression of x exerts an effect on the frequency, rate or exteny of y" []
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000117  ""David Hill""
-property_value: IAO:0000117  ""Tanya Berardini""
-property_value: IAO:0000119  ""GO""
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Hill" xsd:string
+property_value: IAO:0000117 "Tanya Berardini" xsd:string
+property_value: IAO:0000119 "GO" xsd:string
 domain: BFO:0000007 ! process
 transitive_over: BFO:0000050 ! part of
 holds_over_chain: RO:0002230 RO:0002211 ! regulates
@@ -708,10 +608,10 @@ holds_over_chain: RO:0002230 RO:0002213 ! positively regulates
 id: RO:0002214
 name: has prototype
 def: "x has prototype y if and only if x is an instance of C and y is a prototypical instance of C. For example, every instance of heart, both normal and abnormal is related by the has prototype relation to some instance of a \"canonical\" heart, which participates in blood circulation." []
-property_value: IAO:0000112  ""'human p53 protein' SubClassOf some ('participates in' some 'DNA repair')""
-property_value: IAO:0000112  ""heart SubClassOf 'has prototype' some ('participates in' some 'blood circulation')""
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000232  ""Experimental. In future there will be a formalization in which this relation is treated as a shortcut to some model logic axiom.""
+property_value: IAO:0000112 "'human p53 protein' SubClassOf some ('participates in' some 'DNA repair')" xsd:string
+property_value: IAO:0000112 "heart SubClassOf 'has prototype' some ('participates in' some 'blood circulation')" xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Experimental. In future there will be a formalization in which this relation is treated as a shortcut to some model logic axiom." xsd:string
 domain: BFO:0000002 ! continuant
 range: BFO:0000002 ! continuant
 
@@ -719,10 +619,10 @@ range: BFO:0000002 ! continuant
 id: RO:0002215
 name: capable of
 def: "A relation between a material entity (such as a cell) and a process. This is a shortcut relation, translation rule for which is: capable_of P <-> bearer_of (some realized_by only P). Example: osteoclast capable of bone resorption" []
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000118  ""has function realized in""
-property_value: IAO:0000119 "PMID:20123131"
-property_value: IAO:0000119 "PMID:21208450"
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "has function realized in" xsd:string
+property_value: IAO:0000119 PMID:20123131 xsd:string
+property_value: IAO:0000119 PMID:21208450 xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000007 ! process
 holds_over_chain: RO:0002214 RO:0002217 ! actively participates in
@@ -732,8 +632,8 @@ expand_expression_to: "BFO_0000053 some (BFO_0000054 only ?Y)" []
 id: RO:0002216
 name: has function in
 def: "x has function in Y if and only if x is the bearer or some dependent continuant that is realized by only part of some Y" []
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000118  ""capable of part of""
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "capable of part of" xsd:string
 holds_over_chain: RO:0002215 BFO:0000050 ! part of
 expand_expression_to: "BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))" []
 
@@ -741,16 +641,15 @@ expand_expression_to: "BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))
 id: RO:0002217
 name: actively participates in
 def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
-property_value: IAO:0000118  ""agent in""
+property_value: IAO:0000118 "agent in" xsd:string
 is_a: BFO:0000056 ! participates in
 inverse_of: RO:0002218 ! has active participant
 
 [Typedef]
 id: RO:0002218
 name: has active participant
-name: RO_0002218
 def: "x has participant y if and only if x realizes some active role that inheres in y" []
-property_value: IAO:0000118  ""has agent""
+property_value: IAO:0000118 "has agent" xsd:string
 is_a: BFO:0000057 ! has participant
 
 [Typedef]
@@ -762,7 +661,8 @@ is_a: RO:0002220 ! adjacent to
 [Typedef]
 id: RO:0002220
 name: adjacent to
-property_value: IAO:0000116  ""belongs in BFO?""
+def: "x adjacent to y if and only if x and y share a boundary" []
+property_value: IAO:0000116 "belongs in BFO?" xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000004 ! independent continuant
 is_a: RO:0002163 ! spatially disjoint from
@@ -777,8 +677,8 @@ inverse_of: RO:0002219 ! surrounded by
 id: RO:0002222
 name: temporal relation
 comment: A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.
-property_value: IAO:0000116  ""move to BFO?""
-property_value: IAO:0000119  ""Allen""
+property_value: IAO:0000116 "move to BFO?" xsd:string
+property_value: IAO:0000119 "Allen" xsd:string
 domain: BFO:0000003 ! occurrent
 range: BFO:0000003 ! occurrent
 
@@ -786,14 +686,15 @@ range: BFO:0000003 ! occurrent
 id: RO:0002223
 name: starts
 def: "x starts y if x is part of y and start(x) = start(y)" []
-property_value: IAO:0000117  ""Chris Mungall""
-property_value: IAO:0000119  ""Allen""
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000119 "Allen" xsd:string
 is_a: BFO:0000050 ! part of
 is_a: RO:0002222 ! temporal relation
 
 [Typedef]
 id: RO:0002224
 name: starts with
+is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002222 ! temporal relation
 inverse_of: RO:0002223 ! starts
@@ -801,15 +702,17 @@ inverse_of: RO:0002223 ! starts
 [Typedef]
 id: RO:0002225
 name: develops from part of
+def: "x develops from part of y if and only if there exists some z such that x develops from z and z is part of y" []
 is_a: RO:0002202 ! develops from
 holds_over_chain: RO:0002207 BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002226
 name: develops in
-def: "x develops_in y if x is located in x whilst x is developing" []
-property_value: IAO:0000116  ""todo - bring in containment relation from BFO""
-property_value: IAO:0000119  ""EHDAA2""
+def: "x develops_in y if x is located in y whilst x is developing" []
+property_value: IAO:0000116 "todo - bring in containment relation from BFO" xsd:string
+property_value: IAO:0000119 "EHDAA2" xsd:string
+is_a: RO:0002258 ! developmentally preceded by
 
 [Typedef]
 id: RO:0002229
@@ -821,6 +724,7 @@ inverse_of: RO:0002230 ! ends with
 [Typedef]
 id: RO:0002230
 name: ends with
+is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002222 ! temporal relation
 
@@ -843,4 +747,62 @@ is_a: BFO:0000057 ! has participant
 id: RO:0002234
 name: has output
 is_a: BFO:0000057 ! has participant
+
+[Typedef]
+id: RO:0002254
+name: has developmental contribution from
+property_value: IAO:0000112 "Mammalian thymus has developmental contribution from some pharyngeal pouch 3; Mammalian thymus has developmental contribution from some pharyngeal pouch 4 [Kardong]" xsd:string
+is_a: RO:0002258 ! developmentally preceded by
+holds_over_chain: BFO:0000051 RO:0002202 ! develops from
+
+[Typedef]
+id: RO:0002255
+name: developmentally contributes to
+is_a: RO:0002258 ! developmentally preceded by
+inverse_of: RO:0002254 ! has developmental contribution from
+
+[Typedef]
+id: RO:0002256
+name: induced by
+def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+property_value: IAO:0000117 "Melissa Haendel" xsd:string
+property_value: IAO:0000119 " Developmental Biology, Gilbert, 8th edition, figure 6.5(F)" xsd:string
+property_value: IAO:0000119 GO:0001759 xsd:string
+is_a: RO:0002258 ! developmentally preceded by
+
+[Typedef]
+id: RO:0002257
+name: induces
+is_a: RO:0002286 ! developmentally succeeded by
+inverse_of: RO:0002256 ! induced by
+
+[Typedef]
+id: RO:0002258
+name: developmentally preceded by
+def: "Candidate definition: x developmentally related to y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p" []
+comment: This relation groups together various other developmental relations. It is fairly generic, encompassing induction, developmental contribution and direct and transitive develops from
+property_value: IAO:0000232 "In general you should not use this relation to make assertions - use one of the more specific relations below this one" xsd:string
+
+[Typedef]
+id: RO:0002285
+name: developmentally replaces
+def: "x developmentally replaces y if and only if there is some developmental process that causes x to move or to cease to exist, and for the site that was occupied by x to become occupied by y, where y either comes into existence in this site or moves to this site from somewhere else" []
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "replaces" xsd:string
+is_a: RO:0002258 ! developmentally preceded by
+
+[Typedef]
+id: RO:0002286
+name: developmentally succeeded by
+def: "Inverse of developmentally preceded by" []
+inverse_of: RO:0002258 ! developmentally preceded by
+
+[Typedef]
+id: RO:0002287
+name: part of precursor of
+property_value: IAO:0000112 "'hypopharyngeal eminence' SubClassOf 'part of precursor of' some tongue" xsd:string
+is_a: RO:0002286 ! developmentally succeeded by
+holds_over_chain: BFO:0000050 RO:0002210 ! directly develops into
 
