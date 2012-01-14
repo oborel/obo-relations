@@ -1,4 +1,5 @@
 format-version: 1.2
+import: http://purl.obolibrary.org/obo/iao/ontology-metadata.owl
 ontology: ro
 
 [Term]
@@ -412,7 +413,7 @@ inverse_of: RO:0002101 ! fasciculates_with
 [Typedef]
 id: RO:0002134
 name: innervates
-def: "Relation between a ‘neuron projection bundle’ and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
+def: "Relation between a 'neuron projection bundle' and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 domain: CARO:0001001 ! neuron projection bundle
 transitive_over: BFO:0000050 ! part of
@@ -806,4 +807,21 @@ name: part of precursor of
 property_value: IAO:0000112 "'hypopharyngeal eminence' SubClassOf 'part of precursor of' some tongue" xsd:string
 is_a: RO:0002286 ! developmentally succeeded by
 holds_over_chain: BFO:0000050 RO:0002210 ! directly develops into
+
+[Typedef]
+id: RO:0003000
+name: produces
+def: "a produces b if some process that occurs_in a has_output b, where a and b are material entities. Examples: hybridoma cell line produces monoclonal antibody reagent; chondroblast produces avascular GAG-rich matrix." []
+comment: Note that this definition doesn't quite distinguish the output of a transformation process from a production process, which is related to the identity/granularity issue.
+property_value: IAO:0000117 "Melissa Haendel" xsd:string
+domain: BFO:0000040 ! material entity
+range: BFO:0000040 ! material entity
+inverse_of: RO:0003001 ! produced_by
+
+[Typedef]
+id: RO:0003001
+name: produced_by
+property_value: IAO:0000117 "Melissa Haendel" xsd:string
+domain: BFO:0000040 ! material entity
+range: BFO:0000040 ! material entity
 
