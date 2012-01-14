@@ -3,7 +3,7 @@
 # PRODUCTION
 # ========================================
 
-build: ro.owl ro.obo
+build: ro.owl ro.obo ro-el.owl
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually
 ro.owl: ro-edit.owl
@@ -12,6 +12,7 @@ ro.owl: ro-edit.owl
 %.obo: %.owl
 	obolib-owl2obo -o $@ $<
 
+# soon this will be incorporated into Oort
 ro-el.owl: ro.owl
 	/Users/cjm/src/elvira/makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
 
