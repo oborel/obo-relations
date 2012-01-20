@@ -1,0 +1,39 @@
+#summary OBO Format Users Guide
+
+= Introduction =
+
+This gives instructions on how to use RO in conjunction with ontologies whose source is obo-format
+
+= Merge vs Import =
+
+Imports is now well-supported in Obo Edit, so the best strategy is to copy in the portion of the stanza you require from ro.obo
+
+Note that you can use a shortcut ID for the relation within the file.
+
+For example, GO has:
+
+{{{
+[Typedef]
+id: occurs_in
+name: occurs in
+xref: BFO:0000066
+transitive_over: part_of ! part_of
+}}}
+
+This means that this stanza portion:
+
+{{{
+[Term]
+id: GO:0090144
+name: mitochondrial nucleoid organization
+...
+intersection_of: GO:0090143 ! nucleoid organization
+intersection_of: occurs_in GO:0005739 ! mitochondrion
+}}}
+
+is translated to:
+
+{{{
+Class: obo:GO_0090144
+EquivalentTo: GO_0090143 and BFO_0000066 some GO_0005739
+}}}
