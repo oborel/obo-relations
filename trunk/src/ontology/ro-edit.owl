@@ -206,12 +206,12 @@
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000067"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000066"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
             <rdf:Description rdf:about="&obo;BFO_0000066"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -474,11 +474,11 @@
     <owl:ObjectProperty rdf:about="&obo;RO_0002110">
         <rdfs:label xml:lang="en">has_postsynaptic_terminal_in</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
    http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
       http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
-        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
@@ -632,11 +632,11 @@ N1 SubclassOf (
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -908,15 +908,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     </owl:ObjectProperty>
     <owl:Axiom>
         <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
-        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
-        <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
-        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
         <owl:annotatedTarget rdf:resource="&obo;BFO_0000002"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
         <owl:annotatedProperty rdf:resource="&rdfs;range"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
+        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
     </owl:Axiom>
     
 
@@ -952,6 +952,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     <owl:Axiom>
+        <rdfs:comment>Example: if g1 is expressed in a hippocampus, and every hippocampus is part of some brain, then g1 is expressed in a brain</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
+        <owl:annotatedProperty rdf:resource="&owl;propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002206"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:annotatedTarget>
+    </owl:Axiom>
+    <owl:Axiom>
         <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
         <owl:annotatedTarget rdf:resource="&obo;BFO_0000002"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
@@ -962,15 +971,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
         <owl:annotatedProperty rdf:resource="&rdfs;range"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <rdfs:comment>Example: if g1 is expressed in a hippocampus, and every hippocampus is part of some brain, then g1 is expressed in a brain</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
-        <owl:annotatedProperty rdf:resource="&owl;propertyChainAxiom"/>
-        <owl:annotatedTarget rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002206"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:annotatedTarget>
     </owl:Axiom>
     
 
@@ -986,14 +986,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>FBbt</obo:IAO_0000119>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002202"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
-                    <rdf:Description rdf:about="&obo;CL_0000000"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1002,6 +994,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
+                    <rdf:Description rdf:about="&obo;CL_0000000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1028,12 +1028,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117>David Hill</obo:IAO_0000117>
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -1426,6 +1426,58 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">ubiquitously expresses</rdfs:label>
         <owl:inverseOf rdf:resource="&obo;RO_0002291"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002292"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002295 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002295">
+        <rdfs:label xml:lang="en">results in developmental progression of</rdfs:label>
+        <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
+        <rdfs:range rdf:resource="&obo;CARO_0000003"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <obo:IAO_0000116>Consider adding GO-specific domain</obo:IAO_0000116>
+        <owl:annotatedTarget rdf:resource="&obo;BFO_0000007"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002295"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002296 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002296">
+        <rdfs:label xml:lang="en">results in development of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002297 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002297">
+        <rdfs:label xml:lang="en">results in formation of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002298 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002298">
+        <rdfs:label xml:lang="en">results in morphogenesis of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002299 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002299">
+        <rdfs:label xml:lang="en">results in maturation of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
 
