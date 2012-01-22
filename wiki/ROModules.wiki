@@ -20,7 +20,15 @@ As the RO is not modularized in advanced, it would be useful for users to have w
 
 There are a number of ways to automatically extract a module from an ontology - the OWLAPI implements some of these.
 
-In principle it should be possible to extract a module from the RO using these tools. Details will be posted here later
+You can use the [http://code.google.com/p/owltools OWLTools] command line facility to access the OWLAPI and it's modularization capabilities.
+
+Using 'develops from' as a seed using the TOP strategy:
+
+{{{
+ owltools  ro.owl --extract-module -m TOP 'develops from' -o file://`pwd`/ro-subset-part-of.owl
+}}}
+
+Getting the right module requires an understanding of the modularization algorithm which is non-trivial - particularly where this interacts with [ShortcutRelations] - in future we will provide a more intuitive high-level modularization capability.
 
 == Manual Module Extraction ==
 
