@@ -7,6 +7,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY oboInOwl "http://www.geneontology.org/formats/oboInOwl#" >
 ]>
 
 
@@ -16,8 +17,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="&obo;ro.owl">
         <owl:imports rdf:resource="&obo;iao/ontology-metadata.owl"/>
         <owl:versionIRI rdf:resource="&obo;ro/2012-01-14/ro.owl"/>
@@ -43,6 +44,9 @@
         <obo:IAO_0000115>x never in taxon T if and only if T is a class, and x does not instantiate the class expression &quot;in taxon some T&quot;. Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL.</obo:IAO_0000115>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_id"/>
+    <owl:AnnotationProperty rdf:about="&oboInOwl;shorthand">
+        <rdfs:label rdf:datatype="&xsd;string">shorthand</rdfs:label>
+    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000424"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000115"/>
@@ -55,9 +59,6 @@
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000111"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112"/>
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#shorthand">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shorthand</rdfs:label>
-    </owl:AnnotationProperty>
     
 
 
@@ -88,10 +89,10 @@
     <owl:ObjectProperty rdf:about="&obo;BFO_0000050">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">part of</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">part_of</oboInOwl:shorthand>
         <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000051"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">part_of</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -101,9 +102,9 @@
     <owl:ObjectProperty rdf:about="&obo;BFO_0000051">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">has part</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">has_part</oboInOwl:shorthand>
         <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_part</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -113,10 +114,10 @@
     <owl:ObjectProperty rdf:about="&obo;BFO_0000052">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">inheres in</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">inheres_in</oboInOwl:shorthand>
         <obo:IAO_0000118 xml:lang="en">inheres_in</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <owl:inverseOf rdf:resource="&obo;BFO_0000053"/>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inheres_in</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -156,10 +157,10 @@
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000056">
         <rdfs:label xml:lang="en">participates in</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">participates_in</oboInOwl:shorthand>
         <obo:IAO_0000118 xml:lang="en">participates_in</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000003"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">participates_in</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -168,6 +169,7 @@
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000057">
         <rdfs:label xml:lang="en">has participant</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">has_participant</oboInOwl:shorthand>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000002"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
@@ -176,7 +178,6 @@
             <rdf:Description rdf:about="&obo;BFO_0000055"/>
             <rdf:Description rdf:about="&obo;BFO_0000052"/>
         </owl:propertyChainAxiom>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_participant</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -208,6 +209,7 @@
 
     <owl:ObjectProperty rdf:about="&obo;BFO_0000066">
         <rdfs:label xml:lang="en">occurs in</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="&xsd;string">occurs_in</oboInOwl:shorthand>
         <obo:IAO_0000118 xml:lang="en">occurs_in</obo:IAO_0000118>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
@@ -220,7 +222,6 @@
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
             <rdf:Description rdf:about="&obo;BFO_0000066"/>
         </owl:propertyChainAxiom>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">occurs_in</oboInOwl:shorthand>
     </owl:ObjectProperty>
     
 
@@ -230,6 +231,18 @@
     <owl:ObjectProperty rdf:about="&obo;BFO_0000067">
         <rdfs:label xml:lang="en">has site of</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">has_site_of</obo:IAO_0000118>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO0002314 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO0002314">
+        <rdfs:label xml:lang="en">inheres in part of</rdfs:label>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000052"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -657,16 +670,16 @@ N1 SubclassOf (
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002131"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -846,10 +859,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002206"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002258"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
@@ -859,6 +868,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002206"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -965,15 +978,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     </owl:ObjectProperty>
     <owl:Axiom>
         <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
-        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
-        <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
-        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
         <owl:annotatedTarget rdf:resource="&obo;BFO_0000002"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
         <owl:annotatedProperty rdf:resource="&rdfs;range"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
+        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002204"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
     </owl:Axiom>
     
 
@@ -1012,12 +1025,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
-        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
-        <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
-        <owl:annotatedProperty rdf:resource="&rdfs;range"/>
-    </owl:Axiom>
-    <owl:Axiom>
         <rdfs:comment>Example: if g1 is expressed in a hippocampus, and every hippocampus is part of some brain, then g1 is expressed in a brain</rdfs:comment>
         <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
         <owl:annotatedProperty rdf:resource="&owl;propertyChainAxiom"/>
@@ -1025,6 +1032,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002206"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:annotatedTarget>
+    </owl:Axiom>
+    <owl:Axiom>
+        <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
+        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002206"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;range"/>
     </owl:Axiom>
     <owl:Axiom>
         <obo:IAO_0000232>TODO: make this more specific</obo:IAO_0000232>
@@ -1047,14 +1060,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119>FBbt</obo:IAO_0000119>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002202"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
-                    <rdf:Description rdf:about="&obo;CL_0000000"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1063,6 +1068,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
+                    <rdf:Description rdf:about="&obo;CL_0000000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1091,12 +1104,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -1291,8 +1304,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <owl:inverseOf rdf:resource="&obo;RO_0002223"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>started by</owl:annotatedTarget>
         <obo:IAO_0000116>From Allen terminology</obo:IAO_0000116>
+        <owl:annotatedTarget>started by</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000118"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002224"/>
     </owl:Axiom>
