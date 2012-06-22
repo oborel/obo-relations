@@ -31,7 +31,7 @@ id: BFO:0000004
 name: independent continuant
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000002 ! continuant
-relationship: RO:0002131 BFO:0000004 ! independent continuant
+relationship: RO:0002131 BFO:0000004 ! overlaps independent continuant
 
 [Term]
 id: BFO:0000007
@@ -43,7 +43,7 @@ property_value: IAO:0000112 "the process of cell-division" xsd:string
 property_value: IAO:0000112 "the process of sleeping" xsd:string
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/BFO
 is_a: BFO:0000003 ! occurrent
-relationship: RO:0002131 BFO:0000007 ! process
+relationship: RO:0002131 BFO:0000007 ! overlaps process
 
 [Term]
 id: BFO:0000040
@@ -86,14 +86,14 @@ id: CARO:0010000
 name: multicellular anatomical structure
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/caro.owl
 is_a: CARO:0000003 ! anatomical structure
-relationship: RO:0002207 CARO:0010000 ! multicellular anatomical structure
+relationship: RO:0002207 CARO:0010000 ! directly develops from multicellular anatomical structure
 
 [Term]
 id: CL:0000000
 name: cell
 property_value: IAO:0000412 http://purl.obolibrary.org/obo/cl.owl
 is_a: CARO:0000003 ! anatomical structure
-relationship: RO:0002207 CL:0000000 ! cell
+relationship: RO:0002207 CL:0000000 ! directly develops from cell
 
 [Term]
 id: CL:0000540
@@ -441,7 +441,7 @@ comment: VBO calls this homologous_to
 property_value: IAO:0000114 IAO:0000125
 is_symmetric: true
 is_transitive: true
-holds_over_chain: RO:0002156 RO:0002157 ! has derived by descendant
+holds_over_chain: RO:0002156 RO:0002157 ! derived by descent from has derived by descendant
 
 [Typedef]
 id: RO:0002160
@@ -469,8 +469,8 @@ domain: BFO:0000001 ! entity
 range: BFO:0000004 ! independent continuant
 holds_over_chain: has_part RO:0002162 ! in taxon
 holds_over_chain: part_of RO:0002162 ! in taxon
-holds_over_chain: RO:0002206 RO:0002162 ! in taxon
-holds_over_chain: RO:0002258 RO:0002162 ! in taxon
+holds_over_chain: RO:0002206 RO:0002162 ! expressed in in taxon
+holds_over_chain: RO:0002258 RO:0002162 ! developmentally preceded by in taxon
 
 [Typedef]
 id: RO:0002163
@@ -596,7 +596,7 @@ property_value: IAO:0000117 "Tanya Berardini" xsd:string
 property_value: IAO:0000119 "GO" xsd:string
 domain: BFO:0000007 ! process
 transitive_over: part_of ! part of
-holds_over_chain: RO:0002230 RO:0002211 ! regulates
+holds_over_chain: RO:0002230 RO:0002211 ! ends with regulates
 
 [Typedef]
 id: RO:0002212
@@ -604,7 +604,7 @@ name: negatively regulates
 def: "x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x reduces the frequency, rate or exteny of y" []
 property_value: IAO:0000114 IAO:0000125
 is_a: RO:0002211 ! regulates
-holds_over_chain: RO:0002230 RO:0002212 ! negatively regulates
+holds_over_chain: RO:0002230 RO:0002212 ! ends with negatively regulates
 
 [Typedef]
 id: RO:0002213
@@ -612,7 +612,7 @@ name: positively regulates
 def: "x negatively regulates y if and only if x is a process and y is either a process or a quality, and the progression of x increases the frequency, rate or exteny of y" []
 property_value: IAO:0000114 IAO:0000125
 is_a: RO:0002211 ! regulates
-holds_over_chain: RO:0002230 RO:0002213 ! positively regulates
+holds_over_chain: RO:0002230 RO:0002213 ! ends with positively regulates
 
 [Typedef]
 id: RO:0002214
@@ -638,7 +638,7 @@ property_value: IAO:0000119 PMID:20123131 xsd:string
 property_value: IAO:0000119 PMID:21208450 xsd:string
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000007 ! process
-holds_over_chain: RO:0002214 RO:0002217 ! actively participates in
+holds_over_chain: RO:0002214 RO:0002217 ! has prototype actively participates in
 expand_expression_to: "BFO_0000053 some (BFO_0000054 only ?Y)" []
 
 [Typedef]
@@ -648,7 +648,7 @@ def: "x has function in Y if and only if x is the bearer or some dependent conti
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "capable of part of" xsd:string
-holds_over_chain: RO:0002215 part_of ! part of
+holds_over_chain: RO:0002215 part_of ! capable of part of
 expand_expression_to: "BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))" []
 
 [Typedef]
@@ -730,7 +730,7 @@ name: develops from part of
 def: "x develops from part of y if and only if there exists some z such that x develops from z and z is part of y" []
 property_value: IAO:0000114 IAO:0000125
 is_a: RO:0002202 ! develops from
-holds_over_chain: RO:0002207 part_of ! part of
+holds_over_chain: RO:0002207 part_of ! directly develops from part of
 
 [Typedef]
 id: RO:0002226
@@ -765,14 +765,14 @@ id: RO:0002231
 name: has start location
 def: "x 'has starts location' y if and only if there exists some process z such that x 'starts with' z and z 'occurs in' y" []
 property_value: IAO:0000114 IAO:0000125
-holds_over_chain: RO:0002224 occurs_in ! occurs in
+holds_over_chain: RO:0002224 occurs_in ! starts with occurs in
 
 [Typedef]
 id: RO:0002232
 name: has end location
 def: "x 'has end location' y if and only if there exists some process z such that x 'ends with' z and z 'occurs in' y" []
 property_value: IAO:0000114 IAO:0000125
-holds_over_chain: RO:0002230 occurs_in ! occurs in
+holds_over_chain: RO:0002230 occurs_in ! ends with occurs in
 
 [Typedef]
 id: RO:0002233
@@ -940,6 +940,16 @@ id: RO:0002312
 name: variant of
 
 [Typedef]
+id: RO:0002313
+name: transports or maintains localization of
+is_a: has_participant ! has participant
+
+[Typedef]
+id: RO:0002314
+name: inheres in part of
+holds_over_chain: inheres_in part_of ! part of
+
+[Typedef]
 id: RO:0003000
 name: produces
 def: "a produces b if some process that occurs_in a has_output b, where a and b are material entities. Examples: hybridoma cell line produces monoclonal antibody reagent; chondroblast produces avascular GAG-rich matrix." []
@@ -972,7 +982,7 @@ property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000007 ! process
 range: BFO:0000002 ! continuant
 inverse_of: participates_in ! participates in
-holds_over_chain: BFO:0000055 inheres_in ! inheres in
+holds_over_chain: BFO:0000055 inheres_in ! realizes inheres in
 
 [Typedef]
 id: inheres_in
