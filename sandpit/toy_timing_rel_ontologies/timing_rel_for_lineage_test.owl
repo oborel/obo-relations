@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY timing_relations "http://www.virtualflybrain.org/owl/timing_relations.owl:" >
+    <!ENTITY Ontology1275387730635 "http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl:" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl"
+     xmlns:timing_relations="http://www.virtualflybrain.org/owl/timing_relations.owl:"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Ontology1275387730635="http://www.semanticweb.org/ontologies/2010/5/Ontology1275387730635.owl:"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.virtualflybrain.org/owl/timing_relations.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000589"/>
+    <owl:AnnotationProperty rdf:about="&timing_relations;NRTF0000022">
+        <rdfs:label xml:lang="en">def</rdfs:label>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&timing_relations;NRTF0000024">
+        <rdfs:label xml:lang="en">synonym</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000060 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000060">
+        <rdfs:label xml:lang="en">immediately_preceded_by</rdfs:label>
+        <rdfs:comment xml:lang="en">X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000062"/>
+        <owl:inverseOf rdf:resource="&timing_relations;NRTF0000004"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000062">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">preceded_by</rdfs:label>
+        <rdfs:comment xml:lang="en">X preceded_by Y iff: end(Y) before_or_simultaneous_with start(X)</rdfs:comment>
+        <timing_relations:NRTF0000024 xml:lang="en">proceeds</timing_relations:NRTF0000024>
+        <timing_relations:NRTF0000024 xml:lang="en">starts_after</timing_relations:NRTF0000024>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000008"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000005"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000027"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002122 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002122">
+        <rdfs:label xml:lang="en">during_ends</rdfs:label>
+        <owl:inverseOf rdf:resource="&timing_relations;NRTF0000006"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002123 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002123">
+        <rdfs:label xml:lang="en">during_starts</rdfs:label>
+        <owl:inverseOf rdf:resource="&timing_relations;NRTF0000005"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002124 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002124">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">encompasses</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002122"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002123"/>
+        <owl:inverseOf rdf:resource="&timing_relations;NRTF0000027"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/scratch_0008210 -->
+
+    <owl:ObjectProperty rdf:about="&obo;scratch_0008210">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <obo:IAO_0000589 xml:lang="en">has_history</obo:IAO_0000589>
+        <rdfs:domain rdf:resource="&obo;scratch_1234567"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/scratch_0008211 -->
+
+    <owl:ObjectProperty rdf:about="&obo;scratch_0008211">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <obo:IAO_0000589 xml:lang="en">history_of</obo:IAO_0000589>
+        <owl:inverseOf rdf:resource="&obo;scratch_0008210"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/scratch_0008212 -->
+
+    <owl:ObjectProperty rdf:about="&obo;scratch_0008212">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <obo:IAO_0000589 xml:lang="en">starts_after</obo:IAO_0000589>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000002 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000002">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">precedes</rdfs:label>
+        <rdfs:comment xml:lang="en">X precedes Y iff: end(X) before_or_simultaneous_with start(Y)</rdfs:comment>
+        <timing_relations:NRTF0000024 xml:lang="en">ends_before</timing_relations:NRTF0000024>
+        <owl:inverseOf rdf:resource="&obo;BFO_0000062"/>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000007"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000006"/>
+            <rdf:Description rdf:about="&timing_relations;NRTF0000002"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000027"/>
+            <rdf:Description rdf:about="&timing_relations;NRTF0000002"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000004 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000004">
+        <rdfs:label xml:lang="en">immediately_precedes</rdfs:label>
+        <rdfs:comment xml:lang="en">X immediately_precedes_Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000002"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000005 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000005">
+        <rdfs:label xml:lang="en">starts_during</rdfs:label>
+        <rdfs:comment xml:lang="en">X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (start(X) before_or_simultaneous_with end(Y))</rdfs:comment>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000006 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000006">
+        <rdfs:label xml:lang="en">ends_during</rdfs:label>
+        <rdfs:comment xml:lang="en">X ends_during Y iff: ((start(Y) before_or_simultaneous_with end(X)) AND end(X) before_or_simultaneous_with end(Y). </rdfs:comment>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000007 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000007">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">starts_before</rdfs:label>
+        <timing_relations:NRTF0000022 rdf:datatype="&xsd;string">x starts_before y iff: start(x) before_or_simultaneous_with start(y)</timing_relations:NRTF0000022>
+        <owl:inverseOf rdf:resource="&obo;scratch_0008212"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000005"/>
+            <rdf:Description rdf:about="&timing_relations;NRTF0000002"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000008 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000008">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">ends_after</rdfs:label>
+        <rdfs:comment xml:lang="en">X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)</rdfs:comment>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&timing_relations;NRTF0000006"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000020 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000020">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">before</rdfs:label>
+        <rdfs:comment xml:lang="en">t1 before t2 iff:=  t1 before_or_simulataneous_with t2  and not (t1 simultaeous_with t2)</rdfs:comment>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000023"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000021 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000021">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">simultaneous_with</rdfs:label>
+        <rdfs:comment xml:lang="en">t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and not (t1 before t2)</rdfs:comment>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000023"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000023 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000023">
+        <rdfs:label xml:lang="en">before_or_simultaneous_with</rdfs:label>
+        <rdfs:comment>Primitive instance level timing relation between events</rdfs:comment>
+        <timing_relations:NRTF0000024 xml:lang="en">&lt;=</timing_relations:NRTF0000024>
+        <rdfs:range rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:domain rdf:resource="&timing_relations;NRTF0000015"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000027 -->
+
+    <owl:ObjectProperty rdf:about="&timing_relations;NRTF0000027">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">happens_during</rdfs:label>
+        <rdfs:comment xml:lang="en">X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (end(X) before_or_simultaneous_with end(Y))</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000005"/>
+        <rdfs:subPropertyOf rdf:resource="&timing_relations;NRTF0000006"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/scratch_1234567 -->
+
+    <owl:Class rdf:about="&obo;scratch_1234567">
+        <rdfs:label xml:lang="en">continuant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000013 -->
+
+    <owl:Class rdf:about="&timing_relations;NRTF0000013">
+        <rdfs:label xml:lang="en">occurrent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000014 -->
+
+    <owl:Class rdf:about="&timing_relations;NRTF0000014">
+        <rdfs:label xml:lang="en">stage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&timing_relations;NRTF0000013"/>
+        <rdfs:comment>Any temporal subdivision of a process that is not itself a process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000015 -->
+
+    <owl:Class rdf:about="&timing_relations;NRTF0000015">
+        <rdfs:label xml:lang="en">event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment>time dimension = 0.  An event is an instant.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.virtualflybrain.org/owl/timing_relations.owl:NRTF0000016 -->
+
+    <owl:Class rdf:about="&timing_relations;NRTF0000016">
+        <rdfs:label xml:lang="en">process</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&timing_relations;NRTF0000013"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
