@@ -2,8 +2,10 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
@@ -13,16 +15,22 @@
 
 <rdf:RDF xmlns="&obo;ro.owl#"
      xml:base="&obo;ro.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="&obo;ro.owl">
-        <owl:versionIRI rdf:resource="&obo;ro/dev/ro.owl"/>
-        <owl:imports rdf:resource="&obo;ro/bfo_1_2_relations_import.owl"/>
+        <foaf:homepage rdf:datatype="&xsd;anyURI">http://obo-relations.googlecode.com</foaf:homepage>
+        <dc:title xml:lang="en">OBO Relations Ontology</dc:title>
+        <dc:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies</dc:description>
+        <dc:source rdf:resource="http://obofoundry.org/ro"/>
         <owl:imports rdf:resource="&obo;ro/bfo_1_2_extra.owl"/>
+        <owl:imports rdf:resource="&obo;ro/bfo_1_2_relations_import.owl"/>
+        <owl:versionIRI rdf:resource="&obo;ro/dev/ro.owl"/>
     </owl:Ontology>
     
 
@@ -35,6 +43,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
     <owl:AnnotationProperty rdf:about="&obo;RO_0002161">
         <rdfs:label rdf:datatype="&xsd;string">never in taxon</rdfs:label>
         <obo:IAO_0000119>PMID:17921072</obo:IAO_0000119>
@@ -59,6 +68,7 @@
         <rdfs:label xml:lang="en">editor note</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </rdf:Description>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000412">
         <rdfs:label xml:lang="en">imported from</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
@@ -74,12 +84,12 @@
         <rdfs:label xml:lang="en">curator note</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </rdf:Description>
-    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426">
-        <rdfs:label xml:lang="en">first order logic expression</rdfs:label>
-    </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000117">
         <rdfs:label xml:lang="en">term editor</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
+    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000426">
+        <rdfs:label xml:lang="en">first order logic expression</rdfs:label>
     </owl:AnnotationProperty>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000425">
         <rdfs:label xml:lang="en">expand assertion to</rdfs:label>
@@ -88,10 +98,12 @@
         <rdfs:label xml:lang="en">alternative term</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000112">
         <rdfs:label xml:lang="en">example of usage</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000122"/>
     </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
     
 
 
@@ -115,7 +127,6 @@
      -->
 
     
-
 
 
     <!-- http://purl.obolibrary.org/obo/RO_0000300 -->
@@ -230,9 +241,64 @@
 
     <owl:ObjectProperty rdf:about="&obo;RO_0001000">
         <rdfs:label xml:lang="en">derives from</rdfs:label>
-        <rdfs:comment xml:lang="en">TODO: replaced by BFO_0001009</rdfs:comment>
+        <rdfs:comment xml:lang="en">See also BFO_0001009</rdfs:comment>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001015 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0001015">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">location of</rdfs:label>
+        <obo:IAO_0000111 xml:lang="en">location of</obo:IAO_0000111>
+        <obo:IAO_0000118 xml:lang="en">location_of</obo:IAO_0000118>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001018 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0001018">
+        <rdfs:label xml:lang="en">contained in</rdfs:label>
+        <obo:IAO_0000116>Containment is location not involving parthood, and arises only where some immaterial continuant is involved.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">Intended meaning:
+domain: material entity
+range: spatial region or site (immaterial continuant)
+time: at some time</obo:IAO_0000116>
+        <obo:IAO_0000111 xml:lang="en">contained in</obo:IAO_0000111>
+        <obo:IAO_0000118 xml:lang="en">contained_in</obo:IAO_0000118>
+        <owl:inverseOf rdf:resource="&obo;RO_0001019"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001019 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0001019">
+        <rdfs:label xml:lang="en">contains</rdfs:label>
+        <obo:IAO_0000116 xml:lang="en">Intended meaning:
+domain: spatial region or site (immaterial continuant)
+range: material entity
+time: at some time</obo:IAO_0000116>
+        <obo:IAO_0000111 xml:lang="en">contains</obo:IAO_0000111>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001025 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0001025">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">located in</rdfs:label>
+        <dc:source>http://www.obofoundry.org/ro/#OBO_REL:located_in</dc:source>
+        <obo:IAO_0000116 xml:lang="en">Location as a relation between instances: The primitive instance-level relation c located_in r at t reflects the fact that each continuant is at any given time associated with exactly one spatial region, namely its exact location. Following we can use this relation to define a further instance-level location relation - not between a continuant and the region which it exactly occupies, but rather between one continuant and another. c is located in c1, in this sense, whenever the spatial region occupied by c is part_of the spatial region occupied by c1.    Note that this relation comprehends both the relation of exact location between one continuant and another which obtains when r and r1 are identical (for example, when a portion of fluid exactly fills a cavity), as well as those sorts of inexact location relations which obtain, for example, between brain and head or between ovum and uterus</obo:IAO_0000116>
+        <obo:IAO_0000111 xml:lang="en">located in</obo:IAO_0000111>
+        <obo:IAO_0000118 xml:lang="en">located_in</obo:IAO_0000118>
+        <owl:inverseOf rdf:resource="&obo;RO_0001015"/>
     </owl:ObjectProperty>
     
 
@@ -629,10 +695,6 @@
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002110"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -644,6 +706,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002110"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -682,10 +748,6 @@
         <obo:IAO_0000118 xml:lang="en">synapses in</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002113"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -697,6 +759,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -822,16 +888,16 @@ N1 SubclassOf (
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002131"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -912,6 +978,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">connected to</rdfs:label>
         <obo:IAO_0000117 rdf:datatype="&xsd;string">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">X connected_to Y if and only if X and Y share a fiat boundary.</obo:IAO_0000115>
+        <obo:IAO_0000232>Consider relabeling this to &quot;continuous with&quot; (FMA:85972). The standard notion of connectedness does not imply shared boundaries - e.g. Glasgow connected_to Edinburgh via M8; my patella connected_to my femur (via patellar-femoral joint)</obo:IAO_0000232>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
@@ -947,7 +1014,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000118 rdf:datatype="&xsd;string">evolutionarily_descended_from</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002157"/>
-        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
     </owl:ObjectProperty>
     
 
@@ -958,6 +1025,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">has derived by descendant</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
     </owl:ObjectProperty>
     
 
@@ -971,6 +1039,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:comment rdf:datatype="&xsd;string">VBO calls this homologous_to</rdfs:comment>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">two individual entities d1 and d2 stand in a shares_ancestor_with relation if and only if there exists some a such that d1 derived_by_descent_from a and d2 derived_by_descent_from a.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002156"/>
             <rdf:Description rdf:about="&obo;RO_0002157"/>
@@ -986,6 +1055,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">serially homologous to</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
     </owl:ObjectProperty>
     
 
@@ -1022,6 +1092,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
@@ -1030,15 +1104,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002215"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002214"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002215"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1241,12 +1311,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:domain rdf:resource="&obo;BFO_0000007"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -1286,11 +1356,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002214">
         <rdfs:label xml:lang="en">has prototype</rdfs:label>
-        <obo:IAO_0000112>&apos;human p53 protein&apos; SubClassOf some (&apos;participates in&apos; some &apos;DNA repair&apos;)</obo:IAO_0000112>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000232>Experimental. In future there will be a formalization in which this relation is treated as a shortcut to some model logic axiom.</obo:IAO_0000232>
         <obo:IAO_0000112>heart SubClassOf &apos;has prototype&apos; some (&apos;participates in&apos; some &apos;blood circulation&apos;)</obo:IAO_0000112>
         <obo:IAO_0000115>x has prototype y if and only if x is an instance of C and y is a prototypical instance of C. For example, every instance of heart, both normal and abnormal is related by the has prototype relation to some instance of a &quot;canonical&quot; heart, which participates in blood circulation.</obo:IAO_0000115>
+        <obo:IAO_0000112>&apos;human p53 protein&apos; SubClassOf some (&apos;has prototype&apos; some (&apos;participates in&apos; some &apos;DNA repair&apos;))</obo:IAO_0000112>
+        <obo:IAO_0000232>Experimental. In future there may be a formalization in which this relation is treated as a shortcut to some modal logic axiom. We may decide to obsolete this and adopt a more specific evolutionary relationship (e.g. evolved from)</obo:IAO_0000232>
         <rdfs:range rdf:resource="&obo;BFO_0000002"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
@@ -1577,12 +1647,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002256">
         <rdfs:label xml:lang="en">developmentally induced by</rdfs:label>
-        <obo:IAO_0000115>t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T&apos;, where T&apos; develops_from T</obo:IAO_0000115>
+        <obo:IAO_0000232>We place this under &apos;developmentally preceded by&apos;. This placement should be examined in the context of reciprocal inductions[cjm]</obo:IAO_0000232>
         <obo:IAO_0000119> Developmental Biology, Gilbert, 8th edition, figure 6.5(F)</obo:IAO_0000119>
-        <obo:IAO_0000119>GO:0001759</obo:IAO_0000119>
-        <obo:IAO_0000117>Melissa Haendel</obo:IAO_0000117>
+        <obo:IAO_0000118>induced by</obo:IAO_0000118>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000115>t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T&apos;, where T&apos; develops_from T</obo:IAO_0000115>
+        <obo:IAO_0000119>GO:0001759</obo:IAO_0000119>
+        <obo:IAO_0000117>Melissa Haendel</obo:IAO_0000117>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002258"/>
     </owl:ObjectProperty>
@@ -1781,6 +1853,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:domain rdf:resource="&obo;CARO_0000006"/>
         <rdfs:range rdf:resource="&obo;ENVO_0002036"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002321"/>
     </owl:ObjectProperty>
     
 
@@ -1820,6 +1893,34 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">results in acquisition of features of</rdfs:label>
         <oboInOwl:shorthand rdf:datatype="&xsd;string">results_in_acquisition_of_features_of</oboInOwl:shorthand>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002320 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002320">
+        <rdfs:label xml:lang="en">evolutionarily related to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002321 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002321">
+        <rdfs:label xml:lang="en">ecologically related to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002322 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002322">
+        <rdfs:label xml:lang="en">confers advantage in</rdfs:label>
+        <obo:IAO_0000116>An experimental relation currently used to connect a feature possessed by an organism (e.g. anatomical structure, biological process, phenotype or quality) to a habitat or environment in which that feature is well suited, adapted or provides a reproductive advantage for the organism. For example, fins to an aquatic environment. Usually this will mean that the structure is adapted for this environment, but we avoid saying this directly - primitive forms of the structure may not have evolved specifically for that environment (for example, early wings were not necessarily adapted for an aerial environment). Note also that this is a statement about the general class of structures - not every instance of a limb need confer an advantage for a terrestrial environment, e.g. if the limb is vestigial.</obo:IAO_0000116>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000118>adapted for</obo:IAO_0000118>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002321"/>
     </owl:ObjectProperty>
     
 
@@ -1865,88 +1966,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000001 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000001">
-        <rdfs:label xml:lang="en">entity</rdfs:label>
-        <obo:IAO_0000232>Present with same URI in BFO2 and BFO1.2</obo:IAO_0000232>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000002 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000002">
-        <rdfs:label xml:lang="en">continuant</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000001"/>
-        <obo:IAO_0000232>Present with same URI and logical axioms in BFO2 and BFO1.2</obo:IAO_0000232>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000003 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000003">
-        <rdfs:label xml:lang="en">occurrent</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000001"/>
-        <obo:IAO_0000115 xml:lang="en">An entity  that has temporal parts and that happens, unfolds or develops through time. Sometimes also called perdurants.</obo:IAO_0000115>
-        <obo:IAO_0000232>Present with same URI in BFO2 and BFO1.2</obo:IAO_0000232>
-        <obo:IAO_0000112 xml:lang="en">a surgical operation as processual context for a nosocomical infection</obo:IAO_0000112>
-        <obo:IAO_0000118 xml:lang="en">perdurant</obo:IAO_0000118>
-        <obo:IAO_0000112 xml:lang="en">the life of an organism</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">the most interesting part of Van Gogh&apos;s life</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">the spatiotemporal context occupied by a process of cellular meiosis</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">the spatiotemporal region occupied by the development of a cancer tumor</obo:IAO_0000112>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000004">
-        <rdfs:label xml:lang="en">independent continuant</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000002"/>
-        <obo:IAO_0000232>Present with same URI and logical axioms in BFO2 and BFO1.2</obo:IAO_0000232>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000007 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000007">
-        <rdfs:label xml:lang="en">process</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000003"/>
-        <obo:IAO_0000232>There is no equivalent to BFO1.1 &quot;process&quot; in BFO2.</obo:IAO_0000232>
-        <obo:IAO_0000115 xml:lang="en">A processual entity  that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities.</obo:IAO_0000115>
-        <obo:IAO_0000112 xml:lang="en">the life of an organism</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">the process of cell-division</obo:IAO_0000112>
-        <obo:IAO_0000112 xml:lang="en">the process of sleeping</obo:IAO_0000112>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000040">
-        <rdfs:label xml:lang="en">material entity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000004"/>
-        <obo:IAO_0000232>Present with same URI in BFO2 and BFO1.2</obo:IAO_0000232>
-        <obo:IAO_0000412 rdf:resource="&obo;BFO"/>
-    </owl:Class>
-    <owl:Axiom>
-        <rdfs:comment>Present in both BFO2 and BFO1.2</rdfs:comment>
-        <owl:annotatedTarget rdf:resource="&obo;BFO_0000004"/>
-        <owl:annotatedSource rdf:resource="&obo;BFO_0000040"/>
-        <owl:annotatedProperty rdf:resource="&rdfs;subClassOf"/>
-    </owl:Axiom>
     
 
 
