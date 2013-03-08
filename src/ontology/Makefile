@@ -10,7 +10,8 @@ ro.owl: ro-edit.owl
 	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 %.obo: %.owl
-	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
+	owltools --use-catalog $< --merge-import-closure -o -f obo $@
+#	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
 
 # soon this will be incorporated into Oort
 ro-el.owl: ro.owl
