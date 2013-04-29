@@ -24,10 +24,11 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="&obo;ro/bridge/sio-ro-bridge.owl">
-        <rdfs:comment rdf:datatype="&xsd;string">alpha version</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">This is an experimental bridge connecting SIO, RO and BFO2 classes via Equivalence Axioms. The goal is to &quot;be bold&quot; in stating equivalence, to uncover inconsistencies between approaches that could hinder interoperation.</rdfs:comment>
         <foaf:homepage>http://code.google.com/p/obo-relations/wiki/SioRoBridge</foaf:homepage>
         <dc:source rdf:resource="http://obofoundry.org/ro"/>
         <owl:imports rdf:resource="&obo;ro.owl"/>
+        <owl:imports rdf:resource="&obo;ro/bfo2-classes.owl"/>
         <owl:imports rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
     </owl:Ontology>
     
@@ -91,22 +92,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/BFO_0000052 -->
-
-    <rdf:Description rdf:about="&obo;BFO_0000052">
-        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000224"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000053 -->
-
-    <rdf:Description rdf:about="&obo;BFO_0000053">
-        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000008"/>
-    </rdf:Description>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/BFO_0000054 -->
 
     <rdf:Description rdf:about="&obo;BFO_0000054">
@@ -120,28 +105,6 @@
     <rdf:Description rdf:about="&obo;BFO_0000055">
         <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000355"/>
     </rdf:Description>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000056 -->
-
-    <rdf:Description rdf:about="&obo;BFO_0000056">
-        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000062"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
-
-    <rdf:Description rdf:about="&obo;BFO_0000057">
-        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000132"/>
-    </rdf:Description>
-    <owl:Axiom>
-        <oboInOwl:notes rdf:datatype="&xsd;string">SIO relation is weaker as it admits dependent continuants as participants</oboInOwl:notes>
-        <owl:annotatedSource rdf:resource="&obo;BFO_0000057"/>
-        <owl:annotatedTarget rdf:resource="http://semanticscience.org/resource/SIO_000132"/>
-        <owl:annotatedProperty rdf:resource="&owl;equivalentProperty"/>
-    </owl:Axiom>
     
 
 
@@ -166,6 +129,14 @@
     <rdf:Description rdf:about="&obo;RO_0001000">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0001015 -->
+
+    <rdf:Description rdf:about="&obo;RO_0001015">
+        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000145"/>
     </rdf:Description>
     
 
@@ -232,15 +203,6 @@
     <rdf:Description rdf:about="&obo;RO_0002180">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000369"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002215 -->
-
-    <rdf:Description rdf:about="&obo;RO_0002215">
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
-        <owl:equivalentProperty rdf:resource="http://semanticscience.org/resource/SIO_000586"/>
     </rdf:Description>
     
 
@@ -317,22 +279,19 @@
 
     <!-- http://semanticscience.org/resource/SIO_000008 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000008">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000008"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000028 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000028">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000028"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000059 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000059">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000059"/>
     
 
 
@@ -344,140 +303,121 @@
 
     <!-- http://semanticscience.org/resource/SIO_000062 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000062">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000062"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000068 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000068">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000068"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000095 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000095">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000095"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000132 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000132">
-    </owl:ObjectProperty>
-    <owl:Axiom>
-        <oboInOwl:notes rdf:datatype="&xsd;string">SIO relation is weaker as it admits dependent continuants as participants</oboInOwl:notes>
-        <owl:annotatedSource rdf:resource="&obo;BFO_0000057"/>
-        <owl:annotatedTarget rdf:resource="http://semanticscience.org/resource/SIO_000132"/>
-        <owl:annotatedProperty rdf:resource="&owl;equivalentProperty"/>
-    </owl:Axiom>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000132"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000145 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000145"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000204 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000204">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000204"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000224 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000224">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000224"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000229 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000229">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000229"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000230 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000230">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000230"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000244 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000244">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000244"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000248 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000248">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000248"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000249 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000249">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000249"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000250 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000250">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000250"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000251 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000251">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000251"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000312 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000312">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000312"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000323 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000323">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000323"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000324 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000324">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000324"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000325 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000325">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000325"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000355 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000355">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000355"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000356 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000356">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000356"/>
     
 
 
@@ -489,15 +429,13 @@
 
     <!-- http://semanticscience.org/resource/SIO_000586 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000586">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000586"/>
     
 
 
     <!-- http://semanticscience.org/resource/SIO_000652 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000652">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000652"/>
     <owl:Axiom>
         <oboInOwl:notes rdf:datatype="&xsd;string">definitions may differ, requires further investigation</oboInOwl:notes>
         <owl:annotatedSource rdf:resource="&obo;RO_0002150"/>
@@ -509,8 +447,7 @@
 
     <!-- http://semanticscience.org/resource/SIO_010302 -->
 
-    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_010302">
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_010302"/>
     
 
 
@@ -541,18 +478,18 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/BFO_0000005 -->
-
-    <owl:Class rdf:about="&obo;BFO_0000005">
-        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000614"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/BFO_0000007 -->
 
     <rdf:Description rdf:about="&obo;BFO_0000007">
         <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000006"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000016 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000016">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000014"/>
     </rdf:Description>
     
 
@@ -562,6 +499,68 @@
     <owl:Class rdf:about="&obo;BFO_0000017">
         <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000340"/>
     </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000019 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000019">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000026"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000023 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000023">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000016"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000029 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000029">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000019"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000034 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000034">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000017"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000040">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000004"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000140 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000140">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000022"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000141 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000141">
+        <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000370"/>
+    </rdf:Description>
+    <owl:Axiom>
+        <rdfs:comment xml:lang="en">This seems the most likely, given the respective hierarchies - in particular the placement of sites and boundries in SIO</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&obo;BFO_0000141"/>
+        <owl:annotatedTarget rdf:resource="http://semanticscience.org/resource/SIO_000370"/>
+        <owl:annotatedProperty rdf:resource="&owl;equivalentClass"/>
+    </owl:Axiom>
     
 
 
@@ -595,6 +594,12 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000004 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000004"/>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000005 -->
 
     <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000005"/>
@@ -604,6 +609,36 @@
     <!-- http://semanticscience.org/resource/SIO_000006 -->
 
     <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000006"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000014 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000014"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000016 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000016"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000017 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000017"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000019 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000019"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000022 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000022"/>
     
 
 
@@ -625,9 +660,30 @@
     
 
 
+    <!-- http://semanticscience.org/resource/SIO_000370 -->
+
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000370"/>
+    <owl:Axiom>
+        <rdfs:comment xml:lang="en">This seems the most likely, given the respective hierarchies - in particular the placement of sites and boundries in SIO</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&obo;BFO_0000141"/>
+        <owl:annotatedTarget rdf:resource="http://semanticscience.org/resource/SIO_000370"/>
+        <owl:annotatedProperty rdf:resource="&owl;equivalentClass"/>
+    </owl:Axiom>
+    
+
+
     <!-- http://semanticscience.org/resource/SIO_000614 -->
 
-    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000614"/>
+    <rdf:Description rdf:about="http://semanticscience.org/resource/SIO_000614">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;BFO_0000020"/>
+                    <rdf:Description rdf:about="&obo;BFO_0000031"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </rdf:Description>
     
 
 
@@ -679,10 +735,10 @@
     <rdf:Description rdf:about="&obo;RO_0002157">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&obo;RO_0002203">
+    <rdf:Description rdf:about="&obo;RO_0002156">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
-    <rdf:Description rdf:about="&obo;RO_0002156">
+    <rdf:Description rdf:about="&obo;RO_0002203">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
     <rdf:Description rdf:about="&obo;RO_0002151">
@@ -950,6 +1006,9 @@
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
     <rdf:Description rdf:about="&obo;RO_0002216">
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&obo;RO_0002215">
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </rdf:Description>
     <rdf:Description rdf:about="&obo;RO_0002214">
