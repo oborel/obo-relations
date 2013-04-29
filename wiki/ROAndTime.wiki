@@ -63,6 +63,42 @@ Many RO relations are annotated with a "temporal interpretation" property:
 
 This connects an OWL object property to documentation describing how the relation should be interpreted.
 
+= Other examples =
+
+The Gene Ontology (extended version) contains axioms such as:
+
+(1)
+{{{
+(part_of some Nucleus) DisjointWith (part_of some mitochondrion)
+}}}
+
+
+This has a direct interpretation that is atemporal:
+
+(2)
+{{{
+not
+  exists i, n, m:
+    part_of(i,n) &
+    part_of(i,m) &
+    instance_of(n,Nucleus) &
+    instance_of(m,Mitochondrion)
+}}}
+
+Applying the rule above we get:
+
+(3)
+{{{
+forall t : [
+ not
+  exists i, n, m:
+    part_of(i,n,t) &
+    part_of(i,m,t) &
+    instance_of(n,Nucleus,t) &
+    instance_of(m,Mitochondrion,t)
+]
+}}}
+
 = See Also =
 
  * [ROAndBFO]
