@@ -22,9 +22,21 @@ Class: nucleus
 SubClassOf: part_of some cell
 }}}
 
-Should be understood as:
+Is equivalent to writing the following FOL:
 
 (2)
+{{{
+ forall n :
+    instance_of(n,Nucleus)
+     ->
+    exists c :
+      instance_of(c,Cell)
+      part_of(n,c)
+}}}
+
+But our goal is to provide a temporal interpretation, as follows:
+
+(3)
 {{{
 forall t :
   forall n :
@@ -39,17 +51,7 @@ What is currently lacking are global generic rules that can be applied for any O
 
 The basic idea for class axioms is to assume a "forall t" quantifier surrounding the direct FOL translation of the OWL. In addition, the same "t" variable should be added for all property assertions where a temporal argument is required. For example, the the OWL class axiom (1) above has the direct meaning:
 
-(3)
-{{{
- forall n :
-    instance_of(n,Nucleus)
-     ->
-    exists c :
-      instance_of(c,Cell)
-      part_of(n,c)
-}}}
-
-By applying the transformation specified roughly above, we arrive at (3).
+By applying the transformation specified roughly above, we move from (2) to(3).
 
 There will be exceptions to this patterns, these will be documented in the relations themselves.
 
