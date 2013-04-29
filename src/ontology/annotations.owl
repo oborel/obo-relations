@@ -2,6 +2,7 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY obo "http://purl.obolibrary.org/obo/" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
@@ -20,6 +21,7 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="&obo;ro/annotations.owl">
     </owl:Ontology>
@@ -156,6 +158,40 @@
     <owl:AnnotationProperty rdf:about="&obo;IAO_0000426">
         <rdfs:label xml:lang="en">first order logic expression</rdfs:label>
     </owl:AnnotationProperty>
+
+
+    <owl:AnnotationProperty rdf:about="&obo;RO_0001900">
+        <rdfs:label xml:lang="en">temporal interpretation</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://code.google.com/p/obo-relations/wiki/ROAndTime</rdfs:seeAlso>
+    </owl:AnnotationProperty>
+
+    <owl:NamedIndividual rdf:about="&obo;RO_0001901">
+        <rdfs:label xml:lang="en">axiom holds for all times</rdfs:label>
+        <obo:IAO_0000115>
+
+## Elucidation
+
+This is used when the statement/axiom is assumed to hold true 'eternally'
+
+## Example:
+
+    Class: nucleus
+    SubClassOf: part_of some cell
+
+    forall t :
+      forall n :
+        instance_of(n,Nucleus,t)
+         implies
+        exists c :
+          instance_of(c,Cell,t)
+          part_of(n,c,t)
+
+## Notes
+
+This interpretation is *not* the same as an at-all-times relation
+
+</obo:IAO_0000115>
+    </owl:NamedIndividual>
     
 
     <!-- http://purl.org/dc/elements/1.1/contributor -->
@@ -193,6 +229,8 @@
     <!-- http://www.w3.org/2000/01/rdf-schema#label -->
 
     <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+
+    <owl:AnnotationProperty rdf:about="&foaf;homepage"/>
     
 
 </rdf:RDF>

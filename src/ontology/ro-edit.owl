@@ -26,14 +26,12 @@
     <owl:Ontology rdf:about="&obo;ro.owl">
         <foaf:homepage rdf:datatype="&xsd;anyURI">http://obo-relations.googlecode.com</foaf:homepage>
         <dc:title xml:lang="en">OBO Relations Ontology</dc:title>
-        <dc:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies</dc:description>
+        <dc:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</dc:description>
         <dc:source rdf:resource="http://obofoundry.org/ro"/>
         <owl:versionIRI rdf:resource="&obo;ro-edit.owl"/>
-        <owl:imports rdf:resource="&obo;ro/core.owl"/>
         <owl:imports rdf:resource="&obo;ro/annotations.owl"/>
+        <owl:imports rdf:resource="&obo;ro/core.owl"/>
         <owl:imports rdf:resource="&obo;ro/temporal-intervals.owl"/>
-        <owl:imports rdf:resource="&obo;ro/bfo_1_2_extra.owl"/>
-        <owl:imports rdf:resource="&obo;ro/bfo_1_2_relations_import.owl"/>
     </owl:Ontology>
     
 
@@ -49,6 +47,11 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000232 -->
+
+    <owl:AnnotationProperty rdf:about="&obo;IAO_0000232"/>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/RO_0002161 -->
 
@@ -63,8 +66,6 @@
     </owl:AnnotationProperty>
     
 
-    
-
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -74,6 +75,22 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000050">
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000051">
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
+    </owl:ObjectProperty>
     
 
 
@@ -192,8 +209,6 @@
     </owl:ObjectProperty>
     
 
-    
-
 
     <!-- http://purl.obolibrary.org/obo/RO_0002001 -->
 
@@ -203,8 +218,6 @@
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </owl:ObjectProperty>
     
-
-
 
 
     <!-- http://purl.obolibrary.org/obo/RO_0002085 -->
@@ -218,6 +231,12 @@
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002088"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002092"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002092 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002092"/>
     
 
 
@@ -432,20 +451,16 @@
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002110">
         <rdfs:label xml:lang="en">has postsynaptic terminal in</rdfs:label>
-        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
    http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
       http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002110"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -457,6 +472,10 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002110"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -495,6 +514,10 @@
         <obo:IAO_0000118 xml:lang="en">synapses in</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002113"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -506,10 +529,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002113"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -602,15 +621,11 @@ N1 SubclassOf (
     <owl:ObjectProperty rdf:about="&obo;RO_0002130">
         <rdfs:label xml:lang="en">has synaptic terminal in</rdfs:label>
         <obo:IAO_0000424>&lt;http://purl.obolibrary.org/obo/RO_0002131&gt; some (&lt;http://purl.obolibrary.org/obo/GO_0045202&gt; that &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; some Y?)</obo:IAO_0000424>
-        <obo:IAO_0000115>A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000118>has synapse in</obo:IAO_0000118>
+        <obo:IAO_0000115>A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002130"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -622,24 +637,13 @@ N1 SubclassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002130"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
-
-    <owl:ObjectProperty rdf:about="&obo;BFO_0000050">
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
-
-    <owl:ObjectProperty rdf:about="&obo;BFO_0000051">
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
-    </owl:ObjectProperty>
-    
 
     <!-- http://purl.obolibrary.org/obo/RO_0002131 -->
 
@@ -651,15 +655,15 @@ N1 SubclassOf (
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -847,35 +851,35 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label rdf:datatype="&xsd;string">in taxon</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Connects a biological entity to its taxon of origin.</rdfs:comment>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000115>x is in taxon y if an only if y is an organism, and the relationship between x and y is one of: part of (reflexive), developmentally preceded by, derives from, secreted by, expressed.</obo:IAO_0000115>
         <obo:IAO_0000117>Jennifer Deegan</obo:IAO_0000117>
         <obo:IAO_0000119>PMID:17921072</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
-        <obo:IAO_0000115>x is in taxon y if an only if y is an organism, and the relationship between x and y is one of: part of (reflexive), developmentally preceded by, derives from, secreted by, expressed.</obo:IAO_0000115>
         <rdfs:domain rdf:resource="&obo;BFO_0000001"/>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002217"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002215"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002214"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
+            <rdf:Description rdf:about="&obo;RO_0002217"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002206"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002214"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1077,12 +1081,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002328"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -1237,7 +1241,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002220"/>
     </owl:ObjectProperty>
     
-
 
 
     <!-- http://purl.obolibrary.org/obo/RO_0002225 -->
@@ -1529,8 +1532,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>has product</owl:annotatedTarget>
         <obo:IAO_0000116>from SIO</obo:IAO_0000116>
+        <owl:annotatedTarget>has product</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000118"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002297"/>
     </owl:Axiom>
@@ -1756,8 +1759,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002215"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget xml:lang="en">enables</owl:annotatedTarget>
         <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
+        <owl:annotatedTarget xml:lang="en">enables</owl:annotatedTarget>
         <owl:annotatedSource rdf:resource="&obo;RO_0002327"/>
         <owl:annotatedProperty rdf:resource="&rdfs;label"/>
     </owl:Axiom>
