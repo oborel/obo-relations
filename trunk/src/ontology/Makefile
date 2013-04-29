@@ -19,6 +19,14 @@ ro.owl: ro-edit.owl
 ro-el.owl: ro.owl
 	/Users/cjm/src/elvira/makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
 
+
+# ========================================
+# MIREOT
+# ========================================
+
+bfo2-classes.owl:
+	owltools $(OBO)/bfo.owl --make-subset-by-properties // --set-ontology-id $(OBO)/ro/bfo2-classes.owl -o file://`pwd`/bfo2-classes.owl
+
 # ========================================
 # EXPERIMENTAL
 # ========================================
