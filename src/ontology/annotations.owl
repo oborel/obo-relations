@@ -173,7 +173,14 @@
 
 This is used when the statement/axiom is assumed to hold true 'eternally'
 
-## Example:
+## How to interpret (informal)
+
+First the "atemporal" FOL is derived from the OWL using the standard
+interpretation. This axiom is temporalized by embedding the axiom
+within a for-all-times quantified sentence. The t argument is added to
+all instantiation predicates and predicates that use this relation.
+
+## Example
 
     Class: nucleus
     SubClassOf: part_of some cell
@@ -189,6 +196,33 @@ This is used when the statement/axiom is assumed to hold true 'eternally'
 ## Notes
 
 This interpretation is *not* the same as an at-all-times relation
+
+</obo:IAO_0000115>
+    </owl:NamedIndividual>
+
+
+    <owl:NamedIndividual rdf:about="&obo;RO_0001902">
+        <rdfs:label xml:lang="en">relation has no temporal argument</rdfs:label>
+        <obo:IAO_0000115>
+
+## Elucidation
+
+This is used when the first-order logic form of the relation is
+binary, and takes no temporal argument.
+
+## Example:
+
+    Class: limb
+    SubClassOf: develops_from some lateral-plate-mesoderm
+
+     forall t, t2:
+      forall x :
+        instance_of(x,Limb,t)
+         implies
+        exists y :
+          instance_of(y,LPM,t2)
+          develops_from(x,y)
+
 
 </obo:IAO_0000115>
     </owl:NamedIndividual>
