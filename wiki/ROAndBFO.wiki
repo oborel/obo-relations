@@ -22,22 +22,26 @@ Instead, RO will re-use BFO2 relations that are not temporalized, and will creat
 For example, the [http://purl.obolibrary.org/obo/BFO_0000066 BFO_0000066 occurs_in] relation from BFO2 OWL will be re-used directly. In contrast BFO2 OWL relations such as bearer-of-at-all-times will *not* be used. Instead a distinct RO relation [http://purl.obolibrary.org/obo/RO_0000053 RO_0000054 bearer-of] is used.
 
 
-=== Specific Details ===
+=== Part-of ===
 
-For historic reasons, RO has made use of a number of relations with BFO IDs. For example:
+For historic reasons, RO has made use of a small number of relations with BFO IDs. For example:
 
  * [http://purl.obolibrary.org/obo/BFO_0000050 BFO_0000050 part_of] 
  * [http://purl.obolibrary.org/obo/BFO_0000051 BFO_0000051 has_part]
 
 Note that these will *not* be incorporated into the BFO2 OWL release.
 
-However, it shoukd be understood that these identifiers are *stable* and are under the menagement of the RO project. The RO developers are committed to maintaining these identifiers for as long as users need them.
+However, it should be noted that *these are valid RO relations* - they are defined in the RO, and will be maintained by the RO developers so long as users require them.
+
+=== Relations re-used from BFO2 OWL ===
 
 RO also makes use of others relations that are either uncontroversial (non-temporalized) parts of BFO2, or that will be incorporated in the future.
 
  * [http://purl.obolibrary.org/obo/BFO_0000060 BFO_0000060 preceded by] (not in BFO2, but may be in the future. We assume this is the transitive form)
  * [http://purl.obolibrary.org/obo/BFO_0000060 BFO_0000063 precedes] `*` (not in BFO2, but may be in the future. We assume this is the transitive form)
  * [http://purl.obolibrary.org/obo/BFO_0000066 BFO_0000066 occurs_in] (in BFO2)
+
+=== non-temporalized RO relations ===
 
 In previous versions of RO we made use of other unofficial non-temporalized relations. To avoid potential clashes with temporalized relations with different meanings, we have decided to create separate IDs with RO prefixes:
 
@@ -48,10 +52,13 @@ In previous versions of RO we made use of other unofficial non-temporalized rela
  * participates in [http://purl.obolibrary.org/obo/BFO_0000056 BFO_0000056]  ==>  [http://purl.obolibrary.org/obo/RO_0000056 RO_0000056] 
  * has participant [http://purl.obolibrary.org/obo/BFO_0000057 BFO_0000057]  ==>  [http://purl.obolibrary.org/obo/RO_0000057 RO_0000057] 
 
+== Availability ==
 
 The current home of these relations is in:
 
  * http://purl.obolibrary.org/obo/ro/core.owl
+
+This is imported by the main RO
 
 See [ROCore] for more details.
 
@@ -63,6 +70,6 @@ The above relations import ontology imports a set of BFO classes that are a subs
 
  * TODO: resolve processural entity/process distinction
 
-== More on relations and time ==
+== Temporal interpretations ==
 
 See [ROAndTime]
