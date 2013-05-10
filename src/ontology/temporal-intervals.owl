@@ -20,11 +20,43 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="&obo;ro/temporal-intervals.owl">
-        <owl:imports rdf:resource="&obo;ro/core.owl"/>
         <owl:imports rdf:resource="&obo;ro/annotations.owl"/>
+        <owl:imports rdf:resource="&obo;ro/core.owl"/>
     </owl:Ontology>
     
 
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000060 -->
@@ -34,6 +66,36 @@
         <rdfs:label xml:lang="en">obsolete preceded by</rdfs:label>
         <rdfs:comment xml:lang="en">accidentally included in BFO 1.2 proposal
         - should have been BFO_0000062</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
+
+    <owl:ObjectProperty rdf:about="&obo;BFO_0000062">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">preceded by</rdfs:label>
+        <obo:IAO_0000116 xml:lang="en">An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other.</obo:IAO_0000116>
+        <dc:source>http://www.obofoundry.org/ro/#OBO_REL:preceded_by</dc:source>
+        <obo:IAO_0000116 xml:lang="en">Intended meaning:
+domain: occurrent
+range: occurrent
+time: atemporal</obo:IAO_0000116>
+        <obo:IAO_0000118 xml:lang="en">is preceded by</obo:IAO_0000118>
+        <obo:IAO_0000111 xml:lang="en">preceded by</obo:IAO_0000111>
+        <obo:IAO_0000118 xml:lang="en">preceded_by</obo:IAO_0000118>
+        <rdfs:range rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
+        <owl:inverseOf rdf:resource="&obo;BFO_0000063"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002086"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002092"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002091"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -54,127 +116,12 @@ time: atemporal</obo:IAO_0000116>
     
 
 
-    <!-- http://purl.obolibrary.org/obo/RO_0002090 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002090">
-        <rdfs:label xml:lang="en">immediately_precedes</rdfs:label>
-        <obo:IAO_0000118>meets</obo:IAO_0000118>
-        <rdfs:comment xml:lang="en">X immediately_precedes_Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
-        <obo:IAO_0000118>ends_at_start_of</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000062"/>
-    </owl:ObjectProperty>
-    
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002086 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002086">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
-        <rdfs:label xml:lang="en">ends_after</rdfs:label>
-        <rdfs:comment xml:lang="en">X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002093"/>
-            <rdf:Description rdf:about="&obo;BFO_0000062"/>
-        </owl:propertyChainAxiom>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002087 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002087">
-        <rdfs:label xml:lang="en">immediately_preceded_by</rdfs:label>
-        <rdfs:comment xml:lang="en">X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
-        <obo:IAO_0000118>starts_at_end_of</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000062"/>
-        <owl:inverseOf rdf:resource="&obo;RO_0002090"/>
-    </owl:ObjectProperty>
-    
-
-
-
-    <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
-
-    <owl:ObjectProperty rdf:about="&obo;BFO_0000062">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:label xml:lang="en">preceded by</rdfs:label>
-        <obo:IAO_0000118 xml:lang="en">is preceded by</obo:IAO_0000118>
-        <obo:IAO_0000118 xml:lang="en">preceded_by</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002086"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002092"/>
-            <rdf:Description rdf:about="&obo;BFO_0000062"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002091"/>
-            <rdf:Description rdf:about="&obo;BFO_0000062"/>
-        </owl:propertyChainAxiom>
-        <dc:source>http://www.obofoundry.org/ro/#OBO_REL:preceded_by</dc:source>
-        <obo:IAO_0000116 xml:lang="en">An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other.</obo:IAO_0000116>
-        <obo:IAO_0000116 xml:lang="en">Intended meaning:
-domain: occurrent
-range: occurrent
-time: atemporal</obo:IAO_0000116>
-        <obo:IAO_0000118 xml:lang="en">is preceded by</obo:IAO_0000118>
-        <obo:IAO_0000111 xml:lang="en">preceded by</obo:IAO_0000111>
-        <obo:IAO_0000118 xml:lang="en">preceded_by</obo:IAO_0000118>
-        <rdfs:range rdf:resource="&obo;BFO_0000003"/>
-        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
-        <owl:inverseOf rdf:resource="&obo;BFO_0000063"/>
-    </owl:ObjectProperty>
-    
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002222 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002222">
-        <rdfs:label xml:lang="en">temporally related to</rdfs:label>
-        <obo:IAO_0000119>Allen</obo:IAO_0000119>
-        <rdfs:comment>A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.</rdfs:comment>
-        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
-        <rdfs:range rdf:resource="&obo;BFO_0000003"/>
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002223 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002223">
-        <rdfs:label xml:lang="en">starts</rdfs:label>
-        <obo:IAO_0000119>Allen</obo:IAO_0000119>
-        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000115>inverse of starts with</obo:IAO_0000115>
-        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002224 -->
-
-    <owl:ObjectProperty rdf:about="&obo;RO_0002224">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
-        <rdfs:label xml:lang="en">starts with</rdfs:label>
-        <obo:IAO_0000112>Every insulin receptor signaling pathway starts with the binding of a ligand to the insulin receptor</obo:IAO_0000112>
-        <obo:IAO_0000115>x starts with y if and only if x has part y and the time point at which x starts is equivalent to the time point at which y starts. Formally: α(y) = α(x) ∧ ω(y) &lt; ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point.</obo:IAO_0000115>
-        <obo:IAO_0000118>started by</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
-        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
-        <owl:inverseOf rdf:resource="&obo;RO_0002223"/>
-    </owl:ObjectProperty>
-    
     <!-- http://purl.obolibrary.org/obo/RO_0002081 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002081">
         <rdfs:label xml:lang="en">before_or_simultaneous_with</rdfs:label>
-        <obo:IAO_0000118 xml:lang="en">&lt;=</obo:IAO_0000118>
         <rdfs:comment>Primitive instance level timing relation between events</rdfs:comment>
+        <obo:IAO_0000118 xml:lang="en">&lt;=</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
     </owl:ObjectProperty>
     
@@ -213,6 +160,33 @@ time: atemporal</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002086 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002086">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">ends_after</rdfs:label>
+        <rdfs:comment xml:lang="en">X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002093"/>
+            <rdf:Description rdf:about="&obo;BFO_0000062"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002087 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002087">
+        <rdfs:label xml:lang="en">immediately_preceded_by</rdfs:label>
+        <obo:IAO_0000118>starts_at_end_of</obo:IAO_0000118>
+        <rdfs:comment xml:lang="en">X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000062"/>
+        <owl:inverseOf rdf:resource="&obo;RO_0002090"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002088 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002088">
@@ -238,15 +212,26 @@ time: atemporal</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002090 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002090">
+        <rdfs:label xml:lang="en">immediately_precedes</rdfs:label>
+        <obo:IAO_0000118>ends_at_start_of</obo:IAO_0000118>
+        <rdfs:comment xml:lang="en">X immediately_precedes_Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
+        <obo:IAO_0000118>meets</obo:IAO_0000118>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000062"/>
+    </owl:ObjectProperty>
+    
+
 
     <!-- http://purl.obolibrary.org/obo/RO_0002091 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002091">
         <rdfs:label xml:lang="en">starts_during</rdfs:label>
-        <rdfs:comment xml:lang="en">X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (start(X) before_or_simultaneous_with end(Y))</rdfs:comment>
         <obo:IAO_0000118>io</obo:IAO_0000118>
-        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:comment xml:lang="en">X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (start(X) before_or_simultaneous_with end(Y))</rdfs:comment>
         <rdfs:range rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
     </owl:ObjectProperty>
     
@@ -257,10 +242,9 @@ time: atemporal</obo:IAO_0000116>
     <owl:ObjectProperty rdf:about="&obo;RO_0002092">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">happens_during</rdfs:label>
-        <rdfs:comment xml:lang="en">X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (end(X) before_or_simultaneous_with end(Y))</rdfs:comment>
-        <obo:IAO_0000118>during</obo:IAO_0000118>
         <obo:IAO_0000118>d</obo:IAO_0000118>
-        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+        <obo:IAO_0000118>during</obo:IAO_0000118>
+        <rdfs:comment xml:lang="en">X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (end(X) before_or_simultaneous_with end(Y))</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002093"/>
     </owl:ObjectProperty>
     
@@ -270,10 +254,53 @@ time: atemporal</obo:IAO_0000116>
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002093">
         <rdfs:label xml:lang="en">ends_during</rdfs:label>
-        <rdfs:comment xml:lang="en">X ends_during Y iff: ((start(Y) before_or_simultaneous_with end(X)) AND end(X) before_or_simultaneous_with end(Y). </rdfs:comment>
-        <obo:IAO_0000118>overlaps</obo:IAO_0000118>
         <obo:IAO_0000118>o</obo:IAO_0000118>
+        <obo:IAO_0000118>overlaps</obo:IAO_0000118>
+        <rdfs:comment xml:lang="en">X ends_during Y iff: ((start(Y) before_or_simultaneous_with end(X)) AND end(X) before_or_simultaneous_with end(Y). </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002222 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002222">
+        <rdfs:label xml:lang="en">temporally related to</rdfs:label>
+        <rdfs:comment>A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.</rdfs:comment>
+        <obo:IAO_0000119>Allen</obo:IAO_0000119>
+        <rdfs:range rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002223 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002223">
+        <rdfs:label xml:lang="en">starts</rdfs:label>
+        <obo:IAO_0000115>inverse of starts with</obo:IAO_0000115>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000119>Allen</obo:IAO_0000119>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002224 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002224">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">starts with</rdfs:label>
+        <obo:IAO_0000118>started by</obo:IAO_0000118>
+        <obo:IAO_0000115>x starts with y if and only if x has part y and the time point at which x starts is equivalent to the time point at which y starts. Formally: α(y) = α(x) ∧ ω(y) &lt; ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point.</obo:IAO_0000115>
+        <obo:IAO_0000112>Every insulin receptor signaling pathway starts with the binding of a ligand to the insulin receptor</obo:IAO_0000112>
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+        <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
+        <owl:inverseOf rdf:resource="&obo;RO_0002223"/>
     </owl:ObjectProperty>
     
 
@@ -296,18 +323,15 @@ time: atemporal</obo:IAO_0000116>
     <owl:ObjectProperty rdf:about="&obo;RO_0002230">
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">ends with</rdfs:label>
-        <obo:IAO_0000118>finished by</obo:IAO_0000118>
         <obo:IAO_0000115>x ends with y if and only if x has part y and the time point at which x ends is equivalent to the time point at which y ends. Formally: α(y) &gt; α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point.</obo:IAO_0000115>
+        <obo:IAO_0000118>finished by</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002222"/>
     </owl:ObjectProperty>
-    
-    
-
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.5.1928) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
 
