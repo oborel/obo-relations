@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2013-04-28
+data-version: releases/2013-05-10
 ontology: ro
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
@@ -286,7 +286,7 @@ transitive_over: BFO:0000050 ! part of
 [Typedef]
 id: BFO:0000067
 name: contains process
-property_value: IAO:0000111 "ste of" xsd:string
+property_value: IAO:0000111 "site of" xsd:string
 
 [Typedef]
 id: RO:0000052
@@ -364,6 +364,12 @@ id: RO:0001000
 name: derives from
 comment: See also BFO_0001009
 property_value: IAO:0000114 IAO:0000125
+
+[Typedef]
+id: RO:0001001
+name: derives into
+property_value: IAO:0000114 IAO:0000125
+inverse_of: RO:0001000 ! derives from
 
 [Typedef]
 id: RO:0001015
@@ -456,7 +462,6 @@ name: encompasses
 comment: Previously had ID  http://purl.obolibrary.org/obo/RO_0002124 in test files in sandpit - but this seems to have been dropped from ro-edit.owl at some point.  No re-use under this ID AFAIK, but leaving note here in case we run in to clashes down the line.  Official ID now chosen from DOS ID range.
 property_value: IAO:0000118 "di" xsd:string
 is_transitive: true
-is_a: BFO:0000051 ! has part
 is_a: RO:0002088 ! during_which_starts
 inverse_of: RO:0002092 ! happens_during
 
@@ -514,7 +519,6 @@ comment: X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X))
 property_value: IAO:0000118 "d" xsd:string
 property_value: IAO:0000118 "during" xsd:string
 is_transitive: true
-is_a: BFO:0000050 ! part of
 is_a: RO:0002093 ! ends_during
 
 [Typedef]
@@ -1111,6 +1115,7 @@ inverse_of: RO:0002219 ! surrounded by
 id: RO:0002222
 name: temporally related to
 comment: A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.
+property_value: http://purl.org/dc/elements/1.1/source https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1 xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000119 "Allen" xsd:string
 domain: BFO:0000003 ! occurrent
@@ -1123,7 +1128,6 @@ def: "inverse of starts with" []
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 "Allen" xsd:string
-is_a: BFO:0000050 ! part of
 is_a: RO:0002222 ! temporally related to
 
 [Typedef]
@@ -1134,7 +1138,6 @@ property_value: IAO:0000112 "Every insulin receptor signaling pathway starts wit
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "started by" xsd:string
 is_transitive: true
-is_a: BFO:0000051 ! has part
 is_a: RO:0002222 ! temporally related to
 inverse_of: RO:0002223 ! starts
 
@@ -1160,7 +1163,6 @@ id: RO:0002229
 name: ends
 def: "inverse of ends with" []
 property_value: IAO:0000114 IAO:0000125
-is_a: BFO:0000050 ! part of
 is_a: RO:0002222 ! temporally related to
 inverse_of: RO:0002230 ! ends with
 
@@ -1171,7 +1173,6 @@ def: "x ends with y if and only if x has part y and the time point at which x en
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "finished by" xsd:string
 is_transitive: true
-is_a: BFO:0000051 ! has part
 is_a: RO:0002222 ! temporally related to
 
 [Typedef]
@@ -1572,6 +1573,35 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 id: RO:0002357
 name: results in developmental induction of
 is_a: results_in_developmental_progression_of ! results in developmental progression of
+
+[Typedef]
+id: RO:0002371
+name: attached to
+is_symmetric: true
+
+[Typedef]
+id: RO:0002372
+name: has muscle origin
+def: "m has_muscle_origin s iff m is attached_to s, and it is the case that when m contracts, s does not move. The site of the origin tends to be more proximal and have greater mass than what the other end attaches to." []
+property_value: IAO:0000119 Wikipedia:Insertion_(anatomy) xsd:string
+property_value: seeAlso http://dbpedia.org/property/origin
+is_a: RO:0002371 ! attached to
+
+[Typedef]
+id: RO:0002373
+name: has muscle insertion
+def: "m has_muscle_insertion s iff m is attaches_to s, and it is the case that when m contracts, s moves. Insertions are usually connections of muscle via tendon to bone." []
+property_value: IAO:0000119 Wikipedia:Insertion_(anatomy) xsd:string
+property_value: seeAlso http://dbpedia.org/property/insertion
+is_a: RO:0002371 ! attached to
+
+[Typedef]
+id: RO:0002374
+name: has fused element
+def: "x has_fused_element y iff: there exists some z : x has_part z, z homologous_to y, and y is a distinct element, the boundary between x and z is largely fiat" []
+comment: A single bone in one species may correspond to the fusion of two or more bones found as distinct elements in another. For example, tibiofibula has_fused_element tibia. A has_fused_element B does not imply that A has_part some B, rather than A has_part some B', where B' is not a subtype of B (because B is a distinct element but B' is a regional part) but has some evolutionary relationship to B.
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+is_a: RO:0002320 ! evolutionarily related to
 
 [Typedef]
 id: RO:0003000
