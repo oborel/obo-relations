@@ -7,7 +7,7 @@ OBO=http://purl.obolibrary.org/obo
 build: ro.owl ro.obo ro-el.owl
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually
-ro.owl: ro-edit.owl
+ro.owl: ro-edit.owl core.owl temporal-intervals.owl
 	owltools $< --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
