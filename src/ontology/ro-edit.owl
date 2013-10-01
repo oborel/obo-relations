@@ -257,8 +257,8 @@
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000300"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <rdfs:comment></rdfs:comment>
         <owl:annotatedTarget>A relation that holds between two neurons that are electrically coupled via gap junctions.</owl:annotatedTarget>
+        <rdfs:comment></rdfs:comment>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000115"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002003"/>
     </owl:Axiom>
@@ -961,7 +961,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002215"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -972,11 +976,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002215"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1135,14 +1135,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002202"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
-                    <rdf:Description rdf:about="&obo;CL_0000000"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1151,6 +1143,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;CARO_0010000"/>
+                    <rdf:Description rdf:about="&obo;CL_0000000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1180,12 +1180,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002328"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -2171,6 +2171,144 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">x has_fused_element y iff: there exists some z : x has_part z, z homologous_to y, and y is a distinct element, the boundary between x and z is largely fiat</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002375 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002375">
+        <rdfs:label xml:lang="en">in branching relationship with</rdfs:label>
+        <obo:IAO_0000232 rdf:datatype="&xsd;anyURI">This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (veins, arteries)</obo:IAO_0000232>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002376 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002376">
+        <rdfs:label xml:lang="en">tributary of</rdfs:label>
+        <obo:IAO_0000232 rdf:datatype="&xsd;anyURI">This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (veins, arteries)</obo:IAO_0000232>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Tributary</rdfs:seeAlso>
+        <obo:IAO_0000118>drains into</obo:IAO_0000118>
+        <obo:IAO_0000119>http://en.wikipedia.org/wiki/Tributary</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.medindia.net/glossary/venous_tributary.htm</obo:IAO_0000119>
+        <obo:IAO_0000118>tributary channel of</obo:IAO_0000118>
+        <obo:IAO_0000112>Deschutes River tributary_of Columbia River</obo:IAO_0000112>
+        <obo:IAO_0000115>x tributary_of y if and only if x a channel for the flow of a substance into y, where y is larger than x. If x and y are hydrographic features, then y is the main stem of a river, or a lake or bay, but not the sea or ocean. If x and y are anatomical, then y is a vein.</obo:IAO_0000115>
+        <obo:IAO_0000112>inferior epigastric vein tributary_of external iliac vein</obo:IAO_0000112>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002375"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <dc:source>GAZ</dc:source>
+        <owl:annotatedTarget>Deschutes River tributary_of Columbia River</owl:annotatedTarget>
+        <owl:annotatedProperty rdf:resource="&obo;IAO_0000112"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002376"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <dc:source>FMA</dc:source>
+        <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
+        <owl:annotatedProperty rdf:resource="&obo;IAO_0000112"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002376"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002377 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002377">
+        <rdfs:label xml:lang="en">distributary of</rdfs:label>
+        <obo:IAO_0000118>branch of</obo:IAO_0000118>
+        <obo:IAO_0000119>http://en.wikipedia.org/wiki/Distributary</obo:IAO_0000119>
+        <obo:IAO_0000115>x distributary_of y if and only if x is capable of channeling the flow of a substance to y, where y channels less of the substance than x</obo:IAO_0000115>
+        <obo:IAO_0000118>distributary channel of</obo:IAO_0000118>
+        <obo:IAO_0000112>Deschutes River distributary_of Little Lava Lake</obo:IAO_0000112>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002375"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedTarget>Deschutes River distributary_of Little Lava Lake</owl:annotatedTarget>
+        <dc:source>GAZ</dc:source>
+        <owl:annotatedProperty rdf:resource="&obo;IAO_0000112"/>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002377"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002378 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002378">
+        <rdfs:label xml:lang="en">anabranch of</rdfs:label>
+        <obo:IAO_0000115>x anabranch_of y if x is a distributary of y (i.e. it channels a from a larger flow from y) and x ultimately channels the flow back into y.</obo:IAO_0000115>
+        <obo:IAO_0000118>anastomoses with</obo:IAO_0000118>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002377"/>
+        <owl:propertyDisjointWith rdf:resource="&obo;RO_0002382"/>
+        <owl:propertyDisjointWith rdf:resource="&obo;RO_0002383"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&obo;RO_0002376"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002379 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002379">
+        <rdfs:label xml:lang="en">spatially coextensive with</rdfs:label>
+        <obo:IAO_0000115>x spatially_coextensive_with y if and inly if x and y have the same location</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0001025"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&obo;RO_0001025"/>
+            </rdf:Description>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002380 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002380">
+        <rdfs:label xml:lang="en">branching part of</rdfs:label>
+        <obo:IAO_0000115>x is a branching part of y if and only if x is part of y and x is a branch_of the main stem of y</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002375"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002377"/>
+            <rdf:Description rdf:about="&obo;RO_0002381"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002381 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002381">
+        <rdfs:label xml:lang="en">main stem of</rdfs:label>
+        <obo:IAO_0000115>x main_stem_of y if y is a branching structure and x is a channel that traces a linear path through y, such that x has higher capacity than any other such path.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002375"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002382 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002382">
+        <rdfs:label xml:lang="en">proper distributary of</rdfs:label>
+        <obo:IAO_0000115>x proper_distributary_of y iff x distributary_of y and x does not flow back into y</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002377"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002383 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002383">
+        <rdfs:label xml:lang="en">proper tributary of</rdfs:label>
+        <obo:IAO_0000115>x proper_tributary_of y iff x tributary_of y and x does not originate from y</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002376"/>
     </owl:ObjectProperty>
     
 
