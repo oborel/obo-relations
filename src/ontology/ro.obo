@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2013-09-30
+data-version: releases/2013-10-21
 ontology: ro
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
@@ -257,7 +257,6 @@ holds_over_chain: RO:0002091 BFO:0000062
 holds_over_chain: RO:0002092 BFO:0000062
 is_transitive: true
 is_a: RO:0002086 ! ends_after
-disjoint_from: BFO:0000063 ! precedes
 inverse_of: BFO:0000063 ! precedes
 
 [Typedef]
@@ -964,6 +963,8 @@ property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000117 "Terry Meehan" xsd:string
 is_transitive: true
 is_a: RO:0002286 ! developmentally succeeded by
+is_a: RO:0002387 ! has potential to develop into
+is_a: RO:0002388 ! has potential to directly develop into
 inverse_of: RO:0002202 ! develops from
 
 [Typedef]
@@ -1079,7 +1080,7 @@ domain: BFO:0000004 ! independent continuant
 range: BFO:0000007 ! processual entity
 holds_over_chain: RO:0002214 RO:0002217
 is_a: RO:0002328 ! functionally related to
-expand_expression_to: "BFO_0000053 some (BFO_0000054 only ?Y)" []
+expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
 
 [Typedef]
 id: RO:0002216
@@ -1090,7 +1091,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
 holds_over_chain: RO:0002215 BFO:0000050
 is_a: RO:0002328 ! functionally related to
-expand_expression_to: "BFO_0000053 some (BFO_0000054 only (BFO_0000050 some ?Y))" []
+expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" []
 
 [Typedef]
 id: RO:0002217
@@ -1230,6 +1231,7 @@ is_a: RO:0000057 ! has participant
 [Typedef]
 id: RO:0002254
 name: has developmental contribution from
+def: "x has developmental contribution from y iff x has some part z such that z develops from y" []
 property_value: IAO:0000112 "Mammalian thymus has developmental contribution from some pharyngeal pouch 3; Mammalian thymus has developmental contribution from some pharyngeal pouch 4 [Kardong]" xsd:string
 property_value: IAO:0000114 IAO:0000125
 holds_over_chain: BFO:0000051 RO:0002202
@@ -1239,7 +1241,9 @@ is_a: RO:0002258 ! developmentally preceded by
 id: RO:0002255
 name: developmentally contributes to
 property_value: IAO:0000114 IAO:0000125
+holds_over_chain: RO:0002203 BFO:0000050
 is_a: RO:0002286 ! developmentally succeeded by
+is_a: RO:0002385 ! has potential to developmentally contribute to
 inverse_of: RO:0002254 ! has developmental contribution from
 
 [Typedef]
@@ -1259,8 +1263,10 @@ is_a: RO:0002258 ! developmentally preceded by
 [Typedef]
 id: RO:0002257
 name: developmentally induces
+def: "Inverse of developmentally induced by" []
 property_value: IAO:0000114 IAO:0000125
 is_a: RO:0002286 ! developmentally succeeded by
+is_a: RO:0002386 ! has potential to developmentally induce
 inverse_of: RO:0002256 ! developmentally induced by
 
 [Typedef]
@@ -1286,7 +1292,7 @@ id: RO:0002286
 name: developmentally succeeded by
 def: "Inverse of developmentally preceded by" []
 property_value: IAO:0000114 IAO:0000125
-is_a: RO:0002324 ! developmentally related to
+is_a: RO:0002384 ! has developmental potential involving
 inverse_of: RO:0002258 ! developmentally preceded by
 
 [Typedef]
@@ -1698,6 +1704,36 @@ id: RO:0002383
 name: proper tributary of
 def: "x proper_tributary_of y iff x tributary_of y and x does not originate from y" []
 is_a: RO:0002376 ! tributary of
+
+[Typedef]
+id: RO:0002384
+name: has developmental potential involving
+def: "x has developmental potential involving y iff x is capable of a developmental process with output y. y may be the successor of x, or may be a different structure in the vicinity (as for example in the case of developmental induction)." []
+is_a: RO:0002324 ! developmentally related to
+
+[Typedef]
+id: RO:0002385
+name: has potential to developmentally contribute to
+def: "x has potential to developmentrally contribute to y iff x developmentally contributes to y or x is capable of developmentally contributing to y" []
+is_a: RO:0002384 ! has developmental potential involving
+
+[Typedef]
+id: RO:0002386
+name: has potential to developmentally induce
+def: "x has potential to developmentally induce y iff x developmentally induces y or x is capable of developmentally inducing y" []
+is_a: RO:0002384 ! has developmental potential involving
+
+[Typedef]
+id: RO:0002387
+name: has potential to develop into
+def: "x has the potential to develop into y iff x develops into y or if x is capable of developing into y" []
+is_a: RO:0002384 ! has developmental potential involving
+
+[Typedef]
+id: RO:0002388
+name: has potential to directly develop into
+def: "x has potential to directly develop into y iff x directly develops into y or x is capable of directly developing into y" []
+is_a: RO:0002387 ! has potential to develop into
 
 [Typedef]
 id: RO:0003000
