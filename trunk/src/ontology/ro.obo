@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2013-10-21
+data-version: releases/2014-01-20
 ontology: ro
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
@@ -17,65 +17,54 @@ id: BFO:0000002
 name: continuant
 def: "An entity that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts." []
 is_a: BFO:0000001 ! entity
-property_value: IAO:0000111 "continuant" xsd:string
-property_value: IAO:0000112 "a heart" xsd:string
-property_value: IAO:0000112 "a person" xsd:string
-property_value: IAO:0000112 "a symphony orchestra" xsd:string
-property_value: IAO:0000112 "the color of a tomato" xsd:string
-property_value: IAO:0000112 "the disposition of blood to coagulate" xsd:string
-property_value: IAO:0000112 "the lawn and atmosphere in front of our building" xsd:string
-property_value: IAO:0000112 "the mass of a cloud" xsd:string
-property_value: IAO:0000118 "endurant" xsd:string
 
 [Term]
 id: BFO:0000003
 name: occurrent
 def: "An entity that has temporal parts and that happens, unfolds or develops through time." []
 is_a: BFO:0000001 ! entity
-property_value: IAO:0000111 "occurrent" xsd:string
-property_value: IAO:0000112 "a surgical operation as processual context for a nosocomical infection" xsd:string
-property_value: IAO:0000112 "the life of an organism" xsd:string
-property_value: IAO:0000112 "the most interesting part of Van Gogh's life" xsd:string
-property_value: IAO:0000112 "the spatiotemporal context occupied by a process of cellular meiosis" xsd:string
-property_value: IAO:0000112 "the spatiotemporal region occupied by the development of a cancer tumor" xsd:string
-property_value: IAO:0000118 "perdurant" xsd:string
 
 [Term]
 id: BFO:0000004
 name: independent continuant
 def: "A continuant that is a bearer of quality and realizable entity entities, in which other entities inhere and which itself cannot inhere in anything." []
 is_a: BFO:0000002 ! continuant
-property_value: IAO:0000111 "independent continuant" xsd:string
-property_value: IAO:0000112 "a chair" xsd:string
-property_value: IAO:0000112 "a heart" xsd:string
-property_value: IAO:0000112 "a leg" xsd:string
-property_value: IAO:0000112 "a person" xsd:string
-property_value: IAO:0000112 "a symphony orchestra" xsd:string
-property_value: IAO:0000112 "an organism" xsd:string
-property_value: IAO:0000112 "the bottom right portion of a human torso" xsd:string
-property_value: IAO:0000112 "the lawn and atmosphere in front of our building" xsd:string
-property_value: IAO:0000118 "substantial entity" xsd:string
+
+[Term]
+id: BFO:0000005
+name: dependent continuant
+def: "A continuant  that is either dependent on one or other independent continuant  bearers or inheres in or is borne by other entities." []
+is_a: BFO:0000002 ! continuant
 
 [Term]
 id: BFO:0000007
 name: processual entity
 def: "A processual entity that is a maximally connected spatiotemporal whole and has bona fide beginnings and endings corresponding to real discontinuities." []
 is_a: BFO:0000003 ! occurrent
-property_value: IAO:0000111 "process" xsd:string
-property_value: IAO:0000112 "the life of an organism" xsd:string
-property_value: IAO:0000112 "the process of cell-division" xsd:string
-property_value: IAO:0000112 "the process of sleeping" xsd:string
+
+[Term]
+id: BFO:0000017
+name: realizable entity
+def: "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances." []
+is_a: BFO:0000020 ! specifically dependent continuant
+
+[Term]
+id: BFO:0000020
+name: specifically dependent continuant
+def: "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances." []
+is_a: BFO:0000005 ! dependent continuant
+
+[Term]
+id: BFO:0000023
+name: role
+def: "A realizable entity  the manifestation of which brings about some result or end that is not essential to a continuant  in virtue of the kind of thing that it is but that can be served or participated in by that kind of continuant  in some kinds of natural, social or institutional contexts." []
+is_a: BFO:0000017 ! realizable entity
 
 [Term]
 id: BFO:0000040
 name: material entity
 def: "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time." []
 is_a: BFO:0000004 ! independent continuant
-property_value: IAO:0000111 "material entity" xsd:string
-property_value: IAO:0000112 "a chair" xsd:string
-property_value: IAO:0000112 "collection of random bacteria" xsd:string
-property_value: IAO:0000112 "dorsal surface of the body" xsd:string
-property_value: IAO:0000116 "Material entity subsumes object, fiat object part, and object aggregate, which assume a three level theory of granularity, which is inadequate for some domains, such as biology." xsd:string
 
 [Term]
 id: CARO:0000003
@@ -200,7 +189,7 @@ property_value: IAO:0000412 http://purl.obolibrary.org/obo/go.owl
 id: BFO:0000050
 name: part of
 property_value: http://purl.org/dc/elements/1.1/source http://www.obofoundry.org/ro/#OBO_REL:part_of xsd:string
-property_value: IAO:0000111 "part of" xsd:string
+property_value: IAO:0000111 "is part of" xsd:string
 property_value: IAO:0000116 "Intended meaning:\nAmbiguous between continuant-parthood and occurrent-parthood.\n\ndomain: continuant\nrange: continuant\ntime: at some time\n\ndomain: occurrent\nrange: occurrent\ntime: atemporal" xsd:string
 property_value: IAO:0000116 "Parthood as a relation between instances: The primitive instance-level relation p part_of p1 is illustrated in assertions such as: this instance of rhodopsin mediated phototransduction part_of this instance of visual perception.    This relation satisfies at least the following standard axioms of mereology: reflexivity (for all p, p part_of p); anti-symmetry (for all p, p1, if p part_of p1 and p1 part_of p then p and p1 are identical); and transitivity (for all p, p1, p2, if p part_of p1 and p1 part_of p2, then p part_of p2). Analogous axioms hold also for parthood as a relation between spatial regions.    For parthood as a relation between continuants, these axioms need to be modified to take account of the incorporation of a temporal argument. Thus for example the axiom of transitivity for continuants will assert that if c part_of c1 at t and c1 part_of c2 at t, then also c part_of c2 at t.    Parthood as a relation between classes: To define part_of as a relation between classes we again need to distinguish the two cases of continuants and processes, even though the explicit reference to instants of time now falls away. For continuants, we have C part_of C1 if and only if any instance of C at any time is an instance-level part of some instance of C1 at that time, as for example in: cell nucleus part_ of cell." xsd:string
 property_value: IAO:0000118 "part_of" xsd:string
@@ -304,6 +293,7 @@ property_value: IAO:0000116 "Intended meaning:\ndomain: independent continuant\n
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
+range: BFO:0000020 ! specifically dependent continuant
 inverse_of: RO:0000052 ! inheres in
 
 [Typedef]
@@ -326,6 +316,21 @@ property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000003 ! occurrent
 range: BFO:0000002 ! continuant
 inverse_of: RO:0000056 ! participates in
+
+[Typedef]
+id: RO:0000081
+name: role of
+property_value: IAO:0000118 "is role of" xsd:string
+property_value: IAO:0000118 "role_of" xsd:string
+is_a: RO:0000052 ! inheres in
+
+[Typedef]
+id: RO:0000087
+name: has role
+property_value: IAO:0000118 "has_role" xsd:string
+range: BFO:0000023 ! role
+is_a: RO:0000053 ! bearer of
+inverse_of: RO:0000081 ! role of
 
 [Typedef]
 id: RO:0000300
@@ -374,7 +379,7 @@ inverse_of: RO:0001000 ! derives from
 [Typedef]
 id: RO:0001015
 name: location of
-property_value: IAO:0000111 "location of" xsd:string
+property_value: IAO:0000111 "is location of" xsd:string
 property_value: IAO:0000118 "location_of" xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
