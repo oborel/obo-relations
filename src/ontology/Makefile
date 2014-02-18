@@ -12,7 +12,7 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 %.obo: %.owl
-	owltools --use-catalog $< --merge-import-closure -o -f obo $@
+	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && grep -v ^synonym $@.tmp > $@
 #	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
 
 # soon this will be incorporated into Oort
