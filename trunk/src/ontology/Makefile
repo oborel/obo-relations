@@ -17,7 +17,7 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl
 
 # soon this will be incorporated into Oort
 ro-el.owl: ro.owl
-	/Users/cjm/src/elvira/makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
+	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
 
 
 # ========================================
