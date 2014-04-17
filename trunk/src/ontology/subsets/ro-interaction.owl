@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://purl.obolibrary.org/obo/ro/subsets/ro-interaction.owl#"
      xml:base="http://purl.obolibrary.org/obo/ro/subsets/ro-interaction.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -58,9 +59,21 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000119 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000119"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000232 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000232"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
     
 
 
@@ -209,6 +222,8 @@
         <rdfs:label>preys on</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002439</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">preys_on</oboInOwl:shorthand>
+        <obo:IAO_0000115>An interaction relationship involving a predation process, where the subject consumes all or part of the target</obo:IAO_0000115>
+        <obo:IAO_0000112>Baleen whale preys on krill</obo:IAO_0000112>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
     </owl:ObjectProperty>
     
@@ -219,11 +234,18 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002440">
         <rdfs:label>symbiotically interacts with</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002440</oboInOwl:hasDbXref>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbiotically_interacts_with</oboInOwl:shorthand>
         <obo:IAO_0000115>A biotic interaction in which the two organisms live together in more or less intimate association.</obo:IAO_0000115>
-        <obo:IAO_0000232>Need to add axiom connecting to GO:0044403 ! symbiosis, encompassing mutualism through parasitism</obo:IAO_0000232>
+        <obo:IAO_0000232>We follow GO and PAMGO in using &apos;symbiosis&apos; as the broad term encompassing mutualism through parasitism</obo:IAO_0000232>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
     </owl:ObjectProperty>
+    <owl:Axiom>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</dc:source>
+        <owl:annotatedTarget>We follow GO and PAMGO in using &apos;symbiosis&apos; as the broad term encompassing mutualism through parasitism</owl:annotatedTarget>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000232"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002440"/>
+    </owl:Axiom>
     
 
 
@@ -233,6 +255,7 @@
         <rdfs:label>commensually interacts with</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002441</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">commensually_interacts_with</oboInOwl:shorthand>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <obo:IAO_0000115>An interaction relationship between two organisms living together in more or less intimate association in a relationship in which one benefits and the other is unaffected (GO).</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002440"/>
     </owl:ObjectProperty>
@@ -244,6 +267,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002442">
         <rdfs:label>mutualistically interacts with</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002442</oboInOwl:hasDbXref>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mutualistically_interacts_with</oboInOwl:shorthand>
         <obo:IAO_0000115>An interaction relationship between two organisms living together in more or less intimate association in a relationship in which both organisms benefit from each other (GO).</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002440"/>
@@ -256,8 +280,10 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002443">
         <rdfs:label>interacts with via parasite-host interaction</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002443</oboInOwl:hasDbXref>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">interacts_with_via_parasite-host_interaction</oboInOwl:shorthand>
         <obo:IAO_0000115>An interaction relationship between two organisms living together in more or less intimate association in a relationship in which association is disadvantageous or destructive to one of the organisms (GO).</obo:IAO_0000115>
+        <obo:IAO_0000232>This relation groups a pair of inverse relations, parasite of and parasitized by</obo:IAO_0000232>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002440"/>
     </owl:ObjectProperty>
     
@@ -269,6 +295,7 @@
         <rdfs:label>parasite of</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002444</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">parasite_of</oboInOwl:shorthand>
+        <obo:IAO_0000112>Pediculus humanus capitis parasite of human</obo:IAO_0000112>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002443"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
     </owl:ObjectProperty>
@@ -294,6 +321,7 @@
         <rdfs:label>semibiotically interacts with</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002446</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">semibiotically_interacts_with</oboInOwl:shorthand>
+        <obo:IAO_0000112>Porifiera attaches to substrate</obo:IAO_0000112>
         <obo:IAO_0000115>A biotic interaction relationship in which one partner is an organism and the other partner is inorganic. For example, the relationship between a sponge and the substrate to which is it anchored.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
     </owl:ObjectProperty>
@@ -306,6 +334,7 @@
         <rdfs:label>phosphorylates</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002447</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">phosphorylates</oboInOwl:shorthand>
+        <obo:IAO_0000116>Axiomatization to GO to be added later</obo:IAO_0000116>
         <obo:IAO_0000118>An interaction relation between x and y in which tx catalyzes a reaction in which a phosphate group to y.</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002436"/>
     </owl:ObjectProperty>
@@ -378,6 +407,8 @@
         <rdfs:label>pollinates</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002455</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pollinates</oboInOwl:shorthand>
+        <obo:IAO_0000112>Bees pollinate Flowers</obo:IAO_0000112>
+        <obo:IAO_0000116>This relation is intended to be used for biotic pollination - e.g. a bee pollinating a flowering plant. Some kinds of pollination may be semibiotic - e.g. wind can have the role of pollinator. We would use a separate relation for this.</obo:IAO_0000116>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002442"/>
     </owl:ObjectProperty>
     
@@ -386,9 +417,9 @@
     <!-- http://purl.obolibrary.org/obo/RO_0002456 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002456">
-        <rdfs:label>pollinator of</rdfs:label>
+        <rdfs:label>pollinated by</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002456</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pollinator_of</oboInOwl:shorthand>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pollinated_by</oboInOwl:shorthand>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002442"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002455"/>
     </owl:ObjectProperty>
@@ -424,6 +455,8 @@
         <rdfs:label>is vector for</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002459</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_vector_for</oboInOwl:shorthand>
+        <obo:IAO_0000112>Anopheles is a vector for Plasmodium</obo:IAO_0000112>
+        <obo:IAO_0000119>a is a vector for b if a carries and transmits an infectious pathogen b into another living organism</obo:IAO_0000119>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002460"/>
     </owl:ObjectProperty>
