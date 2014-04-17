@@ -28,6 +28,12 @@ bfo2-classes.owl:
 	owltools $(OBO)/bfo.owl --make-subset-by-properties // --set-ontology-id $(OBO)/ro/bfo2-classes.owl -o file://`pwd`/bfo2-classes.owl
 
 # ========================================
+# SUBSETS
+# ========================================
+subsets/ro-eol.owl: ro.owl
+	owltools --use-catalog $< --extract-properties --list 'interacts with' // -o $@
+
+# ========================================
 # EXPERIMENTAL
 # ========================================
 
