@@ -30,8 +30,8 @@ bfo2-classes.owl:
 # ========================================
 # SUBSETS
 # ========================================
-subsets/ro-eol.owl: ro.owl
-	owltools --use-catalog $< --extract-properties --list 'interacts with' // -o $@
+subsets/ro-interaction.owl: ro.owl
+	owltools --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(OBO)/ro/$@ -o $@
 
 # ========================================
 # EXPERIMENTAL
@@ -43,3 +43,10 @@ build-using-oort: ro-edit.owl
 	ontology-release-runner --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+hom-fixed.obo: hom.obo
+	obo-grep.pl --neg -r is_obsolete: $< > $@.tmp && mv $@.tmp $@
+
+rohom.obo: hom-fixed.obo
+	../tools/hom2rhom.pl $< > $@.tmp && mv $@.tmp $@
+rohom.owl: rohom.obo
+	owltools $< -o $@.tmp && grep -v 'oboInOwl#id' $@.tmp > $@
