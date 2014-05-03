@@ -49,4 +49,4 @@ hom-fixed.obo: hom.obo
 rohom.obo: hom-fixed.obo
 	../tools/hom2rhom.pl $< > $@.tmp && mv $@.tmp $@
 rohom.owl: rohom.obo
-	owltools $< -o $@.tmp && grep -v 'oboInOwl#id' $@.tmp > $@
+	owltools $< -o $@.tmp && grep -v 'oboInOwl:id' $@.tmp > $@.tmp2 && $(HOME)/repos/uberon/util/expand-dbxref-literals.pl $@.tmp2 > $@
