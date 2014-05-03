@@ -20,6 +20,32 @@ ro-el.owl: ro.owl
 	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
 
 
+
+# ========================================
+# DIFFS
+# ========================================
+ro-lastbuild.owl: ro-edit.owl
+	wget $(OBO)/ro.owl -O $@
+
+ro-diff.md: ro.owl ro-lastbuild.owl 
+	owljs-diff -o $@ ro-lastbuild.owl $<
+ro-diff.html: ro-diff.md
+	pandoc $< -o $@
+
+# ========================================
+# IMPORTS
+# ========================================
+seed.owl: ro-edit.owl
+	owltools --use-catalog $< --merge-imports-closure --remove-imports-declarations -o $@
+
+# TODO - have to manually remove OPs for now...
+#pato_mirror.owl: ro-edit.owl
+#	owltools $(OBO)/pato.owl --extract-mingraph --make-subset-by-properties // --remove-dangling-annotations --set-ontology-id $(OBO)/pato.owl -o $@
+#pato_import.owl: seed.owl pato_mirror.owl
+#	owltools --use-catalog $< pato_mirror.owl --add-imports-from-supports --extract-module -c -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
+##	owltools --use-catalog --map-ontology-iri $(OBO)/ro/pato_import.owl pato_mirror.owl ro-edit.owl --extract-module -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
+
+
 # ========================================
 # MIREOT
 # ========================================
