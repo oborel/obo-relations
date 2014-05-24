@@ -326,6 +326,30 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0000052 -->
+
+    <rdf:Description rdf:about="&obo;RO_0000052">
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002314"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0000057 -->
+
+    <rdf:Description rdf:about="&obo;RO_0000057">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0000057"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000055"/>
+            <rdf:Description rdf:about="&obo;RO_0000052"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0000087 -->
 
     <rdf:Description rdf:about="&obo;RO_0000087">
@@ -450,7 +474,9 @@
 
     <!-- http://purl.obolibrary.org/obo/RO_0001000 -->
 
-    <rdf:Description rdf:about="&obo;RO_0001000"/>
+    <rdf:Description rdf:about="&obo;RO_0001000">
+        <obo:IAO_0000232>This relation is taken from the RO2005 version of RO. It may be obsoleted and replaced by relations with different definitions. See also the &apos;develops from&apos; family of relations.</obo:IAO_0000232>
+    </rdf:Description>
     
 
 
@@ -585,17 +611,6 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <obo:IAO_0000115 rdf:datatype="&xsd;string">A relation that holds between two linear structures that are approximately parallel to each other for their entire length. This relation is transitive. It i is agnostic about any parthood relationship between X and Y.</obo:IAO_0000115>
         <rdfs:comment>Example: if we define region of chromosome as any subdivision of a chromosome along its long axis, then we can define a region of chromosome that contains only gene x as &apos;chromosome region&apos; that coincident_with some &apos;gene x&apos;, where the term gene X corresponds to a genomic sequence.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&obo;BFO_0000002"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&obo;RO_0000053"/>
-                        <owl:someValuesFrom rdf:resource="&obo;PATO_0001199"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -607,6 +622,17 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&obo;BFO_0000002"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&obo;RO_0000053"/>
+                        <owl:someValuesFrom rdf:resource="&obo;PATO_0001199"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1061,10 +1087,6 @@ N1 SubclassOf (
         <obo:RO_0001900 rdf:resource="&obo;RO_0001901"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
         <cito:citesAsAuthority rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22402613"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002130"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1076,6 +1098,10 @@ N1 SubclassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002130"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1091,11 +1117,11 @@ N1 SubclassOf (
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
@@ -1194,8 +1220,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <dc:source>RO:cjm</dc:source>
         <owl:annotatedTarget>The label for this relation was previously connected to. I relabeled this to &quot;continuous with&quot;. The standard notion of connectedness does not imply shared boundaries - e.g. Glasgow connected_to Edinburgh via M8; my patella connected_to my femur (via patellar-femoral joint)</owl:annotatedTarget>
+        <dc:source>RO:cjm</dc:source>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000232"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002150"/>
     </owl:Axiom>
@@ -1310,19 +1336,23 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002214"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002206"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002217"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002214"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002225"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1334,15 +1364,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002225"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002254"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002217"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1788,6 +1814,22 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002223 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002223">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002224 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002224">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+    </rdf:Description>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002225 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002225">
@@ -1813,6 +1855,22 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002258"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002229 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002229">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000050"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002230 -->
+
+    <rdf:Description rdf:about="&obo;RO_0002230">
+        <rdfs:subPropertyOf rdf:resource="&obo;BFO_0000051"/>
+    </rdf:Description>
     
 
 
@@ -1856,6 +1914,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002233">
         <rdfs:label xml:lang="en">has input</rdfs:label>
+        <obo:IAO_0000115>p has input c if either: p has direct input c or p has indirect input c. See subrelations for definitions.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1870,6 +1929,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002234">
         <rdfs:label xml:lang="en">has output</rdfs:label>
+        <obo:IAO_0000115>p has output c if either: p has direct output c or p has output input c. See subrelations for definitions.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -2158,7 +2218,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002312 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002312">
-        <rdfs:label xml:lang="en">variant of</rdfs:label>
+        <rdfs:label xml:lang="en">evolutionary variant of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
     </owl:ObjectProperty>
     
@@ -2182,7 +2242,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002314">
         <rdfs:label xml:lang="en">inheres in part of</rdfs:label>
         <obo:IAO_0000115>q inheres in part of w if and only if there exists some p such that q inheres in p and p part of w.</obo:IAO_0000115>
+        <obo:IAO_0000116>Because part_of is transitive, inheres in is a sub-relation of inheres in part of</obo:IAO_0000116>
         <obo:RO_0001900 rdf:resource="&obo;RO_0001901"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002502"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0000052"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
@@ -2365,11 +2427,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000118>actively involved in</obo:IAO_0000118>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002431"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002331"/>
+            <rdf:Description rdf:about="&obo;RO_0002327"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002327"/>
+            <rdf:Description rdf:about="&obo;RO_0002331"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -2708,8 +2770,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002375"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
-        <dc:source>FMA</dc:source>
+        <owl:annotatedTarget>Deschutes River tributary_of Columbia River</owl:annotatedTarget>
+        <dc:source>GAZ</dc:source>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000112"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002376"/>
     </owl:Axiom>
@@ -2720,8 +2782,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <owl:annotatedSource rdf:resource="&obo;RO_0002376"/>
     </owl:Axiom>
     <owl:Axiom>
-        <owl:annotatedTarget>Deschutes River tributary_of Columbia River</owl:annotatedTarget>
-        <dc:source>GAZ</dc:source>
+        <dc:source>FMA</dc:source>
+        <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="&obo;IAO_0000112"/>
         <owl:annotatedSource rdf:resource="&obo;RO_0002376"/>
     </owl:Axiom>
@@ -2909,6 +2971,10 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">has indirect input</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002233"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002404"/>
+            <rdf:Description rdf:about="&obo;RO_0002400"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -2934,6 +3000,10 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">has indirect output</rdfs:label>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002234"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002411"/>
+            <rdf:Description rdf:about="&obo;RO_0002402"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -3020,12 +3090,12 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002212"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002409"/>
             <rdf:Description rdf:about="&obo;RO_0002408"/>
+            <rdf:Description rdf:about="&obo;RO_0002409"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002408"/>
             <rdf:Description rdf:about="&obo;RO_0002409"/>
+            <rdf:Description rdf:about="&obo;RO_0002408"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002408"/>
@@ -3041,6 +3111,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">causally related to</rdfs:label>
         <obo:IAO_0000115>p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one of direct activation or direct inhibition. p may be upstream, downstream, part of or a container of q.</obo:IAO_0000115>
         <obo:IAO_0000232>Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving cause and effect.</obo:IAO_0000232>
+        <rdfs:range rdf:resource="&obo;BFO_0000015"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000015"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
     </owl:ObjectProperty>
     
@@ -3090,6 +3162,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002414">
         <rdfs:label xml:lang="en">provides input for</rdfs:label>
         <obo:IAO_0000589>provides input for (process to process)</obo:IAO_0000589>
+        <rdfs:domain rdf:resource="&obo;BFO_0000015"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000015"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002411"/>
     </owl:ObjectProperty>
@@ -3159,11 +3233,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000115>c involved in regulation of p if c is involved in some &apos;p&apos; and p&apos; regulates some p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002431"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002327"/>
+            <rdf:Description rdf:about="&obo;RO_0002331"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002331"/>
+            <rdf:Description rdf:about="&obo;RO_0002327"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3176,11 +3250,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label>involved in positive regulation of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002428"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002327"/>
+            <rdf:Description rdf:about="&obo;RO_0002331"/>
             <rdf:Description rdf:about="&obo;RO_0002213"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002331"/>
+            <rdf:Description rdf:about="&obo;RO_0002327"/>
             <rdf:Description rdf:about="&obo;RO_0002213"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3937,6 +4011,25 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002502">
+        <rdfs:label>depends on</rdfs:label>
+        <rdfs:seeAlso rdf:resource="&obo;BFO_0000169"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002503 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002503">
+        <rdfs:label>towards</rdfs:label>
+        <obo:IAO_0000116>This relation is provided in order to support the use of relational qualities such as &apos;concentration of&apos;; for example, the concentration of C in V is a quality that inheres in V, but pertains to C.</obo:IAO_0000116>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002502"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0003000 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0003000">
@@ -3948,6 +4041,12 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:domain rdf:resource="&obo;BFO_0000040"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <owl:inverseOf rdf:resource="&obo;RO_0003001"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&obo;BFO_0000066"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="&obo;RO_0002234"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
