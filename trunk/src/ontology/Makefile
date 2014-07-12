@@ -4,7 +4,7 @@ OBO=http://purl.obolibrary.org/obo
 # PRODUCTION
 # ========================================
 
-build: ro.owl ro.obo ro-el.owl
+build: ro.owl ro.obo ro-el.owl all_subsets
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl
@@ -56,6 +56,7 @@ bfo2-classes.owl:
 # ========================================
 # SUBSETS
 # ========================================
+all_subsets: subsets/ro-interaction.owl
 subsets/ro-interaction.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(OBO)/ro/$@ -o $@
 

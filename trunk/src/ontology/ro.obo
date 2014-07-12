@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2014-06-26
+data-version: releases/2014-07-07
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>))) [Axioms: 53 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>))) [Axioms: 44 Logical Axioms: 10]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>))) [Axioms: 148 Logical Axioms: 35]
@@ -1658,6 +1658,14 @@ is_a: RO:0002292 ! expresses
 inverse_of: RO:0002291 ! ubiquitously expressed in
 
 [Typedef]
+id: RO:0002301
+name: results in developmental regression of
+property_value: IAO:0000112 "every mullerian duct regression (GO:0001880) results in regression of some mullerian duct (UBERON:0003890)" xsd:string
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000232 "May be merged into parent relation" xsd:string
+is_a: RO:0002552 ! results in ending of
+
+[Typedef]
 id: RO:0002303
 name: has habitat
 def: "x 'has habitat' y if and only if: x is an organism, y is a habitat, and x is specially adapted (either naturally or via artifical selection) to living in y. Here 'living in' encompasses the majority of the animal's lifespan." []
@@ -2001,7 +2009,7 @@ id: RO:0002375
 name: in branching relationship with
 property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 property_value: IAO:0000114 IAO:0000428
-property_value: IAO:0000232 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (veins, arteries)" xsd:anyURI
+property_value: IAO:0000232 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)" xsd:string
 is_a: BFO:0000050 ! part of
 is_a: RO:0002323 ! mereotopologically related to
 
@@ -2056,6 +2064,7 @@ def: "x is a branching part of y if and only if x is part of y and x is a branch
 property_value: IAO:0000114 IAO:0000428
 property_value: seeAlso FMA:85994 xsd:string
 holds_over_chain: RO:0002377 RO:0002381
+is_a: BFO:0000050 ! part of
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -2352,6 +2361,7 @@ id: RO:0002437
 name: biotically interacts with
 def: "An interaction relationship in which at least one of the partners is an organism and the other is either an organism or an abiotic entity with which the organism interacts." []
 property_value: IAO:0000118 "interacts with on organism level" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/interactsWith xsd:string
 is_symmetric: true
 is_a: RO:0002321 ! ecologically related to
 is_a: RO:0002434 ! interacts with
@@ -2367,6 +2377,8 @@ id: RO:0002439
 name: preys on
 def: "An interaction relationship involving a predation process, where the subject consumes all or part of the target" []
 property_value: IAO:0000112 "Baleen whale preys on krill" xsd:string
+property_value: IAO:0000118 "preys upon" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/preysUpon xsd:string
 is_a: RO:0002438 ! trophically interacts with
 
 [Typedef]
@@ -2403,15 +2415,20 @@ is_a: RO:0002440 ! symbiotically interacts with
 id: RO:0002444
 name: parasite of
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
+property_value: IAO:0000118 "parasitizes" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/parasitizes xsd:string
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002454 ! has host
 
 [Typedef]
 id: RO:0002445
 name: parasitized by
+property_value: IAO:0000118 "has parasite" xsd:string
 property_value: IAO:0000118 "parasitised by" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/hasParasite xsd:string
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002453 ! host of
+inverse_of: RO:0002444 ! parasite of
 
 [Typedef]
 id: RO:0002446
@@ -2466,6 +2483,7 @@ disjoint_from: RO:0002454 ! has host
 [Typedef]
 id: RO:0002454
 name: has host
+property_value: seeAlso http://eol.org/schema/terms/hasHost xsd:string
 is_a: RO:0002440 ! symbiotically interacts with
 
 [Typedef]
@@ -2473,11 +2491,14 @@ id: RO:0002455
 name: pollinates
 property_value: IAO:0000112 "Bees pollinate Flowers" xsd:string
 property_value: IAO:0000116 "This relation is intended to be used for biotic pollination - e.g. a bee pollinating a flowering plant. Some kinds of pollination may be semibiotic - e.g. wind can have the role of pollinator. We would use a separate relation for this." xsd:string
+property_value: seeAlso http://eol.org/schema/terms/pollinates xsd:string
 is_a: RO:0002442 ! mutualistically interacts with
 
 [Typedef]
 id: RO:0002456
 name: pollinated by
+property_value: IAO:0000118 "has polinator" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/hasPollinator xsd:string
 is_a: RO:0002442 ! mutualistically interacts with
 inverse_of: RO:0002455 ! pollinates
 
@@ -2490,6 +2511,9 @@ is_a: RO:0002438 ! trophically interacts with
 [Typedef]
 id: RO:0002458
 name: preyed upon by
+property_value: IAO:0000118 "has predator" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/HasPredator xsd:string
+property_value: seeAlso http://polytraits.lifewatchgreece.eu/terms/PRED xsd:string
 is_a: RO:0002438 ! trophically interacts with
 inverse_of: RO:0002439 ! preys on
 
@@ -2928,6 +2952,35 @@ def: "A relation between a segment or subdivisio  of an organism and the maximal
 property_value: IAO:0000112 "Forelimb SubClassOf has_skeleton some 'Forelimb skeleton'" xsd:string
 property_value: IAO:0000118 "has supporting framework" xsd:string
 is_a: BFO:0000051 ! has part
+
+[Typedef]
+id: RO:0002552
+name: results in ending of
+def: "p results in the end of s if p causes s to undergo a change whereby s either ceases to exist, or becomes functionally impaired or is set on a path ending in either of these states." []
+is_a: results_in_developmental_progression_of ! results in developmental progression of
+
+[Typedef]
+id: RO:0002553
+name: hyperparasitoid of
+def: "x is a hyperparasitoid of y iff x is a parasite of a parasite of the target organism y" []
+property_value: IAO:0000119 http://eol.org/schema/terms/hyperparasitoidOf xsd:string
+holds_over_chain: RO:0002444 RO:0002444
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002554
+name: hyperparasitoidized by
+holds_over_chain: RO:0002445 RO:0002445
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002553 ! hyperparasitoid of
+
+[Typedef]
+id: RO:0002555
+name: allelopath of
+property_value: IAO:0000119 http://en.wikipedia.org/wiki/Allelopathy xsd:string
+property_value: seeAlso http://eol.org/schema/terms/allelopathyYes xsd:string
+property_value: seeAlso "x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0003000
@@ -3696,6 +3749,7 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 [Typedef]
 id: results_in_developmental_progression_of
 name: results in developmental progression of
+def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state along its natural developmental cycle, starting with its formation, through the mature structure, and ending with loss." []
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "This property and its subproperties are being used primarily for the definition of GO developmental processes. The property hierarchy mirrors the core GO hierarchy. In future we may be able to make do with a more minimal set of properties, but due to the way GO is currently structured we require highly specific relations to avoid incorrect entailments. To avoid this, the corresponding genus terms in GO should be declared mutually disjoint." xsd:string
 property_value: seeAlso Ontology:extensions
@@ -3708,7 +3762,8 @@ id: results_in_disappearance_of
 name: results in disappearance of
 property_value: IAO:0000112 "foramen ovale closure SubClassOf results in disappearance of foramen ovale" xsd:string
 property_value: IAO:0000114 IAO:0000125
-is_a: results_in_developmental_progression_of ! results in developmental progression of
+property_value: IAO:0000232 "May be merged into parent relation" xsd:string
+is_a: RO:0002552 ! results in ending of
 
 [Typedef]
 id: results_in_formation_of
@@ -3740,12 +3795,5 @@ property_value: IAO:0000112 "an annotation of gene X to cell morphogenesis with 
 property_value: IAO:0000112 "tongue morphogenesis (GO:0043587) results in morphogenesis of tongue (UBERON:0001723)" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
-is_a: results_in_developmental_progression_of ! results in developmental progression of
-
-[Typedef]
-id: results_in_regression_of
-name: results in regression of
-property_value: IAO:0000112 "every mullerian duct regression (GO:0001880) results in regression of some mullerian duct (UBERON:0003890)" xsd:string
-property_value: IAO:0000114 IAO:0000125
 is_a: results_in_developmental_progression_of ! results in developmental progression of
 
