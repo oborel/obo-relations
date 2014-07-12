@@ -1,0 +1,318 @@
+format-version: 1.2
+ontology: ro/subsets/ro-interaction
+
+[Typedef]
+id: acquires_nutrients_from
+name: acquires nutrients from
+xref: RO:0002457
+property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
+is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
+id: allelopath_of
+name: allelopath of
+xref: RO:0002555
+property_value: IAO:0000119 http://en.wikipedia.org/wiki/Allelopathy xsd:string
+property_value: seeAlso http://eol.org/schema/terms/allelopathyYes xsd:string
+property_value: seeAlso "x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
+is_a: biotically_interacts_with ! biotically interacts with
+
+[Typedef]
+id: biotically_interacts_with
+name: biotically interacts with
+def: "An interaction relationship in which at least one of the partners is an organism and the other is either an organism or an abiotic entity with which the organism interacts." []
+xref: RO:0002437
+property_value: IAO:0000118 "interacts with on organism level" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/interactsWith xsd:string
+is_symmetric: true
+is_a: ecologically_related_to ! ecologically related to
+is_a: interacts_with ! interacts with
+
+[Typedef]
+id: commensually_interacts_with
+name: commensually interacts with
+def: "An interaction relationship between two organisms living together in more or less intimate association in a relationship in which one benefits and the other is unaffected (GO)." []
+xref: RO:0002441
+property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: confers_advantage_in
+name: confers advantage in
+xref: RO:0002322
+property_value: IAO:0000116 "An experimental relation currently used to connect a feature possessed by an organism (e.g. anatomical structure, biological process, phenotype or quality) to a habitat or environment in which that feature is well suited, adapted or provides a reproductive advantage for the organism. For example, fins to an aquatic environment. Usually this will mean that the structure is adapted for this environment, but we avoid saying this directly - primitive forms of the structure may not have evolved specifically for that environment (for example, early wings were not necessarily adapted for an aerial environment). Note also that this is a statement about the general class of structures - not every instance of a limb need confer an advantage for a terrestrial environment, e.g. if the limb is vestigial." xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "adapted for" xsd:string
+is_a: ecologically_related_to ! ecologically related to
+
+[Typedef]
+id: eats
+name: eats
+xref: RO:0002470
+is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
+id: ecologically_related_to
+name: ecologically related to
+def: "A relationship that is mediated in some way by the environment or environmental feature (ENVO:00002297)" []
+xref: RO:0002321
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving ecological interactions" xsd:string
+
+[Typedef]
+id: genetically_interacts_with
+name: genetically interacts with
+xref: RO:0002435
+property_value: IAO:0000116 "An interaction that holds between two genetic entities (genes, alleles) through some genetic interaction (e.g. epistasis)" xsd:string
+property_value: seeAlso ECO:0000316
+property_value: seeAlso http://purl.obolibrary.org/obo/MI_0208 xsd:anyURI
+is_symmetric: true
+is_a: interacts_with ! interacts with
+
+[Typedef]
+id: has_habitat
+name: has habitat
+def: "x 'has habitat' y if and only if: x is an organism, y is a habitat, and x is specially adapted (either naturally or via artifical selection) to living in y. Here 'living in' encompasses the majority of the animal's lifespan." []
+xref: RO:0002303
+property_value: IAO:0000112 "Hydrozoa (NCBITaxon_6074) SubClassOf 'has habitat' some 'marine environment' (ENVO_00000569) -- http://eol.org/pages/1795/overview" xsd:string
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000118 "adapted for living in" xsd:string
+domain: CARO:0000006
+range: ENVO:0002036
+is_a: ecologically_related_to ! ecologically related to
+
+[Typedef]
+id: has_host
+name: has host
+xref: RO:0002454
+property_value: seeAlso http://eol.org/schema/terms/hasHost xsd:string
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: has_vector
+name: has vector
+xref: RO:0002460
+is_a: biotically_interacts_with ! biotically interacts with
+
+[Typedef]
+id: host_of
+name: host of
+xref: RO:0002453
+property_value: IAO:0000232 "The term host is usually used for the larger (macro) of the two members of a symbiosis (GO)" xsd:string
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+disjoint_from: has_host ! has host
+
+[Typedef]
+id: hyperparasitoid_of
+name: hyperparasitoid of
+def: "x is a hyperparasitoid of y iff x is a parasite of a parasite of the target organism y" []
+xref: RO:0002553
+property_value: IAO:0000119 http://eol.org/schema/terms/hyperparasitoidOf xsd:string
+is_a: has_host ! has host
+
+[Typedef]
+id: hyperparasitoidized_by
+name: hyperparasitoidized by
+xref: RO:0002554
+is_a: host_of ! host of
+inverse_of: hyperparasitoid_of ! hyperparasitoid of
+
+[Typedef]
+id: increases_expression_of
+name: increases expression of
+def: "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b." []
+xref: RO:0003003
+is_a: molecularly_increases_activity_of ! molecularly increases activity of
+
+[Typedef]
+id: interacts_with
+name: interacts with
+def: "A relationship that holds between two entities in which the processes executed by the two entities are causally connected." []
+xref: RO:0002434
+property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
+property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
+property_value: seeAlso http://purl.obolibrary.org/obo/MI_0914 xsd:anyURI
+domain: BFO:0000040
+range: BFO:0000040
+is_symmetric: true
+
+[Typedef]
+id: interacts_with_via_parasite-host_interaction
+name: interacts with via parasite-host interaction
+def: "An interaction relationship between two organisms living together in more or less intimate association in a relationship in which association is disadvantageous or destructive to one of the organisms (GO)." []
+xref: RO:0002443
+property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
+property_value: IAO:0000232 "This relation groups a pair of inverse relations, parasite of and parasitized by" xsd:string
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: is_eaten_by
+name: is eaten by
+xref: RO:0002471
+is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
+id: is_vector_for
+name: is vector for
+xref: RO:0002459
+property_value: IAO:0000112 "Anopheles is a vector for Plasmodium" xsd:string
+property_value: IAO:0000119 "a is a vector for b if a carries and transmits an infectious pathogen b into another living organism" xsd:string
+is_a: biotically_interacts_with ! biotically interacts with
+inverse_of: has_vector ! has vector
+
+[Typedef]
+id: molecularly_controls
+name: molecularly controls
+def: "a molecularly controls b if the execution of a activates or inhibits the activity of b" []
+xref: RO:0002448
+is_a: molecularly_interacts_with ! molecularly interacts with
+
+[Typedef]
+id: molecularly_decreases_activity_of
+name: molecularly decreases activity of
+def: "Holds between molecules a and b if and only if a executes a process that directly diminishes a process executed by b." []
+xref: RO:0002449
+property_value: IAO:0000118 "inhibits" xsd:string
+is_a: molecularly_controls ! molecularly controls
+
+[Typedef]
+id: molecularly_increases_activity_of
+name: molecularly increases activity of
+def: "Holds between molecules a and b if and only if a executes a process that directly activates a process executed by b." []
+xref: RO:0002450
+property_value: IAO:0000118 "activates" xsd:string
+is_a: molecularly_controls ! molecularly controls
+
+[Typedef]
+id: molecularly_interacts_with
+name: molecularly interacts with
+def: "An interaction relationship in which the two partners are molecular entities and are executing molecular processes that are directly causally connected." []
+xref: RO:0002436
+property_value: IAO:0000118 "binds" xsd:string
+property_value: IAO:0000118 "molecularly binds with" xsd:string
+property_value: seeAlso ECO:0000353
+property_value: seeAlso http://purl.obolibrary.org/obo/MI_0915 xsd:anyURI
+is_symmetric: true
+is_a: interacts_with ! interacts with
+
+[Typedef]
+id: mutualistically_interacts_with
+name: mutualistically interacts with
+def: "An interaction relationship between two organisms living together in more or less intimate association in a relationship in which both organisms benefit from each other (GO)." []
+xref: RO:0002442
+property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: parasite_of
+name: parasite of
+xref: RO:0002444
+property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
+property_value: IAO:0000118 "parasitizes" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/parasitizes xsd:string
+is_a: has_host ! has host
+is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
+
+[Typedef]
+id: parasitized_by
+name: parasitized by
+xref: RO:0002445
+property_value: IAO:0000118 "has parasite" xsd:string
+property_value: IAO:0000118 "parasitised by" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/hasParasite xsd:string
+is_a: host_of ! host of
+is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
+inverse_of: parasite_of ! parasite of
+
+[Typedef]
+id: phosphorylates
+name: phosphorylates
+xref: RO:0002447
+property_value: IAO:0000116 "Axiomatization to GO to be added later" xsd:string
+property_value: IAO:0000118 "An interaction relation between x and y in which x catalyzes a reaction in which a phosphate group is added to y." xsd:string
+is_a: molecularly_interacts_with ! molecularly interacts with
+
+[Typedef]
+id: pollinated_by
+name: pollinated by
+xref: RO:0002456
+property_value: IAO:0000118 "has polinator" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/hasPollinator xsd:string
+is_a: mutualistically_interacts_with ! mutualistically interacts with
+inverse_of: pollinates ! pollinates
+
+[Typedef]
+id: pollinates
+name: pollinates
+xref: RO:0002455
+property_value: IAO:0000112 "Bees pollinate Flowers" xsd:string
+property_value: IAO:0000116 "This relation is intended to be used for biotic pollination - e.g. a bee pollinating a flowering plant. Some kinds of pollination may be semibiotic - e.g. wind can have the role of pollinator. We would use a separate relation for this." xsd:string
+property_value: seeAlso http://eol.org/schema/terms/pollinates xsd:string
+is_a: mutualistically_interacts_with ! mutualistically interacts with
+
+[Typedef]
+id: preyed_upon_by
+name: preyed upon by
+xref: RO:0002458
+property_value: IAO:0000118 "has predator" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/HasPredator xsd:string
+property_value: seeAlso http://polytraits.lifewatchgreece.eu/terms/PRED xsd:string
+is_a: trophically_interacts_with ! trophically interacts with
+inverse_of: preys_on ! preys on
+
+[Typedef]
+id: preys_on
+name: preys on
+def: "An interaction relationship involving a predation process, where the subject consumes all or part of the target" []
+xref: RO:0002439
+property_value: IAO:0000112 "Baleen whale preys on krill" xsd:string
+property_value: IAO:0000118 "preys upon" xsd:string
+property_value: seeAlso http://eol.org/schema/terms/preysUpon xsd:string
+is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
+id: provides_nutrients_for
+name: provides nutrients for
+xref: RO:0002469
+is_a: trophically_interacts_with ! trophically interacts with
+inverse_of: acquires_nutrients_from ! acquires nutrients from
+
+[Typedef]
+id: represses_expression_of
+name: represses expression of
+def: "Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b." []
+xref: RO:0003002
+is_a: molecularly_decreases_activity_of ! molecularly decreases activity of
+
+[Typedef]
+id: semibiotically_interacts_with
+name: semibiotically interacts with
+def: "A biotic interaction relationship in which one partner is an organism and the other partner is inorganic. For example, the relationship between a sponge and the substrate to which is it anchored." []
+xref: RO:0002446
+property_value: IAO:0000112 "Porifiera attaches to substrate" xsd:string
+is_a: biotically_interacts_with ! biotically interacts with
+
+[Typedef]
+id: symbiotically_interacts_with
+name: symbiotically interacts with
+def: "A biotic interaction in which the two organisms live together in more or less intimate association." []
+xref: RO:0002440
+property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
+property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string {http://purl.org/dc/elements/1.1/source="http://www.ncbi.nlm.nih.gov/pubmed/19278549"}
+is_a: biotically_interacts_with ! biotically interacts with
+
+[Typedef]
+id: trophically_interacts_with
+name: trophically interacts with
+def: "An interaction relationship in which the partners are related via a feeding relationship." []
+xref: RO:0002438
+is_a: biotically_interacts_with ! biotically interacts with
+
+[Typedef]
+id: ubiquitinates
+name: ubiquitinates
+def: "An interaction relation between x and y in which x catalyzes a reaction in which one or more ubiquitin groups are added to y" []
+xref: RO:0002480
+property_value: IAO:0000116 "Axiomatization to GO to be added later" xsd:string
+is_a: molecularly_interacts_with ! molecularly interacts with
+
