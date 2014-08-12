@@ -6,9 +6,9 @@ OBO=http://purl.obolibrary.org/obo
 
 build: ro.owl ro.obo ro-el.owl all_subsets
 
-# fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually
-ro.owl: ro-edit.owl core.owl temporal-intervals.owl
-	owltools $< --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+# fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
+ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
+	owltools $<  --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 %.obo: %.owl
@@ -18,6 +18,11 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl
 # soon this will be incorporated into Oort
 ro-el.owl: ro.owl
 	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
+
+# note we don't do anything with the generated ontology, this is just for checking purposes.
+validate-using-oort: ro-edit.owl
+	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
+	touch $@
 
 
 
@@ -67,7 +72,7 @@ subsets/ro-interaction.owl: ro.owl
 # Oort requires more testing before it can be used for a relations ontology.
 #  for now, just go with a simple release process (see above)
 build-using-oort: ro-edit.owl
-	ontology-release-runner --simple --allow-overwrite --reasoner hermit ro-edit.owl
+	ontology-release-runner --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
 hom-fixed.obo: hom.obo
