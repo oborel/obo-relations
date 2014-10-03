@@ -1,0 +1,75 @@
+#summary Design pattern for interaction relations
+
+= Introduction =
+
+We frequently want interaction relations to 'shadow' biological process relations. This document describes our current implementation for this.
+
+The implementation is not perfect, comments welcome
+
+NOTE: THIS DOCUMENTATION NEEDS TO BE UPDATED WHEN ONTOBEE IS BACK UP
+
+= Details =
+
+Whether dealing with biotic relations(1), or protein-protein interactions, we frequently have to deal with the fact that OWL forces us to choose whether model something with an instance of an object property.
+
+For example, if protein A interacts with B, this can be represented as a triple / object property assertion
+
+{{{
+a interactsWith b
+}}}
+
+(where a and b are instances)
+
+Or
+
+{{{
+ixn rdf:type Interaction
+ixn has-participant a
+ixn has-participant b
+}}}
+
+(note: not quite as simple on the class level, the first pattern may need to assert a reciprocal)
+
+Both have uses. In RO we take the process representation as being *primary* and shadow these as relations.
+
+Unfortunately, OWL is not expressive enough to properly interconvert between these forms. There is a way to partially express, this but unfortunately it is rather abstruse...
+
+=== Pattern ===
+
+To relationalize a process class P:
+
+ 1. Create a process "isP"
+ 2. Manually place isP in the http://purl.obolibrary.org/obo/RO_0002464 'helper' hierarchy. Place as deep as possible
+ 3. Create an object property "P to" (e.g. interacts in protein-protein interaction with)
+ 4. Manually place P-to in the object property hierarchy
+ 5. Create a property chain axiom:
+
+{{{
+'subject participant in' o isP o inverse('target participant in') SubPropertyOf P-to
+}}}
+
+ 6. Declare characteristics (symmetric, transitive) as appropriate
+ 7. Create the inverse property, and declare the inverse. You do not need to create a property chain
+
+=== Examples ===
+
+TODO - fill in when OntoBee online
+
+=== Drawbacks ===
+
+ * complex
+ * abstruse
+ * outside EL subset of OWL (doesn't work with Elk)
+
+=== Future plans ===
+
+We need a high-level way to define these, and derive OWL patterns from this (e.g. Tawny-OWL)
+
+Explore use of rule languages
+
+
+
+
+= References =
+
+ * (1) Poelen, J. H., Simons, J. D., & Mungall, C. J. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics, 24, 148–159. doi:10.1016/j.ecoinf.2014.08.005
