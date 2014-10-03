@@ -38,18 +38,21 @@ Unfortunately, OWL is not expressive enough to properly interconvert between the
 
 To relationalize a process class P:
 
- 1. Create a process "isP"
- 2. Manually place isP in the http://purl.obolibrary.org/obo/RO_0002464 'helper' hierarchy. Place as deep as possible
- 3. Create an object property "P to" (e.g. interacts in protein-protein interaction with)
- 4. Manually place P-to in the object property hierarchy
- 5. Create a property chain axiom:
+  ## Create a process "isP"
+  ## Manually place isP in the http://purl.obolibrary.org/obo/RO_0002464 'helper' hierarchy. Place as deep as possible
+  ## Create an object property "P to" (e.g. interacts in protein-protein interaction with)
+  ## Manually place P-to in the object property hierarchy
+  ## Create a property chain axiom (see below)
+  ## Declare characteristics (symmetric, transitive) as appropriate
+  ## Create the inverse property, and declare the inverse. You do not need to create a property chain
+
+Property chain:
 
 {{{
 'subject participant in' o isP o inverse('target participant in') SubPropertyOf P-to
 }}}
 
- 6. Declare characteristics (symmetric, transitive) as appropriate
- 7. Create the inverse property, and declare the inverse. You do not need to create a property chain
+ 
 
 === Examples ===
 
@@ -57,9 +60,9 @@ TODO - fill in when OntoBee online
 
 === Drawbacks ===
 
- * complex
- * abstruse
- * outside EL subset of OWL (doesn't work with Elk)
+  * complex
+  * abstruse
+  * outside EL subset of OWL (doesn't work with Elk)
 
 === Future plans ===
 
