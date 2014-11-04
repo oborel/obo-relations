@@ -15,6 +15,9 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && grep -v ^synonym $@.tmp > $@
 #	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
 
+%-sh.obo: %.owl
+	owltools --use-catalog $< --merge-import-closure --add-obo-shorthand-to-properties -o -f obo $@.tmp && grep -v ^owl-axioms $@.tmp >  $@
+
 # soon this will be incorporated into Oort
 ro-el.owl: ro.owl
 	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
