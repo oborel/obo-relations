@@ -1,0 +1,214 @@
+format-version: 1.2
+ontology: ro/subsets/ro-causal
+
+[Typedef]
+id: causally_downstream_of
+name: causally downstream of
+def: "inverse of upstream of" []
+xref: RO:0002404
+property_value: IAO:0000114 IAO:0000428
+is_a: causally_downstream_of_or_within ! causally downstream of or within
+is_a: preceded_by
+inverse_of: causally_upstream_of ! causally upstream of
+
+[Typedef]
+id: causally_downstream_of_or_within
+name: causally downstream of or within
+xref: RO:0002427
+is_transitive: true
+is_a: causally_related_to ! causally related to
+inverse_of: causally_upstream_of_or_within ! causally upstream of or within
+
+[Typedef]
+id: causally_related_to
+name: causally related to
+def: "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one of direct activation or direct inhibition. p may be upstream, downstream, part of or a container of q." []
+xref: RO:0002410
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
+domain: BFO:0000015
+range: BFO:0000015
+
+[Typedef]
+id: causally_upstream_of
+name: causally upstream of
+def: "p is upstream of q if and only if p precedes q and p and q are linked in a causal chain" []
+xref: RO:0002411
+property_value: IAO:0000114 IAO:0000428
+is_a: causally_upstream_of_or_within ! causally upstream of or within
+is_a: precedes
+
+[Typedef]
+id: causally_upstream_of_or_within
+name: causally upstream of or within
+xref: RO:0002418
+property_value: IAO:0000116 "We would like to make this disjoint with 'preceded by', but this is prohibited in OWL2" xsd:string
+is_transitive: true
+is_a: causally_related_to ! causally related to
+
+[Typedef]
+id: directly_activates
+name: directly activates
+def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
+xref: RO:0002406
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000589 "directly activates (process to process)" xsd:string
+is_a: immediately_causally_upstream_of ! immediately causally upstream of
+is_a: positively_regulates ! positively regulates
+
+[Typedef]
+id: directly_inhibits
+name: directly inhibits
+xref: RO:0002408
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000589 "directly inhibits (process to process)" xsd:string
+is_a: immediately_causally_upstream_of ! immediately causally upstream of
+is_a: negatively_regulates ! negatively regulates
+
+[Typedef]
+id: directly_provides_input_for
+name: directly provides input for
+def: "p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c" []
+xref: RO:0002413
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
+is_a: immediately_causally_upstream_of ! immediately causally upstream of
+is_a: provides_input_for ! provides input for
+
+[Typedef]
+id: immediately_causally_downstream_of
+name: immediately causally downstream of
+xref: RO:0002405
+property_value: IAO:0000114 IAO:0000428
+is_a: causally_downstream_of ! causally downstream of
+is_a: immediately_preceded_by
+inverse_of: immediately_causally_upstream_of ! immediately causally upstream of
+
+[Typedef]
+id: immediately_causally_upstream_of
+name: immediately causally upstream of
+def: "p is immediately causally upstream of q iff both (a) p immediately precedes q and (b) p is causally upstream of q. In addition, the output of p  must be an input of q." []
+xref: RO:0002412
+property_value: IAO:0000114 IAO:0000428
+is_a: causally_upstream_of ! causally upstream of
+is_a: immediately_precedes
+
+[Typedef]
+id: immediately_preceded_by
+xref: RO:0002087
+
+[Typedef]
+id: immediately_precedes
+xref: RO:0002090
+
+[Typedef]
+id: indirectly_activates
+name: indirectly activates
+def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
+xref: RO:0002407
+property_value: IAO:0000114 IAO:0000428
+is_transitive: true
+is_a: positively_regulates ! positively regulates
+
+[Typedef]
+id: indirectly_inhibits
+name: indirectly inhibits
+xref: RO:0002409
+property_value: IAO:0000114 IAO:0000428
+is_transitive: true
+is_a: negatively_regulates ! negatively regulates
+
+[Typedef]
+id: negatively_regulated_by
+name: negatively regulated by
+xref: RO:0002335
+is_a: regulated_by ! regulated by
+inverse_of: negatively_regulates ! negatively regulates
+
+[Typedef]
+id: negatively_regulates
+name: negatively regulates
+def: "x negatively regulates y if and only if the progression of x reduces the frequency, rate or extent of y" []
+xref: RO:0002212
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000589 "negatively regulates (process to process)" xsd:string
+is_a: regulates ! regulates
+
+[Typedef]
+id: positively_regulated_by
+name: positively regulated by
+xref: RO:0002336
+is_a: regulated_by ! regulated by
+inverse_of: positively_regulates ! positively regulates
+
+[Typedef]
+id: positively_regulates
+name: positively regulates
+def: "x positively regulates y if and only if the progression of x increases the frequency, rate or extent of y" []
+xref: RO:0002213
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000589 "positively regulates (process to process)" xsd:string
+is_a: regulates ! regulates
+
+[Typedef]
+id: preceded_by
+xref: BFO:0000062
+
+[Typedef]
+id: precedes
+xref: BFO:0000063
+is_a: temporally_related_to
+
+[Typedef]
+id: provides_input_for
+name: provides input for
+def: "transitive form of directly_provides_input_for" []
+xref: RO:0002414
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000589 "provides input for (process to process)" xsd:string
+domain: BFO:0000015
+range: BFO:0000015
+is_transitive: true
+is_a: causally_upstream_of ! causally upstream of
+
+[Typedef]
+id: regulated_by
+name: regulated by
+def: "inverse of regulates" []
+xref: RO:0002334
+property_value: IAO:0000589 "regulated by (biological process to biological process)" xsd:string
+domain: BFO:0000015
+range: BFO:0000015
+is_a: causally_downstream_of_or_within ! causally downstream of or within
+inverse_of: regulates ! regulates
+
+[Typedef]
+id: regulates
+name: regulates
+def: "x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y" []
+xref: RO:0002211
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "David Hill" xsd:string
+property_value: IAO:0000117 "Tanya Berardini" xsd:string
+property_value: IAO:0000119 "GO" xsd:string
+property_value: IAO:0000589 "regulates (processual)" xsd:string
+domain: BFO:0000015
+range: BFO:0000015
+is_a: causally_upstream_of_or_within ! causally upstream of or within
+
+[Typedef]
+id: regulates_in_other_organism
+name: regulates in other organism
+def: "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+xref: RO:0002010
+domain: BFO:0000015
+range: BFO:0000015
+is_a: causally_upstream_of_or_within ! causally upstream of or within
+
+[Typedef]
+id: temporally_related_to
+xref: RO:0002222
+property_value: http://purl.org/dc/elements/1.1/source https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1 xsd:anyURI
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends." xsd:string
+
