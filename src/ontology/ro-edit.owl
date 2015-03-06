@@ -98,6 +98,7 @@
         <obo:IAO_0000119 xml:lang="en">PMID:20973947</obo:IAO_0000119>
         <obo:IAO_0000115>x never in taxon T if and only if T is a class, and x does not instantiate the class expression &quot;in taxon some T&quot;. Note that this is a shortcut relation, and should be used as a hasValue restriction in OWL.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002172"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:AnnotationProperty>
     
 
@@ -123,6 +124,7 @@
         <rdfs:label xml:lang="en">taxonomic class assertion</rdfs:label>
         <obo:IAO_0000115>An assertion that holds between an ontology class and an organism taxon class, which is intepreted to yield some relationship between instances of the ontology class and the taxon.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002420"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:AnnotationProperty>
     
 
@@ -133,6 +135,7 @@
         <rdfs:label xml:lang="en">ambiguous for taxon</rdfs:label>
         <obo:IAO_0000115>S ambiguous_for_taxon T if the class S does not have a clear referent in taxon T. An example would be the class &apos;manual digit 1&apos;, which encompasses a homology hypotheses that is accepted for some species (e.g. human and mouse), but does not have a clear referent in Aves - the referent is dependent on the hypothesis embraced, and also on the ontogenetic stage.  [PHENOSCPAE:asilomar_mtg]</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002172"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:AnnotationProperty>
     
 
@@ -145,6 +148,7 @@
         <obo:IAO_0000115>S dubious_for_taxon T if it is probably the case that no instances of S can be found in any instance of T.</obo:IAO_0000115>
         <obo:IAO_0000117>https://orcid.org/0000-0002-6601-2165</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002172"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:AnnotationProperty>
     
 
@@ -156,6 +160,7 @@
         <obo:IAO_0000117>https://orcid.org/0000-0002-6601-2165</obo:IAO_0000117>
         <obo:IAO_0000115>S present_in_taxon T if some instance of T has some S. This does not means that all instances of T have an S - it may only be certain life stages or sexes that have S</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002172"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:AnnotationProperty>
     
 
@@ -1248,17 +1253,21 @@ AND t has_input y</dc:description>
     <owl:ObjectProperty rdf:about="&obo;RO_0002110">
         <rdfs:label xml:lang="en">has postsynaptic terminal in</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
-        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000424>http://purl.obolibrary.org/obo/BFO_0000051 some (
    http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (
       http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))</obo:IAO_0000424>
+        <obo:IAO_0000117 xml:lang="en">David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000115 xml:lang="en">Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. </obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">synapsed in</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <obo:RO_0001900 rdf:resource="&obo;RO_0001901"/>
         <owl:inverseOf rdf:resource="&obo;RO_0002102"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002130"/>
         <cito:citesAsAuthority rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22402613"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002110"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1270,10 +1279,6 @@ AND t has_input y</dc:description>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002110"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1439,6 +1444,10 @@ N1 SubclassOf (
         <obo:RO_0001900 rdf:resource="&obo;RO_0001901"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002131"/>
         <cito:citesAsAuthority rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22402613"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002130"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1450,10 +1459,6 @@ N1 SubclassOf (
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002130"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1470,15 +1475,15 @@ N1 SubclassOf (
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
-            <rdf:Description rdf:about="&obo;RO_0002131"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     <owl:Axiom>
@@ -1683,6 +1688,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000112>lactation SubClassOf &apos;only in taxon&apos; some &apos;Mammalia&apos;</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002162"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
     </owl:ObjectProperty>
     
 
@@ -1701,12 +1707,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002320"/>
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002214"/>
-            <rdf:Description rdf:about="&obo;RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002254"/>
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1718,7 +1721,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002206"/>
+            <rdf:Description rdf:about="&obo;RO_0002202"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1726,7 +1729,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002206"/>
+            <rdf:Description rdf:about="&obo;RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002254"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1734,7 +1741,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002202"/>
+            <rdf:Description rdf:about="&obo;RO_0002214"/>
             <rdf:Description rdf:about="&obo;RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1746,6 +1753,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002163">
         <rdfs:label rdf:datatype="&xsd;string">spatially disjoint from</rdfs:label>
         <foaf:page rdf:datatype="&xsd;anyURI">https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern</foaf:page>
+        <obo:IAO_0000232>Note that it would be possible to use the relation to label the relationship between a near infinite number of structures - between the rings of saturn and my left earlobe. The intent is that this is used for parsiomoniously for disambiguation purposes - for example, between siblings in a jointly exhaustive pairwise disjointness hierarchy</obo:IAO_0000232>
         <obo:IAO_0000424>BFO_0000051 exactly 0 (BFO_0000050 some ?Y)</obo:IAO_0000424>
         <obo:IAO_0000115>A is spatially_disjoint_from B if and only if they have no parts in common</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
@@ -1764,13 +1772,27 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">connected to</rdfs:label>
         <foaf:page rdf:datatype="&xsd;anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</foaf:page>
         <foaf:page rdf:datatype="&xsd;anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</foaf:page>
+        <obo:IAO_0000112>a &apos;toe distal phalanx bone&apos; that is connected to a &apos;toe medial phalanx bone&apos; (an interphalangeal joint *connects* these two bones).</obo:IAO_0000112>
+        <obo:IAO_0000115>a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="&obo;RO_0002577"/>
+            </owl:Restriction>
+        </rdfs:range>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="&obo;RO_0002176"/>
             </rdf:Description>
             <rdf:Description rdf:about="&obo;RO_0002176"/>
         </owl:propertyChainAxiom>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="&obo;RO_0002577"/>
+            </owl:Restriction>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1781,8 +1803,17 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:label xml:lang="en">connects</rdfs:label>
         <foaf:page rdf:datatype="&xsd;anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</foaf:page>
         <foaf:page rdf:datatype="&xsd;anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</foaf:page>
-        <obo:IAO_0000115>Binary relationship: z connects x if and only if there exists some y such that z connects x and y in a ternary connected_to(x,y,z) relationship.</obo:IAO_0000115>
+        <obo:IAO_0000112>The M8 connects Glasgow and Edinburgh</obo:IAO_0000112>
+        <obo:IAO_0000115>c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system.</obo:IAO_0000115>
+        <obo:IAO_0000112>a &apos;toe distal phalanx bone&apos; that is connected to a &apos;toe medial phalanx bone&apos; (an interphalangeal joint *connects* these two bones).</obo:IAO_0000112>
+        <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002323"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&obo;BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="&obo;RO_0002577"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -1798,6 +1829,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
+    <owl:Axiom>
+        <obo:RO_0002582 rdf:datatype="&xsd;boolean">true</obo:RO_0002582>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002177"/>
+        <owl:annotatedProperty rdf:resource="&owl;propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002371"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+        </owl:annotatedTarget>
+    </owl:Axiom>
     
 
 
@@ -1948,9 +1988,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002206">
         <rdfs:label xml:lang="en">expressed in</rdfs:label>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>x expressed in y if and only if there is a gene expression process (GO:0010467) that occurs in y, and one of the following holds: (i) x is a gene, and x is transcribed into a transcript as part of the gene expression process (ii) x is a transcript, and the transcription of x is part of the gene expression process (iii) x is a mature gene product such as a protein, and x was translated or otherwise processes from a transcript that was transcribed as part of this gene expression process</obo:IAO_0000115>
         <obo:IAO_0000112>&apos;neural crest cell&apos; SubClassOf expresses some &apos;Wnt1 gene&apos;</obo:IAO_0000112>
-        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
@@ -2029,12 +2069,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="&obo;RO_0002578"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002211"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002230"/>
             <rdf:Description rdf:about="&obo;RO_0002211"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002211"/>
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -2077,9 +2117,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002214">
         <rdfs:label xml:lang="en">has prototype</rdfs:label>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000116>Experimental. In future there may be a formalization in which this relation is treated as a shortcut to some modal logic axiom. We may decide to obsolete this and adopt a more specific evolutionary relationship (e.g. evolved from)</obo:IAO_0000116>
+        <obo:IAO_0000116>This property can be used to make weaker forms of certain relations by chaining an additional property. For example, we may say: retina SubClassOf has_prototype some &apos;detection of light&apos;. i.e. every retina is related to a prototypical retina instance which is detecting some light. Note that this is very similar to &apos;capable of&apos;, but this relation affords a wider flexibility. E.g. we can make a relation between continuants.</obo:IAO_0000116>
         <obo:IAO_0000112>heart SubClassOf &apos;has prototype&apos; some (&apos;participates in&apos; some &apos;blood circulation&apos;)</obo:IAO_0000112>
         <obo:IAO_0000115>x has prototype y if and only if x is an instance of C and y is a prototypical instance of C. For example, every instance of heart, both normal and abnormal is related by the has prototype relation to some instance of a &quot;canonical&quot; heart, which participates in blood circulation.</obo:IAO_0000115>
-        <obo:IAO_0000232>Experimental. In future there may be a formalization in which this relation is treated as a shortcut to some modal logic axiom. We may decide to obsolete this and adopt a more specific evolutionary relationship (e.g. evolved from)</obo:IAO_0000232>
         <obo:IAO_0000112>&apos;human p53 protein&apos; SubClassOf some (&apos;has prototype&apos; some (&apos;participates in&apos; some &apos;DNA repair&apos;))</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
     </owl:ObjectProperty>
@@ -2171,7 +2212,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002219">
         <rdfs:label xml:lang="en">surrounded by</rdfs:label>
-        <obo:IAO_0000115>x surrounded_by y if and only if x is adjacent to y and for every region r that is adjacent to x, r overlaps y</obo:IAO_0000115>
+        <obo:IAO_0000115>x surrounded_by y if and only if (1) x is adjacent to y and for every region r that is adjacent to x, r overlaps y (2) the shared boundary between x and y occupies the majority of the outermost boundary of x</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <obo:RO_0001900 rdf:resource="&obo;RO_0001901"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002220"/>
@@ -2184,6 +2225,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002220">
         <rdfs:label xml:lang="en">adjacent to</rdfs:label>
         <obo:IAO_0000115>x adjacent to y if and only if x and y share a boundary</obo:IAO_0000115>
+        <obo:IAO_0000116>This relation acts as a join point with BSPO</obo:IAO_0000116>
         <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <rdfs:domain rdf:resource="&obo;BFO_0000004"/>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
@@ -2342,8 +2384,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002234">
         <rdfs:label xml:lang="en">has output</rdfs:label>
-        <obo:IAO_0000115>p has output c if either: p has direct output c or p has output input c. See subrelations for definitions.</obo:IAO_0000115>
         <obo:IAO_0000118>produces</obo:IAO_0000118>
+        <obo:IAO_0000115>p has direct input c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of c.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
@@ -2518,7 +2560,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002295">
         <rdfs:label xml:lang="en">results in developmental progression of</rdfs:label>
         <oboInOwl:shorthand rdf:datatype="&xsd;string">results_in_developmental_progression_of</oboInOwl:shorthand>
-        <obo:IAO_0000115>p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state along its natural developmental cycle, starting with its formation, through the mature structure, and ending with loss.</obo:IAO_0000115>
+        <obo:IAO_0000115>p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss).</obo:IAO_0000115>
         <obo:IAO_0000116>This property and its subproperties are being used primarily for the definition of GO developmental processes. The property hierarchy mirrors the core GO hierarchy. In future we may be able to make do with a more minimal set of properties, but due to the way GO is currently structured we require highly specific relations to avoid incorrect entailments. To avoid this, the corresponding genus terms in GO should be declared mutually disjoint.</obo:IAO_0000116>
         <rdfs:range rdf:resource="&obo;CARO_0000003"/>
         <rdfs:domain rdf:resource="&obo;GO_0008150"/>
@@ -2533,10 +2575,12 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002296">
         <rdfs:label xml:lang="en">results in development of</rdfs:label>
-        <obo:IAO_0000119 rdf:datatype="&xsd;anyURI">http://www.geneontology.org/GO.doc.development.shtml#fate</obo:IAO_0000119>
+        <obo:IAO_0000119 rdf:datatype="&xsd;anyURI">http://www.geneontology.org/GO.doc.development.shtml</obo:IAO_0000119>
         <oboInOwl:shorthand rdf:datatype="&xsd;string">results_in_development_of</oboInOwl:shorthand>
         <obo:IAO_0000112 xml:lang="en">every flower development (GO:0009908) results in development of some flower (PO:0009046)</obo:IAO_0000112>
+        <obo:IAO_0000115>p &apos;results in development of&apos; c if and only if p is a developmental process and p results in the state of c changing from its initial state as a primordium or anlage through its mature state and to its final state.</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -2547,21 +2591,13 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="&obo;RO_0002297">
         <rdfs:label xml:lang="en">results in formation of</rdfs:label>
         <oboInOwl:shorthand rdf:datatype="&xsd;string">results_in_formation_of</oboInOwl:shorthand>
-        <obo:IAO_0000118>has product</obo:IAO_0000118>
         <obo:IAO_0000119>GOC:mtg_berkeley_2013</obo:IAO_0000119>
         <obo:IAO_0000112>an annotation of gene X to anatomical structure formation with results_in_formation_of UBERON:0000007 (pituitary gland) means that at the beginning of the process a pituitary gland does not exist and at the end of the process a pituitary gland exists.</obo:IAO_0000112>
-        <obo:IAO_0000115>The relationship linking a cell and its participation in a process that results in the transition of a cell such that is can only develop into a single cell type when left in its environment.</obo:IAO_0000115>
         <obo:IAO_0000112 xml:lang="en">every &quot;endocardial cushion formation&quot; (GO:0003272) results_in_formation_of some &quot;endocardial cushion&quot; (UBERON:0002062)</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002234"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
-    <owl:Axiom>
-        <obo:IAO_0000116>from SIO</obo:IAO_0000116>
-        <owl:annotatedTarget>has product</owl:annotatedTarget>
-        <owl:annotatedProperty rdf:resource="&obo;IAO_0000118"/>
-        <owl:annotatedSource rdf:resource="&obo;RO_0002297"/>
-    </owl:Axiom>
     
 
 
@@ -2575,6 +2611,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119>GOC:mtg_berkeley_2013</obo:IAO_0000119>
         <obo:IAO_0000112 xml:lang="en">tongue morphogenesis (GO:0043587) results in morphogenesis of tongue (UBERON:0001723)</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -2590,6 +2627,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119>GOC:mtg_berkeley_2013</obo:IAO_0000119>
         <obo:IAO_0000112 xml:lang="en">bone maturation (GO:0070977) results_in_developmental_progression_of bone (UBERON:0001474)</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000125"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -2696,6 +2734,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000112>an annotation of gene X to cell differentiation with results_in_maturation_of CL:0000057 (fibroblast) means that at the end of the process the input cell that did not have features of a fibroblast, now has the features of a fibroblast.</obo:IAO_0000112>
         <obo:IAO_0000119>GOC:mtg_berkeley_2013</obo:IAO_0000119>
         <rdfs:range rdf:resource="&obo;CL_0000000"/>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -2763,7 +2802,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002325 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002325">
-        <rdfs:label xml:lang="en">colocalizes_with</rdfs:label>
+        <rdfs:label xml:lang="en">colocalizes with</rdfs:label>
         <obo:IAO_0000115>a colocalizes_with b if and only if  a is transiently or peripherally associated with b[GO].</obo:IAO_0000115>
         <obo:IAO_0000232>In the context of the Gene Ontology, colocalizes_with may be used for annotating to cellular component terms[GO]</obo:IAO_0000232>
         <obo:IAO_0000112>Clp1p relocalizes from the nucleolus to the spindle and site of cell division; i.e. it is associated transiently with the spindle pole body and the contractile ring (evidence from GFP fusion). Clp1p colocalizes_with spindle pole body (GO:0005816) and contractile ring (GO:0005826)</obo:IAO_0000112>
@@ -2862,6 +2901,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">genomically related to</rdfs:label>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving the genome of an organism</obo:IAO_0000232>
         <obo:IAO_0000115>holds between two entities when some genome-level process such as gene expression is involved. This includes transcriptional, spliceosomal events. These relations can be used between either macromolecule entities (such as regions of nucleic acid) or between their abstract informational counterparts.</obo:IAO_0000115>
+        <rdfs:range rdf:resource="&obo;BFO_0000002"/>
+        <rdfs:domain rdf:resource="&obo;BFO_0000002"/>
     </owl:ObjectProperty>
     
 
@@ -2875,11 +2916,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000115>c involved_in p if and only if c enables some process p&apos;, and p&apos; is part of p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002431"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002327"/>
+            <rdf:Description rdf:about="&obo;RO_0002331"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002331"/>
+            <rdf:Description rdf:about="&obo;RO_0002327"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3031,6 +3072,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002343">
         <rdfs:label xml:lang="en">results in growth of</rdfs:label>
         <obo:IAO_0000112>&apos;pollen tube growth&apos; results_in growth_of some &apos;pollen tube&apos;</obo:IAO_0000112>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -3064,8 +3106,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002348">
         <rdfs:label xml:lang="en">results in commitment to</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;anyURI">http://www.geneontology.org/GO.doc.development.shtml#fate</obo:IAO_0000119>
-        <obo:IAO_0000115>The relationship linking a cell and its participation in a process that results in the transition of a cell such that is can only develop into a single cell type. The commitment of cells to specific cell fates and their capacity to differentiate into particular kinds of cells. Positional information is established through protein signals that emanate from a localized source within a cell (the initial one-cell zygote) or within a developmental field. </obo:IAO_0000115>
         <obo:IAO_0000112>an annotation of gene X to cell commitment with results_in_commitment_to CL:0000540 (neuron) means that at the end of the process an unspecified cell has been specified and determined to develop into a neuron.</obo:IAO_0000112>
+        <obo:IAO_0000115>p &apos;results in commitment to&apos; c if and only if p is a developmental process and c is a cell and p results in the state of c changing such that is can only develop into a single cell type.</obo:IAO_0000115>
         <rdfs:range rdf:resource="&obo;CL_0000000"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
@@ -3077,7 +3119,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002349">
         <rdfs:label xml:lang="en">results in determination of</rdfs:label>
         <obo:IAO_0000119 rdf:datatype="&xsd;anyURI">http://www.geneontology.org/GO.doc.development.shtml#fate</obo:IAO_0000119>
-        <obo:IAO_0000115>The relationship linking a cell and its participation in a process that results in the the fate of the cell being determined. Once determination has taken place, a cell becomes committed to differentiate down a particular pathway regardless of its environment. </obo:IAO_0000115>
+        <obo:IAO_0000115>p &apos;results in determination of&apos; c if and only if p is a developmental process and c is a cell and p results in the state of c changing to be determined. Once a cell becomes determined, it becomes committed to differentiate down a particular pathway regardless of its environment.</obo:IAO_0000115>
         <rdfs:range rdf:resource="&obo;CL_0000000"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
@@ -3123,6 +3165,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002355">
         <rdfs:label xml:lang="en">results in structural organization of</rdfs:label>
         <obo:IAO_0000115>A relationship between a process and an anatomical entity such that the process contributes to the act of creating the structural organization of the anatomical entity.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -3144,6 +3187,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002357">
         <rdfs:label xml:lang="en">results in developmental induction of</rdfs:label>
+        <obo:IAO_0000115>p results in developmental induction of c if and only if p is a collection of cell-cell signaling processes that signal to a neighbouring tissue that is the precursor of the mature c, where the signaling results in the commitment to cell types necessary for the formation of c.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -3164,6 +3208,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002371">
         <rdf:type rdf:resource="&owl;SymmetricProperty"/>
         <rdfs:label xml:lang="en">attached to</rdfs:label>
+        <obo:IAO_0000115>a is attached to b if and only if a and b are discrete objects or object parts, and there are physical connections between a and b such that a force pulling a will move b, or a force pulling b will move a</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002170"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002177"/>
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
     </owl:ObjectProperty>
@@ -3200,7 +3246,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002374">
         <rdfs:label xml:lang="en">has fused element</rdfs:label>
-        <rdfs:comment xml:lang="en">A single bone in one species may correspond to the fusion of two or more bones found as distinct elements in another. For example, tibiofibula has_fused_element tibia. A has_fused_element B does not imply that A has_part some B, rather than A has_part some B&apos;, where B&apos; is not a subtype of B (because B is a distinct element but B&apos; is a regional part) but has some evolutionary relationship to B.</rdfs:comment>
+        <obo:IAO_0000112 rdf:datatype="&xsd;boolean">false</obo:IAO_0000112>
+        <rdfs:comment xml:lang="en">A has_fused_element B does not imply that A has_part some B: rather than A has_part some B&apos;, where B&apos; that has some evolutionary relationship to B.</rdfs:comment>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">x has_fused_element y iff: there exists some z : x has_part z, z homologous_to y, and y is a distinct element, the boundary between x and z is largely fiat</obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
@@ -3444,6 +3491,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="&obo;RO_0002400">
         <rdfs:label xml:lang="en">has direct input</rdfs:label>
         <obo:IAO_0000115>p has direct input c iff c is a participant in p, c is present at the start of p, and the state of c is modified during p.</obo:IAO_0000115>
+        <obo:IAO_0000232>This is likely to be obsoleted. A candidate replacement would be a new relation &apos;has bound input&apos; or &apos;has substrate&apos;</obo:IAO_0000232>
         <obo:IAO_0000112>&apos;protein catabolic process&apos; SubClassOf has_direct_input some protein</obo:IAO_0000112>
         <obo:IAO_0000118>directly consumes</obo:IAO_0000118>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
@@ -3459,15 +3507,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <!-- http://purl.obolibrary.org/obo/RO_0002401 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002401">
-        <rdfs:label xml:lang="en">has indirect input</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">obsolete has indirect input</rdfs:label>
+        <owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
         <rdfs:comment>Likely to be obsoleted. See:
 https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit</rdfs:comment>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002233"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002404"/>
-            <rdf:Description rdf:about="&obo;RO_0002400"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -3475,16 +3519,12 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
     <!-- http://purl.obolibrary.org/obo/RO_0002402 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002402">
-        <rdfs:label xml:lang="en">has direct output</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">obsolete has direct output</rdfs:label>
+        <owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
         <obo:IAO_0000118>directly produces</obo:IAO_0000118>
         <obo:IAO_0000112>translation SubClassOf has_direct_output some protein</obo:IAO_0000112>
         <obo:IAO_0000115>p has direct input c iff c is a participanti n p, c is present at the end of p, and c is not present at the beginning of c. </obo:IAO_0000115>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
-        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002234"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002230"/>
-            <rdf:Description rdf:about="&obo;RO_0002402"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -3492,7 +3532,8 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
     <!-- http://purl.obolibrary.org/obo/RO_0002403 -->
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002403">
-        <rdfs:label xml:lang="en">has indirect output</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">obsolete has indirect output</rdfs:label>
+        <owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
         <rdfs:comment>Likely to be obsoleted. See:
 https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit</rdfs:comment>
         <obo:IAO_0000114 rdf:resource="&obo;IAO_0000428"/>
@@ -3556,16 +3597,16 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002213"/>
         <obo:RO_0002579 rdf:resource="&obo;RO_0002213"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002406"/>
-            <rdf:Description rdf:about="&obo;RO_0002407"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002407"/>
             <rdf:Description rdf:about="&obo;RO_0002406"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002406"/>
             <rdf:Description rdf:about="&obo;RO_0002406"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002406"/>
+            <rdf:Description rdf:about="&obo;RO_0002407"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -3796,11 +3837,11 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>involved in negative regulation of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002428"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002327"/>
+            <rdf:Description rdf:about="&obo;RO_0002331"/>
             <rdf:Description rdf:about="&obo;RO_0002212"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002331"/>
+            <rdf:Description rdf:about="&obo;RO_0002327"/>
             <rdf:Description rdf:about="&obo;RO_0002212"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -4434,12 +4475,23 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="&obo;RO_0002479">
         <rdfs:label>has part that occurs in</rdfs:label>
         <obo:IAO_0000115>p has part that occurs in c if and only if there exists some p1, such that p has_part p1, and p1 occurs in c.</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&obo;BFO_0000003"/>
+        <rdfs:range rdf:resource="&obo;BFO_0000004"/>
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000051"/>
             <rdf:Description rdf:about="&obo;BFO_0000066"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
+    <owl:Axiom>
+        <obo:RO_0002581 rdf:datatype="&xsd;boolean">true</obo:RO_0002581>
+        <owl:annotatedSource rdf:resource="&obo;RO_0002479"/>
+        <owl:annotatedProperty rdf:resource="&owl;propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;BFO_0000066"/>
+        </owl:annotatedTarget>
+    </owl:Axiom>
     
 
 
@@ -4610,16 +4662,16 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
             <rdf:Description rdf:about="&obo;BFO_0000062"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002496"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002496"/>
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002496"/>
             <rdf:Description rdf:about="&obo;RO_0002082"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;RO_0002496"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002258"/>
@@ -4636,23 +4688,23 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002487"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002497"/>
-            <rdf:Description rdf:about="&obo;RO_0002082"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;BFO_0000050"/>
-            <rdf:Description rdf:about="&obo;RO_0002497"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002497"/>
-            <rdf:Description rdf:about="&obo;BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="&obo;RO_0002497"/>
-            <rdf:Description rdf:about="&obo;BFO_0000063"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&obo;RO_0002286"/>
             <rdf:Description rdf:about="&obo;RO_0002497"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000050"/>
+            <rdf:Description rdf:about="&obo;RO_0002497"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002497"/>
+            <rdf:Description rdf:about="&obo;RO_0002082"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;RO_0002497"/>
+            <rdf:Description rdf:about="&obo;BFO_0000063"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -5076,7 +5128,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002552">
         <rdfs:label>results in ending of</rdfs:label>
-        <obo:IAO_0000115>p results in the end of s if p causes s to undergo a change whereby s either ceases to exist, or becomes functionally impaired or is set on a path ending in either of these states.</obo:IAO_0000115>
+        <obo:IAO_0000115>p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
@@ -5223,6 +5275,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="&obo;RO_0002567">
         <rdfs:label>biomechanically related to</rdfs:label>
+        <obo:IAO_0000115>A relation that holds between elements of a musculoskeletal system or its analogs.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002328"/>
     </owl:ObjectProperty>
     
@@ -5296,6 +5349,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:label>has modifier</rdfs:label>
         <obo:IAO_0000232>This relation is intended to be used in combination with PATO, to be able to refine PATO quality classes using modifiers such as &apos;abnormal&apos; and &apos;normal&apos;. It has yet to be formally aligned into an ontological framework; it&apos;s not clear what the ontological status of the &quot;modifiers&quot; are.</obo:IAO_0000232>
         <obo:IAO_0000115>A relation that holds between an attribute or a qualifier and another attribute.</obo:IAO_0000115>
+        <rdfs:domain rdf:resource="&obo;PATO_0000001"/>
         <oboInOwl:inSubset rdf:resource="&obo;RO_0002500"/>
     </owl:ObjectProperty>
     
@@ -5332,6 +5386,31 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:RO_0002575 rdf:resource="&obo;RO_0002211"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002211"/>
         <rdfs:subPropertyOf rdf:resource="&obo;RO_0002412"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002584 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002584">
+        <rdfs:label>has part structure that is capable of</rdfs:label>
+        <obo:IAO_0000112>gland SubClassOf &apos;has part structure that is capable of&apos; some &apos;secretion by cell&apos;</obo:IAO_0000112>
+        <obo:IAO_0000115>s &apos;has part structure that is capable of&apos; p if and only if there exists some part x such that s &apos;has part&apos; x and x &apos;capable of&apos; p</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002328"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&obo;BFO_0000051"/>
+            <rdf:Description rdf:about="&obo;RO_0002215"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002585 -->
+
+    <owl:ObjectProperty rdf:about="&obo;RO_0002585">
+        <rdfs:label>results in closure of</rdfs:label>
+        <obo:IAO_0000116>p &apos;results in closure of&apos; c if and only if p is a developmental process and p results in a state of c changing from open to closed.</obo:IAO_0000116>
+        <rdfs:subPropertyOf rdf:resource="&obo;RO_0002295"/>
     </owl:ObjectProperty>
     
 
@@ -5421,6 +5500,14 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000020 -->
+
+    <rdf:Description rdf:about="&obo;BFO_0000020">
+        <owl:equivalentClass rdf:resource="&obo;PATO_0000001"/>
+    </rdf:Description>
     
 
 
@@ -5774,7 +5861,6 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <!-- http://purl.obolibrary.org/obo/PATO_0000001 -->
 
     <rdf:Description rdf:about="&obo;PATO_0000001">
-        <rdfs:subClassOf rdf:resource="&obo;BFO_0000020"/>
         <obo:IAO_0000589>quality (PATO)</obo:IAO_0000589>
     </rdf:Description>
     
