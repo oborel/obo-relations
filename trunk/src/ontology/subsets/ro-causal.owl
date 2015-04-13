@@ -989,6 +989,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <obo:IAO_0000589>regulates (processual)</obo:IAO_0000589>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117>David Hill</obo:IAO_0000117>
+        <obo:IAO_0000116>We use &apos;regulates&apos; here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of &apos;causally upstream of or within&apos; (aka influences). Consider relabeling to make things more explicit</obo:IAO_0000116>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
@@ -1044,6 +1045,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002595"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20123131"/>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/21208450"/>
@@ -1063,6 +1065,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002595"/>
     </owl:ObjectProperty>
     
 
@@ -1486,7 +1489,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <obo:IAO_0000112> an annotation of gene X to cell maturation with results_in_maturation_of CL:0000057 (fibroblast) means that the fibroblast is mature at the end of the process</obo:IAO_0000112>
         <obo:IAO_0000115>The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it&apos;s shape and results in an end point state of that entity.</obo:IAO_0000115>
         <obo:IAO_0000119>GOC:mtg_berkeley_2013</obo:IAO_0000119>
-        <obo:IAO_0000112 xml:lang="en">bone maturation (GO:0070977) results_in_developmental_progression_of bone (UBERON:0001474)</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002295"/>
@@ -1551,6 +1554,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transports_or_maintains_localization_of</oboInOwl:shorthand>
         <obo:IAO_0000115>Holds between p and c when p is a transportation or localization process and the outcome of this process is to regulate the location of c</obo:IAO_0000115>
         <obo:IAO_0000118>regulates location of</obo:IAO_0000118>
+        <obo:IAO_0000118>transports</obo:IAO_0000118>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002337"/>
@@ -1664,7 +1668,7 @@ if and only if
    and
   c capable_of p&apos; and p&apos; part_of p
 then
- c ontributes_to p
+ c contributes_to p
 
 However, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction.</obo:IAO_0000116>
         <obo:IAO_0000232>In the context of the Gene Ontology, contributes_to may be used only with classes from the molecular function ontology. </obo:IAO_0000232>
@@ -1694,8 +1698,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget xml:lang="en">enables</owl:annotatedTarget>
         <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
+        <owl:annotatedTarget xml:lang="en">enables</owl:annotatedTarget>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:Axiom>
@@ -1761,7 +1765,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <!-- http://purl.obolibrary.org/obo/RO_0002333 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002333">
-        <rdfs:label xml:lang="en">enabled_by</rdfs:label>
+        <rdfs:label xml:lang="en">enabled by</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002333</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enabled_by</oboInOwl:shorthand>
         <obo:IAO_0000115>inverse of enables</obo:IAO_0000115>
@@ -2168,8 +2172,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
     </owl:Axiom>
     <owl:Axiom>
-        <dc:source>FMA</dc:source>
         <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
+        <dc:source>FMA</dc:source>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
     </owl:Axiom>
@@ -2578,6 +2582,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000589>directly provides input for (process to process)</obo:IAO_0000589>
         <obo:IAO_0000115>p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000116>This is currently called &apos;directly provides input for&apos; to be consistent with our terminology where we use &apos;direct&apos; whenever two occurrents succeed one another directly. We may relabel this simply &apos;provides input for&apos;, as directness is implicit</obo:IAO_0000116>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002412"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002414"/>
@@ -2589,10 +2594,11 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002414">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:label xml:lang="en">provides input for</rdfs:label>
+        <rdfs:label xml:lang="en">transitively provides input for</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002414</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">provides_input_for</oboInOwl:shorthand>
-        <obo:IAO_0000589>provides input for (process to process)</obo:IAO_0000589>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transitively_provides_input_for</oboInOwl:shorthand>
+        <obo:IAO_0000589>transitively provides input for (process to process)</obo:IAO_0000589>
+        <obo:IAO_0000232>This is a grouping relation that should probably not be used in annotation. Consider instead the child relation &apos;directly provides input for&apos; (which may later be relabeled simply to &apos;provides input for&apos;)</obo:IAO_0000232>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>transitive form of directly_provides_input_for</obo:IAO_0000115>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
@@ -2967,7 +2973,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>molecularly controls</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002448</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecularly_controls</oboInOwl:shorthand>
-        <obo:IAO_0000115>a molecularly controls b if the execution of a activates or inhibits the activity of b</obo:IAO_0000115>
+        <obo:IAO_0000115>Holds between molecular entities a and b when the execution of a activates or inhibits the activity of b</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002436"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002566"/>
@@ -3161,6 +3167,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002462</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subject_participant_in</oboInOwl:shorthand>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000232>Experimental: relation used for defining interaction relations; the meaning of s &apos;subject participant in&apos; p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the subject is the predator. We can imagine a reciprocal prey-predatory process with subject and object reversed.</obo:IAO_0000232>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002461"/>
     </owl:ObjectProperty>
     
@@ -3173,6 +3180,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002463</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">target_participant_in</oboInOwl:shorthand>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000232>Experimental: relation used for defining interaction relations; the meaning of s &apos;target participant in&apos; p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the target is the prey. We can imagine a reciprocal prey-predatory process with subject and object reversed.</obo:IAO_0000232>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002461"/>
     </owl:ObjectProperty>
     
@@ -3433,8 +3441,8 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">determines</oboInOwl:shorthand>
         <obo:IAO_0000589>determines (material entity to system)</obo:IAO_0000589>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002506"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002507"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002566"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </owl:ObjectProperty>
     
@@ -3769,7 +3777,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>has skeleton</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002551</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_skeleton</oboInOwl:shorthand>
-        <obo:IAO_0000115>A relation between a segment or subdivision of an organism and the maximal subdivision of skeleton that provides structural support for that segment or subdivision.</obo:IAO_0000115>
+        <obo:IAO_0000115>A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision.</obo:IAO_0000115>
         <obo:IAO_0000118>has supporting framework</obo:IAO_0000118>
         <obo:IAO_0000232>The skeleton of a structure may be a true skeleton (for example, the bony skeleton of a hand) or any kind of support framework (the hydrostatic skeleton of a sea star, the exoskeleton of an insect, the cytoskeleton of a cell).</obo:IAO_0000232>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
@@ -3874,7 +3882,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>causally influenced by</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002559</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">causally_influenced_by</oboInOwl:shorthand>
-        <obo:IAO_0000115>a is causally influenced by b if the activity of b is causally upstream of or within a process that affects a</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000589>causally influenced by (material entity to material entity)</obo:IAO_0000589>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002506"/>
@@ -3908,8 +3915,9 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>causally influences</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002566</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">causally_influences</oboInOwl:shorthand>
+        <obo:IAO_0000115>Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b</obo:IAO_0000115>
+        <obo:IAO_0000589>causally influences (material entity to material entity)</obo:IAO_0000589>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
-        <obo:IAO_0000589>causally influences(material entity to material entity)</obo:IAO_0000589>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002506"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002559"/>
     </owl:ObjectProperty>
@@ -4029,7 +4037,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000006"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002551"/>
     </owl:ObjectProperty>
     
@@ -4061,6 +4069,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000112>gland SubClassOf &apos;has part structure that is capable of&apos; some &apos;secretion by cell&apos;</obo:IAO_0000112>
         <obo:IAO_0000115>s &apos;has part structure that is capable of&apos; p if and only if there exists some part x such that s &apos;has part&apos; x and x &apos;capable of&apos; p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002595"/>
     </owl:ObjectProperty>
     
 
@@ -4078,12 +4087,184 @@ Each of these 3 primitives can be composed to yield a cross-product of different
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002586 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002586">
+        <rdfs:label>results in breakdown of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002586</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_breakdown_of</oboInOwl:shorthand>
+        <obo:IAO_0000115>p results in breakdown of c if and only if the execution of p leads to c no longer being present at the end of p</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002587 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002587">
+        <rdfs:label>results in synthesis of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002587</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_synthesis_of</oboInOwl:shorthand>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002297"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002588 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002588">
+        <rdfs:label>results in assembly of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002588</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_assembly_of</oboInOwl:shorthand>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002297"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002592"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002589 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002589">
+        <rdfs:label>results in catabolism of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002589</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_catabolism_of</oboInOwl:shorthand>
+        <obo:IAO_0000115>p results in catabolism of c if and only if p is a catabolic process, and the execution of p results in c being broken into smaller parts with energy being released.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002586"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002590 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002590">
+        <rdfs:label>results in disassembly of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002590</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_disassembly_of</oboInOwl:shorthand>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002586"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002592"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002591 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002591">
+        <rdfs:label>results in remodeling of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002591</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_remodeling_of</oboInOwl:shorthand>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002592"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002592 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002592">
+        <rdfs:label>results in organization of</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002592</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">results_in_organization_of</oboInOwl:shorthand>
+        <obo:IAO_0000115>p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002595 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002595">
+        <rdfs:label>causal relation between material entity and a process</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002595</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">causal_relation_between_material_entity_and_a_process</oboInOwl:shorthand>
+        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000116>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.</obo:IAO_0000116>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002596 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002596">
+        <rdfs:label>capable of regulating</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002596</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">capable_of_regulating</oboInOwl:shorthand>
+        <obo:IAO_0000115>Holds between c and p if and only if c is capable of some activity a, and a regulates p.</obo:IAO_0000115>
+        <obo:IAO_0000112>pyrethroid -&gt; growth</obo:IAO_0000112>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002595"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002597 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002597">
+        <rdfs:label>capable of negatively regulating</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002597</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">capable_of_negatively_regulating</oboInOwl:shorthand>
+        <obo:IAO_0000115>Holds between c and p if and only if c is capable of some activity a, and a negatively regulates p.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002596"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002598 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002598">
+        <rdfs:label>capable of positively regulating</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002598</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">capable_of_positively_regulating</oboInOwl:shorthand>
+        <obo:IAO_0000112>renin -&gt; arteriolar smooth muscle contraction</obo:IAO_0000112>
+        <obo:IAO_0000115>Holds between c and p if and only if c is capable of some activity a, and a positively regulates p.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002596"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002599 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002599">
+        <rdfs:label>capable of inhibiting or preventing pathological process</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002599</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">capable_of_inhibiting_or_preventing_pathological_process</oboInOwl:shorthand>
+        <obo:IAO_0000232>The entity c may be a molecular entity with a drug role, or it could be some other entity used in a therapeutic context, such as a hyperbaric chamber.</obo:IAO_0000232>
+        <obo:IAO_0000115>Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a inhibits p.</obo:IAO_0000115>
+        <obo:IAO_0000112>pazopanib -&gt; pathological angiogenesis</obo:IAO_0000112>
+        <obo:IAO_0000118>treats</obo:IAO_0000118>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002597"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedTarget>treats</owl:annotatedTarget>
+        <rdfs:comment>Usage of the term &apos;treats&apos; applies when we believe there to be a an inhibitory relationship</rdfs:comment>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002599"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002600 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002600">
+        <rdfs:label>capable of upregulating or causing pathological process</rdfs:label>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002600</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">capable_of_upregulating_or_causing_pathological_process</oboInOwl:shorthand>
+        <obo:IAO_0000118>causes disease</obo:IAO_0000118>
+        <obo:IAO_0000112>benzene -&gt; cancer [CHEBI]</obo:IAO_0000112>
+        <obo:IAO_0000115>Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a negatively regulates p.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002598"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0003002 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003002">
         <rdfs:label>represses expression of</rdfs:label>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0003002</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">represses_expression_of</oboInOwl:shorthand>
+        <obo:IAO_0000116>Logical axioms to be added after the relevant branch of GO is MIREOTed in</obo:IAO_0000116>
         <obo:IAO_0000115>Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b.</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002449"/>
     </owl:ObjectProperty>
@@ -4097,6 +4278,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0003003</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increases_expression_of</oboInOwl:shorthand>
         <obo:IAO_0000115>Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b.</obo:IAO_0000115>
+        <obo:IAO_0000116>Logical axioms to be added after the relevant branch of GO is MIREOTed in</obo:IAO_0000116>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002450"/>
     </owl:ObjectProperty>
     

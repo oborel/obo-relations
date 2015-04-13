@@ -175,8 +175,26 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/21208450
 property_value: IAO:0000232 "For compatibility with BFO, this relation has a shortcut definition in which the expression \"capable of some P\" expands to \"bearer_of (some realized_by only P)\"." xsd:string
 domain: BFO:0000004
 range: BFO:0000015
+is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
 is_a: functionally_related_to ! functionally related to
 expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
+
+[Typedef]
+id: capable_of_inhibiting_or_preventing_pathological_process
+name: capable of inhibiting or preventing pathological process
+def: "Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a inhibits p." []
+xref: RO:0002599
+property_value: IAO:0000112 "pazopanib -> pathological angiogenesis" xsd:string
+property_value: IAO:0000118 "treats" xsd:string {comment="Usage of the term 'treats' applies when we believe there to be a an inhibitory relationship"}
+property_value: IAO:0000232 "The entity c may be a molecular entity with a drug role, or it could be some other entity used in a therapeutic context, such as a hyperbaric chamber." xsd:string
+is_a: capable_of_negatively_regulating ! capable of negatively regulating
+
+[Typedef]
+id: capable_of_negatively_regulating
+name: capable of negatively regulating
+def: "Holds between c and p if and only if c is capable of some activity a, and a negatively regulates p." []
+xref: RO:0002597
+is_a: capable_of_regulating ! capable of regulating
 
 [Typedef]
 id: capable_of_part_of
@@ -186,8 +204,34 @@ xref: RO:0002216
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
+is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
 is_a: functionally_related_to ! functionally related to
 expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" []
+
+[Typedef]
+id: capable_of_positively_regulating
+name: capable of positively regulating
+def: "Holds between c and p if and only if c is capable of some activity a, and a positively regulates p." []
+xref: RO:0002598
+property_value: IAO:0000112 "renin -> arteriolar smooth muscle contraction" xsd:string
+is_a: capable_of_regulating ! capable of regulating
+
+[Typedef]
+id: capable_of_regulating
+name: capable of regulating
+def: "Holds between c and p if and only if c is capable of some activity a, and a regulates p." []
+xref: RO:0002596
+property_value: IAO:0000112 "pyrethroid -> growth" xsd:string
+is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
+
+[Typedef]
+id: capable_of_upregulating_or_causing_pathological_process
+name: capable of upregulating or causing pathological process
+def: "Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a negatively regulates p." []
+xref: RO:0002600
+property_value: IAO:0000112 "benzene -> cancer [CHEBI]" xsd:string
+property_value: IAO:0000118 "causes disease" xsd:string
+is_a: capable_of_positively_regulating ! capable of positively regulating
 
 [Typedef]
 id: causal_relation_between_material_entities
@@ -198,6 +242,16 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
 domain: BFO:0000040
 range: BFO:0000040
+is_a: causally_related_to ! causally related to
+
+[Typedef]
+id: causal_relation_between_material_entity_and_a_process
+name: causal relation between material entity and a process
+xref: RO:0002595
+property_value: IAO:0000116 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+domain: BFO:0000040
+range: BFO:0000015
 is_a: causally_related_to ! causally related to
 
 [Typedef]
@@ -235,7 +289,6 @@ inverse_of: causally_upstream_of_or_within ! causally upstream of or within
 [Typedef]
 id: causally_influenced_by
 name: causally influenced by
-def: "a is causally influenced by b if the activity of b is causally upstream of or within a process that affects a" []
 xref: RO:0002559
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "causally influenced by (material entity to material entity)" xsd:string
@@ -244,9 +297,10 @@ is_a: causal_relation_between_material_entities ! causal relation between materi
 [Typedef]
 id: causally_influences
 name: causally influences
+def: "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b" []
 xref: RO:0002566
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000589 "causally influences(material entity to material entity)" xsd:string
+property_value: IAO:0000589 "causally influences (material entity to material entity)" xsd:string
 is_a: causal_relation_between_material_entities ! causal relation between material entities
 inverse_of: causally_influenced_by ! causally influenced by
 
@@ -426,7 +480,7 @@ xref: RO:0002326
 property_value: IAO:0000112 "ATP citrate lyase (ACL) in Arabidopsis: it is a heterooctamer, composed of two types of subunits, ACLA and ACLB in a A(4)B(4) stoichiometry. Neither of the subunits expressed alone give ACL activity, but co-expression results in ACL activity. Both subunits contribute_to the ATP citrate lyase activity." xsd:string
 property_value: IAO:0000112 "eIF2: has three subunits (alpha, beta, gamma); one binds GTP; one binds RNA; the whole complex binds the ribosome (all three subunits are required for ribosome binding). So one subunit is annotated to GTP binding and one to RNA binding without qualifiers, and all three stand in the contributes_to relationship to \"ribosome binding\". And all three are part_of an eIF2 complex" xsd:string
 property_value: IAO:0000112 "Subunits of nuclear RNA polymerases: none of the individual subunits have RNA polymerase activity, yet all of these subunits contribute_to DNA-dependent RNA polymerase activity." xsd:string
-property_value: IAO:0000116 "We would like to say\n\nif and only if\n exists c', p'\n  c part_of c' and c' capable_of p\n   and\n  c capable_of p' and p' part_of p\nthen\n c ontributes_to p\n\nHowever, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction." xsd:string
+property_value: IAO:0000116 "We would like to say\n\nif and only if\n exists c', p'\n  c part_of c' and c' capable_of p\n   and\n  c capable_of p' and p' part_of p\nthen\n c contributes_to p\n\nHowever, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.geneontology.org/GO.annotation.conventions.shtml#contributes_to xsd:string
 property_value: IAO:0000232 "In the context of the Gene Ontology, contributes_to may be used only with classes from the molecular function ontology. " xsd:string
@@ -493,7 +547,7 @@ subset: ro-eco
 xref: RO:0002508
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "determines (material entity to system)" xsd:string
-is_a: causal_relation_between_material_entities ! causal relation between material entities
+is_a: causally_influences ! causally influences
 inverse_of: determined_by ! determined by
 
 [Typedef]
@@ -681,10 +735,11 @@ name: directly provides input for
 def: "p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c" []
 xref: RO:0002413
 property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000116 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
 is_a: immediately_causally_upstream_of ! immediately causally upstream of
-is_a: provides_input_for ! provides input for
+is_a: transitively_provides_input_for ! transitively provides input for
 
 [Typedef]
 id: directly_regulates
@@ -751,7 +806,7 @@ property_value: IAO:0000232 "Do not use this relation directly. It is intended a
 
 [Typedef]
 id: enabled_by
-name: enabled_by
+name: enabled by
 def: "inverse of enables" []
 xref: RO:0002333
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1050,6 +1105,7 @@ def: "s 'has part structure that is capable of' p if and only if there exists so
 xref: RO:0002584
 property_value: IAO:0000112 "gland SubClassOf 'has part structure that is capable of' some 'secretion by cell'" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
 is_a: functionally_related_to ! functionally related to
 
 [Typedef]
@@ -1145,7 +1201,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_00
 [Typedef]
 id: has_skeleton
 name: has skeleton
-def: "A relation between a segment or subdivision of an organism and the maximal subdivision of skeleton that provides structural support for that segment or subdivision." []
+def: "A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision." []
 xref: RO:0002551
 property_value: IAO:0000112 "Forelimb SubClassOf has_skeleton some 'Forelimb skeleton'" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1336,6 +1392,7 @@ id: increases_expression_of
 name: increases expression of
 def: "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b." []
 xref: RO:0003003
+property_value: IAO:0000116 "Logical axioms to be added after the relevant branch of GO is MIREOTed in" xsd:string
 is_a: molecularly_increases_activity_of ! molecularly increases activity of
 
 [Typedef]
@@ -1618,7 +1675,7 @@ property_value: RO:0001900 RO:0001901
 [Typedef]
 id: molecularly_controls
 name: molecularly controls
-def: "a molecularly controls b if the execution of a activates or inhibits the activity of b" []
+def: "Holds between molecular entities a and b when the execution of a activates or inhibits the activity of b" []
 xref: RO:0002448
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: causally_influences ! causally influences
@@ -1940,19 +1997,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: tributary_of ! tributary of
 
 [Typedef]
-id: provides_input_for
-name: provides input for
-def: "transitive form of directly_provides_input_for" []
-xref: RO:0002414
-property_value: IAO:0000114 IAO:0000428
-property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000589 "provides input for (process to process)" xsd:string
-domain: BFO:0000015
-range: BFO:0000015
-is_transitive: true
-is_a: causally_upstream_of ! causally upstream of
-
-[Typedef]
 id: provides_nutrients_for
 name: provides nutrients for
 subset: ro-eco
@@ -1988,6 +2032,7 @@ name: regulates
 def: "x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y" []
 xref: RO:0002211
 property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000116 "We use 'regulates' here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of 'causally upstream of or within' (aka influences). Consider relabeling to make things more explicit" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000117 "David Hill" xsd:string
 property_value: IAO:0000117 "Tanya Berardini" xsd:string
@@ -2033,6 +2078,7 @@ id: represses_expression_of
 name: represses expression of
 def: "Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b." []
 xref: RO:0003002
+property_value: IAO:0000116 "Logical axioms to be added after the relevant branch of GO is MIREOTed in" xsd:string
 is_a: molecularly_decreases_activity_of ! molecularly decreases activity of
 
 [Typedef]
@@ -2046,6 +2092,27 @@ property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
 range: CL:0000000
 is_a: has_participant
 is_a: results_in_developmental_progression_of ! results in developmental progression of
+
+[Typedef]
+id: results_in_assembly_of
+name: results in assembly of
+xref: RO:0002588
+is_a: results_in_formation_of ! results in formation of
+is_a: results_in_organization_of ! results in organization of
+
+[Typedef]
+id: results_in_breakdown_of
+name: results in breakdown of
+def: "p results in breakdown of c if and only if the execution of p leads to c no longer being present at the end of p" []
+xref: RO:0002586
+is_a: has_input ! has input
+
+[Typedef]
+id: results_in_catabolism_of
+name: results in catabolism of
+def: "p results in catabolism of c if and only if p is a catabolic process, and the execution of p results in c being broken into smaller parts with energy being released." []
+xref: RO:0002589
+is_a: results_in_breakdown_of ! results in breakdown of
 
 [Typedef]
 id: results_in_closure_of
@@ -2130,6 +2197,13 @@ property_value: IAO:0000232 "May be merged into parent relation" xsd:string
 is_a: results_in_ending_of ! results in ending of
 
 [Typedef]
+id: results_in_disassembly_of
+name: results in disassembly of
+xref: RO:0002590
+is_a: results_in_breakdown_of ! results in breakdown of
+is_a: results_in_organization_of ! results in organization of
+
+[Typedef]
 id: results_in_ending_of
 name: results in ending of
 def: "p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded." []
@@ -2165,7 +2239,7 @@ name: results in maturation of
 def: "The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it's shape and results in an end point state of that entity." []
 xref: RO:0002299
 property_value: IAO:0000112 " an annotation of gene X to cell maturation with results_in_maturation_of CL:0000057 (fibroblast) means that the fibroblast is mature at the end of the process" xsd:string
-property_value: IAO:0000112 "bone maturation (GO:0070977) results_in_developmental_progression_of bone (UBERON:0001474)" xsd:string
+property_value: IAO:0000112 "bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
@@ -2195,6 +2269,20 @@ property_value: IAO:0000232 "" xsd:string
 is_a: has_participant
 
 [Typedef]
+id: results_in_organization_of
+name: results in organization of
+def: "p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c" []
+xref: RO:0002592
+is_a: has_participant
+
+[Typedef]
+id: results_in_remodeling_of
+name: results in remodeling of
+xref: RO:0002591
+is_a: has_input ! has input
+is_a: results_in_organization_of ! results in organization of
+
+[Typedef]
 id: results_in_specification_of
 name: results in specification of
 def: "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment. " []
@@ -2212,6 +2300,12 @@ xref: RO:0002355
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: has_participant
 is_a: results_in_developmental_progression_of ! results in developmental progression of
+
+[Typedef]
+id: results_in_synthesis_of
+name: results in synthesis of
+xref: RO:0002587
+is_a: results_in_formation_of ! results in formation of
 
 [Typedef]
 id: results_in_transport_across
@@ -2276,7 +2370,7 @@ id: skeleton_of
 name: skeleton of
 xref: RO:0002576
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-domain: CARO:0000006
+domain: CARO:0000003
 range: CARO:0000003
 is_a: part_of
 inverse_of: has_skeleton ! has skeleton
@@ -2326,6 +2420,7 @@ id: subject_participant_in
 name: subject participant in
 xref: RO:0002462
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Experimental: relation used for defining interaction relations; the meaning of s 'subject participant in' p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the subject is the predator. We can imagine a reciprocal prey-predatory process with subject and object reversed." xsd:string
 is_a: partner_in ! partner in
 
 [Typedef]
@@ -2375,6 +2470,7 @@ id: target_participant_in
 name: target participant in
 xref: RO:0002463
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Experimental: relation used for defining interaction relations; the meaning of s 'target participant in' p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the target is the prey. We can imagine a reciprocal prey-predatory process with subject and object reversed." xsd:string
 is_a: partner_in ! partner in
 
 [Typedef]
@@ -2396,6 +2492,20 @@ is_a: develops_from ! develops from
 is_a: preceded_by
 
 [Typedef]
+id: transitively_provides_input_for
+name: transitively provides input for
+def: "transitive form of directly_provides_input_for" []
+xref: RO:0002414
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')" xsd:string
+property_value: IAO:0000589 "transitively provides input for (process to process)" xsd:string
+domain: BFO:0000015
+range: BFO:0000015
+is_transitive: true
+is_a: causally_upstream_of ! causally upstream of
+
+[Typedef]
 id: transmitted_by
 name: transmitted by
 def: "A relationship that holds between a disease and organism" []
@@ -2412,6 +2522,7 @@ def: "Holds between p and c when p is a transportation or localization process a
 xref: RO:0002313
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "regulates location of" xsd:string
+property_value: IAO:0000118 "transports" xsd:string
 is_a: has_participant
 is_a: related_via_localization_to ! related via localization to
 
