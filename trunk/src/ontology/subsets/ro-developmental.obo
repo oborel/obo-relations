@@ -313,6 +313,7 @@ property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000116 "This branch of the ontology deals with causal relations between entities. It is divided into two branches: causal relations between occurrents/processes, and causal relations between material entities. We take an 'activity flow-centric approach', with the former as primary, and define causal relations between material entities in terms of causal relations between occurrents.\n\nTo define causal relations in an activity-flow type network, we make use of 3 primitives:\n\n * Temporal: how do the intervals of the two occurrents relate? \n * Is the causal relation regulatory?\n * Is the influence positive or negative\n\nThe first of these can be formalized in terms of the Allen Interval Algebra. Informally, the 3 bins we care about are 'direct', 'indirect' or overlapping. Note that all causal relations should be classified under a RO temporal relation (see the branch under 'temporally related to'). Note that all causal relations are temporal, but not all temporal relations are causal. Two occurrents can be related in time without being causally connected. We take causal influence to be primitive, elucidated as being such that has the upstream changed, some qualities of the donwstream would necessarily be modified.\n\nFor the second, we consider a relationship to be regulatory if the system in which the activities occur is capable of altering the relationship to achieve some objective. This could include changing the rate of production of a molecule.\n\nFor the third, we consider the effect of the upstream process on the output(s) of the downstream process. If the level of output is increased, or the rate of production of the output is increased, then the direction is increased. Direction can be positive, negative or neutral or capable of either direction. Two positives in succession yield a positive, two negatives in succession yield a positive, otherwise the default assumption is that the net effect is canceled and the influence is neutral.\n\nEach of these 3 primitives can be composed to yield a cross-product of different relation types." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
+is_a: related_via_dependence_to ! related via dependence to
 
 [Typedef]
 id: causally_upstream_of
@@ -494,6 +495,14 @@ def: "p contributes to morphology of w if and only if a change in the morphology
 xref: RO:0002433
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: overlaps ! overlaps
+
+[Typedef]
+id: correlated_with
+name: correlated with
+def: "A relationship that holds between two entities, where the entities exhibit a statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes." []
+xref: RO:0002610
+property_value: IAO:0000232 "Groups both positive and negative correlation" xsd:string
+is_a: related_via_dependence_to ! related via dependence to
 
 [Typedef]
 id: dendrite_synapsed_in
@@ -1575,6 +1584,14 @@ is_a: is_upstream_of_sequence_of ! is upstream of sequence of
 is_a: sequentially_adjacent_to ! sequentially adjacent to
 
 [Typedef]
+id: is_marker_for
+name: is marker for
+def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
+xref: RO:0002607
+property_value: IAO:0000116 "May be ceded to OBI" xsd:string
+is_a: correlated_with ! correlated with
+
+[Typedef]
 id: is_sequentially_aligned_with
 name: is sequentially aligned with
 def: "x is sequentially aligned with if a significant portion bases of x and y correspond in terms of their base type and their relative ordering" []
@@ -1610,6 +1627,15 @@ is_a: is_bound_by_sequence_of ! is bound by sequence of
 is_a: overlaps_sequence_of ! overlaps sequence of
 is_a: part_of
 inverse_of: has_subsequence ! has subsequence
+
+[Typedef]
+id: is_substance_that_treats
+name: is substance that treats
+def: "c is a substance that treats d if c is a material entity (such as a small molecule or compound) and d is a pathological process, phenotype or disease, and c is capable of some activity that negative regulates or decreases the magnitude of d." []
+xref: RO:0002606
+property_value: IAO:0000118 "treats" xsd:string
+property_value: seeAlso https://code.google.com/p/obo-relations/issues/detail?id=46
+is_a: capable_of_inhibiting_or_preventing_pathological_process ! capable of inhibiting or preventing pathological process
 
 [Typedef]
 id: is_upstream_of_sequence_of
@@ -2065,6 +2091,13 @@ property_value: IAO:0000589 "regulates levels of (process to entity)" xsd:string
 is_a: functionally_related_to ! functionally related to
 
 [Typedef]
+id: related_via_dependence_to
+name: related via dependence to
+def: "A relationship that holds between two entities, where the relationship holds based on the presence or absence of statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes." []
+xref: RO:0002609
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
+
+[Typedef]
 id: related_via_localization_to
 name: related via localization to
 def: "A relationship that holds via some process of localization" []
@@ -2262,10 +2295,11 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 [Typedef]
 id: results_in_movement_of
 name: results in movement of
-def: "Holds between p and c when p is a movement or chemotaxis process and the outcome of this process is the change of location of c" [GOC:mtg_berkeley_2013]
+def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" [GOC:mtg_berkeley_2013]
 xref: RO:0002565
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "" xsd:string
+domain: GO:0040011
 is_a: has_participant
 
 [Typedef]
