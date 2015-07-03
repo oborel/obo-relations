@@ -48,11 +48,11 @@ For more information, see [Shortcut Relations](https://github.com/oborel/obo-rel
 
 RO combines multiple relations from different biological sub-domains into one ontology. Sometimes these relations are very specialized and of limited use outside that domain. For more on extracting specific modules, see:
 
-See [ROModules].
+See [RO Modules](https://github.com/oborel/obo-relations/wiki/ROModules).
 
 # RO replaces OBO_REL
 
-The predecessor of RO was OBO_REL. Many of the relations in OBO_REL have been ceded to BFO. See [DifferencesWithOldRO](https://github.com/oborel/obo-relations/wiki/DifferencesWithOldRO_
+The predecessor of RO was OBO_REL. Many of the relations in OBO_REL have been ceded to BFO. See [DifferencesWithOldRO](https://github.com/oborel/obo-relations/wiki/DifferencesWithOldRO)
 
 # Coordination with BFO
 
