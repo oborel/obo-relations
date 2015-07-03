@@ -1,8 +1,8 @@
-This is the project page for RO, the new OBO Relations Ontology. This ontology replaces [http://obofoundry.org/ro OBO_REL].
+This is the project page for RO, the new OBO Relations Ontology. This ontology replaces [OBO_REL](http://obofoundry.org/ro)
 
 # Summary
 
-RO is a collection of relations intended primarily for standardization across ontologies in the [OBO Foundry](http://obofoundry.org) and wider OBO library. It incorporates [ROCore](https://github.com/oborel/obo-relations/wiki/) upper-level relations such as http://purl.obolibrary.org/obo/BFO_0000050 (part of) as well as biology-specific relationship types such as http://purl.obolibrary.org/obo/RO_0002202 (develops from).
+RO is a collection of relations intended primarily for standardization across ontologies in the [OBO Foundry](http://obofoundry.org) and wider OBO library. It incorporates [ROCore](https://github.com/oborel/obo-relations/wiki/ROCore) upper-level relations such as [part of](http://purl.obolibrary.org/obo/BFO_0000050) as well as biology-specific relationship types such as [develops from](http://purl.obolibrary.org/obo/RO_0002202).
 
 See the site [Menu](https://github.com/oborel/obo-relations/wiki/Menu) for more info
 
@@ -19,7 +19,7 @@ Note that the source ontology is OWL - the [OBO](https://github.com/oborel/obo-r
 
 Currently the optimal way to browse RO is to use Protege and inspect ro.owl
 
-See the [http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002/07/owl%23ObjectProperty&graph=http://purl.obolibrary.org/obo/merged/RO list of relations on OntoBee] -- note that sometimes OntoBee fails to display the full hierarchy
+See the [list of relations on OntoBee]](http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002/07/owl%23ObjectProperty&graph=http://purl.obolibrary.org/obo/merged/RO) -- note that sometimes OntoBee fails to display the full hierarchy
 
 # Mail List
 
@@ -29,20 +29,20 @@ See the [http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002
 
 # Examples of usage
 
-See [UsageExamples]
+See [UsageExamples](https://github.com/oborel/obo-relations/wiki/UsageExamples)
 
 # Requesting new relations
 
-Use [https://github.com/oborel/obo-relations/issues obo-relations issue tracker] and/or the obo-relations mail list.
+Use [the github issue tracker](https://github.com/oborel/obo-relations/issues) and/or the obo-relations mail list.
 
 # Shortcut Relations
 
 RO includes a number of _macro_ or _shortcut_ relations. E.g
 
- * [http://purl.obolibrary.org/obo/RO_0002215 capable of]
- * [http://purl.obolibrary.org/obo/RO_0002110 has postynaptic terminal in]
+ * [capable of](http://purl.obolibrary.org/obo/RO_0002215)
+ * [has postynaptic terminal in](http://purl.obolibrary.org/obo/RO_0002110)
 
-For more information, see https://github.com/oborel/obo-relations/wiki/ShortcutRelations
+For more information, see [Shortcut Relations](https://github.com/oborel/obo-relations/wiki/ShortcutRelations)
 
 # Modularization
 
@@ -52,8 +52,8 @@ See [ROModules].
 
 # RO replaces OBO_REL
 
-The predecessor of RO was OBO_REL. Many of the relations in OBO_REL have been ceded to BFO. See https://github.com/oborel/obo-relations/wiki/DifferencesWithOldRO
+The predecessor of RO was OBO_REL. Many of the relations in OBO_REL have been ceded to BFO. See [DifferencesWithOldRO](https://github.com/oborel/obo-relations/wiki/DifferencesWithOldRO_
 
 # Coordination with BFO
 
-For details on how RO coordinates with BFO, See https://github.com/oborel/obo-relations/wiki/ROAndBFO .
+For details on how RO coordinates with BFO, See [ROAndBFO](https://github.com/oborel/obo-relations/wiki/ROAndBFO) .
