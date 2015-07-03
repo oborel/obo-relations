@@ -19,7 +19,7 @@ Note that the source ontology is OWL - the [OBO](https://github.com/oborel/obo-r
 
 Currently the optimal way to browse RO is to use Protege and inspect ro.owl
 
-See the [list of relations on OntoBee]](http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002/07/owl%23ObjectProperty&graph=http://purl.obolibrary.org/obo/merged/RO) -- note that sometimes OntoBee fails to display the full hierarchy
+See the [list of relations on OntoBee](http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002/07/owl%23ObjectProperty&graph=http://purl.obolibrary.org/obo/merged/RO) -- note that sometimes OntoBee fails to display the full hierarchy
 
 # Mail List
 
