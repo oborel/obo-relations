@@ -113,3 +113,11 @@ rohom.owl: rohom.obo
 
 odp/%.owl:
 	wget http://www.ontologydesignpatterns.org/cp/owl/$*.owl -O $@
+
+
+# ----------------------------------------
+# MARKDOWN EXPORT
+# ----------------------------------------
+markdown: ro.owl
+	owltools $< --merge-imports-closure --ontology-to-markdown md
+
