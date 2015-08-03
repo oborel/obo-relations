@@ -4,7 +4,12 @@ OBO=http://purl.obolibrary.org/obo
 # PRODUCTION
 # ========================================
 
+all: build
+
 build: ro.owl ro.obo ro-el.owl all_subsets
+
+release: 
+	cp catalog-v001.xml ro.obo ro.owl 
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
@@ -119,5 +124,5 @@ odp/%.owl:
 # MARKDOWN EXPORT
 # ----------------------------------------
 markdown: ro.owl
-	owltools $< --merge-imports-closure --ontology-to-markdown md
+	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 

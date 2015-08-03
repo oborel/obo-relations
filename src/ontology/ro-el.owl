@@ -30,13 +30,13 @@
         <rdfs:label>end, days post coitum</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </AnnotationProperty>
-    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002594">
-        <rdfs:label>is relational form of a class</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
-    </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002549">
         <rdfs:label>start, weeks post birth</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
+    </AnnotationProperty>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002594">
+        <rdfs:label>is relational form of a class</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
     </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002546">
         <rdfs:label>has developmental stage marker</rdfs:label>
@@ -99,14 +99,14 @@
         <rdfs:label xml:lang="en">logical macro assertion</rdfs:label>
         <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/ShortcutRelations</foaf:page>
     </AnnotationProperty>
-    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002421">
-        <rdfs:label xml:lang="en">logical macro assertion on a property</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002416"/>
-    </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002561">
         <rdfs:label>is symmetric relational form of process class</rdfs:label>
         <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002562"/>
+    </AnnotationProperty>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002421">
+        <rdfs:label xml:lang="en">logical macro assertion on a property</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002416"/>
     </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002422">
         <rdfs:label xml:lang="en">logical macro assertion on an object property</rdfs:label>
@@ -152,6 +152,16 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
     </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002612">
+        <rdfs:label>axiom has evidence</rdfs:label>
+        <obo:IAO_0000232>This annotation property is intended to be used in an OWL Axiom Annotation to connect an OWL Axiom to an instance of an ECO (evidence type ontology class). Because in OWL, all axiom annotations must use an Annotation Property, the value of the annotation cannot be an OWL individual, the convention is to use an IRI of the individual.</obo:IAO_0000232>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002611"/>
+    </AnnotationProperty>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002613">
+        <rdfs:label>axiom contradicted by evidence</rdfs:label>
+        <obo:IAO_0000232>This annotation property is intended to be used in an OWL Axiom Annotation to connect an OWL Axiom to an instance of an ECO (evidence type ontology class). Because in OWL, all axiom annotations must use an Annotation Property, the value of the annotation cannot be an OWL individual, the convention is to use an IRI of the individual.</obo:IAO_0000232>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002611"/>
+    </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002539">
         <rdfs:label>start, days post fertilization</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
@@ -176,6 +186,10 @@
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002538">
         <rdfs:label>has end time value</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002535"/>
+    </AnnotationProperty>
+    <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002611">
+        <rdfs:label>evidential logical macro assertion on an axiom</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002580"/>
     </AnnotationProperty>
     <AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002537">
         <rdfs:label>has start time value</rdfs:label>
@@ -480,17 +494,6 @@
         <rdfs:comment>Example: if we define region of chromosome as any subdivision of a chromosome along its long axis, then we can define a region of chromosome that contains only gene x as &#39;chromosome region&#39; that coincident_with some &#39;gene x&#39;, where the term gene X corresponds to a genomic sequence.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002323"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
-        <rdfs:domain>
-            <Class>
-                <intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
-                    <Restriction>
-                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PATO_0001199"/>
-                    </Restriction>
-                </intersectionOf>
-            </Class>
-        </rdfs:domain>
         <rdfs:range>
             <Class>
                 <intersectionOf rdf:parseType="Collection">
@@ -502,6 +505,17 @@
                 </intersectionOf>
             </Class>
         </rdfs:range>
+        <rdfs:domain>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000002"/>
+                    <Restriction>
+                        <onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                        <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/PATO_0001199"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:domain>
     </ObjectProperty>
     
 
@@ -817,7 +831,7 @@ N1 SubclassOf (
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002131"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </propertyChainAxiom>
         <propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -825,7 +839,7 @@ N1 SubclassOf (
         </propertyChainAxiom>
         <propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002131"/>
         </propertyChainAxiom>
     </ObjectProperty>
     <Axiom>
@@ -961,23 +975,7 @@ N1 SubclassOf (
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
         <propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002254"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </propertyChainAxiom>
-        <propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </propertyChainAxiom>
-        <propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002202"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </propertyChainAxiom>
-        <propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002215"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </propertyChainAxiom>
-        <propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </propertyChainAxiom>
         <propertyChainAxiom rdf:parseType="Collection">
@@ -989,11 +987,27 @@ N1 SubclassOf (
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </propertyChainAxiom>
         <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002206"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002202"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002214"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </propertyChainAxiom>
         <propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002206"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002254"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </propertyChainAxiom>
     </ObjectProperty>
@@ -1019,18 +1033,18 @@ N1 SubclassOf (
         <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</foaf:page>
         <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</foaf:page>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002323"/>
-        <rdfs:range>
-            <Restriction>
-                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/RO_0002577"/>
-            </Restriction>
-        </rdfs:range>
         <rdfs:domain>
             <Restriction>
                 <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
                 <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/RO_0002577"/>
             </Restriction>
         </rdfs:domain>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/RO_0002577"/>
+            </Restriction>
+        </rdfs:range>
     </ObjectProperty>
     
 
@@ -1764,8 +1778,8 @@ N1 SubclassOf (
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
     </ObjectProperty>
     <Axiom>
-        <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
         <annotatedTarget xml:lang="en">enables</annotatedTarget>
+        <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
         <annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
         <annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </Axiom>
@@ -3993,6 +4007,15 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0003301 -->
+
+    <ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003301">
+        <rdfs:label xml:lang="en">is model of</rdfs:label>
+        <rdfs:comment>The driving use case for this relation was to link a biological model system such as a cell line or model organism to a disease it is used to investigate, in virtue of the model system exhibiting features similar to that of the disease of interest.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_HOM0000001 -->
 
     <ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_HOM0000001">
@@ -4684,8 +4707,8 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
         <obo:IAO_0000589>is defined by</obo:IAO_0000589>
     </NamedIndividual>
     <Axiom>
-        <rdfs:comment>This is an experimental annotation</rdfs:comment>
         <annotatedTarget>is defined by</annotatedTarget>
+        <rdfs:comment>This is an experimental annotation</rdfs:comment>
         <annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000589"/>
         <annotatedSource rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
     </Axiom>
