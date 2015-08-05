@@ -1,5 +1,7 @@
 OBO=http://purl.obolibrary.org/obo
 
+ONTS= ro.obo ro.owl annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl rohom.owl
+
 # ========================================
 # PRODUCTION
 # ========================================
@@ -9,7 +11,7 @@ all: build
 build: ro.owl ro.obo ro-el.owl all_subsets
 
 release: 
-	cp catalog-v001.xml ro.obo ro.owl 
+	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
