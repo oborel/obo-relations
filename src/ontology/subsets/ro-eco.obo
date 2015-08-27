@@ -584,6 +584,7 @@ name: attached to part of
 def: "a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b." []
 holds_over_chain: RO:0002371 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002323 ! mereotopologically related to
+is_a: RO:0002567 ! biomechanically related to
 
 [Typedef]
 id: RO:0002178
@@ -771,8 +772,7 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20123131
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/21208450
 property_value: IAO:0000232 "For compatibility with BFO, this relation has a shortcut definition in which the expression \"capable of some P\" expands to \"bearer_of (some realized_by only P)\"." xsd:string
 holds_over_chain: RO:0002214 RO:0002217
-is_a: RO:0002328 ! functionally related to
-is_a: RO:0002595 ! causal relation between material entity and a process
+is_a: RO:0002216 ! capable of part of
 expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
 
 [Typedef]
@@ -784,7 +784,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
 holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002328 ! functionally related to
-is_a: RO:0002595 ! causal relation between material entity and a process
+is_a: RO:0002500 ! causal agent in
 expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" []
 
 [Typedef]
@@ -1060,6 +1060,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002502 ! depends on
+transitive_over: BFO:0000050
 
 [Typedef]
 id: RO:0002320
@@ -1132,6 +1133,9 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "catalyzes" xsd:string
 property_value: IAO:0000118 "executes" xsd:string
 property_value: IAO:0000118 "has" xsd:string
+property_value: IAO:0000118 "is catalyzing" xsd:string
+property_value: IAO:0000118 "is executing" xsd:string
+property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
 property_value: IAO:0000232 "This relation is currently used experimentally by the Gene Ontology Consortium. It may not be stable and may be obsoleted at some future time." xsd:string
 is_a: RO:0002215 ! capable of
 
@@ -1754,11 +1758,13 @@ def: "c involved in or regulates p if and only if either (i) c is involved in p 
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "involved in or involved in regulation of" xsd:string
 is_a: RO:0002328 ! functionally related to
+is_a: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002432
 name: enables activity in
 def: "c executes activity in d if and only if c enables p and p occurs_in d" []
+property_value: IAO:0000112 "A protein that enables activity in a cytosol." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "executes activity in" xsd:string
 is_a: RO:0002328 ! functionally related to
@@ -2300,6 +2306,12 @@ transitive_over: BFO:0000063
 transitive_over: RO:0002082
 
 [Typedef]
+id: RO:0002500
+name: causal agent in
+def: "A relationship between a material entity and a process where the material entity has some causal role that influences the process" []
+is_a: RO:0002595 ! causal relation between material entity and a process
+
+[Typedef]
 id: RO:0002501
 name: causal relation between processes
 def: "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one of direct activation or direct inhibition. p may be upstream, downstream, part of or a container of q." []
@@ -2715,6 +2727,7 @@ id: RO:0002567
 name: biomechanically related to
 def: "A relation that holds between elements of a musculoskeletal system or its analogs." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving the biomechanical processes." xsd:string
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -2864,6 +2877,7 @@ is_a: RO:0002487 ! relation between structure and stage
 [Typedef]
 id: RO:0002595
 name: causal relation between material entity and a process
+def: "A relationship that holds between a material entity and a process in which causality is involved, with either the material entity or some part of the material entity exerting some influence over the process, or the process influencing some aspect of the material entity." []
 property_value: IAO:0000116 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: RO:0002410 ! causally related to
@@ -2874,7 +2888,7 @@ name: capable of regulating
 def: "Holds between c and p if and only if c is capable of some activity a, and a regulates p." []
 property_value: IAO:0000112 "pyrethroid -> growth" xsd:string
 holds_over_chain: RO:0002215 RO:0002211
-is_a: RO:0002595 ! causal relation between material entity and a process
+is_a: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002597
@@ -2922,6 +2936,13 @@ name: is marker for
 def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
 property_value: IAO:0000116 "May be ceded to OBI" xsd:string
 is_a: RO:0002610 ! correlated with
+
+[Typedef]
+id: RO:0002608
+name: has causal agent
+def: "Inverse of 'causal agent in'" []
+is_a: RO:0002410 ! causally related to
+inverse_of: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002609
