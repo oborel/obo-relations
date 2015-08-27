@@ -80,6 +80,9 @@ id: attached_to_part_of
 name: attached to part of
 def: "a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b." []
 xref: RO:0002177
+domain: BFO:0000040
+range: BFO:0000040
+is_a: biomechanically_related_to ! biomechanically related to
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
@@ -107,6 +110,7 @@ name: biomechanically related to
 def: "A relation that holds between elements of a musculoskeletal system or its analogs." []
 xref: RO:0002567
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving the biomechanical processes." xsd:string
 is_a: functionally_related_to ! functionally related to
 
 [Typedef]
@@ -175,8 +179,7 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/21208450
 property_value: IAO:0000232 "For compatibility with BFO, this relation has a shortcut definition in which the expression \"capable of some P\" expands to \"bearer_of (some realized_by only P)\"." xsd:string
 domain: BFO:0000004
 range: BFO:0000015
-is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
-is_a: functionally_related_to ! functionally related to
+is_a: capable_of_part_of ! capable of part of
 expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
 
 [Typedef]
@@ -204,7 +207,7 @@ xref: RO:0002216
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
-is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
+is_a: causal_agent_in ! causal agent in
 is_a: functionally_related_to ! functionally related to
 expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" []
 
@@ -222,7 +225,7 @@ name: capable of regulating
 def: "Holds between c and p if and only if c is capable of some activity a, and a regulates p." []
 xref: RO:0002596
 property_value: IAO:0000112 "pyrethroid -> growth" xsd:string
-is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
+is_a: causal_agent_in ! causal agent in
 
 [Typedef]
 id: capable_of_upregulating_or_causing_pathological_process
@@ -232,6 +235,13 @@ xref: RO:0002600
 property_value: IAO:0000112 "benzene -> cancer [CHEBI]" xsd:string
 property_value: IAO:0000118 "causes disease" xsd:string
 is_a: capable_of_positively_regulating ! capable of positively regulating
+
+[Typedef]
+id: causal_agent_in
+name: causal agent in
+def: "A relationship between a material entity and a process where the material entity has some causal role that influences the process" []
+xref: RO:0002500
+is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
 
 [Typedef]
 id: causal_relation_between_material_entities
@@ -247,6 +257,7 @@ is_a: causally_related_to ! causally related to
 [Typedef]
 id: causal_relation_between_material_entity_and_a_process
 name: causal relation between material entity and a process
+def: "A relationship that holds between a material entity and a process in which causality is involved, with either the material entity or some part of the material entity exerting some influence over the process, or the process influencing some aspect of the material entity." []
 xref: RO:0002595
 property_value: IAO:0000116 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -831,6 +842,9 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "catalyzes" xsd:string
 property_value: IAO:0000118 "executes" xsd:string
 property_value: IAO:0000118 "has" xsd:string
+property_value: IAO:0000118 "is catalyzing" xsd:string
+property_value: IAO:0000118 "is executing" xsd:string
+property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
 property_value: IAO:0000232 "This relation is currently used experimentally by the Gene Ontology Consortium. It may not be stable and may be obsoleted at some future time." xsd:string
 is_a: capable_of ! capable of
 
@@ -839,6 +853,7 @@ id: enables_activity_in
 name: enables activity in
 def: "c executes activity in d if and only if c enables p and p occurs_in d" []
 xref: RO:0002432
+property_value: IAO:0000112 "A protein that enables activity in a cytosol." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "executes activity in" xsd:string
 is_a: functionally_related_to ! functionally related to
@@ -931,6 +946,14 @@ xref: RO:0002569
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
 inverse_of: branching_part_of ! branching part of
+
+[Typedef]
+id: has_causal_agent
+name: has causal agent
+def: "Inverse of 'causal agent in'" []
+xref: RO:0002608
+is_a: causally_related_to ! causally related to
+inverse_of: causal_agent_in ! causal agent in
 
 [Typedef]
 id: has_component
@@ -1489,6 +1512,7 @@ def: "c involved in or regulates p if and only if either (i) c is involved in p 
 xref: RO:0002431
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "involved in or involved in regulation of" xsd:string
+is_a: causal_agent_in ! causal agent in
 is_a: functionally_related_to ! functionally related to
 
 [Typedef]
