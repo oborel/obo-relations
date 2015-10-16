@@ -24,7 +24,7 @@
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ro/pato_import.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ro/rohom.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ro/temporal-intervals.owl"/>
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2015-08-27/ro.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2015-10-07/ro.owl"/>
     </owl:Ontology>
     
 
@@ -612,6 +612,19 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002617 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002617">
+        <rdfs:label>is representative IRI for equivalence set</rdfs:label>
+        <obo:IAO_0000232>If it is necessary to make the context explicit, an axiom annotation can be added to the annotation assertion</obo:IAO_0000232>
+        <obo:IAO_0000112>In the context of a particular project, the IRI with CURIE NCBIGene:64327 (which in this example denotes a class) is considered to be representative. This means that if we have equivalent classes with IRIs OMIM:605522, ENSEMBL:ENSG00000105983, HGNC:13243 forming an equivalence set, the NCBIGene is considered the representative member IRI. Depending on the policies of the project, the classes may be merged, or the NCBIGene IRI may be chosen as the default in a user interface context.</obo:IAO_0000112>
+        <rdfs:seeAlso>OWLAPI Reasoner documentation for representativeElement, which follows a similar idea, but selects an arbitrary member</rdfs:seeAlso>
+        <obo:IAO_0000115>this property relates an IRI to the xsd boolean value &quot;True&quot; if the IRI is intended to be the representative IRI for a collection of classes that are mutually equivalent.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002601"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/ro/subsets#ro-eco -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/ro/subsets#ro-eco">
@@ -714,12 +727,12 @@ Where we have an annotation assertion
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000057">
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000057"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000055"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000052"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000055"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000052"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000057"/>
         </owl:propertyChainAxiom>
     </rdf:Description>
     
@@ -1424,6 +1437,10 @@ AND t has_input y</dc:description>
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002130"/>
         <cito:citesAsAuthority rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22402613"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002113"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1435,10 +1452,6 @@ AND t has_input y</dc:description>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002113"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1577,15 +1590,15 @@ N1 SubclassOf (
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002131"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002131"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     <owl:Axiom>
@@ -1811,7 +1824,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20973947"/>
         <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002217"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1819,7 +1832,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002206"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1827,23 +1840,23 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002214"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002206"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002217"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002254"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002214"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1879,18 +1892,18 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000115>a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002323"/>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22293552"/>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/RO_0002577"/>
-            </owl:Restriction>
-        </rdfs:range>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description>
                 <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002176"/>
             </rdf:Description>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002176"/>
         </owl:propertyChainAxiom>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/RO_0002577"/>
+            </owl:Restriction>
+        </rdfs:range>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -2125,14 +2138,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002202"/>
         <obo:RO_0002575 rdf:resource="http://purl.obolibrary.org/obo/RO_0002202"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CARO_0010000"/>
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CL_0000000"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -2141,6 +2146,14 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CARO_0010000"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CL_0000000"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -2175,16 +2188,16 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002418"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002230"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -2861,11 +2874,11 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20064205"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002314"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000052"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000052"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002314"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3482,20 +3495,20 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </owl:ObjectProperty>
     <owl:Axiom>
+        <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
+        <dc:source>FMA</dc:source>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
+    </owl:Axiom>
+    <owl:Axiom>
         <owl:annotatedTarget>drains to</owl:annotatedTarget>
         <dc:source rdf:resource="http://dbpedia.org/ontology/drainsTo"/>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
     </owl:Axiom>
     <owl:Axiom>
-        <dc:source>GAZ</dc:source>
         <owl:annotatedTarget>Deschutes River tributary_of Columbia River</owl:annotatedTarget>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <dc:source>FMA</dc:source>
-        <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
+        <dc:source>GAZ</dc:source>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
     </owl:Axiom>
@@ -3809,11 +3822,11 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
         <obo:RO_0002579 rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
@@ -3849,16 +3862,16 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
         <obo:RO_0002579 rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002409"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002409"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -4030,11 +4043,11 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000115>c involved in regulation of p if c is involved in some &apos;p&apos; and p&apos; regulates some p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002431"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -4048,11 +4061,11 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002428"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002213"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002213"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -4066,11 +4079,11 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002428"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002212"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002212"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -4698,6 +4711,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000115>A relationship between a piece of evidence a and some entity b, where b is  an information content entity, material entity or process, and 
 the a supports either the existence of b, or the truth value of b.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002616"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </owl:ObjectProperty>
     
@@ -4990,24 +5004,24 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002487"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002258"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002082"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002258"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002583"/>
@@ -5040,16 +5054,16 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
             </rdf:Description>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002286"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000063"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002286"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
@@ -5626,6 +5640,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:comment>x has evidence y iff , x is  an information content entity, material entity or process, and y supports either the existence of x, or the truth value of x.</rdfs:comment>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002472"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002616"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/25052702"/>
     </owl:ObjectProperty>
@@ -6025,8 +6040,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002597"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <rdfs:comment>Usage of the term &apos;treats&apos; applies when we believe there to be a an inhibitory relationship</rdfs:comment>
         <owl:annotatedTarget>treats</owl:annotatedTarget>
+        <rdfs:comment>Usage of the term &apos;treats&apos; applies when we believe there to be a an inhibitory relationship</rdfs:comment>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002599"/>
     </owl:Axiom>
@@ -6100,12 +6115,136 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002614 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002614">
+        <rdfs:label>is evidence with support from</rdfs:label>
+        <rdfs:comment>In the Gene Ontology association model, this corresponds to the With/From field</rdfs:comment>
+        <obo:IAO_0000112>An instance of a sequence similarity evidence (ECO:0000044) that uses a homologous sequence UniProtKB:P12345 as support.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a piece of evidence and an entity that plays a role in supporting that evidence.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002616"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0002615 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002615">
         <rdfs:label>has model</rdfs:label>
         <obo:IAO_0000115>Inverse of is-model-of</obo:IAO_0000115>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0003301"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002616 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002616">
+        <rdfs:label>related via evidence or inference to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002618 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002618">
+        <rdfs:label>visits</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/issues/74</rdfs:seeAlso>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002619 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002619">
+        <rdfs:label>visited by</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002618"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002622 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002622">
+        <rdfs:label>visits flowers of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002618"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002623 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002623">
+        <rdfs:label>has flowers visited by</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002619"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002622"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002624 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002624">
+        <rdfs:label>lays eggs in</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002618"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002625 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002625">
+        <rdfs:label>has eggs laid in by</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002445"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002619"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002624"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002626 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002626">
+        <rdfs:label>kills</rdfs:label>
+        <obo:IAO_0000119>https://github.com/jhpoelen/eol-globi-data/issues/143</obo:IAO_0000119>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002627 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002627">
+        <rdfs:label>is killed by</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002626"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002629 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002629">
+        <rdfs:label>directly positively regulates</rdfs:label>
+        <obo:IAO_0000115>p &apos;directly positively regulates&apos; q if and only if p and q are processes, and p positively regulates q, and q directly follows from p</obo:IAO_0000115>
+        <obo:IAO_0000589>directly positively regulates (process to process)</obo:IAO_0000589>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002630 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002630">
+        <rdfs:label>directly negatively regulates</rdfs:label>
+        <obo:IAO_0000589>directly negatively regulates (process to process)</obo:IAO_0000589>
+        <obo:IAO_0000115>p &apos;directly negatively regulates&apos; q if and only if p and q are processes, and p negatively regulates q, and q directly follows from p</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
     </owl:ObjectProperty>
     
 
@@ -6136,6 +6275,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003001">
         <rdfs:label xml:lang="en">produced by</rdfs:label>
+        <obo:IAO_0000115>a produced_by b iff some process that occurs_in b has_output a.</obo:IAO_0000115>
         <obo:IAO_0000117>Melissa Haendel</obo:IAO_0000117>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
@@ -6724,8 +6864,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000589>is defined by</obo:IAO_0000589>
     </rdf:Description>
     <owl:Axiom>
-        <owl:annotatedTarget>is defined by</owl:annotatedTarget>
         <rdfs:comment>This is an experimental annotation</rdfs:comment>
+        <owl:annotatedTarget>is defined by</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000589"/>
         <owl:annotatedSource rdf:resource="http://www.w3.org/2000/01/rdf-schema#isDefinedBy"/>
     </owl:Axiom>
