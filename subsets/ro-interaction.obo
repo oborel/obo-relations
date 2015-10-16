@@ -750,6 +750,24 @@ is_a: immediately_causally_upstream_of ! immediately causally upstream of
 is_a: negatively_regulates ! negatively regulates
 
 [Typedef]
+id: directly_negatively_regulates
+name: directly negatively regulates
+def: "p 'directly negatively regulates' q if and only if p and q are processes, and p negatively regulates q, and q directly follows from p" []
+xref: RO:0002630
+property_value: IAO:0000589 "directly negatively regulates (process to process)" xsd:string
+is_a: directly_regulates ! directly regulates
+is_a: negatively_regulates ! negatively regulates
+
+[Typedef]
+id: directly_positively_regulates
+name: directly positively regulates
+def: "p 'directly positively regulates' q if and only if p and q are processes, and p positively regulates q, and q directly follows from p" []
+xref: RO:0002629
+property_value: IAO:0000589 "directly positively regulates (process to process)" xsd:string
+is_a: directly_regulates ! directly regulates
+is_a: positively_regulates ! positively regulates
+
+[Typedef]
 id: directly_provides_input_for
 name: directly provides input for
 def: "p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c" []
@@ -1010,6 +1028,14 @@ property_value: IAO:0000232 "This is likely to be obsoleted. A candidate replace
 is_a: has_input ! has input
 
 [Typedef]
+id: has_eggs_laid_in_by
+name: has eggs laid in by
+xref: RO:0002625
+is_a: parasitized_by ! parasitized by
+is_a: visited_by ! visited by
+inverse_of: lays_eggs_in ! lays eggs in
+
+[Typedef]
 id: has_end_sequence
 name: has end sequence
 def: "x has end sequence y if the end of x is identical to the end of y, and x has y as a subsequence" []
@@ -1037,6 +1063,13 @@ property_value: RO:0001900 RO:0001901
 domain: CARO:0001001
 is_a: overlaps ! overlaps
 inverse_of: fasciculates_with ! fasciculates with
+
+[Typedef]
+id: has_flowers_visited_by
+name: has flowers visited by
+xref: RO:0002623
+is_a: visited_by ! visited by
+inverse_of: visits_flowers_of ! visits flowers of
 
 [Typedef]
 id: has_habitat
@@ -1608,6 +1641,13 @@ is_a: is_upstream_of_sequence_of ! is upstream of sequence of
 is_a: sequentially_adjacent_to ! sequentially adjacent to
 
 [Typedef]
+id: is_killed_by
+name: is killed by
+xref: RO:0002627
+is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+inverse_of: kills ! kills
+
+[Typedef]
 id: is_marker_for
 name: is marker for
 def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
@@ -1681,6 +1721,20 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 "a is a vector for b if a carries and transmits an infectious pathogen b into another living organism" xsd:string
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
 inverse_of: has_vector ! has vector
+
+[Typedef]
+id: kills
+name: kills
+xref: RO:0002626
+property_value: IAO:0000119 https://github.com/jhpoelen/eol-globi-data/issues/143 xsd:string
+is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+
+[Typedef]
+id: lays_eggs_in
+name: lays eggs in
+xref: RO:0002624
+is_a: parasite_of ! parasite of
+is_a: visits ! visits
 
 [Typedef]
 id: lumen_of
@@ -2622,4 +2676,24 @@ xref: RO:0002480
 property_value: IAO:0000116 "Axiomatization to GO to be added later" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: molecularly_interacts_with ! molecularly interacts with
+
+[Typedef]
+id: visited_by
+name: visited by
+xref: RO:0002619
+is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+inverse_of: visits ! visits
+
+[Typedef]
+id: visits
+name: visits
+xref: RO:0002618
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/74 xsd:anyURI
+is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+
+[Typedef]
+id: visits_flowers_of
+name: visits flowers of
+xref: RO:0002622
+is_a: visits ! visits
 
