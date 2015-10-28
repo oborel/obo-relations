@@ -843,6 +843,14 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions" xsd:string
 
 [Typedef]
+id: ectoparasite_of
+name: ectoparasite of
+def: "A sub-relation of parasite-of in which the parasite lives on or in the integumental system of the host" []
+xref: RO:0002632
+property_value: IAO:0000119 "Types"
+is_a: parasite_of ! parasite of
+
+[Typedef]
 id: enabled_by
 name: enabled by
 def: "inverse of enables" []
@@ -875,6 +883,15 @@ property_value: IAO:0000112 "A protein that enables activity in a cytosol." xsd:
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "executes activity in" xsd:string
 is_a: functionally_related_to ! functionally related to
+
+[Typedef]
+id: endoparasite_of
+name: endoparasite of
+xref: RO:0002634
+property_value: IAO:0000119 "A sub-relation of parasite-of in which the parasite lives inside the host, beneath the integumental system" xsd:string
+property_value: IAO:0000119 "Types"
+is_a: parasite_of ! parasite of
+inverse_of: has_endoparasite ! has endoparasite
 
 [Typedef]
 id: ends
@@ -1028,6 +1045,13 @@ property_value: IAO:0000232 "This is likely to be obsoleted. A candidate replace
 is_a: has_input ! has input
 
 [Typedef]
+id: has_ectoparasite
+name: has ectoparasite
+xref: RO:0002633
+is_a: parasitized_by ! parasitized by
+inverse_of: ectoparasite_of ! ectoparasite of
+
+[Typedef]
 id: has_eggs_laid_in_by
 name: has eggs laid in by
 xref: RO:0002625
@@ -1048,6 +1072,12 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20226267 xsd:anyU
 is_transitive: true
 is_a: has_subsequence ! has subsequence
 inverse_of: is_end_sequence_of ! is end sequence of
+
+[Typedef]
+id: has_endoparasite
+name: has endoparasite
+xref: RO:0002635
+is_a: parasitized_by ! parasitized by
 
 [Typedef]
 id: has_fasciculating_neuron_projection
@@ -1106,6 +1136,12 @@ property_value: IAO:0000118 "consumes" xsd:string
 is_a: has_participant
 
 [Typedef]
+id: has_intercellular_endoparasite
+name: has intercellular endoparasite
+xref: RO:0002639
+is_a: has_endoparasite ! has endoparasite
+
+[Typedef]
 id: has_intermediate
 name: has intermediate
 def: "p has intermediate c if and only if p has parts p1, p2 and p1 has output c, and p2 has input c" []
@@ -1115,6 +1151,19 @@ property_value: IAO:0000112 "'lysine biosynthetic process via diaminopimelate' S
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has intermediate product" xsd:string
 is_a: has_participant
+
+[Typedef]
+id: has_intracellular_endoparasite
+name: has intracellular endoparasite
+xref: RO:0002641
+is_a: has_endoparasite ! has endoparasite
+
+[Typedef]
+id: has_mesoparasite
+name: has mesoparasite
+xref: RO:0002637
+is_a: parasitized_by ! parasitized by
+inverse_of: mesoparasite_of ! mesoparasite of
 
 [Typedef]
 id: has_muscle_antagonist
@@ -1374,6 +1423,7 @@ name: hyperparasite of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 subset: ro-eco
 xref: RO:0002553
+property_value: IAO:0000116 "Note that parasite-of is a diret relationship, so hyperparasite-of is not considered a sub-relation, even though hyperparasitism can be considered a form of parasitism" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://eol.org/schema/terms/hyperparasitoidOf xsd:string
 property_value: IAO:0000119 https://en.wikipedia.org/wiki/Hyperparasite xsd:string
@@ -1499,7 +1549,7 @@ name: interacts with
 def: "A relationship that holds between two entities in which the processes executed by the two entities are causally connected." []
 subset: ro-eco
 xref: RO:0002434
-property_value: http://xmlns.com/foaf/0.1/page https://code.google.com/p/obo-relations/wiki/InteractionRelations xsd:anyURI
+property_value: http://xmlns.com/foaf/0.1/page https://github.com/oborel/obo-relations/wiki/InteractionRelations xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1520,6 +1570,24 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyU
 property_value: IAO:0000232 "This relation groups a pair of inverse relations, parasite of and parasitized by" xsd:string
 property_value: RO:0002561 GO:0072519
 is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: intercellular_endoparasite_of
+name: intercellular endoparasite of
+def: "A sub-relation of endoparasite-of in which the parasite inhabits the spaces between host cells." []
+xref: RO:0002638
+property_value: IAO:0000119 "Types"
+is_a: endoparasite_of ! endoparasite of
+inverse_of: has_intercellular_endoparasite ! has intercellular endoparasite
+
+[Typedef]
+id: intracellular_endoparasite_of
+name: intracellular endoparasite of
+def: "A sub-relation of endoparasite-of in which the parasite inhabits host cells." []
+xref: RO:0002640
+property_value: IAO:0000119 "Types"
+is_a: endoparasite_of ! endoparasite of
+inverse_of: has_intracellular_endoparasite ! has intracellular endoparasite
 
 [Typedef]
 id: involved_in
@@ -1775,6 +1843,13 @@ xref: RO:0002323
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving parthood or connectivity relationships" xsd:string
 property_value: RO:0001900 RO:0001901
+
+[Typedef]
+id: mesoparasite_of
+name: mesoparasite of
+def: "A sub-relation of parasite-of in which the parasite is partially an endoparasite and partially an ectoparasite" []
+xref: RO:0002636
+is_a: parasite_of ! parasite of
 
 [Typedef]
 id: molecularly_controls

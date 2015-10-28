@@ -212,7 +212,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002416">
         <rdfs:label xml:lang="en">logical macro assertion</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/ShortcutRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/ShortcutRelations</foaf:page>
         <obo:IAO_0000115>An assertion that involves at least one OWL object that is intended to be expanded into one or more logical axioms. The logical expansion can yield axioms expressed using any formal logical system, including, but not limited to OWL2-DL.</obo:IAO_0000115>
     </owl:AnnotationProperty>
     
@@ -483,7 +483,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002560">
         <rdfs:label>is asymmetric relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
         <obo:IAO_0000115>If Rel is the relational form of a process Pr, then it follow that: Rel(x,y) &lt;-&gt; exists p : Pr(p), x subject-partner-in p, y object-partner-in p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002562"/>
     </owl:AnnotationProperty>
@@ -494,7 +494,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002561">
         <rdfs:label>is symmetric relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
         <obo:IAO_0000115>If Rel is the relational form of a process Pr, then it follow that: Rel(x,y) &lt;-&gt; exists p : Pr(p), x partner-in p, y partner-in p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002562"/>
     </owl:AnnotationProperty>
@@ -505,7 +505,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002562">
         <rdfs:label>is relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
         <obo:IAO_0000115>R is the relational form of a process if and only if either (1) R is the symmetric relational form of a process or (2) R is the asymmetric relational form of a process</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002594"/>
     </owl:AnnotationProperty>
@@ -787,9 +787,13 @@ Where we have an annotation assertion
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000062 -->
 
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062">
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000062">
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
-    </rdf:Description>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
     
 
 
@@ -798,6 +802,14 @@ Where we have an annotation assertion
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000063">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002092"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000063"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000063"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -1088,8 +1100,8 @@ AND t has_input y</dc:description>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>A relationship that holds between a  process that regulates a transport process and the entity transported by that process.</owl:annotatedTarget>
         <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
+        <owl:annotatedTarget>A relationship that holds between a  process that regulates a transport process and the entity transported by that process.</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002011"/>
     </owl:Axiom>
@@ -1731,11 +1743,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20973947"/>
         <rdfs:seeAlso rdf:resource="https://github.com/obophenotype/uberon/wiki/Taxon-constraints"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002214"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002217"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002254"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -1747,19 +1763,15 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002225"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002254"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002214"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002215"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002217"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -1982,9 +1994,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002206">
         <rdfs:label xml:lang="en">expressed in</rdfs:label>
+        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000115>x expressed in y if and only if there is a gene expression process (GO:0010467) that occurs in y, and one of the following holds: (i) x is a gene, and x is transcribed into a transcript as part of the gene expression process (ii) x is a transcript, and the transcription of x is part of the gene expression process (iii) x is a mature gene product such as a protein, and x was translated or otherwise processes from a transcript that was transcribed as part of this gene expression process</obo:IAO_0000115>
         <obo:IAO_0000112>&apos;neural crest cell&apos; SubClassOf expresses some &apos;Wnt1 gene&apos;</obo:IAO_0000112>
-        <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002330"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -2029,20 +2041,16 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002211">
         <rdfs:label xml:lang="en">regulates</rdfs:label>
         <obo:IAO_0000600 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</obo:IAO_0000600>
-        <obo:IAO_0000115>x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y</obo:IAO_0000115>
-        <obo:IAO_0000119>GO</obo:IAO_0000119>
         <obo:IAO_0000117>Tanya Berardini</obo:IAO_0000117>
         <obo:IAO_0000232>Regulation does not preclude parthood; the regulatory process may be upstream, or may be within the regulated process.</obo:IAO_0000232>
+        <obo:IAO_0000115>x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y</obo:IAO_0000115>
         <obo:IAO_0000589>regulates (processual)</obo:IAO_0000589>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117>David Hill</obo:IAO_0000117>
+        <obo:IAO_0000119>GO</obo:IAO_0000119>
         <obo:IAO_0000116>We use &apos;regulates&apos; here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of &apos;causally upstream of or within&apos; (aka influences). Consider relabeling to make things more explicit</obo:IAO_0000116>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002418"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002230"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
@@ -2050,6 +2058,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002578"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002211"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -2817,8 +2829,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
         <owl:annotatedTarget xml:lang="en">enables</owl:annotatedTarget>
+        <dc:contributor>http://www.arabidopsis.org/</dc:contributor>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     </owl:Axiom>
@@ -2881,11 +2893,11 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000115>c involved_in p if and only if c enables some process p&apos;, and p&apos; is part of p</obo:IAO_0000115>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002431"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002327"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002331"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3260,6 +3272,12 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </owl:ObjectProperty>
     <owl:Axiom>
+        <owl:annotatedTarget>drains to</owl:annotatedTarget>
+        <dc:source rdf:resource="http://dbpedia.org/ontology/drainsTo"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
+    </owl:Axiom>
+    <owl:Axiom>
         <owl:annotatedTarget>Deschutes River tributary_of Columbia River</owl:annotatedTarget>
         <dc:source>GAZ</dc:source>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
@@ -3269,12 +3287,6 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <dc:source>FMA</dc:source>
         <owl:annotatedTarget>inferior epigastric vein tributary_of external iliac vein</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedTarget>drains to</owl:annotatedTarget>
-        <dc:source rdf:resource="http://dbpedia.org/ontology/drainsTo"/>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002376"/>
     </owl:Axiom>
     
@@ -3295,8 +3307,8 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>Deschutes River distributary_of Little Lava Lake</owl:annotatedTarget>
         <dc:source>GAZ</dc:source>
+        <owl:annotatedTarget>Deschutes River distributary_of Little Lava Lake</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000112"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002377"/>
     </owl:Axiom>
@@ -3577,11 +3589,11 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002407"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002406"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -3618,12 +3630,12 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002409"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002409"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002408"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002409"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -3875,7 +3887,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:label>interacts with</rdfs:label>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">Considering relabeling as &apos;pairwise interacts with&apos;</obo:IAO_0000116>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0914</rdfs:seeAlso>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
         <oboInOwl:hasExactSynonym>in pairwise interaction with</oboInOwl:hasExactSynonym>
         <obo:IAO_0000232>Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules.</obo:IAO_0000232>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
@@ -4060,6 +4072,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002444">
         <rdfs:label>parasite of</rdfs:label>
         <obo:IAO_0000118>parasitizes</obo:IAO_0000118>
+        <oboInOwl:hasExactSynonym>direct parasite of</oboInOwl:hasExactSynonym>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:seeAlso>http://eol.org/schema/terms/parasitizes</rdfs:seeAlso>
         <obo:IAO_0000112>Pediculus humanus capitis parasite of human</obo:IAO_0000112>
@@ -4086,6 +4099,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000118>parasitised by</obo:IAO_0000118>
         <obo:IAO_0000118>has parasite</obo:IAO_0000118>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <oboInOwl:hasExactSynonym>directly parasitized by</oboInOwl:hasExactSynonym>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002443"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
@@ -4710,7 +4724,15 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002082"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002258"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -4721,15 +4743,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
             </rdf:Description>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002258"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002496"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
@@ -4746,14 +4760,14 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002487"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002082"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002286"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -4769,7 +4783,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002497"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002082"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -5253,10 +5267,12 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002553">
         <rdfs:label>hyperparasite of</rdfs:label>
         <obo:IAO_0000119>http://eol.org/schema/terms/hyperparasitoidOf</obo:IAO_0000119>
+        <oboInOwl:hasRelatedSynonym>epiparasite of</oboInOwl:hasRelatedSynonym>
         <obo:IAO_0000115>x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y</obo:IAO_0000115>
         <obo:IAO_0000119>https://en.wikipedia.org/wiki/Hyperparasite</obo:IAO_0000119>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <oboInOwl:hasRelatedSynonym>hyperparasitoid of</oboInOwl:hasRelatedSynonym>
+        <obo:IAO_0000116>Note that parasite-of is a diret relationship, so hyperparasite-of is not considered a sub-relation, even though hyperparasitism can be considered a form of parasitism</obo:IAO_0000116>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -5272,7 +5288,9 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002554">
         <rdfs:label>hyperparasitized by</rdfs:label>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <oboInOwl:hasRelatedSynonym>has epiparasite</oboInOwl:hasRelatedSynonym>
         <oboInOwl:hasRelatedSynonym>hyperparasitoidized by</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>has hyperparasite</oboInOwl:hasRelatedSynonym>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002553"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -5350,7 +5368,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002563">
         <rdfs:label>interaction relation helper property</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://code.google.com/p/obo-relations/wiki/InteractionRelations</foaf:page>
+        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:seeAlso rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:N-Ary_Relation_Pattern_%28OWL_2%29"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002464"/>
@@ -5377,8 +5395,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <oboInOwl:hasDbXref>GOC:mtg_berkeley_2013</oboInOwl:hasDbXref>
         <owl:annotatedTarget>Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>GOC:mtg_berkeley_2013</oboInOwl:hasDbXref>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002565"/>
     </owl:Axiom>
@@ -5711,8 +5729,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002597"/>
     </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedTarget>treats</owl:annotatedTarget>
         <rdfs:comment>Usage of the term &apos;treats&apos; applies when we believe there to be a an inhibitory relationship</rdfs:comment>
+        <owl:annotatedTarget>treats</owl:annotatedTarget>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000118"/>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002599"/>
     </owl:Axiom>
@@ -5920,6 +5938,111 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0002632 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002632">
+        <rdfs:label>ectoparasite of</rdfs:label>
+        <obo:IAO_0000115>A sub-relation of parasite-of in which the parasite lives on or in the integumental system of the host</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Parasitism#Types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002633 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002633">
+        <rdfs:label>has ectoparasite</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002445"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002632"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002634 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002634">
+        <rdfs:label>endoparasite of</rdfs:label>
+        <obo:IAO_0000119>A sub-relation of parasite-of in which the parasite lives inside the host, beneath the integumental system</obo:IAO_0000119>
+        <oboInOwl:hasRelatedSynonym>lives inside of</oboInOwl:hasRelatedSynonym>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002635"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Parasitism#Types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002635 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002635">
+        <rdfs:label>has endoparasite</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002445"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002636 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002636">
+        <rdfs:label>mesoparasite of</rdfs:label>
+        <obo:IAO_0000115>A sub-relation of parasite-of in which the parasite is partially an endoparasite and partially an ectoparasite</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002637 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002637">
+        <rdfs:label>has mesoparasite</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002445"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002636"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002638 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002638">
+        <rdfs:label>intercellular endoparasite of</rdfs:label>
+        <obo:IAO_0000115>A sub-relation of endoparasite-of in which the parasite inhabits the spaces between host cells.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002634"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002639"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Parasitism#Types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002639 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002639">
+        <rdfs:label>has intercellular endoparasite</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002635"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002640 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002640">
+        <rdfs:label>intracellular endoparasite of</rdfs:label>
+        <obo:IAO_0000115>A sub-relation of endoparasite-of in which the parasite inhabits host cells.</obo:IAO_0000115>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002634"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002641"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Parasitism#Types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002641 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002641">
+        <rdfs:label>has intracellular endoparasite</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002635"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0003000 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003000">
@@ -6000,19 +6123,19 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002083">
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0001000">
+        <obo:IAO_0000232>This relation is taken from the RO2005 version of RO. It may be obsoleted and replaced by relations with different definitions. See also the &apos;develops from&apos; family of relations.</obo:IAO_0000232>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+    </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002089">
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0001000">
-        <obo:IAO_0000232>This relation is taken from the RO2005 version of RO. It may be obsoleted and replaced by relations with different definitions. See also the &apos;develops from&apos; family of relations.</obo:IAO_0000232>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0001001">
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000125">
         <rdfs:label xml:lang="en">pending final vetting</rdfs:label>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0001001">
-        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000428">
         <rdfs:label xml:lang="en">requires discussion</rdfs:label>
