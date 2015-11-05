@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/13996/oborel/obo-relations.svg)](https://zenodo.org/badge/latestdoi/13996/oborel/obo-relations)
+
 This is the project page for RO, the new OBO Relations Ontology. This ontology replaces [OBO_REL](http://obofoundry.org/ro)
 
 # Summary
