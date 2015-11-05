@@ -1,9 +1,14 @@
 These notes are for the EDITORS of ro
 
-## Editors Version
+## Synchronization and LOCKs
 
-Do you have an ID range in the idranges file (ro-idranges.owl),
-in this directory). If not, request on the RO tracker.
+Note it is currently difficult to merge OWL files. For this reason, we
+use a manual locking system. Email the other RO editors when with the
+subject line "LOCKING ro-edit" when you want to edit.
+
+See also [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+## Editors Version
 
 The editors version is ro-edit.owl
 
@@ -12,6 +17,9 @@ The editors version is ro-edit.owl
 ro.obo is the release version
 
 ## ID Ranges
+
+Do you have an ID range in the idranges file (ro-idranges.owl),
+in this directory). If not, request on the RO tracker.
 
 These are stored in the file
 
