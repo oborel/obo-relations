@@ -134,9 +134,9 @@ markdown: ro.owl
 ROBOJENKINS=http://build.berkeleybop.org/job/robot/lastSuccessfulBuild/artifact/bin
 
 robot.jar:
-        wget $(ROBOJENKINS)/$@ -O $@
+	wget $(ROBOJENKINS)/$@ -O $@
 robot: robot.jar
-        wget $(ROBOJENKINS)/$@ -O $@ && chmod +x $@
+	wget $(ROBOJENKINS)/$@ -O $@ && chmod +x $@
 
 test: robot
-	robot reason -r HermiT -i ro-edit.owl
+	./robot reason -r HermiT -i ro-edit.owl
