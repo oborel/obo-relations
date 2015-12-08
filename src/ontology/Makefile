@@ -98,6 +98,9 @@ subsets/ro-developmental.owl: ro.owl
 subsets/ro-hom.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'in similarity relationship with' // --set-ontology-id $(OBO)/ro/$@ -o $@
 
+subsets/ro-chado.obo: ro.obo
+	owltools --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && grep -v ^owl-axioms $@.tmp > $@
+
 # ========================================
 # EXPERIMENTAL
 # ========================================
