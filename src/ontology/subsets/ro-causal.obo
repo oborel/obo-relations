@@ -15,6 +15,7 @@ xref: RO:0002457
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
 is_a: trophically_interacts_with ! trophically interacts with
+inverse_of: provides_nutrients_for ! provides nutrients for
 
 [Typedef]
 id: actively_participates_in
@@ -98,6 +99,7 @@ property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: RO:0001900 RO:0001901
 domain: CL:0000540
 is_a: has_presynaptic_terminal_in ! has presynaptic terminal in
+inverse_of: has_postsynaptic_terminal_in ! has postsynaptic terminal in
 expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\n      GO_0042734 and BFO_0000050 some (\n         GO_0045202 and BFO_0000050 some ?Y)))" []
 
 [Typedef]
@@ -150,6 +152,7 @@ property_value: IAO:0000112 "The genomic exons of a transcript bound the sequenc
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_transitive: true
 is_a: sequentially_related_to ! sequentially related to
+inverse_of: is_bound_by_sequence_of ! is bound by sequence of
 
 [Typedef]
 id: branching_part_of
@@ -162,6 +165,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso FMA:85994 xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
 is_a: part_of
+inverse_of: has_branching_part ! has branching part
 
 [Typedef]
 id: capable_of
@@ -248,6 +252,7 @@ def: "A relationship between a material entity and a process where the material 
 xref: RO:0002500
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 is_a: causal_relation_between_material_entity_and_a_process ! causal relation between material entity and a process
+inverse_of: has_causal_agent ! has causal agent
 
 [Typedef]
 id: causal_relation_between_material_entities
@@ -304,7 +309,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 is_transitive: true
 is_a: causal_relation_between_processes ! causal relation between processes
-inverse_of: causally_upstream_of_or_within ! causally upstream of or within
 
 [Typedef]
 id: causally_influenced_by
@@ -314,6 +318,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "causally influenced by (material entity to material entity)" xsd:string
 is_a: causal_relation_between_material_entities ! causal relation between material entities
+inverse_of: causally_influences ! causally influences
 
 [Typedef]
 id: causally_influences
@@ -324,7 +329,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "causally influences (material entity to material entity)" xsd:string
 is_a: causal_relation_between_material_entities ! causal relation between material entities
-inverse_of: causally_influenced_by ! causally influenced by
 
 [Typedef]
 id: causally_related_to
@@ -358,6 +362,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "influences (processual)" xsd:string
 is_transitive: true
 is_a: causal_relation_between_processes ! causal relation between processes
+inverse_of: causally_downstream_of_or_within ! causally downstream of or within
 
 [Typedef]
 id: causes_condition
@@ -606,6 +611,7 @@ range: BFO:0000040
 is_a: causally_influenced_by ! causally influenced by
 is_a: determined_by_part_of ! determined by part of
 is_a: part_of
+inverse_of: determines ! determines
 
 [Typedef]
 id: determined_by_part_of
@@ -627,7 +633,6 @@ xref: RO:0002508
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "determines (material entity to system)" xsd:string
 is_a: causally_influences ! causally influences
-inverse_of: determined_by ! determined by
 
 [Typedef]
 id: developmentally_contributes_to
@@ -637,7 +642,6 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: developmentally_succeeded_by ! developmentally succeeded by
 is_a: has_potential_to_developmentally_contribute_to ! has potential to developmentally contribute to
-inverse_of: has_developmental_contribution_from ! has developmental contribution from
 
 [Typedef]
 id: developmentally_induced_by
@@ -656,6 +660,7 @@ property_value: IAO:0000232 "We place this under 'developmentally preceded by'. 
 domain: CARO:0000003
 range: CARO:0000003
 is_a: developmentally_preceded_by ! developmentally preceded by
+inverse_of: developmentally_induces ! developmentally induces
 
 [Typedef]
 id: developmentally_induces
@@ -666,7 +671,6 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: developmentally_succeeded_by ! developmentally succeeded by
 is_a: has_potential_to_developmentally_induce ! has potential to developmentally induce
-inverse_of: developmentally_induced_by ! developmentally induced by
 
 [Typedef]
 id: developmentally_preceded_by
@@ -679,6 +683,7 @@ property_value: IAO:0000116 "false" xsd:boolean
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "In general you should not use this relation to make assertions - use one of the more specific relations below this one" xsd:string
 is_a: developmentally_related_to ! developmentally related to
+inverse_of: developmentally_succeeded_by ! developmentally succeeded by
 
 [Typedef]
 id: developmentally_related_to
@@ -707,7 +712,6 @@ xref: RO:0002286
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: has_developmental_potential_involving ! has developmental potential involving
-inverse_of: developmentally_preceded_by ! developmentally preceded by
 
 [Typedef]
 id: develops_from
@@ -724,6 +728,7 @@ domain: BFO:0000004
 range: BFO:0000004
 is_transitive: true
 is_a: developmentally_preceded_by ! developmentally preceded by
+inverse_of: develops_into ! develops into
 
 [Typedef]
 id: develops_from_part_of
@@ -758,7 +763,6 @@ is_transitive: true
 is_a: developmentally_succeeded_by ! developmentally succeeded by
 is_a: has_potential_to_develop_into ! has potential to develop into
 is_a: has_potential_to_directly_develop_into ! has potential to directly develop into
-inverse_of: develops_from ! develops from
 
 [Typedef]
 id: directly_activates
@@ -785,6 +789,7 @@ property_value: IAO:0000117 "has developmental precursor" xsd:string
 property_value: IAO:0000119 "FBbt" xsd:string
 property_value: RO:0002575 RO:0002202
 is_a: develops_from ! develops from
+inverse_of: directly_develops_into ! directly develops into
 
 [Typedef]
 id: directly_develops_into
@@ -793,7 +798,6 @@ xref: RO:0002210
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "developmental precursor of" xsd:string
 is_a: develops_into ! develops into
-inverse_of: directly_develops_from ! directly develops from
 
 [Typedef]
 id: directly_inhibits
@@ -909,6 +913,7 @@ def: "A sub-relation of parasite-of in which the parasite lives on or in the int
 xref: RO:0002632
 property_value: IAO:0000119 "Types"
 is_a: parasite_of ! parasite of
+inverse_of: has_ectoparasite ! has ectoparasite
 
 [Typedef]
 id: enabled_by
@@ -917,7 +922,6 @@ def: "inverse of enables" []
 xref: RO:0002333
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: functionally_related_to ! functionally related to
-inverse_of: enables ! enables
 
 [Typedef]
 id: enables
@@ -933,6 +937,7 @@ property_value: IAO:0000118 "is executing" xsd:string
 property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
 property_value: IAO:0000232 "This relation is currently used experimentally by the Gene Ontology Consortium. It may not be stable and may be obsoleted at some future time." xsd:string
 is_a: capable_of ! capable of
+inverse_of: enabled_by ! enabled by
 
 [Typedef]
 id: enables_activity_in
@@ -975,6 +980,13 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: transports_or_maintains_localization_of ! transports or maintains localization of
 
 [Typedef]
+id: facultative_parasite_of
+name: facultative parasite of
+def: "A sub-relations of parasite-of in which the parasite that can complete its life cycle independent of a host." [https://en.wikipedia.org/wiki/Parasitic_plant]
+xref: RO:0002228
+is_a: parasite_of ! parasite of
+
+[Typedef]
 id: fasciculates_with
 name: fasciculates with
 def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
@@ -987,6 +999,7 @@ property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(fasciculates_with ?x ?
 property_value: RO:0001900 RO:0001901
 range: CARO:0001001
 is_a: overlaps ! overlaps
+inverse_of: has_fasciculating_neuron_projection ! has fasciculating neuron projection
 
 [Typedef]
 id: formed_as_result_of
@@ -994,7 +1007,6 @@ name: formed as result of
 xref: RO:0002354
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: output_of ! output of
-inverse_of: results_in_formation_of ! results in formation of
 
 [Typedef]
 id: functionally_related_to
@@ -1040,7 +1052,6 @@ subset: ro-eco
 xref: RO:0002569
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
-inverse_of: branching_part_of ! branching part of
 
 [Typedef]
 id: has_causal_agent
@@ -1049,7 +1060,6 @@ def: "Inverse of 'causal agent in'" []
 xref: RO:0002608
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 is_a: causally_related_to ! causally related to
-inverse_of: causal_agent_in ! causal agent in
 
 [Typedef]
 id: has_component
@@ -1083,6 +1093,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: CARO:0000003
 range: CARO:0000003
 is_a: developmentally_preceded_by ! developmentally preceded by
+inverse_of: developmentally_contributes_to ! developmentally contributes to
 
 [Typedef]
 id: has_developmental_potential_involving
@@ -1110,7 +1121,6 @@ id: has_ectoparasite
 name: has ectoparasite
 xref: RO:0002633
 is_a: parasitized_by ! parasitized by
-inverse_of: ectoparasite_of ! ectoparasite of
 
 [Typedef]
 id: has_eggs_laid_in_by
@@ -1118,7 +1128,6 @@ name: has eggs laid in by
 xref: RO:0002625
 is_a: parasitized_by ! parasitized by
 is_a: visited_by ! visited by
-inverse_of: lays_eggs_in ! lays eggs in
 
 [Typedef]
 id: has_end_sequence
@@ -1153,14 +1162,12 @@ property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(has_fasciculating_neur
 property_value: RO:0001900 RO:0001901
 domain: CARO:0001001
 is_a: overlaps ! overlaps
-inverse_of: fasciculates_with ! fasciculates with
 
 [Typedef]
 id: has_flowers_visited_by
 name: has flowers visited by
 xref: RO:0002623
 is_a: visited_by ! visited by
-inverse_of: visits_flowers_of ! visits flowers of
 
 [Typedef]
 id: has_habitat
@@ -1196,6 +1203,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "consumes" xsd:string
 is_a: has_participant
+inverse_of: input_of ! input of
 
 [Typedef]
 id: has_intercellular_endoparasite
@@ -1225,7 +1233,6 @@ id: has_mesoparasite
 name: has mesoparasite
 xref: RO:0002637
 is_a: parasitized_by ! parasitized by
-inverse_of: mesoparasite_of ! mesoparasite of
 
 [Typedef]
 id: has_muscle_antagonist
@@ -1268,6 +1275,13 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "produces" xsd:string
 is_a: has_participant
+inverse_of: output_of ! output of
+
+[Typedef]
+id: has_parasitoid
+name: has parasitoid
+xref: RO:0002209
+is_a: parasitized_by ! parasitized by
 
 [Typedef]
 id: has_part
@@ -1323,7 +1337,6 @@ property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000118 "synapsed in" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: has_synaptic_terminal_in ! has synaptic terminal in
-inverse_of: axon_synapses_in ! axon synapses in
 expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (\n   http://purl.org/obo/owl/GO#GO_0045211 and http://purl.obolibrary.org/obo/BFO_0000050 some (\n      http://purl.org/obo/owl/GO#GO_0045202 and http://purl.obolibrary.org/obo/BFO_0000050 some ?Y))" []
 
 [Typedef]
@@ -1384,6 +1397,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has supporting framework" xsd:string
 property_value: IAO:0000232 "The skeleton of a structure may be a true skeleton (for example, the bony skeleton of a hand) or any kind of support framework (the hydrostatic skeleton of a sea star, the exoskeleton of an insect, the cytoskeleton of a cell)." xsd:string
 is_a: has_part
+inverse_of: skeleton_of ! skeleton of
 
 [Typedef]
 id: has_soma_location
@@ -1424,6 +1438,7 @@ is_transitive: true
 is_a: bounds_sequence_of ! bounds sequence of
 is_a: has_part
 is_a: overlaps_sequence_of ! overlaps sequence of
+inverse_of: is_subsequence_of ! is subsequence of
 
 [Typedef]
 id: has_synaptic_terminal_in
@@ -1471,6 +1486,13 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: is_vector_for ! is vector for
 
 [Typedef]
+id: hemiparasite_of
+name: hemiparasite of
+def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." [https://en.wikipedia.org/wiki/Parasitic_plant]
+xref: RO:0002237
+is_a: parasite_of ! parasite of
+
+[Typedef]
 id: host_of
 name: host of
 subset: ro-eco
@@ -1490,6 +1512,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://eol.org/schema/terms/hyperparasitoidOf xsd:string
 property_value: IAO:0000119 https://en.wikipedia.org/wiki/Hyperparasite xsd:string
 is_a: has_host ! has host
+inverse_of: hyperparasitized_by ! hyperparasitized by
 
 [Typedef]
 id: hyperparasitized_by
@@ -1498,7 +1521,6 @@ subset: ro-eco
 xref: RO:0002554
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: host_of ! host of
-inverse_of: hyperparasite_of ! hyperparasite of
 
 [Typedef]
 id: immediate_transformation_of
@@ -1602,7 +1624,6 @@ xref: RO:0002352
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: functionally_related_to ! functionally related to
 is_a: participates_in
-inverse_of: has_input ! has input
 
 [Typedef]
 id: interacts_with
@@ -1701,7 +1722,6 @@ property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/co
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_transitive: true
 is_a: sequentially_related_to ! sequentially related to
-inverse_of: bounds_sequence_of ! bounds sequence of
 
 [Typedef]
 id: is_consecutive_sequence_of
@@ -1775,7 +1795,6 @@ id: is_killed_by
 name: is killed by
 xref: RO:0002627
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
-inverse_of: kills ! kills
 
 [Typedef]
 id: is_marker_for
@@ -1828,7 +1847,6 @@ is_transitive: true
 is_a: is_bound_by_sequence_of ! is bound by sequence of
 is_a: overlaps_sequence_of ! overlaps sequence of
 is_a: part_of
-inverse_of: has_subsequence ! has subsequence
 
 [Typedef]
 id: is_substance_that_treats
@@ -1867,6 +1885,7 @@ name: kills
 xref: RO:0002626
 property_value: IAO:0000119 https://github.com/jhpoelen/eol-globi-data/issues/143 xsd:string
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+inverse_of: is_killed_by ! is killed by
 
 [Typedef]
 id: lays_eggs_in
@@ -1874,6 +1893,7 @@ name: lays eggs in
 xref: RO:0002624
 is_a: parasite_of ! parasite of
 is_a: visits ! visits
+inverse_of: has_eggs_laid_in_by ! has eggs laid in by
 
 [Typedef]
 id: lumen_of
@@ -1921,6 +1941,7 @@ name: mesoparasite of
 def: "A sub-relation of parasite-of in which the parasite is partially an endoparasite and partially an ectoparasite" []
 xref: RO:0002636
 is_a: parasite_of ! parasite of
+inverse_of: has_mesoparasite ! has mesoparasite
 
 [Typedef]
 id: molecularly_controls
@@ -1979,7 +2000,6 @@ name: negatively regulated by
 xref: RO:0002335
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: regulated_by ! regulated by
-inverse_of: negatively_regulates ! negatively regulates
 
 [Typedef]
 id: negatively_regulates
@@ -1991,6 +2011,14 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "negatively regulates (process to process)" xsd:string
 is_a: regulates ! regulates
+inverse_of: negatively_regulated_by ! negatively regulated by
+
+[Typedef]
+id: obligate_parasite_of
+name: obligate parasite of
+def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." [https://en.wikipedia.org/wiki/Parasitic_plant]
+xref: RO:0002227
+is_a: parasite_of ! parasite of
 
 [Typedef]
 id: obsolete_has_indirect_output
@@ -2010,7 +2038,6 @@ xref: RO:0002353
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: functionally_related_to ! functionally related to
 is_a: participates_in
-inverse_of: has_output ! has output
 
 [Typedef]
 id: overlaps
@@ -2046,6 +2073,7 @@ property_value: RO:0002560 GO:0072519
 property_value: seeAlso http://eol.org/schema/terms/parasitizes xsd:string
 is_a: has_host ! has host
 is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
+inverse_of: parasitized_by ! parasitized by
 
 [Typedef]
 id: parasitized_by
@@ -2058,7 +2086,14 @@ property_value: IAO:0000118 "parasitised by" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/hasParasite xsd:string
 is_a: host_of ! host of
 is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
-inverse_of: parasite_of ! parasite of
+
+[Typedef]
+id: parasitoid_of
+name: parasitoid of
+def: "A parasite that kills or sterilizes its host" [https://en.wikipedia.org/wiki/Parasitoid#Definitions_and_distinctions, https://github.com/oborel/obo-relations/issues/81]
+xref: RO:0002208
+is_a: parasite_of ! parasite of
+inverse_of: has_parasitoid ! has parasitoid
 
 [Typedef]
 id: part_of
@@ -2158,7 +2193,6 @@ property_value: IAO:0000118 "has polinator" xsd:string
 property_value: IAO:0000118 "is target of pollination interaction with" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/hasPollinator xsd:string
 is_a: mutualistically_interacts_with ! mutualistically interacts with
-inverse_of: pollinates ! pollinates
 
 [Typedef]
 id: pollinates
@@ -2171,6 +2205,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "is subject of pollination interaction with" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/pollinates xsd:string
 is_a: mutualistically_interacts_with ! mutualistically interacts with
+inverse_of: pollinated_by ! pollinated by
 
 [Typedef]
 id: positively_regulated_by
@@ -2178,7 +2213,6 @@ name: positively regulated by
 xref: RO:0002336
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: regulated_by ! regulated by
-inverse_of: positively_regulates ! positively regulates
 
 [Typedef]
 id: positively_regulates
@@ -2189,6 +2223,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "positively regulates (process to process)" xsd:string
 is_a: regulates ! regulates
+inverse_of: positively_regulated_by ! positively regulated by
 
 [Typedef]
 id: preceded_by
@@ -2212,7 +2247,6 @@ property_value: IAO:0000118 "is target of predation interaction with" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/HasPredator xsd:string
 property_value: seeAlso http://polytraits.lifewatchgreece.eu/terms/PRED xsd:string
 is_a: trophically_interacts_with ! trophically interacts with
-inverse_of: preys_on ! preys on
 
 [Typedef]
 id: preys_on
@@ -2226,6 +2260,7 @@ property_value: IAO:0000118 "is subject of predation interaction with" xsd:strin
 property_value: IAO:0000118 "preys upon" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/preysUpon xsd:string
 is_a: trophically_interacts_with ! trophically interacts with
+inverse_of: preyed_upon_by ! preyed upon by
 
 [Typedef]
 id: proper_distributary_of
@@ -2254,7 +2289,6 @@ subset: ro-eco
 xref: RO:0002469
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: trophically_interacts_with ! trophically interacts with
-inverse_of: acquires_nutrients_from ! acquires nutrients from
 
 [Typedef]
 id: receives_input_from
@@ -2276,7 +2310,6 @@ domain: BFO:0000015
 range: BFO:0000015
 is_transitive: true
 is_a: causally_downstream_of_or_within ! causally downstream of or within
-inverse_of: regulates ! regulates
 
 [Typedef]
 id: regulates
@@ -2297,6 +2330,7 @@ domain: BFO:0000015
 range: BFO:0000015
 is_transitive: true
 is_a: causally_upstream_of_or_within ! causally upstream of or within
+inverse_of: regulated_by ! regulated by
 
 [Typedef]
 id: regulates_in_other_organism
@@ -2485,6 +2519,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
 is_a: has_output ! has output
 is_a: results_in_developmental_progression_of ! results in developmental progression of
+inverse_of: formed_as_result_of ! formed as result of
 
 [Typedef]
 id: results_in_growth_of
@@ -2595,6 +2630,13 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: related_via_localization_to ! related via localization to
 
 [Typedef]
+id: root_parasite_of
+name: root parasite of
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host root (PO:0009005)" [https://en.wikipedia.org/wiki/Parasitic_plant]
+xref: RO:0002236
+is_a: parasite_of ! parasite of
+
+[Typedef]
 id: sends_output_to
 name: sends output to
 xref: RO:0002486
@@ -2636,7 +2678,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: CARO:0000003
 range: CARO:0000003
 is_a: part_of
-inverse_of: has_skeleton ! has skeleton
 
 [Typedef]
 id: spatially_coextensive_with
@@ -2679,6 +2720,13 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: has_part
 
 [Typedef]
+id: stem_parasite_of
+name: stem parasite of
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host stem (PO:0009047)" [https://en.wikipedia.org/wiki/Parasitic_plant]
+xref: RO:0002235
+is_a: parasite_of ! parasite of
+
+[Typedef]
 id: subject_participant_in
 name: subject participant in
 xref: RO:0002462
@@ -2704,6 +2752,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: adjacent_to ! adjacent to
+inverse_of: surrounds ! surrounds
 
 [Typedef]
 id: surrounds
@@ -2713,7 +2762,6 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: adjacent_to ! adjacent to
-inverse_of: surrounded_by ! surrounded by
 
 [Typedef]
 id: symbiotically_interacts_with
@@ -2833,7 +2881,6 @@ id: visited_by
 name: visited by
 xref: RO:0002619
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
-inverse_of: visits ! visits
 
 [Typedef]
 id: visits
@@ -2841,10 +2888,12 @@ name: visits
 xref: RO:0002618
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/74 xsd:anyURI
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+inverse_of: visited_by ! visited by
 
 [Typedef]
 id: visits_flowers_of
 name: visits flowers of
 xref: RO:0002622
 is_a: visits ! visits
+inverse_of: has_flowers_visited_by ! has flowers visited by
 

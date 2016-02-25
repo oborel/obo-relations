@@ -8,7 +8,7 @@ ONTS= ro.obo ro.owl annotations.owl core.owl go-biotic.owl pato_import.owl tempo
 
 all: build
 
-build: ro.owl ro.obo ro-el.owl all_subsets
+build: ro.owl ro.obo  all_subsets
 
 release: 
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
