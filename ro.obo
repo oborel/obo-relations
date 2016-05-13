@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2016-02-24
+data-version: releases/2016-05-13
 subsetdef: ro-eco ""
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>))) [Axioms: 61 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>))) [Axioms: 53 Logical Axioms: 12]
@@ -817,6 +817,21 @@ property_value: IAO:0000111 "contains" xsd:string
 property_value: RO:0001900 RO:0001901
 
 [Typedef]
+id: RO:0001020
+name: is allergic trigger for
+def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+property_value: IAO:0000112 "penicillin (CHEBI:17334) is allergic trigger for penicillin allergy (DOID:0060520)" xsd:string
+domain: BFO:0000040 ! material entity
+is_a: RO:0003302 ! causes or contributes to condition
+
+[Typedef]
+id: RO:0001021
+name: is autoimmune trigger for
+def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+domain: BFO:0000040 ! material entity
+is_a: RO:0003302 ! causes or contributes to condition
+
+[Typedef]
 id: RO:0001025
 name: located in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
@@ -943,6 +958,15 @@ def: "A relationship that holds between a  process that regulates a transport pr
 subset: ro-eco
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 holds_over_chain: RO:0002211 RO:0002313
+
+[Typedef]
+id: RO:0002012
+name: occurent part of
+def: "A part of relation that applies only between occurents." [GOC:dos]
+domain: BFO:0000003 ! occurrent
+range: BFO:0000003 ! occurrent
+is_a: BFO:0000050 ! part of
+is_a: RO:0002418 ! causally upstream of or within
 
 [Typedef]
 id: RO:0002081
@@ -1658,7 +1682,7 @@ property_value: IAO:0000117 "David Hill" xsd:string
 property_value: IAO:0000117 "Tanya Berardini" xsd:string
 property_value: IAO:0000119 "GO" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
-property_value: IAO:0000232 "Regulation does not preclude parthood; the regulatory process may be upstream, or may be within the regulated process." xsd:string
+property_value: IAO:0000232 "Regulation precludes parthood; the regulatory process may not be within the regulated process." xsd:string
 property_value: IAO:0000589 "regulates (processual)" xsd:string
 property_value: IAO:0000600 "false" xsd:boolean
 domain: BFO:0000015 ! process
@@ -1666,9 +1690,8 @@ range: BFO:0000015 ! process
 holds_over_chain: RO:0002230 RO:0002211
 holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
-is_a: RO:0002418 ! causally upstream of or within
+is_a: RO:0002411 ! causally upstream of
 inverse_of: RO:0002334 ! regulated by
-transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002212
@@ -1771,7 +1794,11 @@ inverse_of: RO:0002221 ! surrounds
 [Typedef]
 id: RO:0002220
 name: adjacent to
-def: "x adjacent to y if and only if x and y share a boundary" []
+def: "x adjacent to y if and only if x and y share a boundary." []
+property_value: IAO:0000112 "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="issuecomment-218584934"}
+property_value: IAO:0000112 "The epidermis layer of a vertebrate is adjacent to the dermis." xsd:string
+property_value: IAO:0000112 "The plasma membrane of a cell is adjacent to the cytoplasm, and also to the cell lumen which the cytoplasm occupies." xsd:string
+property_value: IAO:0000112 "The skin of the forelimb is adjacent to the skin of the torso if these are considered anatomical subdivisions with a defined border. Otherwise a relation such as continuous_with would be used." xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "This relation acts as a join point with BSPO" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1949,6 +1976,39 @@ id: RO:0002237
 name: hemiparasite of
 def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." [https://en.wikipedia.org/wiki/Parasitic_plant]
 is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002240
+name: has exposure receptor
+def: "A broad relationship between an exposure event or process and any entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during the exposure event" []
+property_value: IAO:0000119 ExO:0000001 xsd:string
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002241
+name: has exposure stressor
+def: "A broad relationship between an exposure event or process and any agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure receptor during an exposure event." []
+property_value: IAO:0000119 ExO:0000000 xsd:string
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002242
+name: has exposure route
+def: "A broad relationship between an exposure event or process and a process by which the exposure stressor comes into contact with the exposure receptor" []
+property_value: IAO:0000119 ExO:0000055 xsd:string
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002243
+name: has exposure transport path
+def: "A broad relationship between an exposure event or process and a the material an agent takes from the source to the target." []
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002244
+name: related via exposure to
+domain: BFO:0000015 ! process
+is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0002254
@@ -2935,13 +2995,17 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002439
 name: preys on
-def: "An interaction relationship involving a predation process, where the subject consumes all or part of the target" []
+def: "An interaction relationship involving a predation process, where the subject kills the target in order to eat it or to feed to siblings, offspring or group members" []
 subset: ro-eco
+property_value: IAO:0000112 "A wasp killing a Monarch larva in order to feed to offspring [http://www.inaturalist.org/observations/2942824]" xsd:string
 property_value: IAO:0000112 "Baleen whale preys on krill" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "Jorrit Poelen" xsd:string
+property_value: IAO:0000117 "Katja Shulz" xsd:string
 property_value: IAO:0000118 "is subject of predation interaction with" xsd:string
 property_value: IAO:0000118 "preys upon" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/preysUpon xsd:string
+property_value: seeAlso http://www.inaturalist.org/observations/2942824 xsd:string
 is_a: RO:0002438 ! trophically interacts with
 inverse_of: RO:0002458 ! preyed upon by
 
