@@ -10,7 +10,7 @@ while(<>) {
         $_ = "name: $n";
     }
     if (m@^ontology@) {
-        print "default-namespace: ro\n";
+        print "default-namespace: relationship\n";
     }
     $last = $_;
     print "$_\n";
