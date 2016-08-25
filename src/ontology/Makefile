@@ -18,6 +18,10 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
 	owltools $<  --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
+# turtle file is merged, for querying via arq
+ro.ttl: ro.owl
+	owltools --use-catalog $< --merge-import-closure -o -f ttl $@.tmp && mv $@.tmp $@
+
 %.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && grep -v ^synonym $@.tmp > $@
 #	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
@@ -123,6 +127,19 @@ rohom.owl: rohom.obo
 
 odp/%.owl:
 	wget http://www.ontologydesignpatterns.org/cp/owl/$*.owl -O $@
+
+
+# ----------------------------------------
+# Reports
+# ----------------------------------------
+REPORTS=basicReport
+all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS))
+
+reports/ro-%.csv: ro.ttl sparql/%.sparql
+	arq --data $< --query sparql/$*.sparql --results csv > $@.tmp && mv $@.tmp $@
+
+reports/ro-%.ttl: ro.ttl sparql/%.sparql
+	arq --data $< --query sparql/$*.sparql --results ttl > $@.tmp && mv $@.tmp $@
 
 
 # ----------------------------------------

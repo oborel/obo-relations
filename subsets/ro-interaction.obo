@@ -18,6 +18,14 @@ is_a: trophically_interacts_with ! trophically interacts with
 inverse_of: provides_nutrients_for ! provides nutrients for
 
 [Typedef]
+id: active_ingredient_in'
+name: active ingredient in'
+def: "inverse of has active ingredient" []
+subset: RO:0002259
+xref: RO:0002249
+is_a: part_of
+
+[Typedef]
 id: actively_participates_in
 name: actively participates in
 def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
@@ -308,6 +316,8 @@ inverse_of: causally_upstream_of ! causally upstream of
 [Typedef]
 id: causally_downstream_of_or_within
 name: causally downstream of or within
+def: "inverse of causally upstream of or within" []
+subset: RO:0002259
 xref: RO:0002427
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
@@ -496,6 +506,14 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
+id: connecting_branch_of
+name: connecting branch of
+def: "b connecting-branch-of s iff b is connected to s, and there exists some tree-like structure t such that the mereological sum of b plus s is either the same as t or a branching-part-of t." []
+xref: RO:0002252
+is_a: in_branching_relationship_with ! in branching relationship with
+inverse_of: has_connecting_branch ! has connecting branch
+
+[Typedef]
 id: connects
 name: connects
 def: "c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system." []
@@ -516,7 +534,7 @@ xref: RO:0002150
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000118 "connected to" xsd:string
-property_value: IAO:0000232 "The label for this relation was previously connected to. I relabeled this to \"continuous with\". The standard notion of connectedness does not imply shared boundaries - e.g. Glasgow connected_to Edinburgh via M8; my patella connected_to my femur (via patellar-femoral joint)" xsd:string {http://purl.org/dc/elements/1.1/source="RO:cjm"}
+property_value: IAO:0000232 "The label for this relation was previously connected to. I relabeled this to \"continuous with\". The standard notion of connectedness does not imply shared boundaries - e.g. Glasgow connected_to Edinburgh via M8; my patella connected_to my femur (via patellar-femoral joint)" xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso FMA:85972 xsd:string
 domain: BFO:0000004
@@ -632,7 +650,9 @@ is_a: overlaps ! overlaps
 [Typedef]
 id: determines
 name: determines
+def: "inverse of determined by" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002508
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "determines (material entity to system)" xsd:string
@@ -641,6 +661,8 @@ is_a: causally_influences ! causally influences
 [Typedef]
 id: developmentally_contributes_to
 name: developmentally contributes to
+def: "inverse of has developmental contribution from" []
+subset: RO:0002259
 xref: RO:0002255
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -758,6 +780,8 @@ is_a: developmentally_preceded_by ! developmentally preceded by
 [Typedef]
 id: develops_into
 name: develops into
+def: "inverse of develops from" []
+subset: RO:0002259
 xref: RO:0002203
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -798,6 +822,8 @@ inverse_of: directly_develops_into ! directly develops into
 [Typedef]
 id: directly_develops_into
 name: directly develops into
+def: "inverse of directly develops from" []
+subset: RO:0002259
 xref: RO:0002210
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "developmental precursor of" xsd:string
@@ -862,9 +888,10 @@ is_a: regulates ! regulates
 id: distributary_of
 name: distributary of
 def: "x distributary_of y if and only if x is capable of channeling the flow of a substance to y, where y channels less of the substance than x" []
+comment: This is both a mereotopological relationship and a relationship defined in connection to processes. It concerns both the connecting structure, and how this structure is disposed to causally affect flow processes
 subset: ro-eco
 xref: RO:0002377
-property_value: IAO:0000112 "Deschutes River distributary_of Little Lava Lake" xsd:string {http://purl.org/dc/elements/1.1/source="GAZ"}
+property_value: IAO:0000112 "Deschutes River distributary_of Little Lava Lake" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "branch of" xsd:string
@@ -929,7 +956,7 @@ is_a: functionally_related_to ! functionally related to
 
 [Typedef]
 id: enables
-name: enables {http://purl.org/dc/elements/1.1/contributor="http://www.arabidopsis.org/"}
+name: enables
 xref: RO:0002327
 property_value: IAO:0000112 "a particular instances of akt-2 enables some instance of protein kinase activity" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -986,7 +1013,7 @@ is_a: transports_or_maintains_localization_of ! transports or maintains localiza
 [Typedef]
 id: facultative_parasite_of
 name: facultative parasite of
-def: "A sub-relations of parasite-of in which the parasite that can complete its life cycle independent of a host." [https://en.wikipedia.org/wiki/Parasitic_plant]
+def: "A sub-relations of parasite-of in which the parasite that can complete its life cycle independent of a host." []
 xref: RO:0002228
 is_a: parasite_of ! parasite of
 
@@ -1037,6 +1064,15 @@ property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
+id: has_active_ingredient
+name: has active ingredient
+def: "A relationship that holds between a substance and a chemical entity, if the chemical entity is part of the substance, and the chemical entity forms the biologically active component of the substance." []
+xref: RO:0002248
+property_value: IAO:0000112 "Any portion of roundup 'has active ingredient' some glyphosate" xsd:string
+is_a: has_part
+inverse_of: active_ingredient_in' ! active ingredient in'
+
+[Typedef]
 id: has_active_participant
 name: has active participant
 def: "x has participant y if and only if x realizes some active role that inheres in y" []
@@ -1050,9 +1086,28 @@ property_value: IAO:0000118 "has agent" xsd:string
 is_a: has_participant
 
 [Typedef]
+id: has_allergic_trigger
+name: has allergic trigger
+def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+xref: RO:0001022
+property_value: IAO:0000112 "penicillin allergy (DOID:0060520) has allergic trigger penicillin (CHEBI:17334)" xsd:string
+range: BFO:0000040
+is_a: causes_or_contributes_to_condition ! causes or contributes to condition
+
+[Typedef]
+id: has_autoimmune_trigger
+name: has autoimmune trigger
+def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+xref: RO:0001023
+range: BFO:0000040
+is_a: causes_or_contributes_to_condition ! causes or contributes to condition
+
+[Typedef]
 id: has_branching_part
 name: has branching part
+def: "inverse of branching part of" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002569
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
@@ -1077,6 +1132,14 @@ property_value: IAO:0000232 "For use in recording has_part with a cardinality co
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso http://ontologydesignpatterns.org/wiki/Submissions:Componency
 is_a: has_part
+
+[Typedef]
+id: has_connecting_branch
+name: has connecting branch
+def: "inverse of connecting branch of" []
+subset: RO:0002259
+xref: RO:0002253
+is_a: in_branching_relationship_with ! in branching relationship with
 
 [Typedef]
 id: has_dendrite_location
@@ -1123,6 +1186,8 @@ is_a: has_input ! has input
 [Typedef]
 id: has_ectoparasite
 name: has ectoparasite
+def: "inverse of ectoparasite of" []
+subset: RO:0002259
 xref: RO:0002633
 is_a: parasitized_by ! parasitized by
 
@@ -1243,6 +1308,8 @@ inverse_of: input_of ! input of
 [Typedef]
 id: has_intercellular_endoparasite
 name: has intercellular endoparasite
+def: "inverse of intercellular endoparasite of" []
+subset: RO:0002259
 xref: RO:0002639
 is_a: has_endoparasite ! has endoparasite
 
@@ -1260,12 +1327,16 @@ is_a: has_participant
 [Typedef]
 id: has_intracellular_endoparasite
 name: has intracellular endoparasite
+def: "inverse of intracellular endoparasite of" []
+subset: RO:0002259
 xref: RO:0002641
 is_a: has_endoparasite ! has endoparasite
 
 [Typedef]
 id: has_mesoparasite
 name: has mesoparasite
+def: "inverse of mesoparasite of" []
+subset: RO:0002259
 xref: RO:0002637
 is_a: parasitized_by ! parasitized by
 
@@ -1315,6 +1386,8 @@ inverse_of: output_of ! output of
 [Typedef]
 id: has_parasitoid
 name: has parasitoid
+def: "inverse of parasitoid of" []
+subset: RO:0002259
 xref: RO:0002209
 is_a: parasitized_by ! parasitized by
 
@@ -1523,7 +1596,7 @@ is_a: is_vector_for ! is vector for
 [Typedef]
 id: hemiparasite_of
 name: hemiparasite of
-def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." [https://en.wikipedia.org/wiki/Parasitic_plant]
+def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." []
 xref: RO:0002237
 is_a: parasite_of ! parasite of
 
@@ -1552,7 +1625,9 @@ inverse_of: hyperparasitized_by ! hyperparasitized by
 [Typedef]
 id: hyperparasitized_by
 name: hyperparasitized by
+def: "inverse of hyperparasite of" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002554
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: host_of ! host of
@@ -1611,11 +1686,14 @@ is_a: transports_or_maintains_localization_of ! transports or maintains localiza
 [Typedef]
 id: in_branching_relationship_with
 name: in branching relationship with
+def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
 xref: RO:0002375
 property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving branching relationships" xsd:string
 property_value: IAO:0000232 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)" xsd:string
+property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png
 domain: BFO:0000040
 range: BFO:0000040
 is_a: mereotopologically_related_to ! mereotopologically related to
@@ -1654,7 +1732,9 @@ is_a: negatively_regulates ! negatively regulates
 [Typedef]
 id: input_of
 name: input of
+def: "inverse of has input" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002352
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: functionally_related_to ! functionally related to
@@ -1756,6 +1836,7 @@ xref: RO:0001020
 property_value: IAO:0000112 "penicillin (CHEBI:17334) is allergic trigger for penicillin allergy (DOID:0060520)" xsd:string
 domain: BFO:0000040
 is_a: causes_or_contributes_to_condition ! causes or contributes to condition
+inverse_of: has_allergic_trigger ! has allergic trigger
 
 [Typedef]
 id: is_autoimmune_trigger_for
@@ -1764,11 +1845,13 @@ def: "A relation between a material entity and a condition (a phenotype or disea
 xref: RO:0001021
 domain: BFO:0000040
 is_a: causes_or_contributes_to_condition ! causes or contributes to condition
+inverse_of: has_autoimmune_trigger ! has autoimmune trigger
 
 [Typedef]
 id: is_bound_by_sequence_of
 name: is bound by sequence of
 def: "inverse of bounds sequence of" []
+subset: RO:0002259
 xref: RO:0002523
 property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1811,6 +1894,7 @@ is_a: trophically_interacts_with ! trophically interacts with
 id: is_end_sequence_of
 name: is end sequence of
 def: "inverse of has end sequence" []
+subset: RO:0002259
 xref: RO:0002519
 property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1879,6 +1963,7 @@ is_a: sequentially_related_to ! sequentially related to
 id: is_start_sequence_of
 name: is start sequence of
 def: "inverse of has start sequence" []
+subset: RO:0002259
 xref: RO:0002517
 property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1891,6 +1976,7 @@ is_a: is_subsequence_of ! is subsequence of
 id: is_subsequence_of
 name: is subsequence of
 def: "inverse of has subsequence" []
+subset: RO:0002259
 xref: RO:0002525
 property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2049,6 +2135,8 @@ is_a: symbiotically_interacts_with ! symbiotically interacts with
 [Typedef]
 id: negatively_regulated_by
 name: negatively regulated by
+def: "inverse of negatively regulates" []
+subset: RO:0002259
 xref: RO:0002335
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: regulated_by ! regulated by
@@ -2068,7 +2156,7 @@ inverse_of: negatively_regulated_by ! negatively regulated by
 [Typedef]
 id: obligate_parasite_of
 name: obligate parasite of
-def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." [https://en.wikipedia.org/wiki/Parasitic_plant]
+def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." []
 xref: RO:0002227
 is_a: parasite_of ! parasite of
 
@@ -2085,7 +2173,7 @@ is_obsolete: true
 [Typedef]
 id: occurent_part_of
 name: occurent part of
-def: "A part of relation that applies only between occurents." [GOC:dos]
+def: "A part of relation that applies only between occurents." []
 xref: RO:0002012
 domain: BFO:0000003
 range: BFO:0000003
@@ -2095,7 +2183,9 @@ is_a: part_of
 [Typedef]
 id: output_of
 name: output of
+def: "inverse of has output" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002353
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: functionally_related_to ! functionally related to
@@ -2152,7 +2242,7 @@ is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite
 [Typedef]
 id: parasitoid_of
 name: parasitoid of
-def: "A parasite that kills or sterilizes its host" [https://en.wikipedia.org/wiki/Parasitoid#Definitions_and_distinctions, https://github.com/oborel/obo-relations/issues/81]
+def: "A parasite that kills or sterilizes its host" []
 xref: RO:0002208
 is_a: parasite_of ! parasite of
 inverse_of: has_parasitoid ! has parasitoid
@@ -2272,6 +2362,8 @@ inverse_of: pollinated_by ! pollinated by
 [Typedef]
 id: positively_regulated_by
 name: positively regulated by
+def: "inverse of positively regulates" []
+subset: RO:0002259
 xref: RO:0002336
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: regulated_by ! regulated by
@@ -2301,7 +2393,9 @@ is_a: temporally_related_to
 [Typedef]
 id: preyed_upon_by
 name: preyed upon by
+def: "inverse of preys on" []
 subset: ro-eco
+subset: RO:0002259
 xref: RO:0002458
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has predator" xsd:string
@@ -2369,6 +2463,7 @@ inverse_of: sends_output_to ! sends output to
 id: regulated_by
 name: regulated by
 def: "inverse of regulates" []
+subset: RO:0002259
 xref: RO:0002334
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000589 "regulated by (processual)" xsd:string
@@ -2632,7 +2727,7 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 [Typedef]
 id: results_in_movement_of
 name: results in movement of
-def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" [GOC:mtg_berkeley_2013]
+def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" []
 xref: RO:0002565
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "" xsd:string
@@ -2705,7 +2800,7 @@ is_a: related_via_localization_to ! related via localization to
 [Typedef]
 id: root_parasite_of
 name: root parasite of
-def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host root (PO:0009005)" [https://en.wikipedia.org/wiki/Parasitic_plant]
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host root (PO:0009005)" []
 xref: RO:0002236
 is_a: parasite_of ! parasite of
 
@@ -2746,6 +2841,8 @@ range: RO:0002532
 [Typedef]
 id: skeleton_of
 name: skeleton of
+def: "inverse of has skeleton" []
+subset: RO:0002259
 xref: RO:0002576
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 domain: CARO:0000003
@@ -2795,7 +2892,7 @@ is_a: has_part
 [Typedef]
 id: stem_parasite_of
 name: stem parasite of
-def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host stem (PO:0009047)" [https://en.wikipedia.org/wiki/Parasitic_plant]
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host stem (PO:0009047)" []
 xref: RO:0002235
 is_a: parasite_of ! parasite of
 
@@ -2830,6 +2927,8 @@ inverse_of: surrounds ! surrounds
 [Typedef]
 id: surrounds
 name: surrounds
+def: "inverse of surrounded by" []
+subset: RO:0002259
 xref: RO:0002221
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2844,7 +2943,7 @@ subset: ro-eco
 xref: RO:0002440
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
-property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string {http://purl.org/dc/elements/1.1/source="http://www.ncbi.nlm.nih.gov/pubmed/19278549"}
+property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
 property_value: RO:0002561 GO:0044403
 is_symmetric: true
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
@@ -2916,12 +3015,12 @@ name: tributary of
 def: "x tributary_of y if and only if x a channel for the flow of a substance into y, where y is larger than x. If x and y are hydrographic features, then y is the main stem of a river, or a lake or bay, but not the sea or ocean. If x and y are anatomical, then y is a vein." []
 subset: ro-eco
 xref: RO:0002376
-property_value: IAO:0000112 "Deschutes River tributary_of Columbia River" xsd:string {http://purl.org/dc/elements/1.1/source="GAZ"}
-property_value: IAO:0000112 "inferior epigastric vein tributary_of external iliac vein" xsd:string {http://purl.org/dc/elements/1.1/source="FMA"}
+property_value: IAO:0000112 "Deschutes River tributary_of Columbia River" xsd:string
+property_value: IAO:0000112 "inferior epigastric vein tributary_of external iliac vein" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "drains into" xsd:string
-property_value: IAO:0000118 "drains to" xsd:string {http://purl.org/dc/elements/1.1/source="http://dbpedia.org/ontology/drainsTo"}
+property_value: IAO:0000118 "drains to" xsd:string
 property_value: IAO:0000118 "tributary channel of" xsd:string
 property_value: IAO:0000119 http://en.wikipedia.org/wiki/Tributary xsd:string
 property_value: IAO:0000119 http://www.medindia.net/glossary/venous_tributary.htm xsd:string
