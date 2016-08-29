@@ -1,15 +1,18 @@
 format-version: 1.2
 subsetdef: ro-eco ""
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>))) [Axioms: 61 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>))) [Axioms: 53 Logical Axioms: 12]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>))) [Axioms: 276 Logical Axioms: 56]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>))) [Axioms: 6 Logical Axioms: 2]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>))) [Axioms: 42 Logical Axioms: 16]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>))) [Axioms: 29 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>))) [Axioms: 20 Logical Axioms: 6]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>))) [Axioms: 731 Logical Axioms: 148]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>))) [Axioms: 146 Logical Axioms: 45]
-default-namespace: ro
+subsetdef: RO:0002259 ""
+remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
+default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
@@ -34,11 +37,11 @@ is_a: RO:0002131 ! overlaps
 [Typedef]
 id: BFO:0000054
 name: realized_in
+inverse_of: BFO:0000055 ! realizes
 
 [Typedef]
 id: BFO:0000055
 name: realizes
-inverse_of: BFO:0000054 ! realized in
 
 [Typedef]
 id: BFO:0000060
@@ -83,35 +86,35 @@ id: RO:0000052
 name: inheres_in
 def: "a relation between a specifically dependent continuant (the dependent) and an independent continuant (the bearer), in which the dependent specifically depends on the bearer for its existence" []
 is_a: RO:0002314 ! inheres in part of
+inverse_of: RO:0000053 ! bearer of
 
 [Typedef]
 id: RO:0000053
 name: bearer_of
 def: "a relation between an independent continuant (the bearer) and a specifically dependent continuant (the dependent), in which the dependent specifically depends on the bearer for its existence" []
-inverse_of: RO:0000052 ! inheres in
 
 [Typedef]
 id: RO:0000056
 name: participates_in
 def: "a relation between a continuant and a process, in which the continuant is somehow involved in the process" []
+inverse_of: RO:0000057 ! has participant
 
 [Typedef]
 id: RO:0000057
 name: has_participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
 holds_over_chain: BFO:0000051 RO:0000057
-inverse_of: RO:0000056 ! participates in
 
 [Typedef]
 id: RO:0000058
 name: is_concretized_as
 def: "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants." []
+inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
 id: RO:0000059
 name: concretizes
 def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
-inverse_of: RO:0000058 ! is concretized as
 
 [Typedef]
 id: RO:0000079
@@ -132,6 +135,7 @@ id: RO:0000081
 name: role_of
 def: "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence" []
 is_a: RO:0000052 ! inheres in
+inverse_of: RO:0000087 ! has role
 
 [Typedef]
 id: RO:0000085
@@ -150,19 +154,19 @@ id: RO:0000087
 name: has_role
 def: "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence" []
 is_a: RO:0000053 ! bearer of
-inverse_of: RO:0000081 ! role of
 
 [Typedef]
 id: RO:0000091
 name: has_disposition
 def: "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence" []
 is_a: RO:0000053 ! bearer of
+inverse_of: RO:0000092 ! disposition of
 
 [Typedef]
 id: RO:0000092
 name: disposition_of
+def: "inverse of has disposition" []
 is_a: RO:0000052 ! inheres in
-inverse_of: RO:0000091 ! has disposition
 
 [Typedef]
 id: RO:0000300
@@ -188,18 +192,19 @@ is_a: RO:0000300 ! in neural circuit with
 id: RO:0001000
 name: derives_from
 def: "a relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" []
+inverse_of: RO:0001001 ! derives into
 
 [Typedef]
 id: RO:0001001
 name: derives_into
 def: "a relation between two distinct material entities, the old entity and the new entity, in which the new entity begins to exist when the old entity ceases to exist, and the new entity inherits the significant portion of the matter of the old entity" []
-inverse_of: RO:0001000 ! derives from
 
 [Typedef]
 id: RO:0001015
 name: location_of
 def: "a relation between two independent continuants, the location and the target, in which the target is entirely within the location" []
 is_transitive: true
+inverse_of: RO:0001025 ! located in
 
 [Typedef]
 id: RO:0001018
@@ -212,17 +217,43 @@ id: RO:0001019
 name: contains
 
 [Typedef]
+id: RO:0001020
+name: is_allergic_trigger_for
+def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+is_a: RO:0003302 ! causes or contributes to condition
+inverse_of: RO:0001022 ! has allergic trigger
+
+[Typedef]
+id: RO:0001021
+name: is_autoimmune_trigger_for
+def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+is_a: RO:0003302 ! causes or contributes to condition
+inverse_of: RO:0001023 ! has autoimmune trigger
+
+[Typedef]
+id: RO:0001022
+name: has_allergic_trigger
+def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+is_a: RO:0003302 ! causes or contributes to condition
+
+[Typedef]
+id: RO:0001023
+name: has_autoimmune_trigger
+def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
+is_a: RO:0003302 ! causes or contributes to condition
+
+[Typedef]
 id: RO:0001025
 name: located_in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
 is_transitive: true
-inverse_of: RO:0001015 ! location of
 
 [Typedef]
 id: RO:0002000
 name: 2D_boundary_of
 def: "a relation between a 2D immaterial entity (the boundary) and a material entity, in which the boundary delimits the material entity" []
 is_a: RO:0002323 ! mereotopologically related to
+inverse_of: RO:0002002 ! has 2D boundary
 
 [Typedef]
 id: RO:0002001
@@ -234,7 +265,6 @@ id: RO:0002002
 name: has_2D_boundary
 def: "a relation between a material entity and a 2D immaterial entity (the boundary), in which the boundary delimits the material entity" []
 is_a: RO:0002323 ! mereotopologically related to
-inverse_of: RO:0002000 ! 2D boundary of
 
 [Typedef]
 id: RO:0002003
@@ -286,8 +316,15 @@ is_a: RO:0002418 ! causally upstream of or within
 [Typedef]
 id: RO:0002011
 name: regulates_transport_of
-def: "A relationship that holds between a  process that regulates a transport process and the entity transported by that process." [GOC:dos]
+def: "A relationship that holds between a  process that regulates a transport process and the entity transported by that process." []
 holds_over_chain: RO:0002211 RO:0002313
+
+[Typedef]
+id: RO:0002012
+name: occurent_part_of
+def: "A part of relation that applies only between occurents." []
+is_a: BFO:0000050 ! part of
+is_a: RO:0002418 ! causally upstream of or within
 
 [Typedef]
 id: RO:0002081
@@ -380,12 +417,14 @@ id: RO:0002101
 name: fasciculates_with
 def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
 is_a: RO:0002131 ! overlaps
+inverse_of: RO:0002132 ! has fasciculating neuron projection
 
 [Typedef]
 id: RO:0002102
 name: axon_synapses_in
 def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
 is_a: RO:0002113 ! has presynaptic terminal in
+inverse_of: RO:0002110 ! has postsynaptic terminal in
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -439,7 +478,6 @@ id: RO:0002110
 name: has_postsynaptic_terminal_in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
 is_a: RO:0002130 ! has synaptic terminal in
-inverse_of: RO:0002102 ! axon synapses in
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -506,7 +544,6 @@ id: RO:0002132
 name: has_fasciculating_neuron_projection
 def: "The relation between a neuron projection bundle and a neuron projection that is fasciculated with it." []
 is_a: RO:0002131 ! overlaps
-inverse_of: RO:0002101 ! fasciculates with
 
 [Typedef]
 id: RO:0002134
@@ -537,6 +574,7 @@ inverse_of: RO:0002157 ! has derived by descendant
 [Typedef]
 id: RO:0002157
 name: has_derived_by_descendant
+def: "inverse of derived by descent from" []
 is_transitive: true
 is_a: RO:0002320 ! evolutionarily related to
 
@@ -626,12 +664,13 @@ is_a: BFO:0000051 ! has part
 id: RO:0002200
 name: has_phenotype
 def: "A relationship that holds between a biological entity and a phenotype. Here a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). The subject of this relationship can be an organism (where the organism has the phenotype, i.e. the qualities inhere in parts of this organism), a genomic entity such as a gene or genotype (if modifications of the gene or the genotype causes the phenotype), or a condition such as a disease (such that if the condition inheres in an organism, then the organism has the phenotype)." []
+inverse_of: RO:0002201 ! phenotype of
 
 [Typedef]
 id: RO:0002201
 name: phenotype_of
+def: "inverse of has phenotype" []
 is_functional: true
-inverse_of: RO:0002200 ! has phenotype
 
 [Typedef]
 id: RO:0002202
@@ -639,15 +678,16 @@ name: develops_from
 def: "x develops from y if and only if either (a) x directly develops from y or (b) there exists some z such that x directly develops from z and z develops from y" []
 is_transitive: true
 is_a: RO:0002258 ! developmentally preceded by
+inverse_of: RO:0002203 ! develops into
 
 [Typedef]
 id: RO:0002203
 name: develops_into
+def: "inverse of develops from" []
 is_transitive: true
 is_a: RO:0002286 ! developmentally succeeded by
 is_a: RO:0002387 ! has potential to develop into
 is_a: RO:0002388 ! has potential to directly develop into
-inverse_of: RO:0002202 ! develops from
 
 [Typedef]
 id: RO:0002204
@@ -655,6 +695,7 @@ name: gene_product_of
 def: "definition \"x has gene product of y if and only if y is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from x\"" []
 holds_over_chain: RO:0002512 RO:0002510
 is_a: RO:0002330 ! genomically related to
+inverse_of: RO:0002205 ! has gene product
 
 [Typedef]
 id: RO:0002205
@@ -662,13 +703,13 @@ name: has_gene_product
 def: "x has gene product y if and only if x is a gene (SO:0000704) that participates in some gene expression process (GO:0010467) where the output of that process is either y or something that is ribosomally translated from y" []
 holds_over_chain: RO:0002511 RO:0002513
 is_a: RO:0002330 ! genomically related to
-inverse_of: RO:0002204 ! gene product of
 
 [Typedef]
 id: RO:0002206
 name: expressed_in
 def: "x expressed in y if and only if there is a gene expression process (GO:0010467) that occurs in y, and one of the following holds: (i) x is a gene, and x is transcribed into a transcript as part of the gene expression process (ii) x is a transcript, and the transcription of x is part of the gene expression process (iii) x is a mature gene product such as a protein, and x was translated or otherwise processes from a transcript that was transcribed as part of this gene expression process" []
 is_a: RO:0002330 ! genomically related to
+inverse_of: RO:0002292 ! expresses
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -676,12 +717,26 @@ id: RO:0002207
 name: directly_develops_from
 def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of y comes from x, and the start of x is coincident with or after the end of y" []
 is_a: RO:0002202 ! develops from
+inverse_of: RO:0002210 ! directly develops into
+
+[Typedef]
+id: RO:0002208
+name: parasitoid_of
+def: "A parasite that kills or sterilizes its host" []
+is_a: RO:0002444 ! parasite of
+inverse_of: RO:0002209 ! has parasitoid
+
+[Typedef]
+id: RO:0002209
+name: has_parasitoid
+def: "inverse of parasitoid of" []
+is_a: RO:0002445 ! parasitized by
 
 [Typedef]
 id: RO:0002210
 name: directly_develops_into
+def: "inverse of directly develops from" []
 is_a: RO:0002203 ! develops into
-inverse_of: RO:0002207 ! directly develops from
 
 [Typedef]
 id: RO:0002211
@@ -689,8 +744,9 @@ name: regulates
 def: "x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y" []
 holds_over_chain: RO:0002230 RO:0002211
 holds_over_chain: RO:0002578 RO:0002578
-is_a: RO:0002418 ! causally upstream of or within
-transitive_over: BFO:0000050 ! part of
+is_transitive: true
+is_a: RO:0002411 ! causally upstream of
+inverse_of: RO:0002334 ! regulated by
 
 [Typedef]
 id: RO:0002212
@@ -698,13 +754,16 @@ name: negatively_regulates
 def: "x negatively regulates y if and only if the progression of x reduces the frequency, rate or extent of y" []
 holds_over_chain: RO:0002230 RO:0002212
 is_a: RO:0002211 ! regulates
+inverse_of: RO:0002335 ! negatively regulated by
 
 [Typedef]
 id: RO:0002213
 name: positively_regulates
 def: "x positively regulates y if and only if the progression of x increases the frequency, rate or extent of y" []
+holds_over_chain: RO:0002212 RO:0002212
 holds_over_chain: RO:0002230 RO:0002213
 is_a: RO:0002211 ! regulates
+inverse_of: RO:0002336 ! positively regulated by
 
 [Typedef]
 id: RO:0002214
@@ -744,18 +803,19 @@ id: RO:0002219
 name: surrounded_by
 def: "x surrounded_by y if and only if (1) x is adjacent to y and for every region r that is adjacent to x, r overlaps y (2) the shared boundary between x and y occupies the majority of the outermost boundary of x" []
 is_a: RO:0002220 ! adjacent to
+inverse_of: RO:0002221 ! surrounds
 
 [Typedef]
 id: RO:0002220
 name: adjacent_to
-def: "x adjacent to y if and only if x and y share a boundary" []
+def: "x adjacent to y if and only if x and y share a boundary." []
 is_a: RO:0002163 ! spatially disjoint from
 
 [Typedef]
 id: RO:0002221
 name: surrounds
+def: "inverse of surrounded by" []
 is_a: RO:0002220 ! adjacent to
-inverse_of: RO:0002219 ! surrounded by
 
 [Typedef]
 id: RO:0002222
@@ -767,6 +827,7 @@ name: starts
 def: "inverse of starts with" []
 is_a: BFO:0000050 ! part of
 is_a: RO:0002222 ! temporally related to
+inverse_of: RO:0002224 ! starts with
 
 [Typedef]
 id: RO:0002224
@@ -775,7 +836,6 @@ def: "x starts with y if and only if x has part y and the time point at which x 
 is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002222 ! temporally related to
-inverse_of: RO:0002223 ! starts
 
 [Typedef]
 id: RO:0002225
@@ -790,6 +850,18 @@ name: develops_in
 def: "x develops_in y if x is located in y whilst x is developing" []
 holds_over_chain: RO:0002207 RO:0001025
 is_a: RO:0002258 ! developmentally preceded by
+
+[Typedef]
+id: RO:0002227
+name: obligate_parasite_of
+def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." []
+is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002228
+name: facultative_parasite_of
+def: "A sub-relations of parasite-of in which the parasite that can complete its life cycle independent of a host." []
+is_a: RO:0002444 ! parasite of
 
 [Typedef]
 id: RO:0002229
@@ -827,6 +899,7 @@ name: has_input
 def: "p has direct input c iff c is a participant in p, c is present at the start of p, and the state of c is modified during p." []
 holds_over_chain: RO:0002224 RO:0002233
 is_a: RO:0000057 ! has participant
+inverse_of: RO:0002352 ! input of
 
 [Typedef]
 id: RO:0002234
@@ -834,6 +907,92 @@ name: has_output
 def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p." []
 holds_over_chain: RO:0002230 RO:0002234
 is_a: RO:0000057 ! has participant
+inverse_of: RO:0002353 ! output of
+
+[Typedef]
+id: RO:0002235
+name: stem_parasite_of
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host stem (PO:0009047)" []
+is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002236
+name: root_parasite_of
+def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host root (PO:0009005)" []
+is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002237
+name: hemiparasite_of
+def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." []
+is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002240
+name: has_exposure_receptor
+def: "A broad relationship between an exposure event or process and any entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during the exposure event" []
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002241
+name: has_exposure_stressor
+def: "A broad relationship between an exposure event or process and any agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure receptor during an exposure event." []
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002242
+name: has_exposure_route
+def: "A broad relationship between an exposure event or process and a process by which the exposure stressor comes into contact with the exposure receptor" []
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002243
+name: has_exposure_transport_path
+def: "A broad relationship between an exposure event or process and a the material an agent takes from the source to the target." []
+is_a: RO:0002244 ! related via exposure to
+
+[Typedef]
+id: RO:0002244
+name: related_via_exposure_to
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0002245
+name: over-expressed_in
+def: "g is over-expressed in t iff g is expressed in t, and the expression level of g is increased relative to some background." []
+is_a: RO:0002206 ! expressed in
+
+[Typedef]
+id: RO:0002246
+name: under-expressed_in
+def: "g is under-expressed in t iff g is expressed in t, and the expression level of g is decreased relative to some background." []
+is_a: RO:0002206 ! expressed in
+
+[Typedef]
+id: RO:0002248
+name: has_active_ingredient
+def: "A relationship that holds between a substance and a chemical entity, if the chemical entity is part of the substance, and the chemical entity forms the biologically active component of the substance." []
+is_a: BFO:0000051 ! has part
+inverse_of: RO:0002249 ! active ingredient in'
+
+[Typedef]
+id: RO:0002249
+name: active_ingredient_in'
+def: "inverse of has active ingredient" []
+is_a: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0002252
+name: connecting_branch_of
+def: "b connecting-branch-of s iff b is connected to s, and there exists some tree-like structure t such that the mereological sum of b plus s is either the same as t or a branching-part-of t." []
+is_a: RO:0002375 ! in branching relationship with
+inverse_of: RO:0002253 ! has connecting branch
+
+[Typedef]
+id: RO:0002253
+name: has_connecting_branch
+def: "inverse of connecting branch of" []
+is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
 id: RO:0002254
@@ -841,20 +1000,22 @@ name: has_developmental_contribution_from
 def: "x has developmental contribution from y iff x has some part z such that z develops from y" []
 holds_over_chain: BFO:0000051 RO:0002202
 is_a: RO:0002258 ! developmentally preceded by
+inverse_of: RO:0002255 ! developmentally contributes to
 
 [Typedef]
 id: RO:0002255
 name: developmentally_contributes_to
+def: "inverse of has developmental contribution from" []
 holds_over_chain: RO:0002203 BFO:0000050
 is_a: RO:0002286 ! developmentally succeeded by
 is_a: RO:0002385 ! has potential to developmentally contribute to
-inverse_of: RO:0002254 ! has developmental contribution from
 
 [Typedef]
 id: RO:0002256
 name: developmentally_induced_by
 def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
 is_a: RO:0002258 ! developmentally preceded by
+inverse_of: RO:0002257 ! developmentally induces
 
 [Typedef]
 id: RO:0002257
@@ -862,13 +1023,31 @@ name: developmentally_induces
 def: "Inverse of developmentally induced by" []
 is_a: RO:0002286 ! developmentally succeeded by
 is_a: RO:0002386 ! has potential to developmentally induce
-inverse_of: RO:0002256 ! developmentally induced by
 
 [Typedef]
 id: RO:0002258
 name: developmentally_preceded_by
 def: "Candidate definition: x developmentally related to y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p" []
 is_a: RO:0002324 ! developmentally related to
+inverse_of: RO:0002286 ! developmentally succeeded by
+
+[Typedef]
+id: RO:0002260
+name: has_biological_role
+def: "c has-biological-role r iff c has-role r and r is a biological role (CHEBI:24432)" []
+is_a: RO:0000087 ! has role
+
+[Typedef]
+id: RO:0002261
+name: has_application_role
+def: "c has-application-role r iff c has-role r and r is an application role (CHEBI:33232)" []
+is_a: RO:0000087 ! has role
+
+[Typedef]
+id: RO:0002262
+name: has_chemical_role
+def: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)" []
+is_a: RO:0000087 ! has role
 
 [Typedef]
 id: RO:0002285
@@ -881,7 +1060,6 @@ id: RO:0002286
 name: developmentally_succeeded_by
 def: "Inverse of developmentally preceded by" []
 is_a: RO:0002384 ! has developmental potential involving
-inverse_of: RO:0002258 ! developmentally preceded by
 
 [Typedef]
 id: RO:0002287
@@ -894,20 +1072,19 @@ id: RO:0002291
 name: ubiquitously_expressed_in
 def: "x is ubiquitously expressed in y if and only if x is expressed in y, and the majority of cells in y express x" []
 is_a: RO:0002206 ! expressed in
+inverse_of: RO:0002293 ! ubiquitously expresses
 
 [Typedef]
 id: RO:0002292
 name: expresses
 def: "Inverse of 'expressed in'" []
 is_a: RO:0002330 ! genomically related to
-inverse_of: RO:0002206 ! expressed in
 
 [Typedef]
 id: RO:0002293
 name: ubiquitously_expresses
 def: "inverse of ubiquiotously expressed in" []
 is_a: RO:0002292 ! expresses
-inverse_of: RO:0002291 ! ubiquitously expressed in
 
 [Typedef]
 id: RO:0002301
@@ -917,7 +1094,7 @@ is_a: RO:0002552 ! results in ending of
 [Typedef]
 id: RO:0002303
 name: has_habitat
-def: "x 'has habitat' y if and only if: x is an organism, y is a habitat, and x is specially adapted (either naturally or via artifical selection) to living in y. Here 'living in' encompasses the majority of the animal's lifespan." []
+def: "x 'has habitat' y if and only if: x is an organism, y is a habitat, and y can sustain and allow the growth of a population of xs." []
 is_a: RO:0002321 ! ecologically related to
 
 [Typedef]
@@ -980,8 +1157,9 @@ is_a: RO:0002329 ! part of structure that is capable of
 
 [Typedef]
 id: RO:0002327
-name: enables_{http://purl.org/dc/elements/1.1/contributor="http://www.arabidopsis.org/"}
+name: enables
 is_a: RO:0002215 ! capable of
+inverse_of: RO:0002333 ! enabled by
 
 [Typedef]
 id: RO:0002328
@@ -1018,26 +1196,25 @@ id: RO:0002333
 name: enabled_by
 def: "inverse of enables" []
 is_a: RO:0002328 ! functionally related to
-inverse_of: RO:0002327 ! enables
 
 [Typedef]
 id: RO:0002334
 name: regulated_by
 def: "inverse of regulates" []
+is_transitive: true
 is_a: RO:0002427 ! causally downstream of or within
-inverse_of: RO:0002211 ! regulates
 
 [Typedef]
 id: RO:0002335
 name: negatively_regulated_by
+def: "inverse of negatively regulates" []
 is_a: RO:0002334 ! regulated by
-inverse_of: RO:0002212 ! negatively regulates
 
 [Typedef]
 id: RO:0002336
 name: positively_regulated_by
+def: "inverse of positively regulates" []
 is_a: RO:0002334 ! regulated by
-inverse_of: RO:0002213 ! positively regulates
 
 [Typedef]
 id: RO:0002337
@@ -1122,16 +1299,16 @@ is_a: BFO:0000051 ! has part
 [Typedef]
 id: RO:0002352
 name: input_of
+def: "inverse of has input" []
 is_a: RO:0000056 ! participates in
 is_a: RO:0002328 ! functionally related to
-inverse_of: RO:0002233 ! has input
 
 [Typedef]
 id: RO:0002353
 name: output_of
+def: "inverse of has output" []
 is_a: RO:0000056 ! participates in
 is_a: RO:0002328 ! functionally related to
-inverse_of: RO:0002234 ! has output
 
 [Typedef]
 id: RO:0002354
@@ -1194,6 +1371,7 @@ is_a: RO:0002320 ! evolutionarily related to
 [Typedef]
 id: RO:0002375
 name: in_branching_relationship_with
+def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
 is_a: BFO:0000050 ! part of
 is_a: RO:0002323 ! mereotopologically related to
 
@@ -1230,6 +1408,7 @@ def: "x is a branching part of y if and only if x is part of y and x is connecte
 holds_over_chain: RO:0002377 RO:0002381
 is_a: BFO:0000050 ! part of
 is_a: RO:0002375 ! in branching relationship with
+inverse_of: RO:0002569 ! has branching part
 
 [Typedef]
 id: RO:0002381
@@ -1323,9 +1502,7 @@ inverse_of: RO:0002412 ! immediately causally upstream of
 id: RO:0002406
 name: directly_activates
 def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
-is_a: RO:0002213 ! positively regulates
-is_a: RO:0002412 ! immediately causally upstream of
-is_a: RO:0002578 ! directly regulates
+is_a: RO:0002629 ! directly positively regulates
 
 [Typedef]
 id: RO:0002407
@@ -1333,6 +1510,7 @@ name: indirectly_activates
 def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
 holds_over_chain: RO:0002406 RO:0002406
 holds_over_chain: RO:0002406 RO:0002407
+holds_over_chain: RO:0002409 RO:0002409
 is_transitive: true
 is_a: RO:0002213 ! positively regulates
 transitive_over: RO:0002406 ! directly activates
@@ -1340,9 +1518,7 @@ transitive_over: RO:0002406 ! directly activates
 [Typedef]
 id: RO:0002408
 name: directly_inhibits
-is_a: RO:0002212 ! negatively regulates
-is_a: RO:0002412 ! immediately causally upstream of
-is_a: RO:0002578 ! directly regulates
+is_a: RO:0002630 ! directly negatively regulates
 
 [Typedef]
 id: RO:0002409
@@ -1363,6 +1539,7 @@ is_a: RO:0002609 ! related via dependence to
 id: RO:0002411
 name: causally_upstream_of
 def: "p is causally upstream of q if and only if p precedes q and p and q are linked in a causal chain" []
+is_transitive: true
 is_a: BFO:0000063 ! precedes
 is_a: RO:0002418 ! causally upstream of or within
 
@@ -1394,6 +1571,7 @@ name: causally_upstream_of_or_within
 def: "p 'causally upstream or within' q iff (1) the end of p is before the end of q and (2) the execution of p exerts some causal influence over the outputs of q; i.e. if p was abolished or the outputs of p were to be modified, this would necessarily affect q." []
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
+inverse_of: RO:0002427 ! causally downstream of or within
 
 [Typedef]
 id: RO:0002424
@@ -1412,9 +1590,9 @@ is_a: RO:0002424 ! differs in
 [Typedef]
 id: RO:0002427
 name: causally_downstream_of_or_within
+def: "inverse of causally upstream of or within" []
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
-inverse_of: RO:0002418 ! causally upstream of or within
 
 [Typedef]
 id: RO:0002428
@@ -1494,8 +1672,9 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002439
 name: preys_on
-def: "An interaction relationship involving a predation process, where the subject consumes all or part of the target" []
+def: "An interaction relationship involving a predation process, where the subject kills the target in order to eat it or to feed to siblings, offspring or group members" []
 is_a: RO:0002438 ! trophically interacts with
+inverse_of: RO:0002458 ! preyed upon by
 
 [Typedef]
 id: RO:0002440
@@ -1527,13 +1706,13 @@ id: RO:0002444
 name: parasite_of
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002454 ! has host
+inverse_of: RO:0002445 ! parasitized by
 
 [Typedef]
 id: RO:0002445
 name: parasitized_by
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002453 ! host of
-inverse_of: RO:0002444 ! parasite of
 
 [Typedef]
 id: RO:0002446
@@ -1591,23 +1770,24 @@ is_a: RO:0002440 ! symbiotically interacts with
 id: RO:0002455
 name: pollinates
 is_a: RO:0002442 ! mutualistically interacts with
+inverse_of: RO:0002456 ! pollinated by
 
 [Typedef]
 id: RO:0002456
 name: pollinated_by
 is_a: RO:0002442 ! mutualistically interacts with
-inverse_of: RO:0002455 ! pollinates
 
 [Typedef]
 id: RO:0002457
 name: acquires_nutrients_from
 is_a: RO:0002438 ! trophically interacts with
+inverse_of: RO:0002469 ! provides nutrients for
 
 [Typedef]
 id: RO:0002458
 name: preyed_upon_by
+def: "inverse of preys on" []
 is_a: RO:0002438 ! trophically interacts with
-inverse_of: RO:0002439 ! preys on
 
 [Typedef]
 id: RO:0002459
@@ -1663,7 +1843,6 @@ is_a: RO:0002465 ! is symbiosis
 id: RO:0002469
 name: provides_nutrients_for
 is_a: RO:0002438 ! trophically interacts with
-inverse_of: RO:0002457 ! acquires nutrients from
 
 [Typedef]
 id: RO:0002470
@@ -1680,6 +1859,7 @@ id: RO:0002472
 name: is_evidence_for
 def: "A relationship between a piece of evidence a and some entity b, where b is  an information content entity, material entity or process, and \nthe a supports either the existence of b, or the truth value of b." []
 is_a: RO:0002616 ! related via evidence or inference to
+inverse_of: RO:0002558 ! has evidence
 
 [Typedef]
 id: RO:0002473
@@ -1828,6 +2008,7 @@ id: RO:0002500
 name: causal_agent_in
 def: "A relationship between a material entity and a process where the material entity has some causal role that influences the process" []
 is_a: RO:0002595 ! causal relation between material entity and a process
+inverse_of: RO:0002608 ! has causal agent
 
 [Typedef]
 id: RO:0002501
@@ -1863,12 +2044,13 @@ def: "s determined by f if and only if s is a type of system, and f is a materia
 is_a: BFO:0000050 ! part of
 is_a: RO:0002509 ! determined by part of
 is_a: RO:0002559 ! causally influenced by
+inverse_of: RO:0002508 ! determines
 
 [Typedef]
 id: RO:0002508
 name: determines
+def: "inverse of determined by" []
 is_a: RO:0002566 ! causally influences
-inverse_of: RO:0002507 ! determined by
 
 [Typedef]
 id: RO:0002509
@@ -1883,12 +2065,13 @@ id: RO:0002510
 name: transcribed_from
 def: "x is transcribed from y if and only if x is synthesized from template y" []
 is_a: RO:0002330 ! genomically related to
+inverse_of: RO:0002511 ! transcribed to
 
 [Typedef]
 id: RO:0002511
 name: transcribed_to
+def: "inverse of transcribed from" []
 is_a: RO:0002330 ! genomically related to
-inverse_of: RO:0002510 ! transcribed from
 
 [Typedef]
 id: RO:0002512
@@ -1962,6 +2145,7 @@ name: bounds_sequence_of
 def: "x bounds the sequence of y iff the upstream-most part of x is upstream of or coincident with the upstream-most part of y, and the downstream-most part of x is downstream of or coincident with the downstream-most part of y" []
 is_transitive: true
 is_a: RO:0002514 ! sequentially related to
+inverse_of: RO:0002523 ! is bound by sequence of
 
 [Typedef]
 id: RO:0002523
@@ -1969,7 +2153,6 @@ name: is_bound_by_sequence_of
 def: "inverse of bounds sequence of" []
 is_transitive: true
 is_a: RO:0002514 ! sequentially related to
-inverse_of: RO:0002522 ! bounds sequence of
 
 [Typedef]
 id: RO:0002524
@@ -1979,6 +2162,7 @@ is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002522 ! bounds sequence of
 is_a: RO:0002526 ! overlaps sequence of
+inverse_of: RO:0002525 ! is subsequence of
 
 [Typedef]
 id: RO:0002525
@@ -1988,7 +2172,6 @@ is_transitive: true
 is_a: BFO:0000050 ! part of
 is_a: RO:0002523 ! is bound by sequence of
 is_a: RO:0002526 ! overlaps sequence of
-inverse_of: RO:0002524 ! has subsequence
 
 [Typedef]
 id: RO:0002526
@@ -2040,6 +2223,7 @@ id: RO:0002551
 name: has_skeleton
 def: "A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision." []
 is_a: BFO:0000051 ! has part
+inverse_of: RO:0002576 ! skeleton of
 
 [Typedef]
 id: RO:0002552
@@ -2054,13 +2238,14 @@ name: hyperparasite_of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 holds_over_chain: RO:0002444 RO:0002444
 is_a: RO:0002454 ! has host
+inverse_of: RO:0002554 ! hyperparasitized by
 
 [Typedef]
 id: RO:0002554
 name: hyperparasitized_by
+def: "inverse of hyperparasite of" []
 holds_over_chain: RO:0002445 RO:0002445
 is_a: RO:0002453 ! host of
-inverse_of: RO:0002553 ! hyperparasite of
 
 [Typedef]
 id: RO:0002555
@@ -2081,13 +2266,14 @@ is_a: RO:0002453 ! host of
 [Typedef]
 id: RO:0002558
 name: has_evidence
+def: "inverse of is evidence for" []
 is_a: RO:0002616 ! related via evidence or inference to
-inverse_of: RO:0002472 ! is evidence for
 
 [Typedef]
 id: RO:0002559
 name: causally_influenced_by
 is_a: RO:0002506 ! causal relation between material entities
+inverse_of: RO:0002566 ! causally influences
 
 [Typedef]
 id: RO:0002563
@@ -2102,7 +2288,7 @@ is_a: RO:0002563 ! interaction relation helper property
 [Typedef]
 id: RO:0002565
 name: results_in_movement_of
-def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" [GOC:mtg_berkeley_2013]
+def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" []
 is_a: RO:0000057 ! has participant
 
 [Typedef]
@@ -2110,7 +2296,6 @@ id: RO:0002566
 name: causally_influences
 def: "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b" []
 is_a: RO:0002506 ! causal relation between material entities
-inverse_of: RO:0002559 ! causally influenced by
 
 [Typedef]
 id: RO:0002567
@@ -2127,8 +2312,8 @@ is_a: RO:0002567 ! biomechanically related to
 [Typedef]
 id: RO:0002569
 name: has_branching_part
+def: "inverse of branching part of" []
 is_a: RO:0002375 ! in branching relationship with
-inverse_of: RO:0002380 ! branching part of
 
 [Typedef]
 id: RO:0002570
@@ -2161,8 +2346,8 @@ is_a: RO:0002437 ! biotically interacts with
 [Typedef]
 id: RO:0002576
 name: skeleton_of
+def: "inverse of has skeleton" []
 is_a: BFO:0000050 ! part of
-inverse_of: RO:0002551 ! has skeleton
 
 [Typedef]
 id: RO:0002578
@@ -2294,7 +2479,6 @@ id: RO:0002608
 name: has_causal_agent
 def: "Inverse of 'causal agent in'" []
 is_a: RO:0002410 ! causally related to
-inverse_of: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002609
@@ -2327,47 +2511,47 @@ name: related_via_evidence_or_inference_to
 id: RO:0002618
 name: visits
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+inverse_of: RO:0002619 ! visited by
 
 [Typedef]
 id: RO:0002619
 name: visited_by
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
-inverse_of: RO:0002618 ! visits
 
 [Typedef]
 id: RO:0002622
 name: visits_flowers_of
 is_a: RO:0002618 ! visits
+inverse_of: RO:0002623 ! has flowers visited by
 
 [Typedef]
 id: RO:0002623
 name: has_flowers_visited_by
 is_a: RO:0002619 ! visited by
-inverse_of: RO:0002622 ! visits flowers of
 
 [Typedef]
 id: RO:0002624
 name: lays_eggs_in
 is_a: RO:0002444 ! parasite of
 is_a: RO:0002618 ! visits
+inverse_of: RO:0002625 ! has eggs laid in by
 
 [Typedef]
 id: RO:0002625
 name: has_eggs_laid_in_by
 is_a: RO:0002445 ! parasitized by
 is_a: RO:0002619 ! visited by
-inverse_of: RO:0002624 ! lays eggs in
 
 [Typedef]
 id: RO:0002626
 name: kills
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+inverse_of: RO:0002627 ! is killed by
 
 [Typedef]
 id: RO:0002627
 name: is_killed_by
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
-inverse_of: RO:0002626 ! kills
 
 [Typedef]
 id: RO:0002629
@@ -2388,12 +2572,13 @@ id: RO:0002632
 name: ectoparasite_of
 def: "A sub-relation of parasite-of in which the parasite lives on or in the integumental system of the host" []
 is_a: RO:0002444 ! parasite of
+inverse_of: RO:0002633 ! has ectoparasite
 
 [Typedef]
 id: RO:0002633
 name: has_ectoparasite
+def: "inverse of ectoparasite of" []
 is_a: RO:0002445 ! parasitized by
-inverse_of: RO:0002632 ! ectoparasite of
 
 [Typedef]
 id: RO:0002634
@@ -2411,12 +2596,13 @@ id: RO:0002636
 name: mesoparasite_of
 def: "A sub-relation of parasite-of in which the parasite is partially an endoparasite and partially an ectoparasite" []
 is_a: RO:0002444 ! parasite of
+inverse_of: RO:0002637 ! has mesoparasite
 
 [Typedef]
 id: RO:0002637
 name: has_mesoparasite
+def: "inverse of mesoparasite of" []
 is_a: RO:0002445 ! parasitized by
-inverse_of: RO:0002636 ! mesoparasite of
 
 [Typedef]
 id: RO:0002638
@@ -2428,6 +2614,7 @@ inverse_of: RO:0002639 ! has intercellular endoparasite
 [Typedef]
 id: RO:0002639
 name: has_intercellular_endoparasite
+def: "inverse of intercellular endoparasite of" []
 is_a: RO:0002635 ! has endoparasite
 
 [Typedef]
@@ -2440,6 +2627,7 @@ inverse_of: RO:0002641 ! has intracellular endoparasite
 [Typedef]
 id: RO:0002641
 name: has_intracellular_endoparasite
+def: "inverse of intracellular endoparasite of" []
 is_a: RO:0002635 ! has endoparasite
 
 [Typedef]
@@ -3031,9 +3219,4 @@ name: results_in_morphogenesis_of
 def: "The relationship that links an entity with the process that results in the formation and shaping of that entity over time from an immature to a mature state." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
 is_a: RO:0000057 ! has participant
-
-[Typedef]
-id: OBO_REL:is_a
-name: is_a
-comment: This relation is added for backward compatibility with Chado
 
