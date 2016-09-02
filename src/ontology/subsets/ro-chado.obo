@@ -1050,6 +1050,20 @@ def: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:510
 is_a: RO:0000087 ! has role
 
 [Typedef]
+id: RO:0002263
+name: acts_upstream_of
+def: "c involved in regulation of p if c enables  'p' and p' causally upstream of p" []
+holds_over_chain: RO:0002327 RO:0002411
+is_a: RO:0002500 ! causal agent in
+
+[Typedef]
+id: RO:0002264
+name: acts_upstream_of_or_within
+def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
+holds_over_chain: RO:0002327 RO:0002418
+is_a: RO:0002500 ! causal agent in
+
+[Typedef]
 id: RO:0002285
 name: developmentally_replaces
 def: "x developmentally replaces y if and only if there is some developmental process that causes x to move or to cease to exist, and for the site that was occupied by x to become occupied by y, where y either comes into existence in this site or moves to this site from somewhere else" []
@@ -1182,7 +1196,7 @@ id: RO:0002331
 name: involved_in
 def: "c involved_in p if and only if c enables some process p', and p' is part of p" []
 holds_over_chain: RO:0002327 BFO:0000050
-is_a: RO:0002431 ! involved in or regulates
+is_a: RO:0002431 ! involved in or involved in regulation of
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -1600,7 +1614,7 @@ name: involved_in_regulation_of
 def: "c involved in regulation of p if c is involved in some 'p' and p' regulates some p" []
 holds_over_chain: RO:0002327 RO:0002211
 holds_over_chain: RO:0002331 RO:0002211
-is_a: RO:0002431 ! involved in or regulates
+is_a: RO:0002431 ! involved in or involved in regulation of
 
 [Typedef]
 id: RO:0002429
@@ -1618,7 +1632,7 @@ is_a: RO:0002428 ! involved in regulation of
 
 [Typedef]
 id: RO:0002431
-name: involved_in_or_regulates
+name: involved_in_or_involved_in_regulation_of
 def: "c involved in or regulates p if and only if either (i) c is involved in p or (ii) c is involved in regulation of p" []
 is_a: RO:0002328 ! functionally related to
 is_a: RO:0002500 ! causal agent in

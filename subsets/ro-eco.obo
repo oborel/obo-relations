@@ -1181,6 +1181,20 @@ name: has chemical role
 def: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)" []
 
 [Typedef]
+id: RO:0002263
+name: acts upstream of
+def: "c involved in regulation of p if c enables  'p' and p' causally upstream of p" []
+holds_over_chain: RO:0002327 RO:0002411
+is_a: RO:0002500 ! causal agent in
+
+[Typedef]
+id: RO:0002264
+name: acts upstream of or within
+def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
+holds_over_chain: RO:0002327 RO:0002418
+is_a: RO:0002500 ! causal agent in
+
+[Typedef]
 id: RO:0002285
 name: developmentally replaces
 def: "x developmentally replaces y if and only if there is some developmental process that causes x to move or to cease to exist, and for the site that was occupied by x to become occupied by y, where y either comes into existence in this site or moves to this site from somewhere else" []
@@ -1389,7 +1403,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "actively involved in" xsd:string
 property_value: IAO:0000118 "enables part of" xsd:string
 holds_over_chain: RO:0002327 BFO:0000050
-is_a: RO:0002431 ! involved in or regulates
+is_a: RO:0002431 ! involved in or involved in regulation of
 transitive_over: BFO:0000050
 
 [Typedef]
@@ -1964,7 +1978,7 @@ def: "c involved in regulation of p if c is involved in some 'p' and p' regulate
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 holds_over_chain: RO:0002327 RO:0002211
 holds_over_chain: RO:0002331 RO:0002211
-is_a: RO:0002431 ! involved in or regulates
+is_a: RO:0002431 ! involved in or involved in regulation of
 
 [Typedef]
 id: RO:0002429
@@ -1984,10 +1998,10 @@ is_a: RO:0002428 ! involved in regulation of
 
 [Typedef]
 id: RO:0002431
-name: involved in or regulates
+name: involved in or involved in regulation of
 def: "c involved in or regulates p if and only if either (i) c is involved in p or (ii) c is involved in regulation of p" []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000118 "involved in or involved in regulation of" xsd:string
+property_value: IAO:0000118 "involved in or reguates" xsd:string
 is_a: RO:0002328 ! functionally related to
 is_a: RO:0002500 ! causal agent in
 
