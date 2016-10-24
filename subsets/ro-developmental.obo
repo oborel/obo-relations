@@ -41,7 +41,7 @@ id: acts_upstream_of
 name: acts upstream of
 def: "c involved in regulation of p if c enables  'p' and p' causally upstream of p" []
 xref: RO:0002263
-is_a: causal_agent_in ! causal agent in
+is_a: acts_upstream_of_or_within ! acts upstream of or within
 
 [Typedef]
 id: acts_upstream_of_or_within
@@ -379,6 +379,22 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_transitive: true
 is_a: causally_upstream_of_or_within ! causally upstream of or within
 is_a: precedes
+
+[Typedef]
+id: causally_upstream_of,_negative_effect
+name: causally upstream of, negative effect
+comment: holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y
+xref: RO:0002305
+property_value: http://purl.org/dc/elements/1.1/creator "cjm" xsd:string
+is_a: causally_upstream_of ! causally upstream of
+
+[Typedef]
+id: causally_upstream_of,_positive_effect
+name: causally upstream of, positive effect
+comment: holds between x and y if and only if x is causally upstream of y and the progression of x increases the frequency, rate or extent of y
+xref: RO:0002304
+property_value: http://purl.org/dc/elements/1.1/creator "cjm" xsd:string
+is_a: causally_upstream_of ! causally upstream of
 
 [Typedef]
 id: causally_upstream_of_or_within
@@ -1824,6 +1840,7 @@ def: "c involved in or regulates p if and only if either (i) c is involved in p 
 xref: RO:0002431
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "involved in or reguates" xsd:string
+is_a: acts_upstream_of_or_within ! acts upstream of or within
 is_a: causal_agent_in ! causal agent in
 is_a: functionally_related_to ! functionally related to
 
@@ -1840,6 +1857,7 @@ name: involved in regulation of
 def: "c involved in regulation of p if c is involved in some 'p' and p' regulates some p" []
 xref: RO:0002428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+is_a: acts_upstream_of ! acts upstream of
 is_a: involved_in_or_involved_in_regulation_of ! involved in or involved in regulation of
 
 [Typedef]
@@ -2011,6 +2029,16 @@ property_value: seeAlso https://code.google.com/p/obo-relations/issues/detail?id
 is_a: capable_of_inhibiting_or_preventing_pathological_process ! capable of inhibiting or preventing pathological process
 
 [Typedef]
+id: is_treated_by_substance
+name: is treated by substance
+def: "Inverse of 'is substance that treats'" []
+subset: RO:0002259
+xref: RO:0002302
+property_value: http://purl.org/dc/elements/1.1/creator "cjm" xsd:string
+is_a: causally_related_to ! causally related to
+inverse_of: is_substance_that_treats ! is substance that treats
+
+[Typedef]
 id: is_upstream_of_sequence_of
 name: is upstream of sequence of
 def: "inverse of downstream of sequence of" []
@@ -2164,6 +2192,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "negatively regulates (process to process)" xsd:string
+is_a: causally_upstream_of,_negative_effect ! causally upstream of, negative effect
 is_a: regulates ! regulates
 inverse_of: negatively_regulated_by ! negatively regulated by
 
@@ -2390,6 +2419,7 @@ xref: RO:0002213
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "positively regulates (process to process)" xsd:string
+is_a: causally_upstream_of,_positive_effect ! causally upstream of, positive effect
 is_a: regulates ! regulates
 inverse_of: positively_regulated_by ! positively regulated by
 
