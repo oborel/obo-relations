@@ -13,7 +13,7 @@ WHERE
 {
   ?p a owl:ObjectProperty .
   ?p rdfs:label ?pLabel .
-  ?p owl:inverseOf ?q .
+  {?p owl:inverseOf ?q} UNION {?q owl:inverseOf ?p} .
   ?q in_subset: dbi: .
   FILTER( NOT EXISTS {?q def: ?qdef } )
   BIND(CONCAT("inverse of ", str(?pLabel)) AS ?gendef)
