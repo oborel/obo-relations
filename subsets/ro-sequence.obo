@@ -47,6 +47,7 @@ is_a: acts_upstream_of_or_within ! acts upstream of or within
 id: acts_upstream_of_or_within
 name: acts upstream of or within
 def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
+synonym: "affects" RELATED []
 xref: RO:0002264
 is_a: causal_agent_in ! causal agent in
 
@@ -400,6 +401,7 @@ is_a: causally_upstream_of ! causally upstream of
 id: causally_upstream_of_or_within
 name: causally upstream of or within
 def: "p 'causally upstream or within' q iff (1) the end of p is before the end of q and (2) the execution of p exerts some causal influence over the outputs of q; i.e. if p was abolished or the outputs of p were to be modified, this would necessarily affect q." []
+synonym: "affects" RELATED []
 xref: RO:0002418
 property_value: IAO:0000116 "We would like to make this disjoint with 'preceded by', but this is prohibited in OWL2" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1013,6 +1015,7 @@ is_a: functionally_related_to ! functionally related to
 [Typedef]
 id: endoparasite_of
 name: endoparasite of
+synonym: "lives inside of" RELATED []
 xref: RO:0002634
 property_value: IAO:0000119 "A sub-relation of parasite-of in which the parasite lives inside the host, beneath the integumental system" xsd:string
 property_value: IAO:0000119 "Types"
@@ -1097,6 +1100,8 @@ is_a: mereotopologically_related_to ! mereotopologically related to
 id: has_active_ingredient
 name: has active ingredient
 def: "A relationship that holds between a substance and a chemical entity, if the chemical entity is part of the substance, and the chemical entity forms the biologically active component of the substance." []
+synonym: "has active pharmaceutical ingredient" RELATED []
+synonym: "has active substance" EXACT []
 xref: RO:0002248
 property_value: IAO:0000112 "Any portion of roundup 'has active ingredient' some glyphosate" xsd:string
 is_a: has_part
@@ -1644,6 +1649,8 @@ id: hyperparasite_of
 name: hyperparasite of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 subset: ro-eco
+synonym: "epiparasite of" RELATED []
+synonym: "hyperparasitoid of" RELATED []
 xref: RO:0002553
 property_value: IAO:0000116 "Note that parasite-of is a diret relationship, so hyperparasite-of is not considered a sub-relation, even though hyperparasitism can be considered a form of parasitism" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -1658,6 +1665,9 @@ name: hyperparasitized by
 def: "inverse of hyperparasite of" []
 subset: ro-eco
 subset: RO:0002259
+synonym: "has epiparasite" RELATED []
+synonym: "has hyperparasite" RELATED []
+synonym: "hyperparasitoidized by" RELATED []
 xref: RO:0002554
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: host_of ! host of
@@ -1670,7 +1680,6 @@ xref: RO:0002495
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0002575 RO:0002494
 is_a: directly_develops_from ! directly develops from
-is_a: immediately_preceded_by
 is_a: transformation_of ! transformation of
 
 [Typedef]
@@ -1775,6 +1784,7 @@ id: interacts_with
 name: interacts with
 def: "A relationship that holds between two entities in which the processes executed by the two entities are causally connected." []
 subset: ro-eco
+synonym: "in pairwise interaction with" EXACT []
 xref: RO:0002434
 property_value: http://xmlns.com/foaf/0.1/page https://github.com/oborel/obo-relations/wiki/InteractionRelations xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
@@ -2260,6 +2270,7 @@ is_a: sequentially_related_to ! sequentially related to
 id: parasite_of
 name: parasite of
 subset: ro-eco
+synonym: "direct parasite of" EXACT []
 xref: RO:0002444
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2274,6 +2285,7 @@ inverse_of: parasitized_by ! parasitized by
 id: parasitized_by
 name: parasitized by
 subset: ro-eco
+synonym: "directly parasitized by" EXACT []
 xref: RO:0002445
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has parasite" xsd:string
@@ -2337,6 +2349,7 @@ id: participates_in_a_abiotic-biotic_interaction_with
 name: participates in a abiotic-biotic interaction with
 def: "A biotic interaction relationship in which one partner is an organism and the other partner is inorganic. For example, the relationship between a sponge and the substrate to which is it anchored." []
 subset: ro-eco
+synonym: "semibiotically interacts with" RELATED []
 xref: RO:0002446
 property_value: IAO:0000112 "Porifiera attaches to substrate" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -3016,7 +3029,6 @@ xref: RO:0002494
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_transitive: true
 is_a: develops_from ! develops from
-is_a: preceded_by
 
 [Typedef]
 id: transitively_provides_input_for

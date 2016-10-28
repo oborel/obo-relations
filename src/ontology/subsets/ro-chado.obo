@@ -4,6 +4,7 @@ subsetdef: RO:0002259 ""
 remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
@@ -974,6 +975,8 @@ is_a: RO:0002206 ! expressed in
 id: RO:0002248
 name: has_active_ingredient
 def: "A relationship that holds between a substance and a chemical entity, if the chemical entity is part of the substance, and the chemical entity forms the biologically active component of the substance." []
+synonym: "has active pharmaceutical ingredient" RELATED []
+synonym: "has active substance" EXACT []
 is_a: BFO:0000051 ! has part
 inverse_of: RO:0002249 ! active ingredient in'
 
@@ -1062,6 +1065,7 @@ is_a: RO:0002264 ! acts upstream of or within
 id: RO:0002264
 name: acts_upstream_of_or_within
 def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
+synonym: "affects" RELATED []
 holds_over_chain: RO:0002327 RO:0002418
 is_a: RO:0002500 ! causal agent in
 
@@ -1602,6 +1606,7 @@ is_a: RO:0002411 ! causally upstream of
 id: RO:0002418
 name: causally_upstream_of_or_within
 def: "p 'causally upstream or within' q iff (1) the end of p is before the end of q and (2) the execution of p exerts some causal influence over the outputs of q; i.e. if p was abolished or the outputs of p were to be modified, this would necessarily affect q." []
+synonym: "affects" RELATED []
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
 inverse_of: RO:0002427 ! causally downstream of or within
@@ -1675,6 +1680,7 @@ is_a: RO:0002131 ! overlaps
 id: RO:0002434
 name: interacts_with
 def: "A relationship that holds between two entities in which the processes executed by the two entities are causally connected." []
+synonym: "in pairwise interaction with" EXACT []
 is_symmetric: true
 
 [Typedef]
@@ -1739,6 +1745,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002444
 name: parasite_of
+synonym: "direct parasite of" EXACT []
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002454 ! has host
 inverse_of: RO:0002445 ! parasitized by
@@ -1746,6 +1753,7 @@ inverse_of: RO:0002445 ! parasitized by
 [Typedef]
 id: RO:0002445
 name: parasitized_by
+synonym: "directly parasitized by" EXACT []
 is_a: RO:0002443 ! interacts with via parasite-host interaction
 is_a: RO:0002453 ! host of
 
@@ -1753,6 +1761,7 @@ is_a: RO:0002453 ! host of
 id: RO:0002446
 name: participates_in_a_abiotic-biotic_interaction_with
 def: "A biotic interaction relationship in which one partner is an organism and the other partner is inorganic. For example, the relationship between a sponge and the substrate to which is it anchored." []
+synonym: "semibiotically interacts with" RELATED []
 is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
@@ -2005,14 +2014,12 @@ id: RO:0002494
 name: transformation_of
 def: "x transformation of y if x is the immediate transformation of y, or is linked to y through a chain of transformation relationships" []
 is_transitive: true
-is_a: BFO:0000062 ! preceded by
 is_a: RO:0002202 ! develops from
 
 [Typedef]
 id: RO:0002495
 name: immediate_transformation_of
 def: "x immediate transformation of y iff x immediately succeeds y temporally at a time boundary t, and all of the matter present in x at t is present in y at t, and all the matter in y at t is present in x at t" []
-is_a: RO:0002087 ! immediately preceded by
 is_a: RO:0002207 ! directly develops from
 is_a: RO:0002494 ! transformation of
 
@@ -2271,6 +2278,8 @@ is_a: RO:0000057 ! has participant
 id: RO:0002553
 name: hyperparasite_of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
+synonym: "epiparasite of" RELATED []
+synonym: "hyperparasitoid of" RELATED []
 holds_over_chain: RO:0002444 RO:0002444
 is_a: RO:0002454 ! has host
 inverse_of: RO:0002554 ! hyperparasitized by
@@ -2279,6 +2288,9 @@ inverse_of: RO:0002554 ! hyperparasitized by
 id: RO:0002554
 name: hyperparasitized_by
 def: "inverse of hyperparasite of" []
+synonym: "has epiparasite" RELATED []
+synonym: "has hyperparasite" RELATED []
+synonym: "hyperparasitoidized by" RELATED []
 holds_over_chain: RO:0002445 RO:0002445
 is_a: RO:0002453 ! host of
 
@@ -2618,6 +2630,7 @@ is_a: RO:0002445 ! parasitized by
 [Typedef]
 id: RO:0002634
 name: endoparasite_of
+synonym: "lives inside of" RELATED []
 is_a: RO:0002444 ! parasite of
 inverse_of: RO:0002635 ! has endoparasite
 
@@ -2739,12 +2752,17 @@ is_a: RO:0002610 ! correlated with
 id: RO:HOM0000000
 name: in_similarity_relationship_with
 def: "Relation between biological objects that resemble or are related to each other sufficiently to warrant a comparison." [BGEE:curator, http://purl.obolibrary.org/obo/HOM_0000000]
+synonym: "correspondence" RELATED [http://dx.doi.org/10.1007/BF02814479]
+synonym: "resemblance" RELATED []
+synonym: "sameness" EXACT []
+synonym: "similar to" EXACT []
 is_symmetric: true
 
 [Typedef]
 id: RO:HOM0000001
 name: in_homology_relationship_with
 def: "Similarity that results from common evolutionary origin." [http://dx.doi.org/10.1002/bies.950180611, http://dx.doi.org/10.1002/jmor.1051730307, http://dx.doi.org/10.1007/BF02814480, http://purl.obolibrary.org/obo/HOM_0000001]
+synonym: "homologous to" EXACT []
 is_symmetric: true
 is_a: RO:0002158 ! shares ancestor with
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -2754,6 +2772,8 @@ disjoint_from: RO:HOM0000002 ! in homoplasy relationship with
 id: RO:HOM0000002
 name: in_homoplasy_relationship_with
 def: "Similarity that results from independent evolution." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000002]
+synonym: "analogy" RELATED []
+synonym: "homoplasous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
 
@@ -2761,6 +2781,7 @@ is_a: RO:HOM0000000 ! in similarity relationship with
 id: RO:HOM0000003
 name: in_homocracy_relationship_with
 def: "Similarity that is characterized by the organization of anatomical structures through the expression of homologous or identical patterning genes." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1007/s00427-003-0301-4, http://dx.doi.org/10.1186/1742-9994-2-15, http://purl.obolibrary.org/obo/HOM_0000003]
+synonym: "homocracous to" EXACT []
 is_symmetric: true
 is_a: RO:0002320 ! evolutionarily related to
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -2769,6 +2790,7 @@ is_a: RO:HOM0000000 ! in similarity relationship with
 id: RO:HOM0000004
 name: in_convergence_relationship_with
 def: "Homoplasy that involves different underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000004]
+synonym: "analogy" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -2776,6 +2798,7 @@ is_a: RO:HOM0000002 ! in homoplasy relationship with
 id: RO:HOM0000005
 name: in_parallelism_relationship_with
 def: "Homoplasy that involves homologous underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000005]
+synonym: "parallel evolution" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -2783,6 +2806,8 @@ is_a: RO:HOM0000002 ! in homoplasy relationship with
 id: RO:HOM0000006
 name: in_structural_homology_relationship_with
 def: "Homology that is defined by similarity with regard to selected structural parameters." [http://dx.doi.org/10.1016/j.jhevol.2006.11.014, http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000006, ISBN:0123195837]
+synonym: "idealistic homology" RELATED []
+synonym: "structural homologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -2790,6 +2815,12 @@ is_a: RO:HOM0000001 ! in homology relationship with
 id: RO:HOM0000007
 name: in_historical_homology_relationship_with
 def: "Homology that is defined by common descent." [http://dx.doi.org/10.1016/S0169-5347(97)01125-7, http://purl.obolibrary.org/obo/HOM_0000007, ISBN:0123195837]
+synonym: "cladistic homology" EXACT []
+synonym: "historical homologous to" EXACT []
+synonym: "homology" BROAD []
+synonym: "phylogenetic homology" EXACT []
+synonym: "taxic homology" EXACT []
+synonym: "true homology" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -2797,6 +2828,8 @@ is_a: RO:HOM0000001 ! in homology relationship with
 id: RO:HOM0000008
 name: in_biological_homology_relationship_with
 def: "Homology that is defined by sharing of a set of developmental constraints, caused by locally acting self-regulatory mechanisms of differentiation, between individualized parts of the phenotype." [http://dx.doi.org/10.1016/S0169-5347(97)01125-7, http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000008]
+synonym: "biological homologous to" EXACT []
+synonym: "transformational homology" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -2804,6 +2837,9 @@ is_a: RO:HOM0000001 ! in homology relationship with
 id: RO:HOM0000009
 name: in_reversal_relationship_with
 def: "Homoplasy that involves phenotypes similar to those seen in ancestors within the lineage." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000009]
+synonym: "atavism" EXACT []
+synonym: "reversion" RELATED []
+synonym: "rudiment" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -2811,6 +2847,8 @@ is_a: RO:HOM0000002 ! in homoplasy relationship with
 id: RO:HOM0000010
 name: in_syntenic_homology_relationship_with
 def: "Structural homology that is detected by similarity in content and organization between chromosomes." [http://purl.obolibrary.org/obo/HOM_0000010, MeSH:Synteny]
+synonym: "syntenic homologous to" EXACT []
+synonym: "synteny" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -2818,6 +2856,7 @@ is_a: RO:HOM0000006 ! in structural homology relationship with
 id: RO:HOM0000011
 name: in_paralogy_relationship_with
 def: "Historical homology that involves genes that diverged after a duplication event." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000011, http://www.ncbi.nlm.nih.gov/pubmed/5449325]
+synonym: "paralogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 disjoint_from: RO:HOM0000017 ! in orthology relationship with
@@ -2826,6 +2865,9 @@ disjoint_from: RO:HOM0000017 ! in orthology relationship with
 id: RO:HOM0000012
 name: in_syntenic_paralogy_relationship_with
 def: "Paralogy that involves sets of syntenic blocks." [DOI:10.1002/1097-010X(20001215)288\:4<345\:\:AID-JEZ7>3.0.CO;2-Y, http://dx.doi.org/10.1186/1471-213X-7-100, http://purl.obolibrary.org/obo/HOM_0000012]
+synonym: "duplicon" RELATED []
+synonym: "paralogon" RELATED []
+synonym: "syntenic paralogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -2834,6 +2876,7 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000013
 name: in_syntenic_orthology_relationship_with
 def: "Syntenic homology that involves chromosomes of different species." [http://dx.doi.org/10.1101/gr.6380007, http://purl.obolibrary.org/obo/HOM_0000013]
+synonym: "syntenic orthologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
 
@@ -2841,6 +2884,13 @@ is_a: RO:HOM0000010 ! in syntenic homology relationship with
 id: RO:HOM0000014
 name: in_partial_homology_relationship_with
 def: "Structural homology that involves complex structures from which only a fraction of the elements that can be isolated are separately homologous." [http://purl.obolibrary.org/obo/HOM_0000014, ISBN:0123195837, ISBN:978-0471984931]
+synonym: "fractional homology" EXACT []
+synonym: "mixed homology" RELATED []
+synonym: "modular homology" RELATED []
+synonym: "partial correspondence" RELATED []
+synonym: "partial homologous to" EXACT []
+synonym: "percent homology" RELATED []
+synonym: "segmental homology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -2848,6 +2898,7 @@ is_a: RO:HOM0000006 ! in structural homology relationship with
 id: RO:HOM0000015
 name: in_protein_structural_homology_relationship_with
 def: "Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence." [http://dx.doi.org/10.1016/0022-2836(76)90195-9, http://purl.obolibrary.org/obo/HOM_0000015]
+synonym: "protein structural homologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -2855,6 +2906,8 @@ is_a: RO:HOM0000006 ! in structural homology relationship with
 id: RO:HOM0000016
 name: in_non_functional_homology_relationship_with
 def: "Structural homology that involves a pseudogenic feature and its functional ancestor." [http://purl.obolibrary.org/obo/HOM_0000016, SO:non_functional_homolog_of]
+synonym: "non functional homologous to" EXACT []
+synonym: "pseudogene" BROAD []
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 disjoint_from: RO:HOM0000062 ! in equivalogy relationship with
@@ -2863,6 +2916,7 @@ disjoint_from: RO:HOM0000062 ! in equivalogy relationship with
 id: RO:HOM0000017
 name: in_orthology_relationship_with
 def: "Historical homology that involves genes that diverged after a speciation event." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000017, http://www.ncbi.nlm.nih.gov/pubmed/5449325]
+synonym: "orthologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -2870,6 +2924,7 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000018
 name: in_xenology_relationship_with
 def: "Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000018]
+synonym: "xenologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -2877,6 +2932,9 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000019
 name: in_1_to_1_homology_relationship_with
 def: "Historical homology that involves two members sharing no other homologs in the lineages considered." [BGEE:curator, http://purl.obolibrary.org/obo/HOM_0000019]
+synonym: "1 to 1 homologous to" EXACT []
+synonym: "1:1 homology" EXACT []
+synonym: "one-to-one homology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -2884,6 +2942,9 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000020
 name: in_1_to_1_orthology_relationship_with
 def: "Orthology that involves two genes that did not experience any duplication after the speciation event that created them." [http://dx.doi.org/10.1007/BF02814484, http://purl.obolibrary.org/obo/HOM_0000020, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "1 to 1 orthologous to" EXACT []
+synonym: "1:1 orthology" EXACT []
+synonym: "one-to-one orthology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
@@ -2892,6 +2953,8 @@ is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
 id: RO:HOM0000022
 name: in_ohnology_relationship_with
 def: "Paralogy that results from a whole genome duplication event." [http://dx.doi.org/10.1038/75560, http://purl.obolibrary.org/obo/HOM_0000022]
+synonym: "homoeology" RELATED []
+synonym: "ohnologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -2899,6 +2962,9 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000023
 name: in_in-paralogy_relationship_with
 def: "Paralogy that results from a lineage-specific duplication subsequent to a given speciation event." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000023]
+synonym: "in-paralogous to" EXACT []
+synonym: "inparalogy" EXACT []
+synonym: "symparalogy" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 disjoint_from: RO:HOM0000024 ! in out-paralogy relationship with
@@ -2907,6 +2973,9 @@ disjoint_from: RO:HOM0000024 ! in out-paralogy relationship with
 id: RO:HOM0000024
 name: in_out-paralogy_relationship_with
 def: "Paralogy that results from a duplication preceding a given speciation event." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000024]
+synonym: "alloparalogy" EXACT []
+synonym: "out-paralogous to" EXACT []
+synonym: "outparalogy" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -2914,6 +2983,7 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000025
 name: in_pro-orthology_relationship_with
 def: "1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000025]
+synonym: "pro-orthologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 
@@ -2921,6 +2991,7 @@ is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 id: RO:HOM0000026
 name: in_semi-orthology_relationship_with
 def: "1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000026]
+synonym: "semi-orthologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 
@@ -2928,6 +2999,8 @@ is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 id: RO:HOM0000027
 name: in_serial_homology_relationship_with
 def: "Iterative homology that involves structures arranged along the main body axis." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000027]
+synonym: "homonomy" RELATED []
+synonym: "serial homologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000066 ! in iterative homology relationship with
 
@@ -2935,6 +3008,8 @@ is_a: RO:HOM0000066 ! in iterative homology relationship with
 id: RO:HOM0000028
 name: in_heterochronous_homology_relationship_with
 def: "Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures." [http://purl.obolibrary.org/obo/HOM_0000028, ISBN:978-0674639416]
+synonym: "heterochronous homologous to" EXACT []
+synonym: "heterochrony" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -2942,6 +3017,8 @@ is_a: RO:HOM0000008 ! in biological homology relationship with
 id: RO:HOM0000029
 name: in_paedomorphorsis_relationship_with
 def: "Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000029, ISBN:978-0674639416]
+synonym: "juvenification" EXACT []
+synonym: "pedomorphosis" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000028 ! in heterochronous homology relationship with
 disjoint_from: RO:HOM0000030 ! in peramorphosis relationship with
@@ -2964,6 +3041,8 @@ is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 id: RO:HOM0000032
 name: in_neoteny_relationship_with
 def: "Paedomorphosis that is produced by a retardation of somatic development." [http://en.wikipedia.org/wiki/Neoteny, http://purl.obolibrary.org/obo/HOM_0000032, ISBN:978-0674639416]
+synonym: "juvenilization" EXACT []
+synonym: "neotenous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 
@@ -2971,6 +3050,7 @@ is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 id: RO:HOM0000033
 name: in_mimicry_relationship_with
 def: "Convergence that results from co-evolution usually involving an evolutionary arms race." [http://purl.obolibrary.org/obo/HOM_0000033, http:\://en.wikipedia.org/wiki/Mimicry]
+synonym: "mimicrous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000004 ! in convergence relationship with
 
@@ -2978,6 +3058,11 @@ is_a: RO:HOM0000004 ! in convergence relationship with
 id: RO:HOM0000034
 name: in_1_to_many_orthology_relationship_with
 def: "Orthology that involves two genes when duplications more recent than the species split have occurred in one species but not the other." [http://dx.doi.org/10.1038/415741a, http://purl.obolibrary.org/obo/HOM_0000034, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "1 to many orthologous to" EXACT []
+synonym: "1:many orthology" EXACT []
+synonym: "co-orthology" RELATED []
+synonym: "many to 1 orthology" RELATED []
+synonym: "one-to-many orthology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000037 ! in 1 to many homology relationship with
@@ -2986,6 +3071,9 @@ is_a: RO:HOM0000037 ! in 1 to many homology relationship with
 id: RO:HOM0000036
 name: in_many_to_many_homology_relationship_with
 def: "Historical homology that involves two members of a larger set of homologs." [http://dx.doi.org/10.1093/molbev/msp002, http://purl.obolibrary.org/obo/HOM_0000036]
+synonym: "many to many homologous to" EXACT []
+synonym: "many-to-many homology" EXACT []
+synonym: "many:many homology " EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -2993,6 +3081,9 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000037
 name: in_1_to_many_homology_relationship_with
 def: "Historical homology that involves a structure that has no other homologs in the species in which it is defined, and several homologous structures in another species." [BGEE:curator, http://purl.obolibrary.org/obo/HOM_0000037]
+synonym: "1 to many homologous to" EXACT []
+synonym: "1:many homology" RELATED []
+synonym: "one-to-many homology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -3000,6 +3091,8 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000042
 name: in_apomorphy_relationship_with
 def: "Historical homology that is based on recent shared ancestry, characterizing a monophyletic group." [http://purl.obolibrary.org/obo/HOM_0000042, ISBN:978-0252068140]
+synonym: "apomorphous to" EXACT []
+synonym: "synapomorphy" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 disjoint_from: RO:HOM0000043 ! in plesiomorphy relationship with
@@ -3008,6 +3101,8 @@ disjoint_from: RO:HOM0000043 ! in plesiomorphy relationship with
 id: RO:HOM0000043
 name: in_plesiomorphy_relationship_with
 def: "Historical homology that is based on distant shared ancestry." [http://purl.obolibrary.org/obo/HOM_0000043, ISBN:978-0252068140]
+synonym: "plesiomorphous to" EXACT []
+synonym: "symplesiomorphy" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -3015,6 +3110,10 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000044
 name: in_deep_homology_relationship_with
 def: "Homocracy that involves morphologically and phylogenetically disparate structures that are the result of parallel evolution." [http://dx.doi.org/10.1007/BF02814485, http://dx.doi.org/10.1038/nature07891, http://purl.obolibrary.org/obo/HOM_0000044]
+synonym: "deep genetic homology" EXACT []
+synonym: "deep homologous to" EXACT []
+synonym: "generative homology" RELATED []
+synonym: "homoiology" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 is_a: RO:HOM0000005 ! in parallelism relationship with
@@ -3023,6 +3122,7 @@ is_a: RO:HOM0000005 ! in parallelism relationship with
 id: RO:HOM0000045
 name: in_hemiplasy_relationship_with
 def: "Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree." [http://dx.doi.org/10.1073/pnas.0807433105, http://purl.obolibrary.org/obo/HOM_0000045]
+synonym: "hemiplasous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -3030,6 +3130,7 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000046
 name: in_gametology_relationship_with
 def: "Historical homology that involves not recombining and subsequently differentiated sex chromosomes." [http://purl.obolibrary.org/obo/HOM_0000046, http://www.ncbi.nlm.nih.gov/pubmed/11110898]
+synonym: "gametologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000047 ! in chromosomal homology relationship with
 
@@ -3037,6 +3138,7 @@ is_a: RO:HOM0000047 ! in chromosomal homology relationship with
 id: RO:HOM0000047
 name: in_chromosomal_homology_relationship_with
 def: "Historical homology that involves the chromosomes able to pair (synapse) during meiosis." [http://purl.obolibrary.org/obo/HOM_0000047, ISBN:0195307615]
+synonym: "chromosomal homologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -3044,6 +3146,12 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000048
 name: in_many_to_many_orthology_relationship_with
 def: "Orthology that involves two genes that experienced duplications more recent than the species split that created them." [http://dx.doi.org/10.1038/415741a, http://purl.obolibrary.org/obo/HOM_0000048, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "co-orthology" RELATED []
+synonym: "many to many orthologous to" EXACT []
+synonym: "many-to-many orthology" EXACT []
+synonym: "many:many orthology" EXACT []
+synonym: "trans-homology" RELATED []
+synonym: "trans-orthology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000036 ! in many to many homology relationship with
@@ -3052,6 +3160,7 @@ is_a: RO:HOM0000036 ! in many to many homology relationship with
 id: RO:HOM0000049
 name: in_within-species_paralogy_relationship_with
 def: "Paralogy that involves genes from the same species." [http://purl.obolibrary.org/obo/HOM_0000049, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "within-species paralogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 disjoint_from: RO:HOM0000050 ! in between-species paralogy relationship with
@@ -3060,6 +3169,7 @@ disjoint_from: RO:HOM0000050 ! in between-species paralogy relationship with
 id: RO:HOM0000050
 name: in_between-species_paralogy_relationship_with
 def: "Paralogy that involves genes from different species." [http://purl.obolibrary.org/obo/HOM_0000050, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "between-species paralogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -3067,6 +3177,7 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000051
 name: in_postdisplacement_relationship_with
 def: "Paedomorphosis that is produced by delayed growth of immature structures into the adult form." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000051]
+synonym: "post-displacement" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 
@@ -3081,6 +3192,7 @@ is_a: RO:HOM0000030 ! in peramorphosis relationship with
 id: RO:HOM0000053
 name: in_synology_relationship_with
 def: "Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species." [http://dx.doi.org/10.1007/BF00173425, http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000053]
+synonym: "synologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -3088,6 +3200,7 @@ is_a: RO:HOM0000018 ! in xenology relationship with
 id: RO:HOM0000054
 name: in_isoorthology_relationship_with
 def: "Orthology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000054]
+synonym: "isoorthologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000062 ! in equivalogy relationship with
@@ -3096,6 +3209,9 @@ is_a: RO:HOM0000062 ! in equivalogy relationship with
 id: RO:HOM0000055
 name: in_tandem_paralogy_relationship_with
 def: "Paralogy that is characterized by duplication of adjacent sequences on a chromosome segment." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000055, ISBN:978-0878932665]
+synonym: "iterative paralogy" RELATED []
+synonym: "serial paralogy" RELATED []
+synonym: "tandem paralogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -3103,6 +3219,13 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000057
 name: in_latent_homology_relationship_with
 def: "Parallelism that involves morphologically very similar structures, occurring only within some members of a taxon and absent in the common ancestor (which possessed the developmental basis to develop this character)." [http://dx.doi.org/10.1007/BF02814485, http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://dx.doi.org/10.1186/1742-9994-2-15, http://purl.obolibrary.org/obo/HOM_0000057, ISBN:0199141118]
+synonym: "apomorphic tendency" EXACT []
+synonym: "cryptic homology" EXACT []
+synonym: "homoiology" RELATED []
+synonym: "homoplastic tendency" RELATED []
+synonym: "latent homologous to" EXACT []
+synonym: "re-awakening" RELATED []
+synonym: "underlying synapomorphy" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000005 ! in parallelism relationship with
 is_a: RO:HOM0000058 ! in syngeny relationship with
@@ -3111,6 +3234,8 @@ is_a: RO:HOM0000058 ! in syngeny relationship with
 id: RO:HOM0000058
 name: in_syngeny_relationship_with
 def: "Homocracy that involves recognizably corresponding characters that occurs in two or more taxa, or as a repeated unit within an individual." [DOI:10.1002/1521-1878(200009)22\:9<846\:\:AID-BIES10>3.0.CO;2-R, http://dx.doi.org/10.1186/1742-9994-2-15, http://purl.obolibrary.org/obo/HOM_0000058]
+synonym: "generative homology" EXACT []
+synonym: "syngenous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 
@@ -3118,6 +3243,10 @@ is_a: RO:HOM0000003 ! in homocracy relationship with
 id: RO:HOM0000060
 name: in_apparent_orthology_relationship_with
 def: "Between-species paralogy that involves single copy paralogs resulting from reciprocal gene loss." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000060, http://www.ensembl.org/info/docs/compara/homology_method.html]
+synonym: "1:1 paralogy" EXACT []
+synonym: "apparent 1:1 orthology" EXACT []
+synonym: "apparent orthologous to" EXACT []
+synonym: "pseudoorthology" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
 is_a: RO:HOM0000050 ! in between-species paralogy relationship with
@@ -3126,6 +3255,7 @@ is_a: RO:HOM0000050 ! in between-species paralogy relationship with
 id: RO:HOM0000061
 name: in_pseudoparalogy_relationship_with
 def: "Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000061]
+synonym: "pseudoparalogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -3133,6 +3263,7 @@ is_a: RO:HOM0000018 ! in xenology relationship with
 id: RO:HOM0000062
 name: in_equivalogy_relationship_with
 def: "Historical homology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1093/nar/gkl1043, http://purl.obolibrary.org/obo/HOM_0000062]
+synonym: "equivalogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 is_a: RO:HOM0000065 ! in functional equivalence relationship with
@@ -3141,6 +3272,7 @@ is_a: RO:HOM0000065 ! in functional equivalence relationship with
 id: RO:HOM0000063
 name: in_interology_relationship_with
 def: "Historical homology that involves orthologous pairs of interacting molecules in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://dx.doi.org/10.1126/science.287.5450.116, http://purl.obolibrary.org/obo/HOM_0000063]
+synonym: "interologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -3148,6 +3280,7 @@ is_a: RO:HOM0000007 ! in historical homology relationship with
 id: RO:HOM0000065
 name: in_functional_equivalence_relationship_with
 def: "Similarity that is characterized by interchangeability in function." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1038/415741a, http://purl.obolibrary.org/obo/HOM_0000065]
+synonym: "functional similarity" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
 
@@ -3155,6 +3288,7 @@ is_a: RO:HOM0000000 ! in similarity relationship with
 id: RO:HOM0000066
 name: in_iterative_homology_relationship_with
 def: "Biological homology that involves parts of the same organism." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000066]
+synonym: "iterative homologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -3162,6 +3296,9 @@ is_a: RO:HOM0000008 ! in biological homology relationship with
 id: RO:HOM0000068
 name: in_paraxenology_relationship_with
 def: "Xenology that is characterized by multiple horizontal transfer events, resulting in the presence of two or more copies of the foreign gene in the host genome." [http://purl.obolibrary.org/obo/HOM_0000068, http://www.ncbi.nlm.nih.gov/pubmed/3065587]
+synonym: "duplicate xenology" EXACT []
+synonym: "multiple xenology" EXACT []
+synonym: "paraxenologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -3169,6 +3306,7 @@ is_a: RO:HOM0000018 ! in xenology relationship with
 id: RO:HOM0000069
 name: in_plerology_relationship_with
 def: "Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution." [http://purl.obolibrary.org/obo/HOM_0000069, http://www.ncbi.nlm.nih.gov/pubmed/3065587]
+synonym: "plerologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -3176,6 +3314,7 @@ is_a: RO:HOM0000011 ! in paralogy relationship with
 id: RO:HOM0000071
 name: in_homotopy_relationship_with
 def: "Structural homology that involves structures with the same or similar relative positions." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1007/BF02814485, http://purl.obolibrary.org/obo/HOM_0000071, ISBN:0123195837]
+synonym: "homotopous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 disjoint_from: RO:HOM0000072 ! in homeosis relationship with
@@ -3184,6 +3323,7 @@ disjoint_from: RO:HOM0000072 ! in homeosis relationship with
 id: RO:HOM0000072
 name: in_homeosis_relationship_with
 def: "Biological homology that involves an ectopic structure and the normally positioned structure." [http://dx.doi.org/10.1007/BF02814485, http://dx.doi.org/10.1016/j.cell.2008.06.030, http://purl.obolibrary.org/obo/HOM_0000072]
+synonym: "heterotopy" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -3191,6 +3331,7 @@ is_a: RO:HOM0000008 ! in biological homology relationship with
 id: RO:HOM0000073
 name: in_homoeology_relationship_with
 def: "Synology that results from allopolyploidy." [http://dx.doi.org/10.1073/pnas.0505156102, http://purl.obolibrary.org/obo/HOM_0000073]
+synonym: "homoeologous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000022 ! in ohnology relationship with
 is_a: RO:HOM0000053 ! in synology relationship with
@@ -3199,6 +3340,7 @@ is_a: RO:HOM0000053 ! in synology relationship with
 id: RO:HOM0000074
 name: in_paramorphism_relationship_with
 def: "Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure." [http://dx.doi.org/10.1007/s10441-007-9023-8, http://dx.doi.org/10.1046/j.1525-142x.2000.00054.x, http://purl.obolibrary.org/obo/HOM_0000074]
+synonym: "axis paramorphism" RELATED []
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 is_a: RO:HOM0000066 ! in iterative homology relationship with
@@ -3207,6 +3349,7 @@ is_a: RO:HOM0000066 ! in iterative homology relationship with
 id: RO:HOM0000075
 name: in_regulogy_relationship_with
 def: "Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://purl.obolibrary.org/obo/HOM_0000075]
+synonym: "regulogous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
