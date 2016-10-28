@@ -1,6 +1,6 @@
 OBO=http://purl.obolibrary.org/obo
 
-ONTS= ro.obo ro.owl annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl rohom.owl
+ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl rohom.owl
 
 # ========================================
 # PRODUCTION
@@ -23,8 +23,10 @@ ro.ttl: ro.owl
 	owltools --use-catalog $< --merge-import-closure -o -f ttl $@.tmp && mv $@.tmp $@
 
 %.obo: %.owl
-	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && grep -v ^synonym $@.tmp > $@
-#	obolib-owl2obo -o $@.tmp $< && grep -v ^import: $@.tmp > $@
+	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && mv $@.tmp $@
+
+%.json: %.owl
+	owltools --use-catalog $< --merge-import-closure -o -f json $@.tmp && mv $@.tmp $@
 
 %-sh.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure --add-obo-shorthand-to-properties -o -f obo $@.tmp && grep -v ^owl-axioms $@.tmp >  $@
