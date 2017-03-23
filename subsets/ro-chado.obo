@@ -754,6 +754,7 @@ id: RO:0002212
 name: negatively_regulates
 def: "x negatively regulates y if and only if the progression of x reduces the frequency, rate or extent of y" []
 holds_over_chain: RO:0002230 RO:0002212
+is_transitive: true
 is_a: RO:0002211 ! regulates
 is_a: RO:0002305 ! causally upstream of, negative effect
 inverse_of: RO:0002335 ! negatively regulated by
@@ -764,6 +765,7 @@ name: positively_regulates
 def: "x positively regulates y if and only if the progression of x increases the frequency, rate or extent of y" []
 holds_over_chain: RO:0002212 RO:0002212
 holds_over_chain: RO:0002230 RO:0002213
+is_transitive: true
 is_a: RO:0002211 ! regulates
 is_a: RO:0002304 ! causally upstream of, positive effect
 inverse_of: RO:0002336 ! positively regulated by
@@ -2747,6 +2749,58 @@ id: RO:0003308
 name: correlated_with_condition
 def: "A relationship between an entity and a condition (phenotype or disease) with which it exhibits a statistical dependence relationship." []
 is_a: RO:0002610 ! correlated with
+
+[Typedef]
+id: RO:0008501
+name: epiphyte_of
+def: "An interaction relationship wherein a plant or algae is living on the outside surface of another plant." []
+is_a: RO:0002440 ! symbiotically interacts with
+inverse_of: RO:0008502 ! has epiphyte
+
+[Typedef]
+id: RO:0008502
+name: has_epiphyte
+def: "inverse of epiphyte of" []
+is_a: RO:0002440 ! symbiotically interacts with
+
+[Typedef]
+id: RO:0008503
+name: kleptoparasite_of
+def: "A sub-relation of parasite of in which a parasite steals resources from another organism, usually food or nest material" []
+is_a: RO:0002444 ! parasite of
+inverse_of: RO:0008504 ! kleptoparasitized by
+
+[Typedef]
+id: RO:0008504
+name: kleptoparasitized_by
+def: "inverse of kleptoparasite of" []
+is_a: RO:0002445 ! parasitized by
+
+[Typedef]
+id: RO:0008505
+name: creates_habitat_for
+def: "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism." []
+is_a: RO:0002321 ! ecologically related to
+
+[Typedef]
+id: RO:0008506
+name: co-occurs
+def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
+is_symmetric: true
+is_a: RO:0002321 ! ecologically related to
+
+[Typedef]
+id: RO:0008507
+name: lays_eggs_on
+def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+is_a: RO:0002618 ! visits
+inverse_of: RO:0008508 ! has eggs laid on by
+
+[Typedef]
+id: RO:0008508
+name: has_eggs_laid_on_by
+def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+is_a: RO:0002619 ! visited by
 
 [Typedef]
 id: RO:HOM0000000

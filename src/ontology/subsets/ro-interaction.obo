@@ -456,6 +456,14 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: child_nucleus_of ! child nucleus of
 
 [Typedef]
+id: co-occurs
+name: co-occurs
+def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
+xref: RO:0008506
+is_symmetric: true
+is_a: ecologically_related_to ! ecologically related to
+
+[Typedef]
 id: coincident_with
 name: coincident with
 def: "A relation that holds between two linear structures that are approximately parallel to each other for their entire length and where either the two structures are adjacent to each other or one is part of the other." []
@@ -632,6 +640,13 @@ name: correlated with condition
 def: "A relationship between an entity and a condition (phenotype or disease) with which it exhibits a statistical dependence relationship." []
 xref: RO:0003308
 is_a: correlated_with ! correlated with
+
+[Typedef]
+id: creates_habitat_for
+name: creates habitat for
+def: "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism." []
+xref: RO:0008505
+is_a: ecologically_related_to ! ecologically related to
 
 [Typedef]
 id: dendrite_synapsed_in
@@ -1037,6 +1052,15 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: has_part
 
 [Typedef]
+id: epiphyte_of
+name: epiphyte of
+def: "An interaction relationship wherein a plant or algae is living on the outside surface of another plant." []
+xref: RO:0008501
+property_value: IAO:0000119 https://en.wikipedia.org/wiki/Epiphyte xsd:string
+is_a: symbiotically_interacts_with ! symbiotically interacts with
+inverse_of: has_epiphyte ! has epiphyte
+
+[Typedef]
 id: exports
 name: exports
 xref: RO:0002345
@@ -1234,6 +1258,13 @@ is_a: parasitized_by ! parasitized by
 is_a: visited_by ! visited by
 
 [Typedef]
+id: has_eggs_laid_on_by
+name: has eggs laid on by
+def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+xref: RO:0008508
+is_a: visited_by ! visited by
+
+[Typedef]
 id: has_end_sequence
 name: has end sequence
 def: "x has end sequence y if the end of x is identical to the end of y, and x has y as a subsequence" []
@@ -1252,6 +1283,14 @@ id: has_endoparasite
 name: has endoparasite
 xref: RO:0002635
 is_a: parasitized_by ! parasitized by
+
+[Typedef]
+id: has_epiphyte
+name: has epiphyte
+def: "inverse of epiphyte of" []
+subset: RO:0002259
+xref: RO:0008502
+is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
 id: has_exposure_receptor
@@ -2078,12 +2117,37 @@ is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a bioti
 inverse_of: is_killed_by ! is killed by
 
 [Typedef]
+id: kleptoparasite_of
+name: kleptoparasite of
+def: "A sub-relation of parasite of in which a parasite steals resources from another organism, usually food or nest material" []
+xref: RO:0008503
+property_value: IAO:0000119 https://en.wikipedia.org/wiki/Kleptoparasitism xsd:string
+is_a: parasite_of ! parasite of
+inverse_of: kleptoparasitized_by ! kleptoparasitized by
+
+[Typedef]
+id: kleptoparasitized_by
+name: kleptoparasitized by
+def: "inverse of kleptoparasite of" []
+subset: RO:0002259
+xref: RO:0008504
+is_a: parasitized_by ! parasitized by
+
+[Typedef]
 id: lays_eggs_in
 name: lays eggs in
 xref: RO:0002624
 is_a: parasite_of ! parasite of
 is_a: visits ! visits
 inverse_of: has_eggs_laid_in_by ! has eggs laid in by
+
+[Typedef]
+id: lays_eggs_on
+name: lays eggs on
+def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+xref: RO:0008507
+is_a: visits ! visits
+inverse_of: has_eggs_laid_on_by ! has eggs laid on by
 
 [Typedef]
 id: lumen_of
@@ -2202,6 +2266,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "negatively regulates (process to process)" xsd:string
+is_transitive: true
 is_a: causally_upstream_of,_negative_effect ! causally upstream of, negative effect
 is_a: regulates ! regulates
 inverse_of: negatively_regulated_by ! negatively regulated by
@@ -2432,6 +2497,7 @@ xref: RO:0002213
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "positively regulates (process to process)" xsd:string
+is_transitive: true
 is_a: causally_upstream_of,_positive_effect ! causally upstream of, positive effect
 is_a: regulates ! regulates
 inverse_of: positively_regulated_by ! positively regulated by
