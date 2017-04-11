@@ -1,6 +1,6 @@
 OBO=http://purl.obolibrary.org/obo
 
-ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl rohom.owl
+ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
 
 # ========================================
 # PRODUCTION
