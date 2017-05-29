@@ -755,6 +755,8 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "false" xsd:boolean
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "In general you should not use this relation to make assertions - use one of the more specific relations below this one" xsd:string
+domain: BFO:0000002
+range: BFO:0000002
 is_a: developmentally_related_to ! developmentally related to
 inverse_of: developmentally_succeeded_by ! developmentally succeeded by
 
@@ -889,7 +891,7 @@ is_a: directly_negatively_regulates ! directly negatively regulates
 [Typedef]
 id: directly_negatively_regulates
 name: directly negatively regulates
-def: "p 'directly negatively regulates' q if and only if p and q are processes, and p negatively regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
 xref: RO:0002630
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly negatively regulates (process to process)" xsd:string
@@ -899,7 +901,7 @@ is_a: negatively_regulates ! negatively regulates
 [Typedef]
 id: directly_positively_regulates
 name: directly positively regulates
-def: "p 'directly positively regulates' q if and only if p and q are processes, and p positively regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
 xref: RO:0002629
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly positively regulates (process to process)" xsd:string
@@ -922,7 +924,7 @@ is_a: transitively_provides_input_for ! transitively provides input for
 [Typedef]
 id: directly_regulates
 name: directly regulates
-def: "p 'directly regulates' q if and only if p and q are processes, and p regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
 xref: RO:0002578
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
@@ -1193,6 +1195,24 @@ property_value: seeAlso http://ontologydesignpatterns.org/wiki/Submissions:Compo
 is_a: has_part
 
 [Typedef]
+id: has_component_activity
+name: has component activity
+comment: A 'has component activity' B if A is A and B are molecular functions (GO_0003674) and A has_component B.
+xref: RO:0002017
+is_a: has_component_process ! has component process
+created_by: dos
+creation_date: 2017-05-24T09:44:33Z
+
+[Typedef]
+id: has_component_process
+name: has component process
+def: "w 'has process component' p if p and w are processes,  w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
+xref: RO:0002018
+is_a: has_component ! has component
+created_by: dos
+creation_date: 2017-05-24T09:49:21Z
+
+[Typedef]
 id: has_connecting_branch
 name: has connecting branch
 def: "inverse of connecting branch of" []
@@ -1216,7 +1236,7 @@ xref: RO:0002254
 property_value: IAO:0000112 "Mammalian thymus has developmental contribution from some pharyngeal pouch 3; Mammalian thymus has developmental contribution from some pharyngeal pouch 4 [Kardong]" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-domain: CARO:0000003
+domain: BFO:0000004
 range: CARO:0000003
 is_a: developmentally_preceded_by ! developmentally preceded by
 inverse_of: developmentally_contributes_to ! developmentally contributes to
@@ -1446,6 +1466,27 @@ is_a: attached_to ! attached to
 is_a: biomechanically_related_to ! biomechanically related to
 
 [Typedef]
+id: has_necessary_component_activity
+name: has necessary component activity
+comment: A has necessary component activity B if A and B are GO molecular functions  (GO_0003674), A has_component B and B is necessary for A.  For example,  ATPase coupled transporter activity has necessary component ATPase activity; transcript factor activity has necessary component DNA binding activity.
+xref: RO:0002016
+is_a: has_component_activity ! has component activity
+is_a: positively_regulated_by ! positively regulated by
+created_by: dos
+creation_date: 2017-05-24T09:36:08Z
+
+[Typedef]
+id: has_negative_regulatory_component_activity
+name: has negative regulatory component activity
+def: "A relationship that holds between a GO molecular function and a component of that molecular function that negatively regulates the activity of the whole.  More formally, A 'has regulatory component activity' B iff :A and B are GO molecular functions (GO_0003674), A has_component B and A is negatively regulated by B." []
+comment: By convention GO molecular functions are classified by their effector function.  Internal regulatory functions are treated as components.  For example, NMDA glutmate receptor activity is a cation channel activity with positive regulatory component 'glutamate binding' and negative regulatory components including 'zinc binding' and 'magnesium binding'.
+xref: RO:0002014
+is_a: has_regulatory_component_activity ! has regulatory component activity
+is_a: negatively_regulated_by ! negatively regulated by
+created_by: dos
+creation_date: 2017-05-24T09:31:01Z
+
+[Typedef]
 id: has_output
 name: has output
 def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p." []
@@ -1508,6 +1549,17 @@ is_a: has_part
 expand_expression_to: "BFO_0000051 some (GO_0005886 and BFO_0000051 some ?Y)" []
 
 [Typedef]
+id: has_positive_regulatory_component_activity
+name: has positive regulatory component activity
+def: "A relationship that holds between a GO molecular function and a component of that molecular function that positively regulates the activity of the whole.  More formally, A 'has regulatory component activity' B iff :A and B are GO molecular functions (GO_0003674), A has_component B and A is positively regulated by B." []
+comment: By convention GO molecular functions are classified by their effector function and internal regulatory functions are treated as components.  So, for example calmodulin has a protein binding activity that has positive regulatory component activity calcium binding activity. Receptor tyrosine kinase activity is a tyrosine kinase activity that has positive regulatory component 'ligand binding'.
+xref: RO:0002015
+is_a: has_regulatory_component_activity ! has regulatory component activity
+is_a: positively_regulated_by ! positively regulated by
+created_by: dos
+creation_date: 2017-05-24T09:31:17Z
+
+[Typedef]
 id: has_postsynaptic_terminal_in
 name: has postsynaptic terminal in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
@@ -1568,6 +1620,16 @@ property_value: IAO:0000118 "synapses in" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: has_synaptic_terminal_in ! has synaptic terminal in
 expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000050 some Y?)" []
+
+[Typedef]
+id: has_regulatory_component_activity
+name: has regulatory component activity
+def: "A 'has regulatory component activity' B if A and B are GO molecular functions (GO_0003674), A has_component B and A is regulated by B." []
+xref: RO:0002013
+is_a: has_component_activity ! has component activity
+is_a: regulated_by ! regulated by
+created_by: dos
+creation_date: 2017-05-24T09:30:46Z
 
 [Typedef]
 id: has_skeleton
@@ -2260,7 +2322,7 @@ is_a: regulated_by ! regulated by
 [Typedef]
 id: negatively_regulates
 name: negatively regulates
-def: "x negatively regulates y if and only if the progression of x reduces the frequency, rate or extent of y" []
+def: "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
 xref: RO:0002212
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2492,7 +2554,7 @@ is_a: regulated_by ! regulated by
 [Typedef]
 id: positively_regulates
 name: positively regulates
-def: "x positively regulates y if and only if the progression of x increases the frequency, rate or extent of y" []
+def: "Process(P1) postively regulates process(P2) iff: P1 initiates P2, or P1 increases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
 xref: RO:0002213
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
@@ -2598,7 +2660,7 @@ is_a: causally_downstream_of_or_within ! causally downstream of or within
 [Typedef]
 id: regulates
 name: regulates
-def: "x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y" []
+def: "process(P1) regulates process(P2) iff: P1 results in the initiation or termination of P2 OR affects the frequency of its initiation or termination OR affects the magnitude or rate of output of P2." []
 xref: RO:0002211
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "We use 'regulates' here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of 'causally upstream of or within' (aka influences). Consider relabeling to make things more explicit" xsd:string

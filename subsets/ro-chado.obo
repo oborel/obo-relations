@@ -6,7 +6,7 @@ remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 276 Logical Axioms: 56]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 278 Logical Axioms: 58]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
@@ -82,6 +82,11 @@ transitive_over: BFO:0000050 ! part of
 id: BFO:0000067
 name: contains_process
 def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t" []
+
+[Typedef]
+id: R0:0009004
+name: has_consumer
+def: "'has consumer' is a relation between a material entity and an organism in which the former can normally be digested or otherwise absorbed by the latter without immediate or persistent ill effect." []
 
 [Typedef]
 id: RO:0000052
@@ -327,6 +332,44 @@ name: occurent_part_of
 def: "A part of relation that applies only between occurents." []
 is_a: BFO:0000050 ! part of
 is_a: RO:0002418 ! causally upstream of or within
+
+[Typedef]
+id: RO:0002013
+name: has_regulatory_component_activity
+def: "A 'has regulatory component activity' B if A and B are GO molecular functions (GO_0003674), A has_component B and A is regulated by B." []
+is_a: RO:0002017 ! has component activity
+is_a: RO:0002334 ! regulated by
+
+[Typedef]
+id: RO:0002014
+name: has_negative_regulatory_component_activity
+def: "A relationship that holds between a GO molecular function and a component of that molecular function that negatively regulates the activity of the whole.  More formally, A 'has regulatory component activity' B iff :A and B are GO molecular functions (GO_0003674), A has_component B and A is negatively regulated by B." []
+is_a: RO:0002013 ! has regulatory component activity
+is_a: RO:0002335 ! negatively regulated by
+
+[Typedef]
+id: RO:0002015
+name: has_positive_regulatory_component_activity
+def: "A relationship that holds between a GO molecular function and a component of that molecular function that positively regulates the activity of the whole.  More formally, A 'has regulatory component activity' B iff :A and B are GO molecular functions (GO_0003674), A has_component B and A is positively regulated by B." []
+is_a: RO:0002013 ! has regulatory component activity
+is_a: RO:0002336 ! positively regulated by
+
+[Typedef]
+id: RO:0002016
+name: has_necessary_component_activity
+is_a: RO:0002017 ! has component activity
+is_a: RO:0002336 ! positively regulated by
+
+[Typedef]
+id: RO:0002017
+name: has_component_activity
+is_a: RO:0002018 ! has component process
+
+[Typedef]
+id: RO:0002018
+name: has_component_process
+def: "w 'has process component' p if p and w are processes,  w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
+is_a: RO:0002180 ! has component
 
 [Typedef]
 id: RO:0002081
@@ -743,7 +786,7 @@ is_a: RO:0002203 ! develops into
 [Typedef]
 id: RO:0002211
 name: regulates
-def: "x regulates y if and only if the x is the realization of a function to exert an effect on the frequency, rate or extent of y" []
+def: "process(P1) regulates process(P2) iff: P1 results in the initiation or termination of P2 OR affects the frequency of its initiation or termination OR affects the magnitude or rate of output of P2." []
 holds_over_chain: RO:0002230 RO:0002211
 holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
@@ -753,7 +796,7 @@ inverse_of: RO:0002334 ! regulated by
 [Typedef]
 id: RO:0002212
 name: negatively_regulates
-def: "x negatively regulates y if and only if the progression of x reduces the frequency, rate or extent of y" []
+def: "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
 holds_over_chain: RO:0002230 RO:0002212
 is_transitive: true
 is_a: RO:0002211 ! regulates
@@ -763,7 +806,7 @@ inverse_of: RO:0002335 ! negatively regulated by
 [Typedef]
 id: RO:0002213
 name: positively_regulates
-def: "x positively regulates y if and only if the progression of x increases the frequency, rate or extent of y" []
+def: "Process(P1) postively regulates process(P2) iff: P1 initiates P2, or P1 increases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
 holds_over_chain: RO:0002212 RO:0002212
 holds_over_chain: RO:0002230 RO:0002213
 is_transitive: true
@@ -1200,6 +1243,7 @@ id: RO:0002327
 name: enables
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
+transitive_over: RO:0002017 ! has component activity
 
 [Typedef]
 id: RO:0002328
@@ -2402,7 +2446,7 @@ is_a: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002578
 name: directly_regulates
-def: "p 'directly regulates' q if and only if p and q are processes, and p regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
 is_a: RO:0002211 ! regulates
 is_a: RO:0002412 ! immediately causally upstream of
 
@@ -2606,14 +2650,14 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002629
 name: directly_positively_regulates
-def: "p 'directly positively regulates' q if and only if p and q are processes, and p positively regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
 [Typedef]
 id: RO:0002630
 name: directly_negatively_regulates
-def: "p 'directly negatively regulates' q if and only if p and q are processes, and p negatively regulates q, and q directly follows from p" []
+def: "Proceess(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -2802,6 +2846,27 @@ id: RO:0008508
 name: has_eggs_laid_on_by
 def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
 is_a: RO:0002619 ! visited by
+
+[Typedef]
+id: RO:0009001
+name: has_substance_added
+def: "\"has substance added\" is a relation existing between a (physical) entity and a substance in which the entity has had the substance added to it at some point in time." []
+
+[Typedef]
+id: RO:0009002
+name: has_substance_removed
+def: "\"has substance removed\" is a relation existing between two physical entities in which the first entity has had the second entity (a substance) removed from it at some point in time." []
+
+[Typedef]
+id: RO:0009003
+name: immersed_in
+def: "\"immersed in\" is a relation between a (physical) entity and a fluid substance in which the entity is wholely or substantially surrounded by the substance." []
+
+[Typedef]
+id: RO:0009005
+name: has_primary_substance_added
+def: "'has primary substance added' indicates that an entity has had the given substance added to it in a proportion greater than any other added substance." []
+is_a: RO:0009001 ! has substance added
 
 [Typedef]
 id: RO:HOM0000000
