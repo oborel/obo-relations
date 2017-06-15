@@ -1,4 +1,4 @@
-* 2017-06-14 Release
+* 2017-06-15 Release
 
 commit 7bf8fa406e90c8a849dd4acf65b3cd5f8b82e381
 Author: Chris Mungall <cjm@berkeleybop.org>
