@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2017-05-29
+data-version: releases/2017-06-15
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
 remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]
@@ -422,6 +422,19 @@ is_a: PATO:0000052 ! shape
 id: PATO:0002124
 name: laminar
 is_a: PATO:0000141 ! structure
+
+[Term]
+id: RO:0002310
+name: exposure event or process
+def: "A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism." []
+is_a: BFO:0000015 ! process
+property_value: http://purl.org/dc/elements/1.1/creator "Chris Mungall" xsd:string
+property_value: IAO:0000112 "An exposure event in which a human is exposed to particulate matter in the air. Here the exposure stimulus/stress is the particulate matter, the receptor is the airways and lungs of the human," xsd:string
+property_value: IAO:0000112 "An exposure event in which a plant is provided with fertilizer. The exposure receptor is the root system of the plant, the stimulus is the fertilizing chemical, the route is via the soil, possibly mediated by symbotic microbes." xsd:anyURI
+property_value: IAO:0000116 "This class is intended as a grouping for various domain and species-specific exposure classes. The ExO class http://purl.obolibrary.org/obo/ExO_0000002 'exposure event' assumes that all exposures involve stressors, which limits the applicability of this class to 'positive' exposures, e.g. exposing a plant to beneficial growing conditions." xsd:string
+property_value: seeAlso https://github.com/oborel/obo-relations/pull/173 xsd:anyURI
+created_by: cjm
+creation_date: 2017-06-05T17:55:39Z
 
 [Term]
 id: RO:0002532
@@ -2089,7 +2102,7 @@ is_a: RO:0002444 ! parasite of
 [Typedef]
 id: RO:0002240
 name: has exposure receptor
-def: "A broad relationship between an exposure event or process and any entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during the exposure event" []
+def: "A broad relationship between an exposure event or process and any entity (e.g., an organism, organism population, or an organism part) that interacts with an exposure stimulus during the exposure event." []
 property_value: IAO:0000119 ExO:0000001 xsd:string
 is_a: RO:0002244 ! related via exposure to
 
@@ -2098,7 +2111,7 @@ id: RO:0002241
 name: has exposure stressor
 def: "A broad relationship between an exposure event or process and any agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure receptor during an exposure event." []
 property_value: IAO:0000119 ExO:0000000 xsd:string
-is_a: RO:0002244 ! related via exposure to
+is_a: RO:0002309 ! has exposure stimulus
 
 [Typedef]
 id: RO:0002242
@@ -2110,13 +2123,16 @@ is_a: RO:0002244 ! related via exposure to
 [Typedef]
 id: RO:0002243
 name: has exposure transport path
-def: "A broad relationship between an exposure event or process and a the material an agent takes from the source to the target." []
+def: "A broad relationship between an exposure event or process and the course takes from the source to the target." []
+property_value: IAO:0000119 http://purl.obolibrary.org/obo/ExO_0000004 xsd:anyURI
 is_a: RO:0002244 ! related via exposure to
 
 [Typedef]
 id: RO:0002244
 name: related via exposure to
-domain: BFO:0000015 ! process
+def: "Any relationship between an exposure event or process and any other entity." []
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes." xsd:string
+domain: RO:0002310 ! exposure event or process
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -2359,6 +2375,17 @@ name: causally upstream of, negative effect
 comment: holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y
 property_value: http://purl.org/dc/elements/1.1/creator "cjm" xsd:string
 is_a: RO:0002411 ! causally upstream of
+
+[Typedef]
+id: RO:0002309
+name: has exposure stimulus
+def: "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." []
+property_value: http://purl.org/dc/elements/1.1/contributor "Austin Meier" xsd:string
+property_value: http://purl.org/dc/elements/1.1/contributor "Chris Mungall" xsd:string
+property_value: http://purl.org/dc/elements/1.1/contributor "Marie Angelique Laporte" xsd:string
+is_a: RO:0002244 ! related via exposure to
+created_by: cjm
+creation_date: 2017-06-05T17:35:04Z
 
 [Typedef]
 id: RO:0002312
@@ -4768,6 +4795,22 @@ property_value: IAO:0000112 "bread 'has primary substance added' some 'flour'" x
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Damion Dooley" xsd:string
 is_a: RO:0009001 ! has substance added
+
+[Typedef]
+id: RO:0009501
+name: realized in response to
+def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
+property_value: http://purl.org/dc/elements/1.1/contributor "Austin Meier" xsd:string
+property_value: http://purl.org/dc/elements/1.1/contributor "Chris Mungall" xsd:string
+property_value: http://purl.org/dc/elements/1.1/contributor "David Osumi-Sutherland" xsd:string
+property_value: http://purl.org/dc/elements/1.1/contributor "Marie Angelique Laporte" xsd:string
+property_value: IAO:0000112 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions." xsd:string
+property_value: IAO:0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph." xsd:string
+property_value: seeAlso https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit xsd:anyURI
+domain: BFO:0000017 ! realizable entity
+range: BFO:0000015 ! process
+holds_over_chain: BFO:0000054 RO:0002404
+is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:HOM0000000

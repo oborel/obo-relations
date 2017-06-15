@@ -1,3 +1,94 @@
+* 2017-06-14 Release
+
+commit 7bf8fa406e90c8a849dd4acf65b3cd5f8b82e381
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Jun 12 08:50:53 2017 -0700
+
+  NR: realized-in-response-to
+    
+    gitowl ||  subject: http://purl.obolibrary.org/obo/RO_0009501
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0009501 "Marie Angelique Laporte")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> contributor "Marie Angelique Laporte"
+    gitowl ++  SubObjectPropertyOf(obo:RO_0009501 obo:RO_0002410)
+    gitowl ||      realized in response to SubPropertyOf causally related to
+    gitowl ++  Declaration(ObjectProperty(obo:RO_0009501))
+    gitowl ||      ObjectProperty: realized in response to
+    gitowl ++  AnnotationAssertion(obo:IAO_0000112 obo:RO_0009501 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposu
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> IAO_0000112 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response
+    gitowl ++  ObjectPropertyDomain(obo:RO_0009501 obo:BFO_0000017)
+    gitowl ||      realized in response to Domain BFO_0000017
+    gitowl ++  AnnotationAssertion(obo:IAO_0000115 obo:RO_0009501 "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environ
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> IAO_0000115 "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is a
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0009501 "David Osumi-Sutherland")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> contributor "David Osumi-Sutherland"
+    gitowl ++  AnnotationAssertion(rdfs:label obo:RO_0009501 "realized in response to"@en)
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> label "realized in response to"@en
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0009501 "Chris Mungall")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> contributor "Chris Mungall"
+    gitowl ++  ObjectPropertyRange(obo:RO_0009501 obo:BFO_0000015)
+    gitowl ||      realized in response to Range BFO_0000015
+    gitowl ++  AnnotationAssertion(obo:IAO_0000112 obo:RO_0009501 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> IAO_0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is re
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0009501 "Austin Meier")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0009501> contributor "Austin Meier"
+    gitowl ||
+    gitowl ||  subject: NO_SUBJECT
+    gitowl ++  SubObjectPropertyOf(ObjectPropertyChain(obo:BFO_0000054 obo:RO_0002404) obo:RO_0009501)
+    gitowl ||      BFO_0000054 o causally downstream of SubPropertyOf realized in response to
+
+commit 8875568e96d5a14d47a6cef8878d2580e9ab3b39
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Jun 12 08:36:12 2017 -0700
+
+    adding conditions to def of exposure stimulus
+
+commit 9eb002127abab507340d24a6a323ec4ef1a3b596
+Author: James A. Overton <james@overton.ca>
+Date:   Tue Jun 6 14:54:09 2017 -0400
+
+    Fix typos in exposure relation definitions
+
+commit 820c6f1af38063468bdc4d1c45ad4420f1f31de4
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Jun 5 11:50:55 2017 -0700
+
+    Added grouping class for different kinds of exposures,
+    using as domain for exposure relations.
+    See: https://github.com/Planteome/plant-environment-ontology/issues/94
+
+commit af62b82494e441a6253aa44296c153ac3cc36f36
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Jun 5 10:52:54 2017 -0700
+
+    NRR: 'has exposure stimulus', fixes #172
+    gitowl ||  Diffing:  src/ontology/ro-edit.owl
+    gitowl ||
+    gitowl ||  subject: http://purl.obolibrary.org/obo/RO_0002241
+    gitowl --  SubObjectPropertyOf(obo:RO_0002241 obo:RO_0002244)
+    gitowl ||      has exposure stressor SubPropertyOf related via exposure to
+    gitowl ++  SubObjectPropertyOf(obo:RO_0002241 obo:RO_0002309)
+    gitowl ||      has exposure stressor SubPropertyOf has exposure stimulus
+    gitowl ||
+    gitowl ||  subject: http://purl.obolibrary.org/obo/RO_0002309
+    gitowl ++  SubObjectPropertyOf(obo:RO_0002309 obo:RO_0002244)
+    gitowl ||      has exposure stimulus SubPropertyOf related via exposure to
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0002309 "Chris Mungall")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> contributor "Chris Mungall"
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0002309 "Austin Meier")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> contributor "Austin Meier"
+    gitowl ++  AnnotationAssertion(dc:contributor obo:RO_0002309 "Marie Angelique Laporte")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> contributor "Marie Angelique Laporte"
+    gitowl ++  AnnotationAssertion(rdfs:label obo:RO_0002309 "has exposure stimulus")
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> label "has exposure stimulus"
+    gitowl ++  AnnotationAssertion(obo:IAO_0000115 obo:RO_0002309 "A relationship between an exposure event or process and any agent, stimulus, activity, or event that c
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> IAO_0000115 "A relationship between an exposure event or process and any agent, stimulus, activity, or eve
+    gitowl ++  AnnotationAssertion(oboInOwl:creation_date obo:RO_0002309 "2017-06-05T17:35:04Z"^^xsd:dateTime)
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> creation_date "2017-06-05T17:35:04Z"^^dateTime
+    gitowl ++  Declaration(ObjectProperty(obo:RO_0002309))
+    gitowl ||      ObjectProperty: has exposure stimulus
+    gitowl ++  AnnotationAssertion(oboInOwl:created_by obo:RO_0002309 "cjm"^^xsd:string)
+    gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> created_by "cjm"^^string
+
 * 2017-05-29 Release
 
 commit https://github.com/oborel/obo-relations/commit/dd541eb02d08ab6e8a72c2c7fbcbe5db237fe444

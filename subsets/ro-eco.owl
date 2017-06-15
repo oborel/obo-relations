@@ -700,6 +700,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
@@ -2635,7 +2641,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002240">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
-        <obo:IAO_0000115>A broad relationship between an exposure event or process and any entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during the exposure event</obo:IAO_0000115>
+        <obo:IAO_0000115>A broad relationship between an exposure event or process and any entity (e.g., an organism, organism population, or an organism part) that interacts with an exposure stimulus during the exposure event.</obo:IAO_0000115>
         <obo:IAO_0000119>ExO:0000001</obo:IAO_0000119>
         <rdfs:label>has exposure receptor</rdfs:label>
     </owl:ObjectProperty>
@@ -2645,7 +2651,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002241 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002241">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002309"/>
         <obo:IAO_0000115>A broad relationship between an exposure event or process and any agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure receptor during an exposure event.</obo:IAO_0000115>
         <obo:IAO_0000119>ExO:0000000</obo:IAO_0000119>
         <rdfs:label>has exposure stressor</rdfs:label>
@@ -2668,7 +2674,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002243">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
-        <obo:IAO_0000115>A broad relationship between an exposure event or process and a the material an agent takes from the source to the target.</obo:IAO_0000115>
+        <obo:IAO_0000115>A broad relationship between an exposure event or process and the course takes from the source to the target.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ExO_0000004</obo:IAO_0000119>
         <rdfs:label>has exposure transport path</rdfs:label>
     </owl:ObjectProperty>
     
@@ -2678,6 +2685,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002244">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
+        <obo:IAO_0000115>Any relationship between an exposure event or process and any other entity.</obo:IAO_0000115>
+        <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes.</obo:IAO_0000232>
         <rdfs:label>related via exposure to</rdfs:label>
     </owl:ObjectProperty>
     
@@ -3122,6 +3131,21 @@ where
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</dc:creator>
         <rdfs:comment>holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y</rdfs:comment>
         <rdfs:label>causally upstream of, negative effect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002309 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002309">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
+        <obo:IAO_0000115>A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event.</obo:IAO_0000115>
+        <dc:contributor>Austin Meier</dc:contributor>
+        <dc:contributor>Chris Mungall</dc:contributor>
+        <dc:contributor>Marie Angelique Laporte</dc:contributor>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-06-05T17:35:04Z</oboInOwl:creation_date>
+        <rdfs:label>has exposure stimulus</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -6804,6 +6828,23 @@ Environments include natural environments or exposures, experimentally applied c
         <obo:IAO_0000115 xml:lang="en">&apos;has primary substance added&apos; indicates that an entity has had the given substance added to it in a proportion greater than any other added substance.</obo:IAO_0000115>
         <obo:IAO_0000117>Damion Dooley</obo:IAO_0000117>
         <rdfs:label xml:lang="en">has primary substance added</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0009501 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009501">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
+        <obo:IAO_0000112>A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions.</obo:IAO_0000112>
+        <obo:IAO_0000112>Environmental polymorphism in butterflies: These butterflies have a &apos;responsivity to day length trait&apos; that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph.</obo:IAO_0000112>
+        <obo:IAO_0000115>r &apos;realized in response to&apos; s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r.</obo:IAO_0000115>
+        <dc:contributor>Austin Meier</dc:contributor>
+        <dc:contributor>Chris Mungall</dc:contributor>
+        <dc:contributor>David Osumi-Sutherland</dc:contributor>
+        <dc:contributor>Marie Angelique Laporte</dc:contributor>
+        <rdfs:label xml:lang="en">realized in response to</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 

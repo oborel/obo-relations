@@ -128,6 +128,12 @@
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
@@ -1558,7 +1564,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002240">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
-        <obo:IAO_0000115>A broad relationship between an exposure event or process and any entity (e.g., a human, human population, or a human organ) that interacts with an exposure stressor during the exposure event</obo:IAO_0000115>
+        <obo:IAO_0000115>A broad relationship between an exposure event or process and any entity (e.g., an organism, organism population, or an organism part) that interacts with an exposure stimulus during the exposure event.</obo:IAO_0000115>
         <obo:IAO_0000119>ExO:0000001</obo:IAO_0000119>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002240</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_exposure_receptor</oboInOwl:shorthand>
@@ -1570,7 +1576,7 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/RO_0002241 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002241">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002309"/>
         <obo:IAO_0000115>A broad relationship between an exposure event or process and any agent, stimulus, activity, or event that causes stress or tension on an organism and interacts with an exposure receptor during an exposure event.</obo:IAO_0000115>
         <obo:IAO_0000119>ExO:0000000</obo:IAO_0000119>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002241</oboInOwl:hasDbXref>
@@ -1597,7 +1603,8 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002243">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
-        <obo:IAO_0000115>A broad relationship between an exposure event or process and a the material an agent takes from the source to the target.</obo:IAO_0000115>
+        <obo:IAO_0000115>A broad relationship between an exposure event or process and the course takes from the source to the target.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ExO_0000004</obo:IAO_0000119>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002243</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_exposure_transport_path</oboInOwl:shorthand>
         <rdfs:label>has exposure transport path</rdfs:label>
@@ -1609,7 +1616,9 @@ boundary_of: http://purl.obolibrary.org/obo/RO_0002000</obo:IAO_0000115>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002244">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/RO_0002310"/>
+        <obo:IAO_0000115>Any relationship between an exposure event or process and any other entity.</obo:IAO_0000115>
+        <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes.</obo:IAO_0000232>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002244</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">related_via_exposure_to</oboInOwl:shorthand>
         <rdfs:label>related via exposure to</rdfs:label>
@@ -2012,6 +2021,23 @@ where
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">causally_upstream_of,_negative_effect</oboInOwl:shorthand>
         <rdfs:comment>holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y</rdfs:comment>
         <rdfs:label>causally upstream of, negative effect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002309 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002309">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002244"/>
+        <obo:IAO_0000115>A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event.</obo:IAO_0000115>
+        <dc:contributor>Austin Meier</dc:contributor>
+        <dc:contributor>Chris Mungall</dc:contributor>
+        <dc:contributor>Marie Angelique Laporte</dc:contributor>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-06-05T17:35:04Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002309</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_exposure_stimulus</oboInOwl:shorthand>
+        <rdfs:label>has exposure stimulus</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -5305,6 +5331,27 @@ Environments include natural environments or exposures, experimentally applied c
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0009501 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009501">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000017"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000112>A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions.</obo:IAO_0000112>
+        <obo:IAO_0000112>Environmental polymorphism in butterflies: These butterflies have a &apos;responsivity to day length trait&apos; that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph.</obo:IAO_0000112>
+        <obo:IAO_0000115>r &apos;realized in response to&apos; s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r.</obo:IAO_0000115>
+        <dc:contributor>Austin Meier</dc:contributor>
+        <dc:contributor>Chris Mungall</dc:contributor>
+        <dc:contributor>David Osumi-Sutherland</dc:contributor>
+        <dc:contributor>Marie Angelique Laporte</dc:contributor>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0009501</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">realized_in_response_to</oboInOwl:shorthand>
+        <rdfs:label xml:lang="en">realized in response to</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit</rdfs:seeAlso>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -5337,6 +5384,12 @@ Environments include natural environments or exposures, experimentally applied c
     <!-- http://purl.obolibrary.org/obo/BFO_0000015 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000017 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000017"/>
     
 
 
@@ -5421,6 +5474,12 @@ Environments include natural environments or exposures, experimentally applied c
     <!-- http://purl.obolibrary.org/obo/PATO_0002124 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/PATO_0002124"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002310 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/RO_0002310"/>
     
 
 
