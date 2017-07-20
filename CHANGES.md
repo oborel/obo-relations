@@ -48,6 +48,22 @@ Date:   Mon Jul 17 12:10:12 2017 +0100
 
     Fixes #180
 
+commit 03945add6666be02ae2329035d4e24779e7a3b6c
+Merge: d13b87a 58fa91c
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Fri Jun 30 15:40:27 2017 -0700
+
+    Merge pull request #179 from mbrush/daf-terms
+    
+    Added relations requested for DAF spec in #149
+
+commit 58fa91cbbdd7727faaa45e4681563a59e1077442
+Author: Matthew Brush <mhb120@gmail.com>
+Date:   Fri Jun 30 13:30:46 2017 -0700
+
+    added relations requested for DAF spec in #149
+    added exacerbates condition, consition exacerbated by, condition aameliorated by, and changed label of is preventative for condition to ameliorates condition.
+    also made minor updates to text of definitions for causes or contributes to condition relations, as noted in #149
 
 * 2017-06-15 Release
 
