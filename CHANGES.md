@@ -1,5 +1,20 @@
 * 2017-07-19 Release
 
+commit 48d076312637419ed24dc77843b7dc84cfd33fcf
+Merge: 67d2257 3b74b3a
+Author: David Osumi-Sutherland <dosumis@gmail.com>
+Date:   Wed Jul 19 20:02:09 2017 +0100
+
+    Merge pull request #184 from oborel/has_ligand
+    
+    Added has_ligand relation for GO
+
+commit 3b74b3a84b6d5de73f6a323b57603e662b7ad878
+Author: David Osumi-Sutherland <dosumis@gmail.com>
+Date:   Wed Jul 19 19:58:08 2017 +0100
+
+    Added has_ligand relation for GO
+
 commit 67d22577131b12bfe5155c1e26b25509ce573125
 Merge: 38fe841 7cfd62c
 Author: Chris Mungall <cjm@berkeleybop.org>
