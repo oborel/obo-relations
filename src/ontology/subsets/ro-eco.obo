@@ -876,7 +876,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "negatively regulates (process to process)" xsd:string
 holds_over_chain: RO:0002230 RO:0002212
-is_transitive: true
 is_a: RO:0002211 ! regulates
 is_a: RO:0002305 ! causally upstream of, negative effect
 inverse_of: RO:0002335 ! negatively regulated by
@@ -3201,7 +3200,7 @@ is_a: BFO:0000050
 [Typedef]
 id: RO:0002578
 name: directly regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly regulates (processual)" xsd:string
@@ -3435,7 +3434,7 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002629
 name: directly positively regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly positively regulates (process to process)" xsd:string
 is_a: RO:0002213 ! positively regulates
@@ -3444,7 +3443,7 @@ is_a: RO:0002578 ! directly regulates
 [Typedef]
 id: RO:0002630
 name: directly negatively regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly negatively regulates (process to process)" xsd:string
 is_a: RO:0002212 ! negatively regulates
@@ -3566,8 +3565,8 @@ property_value: IAO:0000117 "Matthew Brush" xsd:string
 [Typedef]
 id: RO:0003302
 name: causes or contributes to condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has some causal or contributing role that influences the condition." []
-comment: Genetic variations can span any level of granularity from a full genome or genotype to an individual gene  or sequence alteration.  These variations can be represented at the physical level (DNA/RNA macromolecules or their parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the abstract level (generically dependent continuant sequence features that are carried by these macromolecules, as in the Sequence Ontology and Genotype Ontology).  The causal relations in this hierarchy can be used in linking either physical or abstract genetic variations to phenotypes or diseases they cause or contribute to.\n\nEnvironments include natural environments or exposures, experimentally applied conditions, or clinical interventions.
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some causal or contributing role that influences the condition." []
+comment: Genetic variations can span any level of granularity from a full genome or genotype to an individual gene  or sequence alteration.  These variations can be represented at the physical level (DNA/RNA macromolecules or their parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the abstract level (generically dependent continuant sequence features that are carried by these macromolecules, as in the Sequence Ontology and Genotype Ontology).  The causal relations in this hierarchy can be used in linking either physical or abstract genetic variations to phenotypes or diseases they cause or contribute to.\n\nEnvironmental exposures include those imposed by natural environments, experimentally applied conditions, or clinical interventions.
 property_value: IAO:0000112 "The genetic variant 'NM_007294.3(BRCA1):c.110C>A (p.Thr37Lys)' casues or contributes to the disease  'familial breast-ovarian cancer'.\n\nAn environment of exposure to arsenic causes or contributes to the phenotype of patchy skin hyperpigmentation, and the disease 'skin cancer'." xsd:string
 property_value: IAO:0000116 "Note that relationships of phenotypes to organisms/strains that bear them, or diseases they are manifest in, should continue to use RO:0002200 ! 'has phenotype' and RO:0002201 ! 'phenotype of'." xsd:string
 is_a: RO:0002410 ! causally related to
@@ -3575,41 +3574,60 @@ is_a: RO:0002410 ! causally related to
 [Typedef]
 id: RO:0003303
 name: causes condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has a causal role for the condition." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some causal role for the condition." []
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
 id: RO:0003304
 name: contributes to condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has some contributing role in the manifestation of the condition." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some contributing role that influences the condition." []
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
 id: RO:0003305
 name: contributes to severity of condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity influences the severity with which a condition manifests in an individual." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity influences the severity with which a condition manifests in an individual." []
 property_value: IAO:0000118 "contributes to expressivity of condition" xsd:string
 is_a: RO:0003304 ! contributes to condition
 
 [Typedef]
 id: RO:0003306
 name: contributes to frequency of condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity influences the frequency of the condition in a population." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity influences the frequency of the condition in a population." []
 property_value: IAO:0000118 "contributes to penetrance of condition" xsd:string
 is_a: RO:0003304 ! contributes to condition
 
 [Typedef]
 id: RO:0003307
-name: is preventative for condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity prevents or reduces the severity of a condition." []
-comment: Genetic variations can span any level of granularity from a full genome or genotype to an individual gene  or sequence alteration.  These variations can be represented at the physical level (DNA/RNA macromolecules or their parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the abstract level (generically dependent continuant sequence features that are carried by these macromolecules, as in the Sequence Ontology and Genotype Ontology).  The causal relations in this hierarchy can be used in linking either physical or abstract genetic variations to phenotypes or diseases they cause or contribute to. \n\nEnvironments include natural environments or exposures, experimentally applied conditions, or clinical interventions.
-is_a: RO:0002410 ! causally related to
+name: ameliorates condition
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the presence of the entity reduces or eliminates some or all aspects of the condition." []
+comment: Genetic variations can span any level of granularity from a full genome or genotype to an individual gene  or sequence alteration.  These variations can be represented at the physical level (DNA/RNA macromolecules or their parts, as in the ChEBI ontology and Molecular Sequence Ontology) or at the abstract level (generically dependent continuant sequence features that are carried by these macromolecules, as in the Sequence Ontology and Genotype Ontology).  The causal relations in this hierarchy can be used in linking either physical or abstract genetic variations to phenotypes or diseases they cause or contribute to. \n\nEnvironmental exposures include those imposed by natural environments, experimentally applied conditions, or clinical interventions.
+property_value: IAO:0000118 "is preventative for condition" xsd:string
+is_a: RO:0003305 ! contributes to severity of condition
 
 [Typedef]
 id: RO:0003308
 name: correlated with condition
 def: "A relationship between an entity and a condition (phenotype or disease) with which it exhibits a statistical dependence relationship." []
 is_a: RO:0002610 ! correlated with
+
+[Typedef]
+id: RO:0003309
+name: exacerbates condition
+def: "A relationship between an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) and a condition (a phenotype or disease), where the presence of the entity worsens some or all aspects of the condition." []
+is_a: RO:0003305 ! contributes to severity of condition
+
+[Typedef]
+id: RO:0003310
+name: condition ameliorated by
+def: "A relationship between a condition (a phenotype or disease) and an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) where some or all aspects of the condition are reduced or eliminated by the presence of the entity." []
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0003311
+name: condition exacerbated by
+def: "A relationship between a condition (a phenotype or disease) and an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) where some or all aspects of the condition are worsened by the presence of the entity." []
+is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0008501

@@ -798,7 +798,6 @@ id: RO:0002212
 name: negatively_regulates
 def: "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
 holds_over_chain: RO:0002230 RO:0002212
-is_transitive: true
 is_a: RO:0002211 ! regulates
 is_a: RO:0002305 ! causally upstream of, negative effect
 inverse_of: RO:0002335 ! negatively regulated by
@@ -2453,7 +2452,7 @@ is_a: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002578
 name: directly_regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
 is_a: RO:0002211 ! regulates
 is_a: RO:0002412 ! immediately causally upstream of
 
@@ -2657,14 +2656,14 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002629
 name: directly_positively_regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
 [Typedef]
 id: RO:0002630
 name: directly_negatively_regulates
-def: "Proceess(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
+def: "Process(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -2763,44 +2762,62 @@ def: "Relation between a research artifact and an entity it is used to study, in
 [Typedef]
 id: RO:0003302
 name: causes_or_contributes_to_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has some causal or contributing role that influences the condition." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some causal or contributing role that influences the condition." []
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0003303
 name: causes_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has a causal role for the condition." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some causal role for the condition." []
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
 id: RO:0003304
 name: contributes_to_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity has some contributing role in the manifestation of the condition." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity has some contributing role that influences the condition." []
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
 id: RO:0003305
 name: contributes_to_severity_of_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity influences the severity with which a condition manifests in an individual." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity influences the severity with which a condition manifests in an individual." []
 is_a: RO:0003304 ! contributes to condition
 
 [Typedef]
 id: RO:0003306
 name: contributes_to_frequency_of_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity influences the frequency of the condition in a population." []
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the entity influences the frequency of the condition in a population." []
 is_a: RO:0003304 ! contributes to condition
 
 [Typedef]
 id: RO:0003307
-name: is_preventative_for_condition
-def: "A relationship between an entity (a genotype, genetic variation or environment) and a condition (a phenotype or disease) where the entity prevents or reduces the severity of a condition." []
-is_a: RO:0002410 ! causally related to
+name: ameliorates_condition
+def: "A relationship between an entity (e.g. a genotype, genetic variation, chemical, or environmental exposure) and a condition (a phenotype or disease), where the presence of the entity reduces or eliminates some or all aspects of the condition." []
+is_a: RO:0003305 ! contributes to severity of condition
 
 [Typedef]
 id: RO:0003308
 name: correlated_with_condition
 def: "A relationship between an entity and a condition (phenotype or disease) with which it exhibits a statistical dependence relationship." []
 is_a: RO:0002610 ! correlated with
+
+[Typedef]
+id: RO:0003309
+name: exacerbates_condition
+def: "A relationship between an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) and a condition (a phenotype or disease), where the presence of the entity worsens some or all aspects of the condition." []
+is_a: RO:0003305 ! contributes to severity of condition
+
+[Typedef]
+id: RO:0003310
+name: condition_ameliorated_by
+def: "A relationship between a condition (a phenotype or disease) and an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) where some or all aspects of the condition are reduced or eliminated by the presence of the entity." []
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0003311
+name: condition_exacerbated_by
+def: "A relationship between a condition (a phenotype or disease) and an entity (e.g. a chemical, environmental exposure, or some form of genetic variation) where some or all aspects of the condition are worsened by the presence of the entity." []
+is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0008501

@@ -1,3 +1,39 @@
+* 2017-07-19 Release
+
+commit 67d22577131b12bfe5155c1e26b25509ce573125
+Merge: 38fe841 7cfd62c
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Wed Jul 19 08:21:36 2017 -0700
+
+    Merge pull request #183 from balhoff/issue-182
+    
+    Removed transitivity from 'negatively regulates'.
+
+commit 38fe8414682c63a478a2f803b49d5d09431d2ac3
+Author: David Osumi-Sutherland <dosumis@gmail.com>
+Date:   Wed Jul 19 16:15:51 2017 +0100
+
+    -Fixed minor typo in direct reg rel defs.
+
+commit 7cfd62c3195d6678c9e97d27a0d62f2201a8bc36
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Wed Jul 19 11:09:11 2017 -0400
+
+    Removed transitivity from 'negatively regulates'.
+
+commit 1c6eb4270e7fc050be5d04a283a4a7600e240978
+Author: David Osumi-Sutherland <dosumis@gmail.com>
+Date:   Tue Jul 18 08:48:45 2017 +0100
+
+    Fixed duplicate rule; improved annotation rules; modified rule <enabling an MF enables its parts< to correct and make clearer.
+
+commit 687371d56e8d8773c54eb1a1b28bdc165c200c1f
+Author: David Osumi-Sutherland <dosumis@gmail.com>
+Date:   Mon Jul 17 12:10:12 2017 +0100
+
+    Fixes #180
+
+
 * 2017-06-15 Release
 
 commit 7bf8fa406e90c8a849dd4acf65b3cd5f8b82e381
