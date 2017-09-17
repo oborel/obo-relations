@@ -1284,12 +1284,6 @@ AND t has_input y</dc:description>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-19T17:30:36Z</oboInOwl:creation_date>
         <rdfs:label>has ligand</rdfs:label>
     </owl:ObjectProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002019"/>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget>A relationship that holds between between a receptor and an chemical entity, typically a small molecule or peptide, that carries information between cells or compartments of a cell and which binds the receptor and regulates its effector function.</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
-    </owl:Axiom>
     
 
 
@@ -1302,12 +1296,6 @@ AND t has_input y</dc:description>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-20T17:11:08Z</oboInOwl:creation_date>
         <rdfs:label>transports</rdfs:label>
     </owl:ObjectProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002020"/>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget>Holds between p and c when p is a transport process or transporter activity and the outcome of this p is to move c from one location to another.</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
-    </owl:Axiom>
     
 
 
@@ -1320,11 +1308,61 @@ AND t has_input y</dc:description>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-20T17:19:37Z</oboInOwl:creation_date>
         <rdfs:label>occurs across</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002022 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002022">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002334"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dos</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-09-17T13:52:24Z</oboInOwl:creation_date>
+        <rdfs:comment>Process(P2) is directly regulated by process(P1) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2.</rdfs:comment>
+        <rdfs:label>directly regulated by</rdfs:label>
+    </owl:ObjectProperty>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002021"/>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002022"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget>Process(P2) is directly regulated by process(P1) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002023 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002023">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002022"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002630"/>
+        <obo:IAO_0000115>Process(P2) is directly negatively regulated by process(P1) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P2 directly negatively regulated by P1.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dos</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-09-17T13:52:38Z</oboInOwl:creation_date>
+        <rdfs:label>directly negatively regulated by</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002023"/>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget>A relationship between a process and a barrier, where the process occurs in a region spanning the barrier. For cellular processes the barrier is typically a membrane. Examples include transport across a membrane and membrane depolarization.</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>GOC:cjm</oboInOwl:hasDbXref>
+        <owl:annotatedTarget>Process(P2) is directly negatively regulated by process(P1) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P2 directly negatively regulated by P1.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002024 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002024">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002022"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002629"/>
+        <obo:IAO_0000115>Process(P2) is directly postively regulated by process(P1) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P2 is directly postively regulated by P1.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dos</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-09-17T13:52:47Z</oboInOwl:creation_date>
+        <rdfs:label>directly positively regulated by</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002024"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Process(P2) is directly postively regulated by process(P1) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P2 is directly postively regulated by P1.</owl:annotatedTarget>
         <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
     </owl:Axiom>
     
@@ -3461,12 +3499,6 @@ where
         <obo:IAO_0000118>regulates localization of</obo:IAO_0000118>
         <rdfs:label xml:lang="en">transports or maintains localization of</rdfs:label>
     </owl:ObjectProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002313"/>
-        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget>Holds between p and c when p is a localization process (localization covers maintenance of localization as well as its establishment)  and the outcome of this process is to regulate the localization of c.</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>GOC:dos</oboInOwl:hasDbXref>
-    </owl:Axiom>
     
 
 
@@ -6847,7 +6879,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002629">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-        <obo:IAO_0000115>Process(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2.</obo:IAO_0000115>
+        <obo:IAO_0000115>Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:resource="http://purl.obolibrary.org/obo/ro/docs/causal-relations"/>
         <obo:IAO_0000589>directly positively regulates (process to process)</obo:IAO_0000589>
         <rdfs:label>directly positively regulates</rdfs:label>
@@ -6860,7 +6892,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002630">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-        <obo:IAO_0000115>Process(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2.</obo:IAO_0000115>
+        <obo:IAO_0000115>Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:resource="http://purl.obolibrary.org/obo/ro/docs/causal-relations"/>
         <obo:IAO_0000589>directly negatively regulates (process to process)</obo:IAO_0000589>
         <rdfs:label>directly negatively regulates</rdfs:label>
@@ -8244,5 +8276,5 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
