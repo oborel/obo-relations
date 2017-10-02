@@ -374,8 +374,48 @@ is_a: RO:0002180 ! has component
 [Typedef]
 id: RO:0002019
 name: has_ligand
-def: "A relationship that holds between between a receptor and an chemical entity, typically a small molecule or peptide, that carries information between cells or compartments of a cell and which binds the receptor and regulates its effector function." [GOC:dos]
+def: "A relationship that holds between between a receptor and an chemical entity, typically a small molecule or peptide, that carries information between cells or compartments of a cell and which binds the receptor and regulates its effector function." []
 is_a: RO:0002233 ! has input
+
+[Typedef]
+id: RO:0002020
+name: transports
+def: "Holds between p and c when p is a transport process or transporter activity and the outcome of this p is to move c from one location to another." []
+is_a: RO:0002313 ! transports or maintains localization of
+
+[Typedef]
+id: RO:0002021
+name: occurs_across
+def: "A relationship between a process and a barrier, where the process occurs in a region spanning the barrier. For cellular processes the barrier is typically a membrane. Examples include transport across a membrane and membrane depolarization." []
+is_a: RO:0002479 ! has part that occurs in
+
+[Typedef]
+id: RO:0002022
+name: directly_regulated_by
+is_a: RO:0002334 ! regulated by
+inverse_of: RO:0002578 ! directly regulates
+
+[Typedef]
+id: RO:0002023
+name: directly_negatively_regulated_by
+def: "Process(P2) is directly negatively regulated by process(P1) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P2 directly negatively regulated by P1." [GOC:dos]
+is_a: RO:0002022 ! directly regulated by
+inverse_of: RO:0002630 ! directly negatively regulates
+
+[Typedef]
+id: RO:0002024
+name: directly_positively_regulated_by
+def: "Process(P2) is directly postively regulated by process(P1) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P2 is directly postively regulated by P1." [GOC:dos]
+is_a: RO:0002022 ! directly regulated by
+inverse_of: RO:0002629 ! directly positively regulates
+
+[Typedef]
+id: RO:0002025
+name: has_effector_activity
+def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003674),  A 'has component activity' B and B is the effector (output function) of B.  Each compound function has only one effector activity." [GOC:dos]
+is_functional: true
+is_a: RO:0002017 ! has component activity
+is_a: RO:0002211 ! regulates
 
 [Typedef]
 id: RO:0002081
@@ -950,7 +990,7 @@ is_a: RO:0002479 ! has part that occurs in
 [Typedef]
 id: RO:0002233
 name: has_input
-def: "p has direct input c iff c is a participant in p, c is present at the start of p, and the state of c is modified during p." []
+def: "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." []
 holds_over_chain: RO:0002224 RO:0002233
 is_a: RO:0000057 ! has participant
 inverse_of: RO:0002352 ! input of
@@ -1200,7 +1240,7 @@ is_a: RO:0002320 ! evolutionarily related to
 [Typedef]
 id: RO:0002313
 name: transports_or_maintains_localization_of
-def: "Holds between p and c when p is a transportation or localization process and the outcome of this process is to regulate the location of c" []
+def: "Holds between p and c when p is a localization process (localization covers maintenance of localization as well as its establishment)  and the outcome of this process is to regulate the localization of c." []
 is_a: RO:0000057 ! has participant
 is_a: RO:0002337 ! related via localization to
 transitive_over: BFO:0000051 ! has part
@@ -1255,6 +1295,7 @@ id: RO:0002327
 name: enables
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
+transitive_over: BFO:0000051 ! has part
 transitive_over: RO:0002017 ! has component activity
 
 [Typedef]
@@ -1335,7 +1376,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002340
 name: imports
 def: "Holds between p and c when p is a transportation or localization process and the outcome of this process is to move c to a destination that is part of some s, where the start location of c is part of the region that surrounds s." []
-is_a: RO:0002313 ! transports or maintains localization of
+is_a: RO:0002020 ! transports
 transitive_over: BFO:0000051 ! has part
 
 [Typedef]
@@ -1348,6 +1389,7 @@ is_a: RO:0002337 ! related via localization to
 id: RO:0002342
 name: results_in_transport_across
 def: "Holds between p and m when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that crosses m." []
+is_a: RO:0002021 ! occurs across
 is_a: RO:0002344 ! results in transport to from or in
 
 [Typedef]
@@ -1364,7 +1406,7 @@ is_a: RO:0002337 ! related via localization to
 [Typedef]
 id: RO:0002345
 name: exports
-is_a: RO:0002313 ! transports or maintains localization of
+is_a: RO:0002020 ! transports
 transitive_over: BFO:0000051 ! has part
 
 [Typedef]
@@ -1724,9 +1766,11 @@ is_a: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002432
-name: enables_activity_in
-def: "c executes activity in d if and only if c enables p and p occurs_in d" []
+name: is_active_in
+def: "c executes activity in d if and only if c enables p and p occurs_in d.  Assuming no action at a distance by gene products, if a gene product enables (is capable of) a process that occurs in some structure, it must have at least some part in that structure." [GOC:cjm, GOC:dos]
+synonym: "enables activity in" EXACT []
 holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+is_a: RO:0002131 ! overlaps
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -1751,7 +1795,7 @@ is_a: RO:0002434 ! interacts with
 [Typedef]
 id: RO:0002436
 name: molecularly_interacts_with
-def: "An interaction relationship in which the two partners are molecular entities and are executing molecular processes that are directly causally connected." []
+def: "An interaction relationship in which the two partners are molecular entities that directly physically interact with each other for example via a stable binding interaction or a brief interaction during which one modifies the other." []
 is_symmetric: true
 is_a: RO:0002434 ! interacts with
 
@@ -1830,22 +1874,25 @@ is_a: RO:0002436 ! molecularly interacts with
 
 [Typedef]
 id: RO:0002448
-name: molecularly_controls
-def: "Holds between molecular entities a and b when the execution of a activates or inhibits the activity of b" []
+name: activity_directly_regulates_activity_of
+def: "Holds between molecular entities A and B where A can physically interact with B and in doing so regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A regulates the kinase activity of B." []
+synonym: "molecularly controls" EXACT []
 is_a: RO:0002436 ! molecularly interacts with
 is_a: RO:0002566 ! causally influences
 
 [Typedef]
 id: RO:0002449
-name: molecularly_decreases_activity_of
-def: "Holds between molecules a and b if and only if a executes a process that directly diminishes a process executed by b." []
-is_a: RO:0002448 ! molecularly controls
+name: activity_directly_negatively_regulates_activity_of
+def: "Holds between molecular entities A and B where A can physically interact with B and in doing so negatively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B." []
+synonym: "molecularly decreases activity of" EXACT []
+is_a: RO:0002448 ! activity directly regulates activity of
 
 [Typedef]
 id: RO:0002450
-name: molecularly_increases_activity_of
-def: "Holds between molecules a and b if and only if a executes a process that directly activates a process executed by b." []
-is_a: RO:0002448 ! molecularly controls
+name: activity_directly_positively_regulates_activity_of
+def: "Holds between molecular entities A and B where A can physically interact with B and in doing so positively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B." []
+synonym: "molecularly increases activity of" EXACT []
+is_a: RO:0002448 ! activity directly regulates activity of
 
 [Typedef]
 id: RO:0002451
@@ -2662,14 +2709,14 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002629
 name: directly_positively_regulates
-def: "Process(P1) directly regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
+def: "Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
 [Typedef]
 id: RO:0002630
 name: directly_negatively_regulates
-def: "Process(P1) directly regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
+def: "Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -2752,13 +2799,13 @@ def: "a produced_by b iff some process that occurs_in b has_output a." []
 id: RO:0003002
 name: represses_expression_of
 def: "Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b." []
-is_a: RO:0002449 ! molecularly decreases activity of
+is_a: RO:0002449 ! activity directly negatively regulates activity of
 
 [Typedef]
 id: RO:0003003
 name: increases_expression_of
 def: "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b." []
-is_a: RO:0002450 ! molecularly increases activity of
+is_a: RO:0002450 ! activity directly positively regulates activity of
 
 [Typedef]
 id: RO:0003301

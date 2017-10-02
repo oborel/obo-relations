@@ -410,6 +410,14 @@ is_a: RO:0002022 ! directly regulated by
 inverse_of: RO:0002629 ! directly positively regulates
 
 [Typedef]
+id: RO:0002025
+name: has_effector_activity
+def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003674),  A 'has component activity' B and B is the effector (output function) of B.  Each compound function has only one effector activity." [GOC:dos]
+is_functional: true
+is_a: RO:0002017 ! has component activity
+is_a: RO:0002211 ! regulates
+
+[Typedef]
 id: RO:0002081
 name: before_or_simultaneous_with
 is_a: RO:0002222 ! temporally related to
@@ -1287,6 +1295,7 @@ id: RO:0002327
 name: enables
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
+transitive_over: BFO:0000051 ! has part
 transitive_over: RO:0002017 ! has component activity
 
 [Typedef]
@@ -1757,9 +1766,11 @@ is_a: RO:0002500 ! causal agent in
 
 [Typedef]
 id: RO:0002432
-name: enables_activity_in
-def: "c executes activity in d if and only if c enables p and p occurs_in d" []
+name: is_active_in
+def: "c executes activity in d if and only if c enables p and p occurs_in d.  Assuming no action at a distance by gene products, if a gene product enables (is capable of) a process that occurs in some structure, it must have at least some part in that structure." [GOC:cjm, GOC:dos]
+synonym: "enables activity in" EXACT []
 holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+is_a: RO:0002131 ! overlaps
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
