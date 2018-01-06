@@ -19,7 +19,7 @@ ontology: ro/subsets/ro-chado.obo
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
-property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
+property_value: http://xmlns.com/foaf/0.1/homepage https://github.com/oborel/obo-relations/ xsd:anyURI
 
 [Typedef]
 id: BFO:0000050
@@ -418,6 +418,12 @@ is_a: RO:0002017 ! has component activity
 is_a: RO:0002211 ! regulates
 
 [Typedef]
+id: RO:0002026
+name: in_register_with
+def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [GOC:dos]
+is_a: RO:0002323 ! mereotopologically related to
+
+[Typedef]
 id: RO:0002081
 name: before_or_simultaneous_with
 is_a: RO:0002222 ! temporally related to
@@ -506,7 +512,7 @@ transitive_over: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002101
 name: fasciculates_with
-def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
+def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through." []
 is_a: RO:0002131 ! overlaps
 inverse_of: RO:0002132 ! has fasciculating neuron projection
 
@@ -521,7 +527,7 @@ transitive_over: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002103
 name: synapsed_by
-def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
+def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it." []
 is_a: RO:0000301 ! upstream in neural circuit with
 inverse_of: RO:0002120 ! synapsed to
 
@@ -567,7 +573,7 @@ is_a: RO:0002103 ! synapsed by
 [Typedef]
 id: RO:0002110
 name: has_postsynaptic_terminal_in
-def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
+def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
 is_a: RO:0002130 ! has synaptic terminal in
 transitive_over: BFO:0000050 ! part of
 
@@ -598,19 +604,19 @@ inverse_of: RO:0002115 ! synapsed_by_via_type_III_bouton
 [Typedef]
 id: RO:0002115
 name: synapsed_by_via_type_III_bouton
-def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton.\n" []
+def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton." []
 is_a: RO:0002103 ! synapsed by
 
 [Typedef]
 id: RO:0002120
 name: synapsed_to
-def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n        " []
+def: "Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to." []
 is_a: RO:0000302 ! downstream in neural circuit with
 
 [Typedef]
 id: RO:0002121
 name: dendrite_synapsed_in
-def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
+def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input." []
 is_a: RO:0002110 ! has postsynaptic terminal in
 transitive_over: BFO:0000050 ! part of
 
@@ -867,7 +873,7 @@ def: "x has prototype y if and only if x is an instance of C and y is a prototyp
 [Typedef]
 id: RO:0002215
 name: capable_of
-def: "A relation between a material entity (such as a cell) and a process, in which the material entity has the ability to carry out the process. " []
+def: "A relation between a material entity (such as a cell) and a process, in which the material entity has the ability to carry out the process." []
 holds_over_chain: RO:0002214 RO:0002217
 is_a: RO:0002216 ! capable of part of
 
@@ -877,7 +883,7 @@ name: capable_of_part_of
 def: "c stands in this relationship to p if and only if there exists some p' such that c is capable_of p', and p' is part_of p." []
 holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002328 ! functionally related to
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002217
@@ -1159,7 +1165,7 @@ name: acts_upstream_of_or_within
 def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
 synonym: "affects" RELATED []
 holds_over_chain: RO:0002327 RO:0002418
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002285
@@ -1382,7 +1388,7 @@ transitive_over: BFO:0000051 ! has part
 [Typedef]
 id: RO:0002341
 name: results_in_transport_along
-def: "Holds between p and l when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that is aligned_with l " []
+def: "Holds between p and l when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that is aligned_with l" []
 is_a: RO:0002337 ! related via localization to
 
 [Typedef]
@@ -1464,7 +1470,7 @@ is_a: RO:0000057 ! has participant
 [Typedef]
 id: RO:0002356
 name: results_in_specification_of
-def: "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment. " []
+def: "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
 
 [Typedef]
@@ -1611,7 +1617,7 @@ is_obsolete: true
 [Typedef]
 id: RO:0002402
 name: obsolete_has_direct_output
-def: "p has direct input c iff c is a participanti n p, c is present at the end of p, and c is not present at the beginning of c. " []
+def: "p has direct input c iff c is a participanti n p, c is present at the end of p, and c is not present at the beginning of c." []
 is_obsolete: true
 
 [Typedef]
@@ -1762,7 +1768,7 @@ name: involved_in_or_involved_in_regulation_of
 def: "c involved in or regulates p if and only if either (i) c is involved in p or (ii) c is involved in regulation of p" []
 is_a: RO:0002264 ! acts upstream of or within
 is_a: RO:0002328 ! functionally related to
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002432
@@ -2153,10 +2159,10 @@ transitive_over: RO:0002082 ! simultaneous with
 
 [Typedef]
 id: RO:0002500
-name: causal_agent_in
+name: causal_agent_in_process
 def: "A relationship between a material entity and a process where the material entity has some causal role that influences the process" []
 is_a: RO:0002595 ! causal relation between material entity and a process
-inverse_of: RO:0002608 ! has causal agent
+inverse_of: RO:0002608 ! process has causal agent
 
 [Typedef]
 id: RO:0002501
@@ -2236,7 +2242,7 @@ is_a: RO:0002330 ! genomically related to
 [Typedef]
 id: RO:0002514
 name: sequentially_related_to
-def: "A relation that holds between two entities that have the property of being sequences or having sequences. " []
+def: "A relation that holds between two entities that have the property of being sequences or having sequences." []
 
 [Typedef]
 id: RO:0002515
@@ -2587,7 +2593,7 @@ id: RO:0002596
 name: capable_of_regulating
 def: "Holds between c and p if and only if c is capable of some activity a, and a regulates p." []
 holds_over_chain: RO:0002215 RO:0002211
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002597
@@ -2629,8 +2635,8 @@ is_a: RO:0002610 ! correlated with
 
 [Typedef]
 id: RO:0002608
-name: has_causal_agent
-def: "Inverse of 'causal agent in'" []
+name: process_has_causal_agent
+def: "Inverse of 'causal agent in process'" []
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -2873,6 +2879,174 @@ def: "A relationship between a condition (a phenotype or disease) and an entity 
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
+id: RO:0004000
+name: condition_has_genetic_basis_in
+is_a: RO:0002410 ! causally related to
+inverse_of: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004001
+name: has_material_basis_in_gain_of_function_germline_mutation_in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004011 ! is causal gain of function germline mutation of in
+
+[Typedef]
+id: RO:0004002
+name: has_material_basis_in_loss_of_function_germline_mutation_in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004012 ! is causal loss of function germline mutation of in
+
+[Typedef]
+id: RO:0004003
+name: has_material_basis_in_germline_mutation_in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004013 ! is causal germline mutation in
+
+[Typedef]
+id: RO:0004004
+name: has_material_basis_in_somatic_mutation_in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004014 ! is causal somatic mutation in
+
+[Typedef]
+id: RO:0004005
+name: has_major_susceptibility_factor
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004015 ! is causal susceptibility factor for
+
+[Typedef]
+id: RO:0004006
+name: has_partial_material_basis_in_germline_mutation_in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004016 ! is causal germline mutation partially giving rise to
+
+[Typedef]
+id: RO:0004010
+name: is_genetic_basis_for_condition
+is_a: RO:0004018 ! is basis for realizable
+
+[Typedef]
+id: RO:0004011
+name: is_causal_gain_of_function_germline_mutation_of_in
+def: "Relates a gene to condition, such that a mutation in this gene in a germ cell provides a new function of the corresponding product and that is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004012
+name: is_causal_loss_of_function_germline_mutation_of_in
+def: "Relates a gene to condition, such that a mutation in this gene in a germ cell impairs the function of the corresponding product and that is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004013
+name: is_causal_germline_mutation_in
+def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004014
+name: is_causal_somatic_mutation_in
+def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition but that cannot be passed on to offspring[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004015
+name: is_causal_susceptibility_factor_for
+def: "Relates a gene to condition, such that a mutation in this gene predisposes to the development of a condition  and that is necessary but not sufficient to develop the condition[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004016
+name: is_causal_germline_mutation_partially_giving_rise_to
+def: "Relates a gene to condition, such that a mutation in this gene partially contributes to the presentation of this condition[modified from orphanet]." []
+is_a: RO:0004010 ! is genetic basis for condition
+
+[Typedef]
+id: RO:0004017
+name: realizable_has_basis_in
+is_a: RO:0002410 ! causally related to
+inverse_of: RO:0004018 ! is basis for realizable
+
+[Typedef]
+id: RO:0004018
+name: is_basis_for_realizable
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0004019
+name: disease_has_basis_in
+is_a: RO:0004017 ! realizable has basis in
+is_a: RO:0004023 ! causal relationship with disease as subject
+
+[Typedef]
+id: RO:0004020
+name: disease_has_basis_in_dysfunction_of
+def: "A relation that holds between the disease and a material entity where the physical basis of the disease is a disorder of that material entity that affects its function." []
+is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0004021
+name: disease_has_basis_in_disruption_of
+def: "A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process." []
+is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0004022
+name: disease_has_basis_in_feature
+def: "A relation that holds between the disease and a feature (a phenotype or other disease) where the physical basis of the disease is the feature." []
+is_a: RO:0002200 ! has phenotype
+is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0004023
+name: causal_relationship_with_disease_as_subject
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0004024
+name: disease_causes_disruption_of
+def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0004025
+name: disease_causes_dysfunction_of
+is_a: RO:0004023 ! causal relationship with disease as subject
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0004026
+name: disease_has_location
+def: "A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+
+[Typedef]
+id: RO:0004027
+name: disease_has_inflammation_site
+def: "A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity" []
+is_a: RO:0004026 ! disease has location
+
+[Typedef]
+id: RO:0004028
+name: realized_in_response_to_stimulus
+def: "A relationship between a realizable entity R (e.g. function or disposition) and a material entity M where R is realized in response to a process that has an input stimulus of M." []
+holds_over_chain: RO:0009501 RO:0002233
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0004029
+name: disease_has_feature
+def: "A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+
+[Typedef]
+id: RO:0004030
+name: disease_arises_from_structure
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
 id: RO:0008501
 name: epiphyte_of
 def: "An interaction relationship wherein a plant or algae is living on the outside surface of another plant." []
@@ -2949,6 +3123,7 @@ is_a: RO:0009001 ! has substance added
 id: RO:0009501
 name: realized_in_response_to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
+synonym: "triggered by process" EXACT [RO:cjm]
 holds_over_chain: BFO:0000054 RO:0002404
 is_a: RO:0002410 ! causally related to
 

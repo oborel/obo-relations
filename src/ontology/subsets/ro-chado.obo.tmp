@@ -418,6 +418,12 @@ is_a: RO:0002017 ! has component activity
 is_a: RO:0002211 ! regulates
 
 [Typedef]
+id: RO:0002026
+name: in register with
+def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [GOC:dos]
+is_a: RO:0002323 ! mereotopologically related to
+
+[Typedef]
 id: RO:0002081
 name: before or simultaneous with
 is_a: RO:0002222 ! temporally related to
@@ -2915,21 +2921,6 @@ is_a: RO:0004000 ! condition has genetic basis in
 inverse_of: RO:0004016 ! is causal germline mutation partially giving rise to
 
 [Typedef]
-id: RO:0004007
-name: TEST 1
-is_a: RO:0004000 ! condition has genetic basis in
-
-[Typedef]
-id: RO:0004008
-name: TEST 2
-is_a: RO:0004000 ! condition has genetic basis in
-
-[Typedef]
-id: RO:0004009
-name: TEST 3
-is_a: RO:0004000 ! condition has genetic basis in
-
-[Typedef]
 id: RO:0004010
 name: is genetic basis for condition
 is_a: RO:0004018 ! is basis for realizable
@@ -2985,6 +2976,7 @@ is_a: RO:0002410 ! causally related to
 id: RO:0004019
 name: disease has basis in
 is_a: RO:0004017 ! realizable has basis in
+is_a: RO:0004023 ! causal relationship with disease as subject
 
 [Typedef]
 id: RO:0004020
@@ -3007,21 +2999,52 @@ is_a: RO:0004019 ! disease has basis in
 
 [Typedef]
 id: RO:0004023
-name: causal relationship between a disease and something
+name: causal relationship with disease as subject
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0004024
 name: disease causes disruption of
 def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
-is_a: RO:0004023 ! causal relationship between a disease and something
+is_a: RO:0004023 ! causal relationship with disease as subject
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0004025
 name: disease causes dysfunction of
-is_a: RO:0004023 ! causal relationship between a disease and something
+is_a: RO:0004023 ! causal relationship with disease as subject
 transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0004026
+name: disease has location
+def: "A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+
+[Typedef]
+id: RO:0004027
+name: disease has inflammation site
+def: "A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity" []
+is_a: RO:0004026 ! disease has location
+
+[Typedef]
+id: RO:0004028
+name: realized in response to stimulus
+def: "A relationship between a realizable entity R (e.g. function or disposition) and a material entity M where R is realized in response to a process that has an input stimulus of M." []
+holds_over_chain: RO:0009501 RO:0002233
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0004029
+name: disease has feature
+def: "A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+
+[Typedef]
+id: RO:0004030
+name: disease arises from structure
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+is_a: RO:0004019 ! disease has basis in
 
 [Typedef]
 id: RO:0008501

@@ -38,7 +38,7 @@ def: "A relation that holds between two neurons connected directly via a synapse
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(or \n				(synapsed_by ?x ?y) \n				(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n	(iff \n		(neural_circuit_path  ...s ?x ?y ?z)\n		(and\n			(neural_circuit_path  ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(or \n				(synapsed_by ?y ?z) \n				(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n	(iff \n		(in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(neural_circuit_path  ?x ...s ?y)))) " xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(or \n				(synapsed_by ?x ?y) \n				(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n	(iff \n		(neural_circuit_path  ...s ?x ?y ?z)\n		(and\n			(neural_circuit_path  ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(or \n				(synapsed_by ?y ?z) \n				(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n	(iff \n		(in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(neural_circuit_path  ?x ...s ?y))))" xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
 
@@ -61,7 +61,7 @@ def: "A relation that holds between a neuron that is synapsed_to another neuron 
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(downstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_by ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(downstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(downstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_by ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(downstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(downstream_neural_circuit_path  ?x ...s ?y)))) \n			" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(downstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_by ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(downstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(downstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_by ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(downstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(downstream_neural_circuit_path  ?x ...s ?y))))" xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
 is_a: RO:0000300 ! in neural circuit with
@@ -73,7 +73,7 @@ subset: ro-eco
 property_value: IAO:0000111 "contained in" xsd:string
 property_value: IAO:0000116 "Containment is location not involving parthood, and arises only where some immaterial continuant is involved." xsd:string
 property_value: IAO:0000116 "Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):" xsd:string
-property_value: IAO:0000116 "Intended meaning:\ndomain: material entity\nrange: spatial region or site (immaterial continuant)\n        " xsd:string
+property_value: IAO:0000116 "Intended meaning:\ndomain: material entity\nrange: spatial region or site (immaterial continuant)" xsd:string
 property_value: IAO:0000118 "contained_in" xsd:string
 property_value: RO:0001900 RO:0001901
 inverse_of: RO:0001019 ! contains
@@ -321,6 +321,14 @@ created_by: dos
 creation_date: 2017-09-22T14:14:36Z
 
 [Typedef]
+id: RO:0002026
+name: in register with
+def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [GOC:dos]
+property_value: created_by "dos" xsd:string
+is_a: RO:0002323 ! mereotopologically related to
+creation_date: 2017-12-07T12:58:06Z
+
+[Typedef]
 id: RO:0002082
 subset: ro-eco
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
@@ -364,7 +372,7 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0043025 and   BFO_0000050 some 
 [Typedef]
 id: RO:0002101
 name: fasciculates with
-def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
+def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
@@ -392,7 +400,7 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\
 [Typedef]
 id: RO:0002103
 name: synapsed by
-def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
+def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -467,7 +475,7 @@ property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000117 "Marta Costa" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002103 ! synapsed by
-expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000051 some (GO_0061174 that BFO_0000051 some GO_0045211 that BFO_0000050 some ?Y)))\n" []
+expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000051 some (GO_0061174 that BFO_0000051 some GO_0045211 that BFO_0000050 some ?Y)))" []
 
 [Typedef]
 id: RO:0002109
@@ -485,7 +493,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_00
 [Typedef]
 id: RO:0002110
 name: has postsynaptic terminal in
-def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
+def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -541,7 +549,7 @@ expand_expression_to: "BFO_0000051 some (GO_0061177 that BFO_0000051 some (that 
 [Typedef]
 id: RO:0002115
 name: synapsed_by_via_type_III_bouton
-def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton.\n" []
+def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type III terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: RO:0001900 RO:0001901
@@ -551,7 +559,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_00
 [Typedef]
 id: RO:0002120
 name: synapsed to
-def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n        " []
+def: "Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to." []
 comment: N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
@@ -564,7 +572,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_004520
 [Typedef]
 id: RO:0002121
 name: dendrite synapsed in
-def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
+def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -606,7 +614,7 @@ property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.n
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000118 "has fasciculating component" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(has_fasciculating_neuron_projection ?x ?y)\n		(exists (?nps ?npbs)		\n			(and \n				(\"neuron projection bundle ; CARO_0001001\" ?x)\n				(\"neuron projection ; GO0043005\" ?y)\n				(\"neuron projection segment ; CARO_0001502\" ?nps)\n				(\"neuron projection bundle segment ; CARO_0001500\" ?npbs)\n				(part_of ?nps ?y)\n				(part_of ?npbs ?x)\n				(part_of ?nps ?npbs)\n				(forall (?npbss)\n					(if\n						(and \n							(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n							(part_of ?npbss ?npbs) \n						)\n						(overlaps ?nps ?npbss)\n					))))))\n\n\n" xsd:string
+property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(has_fasciculating_neuron_projection ?x ?y)\n		(exists (?nps ?npbs)		\n			(and \n				(\"neuron projection bundle ; CARO_0001001\" ?x)\n				(\"neuron projection ; GO0043005\" ?y)\n				(\"neuron projection segment ; CARO_0001502\" ?nps)\n				(\"neuron projection bundle segment ; CARO_0001500\" ?npbs)\n				(part_of ?nps ?y)\n				(part_of ?npbs ?x)\n				(part_of ?nps ?npbs)\n				(forall (?npbss)\n					(if\n						(and \n							(\"neuron projection bundle subsegment ; CARO_0001501\" ?npbss)\n							(part_of ?npbss ?npbs) \n						)\n						(overlaps ?nps ?npbss)\n					))))))" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002131 ! overlaps
 
@@ -728,7 +736,7 @@ def: "A is spatially_disjoint_from B if and only if they have no parts in common
 subset: ro-eco
 property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
-property_value: IAO:0000116 "There are two ways to encode this as a shortcut relation. The other possibility to use an annotation assertion between two classes, and expand this to a disjointness axiom. " xsd:string
+property_value: IAO:0000116 "There are two ways to encode this as a shortcut relation. The other possibility to use an annotation assertion between two classes, and expand this to a disjointness axiom." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 property_value: IAO:0000232 "Note that it would be possible to use the relation to label the relationship between a near infinite number of structures - between the rings of saturn and my left earlobe. The intent is that this is used for parsiomoniously for disambiguation purposes - for example, between siblings in a jointly exhaustive pairwise disjointness hierarchy" xsd:string
@@ -970,7 +978,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 [Typedef]
 id: RO:0002215
 name: capable of
-def: "A relation between a material entity (such as a cell) and a process, in which the material entity has the ability to carry out the process. " []
+def: "A relation between a material entity (such as a cell) and a process, in which the material entity has the ability to carry out the process." []
 subset: ro-eco
 property_value: IAO:0000112 "mechanosensory neuron capable of detection of mechanical stimulus involved in sensory perception (GO:0050974)" xsd:string
 property_value: IAO:0000112 "osteoclast SubClassOf 'capable of' some 'bone resorption'" xsd:string
@@ -993,7 +1001,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
 holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002328 ! functionally related to
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" []
 
 [Typedef]
@@ -1277,7 +1285,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000117 "Melissa Haendel" xsd:string
 property_value: IAO:0000118 "induced by" xsd:string
-property_value: IAO:0000119 " Developmental Biology, Gilbert, 8th edition, figure 6.5(F)" xsd:string
+property_value: IAO:0000119 "Developmental Biology, Gilbert, 8th edition, figure 6.5(F)" xsd:string
 property_value: IAO:0000119 GO:0001759 xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: IAO:0000232 "We place this under 'developmentally preceded by'. This placement should be examined in the context of reciprocal inductions[cjm]" xsd:string
@@ -1333,7 +1341,7 @@ name: acts upstream of or within
 def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
 synonym: "affects" RELATED []
 holds_over_chain: RO:0002327 RO:0002418
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002285
@@ -1528,7 +1536,7 @@ property_value: IAO:0000112 "Subunits of nuclear RNA polymerases: none of the in
 property_value: IAO:0000116 "We would like to say\n\nif and only if\n exists c', p'\n  c part_of c' and c' capable_of p\n   and\n  c capable_of p' and p' part_of p\nthen\n c contributes_to p\n\nHowever, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.geneontology.org/GO.annotation.conventions.shtml#contributes_to xsd:string
-property_value: IAO:0000232 "In the context of the Gene Ontology, contributes_to may be used only with classes from the molecular function ontology. " xsd:string
+property_value: IAO:0000232 "In the context of the Gene Ontology, contributes_to may be used only with classes from the molecular function ontology." xsd:string
 is_a: RO:0002216 ! capable of part of
 is_a: RO:0002329 ! part of structure that is capable of
 
@@ -1656,7 +1664,7 @@ is_a: RO:0002020 ! transports
 [Typedef]
 id: RO:0002341
 name: results in transport along
-def: "Holds between p and l when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that is aligned_with l " []
+def: "Holds between p and l when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that is aligned_with l" []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: RO:0002337 ! related via localization to
 
@@ -1739,7 +1747,7 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 [Typedef]
 id: RO:0002356
 name: results in specification of
-def: "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment. " []
+def: "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.geneontology.org/GO.doc.development.shtml#fate xsd:anyURI
 is_a: results_in_developmental_progression_of ! results in developmental progression of
@@ -1970,7 +1978,7 @@ is_obsolete: true
 [Typedef]
 id: RO:0002402
 name: obsolete has direct output
-def: "p has direct input c iff c is a participanti n p, c is present at the end of p, and c is not present at the beginning of c. " []
+def: "p has direct input c iff c is a participanti n p, c is present at the end of p, and c is not present at the beginning of c." []
 property_value: IAO:0000112 "translation SubClassOf has_direct_output some protein" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2182,7 +2190,7 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "involved in or reguates" xsd:string
 is_a: RO:0002264 ! acts upstream of or within
 is_a: RO:0002328 ! functionally related to
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002432
@@ -2748,11 +2756,11 @@ transitive_over: RO:0002082
 
 [Typedef]
 id: RO:0002500
-name: causal agent in
+name: causal agent in process
 def: "A relationship between a material entity and a process where the material entity has some causal role that influences the process" []
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 is_a: RO:0002595 ! causal relation between material entity and a process
-inverse_of: RO:0002608 ! has causal agent
+inverse_of: RO:0002608 ! process has causal agent
 
 [Typedef]
 id: RO:0002501
@@ -2870,7 +2878,7 @@ is_a: RO:0002330 ! genomically related to
 [Typedef]
 id: RO:0002514
 name: sequentially related to
-def: "A relation that holds between two entities that have the property of being sequences or having sequences. " []
+def: "A relation that holds between two entities that have the property of being sequences or having sequences." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20226267 xsd:anyURI
@@ -3358,7 +3366,7 @@ def: "Holds between c and p if and only if c is capable of some activity a, and 
 property_value: IAO:0000112 "pyrethroid -> growth" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 holds_over_chain: RO:0002215 RO:0002211
-is_a: RO:0002500 ! causal agent in
+is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002597
@@ -3414,8 +3422,8 @@ is_a: RO:0002610 ! correlated with
 
 [Typedef]
 id: RO:0002608
-name: has causal agent
-def: "Inverse of 'causal agent in'" []
+name: process has causal agent
+def: "Inverse of 'causal agent in process'" []
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 is_a: RO:0002410 ! causally related to
 
@@ -3697,6 +3705,246 @@ def: "A relationship between a condition (a phenotype or disease) and an entity 
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
+id: RO:0004000
+name: condition has genetic basis in
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a more specific relations" xsd:string
+is_a: RO:0002410 ! causally related to
+inverse_of: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:38:20Z
+
+[Typedef]
+id: RO:0004001
+name: has material basis in gain of function germline mutation in
+property_value: seeAlso Orphanet:410295
+property_value: seeAlso Orphanet:410296
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004011 ! is causal gain of function germline mutation of in
+created_by: cjm
+creation_date: 2017-11-05T02:45:20Z
+
+[Typedef]
+id: RO:0004002
+name: has material basis in loss of function germline mutation in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004012 ! is causal loss of function germline mutation of in
+created_by: cjm
+creation_date: 2017-11-05T02:45:37Z
+
+[Typedef]
+id: RO:0004003
+name: has material basis in germline mutation in
+property_value: seeAlso Orphanet:317343
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004013 ! is causal germline mutation in
+created_by: cjm
+creation_date: 2017-11-05T02:45:54Z
+
+[Typedef]
+id: RO:0004004
+name: has material basis in somatic mutation in
+property_value: seeAlso Orphanet:317344
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004014 ! is causal somatic mutation in
+created_by: cjm
+creation_date: 2017-11-05T02:46:07Z
+
+[Typedef]
+id: RO:0004005
+name: has major susceptibility factor
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004015 ! is causal susceptibility factor for
+created_by: cjm
+creation_date: 2017-11-05T02:46:26Z
+
+[Typedef]
+id: RO:0004006
+name: has partial material basis in germline mutation in
+is_a: RO:0004000 ! condition has genetic basis in
+inverse_of: RO:0004016 ! is causal germline mutation partially giving rise to
+created_by: cjm
+creation_date: 2017-11-05T02:46:57Z
+
+[Typedef]
+id: RO:0004010
+name: is genetic basis for condition
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a more specific relations" xsd:string
+is_a: RO:0004018 ! is basis for realizable
+created_by: cjm
+creation_date: 2017-11-05T02:53:08Z
+
+[Typedef]
+id: RO:0004011
+name: is causal gain of function germline mutation of in
+def: "Relates a gene to condition, such that a mutation in this gene in a germ cell provides a new function of the corresponding product and that is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+property_value: seeAlso Orphanet:410296
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:55:51Z
+
+[Typedef]
+id: RO:0004012
+name: is causal loss of function germline mutation of in
+def: "Relates a gene to condition, such that a mutation in this gene in a germ cell impairs the function of the corresponding product and that is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+property_value: seeAlso Orphanet:410295
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:56:06Z
+
+[Typedef]
+id: RO:0004013
+name: is causal germline mutation in
+def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+property_value: seeAlso Orphanet:317343
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:56:40Z
+
+[Typedef]
+id: RO:0004014
+name: is causal somatic mutation in
+def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition but that cannot be passed on to offspring[modified from orphanet]." []
+property_value: seeAlso Orphanet:317344
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:57:07Z
+
+[Typedef]
+id: RO:0004015
+name: is causal susceptibility factor for
+def: "Relates a gene to condition, such that a mutation in this gene predisposes to the development of a condition  and that is necessary but not sufficient to develop the condition[modified from orphanet]." []
+property_value: seeAlso Orphanet:317345
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:57:43Z
+
+[Typedef]
+id: RO:0004016
+name: is causal germline mutation partially giving rise to
+def: "Relates a gene to condition, such that a mutation in this gene partially contributes to the presentation of this condition[modified from orphanet]." []
+property_value: seeAlso Orphanet:317346
+is_a: RO:0004010 ! is genetic basis for condition
+created_by: cjm
+creation_date: 2017-11-05T02:58:43Z
+
+[Typedef]
+id: RO:0004017
+name: realizable has basis in
+is_a: RO:0002410 ! causally related to
+inverse_of: RO:0004018 ! is basis for realizable
+created_by: cjm
+creation_date: 2017-11-05T03:20:01Z
+
+[Typedef]
+id: RO:0004018
+name: is basis for realizable
+is_a: RO:0002410 ! causally related to
+created_by: cjm
+creation_date: 2017-11-05T03:20:29Z
+
+[Typedef]
+id: RO:0004019
+name: disease has basis in
+is_a: RO:0004017 ! realizable has basis in
+is_a: RO:0004023 ! causal relationship with disease as subject
+created_by: cjm
+creation_date: 2017-11-05T03:26:47Z
+
+[Typedef]
+id: RO:0004020
+name: disease has basis in dysfunction of
+def: "A relation that holds between the disease and a material entity where the physical basis of the disease is a disorder of that material entity that affects its function." []
+is_a: RO:0004019 ! disease has basis in
+created_by: cjm
+creation_date: 2017-11-05T03:29:32Z
+
+[Typedef]
+id: RO:0004021
+name: disease has basis in disruption of
+def: "A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process." []
+is_a: RO:0004019 ! disease has basis in
+created_by: cjm
+creation_date: 2017-11-05T03:37:52Z
+
+[Typedef]
+id: RO:0004022
+name: disease has basis in feature
+def: "A relation that holds between the disease and a feature (a phenotype or other disease) where the physical basis of the disease is the feature." []
+is_a: RO:0002200 ! has phenotype
+is_a: RO:0004019 ! disease has basis in
+created_by: cjm
+creation_date: 2017-11-05T03:46:07Z
+
+[Typedef]
+id: RO:0004023
+name: causal relationship with disease as subject
+property_value: IAO:0000116 "After import upper level from OGMS, make domain more specific." xsd:string
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all of which have a disease as the subject." xsd:string
+is_a: RO:0002410 ! causally related to
+created_by: cjm
+creation_date: 2017-11-05T03:50:54Z
+
+[Typedef]
+id: RO:0004024
+name: disease causes disruption of
+def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+transitive_over: BFO:0000050
+created_by: cjm
+creation_date: 2017-11-05T03:51:09Z
+
+[Typedef]
+id: RO:0004025
+name: disease causes dysfunction of
+is_a: RO:0004023 ! causal relationship with disease as subject
+transitive_over: BFO:0000050
+created_by: cjm
+creation_date: 2017-11-05T03:58:20Z
+
+[Typedef]
+id: RO:0004026
+name: disease has location
+def: "A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity." []
+property_value: IAO:0000116 "TODO: complete range axiom once more of CARO has been mireoted in to this ontology" xsd:string
+property_value: IAO:0000232 "This relation is intentionally very general, and covers isolated diseases, where the disease is realized as a process occurring in the location, and syndromic diseases, where one or more of the features may be present in that location. Thus any given disease can have multiple locations in the sense defined here." xsd:string
+is_a: RO:0004023 ! causal relationship with disease as subject
+created_by: cjm
+creation_date: 2017-11-05T04:06:02Z
+
+[Typedef]
+id: RO:0004027
+name: disease has inflammation site
+def: "A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity" []
+is_a: RO:0004026 ! disease has location
+created_by: cjm
+creation_date: 2017-12-26T19:37:31Z
+
+[Typedef]
+id: RO:0004028
+name: realized in response to stimulus
+def: "A relationship between a realizable entity R (e.g. function or disposition) and a material entity M where R is realized in response to a process that has an input stimulus of M." []
+holds_over_chain: RO:0009501 RO:0002233
+is_a: RO:0002410 ! causally related to
+created_by: cjm
+creation_date: 2017-12-26T19:45:49Z
+
+[Typedef]
+id: RO:0004029
+name: disease has feature
+def: "A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease." []
+is_a: RO:0004023 ! causal relationship with disease as subject
+created_by: cjm
+creation_date: 2017-12-26T19:50:53Z
+
+[Typedef]
+id: RO:0004030
+name: disease arises from structure
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+is_a: RO:0004019 ! disease has basis in
+created_by: cjm
+creation_date: 2017-12-26T19:58:44Z
+
+[Typedef]
 id: RO:0008501
 name: epiphyte of
 def: "An interaction relationship wherein a plant or algae is living on the outside surface of another plant." []
@@ -3790,11 +4038,13 @@ is_a: RO:0009001 ! has substance added
 id: RO:0009501
 name: realized in response to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
+synonym: "triggered by process" EXACT [RO:cjm]
 property_value: http://purl.org/dc/elements/1.1/contributor "Austin Meier" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Chris Mungall" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "David Osumi-Sutherland" xsd:string
 property_value: http://purl.org/dc/elements/1.1/contributor "Marie Angelique Laporte" xsd:string
 property_value: IAO:0000112 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions." xsd:string
+property_value: IAO:0000112 "An inflammatory disease that is realized in response to an inflammatory process occurring in the gut (which is itself the realization of a process realized in response to harmful stimuli in the mucosal lining of th gut)" xsd:string
 property_value: IAO:0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph." xsd:string
 property_value: seeAlso https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit xsd:anyURI
 is_a: RO:0002410 ! causally related to
@@ -3853,7 +4103,7 @@ inverse_of: RO:0002354 ! formed as result of
 id: results_in_maturation_of
 name: results in maturation of
 def: "The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it's shape and results in an end point state of that entity." []
-property_value: IAO:0000112 " an annotation of gene X to cell maturation with results_in_maturation_of CL:0000057 (fibroblast) means that the fibroblast is mature at the end of the process" xsd:string
+property_value: IAO:0000112 "an annotation of gene X to cell maturation with results_in_maturation_of CL:0000057 (fibroblast) means that the fibroblast is mature at the end of the process" xsd:string
 property_value: IAO:0000112 "bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
