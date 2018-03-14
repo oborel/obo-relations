@@ -497,6 +497,8 @@ Declaration(ObjectProperty(obo:RO_0004032))
 Declaration(ObjectProperty(obo:RO_0004033))
 Declaration(ObjectProperty(obo:RO_0004034))
 Declaration(ObjectProperty(obo:RO_0004035))
+Declaration(ObjectProperty(obo:RO_0004046))
+Declaration(ObjectProperty(obo:RO_0004047))
 Declaration(ObjectProperty(obo:RO_0008501))
 Declaration(ObjectProperty(obo:RO_0008502))
 Declaration(ObjectProperty(obo:RO_0008503))
@@ -565,6 +567,9 @@ Declaration(AnnotationProperty(obo:RO_0002611))
 Declaration(AnnotationProperty(obo:RO_0002612))
 Declaration(AnnotationProperty(obo:RO_0002613))
 Declaration(AnnotationProperty(obo:RO_0002617))
+Declaration(AnnotationProperty(obo:RO_0004048))
+Declaration(AnnotationProperty(obo:RO_0004049))
+Declaration(AnnotationProperty(obo:RO_0004050))
 Declaration(AnnotationProperty(subsets:ro-eco))
 Declaration(AnnotationProperty(dc:description))
 Declaration(AnnotationProperty(cito:citesAsAuthority))
@@ -684,6 +689,7 @@ SubAnnotationPropertyOf(obo:RO_0002421 obo:RO_0002416)
 
 # Annotation Property: obo:RO_0002422 (logical macro assertion on an object property)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002422 "Used to annotate object properties to describe a logical meta-property or characteristic of the object property.")
 AnnotationAssertion(rdfs:label obo:RO_0002422 "logical macro assertion on an object property"@en)
 SubAnnotationPropertyOf(obo:RO_0002422 obo:RO_0002421)
 
@@ -946,6 +952,28 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0002617 "If it is necessary to make t
 AnnotationAssertion(rdfs:label obo:RO_0002617 "is representative IRI for equivalence set")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002617 "OWLAPI Reasoner documentation for representativeElement, which follows a similar idea, but selects an arbitrary member")
 SubAnnotationPropertyOf(obo:RO_0002617 obo:RO_0002601)
+
+# Annotation Property: obo:RO_0004048 (is directional form of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0004048 "Used to annotate object properties representing a causal relationship where the value indicates a direction. Should be \"+\", \"-\" or \"0\"")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0004048 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0004048 "2018-03-13T23:59:29Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0004048 "is directional form of")
+SubAnnotationPropertyOf(obo:RO_0004048 obo:RO_0002422)
+
+# Annotation Property: obo:RO_0004049 (is positive form of)
+
+AnnotationAssertion(oboInOwl:created_by obo:RO_0004049 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0004049 "2018-03-14T00:03:16Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0004049 "is positive form of")
+SubAnnotationPropertyOf(obo:RO_0004049 obo:RO_0004048)
+
+# Annotation Property: obo:RO_0004050 (is negative form of)
+
+AnnotationAssertion(oboInOwl:created_by obo:RO_0004050 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0004050 "2018-03-14T00:03:24Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0004050 "is negative form of")
+SubAnnotationPropertyOf(obo:RO_0004050 obo:RO_0004048)
 
 # Annotation Property: subsets:ro-eco (eco subset)
 
@@ -2103,11 +2131,11 @@ ObjectPropertyRange(obo:RO_0002211 obo:BFO_0000015)
 
 # Object Property: obo:RO_0002212 (negatively regulates)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002212 obo:IAO_0000125)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002212 "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002212 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002212 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002212 "negatively regulates (process to process)")
+AnnotationAssertion(obo:RO_0004050 obo:RO_0002212 obo:RO_0002211)
 AnnotationAssertion(rdfs:label obo:RO_0002212 "negatively regulates"@en)
 SubObjectPropertyOf(obo:RO_0002212 obo:RO_0002211)
 SubObjectPropertyOf(obo:RO_0002212 obo:RO_0002305)
@@ -2119,6 +2147,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002213 "Process(P1) postively regula
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002213 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002213 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002213 "positively regulates (process to process)")
+AnnotationAssertion(obo:RO_0004049 obo:RO_0002213 obo:RO_0002211)
 AnnotationAssertion(rdfs:label obo:RO_0002213 "positively regulates"@en)
 SubObjectPropertyOf(obo:RO_0002213 obo:RO_0002211)
 SubObjectPropertyOf(obo:RO_0002213 obo:RO_0002304)
@@ -2513,15 +2542,19 @@ SubObjectPropertyOf(obo:RO_0002262 obo:RO_0000087)
 
 # Object Property: obo:RO_0002263 (acts upstream of)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002263 "c involved in regulation of p if c enables  'p' and p' causally upstream of p")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0002263 "A faulty traffic light (material entity) whose malfunctioning (a process) is causally upstream of a traffic collision (a process): the traffic light acts upstream of the collision.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002263 "c involved in regulation of p if c enables f and f causally upstream of p")
 AnnotationAssertion(rdfs:label obo:RO_0002263 "acts upstream of")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002263 <http://wiki.geneontology.org/index.php/Acts_upstream_of>)
 SubObjectPropertyOf(obo:RO_0002263 obo:RO_0002264)
 
 # Object Property: obo:RO_0002264 (acts upstream of or within)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002264 "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0002264 "A gene product that has some activity, where that activity may be a part of a pathway or upstream of the pathway.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002264 "c acts upstream of or within p if c is enables f, and f is causally upstream of or within p. c is a material entity and p is an process.")
 AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:RO_0002264 "affects")
 AnnotationAssertion(rdfs:label obo:RO_0002264 "acts upstream of or within")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002264 <http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within>)
 SubObjectPropertyOf(obo:RO_0002264 obo:RO_0002500)
 
 # Object Property: obo:RO_0002285 (developmentally replaces)
@@ -2687,17 +2720,21 @@ ObjectPropertyRange(obo:RO_0002303 obo:ENVO_01000254)
 
 # Object Property: obo:RO_0002304 (causally upstream of, positive effect)
 
+AnnotationAssertion(obo:RO_0004049 obo:RO_0002304 obo:RO_0002411)
 AnnotationAssertion(dc:creator obo:RO_0002304 "cjm"^^xsd:string)
 AnnotationAssertion(rdfs:comment obo:RO_0002304 "holds between x and y if and only if x is causally upstream of y and the progression of x increases the frequency, rate or extent of y")
 AnnotationAssertion(rdfs:label obo:RO_0002304 "causally upstream of, positive effect")
 SubObjectPropertyOf(obo:RO_0002304 obo:RO_0002411)
+SubObjectPropertyOf(obo:RO_0002304 obo:RO_0004047)
 
 # Object Property: obo:RO_0002305 (causally upstream of, negative effect)
 
+AnnotationAssertion(obo:RO_0004050 obo:RO_0002305 obo:RO_0002411)
 AnnotationAssertion(dc:creator obo:RO_0002305 "cjm"^^xsd:string)
 AnnotationAssertion(rdfs:comment obo:RO_0002305 "holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y")
 AnnotationAssertion(rdfs:label obo:RO_0002305 "causally upstream of, negative effect")
 SubObjectPropertyOf(obo:RO_0002305 obo:RO_0002411)
+SubObjectPropertyOf(obo:RO_0002305 obo:RO_0004046)
 
 # Object Property: obo:RO_0002309 (has exposure stimulus)
 
@@ -2867,6 +2904,7 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002331 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002331 "actively involved in")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002331 "enables part of")
 AnnotationAssertion(rdfs:label obo:RO_0002331 "involved in"@en)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002331 <http://wiki.geneontology.org/index.php/Involved_in>)
 SubObjectPropertyOf(obo:RO_0002331 obo:RO_0002431)
 
 # Object Property: obo:RO_0002332 (regulates levels of)
@@ -3462,7 +3500,7 @@ TransitiveObjectProperty(obo:RO_0002427)
 
 # Object Property: obo:RO_0002428 (involved in regulation of)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002428 "c involved in regulation of p if c is involved in some 'p' and p' regulates some p")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002428 "c involved in regulation of p if c is involved in some p' and p' regulates some p")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002428 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002428 "involved in regulation of")
 SubObjectPropertyOf(obo:RO_0002428 obo:RO_0002263)
@@ -3471,12 +3509,14 @@ SubObjectPropertyOf(obo:RO_0002428 obo:RO_0002431)
 # Object Property: obo:RO_0002429 (involved in positive regulation of)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002429 "Chris Mungall")
+AnnotationAssertion(obo:RO_0004049 obo:RO_0002429 obo:RO_0002428)
 AnnotationAssertion(rdfs:label obo:RO_0002429 "involved in positive regulation of")
 SubObjectPropertyOf(obo:RO_0002429 obo:RO_0002428)
 
 # Object Property: obo:RO_0002430 (involved in negative regulation of)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002430 "Chris Mungall")
+AnnotationAssertion(obo:RO_0004050 obo:RO_0002430 obo:RO_0002428)
 AnnotationAssertion(rdfs:label obo:RO_0002430 "involved in negative regulation of")
 SubObjectPropertyOf(obo:RO_0002430 obo:RO_0002428)
 
@@ -4828,6 +4868,7 @@ SubObjectPropertyOf(obo:RO_0002627 obo:RO_0002574)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002629 "Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2.")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002629 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002629 "directly positively regulates (process to process)")
+AnnotationAssertion(obo:RO_0004049 obo:RO_0002629 obo:RO_0002578)
 AnnotationAssertion(rdfs:label obo:RO_0002629 "directly positively regulates")
 SubObjectPropertyOf(obo:RO_0002629 obo:RO_0002213)
 SubObjectPropertyOf(obo:RO_0002629 obo:RO_0002578)
@@ -4837,6 +4878,7 @@ SubObjectPropertyOf(obo:RO_0002629 obo:RO_0002578)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002630 "Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2.")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002630 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002630 "directly negatively regulates (process to process)")
+AnnotationAssertion(obo:RO_0004050 obo:RO_0002630 obo:RO_0002578)
 AnnotationAssertion(rdfs:label obo:RO_0002630 "directly negatively regulates")
 SubObjectPropertyOf(obo:RO_0002630 obo:RO_0002212)
 SubObjectPropertyOf(obo:RO_0002630 obo:RO_0002578)
@@ -5292,13 +5334,16 @@ SubObjectPropertyOf(obo:RO_0004031 obo:RO_0002328)
 
 # Object Property: obo:RO_0004032 (acts upstream of or within, positive effect)
 
+AnnotationAssertion(obo:RO_0004049 obo:RO_0004032 obo:RO_0002264)
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004032 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004032 "2018-01-26T23:49:30Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004032 "acts upstream of or within, positive effect")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0004032 <http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within,_positive_effect>)
 SubObjectPropertyOf(obo:RO_0004032 obo:RO_0002264)
 
 # Object Property: obo:RO_0004033 (acts upstream of or within, negative effect)
 
+AnnotationAssertion(obo:RO_0004050 obo:RO_0004033 obo:RO_0002264)
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004033 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004033 "2018-01-26T23:49:51Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004033 "acts upstream of or within, negative effect")
@@ -5306,19 +5351,41 @@ SubObjectPropertyOf(obo:RO_0004033 obo:RO_0002264)
 
 # Object Property: obo:RO_0004034 (acts upstream of, positive effect)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0004034 "c 'acts upstream of, positive effect' p if c is enables f, and f is causally upstream of p, and the direction of f is positive")
+AnnotationAssertion(obo:RO_0004049 obo:RO_0004034 obo:RO_0002263)
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004034 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004034 "2018-01-26T23:53:14Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004034 "acts upstream of, positive effect")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0004034 <http://wiki.geneontology.org/index.php/Acts_upstream_of,_positive_effect>)
 SubObjectPropertyOf(obo:RO_0004034 obo:RO_0002263)
 SubObjectPropertyOf(obo:RO_0004034 obo:RO_0004032)
 
 # Object Property: obo:RO_0004035 (acts upstream of, negative effect)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0004035 "c 'acts upstream of, negative effect' p if c is enables f, and f is causally upstream of p, and the direction of f is negative")
+AnnotationAssertion(obo:RO_0004050 obo:RO_0004035 obo:RO_0002263)
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004035 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004035 "2018-01-26T23:53:22Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004035 "acts upstream of, negative effect")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0004035 <http://wiki.geneontology.org/index.php/Acts_upstream_of,_negative_effect>)
 SubObjectPropertyOf(obo:RO_0004035 obo:RO_0002263)
 SubObjectPropertyOf(obo:RO_0004035 obo:RO_0004033)
+
+# Object Property: obo:RO_0004046 (causally upstream of or within, negative effect)
+
+AnnotationAssertion(obo:RO_0004050 obo:RO_0004046 obo:RO_0002418)
+AnnotationAssertion(oboInOwl:created_by obo:RO_0004046 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0004046 "2018-03-13T23:55:05Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0004046 "causally upstream of or within, negative effect")
+SubObjectPropertyOf(obo:RO_0004046 obo:RO_0002418)
+
+# Object Property: obo:RO_0004047 (causally upstream of or within, positive effect)
+
+AnnotationAssertion(obo:RO_0004049 obo:RO_0004047 obo:RO_0002418)
+AnnotationAssertion(oboInOwl:created_by obo:RO_0004047 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0004047 "2018-03-13T23:55:19Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0004047 "causally upstream of or within, positive effect")
+SubObjectPropertyOf(obo:RO_0004047 obo:RO_0002418)
 
 # Object Property: obo:RO_0008501 (epiphyte of)
 
@@ -5702,6 +5769,8 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0002411 obo:RO_000
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0002418) obo:RO_0002264)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0002629 obo:RO_0002333) obo:RO_0002450)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0002630 obo:RO_0002333) obo:RO_0002449)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0004046) obo:RO_0004033)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002327 obo:RO_0004047) obo:RO_0004032)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002331 obo:BFO_0000050) obo:RO_0002331)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002331 obo:RO_0002211) obo:RO_0002428)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002331 obo:RO_0002212) obo:RO_0002430)
@@ -5759,7 +5828,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
