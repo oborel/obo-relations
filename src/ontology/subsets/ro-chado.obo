@@ -1155,14 +1155,14 @@ is_a: RO:0000087 ! has role
 [Typedef]
 id: RO:0002263
 name: acts_upstream_of
-def: "c involved in regulation of p if c enables  'p' and p' causally upstream of p" []
+def: "c involved in regulation of p if c enables f and f causally upstream of p" []
 holds_over_chain: RO:0002327 RO:0002411
 is_a: RO:0002264 ! acts upstream of or within
 
 [Typedef]
 id: RO:0002264
 name: acts_upstream_of_or_within
-def: "c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p" []
+def: "c acts upstream of or within p if c is enables f, and f is causally upstream of or within p. c is a material entity and p is an process." []
 synonym: "affects" RELATED []
 holds_over_chain: RO:0002327 RO:0002418
 is_a: RO:0002500 ! causal agent in process
@@ -1226,11 +1226,13 @@ is_a: RO:0002321 ! ecologically related to
 id: RO:0002304
 name: causally_upstream_of,_positive_effect
 is_a: RO:0002411 ! causally upstream of
+is_a: RO:0004047 ! causally upstream of or within, positive effect
 
 [Typedef]
 id: RO:0002305
 name: causally_upstream_of,_negative_effect
 is_a: RO:0002411 ! causally upstream of
+is_a: RO:0004046 ! causally upstream of or within, negative effect
 
 [Typedef]
 id: RO:0002309
@@ -1742,7 +1744,7 @@ is_a: RO:0002501 ! causal relation between processes
 [Typedef]
 id: RO:0002428
 name: involved_in_regulation_of
-def: "c involved in regulation of p if c is involved in some 'p' and p' regulates some p" []
+def: "c involved in regulation of p if c is involved in some p' and p' regulates some p" []
 holds_over_chain: RO:0002327 RO:0002211
 holds_over_chain: RO:0002331 RO:0002211
 is_a: RO:0002263 ! acts upstream of
@@ -3045,6 +3047,51 @@ id: RO:0004030
 name: disease_arises_from_structure
 def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
 is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0004031
+name: enables_subfunction
+def: "Holds between an entity and an process P where the entity enables some larger compound process, and that larger process has-part P." []
+holds_over_chain: RO:0002327 BFO:0000051
+is_a: RO:0002328 ! functionally related to
+
+[Typedef]
+id: RO:0004032
+name: acts_upstream_of_or_within,_positive_effect
+holds_over_chain: RO:0002327 RO:0004047
+is_a: RO:0002264 ! acts upstream of or within
+
+[Typedef]
+id: RO:0004033
+name: acts_upstream_of_or_within,_negative_effect
+holds_over_chain: RO:0002327 RO:0004046
+is_a: RO:0002264 ! acts upstream of or within
+
+[Typedef]
+id: RO:0004034
+name: acts_upstream_of,_positive_effect
+def: "c 'acts upstream of, positive effect' p if c is enables f, and f is causally upstream of p, and the direction of f is positive" []
+holds_over_chain: RO:0002327 RO:0002304
+is_a: RO:0002263 ! acts upstream of
+is_a: RO:0004032 ! acts upstream of or within, positive effect
+
+[Typedef]
+id: RO:0004035
+name: acts_upstream_of,_negative_effect
+def: "c 'acts upstream of, negative effect' p if c is enables f, and f is causally upstream of p, and the direction of f is negative" []
+holds_over_chain: RO:0002327 RO:0002305
+is_a: RO:0002263 ! acts upstream of
+is_a: RO:0004033 ! acts upstream of or within, negative effect
+
+[Typedef]
+id: RO:0004046
+name: causally_upstream_of_or_within,_negative_effect
+is_a: RO:0002418 ! causally upstream of or within
+
+[Typedef]
+id: RO:0004047
+name: causally_upstream_of_or_within,_positive_effect
+is_a: RO:0002418 ! causally upstream of or within
 
 [Typedef]
 id: RO:0008501
