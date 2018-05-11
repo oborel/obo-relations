@@ -30,7 +30,6 @@ id: actively_participates_in
 name: actively participates in
 def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
 xref: RO:0002217
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "agent in" xsd:string
 is_a: participates_in
@@ -69,7 +68,7 @@ is_a: molecularly_interacts_with ! molecularly interacts with
 [Typedef]
 id: acts_upstream_of
 name: acts upstream of
-def: "c involved in regulation of p if c enables f and f causally upstream of p" []
+def: "c acts upstream of p if and only if c enables some f that is involved in p' and p' occurs chronologically before p, is not part of p, and affects the execution of p. c is a material entity and f, p, p' are processes." []
 xref: RO:0002263
 property_value: IAO:0000112 "A faulty traffic light (material entity) whose malfunctioning (a process) is causally upstream of a traffic collision (a process): the traffic light acts upstream of the collision." xsd:string
 property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of
@@ -288,7 +287,6 @@ subset: ro-eco
 xref: RO:0002215
 property_value: IAO:0000112 "mechanosensory neuron capable of detection of mechanical stimulus involved in sensory perception (GO:0050974)" xsd:string
 property_value: IAO:0000112 "osteoclast SubClassOf 'capable of' some 'bone resorption'" xsd:string
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function realized in" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20123131
@@ -323,7 +321,6 @@ id: capable_of_part_of
 name: capable of part of
 def: "c stands in this relationship to p if and only if there exists some p' such that c is capable_of p', and p' is part_of p." []
 xref: RO:0002216
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
 is_a: causal_agent_in_process ! causal agent in process
@@ -2390,11 +2387,13 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "actively involved in" xsd:string
 property_value: IAO:0000118 "enables part of" xsd:string
 property_value: seeAlso Involved:in
+is_a: actively_participates_in ! actively participates in
 is_a: involved_in_or_involved_in_regulation_of ! involved in or involved in regulation of
 
 [Typedef]
 id: involved_in_negative_regulation_of
 name: involved in negative regulation of
+def: "c involved in regulation of p if c is involved in some p' and p' negatively regulates some p" []
 xref: RO:0002430
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0004050 RO:0002428
@@ -2414,6 +2413,7 @@ is_a: functionally_related_to ! functionally related to
 [Typedef]
 id: involved_in_positive_regulation_of
 name: involved in positive regulation of
+def: "c involved in regulation of p if c is involved in some p' and p' positively regulates some p" []
 xref: RO:0002429
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0004049 RO:0002428
