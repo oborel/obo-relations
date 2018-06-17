@@ -1,6 +1,6 @@
 OBO=http://purl.obolibrary.org/obo
 
-ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
+ONTS= ro.obo ro.owl ro.json ro-component.owl ro-component.obo ro-component.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
 
 # ========================================
 # PRODUCTION
@@ -21,6 +21,11 @@ ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
 # turtle file is merged, for querying via arq
 ro.ttl: ro.owl
 	owltools --use-catalog $< --merge-import-closure -o -f ttl $@.tmp && mv $@.tmp $@
+
+EXT_IMPORTS = pato_import go_cc_import go_mf_import go-biotic other_import annotations
+
+ro-component.owl: ro-edit.owl
+	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id $(OBO)/ro/$@ -o $@
 
 %.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && mv $@.tmp $@
@@ -46,7 +51,7 @@ validate-using-oort: ro-edit.owl
 # DIFFS
 # ========================================
 ro-lastbuild.owl: ro-edit.owl
-	wget $(OBO)/ro.owl -O $@
+	wget --no-check-certificate $(OBO)/ro.owl -O $@
 
 ro-diff.md: ro.owl ro-lastbuild.owl 
 	owljs-diff -o $@ ro-lastbuild.owl $<
