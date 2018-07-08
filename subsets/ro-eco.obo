@@ -983,7 +983,6 @@ def: "A relation between a material entity (such as a cell) and a process, in wh
 subset: ro-eco
 property_value: IAO:0000112 "mechanosensory neuron capable of detection of mechanical stimulus involved in sensory perception (GO:0050974)" xsd:string
 property_value: IAO:0000112 "osteoclast SubClassOf 'capable of' some 'bone resorption'" xsd:string
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function realized in" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20123131
@@ -997,7 +996,6 @@ expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
 id: RO:0002216
 name: capable of part of
 def: "c stands in this relationship to p if and only if there exists some p' such that c is capable_of p', and p' is part_of p." []
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
 holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
@@ -1009,7 +1007,6 @@ expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" 
 id: RO:0002217
 name: actively participates in
 def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
-property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "agent in" xsd:string
 inverse_of: RO:0002218 ! has active participant
@@ -1332,7 +1329,7 @@ def: "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:510
 [Typedef]
 id: RO:0002263
 name: acts upstream of
-def: "c involved in regulation of p if c enables f and f causally upstream of p" []
+def: "c acts upstream of p if and only if c enables some f that is involved in p' and p' occurs chronologically before p, is not part of p, and affects the execution of p. c is a material entity and f, p, p' are processes." []
 property_value: IAO:0000112 "A faulty traffic light (material entity) whose malfunctioning (a process) is causally upstream of a traffic collision (a process): the traffic light acts upstream of the collision." xsd:string
 property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of
 holds_over_chain: RO:0002327 RO:0002411
@@ -1596,6 +1593,7 @@ property_value: IAO:0000118 "actively involved in" xsd:string
 property_value: IAO:0000118 "enables part of" xsd:string
 property_value: seeAlso Involved:in
 holds_over_chain: RO:0002327 BFO:0000050
+is_a: RO:0002217 ! actively participates in
 is_a: RO:0002431 ! involved in or involved in regulation of
 transitive_over: BFO:0000050
 
@@ -2179,6 +2177,7 @@ is_a: RO:0002431 ! involved in or involved in regulation of
 [Typedef]
 id: RO:0002429
 name: involved in positive regulation of
+def: "c involved in regulation of p if c is involved in some p' and p' positively regulates some p" []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0004049 RO:0002428
 holds_over_chain: RO:0002327 RO:0002213
@@ -2188,6 +2187,7 @@ is_a: RO:0002428 ! involved in regulation of
 [Typedef]
 id: RO:0002430
 name: involved in negative regulation of
+def: "c involved in regulation of p if c is involved in some p' and p' negatively regulates some p" []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: RO:0004050 RO:0002428
 holds_over_chain: RO:0002327 RO:0002212

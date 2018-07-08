@@ -46,7 +46,7 @@ validate-using-oort: ro-edit.owl
 # DIFFS
 # ========================================
 ro-lastbuild.owl: ro-edit.owl
-	wget $(OBO)/ro.owl -O $@
+	wget --no-check-certificate $(OBO)/ro.owl -O $@
 
 ro-diff.md: ro.owl ro-lastbuild.owl 
 	owljs-diff -o $@ ro-lastbuild.owl $<
