@@ -513,6 +513,7 @@ Declaration(ObjectProperty(obo:RO_0009003))
 Declaration(ObjectProperty(obo:RO_0009005))
 Declaration(ObjectProperty(obo:RO_0009501))
 Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(obo:RO_0002029))
 Declaration(AnnotationProperty(obo:IAO_0000232))
 Declaration(AnnotationProperty(obo:IAO_0000589))
 Declaration(AnnotationProperty(obo:RO_0002161))
@@ -5506,6 +5507,20 @@ SubObjectPropertyOf(obo:RO_HOM0000001 obo:RO_0002158)
 SubObjectPropertyOf(obo:RO_HOM0000003 obo:RO_0002320)
 
 
+############################
+#   Data Properties
+############################
+
+# Data Property: obo:RO_0002029 (has increased age-specific mortality rate)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "PMID:24138933") Annotation(oboInOwl:hasDbXref "Wikipedia:Infant_mortality") obo:IAO_0000115 obo:RO_0002029 "Then percentage of organisms in a population that die during some specified age range (age-specific mortality rate), minus the percentage that die in during the same age range in a wild-type population.")
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0002029 "2018-05-22T16:43:28Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:comment obo:RO_0002029 "This could be used to record the increased infant morality rate in some population compared to wild-type.  For examples of usage see http://purl.obolibrary.org/obo/FBcv_0000351 and subclasses.")
+AnnotationAssertion(rdfs:label obo:RO_0002029 "has increased age-specific mortality rate"@en)
+AnnotationAssertion(<ttp://www.geneontology.org/formats/oboInOwl#created_by> obo:RO_0002029 "dos"^^xsd:string)
+DataPropertyRange(obo:RO_0002029 DatatypeRestriction(xsd:short xsd:minInclusive "0"^^xsd:short xsd:maxInclusive "100"^^xsd:short))
+
+
 
 ############################
 #   Classes
@@ -5827,7 +5842,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
