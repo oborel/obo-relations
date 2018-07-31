@@ -30,6 +30,9 @@ See the [list of relations on OntoBee](http://www.ontobee.org/browser/term.php?o
  * main: http://lists.sourceforge.net/lists/listinfo/obo-relations
  * mirror: http://groups.google.com/group/obo-relations
 
+# Guide
+
+See [ROGuide](https://github.com/oborel/obo-relations/wiki/ROGuide)
 
 # Examples of usage
 
