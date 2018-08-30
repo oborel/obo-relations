@@ -22,9 +22,9 @@ Import(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/other_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/core.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/rohom.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/other_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>)
 Annotation(dc:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."@en)
@@ -34,6 +34,13 @@ Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26
 Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]"^^xsd:string)
 Annotation(foaf:homepage " https://github.com/oborel/obo-relations/"^^xsd:anyURI)
 
+Declaration(Class(obo:GO_0004872))
+Declaration(Class(obo:GO_0048018))
+Declaration(Class(obo:RO_0002310))
+Declaration(Class(obo:RO_0002532))
+Declaration(Class(obo:RO_0002533))
+Declaration(Class(obo:RO_0002534))
+Declaration(Class(foaf:image))
 Declaration(ObjectProperty(obo:BFO_0000050))
 Declaration(ObjectProperty(obo:BFO_0000051))
 Declaration(ObjectProperty(obo:R0_0009004))
@@ -487,9 +494,10 @@ Declaration(ObjectProperty(obo:RO_0009002))
 Declaration(ObjectProperty(obo:RO_0009003))
 Declaration(ObjectProperty(obo:RO_0009005))
 Declaration(ObjectProperty(obo:RO_0009501))
-Declaration(DataProperty(obo:RO_0002029))
 Declaration(ObjectProperty(obo:RO_0010001))
+Declaration(ObjectProperty(obo:RO_0010002))
 Declaration(ObjectProperty(owl:topObjectProperty))
+Declaration(DataProperty(obo:RO_0002029))
 Declaration(AnnotationProperty(obo:IAO_0000232))
 Declaration(AnnotationProperty(obo:IAO_0000589))
 Declaration(AnnotationProperty(obo:RO_0002161))
@@ -565,7 +573,6 @@ Declaration(AnnotationProperty(<ttp://www.geneontology.org/formats/oboInOwl#crea
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000426 "An assertion that holds between an OWL Object Property and a string or literal, where the value of the string or literal is a Common Logic sentence of collection of sentences that define the Object Property.")
 SubAnnotationPropertyOf(obo:IAO_0000426 obo:RO_0002422)
-
 
 # Annotation Property: obo:RO_0001900 (temporal interpretation)
 
@@ -5472,14 +5479,29 @@ ObjectPropertyRange(obo:RO_0009501 obo:BFO_0000015)
 
 # Object Property: obo:RO_0010001 (generically depends on)
 
-AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "A copy of a pdf file generically depends on a laptop, where multiple copies of the file may depend on multiple laptops at any given time.")
-AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "A copy of a protein sequence generically depends on a protein molecule, where multiple copies of the sequence may depend on multiple molecules at any given time.")
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0010001 "a generically depends on b = def. a exists and b exists and: for some type B, b is an instance of B and necessarily (if a exists then some B exists)")
-AnnotationAssertion(obo:IAO_0000119 obo:RO_0010001 "Arp, Smith, and Spear. Building Ontologies with Basic Formal Ontology. The MIT Press: 2015. p. 105.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "Genetic information generically depend on molecules of DNA.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "The novel *War and Peace* generically depends on this copy of the novel.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "The pattern shared by chess boards generically depends on any chess board.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "The score of a symphony g-depends on a copy of the score.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010001 "This pdf file generically depends on this server.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0010001 "A generically dependent continuant *b* generically depends on an independent continuant *c* at time *t* means: there inheres in *c* a specifically deendent continuant which concretizes *b* at *t*.")
+AnnotationAssertion(obo:IAO_0000119 obo:RO_0010001 "[072-ISO]")
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0010001 "g-depends on")
 AnnotationAssertion(rdfs:label obo:RO_0010001 "generically depends on")
-SubObjectPropertyOf(obo:RO_0010001 owl:topObjectProperty)
+InverseObjectProperties(obo:RO_0010001 obo:RO_0010002)
 ObjectPropertyDomain(obo:RO_0010001 obo:BFO_0000031)
 ObjectPropertyRange(obo:RO_0010001 obo:BFO_0000004)
+
+# Object Property: obo:RO_0010002 (is carrier of)
+
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010002 "Molecules of DNA are carriers of genetic information.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010002 "This copy of *War and Peace* is carrier of the novel written by Tolstoy.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0010002 "This hard drive is carrier of these data items.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0010002 "*b* is carrier of *c* at time *t* if and only if *c* *g-depends on* *b* at *t*")
+AnnotationAssertion(obo:IAO_0000119 obo:RO_0010002 "[072-ISO]")
+AnnotationAssertion(rdfs:label obo:RO_0010002 "is carrier of"@en)
+ObjectPropertyDomain(obo:RO_0010002 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0010002 obo:BFO_0000031)
 
 # Object Property: obo:RO_HOM0000001 (in homology relationship with)
 
@@ -5508,7 +5530,6 @@ DataPropertyRange(obo:RO_0002029 DatatypeRestriction(xsd:short xsd:minInclusive 
 ############################
 #   Classes
 ############################
-
 
 # Class: obo:GO_0004842 (ubiquitin-protein ligase activity)
 
@@ -5599,6 +5620,8 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:BFO_0000051 obo:RO_0002202) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:BFO_0000051 obo:RO_0002215) obo:RO_0002584)
 SubObjectPropertyOf(ObjectPropertyChain(obo:BFO_0000054 obo:RO_0002404) obo:RO_0009501)
 SubObjectPropertyOf(Annotation(obo:RO_0002582 "true"^^xsd:boolean) ObjectPropertyChain(obo:RO_0000052 obo:BFO_0000050) obo:RO_0002314)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0000052 obo:RO_0000058) obo:RO_0010001)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0000059 obo:RO_0000053) obo:RO_0010002)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0001025 obo:BFO_0000050) obo:RO_0001018)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0001025 ObjectInverseOf(obo:RO_0001025)) obo:RO_0002379)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002092 obo:BFO_0000063) obo:BFO_0000063)
@@ -5721,7 +5744,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
