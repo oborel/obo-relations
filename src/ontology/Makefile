@@ -1,4 +1,6 @@
 OBO=http://purl.obolibrary.org/obo
+SRC=ro-edit.owl
+ROBOT=robot
 
 ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
 
@@ -61,16 +63,18 @@ ro-diff.html: ro-diff.md
 # ========================================
 # IMPORTS
 # ========================================
-seed.owl: ro-edit.owl
-	owltools --use-catalog $< --merge-imports-closure --remove-imports-declarations -o $@
+seed.txt: $(SRC)
+	$(ROBOT) query -f csv -i $< --query sparql/terms.sparql $@
 
-# TODO - have to manually remove OPs for now...
-#pato_mirror.owl: ro-edit.owl
-#	owltools $(OBO)/pato.owl --extract-mingraph --make-subset-by-properties // --remove-dangling-annotations --set-ontology-id $(OBO)/pato.owl -o $@
-#pato_import.owl: seed.owl pato_mirror.owl
-#	owltools --use-catalog $< pato_mirror.owl --add-imports-from-supports --extract-module -c -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
-##	owltools --use-catalog --map-ontology-iri $(OBO)/ro/pato_import.owl pato_mirror.owl ro-edit.owl --extract-module -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
+imports/%_terms_combined.txt: seed.txt
+	cat $< imports/$*_terms.txt | sort | uniq >  $@
 
+%_import.owl: mirror/%.owl imports/%_terms.txt
+	$(ROBOT) extract -i $< -T imports/$*_terms.txt --method BOT -O $(BASE)/$@ -o $@
+.PRECIOUS: imports/%_import.owl
+
+mirror/%.owl:
+	wget --no-check-certificate $(OBO)/$@ -O $@
 
 # ========================================
 # MIREOT
