@@ -18,6 +18,7 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 Ontology(<http://purl.obolibrary.org/obo/ro.owl>
 <http://purl.obolibrary.org/obo/ro-edit.owl>
 Import(<http://purl.obolibrary.org/obo/ro/annotations.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/chemical.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>)
@@ -1169,6 +1170,7 @@ SubObjectPropertyOf(obo:RO_0002000 obo:RO_0002323)
 # Object Property: obo:RO_0002001 (aligned with)
 
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002001 obo:IAO_0000125)
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002001 "May be obsoleted, see https://github.com/oborel/obo-relations/issues/260")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002001 "David Osumi-Sutherland")
 AnnotationAssertion(obo:RO_0001900 obo:RO_0002001 obo:RO_0001901)
 AnnotationAssertion(rdfs:label obo:RO_0002001 "aligned with"@en)
@@ -2499,23 +2501,6 @@ InverseObjectProperties(obo:RO_0002258 obo:RO_0002286)
 ObjectPropertyDomain(obo:RO_0002258 obo:BFO_0000002)
 ObjectPropertyRange(obo:RO_0002258 obo:BFO_0000002)
 
-# Object Property: obo:RO_0002260 (has biological role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002260 "c has-biological-role r iff c has-role r and r is a biological role (CHEBI:24432)")
-AnnotationAssertion(rdfs:label obo:RO_0002260 "has biological role")
-SubObjectPropertyOf(obo:RO_0002260 obo:RO_0000087)
-
-# Object Property: obo:RO_0002261 (has application role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002261 "c has-application-role r iff c has-role r and r is an application role (CHEBI:33232)")
-AnnotationAssertion(rdfs:label obo:RO_0002261 "has application role")
-SubObjectPropertyOf(obo:RO_0002261 obo:RO_0000087)
-
-# Object Property: obo:RO_0002262 (has chemical role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002262 "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)")
-AnnotationAssertion(rdfs:label obo:RO_0002262 "has chemical role")
-SubObjectPropertyOf(obo:RO_0002262 obo:RO_0000087)
 
 # Object Property: obo:RO_0002263 (acts upstream of)
 
@@ -5743,7 +5728,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
