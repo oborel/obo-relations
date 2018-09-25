@@ -1,0 +1,22 @@
+prefix oio: <http://www.geneontology.org/formats/oboInOwl#>
+prefix def: <http://purl.obolibrary.org/obo/IAO_0000115>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix in_subset: <http://www.geneontology.org/formats/oboInOwl#inSubset>
+prefix dbi: <http://purl.obolibrary.org/obo/RO_0002259>
+prefix RO: <http://purl.obolibrary.org/obo/RO_>
+
+CONSTRUCT {
+   ?q def: ?gendef
+}
+WHERE 
+{
+  ?p a owl:ObjectProperty .
+  ?p rdfs:label ?pLabel .
+  {?p owl:inverseOf ?q} UNION {?q owl:inverseOf ?p} .
+  ?q in_subset: dbi: .
+  FILTER( NOT EXISTS {?q def: ?qdef } )
+  BIND(CONCAT("inverse of ", str(?pLabel)) AS ?gendef)
+
+}
+

@@ -1,54 +1,39 @@
+---
+comments: true
+layout: post
+title: "/releases/2018-03-13/ro.owl"
+date: 2018-03-13
+summary: ""
+categories: release
+image: '/anatomy/images/u-logo.jpg'
+tags:
+ - release
+---
 
 # Ontology Diff Report
 
-## RO Core
-
-Add terms for function. Fixes issue 54
-
-BFO_0000034 function
-- add class BFO_0000034 to bfo-classes-minimal.owl
-- add rdfs:label: function
-- add subClassOf 'realizable entity'
-
-RO_0000085 has function
-- add rdfs:label: has function
-- add alternative term: has_function
-- add textual definition: a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence
-- add editor note: A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists.
-- add example of use: this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)
-- add inverse: function of
-- add range: function
-- add subPropertyOf: bearer of
-
-RO_0000079 function of
-- add rdfs:label: function of
-- add alternative term: function_of
-- add alternative term: is function of
-- add textual definition: a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence
-- add editor note: A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists.
-- add example of use: this catalysis function is a function of this enzyme
-- add inverse: has function
-- add domain: function
-- add subPropertyOf: inheres in
-
-## RO Rump
-
- * Replaced underscores with spaces in some labels
- * added grouping for capable_of and related relations
- * added AP for is-relational-form-of-class
- * docs for existence start/end relations
- * expanding input and output hierarchy with exploratory relations
- * added subPropertyOf has_participant to some results in props (GO meeting 2015-03-12)
 
 ## Original Ontology
 
  * IRI: http://purl.obolibrary.org/obo/ro.owl
- * VersionIRI: http://purl.obolibrary.org/obo/ro/releases/2015-03-12/ro.owl
+ * VersionIRI: http://purl.obolibrary.org/obo/ro/releases/2018-01-05b/ro.owl
 
 ## New Ontology
 
  * IRI: http://purl.obolibrary.org/obo/ro.owl
- * VersionIRI: http://purl.obolibrary.org/obo/ro/releases/2015-04-12/ro.owl
+ * VersionIRI: http://purl.obolibrary.org/obo/ro/releases/2018-03-13/ro.owl
+
+# Report for classes
+
+
+## Class objects lost from source: 0
+
+
+## Class objects new in target: 0
+
+
+## Changed Class objects: 0
+
 
 # Report for properties
 
@@ -56,307 +41,145 @@ RO_0000079 function of
 ## ObjectProperty objects lost from source: 0
 
 
-## ObjectProperty objects new in target: 15
+## ObjectProperty objects new in target: 7
 
 
-### New ObjectProperty : [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600)
+### New ObjectProperty : [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046)
 
- * [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600) *[alternative term](http://purl.obolibrary.org/obo/IAO_0000118)* causes disease
- * [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* benzene -> cancer [CHEBI]
- * SubObjectPropertyOf( [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600) [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598) ) 
- * [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a negatively regulates p.
- * [capable of upregulating or causing pathological process](http://purl.obolibrary.org/obo/RO_0002600) *[label](http://www.w3.org/2000/01/rdf-schema#label)* capable of upregulating or causing pathological process
+ * [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) *[label](http://www.w3.org/2000/01/rdf-schema#label)* causally upstream of or within, negative effect
+ * SubObjectPropertyOf( [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) [causally upstream of or within](http://purl.obolibrary.org/obo/RO_0002418) ) 
+ * [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
+ * [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [causally upstream of or within](http://purl.obolibrary.org/obo/RO_0002418)
+ * [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-03-13T23:55:05Z
 
-### New ObjectProperty : [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599)
+### New ObjectProperty : [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047)
 
- * [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* pazopanib -> pathological angiogenesis
- * [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between a material entity c and a pathological process p if and only if c is capable of some activity a, where a inhibits p.
- * [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) *[alternative term](http://purl.obolibrary.org/obo/IAO_0000118)* treats { [comment](http://www.w3.org/2000/01/rdf-schema#comment)=Usage of the term 'treats' applies when we believe there to be a an inhibitory relationship } 
- * SubObjectPropertyOf( [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) [capable of negatively regulating](http://purl.obolibrary.org/obo/RO_0002597) ) 
- * [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) *[label](http://www.w3.org/2000/01/rdf-schema#label)* capable of inhibiting or preventing pathological process
- * [capable of inhibiting or preventing pathological process](http://purl.obolibrary.org/obo/RO_0002599) *[curator note](http://purl.obolibrary.org/obo/IAO_0000232)* The entity c may be a molecular entity with a drug role, or it could be some other entity used in a therapeutic context, such as a hyperbaric chamber.
+ * [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) *[label](http://www.w3.org/2000/01/rdf-schema#label)* causally upstream of or within, positive effect
+ * [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
+ * SubObjectPropertyOf( [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) [causally upstream of or within](http://purl.obolibrary.org/obo/RO_0002418) ) 
+ * [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [causally upstream of or within](http://purl.obolibrary.org/obo/RO_0002418)
+ * [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-03-13T23:55:19Z
 
-### New ObjectProperty : [capable of negatively regulating](http://purl.obolibrary.org/obo/RO_0002597)
+### New ObjectProperty : [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031)
 
- * [capable of negatively regulating](http://purl.obolibrary.org/obo/RO_0002597) *[label](http://www.w3.org/2000/01/rdf-schema#label)* capable of negatively regulating
- * [capable of negatively regulating](http://purl.obolibrary.org/obo/RO_0002597) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between c and p if and only if c is capable of some activity a, and a negatively regulates p.
- * SubObjectPropertyOf( [capable of negatively regulating](http://purl.obolibrary.org/obo/RO_0002597) [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) ) 
+ * SubObjectPropertyOf( [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031) [functionally related to](http://purl.obolibrary.org/obo/RO_0002328) ) 
+ * [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031) *[label](http://www.w3.org/2000/01/rdf-schema#label)* enables subfunction
+ * [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between an entity and an process P where the entity enables some larger compound process, and that larger process has-part P.
+ * [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
+ * [enables subfunction](http://purl.obolibrary.org/obo/RO_0004031) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-01-25T23:20:13Z
 
-### New ObjectProperty : [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598)
+### New ObjectProperty : [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032)
 
- * [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between c and p if and only if c is capable of some activity a, and a positively regulates p.
- * [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598) *[label](http://www.w3.org/2000/01/rdf-schema#label)* capable of positively regulating
- * SubObjectPropertyOf( [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598) [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) ) 
- * [capable of positively regulating](http://purl.obolibrary.org/obo/RO_0002598) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* renin -> arteriolar smooth muscle contraction
+ * [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264)
+ * [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
+ * [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-01-26T23:49:30Z
+ * SubObjectPropertyOf( [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) ) 
+ * [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within,_positive_effect](http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within,_positive_effect)
+ * [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) *[label](http://www.w3.org/2000/01/rdf-schema#label)* acts upstream of or within, positive effect
 
-### New ObjectProperty : [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595)
+### New ObjectProperty : [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033)
 
- * ObjectPropertyDomain( [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) [material entity](http://purl.obolibrary.org/obo/BFO_0000040) ) 
- * [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) *[label](http://www.w3.org/2000/01/rdf-schema#label)* causal relation between material entity and a process
- * [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.
- * [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) *[term editor](http://purl.obolibrary.org/obo/IAO_0000117)* Chris Mungall
- * SubObjectPropertyOf( [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) [causally related to](http://purl.obolibrary.org/obo/RO_0002410) ) 
- * ObjectPropertyRange( [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) [process](http://purl.obolibrary.org/obo/BFO_0000015) ) 
+ * [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264)
+ * [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) *[label](http://www.w3.org/2000/01/rdf-schema#label)* acts upstream of or within, negative effect
+ * [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-01-26T23:49:51Z
+ * SubObjectPropertyOf( [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) ) 
+ * [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
 
-### New ObjectProperty : [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596)
+### New ObjectProperty : [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034)
 
- * [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between c and p if and only if c is capable of some activity a, and a regulates p.
- * [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* pyrethroid -> growth
- * SubObjectPropertyOf( [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) ) 
- * [capable of regulating](http://purl.obolibrary.org/obo/RO_0002596) *[label](http://www.w3.org/2000/01/rdf-schema#label)* capable of regulating
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c 'acts upstream of, positive effect' p if c is enables f, and f is causally upstream of p, and the direction of f is positive
+ * SubObjectPropertyOf( [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) [acts upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004032) ) 
+ * SubObjectPropertyOf( [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) ) 
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Acts_upstream_of,_positive_effect](http://wiki.geneontology.org/index.php/Acts_upstream_of,_positive_effect)
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[label](http://www.w3.org/2000/01/rdf-schema#label)* acts upstream of, positive effect
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-01-26T23:53:14Z
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263)
+ * [acts upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0004034) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
 
-### New ObjectProperty : [existence ends at point](http://purl.obolibrary.org/obo/RO_0002593)
+### New ObjectProperty : [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035)
 
- * [existence ends at point](http://purl.obolibrary.org/obo/RO_0002593) *[label](http://www.w3.org/2000/01/rdf-schema#label)* existence ends at point
- * [existence ends at point](http://purl.obolibrary.org/obo/RO_0002593) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends.
- * SubObjectPropertyOf( [existence ends at point](http://purl.obolibrary.org/obo/RO_0002593) [relation between structure and stage](http://purl.obolibrary.org/obo/RO_0002487) ) 
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c 'acts upstream of, negative effect' p if c is enables f, and f is causally upstream of p, and the direction of f is negative
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[label](http://www.w3.org/2000/01/rdf-schema#label)* acts upstream of, negative effect
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[creation date](http://www.geneontology.org/formats/oboInOwl#creation_date)* 2018-01-26T23:53:22Z
+ * SubObjectPropertyOf( [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) ) 
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Acts_upstream_of,_negative_effect](http://wiki.geneontology.org/index.php/Acts_upstream_of,_negative_effect)
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263)
+ * SubObjectPropertyOf( [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) [acts upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004033) ) 
+ * [acts upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0004035) *[created by](http://www.geneontology.org/formats/oboInOwl#created_by)* cjm
 
-### New ObjectProperty : [results in remodeling of](http://purl.obolibrary.org/obo/RO_0002591)
-
- * [results in remodeling of](http://purl.obolibrary.org/obo/RO_0002591) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in remodeling of
- * SubObjectPropertyOf( [results in remodeling of](http://purl.obolibrary.org/obo/RO_0002591) [has input](http://purl.obolibrary.org/obo/RO_0002233) ) 
- * SubObjectPropertyOf( [results in remodeling of](http://purl.obolibrary.org/obo/RO_0002591) [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) ) 
-
-### New ObjectProperty : [results in organization of](http://purl.obolibrary.org/obo/RO_0002592)
-
- * SubObjectPropertyOf( [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) [has participant](http://purl.obolibrary.org/obo/RO_0000057) ) 
- * [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in organization of
- * [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c
-
-### New ObjectProperty : [results in disassembly of](http://purl.obolibrary.org/obo/RO_0002590)
-
- * [results in disassembly of](http://purl.obolibrary.org/obo/RO_0002590) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in disassembly of
- * SubObjectPropertyOf( [results in disassembly of](http://purl.obolibrary.org/obo/RO_0002590) [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) ) 
- * SubObjectPropertyOf( [results in disassembly of](http://purl.obolibrary.org/obo/RO_0002590) [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586) ) 
-
-### New ObjectProperty : [existence starts at point](http://purl.obolibrary.org/obo/RO_0002583)
-
- * [existence starts at point](http://purl.obolibrary.org/obo/RO_0002583) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends.
- * SubObjectPropertyOf( [existence starts at point](http://purl.obolibrary.org/obo/RO_0002583) [relation between structure and stage](http://purl.obolibrary.org/obo/RO_0002487) ) 
- * [existence starts at point](http://purl.obolibrary.org/obo/RO_0002583) *[label](http://www.w3.org/2000/01/rdf-schema#label)* existence starts at point
-
-### New ObjectProperty : [results in synthesis of](http://purl.obolibrary.org/obo/RO_0002587)
-
- * [results in synthesis of](http://purl.obolibrary.org/obo/RO_0002587) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in synthesis of
- * SubObjectPropertyOf( [results in synthesis of](http://purl.obolibrary.org/obo/RO_0002587) [results in formation of](http://purl.obolibrary.org/obo/RO_0002297) ) 
-
-### New ObjectProperty : [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586)
-
- * [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in breakdown of
- * SubObjectPropertyOf( [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586) [has input](http://purl.obolibrary.org/obo/RO_0002233) ) 
- * [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* p results in breakdown of c if and only if the execution of p leads to c no longer being present at the end of p
-
-### New ObjectProperty : [results in catabolism of](http://purl.obolibrary.org/obo/RO_0002589)
-
- * [results in catabolism of](http://purl.obolibrary.org/obo/RO_0002589) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* p results in catabolism of c if and only if p is a catabolic process, and the execution of p results in c being broken into smaller parts with energy being released.
- * SubObjectPropertyOf( [results in catabolism of](http://purl.obolibrary.org/obo/RO_0002589) [results in breakdown of](http://purl.obolibrary.org/obo/RO_0002586) ) 
- * [results in catabolism of](http://purl.obolibrary.org/obo/RO_0002589) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in catabolism of
-
-### New ObjectProperty : [results in assembly of](http://purl.obolibrary.org/obo/RO_0002588)
-
- * SubObjectPropertyOf( [results in assembly of](http://purl.obolibrary.org/obo/RO_0002588) [results in organization of](http://purl.obolibrary.org/obo/RO_0002592) ) 
- * [results in assembly of](http://purl.obolibrary.org/obo/RO_0002588) *[label](http://www.w3.org/2000/01/rdf-schema#label)* results in assembly of
- * SubObjectPropertyOf( [results in assembly of](http://purl.obolibrary.org/obo/RO_0002588) [results in formation of](http://purl.obolibrary.org/obo/RO_0002297) ) 
-
-## Changed ObjectProperty objects: 29
+## Changed ObjectProperty objects: 12
 
 
-### Changes for: [determines](http://purl.obolibrary.org/obo/RO_0002508)
+### Changes for: [involved in positive regulation of](http://purl.obolibrary.org/obo/RO_0002429)
+
+ * _Added_
+    *  **+** [involved in positive regulation of](http://purl.obolibrary.org/obo/RO_0002429) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [involved in regulation of](http://purl.obolibrary.org/obo/RO_0002428)
+
+### Changes for: [involved in negative regulation of](http://purl.obolibrary.org/obo/RO_0002430)
+
+ * _Added_
+    *  **+** [involved in negative regulation of](http://purl.obolibrary.org/obo/RO_0002430) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [involved in regulation of](http://purl.obolibrary.org/obo/RO_0002428)
+
+### Changes for: [involved in](http://purl.obolibrary.org/obo/RO_0002331)
+
+ * _Added_
+    *  **+** [involved in](http://purl.obolibrary.org/obo/RO_0002331) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Involved_in](http://wiki.geneontology.org/index.php/Involved_in)
+
+### Changes for: [positively regulates](http://purl.obolibrary.org/obo/RO_0002213)
+
+ * _Added_
+    *  **+** [positively regulates](http://purl.obolibrary.org/obo/RO_0002213) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [regulates](http://purl.obolibrary.org/obo/RO_0002211)
+
+### Changes for: [negatively regulates](http://purl.obolibrary.org/obo/RO_0002212)
 
  * _Deleted_
-    *  **-** SubObjectPropertyOf( [determines](http://purl.obolibrary.org/obo/RO_0002508) [causal relation between material entities](http://purl.obolibrary.org/obo/RO_0002506) ) 
+    *  **-** [negatively regulates](http://purl.obolibrary.org/obo/RO_0002212) *[has curation status](http://purl.obolibrary.org/obo/IAO_0000114)* [pending final vetting](http://purl.obolibrary.org/obo/IAO_0000125)
  * _Added_
-    *  **+** SubObjectPropertyOf( [determines](http://purl.obolibrary.org/obo/RO_0002508) [causally influences](http://purl.obolibrary.org/obo/RO_0002566) ) 
+    *  **+** [negatively regulates](http://purl.obolibrary.org/obo/RO_0002212) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [regulates](http://purl.obolibrary.org/obo/RO_0002211)
 
-### Changes for: [contributes to](http://purl.obolibrary.org/obo/RO_0002326)
+### Changes for: [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264)
 
  * _Deleted_
-    *  **-** [contributes to](http://purl.obolibrary.org/obo/RO_0002326) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* We would like to say
-
-if and only if
- exists c', p'
-  c part_of c' and c' capable_of p
-   and
-  c capable_of p' and p' part_of p
-then
- c ontributes_to p
-
-However, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction.
+    *  **-** [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c acts upstream of or within p if c is enables 'p' and p' causally upstream of or within p
  * _Added_
-    *  **+** [contributes to](http://purl.obolibrary.org/obo/RO_0002326) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* We would like to say
+    *  **+** [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c acts upstream of or within p if c is enables f, and f is causally upstream of or within p. c is a material entity and p is an process.
+    *  **+** [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* A gene product that has some activity, where that activity may be a part of a pathway or upstream of the pathway.
+    *  **+** [acts upstream of or within](http://purl.obolibrary.org/obo/RO_0002264) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within](http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within)
 
-if and only if
- exists c', p'
-  c part_of c' and c' capable_of p
-   and
-  c capable_of p' and p' part_of p
-then
- c contributes_to p
-
-However, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction.
-
-### Changes for: [subject participant in](http://purl.obolibrary.org/obo/RO_0002462)
-
- * _Added_
-    *  **+** [subject participant in](http://purl.obolibrary.org/obo/RO_0002462) *[curator note](http://purl.obolibrary.org/obo/IAO_0000232)* Experimental: relation used for defining interaction relations; the meaning of s 'subject participant in' p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the subject is the predator. We can imagine a reciprocal prey-predatory process with subject and object reversed.
-
-### Changes for: [target participant in](http://purl.obolibrary.org/obo/RO_0002463)
-
- * _Added_
-    *  **+** [target participant in](http://purl.obolibrary.org/obo/RO_0002463) *[curator note](http://purl.obolibrary.org/obo/IAO_0000232)* Experimental: relation used for defining interaction relations; the meaning of s 'target participant in' p is determined by the type of p, where p must be a directional interaction process. For example, in a predator-prey interaction process the target is the prey. We can imagine a reciprocal prey-predatory process with subject and object reversed.
-
-### Changes for: [transports or maintains localization of](http://purl.obolibrary.org/obo/RO_0002313)
-
- * _Added_
-    *  **+** [transports or maintains localization of](http://purl.obolibrary.org/obo/RO_0002313) *[alternative term](http://purl.obolibrary.org/obo/IAO_0000118)* transports
-
-### Changes for: [molecularly controls](http://purl.obolibrary.org/obo/RO_0002448)
+### Changes for: [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263)
 
  * _Deleted_
-    *  **-** [molecularly controls](http://purl.obolibrary.org/obo/RO_0002448) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* a molecularly controls b if the execution of a activates or inhibits the activity of b
+    *  **-** [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c involved in regulation of p if c enables  'p' and p' causally upstream of p
  * _Added_
-    *  **+** [molecularly controls](http://purl.obolibrary.org/obo/RO_0002448) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between molecular entities a and b when the execution of a activates or inhibits the activity of b
+    *  **+** [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c involved in regulation of p if c enables f and f causally upstream of p
+    *  **+** [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* A faulty traffic light (material entity) whose malfunctioning (a process) is causally upstream of a traffic collision (a process): the traffic light acts upstream of the collision.
+    *  **+** [acts upstream of](http://purl.obolibrary.org/obo/RO_0002263) *[seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)* [http://wiki.geneontology.org/index.php/Acts_upstream_of](http://wiki.geneontology.org/index.php/Acts_upstream_of)
 
-### Changes for: [enabled by](http://purl.obolibrary.org/obo/RO_0002333)
+### Changes for: [directly positively regulates](http://purl.obolibrary.org/obo/RO_0002629)
+
+ * _Added_
+    *  **+** [directly positively regulates](http://purl.obolibrary.org/obo/RO_0002629) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [directly regulates](http://purl.obolibrary.org/obo/RO_0002578)
+
+### Changes for: [directly negatively regulates](http://purl.obolibrary.org/obo/RO_0002630)
+
+ * _Added_
+    *  **+** [directly negatively regulates](http://purl.obolibrary.org/obo/RO_0002630) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [directly regulates](http://purl.obolibrary.org/obo/RO_0002578)
+
+### Changes for: [involved in regulation of](http://purl.obolibrary.org/obo/RO_0002428)
 
  * _Deleted_
-    *  **-** [enabled by](http://purl.obolibrary.org/obo/RO_0002333) *[label](http://www.w3.org/2000/01/rdf-schema#label)* enabled_by
+    *  **-** [involved in regulation of](http://purl.obolibrary.org/obo/RO_0002428) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c involved in regulation of p if c is involved in some 'p' and p' regulates some p
  * _Added_
-    *  **+** [enabled by](http://purl.obolibrary.org/obo/RO_0002333) *[label](http://www.w3.org/2000/01/rdf-schema#label)* enabled by
+    *  **+** [involved in regulation of](http://purl.obolibrary.org/obo/RO_0002428) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c involved in regulation of p if c is involved in some p' and p' regulates some p
 
-### Changes for: [capable of](http://purl.obolibrary.org/obo/RO_0002215)
-
- * _Added_
-    *  **+** SubObjectPropertyOf( [capable of](http://purl.obolibrary.org/obo/RO_0002215) [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) ) 
-
-### Changes for: [capable of part of](http://purl.obolibrary.org/obo/RO_0002216)
+### Changes for: [causally upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0002305)
 
  * _Added_
-    *  **+** SubObjectPropertyOf( [capable of part of](http://purl.obolibrary.org/obo/RO_0002216) [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) ) 
+    *  **+** SubObjectPropertyOf( [causally upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0002305) [causally upstream of or within, negative effect](http://purl.obolibrary.org/obo/RO_0004046) ) 
+    *  **+** [causally upstream of, negative effect](http://purl.obolibrary.org/obo/RO_0002305) *[is negative form of](http://purl.obolibrary.org/obo/RO_0004050)* [causally upstream of](http://purl.obolibrary.org/obo/RO_0002411)
 
-### Changes for: [regulates](http://purl.obolibrary.org/obo/RO_0002211)
-
- * _Added_
-    *  **+** [regulates](http://purl.obolibrary.org/obo/RO_0002211) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* We use 'regulates' here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of 'causally upstream of or within' (aka influences). Consider relabeling to make things more explicit
-
-### Changes for: [existence ends with](http://purl.obolibrary.org/obo/RO_0002493)
+### Changes for: [causally upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0002304)
 
  * _Added_
-    *  **+** [existence ends with](http://purl.obolibrary.org/obo/RO_0002493) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence ends with](http://purl.obolibrary.org/obo/RO_0002493) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence ends with y if and only if the time point at which x ends is equivalent to the time point at which y ends. Formally: x existence ends with y iff ω(x) = ω(y).
-
-### Changes for: [existence ends during](http://purl.obolibrary.org/obo/RO_0002492)
-
- * _Added_
-    *  **+** [existence ends during](http://purl.obolibrary.org/obo/RO_0002492) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence ends during](http://purl.obolibrary.org/obo/RO_0002492) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence ends during y if and only if the time point at which x ends is before or equivalent to the time point at which y ends and after or equivalent to the point at which y starts. Formally: x existence ends during y iff ω(x) <= ω(y) and ω(x) >= α(y).
-
-### Changes for: [existence starts and ends during](http://purl.obolibrary.org/obo/RO_0002491)
-
- * _Deleted_
-    *  **-** [existence starts and ends during](http://purl.obolibrary.org/obo/RO_0002491) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c exists during s iff start_of(c) part_of s and end_of(c) part_of s
- * _Added_
-    *  **+** [existence starts and ends during](http://purl.obolibrary.org/obo/RO_0002491) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence starts and ends during](http://purl.obolibrary.org/obo/RO_0002491) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence starts and ends during y if and only if the start of x is part of y and the end of x is part of y. Formally: x existence starts and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x) >= α(y)
-
-### Changes for: [existence overlaps](http://purl.obolibrary.org/obo/RO_0002490)
-
- * _Added_
-    *  **+** [existence overlaps](http://purl.obolibrary.org/obo/RO_0002490) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence overlaps](http://purl.obolibrary.org/obo/RO_0002490) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence overlaps y if and only if either (a) the start of x is part of y or (b) the end of x is part of y. Formally: x existence starts and ends during y iff (α(x) >= α(y) & α(x) <= ω(y)) OR (ω(x) <= ω(y) & ω(x) >= α(y))
-
-### Changes for: [existence ends during or before](http://purl.obolibrary.org/obo/RO_0002497)
-
- * _Added_
-    *  **+** [existence ends during or before](http://purl.obolibrary.org/obo/RO_0002497) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence ends during or before](http://purl.obolibrary.org/obo/RO_0002497) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence ends during or before y if and only if the time point at which x ends is before or equivalent to the time point at which y ends.
-
-### Changes for: [existence starts during or after](http://purl.obolibrary.org/obo/RO_0002496)
-
- * _Added_
-    *  **+** [existence starts during or after](http://purl.obolibrary.org/obo/RO_0002496) *[comment](http://www.w3.org/2000/01/rdf-schema#comment)* The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
-    *  **+** [existence starts during or after](http://purl.obolibrary.org/obo/RO_0002496) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence starts during or after y if and only if the time point at which x starts is after or equivalent to the time point at which y starts. Formally: x existence starts during or after y iff α (x) >= α (y).
-
-### Changes for: [existence starts during](http://purl.obolibrary.org/obo/RO_0002488)
-
- * _Deleted_
-    *  **-** [existence starts during](http://purl.obolibrary.org/obo/RO_0002488) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c existence starts during s iff start_of(c) part_of s
- * _Added_
-    *  **+** [existence starts during](http://purl.obolibrary.org/obo/RO_0002488) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x existence starts during y if and only if the time point at which x starts is after or equivalent to the time point at which y starts and before or equivalent to the time point at which y ends. Formally: x existence starts during y iff α(x) >= α(y) & α(x) <= ω(y).
-
-### Changes for: [relation between structure and stage](http://purl.obolibrary.org/obo/RO_0002487)
-
- * _Added_
-    *  **+** ObjectPropertyDomain( [relation between structure and stage](http://purl.obolibrary.org/obo/RO_0002487) [continuant](http://purl.obolibrary.org/obo/BFO_0000002) ) 
-    *  **+** ObjectPropertyRange( [relation between structure and stage](http://purl.obolibrary.org/obo/RO_0002487) [occurrent](http://purl.obolibrary.org/obo/BFO_0000003) ) 
-
-### Changes for: [existence starts with](http://purl.obolibrary.org/obo/RO_0002489)
-
- * _Deleted_
-    *  **-** [existence starts with](http://purl.obolibrary.org/obo/RO_0002489) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* c existence starts during s iff start_of(c) = start_of(s)
- * _Added_
-    *  **+** [existence starts with](http://purl.obolibrary.org/obo/RO_0002489) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* x starts ends with y if and only if the time point at which x starts is equivalent to the time point at which y starts. Formally: x existence starts with y iff α(x) = α(y).
-
-### Changes for: [results in maturation of](http://purl.obolibrary.org/obo/RO_0002299)
-
- * _Deleted_
-    *  **-** [results in maturation of](http://purl.obolibrary.org/obo/RO_0002299) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* bone maturation (GO:0070977) results_in_developmental_progression_of bone (UBERON:0001474)
- * _Added_
-    *  **+** [results in maturation of](http://purl.obolibrary.org/obo/RO_0002299) *[example of usage](http://purl.obolibrary.org/obo/IAO_0000112)* bone maturation (GO:0070977) results_in_maturation_of bone (UBERON:0001474)
-
-### Changes for: [has skeleton](http://purl.obolibrary.org/obo/RO_0002551)
-
- * _Deleted_
-    *  **-** [has skeleton](http://purl.obolibrary.org/obo/RO_0002551) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* A relation between a segment or subdivision of an organism and the maximal subdivision of skeleton that provides structural support for that segment or subdivision.
- * _Added_
-    *  **+** [has skeleton](http://purl.obolibrary.org/obo/RO_0002551) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision.
-
-### Changes for: [causally influenced by](http://purl.obolibrary.org/obo/RO_0002559)
-
- * _Deleted_
-    *  **-** [causally influenced by](http://purl.obolibrary.org/obo/RO_0002559) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* a is causally influenced by b if the activity of b is causally upstream of or within a process that affects a
-
-### Changes for: [directly provides input for](http://purl.obolibrary.org/obo/RO_0002413)
-
- * _Added_
-    *  **+** [directly provides input for](http://purl.obolibrary.org/obo/RO_0002413) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit
-
-### Changes for: [transitively provides input for](http://purl.obolibrary.org/obo/RO_0002414)
-
- * _Deleted_
-    *  **-** [provides input for](http://purl.obolibrary.org/obo/RO_0002414) *[OBO foundry unique label](http://purl.obolibrary.org/obo/IAO_0000589)* provides input for (process to process)
-    *  **-** [provides input for](http://purl.obolibrary.org/obo/RO_0002414) *[label](http://www.w3.org/2000/01/rdf-schema#label)* provides input for
- * _Added_
-    *  **+** [transitively provides input for](http://purl.obolibrary.org/obo/RO_0002414) *[OBO foundry unique label](http://purl.obolibrary.org/obo/IAO_0000589)* transitively provides input for (process to process)
-    *  **+** [transitively provides input for](http://purl.obolibrary.org/obo/RO_0002414) *[curator note](http://purl.obolibrary.org/obo/IAO_0000232)* This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')
-    *  **+** [transitively provides input for](http://purl.obolibrary.org/obo/RO_0002414) *[label](http://www.w3.org/2000/01/rdf-schema#label)* transitively provides input for
-
-### Changes for: [causally influences](http://purl.obolibrary.org/obo/RO_0002566)
-
- * _Deleted_
-    *  **-** [causally influences](http://purl.obolibrary.org/obo/RO_0002566) *[OBO foundry unique label](http://purl.obolibrary.org/obo/IAO_0000589)* causally influences(material entity to material entity)
- * _Added_
-    *  **+** [causally influences](http://purl.obolibrary.org/obo/RO_0002566) *[OBO foundry unique label](http://purl.obolibrary.org/obo/IAO_0000589)* causally influences (material entity to material entity)
-    *  **+** [causally influences](http://purl.obolibrary.org/obo/RO_0002566) *[definition](http://purl.obolibrary.org/obo/IAO_0000115)* Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b
-
-### Changes for: [increases expression of](http://purl.obolibrary.org/obo/RO_0003003)
-
- * _Added_
-    *  **+** [increases expression of](http://purl.obolibrary.org/obo/RO_0003003) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* Logical axioms to be added after the relevant branch of GO is MIREOTed in
-
-### Changes for: [represses expression of](http://purl.obolibrary.org/obo/RO_0003002)
-
- * _Added_
-    *  **+** [represses expression of](http://purl.obolibrary.org/obo/RO_0003002) *[editor note](http://purl.obolibrary.org/obo/IAO_0000116)* Logical axioms to be added after the relevant branch of GO is MIREOTed in
-
-### Changes for: [skeleton of](http://purl.obolibrary.org/obo/RO_0002576)
-
- * _Deleted_
-    *  **-** ObjectPropertyDomain( [skeleton of](http://purl.obolibrary.org/obo/RO_0002576) [material anatomical entity](http://purl.obolibrary.org/obo/CARO_0000006) ) 
- * _Added_
-    *  **+** ObjectPropertyDomain( [skeleton of](http://purl.obolibrary.org/obo/RO_0002576) [anatomical structure](http://purl.obolibrary.org/obo/CARO_0000003) ) 
-
-### Changes for: [has part structure that is capable of](http://purl.obolibrary.org/obo/RO_0002584)
-
- * _Added_
-    *  **+** SubObjectPropertyOf( [has part structure that is capable of](http://purl.obolibrary.org/obo/RO_0002584) [causal relation between material entity and a process](http://purl.obolibrary.org/obo/RO_0002595) ) 
+    *  **+** SubObjectPropertyOf( [causally upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0002304) [causally upstream of or within, positive effect](http://purl.obolibrary.org/obo/RO_0004047) ) 
+    *  **+** [causally upstream of, positive effect](http://purl.obolibrary.org/obo/RO_0002304) *[is positive form of](http://purl.obolibrary.org/obo/RO_0004049)* [causally upstream of](http://purl.obolibrary.org/obo/RO_0002411)

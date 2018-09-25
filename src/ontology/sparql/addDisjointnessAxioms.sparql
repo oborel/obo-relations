@@ -1,0 +1,20 @@
+prefix oio: <http://www.geneontology.org/formats/oboInOwl#>
+prefix def: <http://purl.obolibrary.org/obo/IAO_0000115>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix in_subset: <http://www.geneontology.org/formats/oboInOwl#inSubset>
+prefix dbi: <http://purl.obolibrary.org/obo/RO_0002259>
+prefix RO: <http://purl.obolibrary.org/obo/RO_>
+
+CONSTRUCT {
+   ?c a owl:Class .
+   ?d a owl:Class .
+   ?c owl:disjointWith ?d
+}
+WHERE 
+{
+  ?c rdfs:subClassOf ?x .
+  ?d rdfs:subClassOf ?x
+  FILTER(?c != ?d)
+}
+
