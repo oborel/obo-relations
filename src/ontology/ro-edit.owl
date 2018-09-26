@@ -35,6 +35,7 @@ Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26
 Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]"^^xsd:string)
 Annotation(foaf:homepage " https://github.com/oborel/obo-relations/"^^xsd:anyURI)
 
+Declaration(Class(obo:CARO_0001010))
 Declaration(Class(obo:GO_0004872))
 Declaration(Class(obo:GO_0048018))
 Declaration(Class(obo:RO_0002310))
@@ -1196,6 +1197,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002004 "The relationship that holds 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002004 "David Osumi-Sutherland")
 AnnotationAssertion(rdfs:label obo:RO_0002004 "tracheates"@en)
 SubObjectPropertyOf(obo:RO_0002004 obo:RO_0001018)
+ObjectPropertyDomain(obo:RO_0002004 obo:CARO_0000003)
+ObjectPropertyRange(obo:RO_0002004 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002005 (innervated_by)
 
@@ -2758,6 +2761,7 @@ AnnotationAssertion(rdfs:label obo:RO_0002320 "evolutionarily related to"@en)
 # Object Property: obo:RO_0002321 (ecologically related to)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002321 "A relationship that is mediated in some way by the environment or environmental feature (ENVO:00002297)")
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002321 "Awaiting class for domain/range constraint, see: https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002321 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002321 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002321 subsets:ro-eco)
@@ -5402,10 +5406,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0008505 "An interaction relationship 
 AnnotationAssertion(rdfs:label obo:RO_0008505 "creates habitat for")
 SubObjectPropertyOf(obo:RO_0008505 obo:RO_0002321)
 
-# Object Property: obo:RO_0008506 (co-occurs)
+# Object Property: obo:RO_0008506 (ecologically co-occurs with)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0008506 "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment.")
-AnnotationAssertion(rdfs:label obo:RO_0008506 "co-occurs")
+AnnotationAssertion(rdfs:label obo:RO_0008506 "ecologically co-occurs with")
 SubObjectPropertyOf(obo:RO_0008506 obo:RO_0002321)
 SymmetricObjectProperty(obo:RO_0008506)
 
@@ -5546,6 +5550,10 @@ SubClassOf(obo:BFO_0000002 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000002))
 # Class: obo:BFO_0000015 (process)
 
 SubClassOf(obo:BFO_0000015 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000015))
+
+# Class: obo:CARO_0001010 (organism or virus or viroid)
+
+AnnotationAssertion(rdfs:label obo:CARO_0001010 "organism or virus or viroid"^^xsd:string)
 
 # Class: obo:GO_0004842 (ubiquitin-protein ligase activity)
 
@@ -5760,7 +5768,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
