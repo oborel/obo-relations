@@ -1231,9 +1231,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002177">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002323"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002567"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <obo:IAO_0000115>a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b.</obo:IAO_0000115>
+        <obo:IAO_0000589>attached to part of (anatomical structure to anatomical structure)</obo:IAO_0000589>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002177</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">attached_to_part_of</oboInOwl:shorthand>
         <rdfs:label xml:lang="en">attached to part of</rdfs:label>
@@ -1292,7 +1293,16 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002200">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002201"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CARO_0000006"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000115>A relationship that holds between a biological entity and a phenotype. Here a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). The subject of this relationship can be an organism (where the organism has the phenotype, i.e. the qualities inhere in parts of this organism), a genomic entity such as a gene or genotype (if modifications of the gene or the genotype causes the phenotype), or a condition such as a disease (such that if the condition inheres in an organism, then the organism has the phenotype).</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
@@ -2284,7 +2294,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002303">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000006"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/ENVO_01000254"/>
         <obo:IAO_0000112>Hydrozoa (NCBITaxon_6074) SubClassOf &apos;has habitat&apos; some &apos;Hydrozoa habitat&apos;
 where
@@ -2385,6 +2395,7 @@ where
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002321">
         <obo:IAO_0000115>A relationship that is mediated in some way by the environment or environmental feature (ENVO:00002297)</obo:IAO_0000115>
+        <obo:IAO_0000116>Awaiting class for domain/range constraint, see: https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6</obo:IAO_0000116>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions</obo:IAO_0000232>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002321</oboInOwl:hasDbXref>
@@ -2399,6 +2410,7 @@ where
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002322">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/ENVO_01000254"/>
         <obo:IAO_0000116>An experimental relation currently used to connect a feature possessed by an organism (e.g. anatomical structure, biological process, phenotype or quality) to a habitat or environment in which that feature is well suited, adapted or provides a reproductive advantage for the organism. For example, fins to an aquatic environment. Usually this will mean that the structure is adapted for this environment, but we avoid saying this directly - primitive forms of the structure may not have evolved specifically for that environment (for example, early wings were not necessarily adapted for an aerial environment). Note also that this is a statement about the general class of structures - not every instance of a limb need confer an advantage for a terrestrial environment, e.g. if the limb is vestigial.</obo:IAO_0000116>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>adapted for</obo:IAO_0000118>
@@ -2509,6 +2521,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <!-- http://purl.obolibrary.org/obo/RO_0002328 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002328">
+        <obo:IAO_0000115>A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000232>This is a grouping relation that collects relations used for the purpose of connecting structure and function</obo:IAO_0000232>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002328</oboInOwl:hasDbXref>
@@ -2569,11 +2582,6 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002333">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <obo:IAO_0000115>inverse of enables</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002333</oboInOwl:hasDbXref>
@@ -2886,6 +2894,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>a is attached to b if and only if a and b are discrete objects or object parts, and there are physical connections between a and b such that a force pulling a will move b, or a force pulling b will move a</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000589>attached to (anatomical structure to anatomical structure)</obo:IAO_0000589>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002371</oboInOwl:hasDbXref>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">attached_to</oboInOwl:shorthand>
@@ -2899,6 +2908,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002372">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002371"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002567"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <obo:IAO_0000115 xml:lang="en">m has_muscle_origin s iff m is attached_to s, and it is the case that when m contracts, s does not move. The site of the origin tends to be more proximal and have greater mass than what the other end attaches to.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">Wikipedia:Insertion_(anatomy)</obo:IAO_0000119>
@@ -2907,6 +2917,12 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">has muscle origin</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://dbpedia.org/property/origin"/>
     </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002372"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
+        <rdfs:comment>We need to import uberon muscle to create a stricter domain constraint</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -2915,6 +2931,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002373">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002371"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002567"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <obo:IAO_0000115 xml:lang="en">m has_muscle_insertion s iff m is attaches_to s, and it is the case that when m contracts, s moves. Insertions are usually connections of muscle via tendon to bone.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">Wikipedia:Insertion_(anatomy)</obo:IAO_0000119>
@@ -2923,6 +2940,12 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdfs:label xml:lang="en">has muscle insertion</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://dbpedia.org/property/insertion"/>
     </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002373"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
+        <obo:IAO_0000116>We need to import uberon muscle into RO to use as a stricter domain constraint</obo:IAO_0000116>
+    </owl:Axiom>
     
 
 
@@ -3300,7 +3323,6 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
     <!-- http://purl.obolibrary.org/obo/RO_0002410 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002410">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002609"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115>This relation groups causal relations between material entities and causal relations between processes</obo:IAO_0000115>
         <obo:IAO_0000116>This branch of the ontology deals with causal relations between entities. It is divided into two branches: causal relations between occurrents/processes, and causal relations between material entities. We take an &apos;activity flow-centric approach&apos;, with the former as primary, and define causal relations between material entities in terms of causal relations between occurrents.
@@ -4793,6 +4815,8 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002567">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <obo:IAO_0000115>A relation that holds between elements of a musculoskeletal system or its analogs.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000232>Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving the biomechanical processes.</obo:IAO_0000232>
@@ -4885,6 +4909,8 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002574">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002574</oboInOwl:hasDbXref>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -5149,19 +5175,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
     
 
 
-    <!-- http://purl.obolibrary.org/obo/RO_0002607 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002607">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002610"/>
-        <obo:IAO_0000115>c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d.</obo:IAO_0000115>
-        <obo:IAO_0000116>May be ceded to OBI</obo:IAO_0000116>
-        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002607</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_marker_for</oboInOwl:shorthand>
-        <rdfs:label>is marker for</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/RO_0002608 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002608">
@@ -5171,31 +5184,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002608</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">process_has_causal_agent</oboInOwl:shorthand>
         <rdfs:label>process has causal agent</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002609 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002609">
-        <obo:IAO_0000115>A relationship that holds between two entities, where the relationship holds based on the presence or absence of statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes.</obo:IAO_0000115>
-        <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.</obo:IAO_0000232>
-        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002609</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">related_via_dependence_to</oboInOwl:shorthand>
-        <rdfs:label>related via dependence to</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002610 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002610">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002609"/>
-        <obo:IAO_0000115>A relationship that holds between two entities, where the entities exhibit a statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes.</obo:IAO_0000115>
-        <obo:IAO_0000232>Groups both positive and negative correlation</obo:IAO_0000232>
-        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002610</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">correlated_with</oboInOwl:shorthand>
-        <rdfs:label>correlated with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -5572,18 +5560,6 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
-    <!-- http://purl.obolibrary.org/obo/RO_0003308 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003308">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002610"/>
-        <obo:IAO_0000115>A relationship between an entity and a condition (phenotype or disease) with which it exhibits a statistical dependence relationship.</obo:IAO_0000115>
-        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0003308</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">correlated_with_condition</oboInOwl:shorthand>
-        <rdfs:label xml:lang="en">correlated with condition</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/RO_0003309 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003309">
@@ -5870,7 +5846,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004019">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004017"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:26:47Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0004019</oboInOwl:hasDbXref>
@@ -5884,8 +5860,9 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004020">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000006"/>
         <obo:IAO_0000115>A relation that holds between the disease and a material entity where the physical basis of the disease is a disorder of that material entity that affects its function.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease has basis in dysfunction of (disease to anatomical structure)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:29:32Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0004020</oboInOwl:hasDbXref>
@@ -5901,6 +5878,7 @@ Environmental exposures include those imposed by natural environments, experimen
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000115>A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease has basis in disruption of (disease to process)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:37:52Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0004021</oboInOwl:hasDbXref>
@@ -5915,6 +5893,15 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004022">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002200"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <obo:IAO_0000115>A relation that holds between the disease and a feature (a phenotype or other disease) where the physical basis of the disease is the feature.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:46:07Z</oboInOwl:creation_date>
@@ -5929,7 +5916,8 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004023">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <obo:IAO_0000116>After import upper level from OGMS, make domain more specific.</obo:IAO_0000116>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all of which have a disease as the subject.</obo:IAO_0000232>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
@@ -5945,8 +5933,10 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004024">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000115>A relationship between a disease and a process where the disease process disrupts the execution of the process.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease causes disruption of (disease to process)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:51:09Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0004024</oboInOwl:hasDbXref>
@@ -5960,7 +5950,9 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004025">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000006"/>
+        <obo:IAO_0000589>disease causes dysfunction of (disease to anatomical entity)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:58:20Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0004025</oboInOwl:hasDbXref>
@@ -5973,8 +5965,17 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0004026 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004026">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CARO_0000006"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CARO_0000007"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <obo:IAO_0000115>A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity.</obo:IAO_0000115>
         <obo:IAO_0000116>TODO: complete range axiom once more of CARO has been mireoted in to this ontology</obo:IAO_0000116>
         <obo:IAO_0000232>This relation is intentionally very general, and covers isolated diseases, where the disease is realized as a process occurring in the location, and syndromic diseases, where one or more of the features may be present in that location. Thus any given disease can have multiple locations in the sense defined here.</obo:IAO_0000232>
@@ -5991,6 +5992,8 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004027">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0000003"/>
         <obo:IAO_0000115>A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity</obo:IAO_0000115>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-26T19:37:31Z</oboInOwl:creation_date>
@@ -6020,12 +6023,13 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0004029 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004029">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000019"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -6217,6 +6221,8 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008505">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
         <obo:IAO_0000115>An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism.</obo:IAO_0000115>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0008505</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">creates_habitat_for</oboInOwl:shorthand>
@@ -6230,10 +6236,12 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008506">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/CARO_0001010"/>
         <obo:IAO_0000115>An interaction relationship describing organisms that often occur together at the same time and space or in the same environment.</obo:IAO_0000115>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0008506</oboInOwl:hasDbXref>
-        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">co-occurs</oboInOwl:shorthand>
-        <rdfs:label>co-occurs</rdfs:label>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ecologically_co-occurs_with</oboInOwl:shorthand>
+        <rdfs:label>ecologically co-occurs with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -6292,6 +6300,20 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0040035 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0040035">
+        <obo:IAO_0000115>This relation groups  relations between diseases and any other kind of entity.</obo:IAO_0000115>
+        <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, in which the subject or object is a disease.</obo:IAO_0000232>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-09-26T00:00:32Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0040035</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_relationship</oboInOwl:shorthand>
+        <rdfs:label>disease relationship</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
@@ -6333,12 +6355,6 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
-    <!-- http://purl.obolibrary.org/obo/BFO_0000016 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/BFO_0000017 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000017"/>
@@ -6348,6 +6364,12 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/BFO_0000019 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
     
 
 
@@ -6375,9 +6397,21 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CARO_0000007 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CARO_0000007"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CARO_0001001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CARO_0001001"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CARO_0001010 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CARO_0001010"/>
     
 
 
@@ -6423,6 +6457,12 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OGMS_0000031 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/PATO_0000402 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/PATO_0000402"/>
@@ -6456,6 +6496,12 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0002577 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/RO_0002577"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UPHENO_0001001 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UPHENO_0001001"/>
     
 
 

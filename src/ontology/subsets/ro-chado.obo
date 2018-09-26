@@ -6,11 +6,13 @@ remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 53 Logical Axioms: 12]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 278 Logical Axioms: 58]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 289 Logical Axioms: 60]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 102 Logical Axioms: 24]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
@@ -1309,6 +1311,7 @@ transitive_over: RO:0002017 ! has component activity
 [Typedef]
 id: RO:0002328
 name: functionally_related_to
+def: "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities." []
 
 [Typedef]
 id: RO:0002329
@@ -1511,9 +1514,10 @@ is_a: RO:0002567 ! biomechanically related to
 
 [Typedef]
 id: RO:0002374
-name: has_fused_element
+name: derived_from_ancestral_fusion_of
 def: "x has_fused_element y iff: there exists some z : x has_part z, z homologous_to y, and y is a distinct element, the boundary between x and z is largely fiat" []
-is_a: RO:0002320 ! evolutionarily related to
+synonym: "has fused element" BROAD []
+is_a: RO:0002156 ! derived by descent from
 
 [Typedef]
 id: RO:0002375
@@ -1680,7 +1684,6 @@ transitive_over: RO:0002408 ! directly inhibits
 id: RO:0002410
 name: causally_related_to
 def: "This relation groups causal relations between material entities and causal relations between processes" []
-is_a: RO:0002609 ! related via dependence to
 
 [Typedef]
 id: RO:0002411
@@ -2646,14 +2649,14 @@ is_a: RO:0002410 ! causally related to
 
 [Typedef]
 id: RO:0002609
-name: related_via_dependence_to
+name: obsolete_related_via_dependence_to
 def: "A relationship that holds between two entities, where the relationship holds based on the presence or absence of statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes." []
+is_obsolete: true
 
 [Typedef]
 id: RO:0002610
 name: correlated_with
 def: "A relationship that holds between two entities, where the entities exhibit a statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes." []
-is_a: RO:0002609 ! related via dependence to
 
 [Typedef]
 id: RO:0002614
@@ -3006,6 +3009,7 @@ is_a: RO:0004019 ! disease has basis in
 id: RO:0004023
 name: causal_relationship_with_disease_as_subject
 is_a: RO:0002410 ! causally related to
+is_a: RO:0040035 ! disease relationship
 
 [Typedef]
 id: RO:0004024
@@ -3024,7 +3028,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0004026
 name: disease_has_location
 def: "A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity." []
-is_a: RO:0004023 ! causal relationship with disease as subject
+is_a: RO:0040035 ! disease relationship
 
 [Typedef]
 id: RO:0004027
@@ -3043,7 +3047,7 @@ is_a: RO:0002410 ! causally related to
 id: RO:0004029
 name: disease_has_feature
 def: "A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease." []
-is_a: RO:0004023 ! causal relationship with disease as subject
+is_a: RO:0040035 ! disease relationship
 
 [Typedef]
 id: RO:0004030
@@ -3130,7 +3134,7 @@ is_a: RO:0002321 ! ecologically related to
 
 [Typedef]
 id: RO:0008506
-name: co-occurs
+name: ecologically_co-occurs_with
 def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
 is_symmetric: true
 is_a: RO:0002321 ! ecologically related to
@@ -3176,6 +3180,25 @@ def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait s
 synonym: "triggered by process" EXACT [RO:cjm]
 holds_over_chain: BFO:0000054 RO:0002404
 is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0010001
+name: generically_depends_on
+def: "A generically dependent continuant *b* generically depends on an independent continuant *c* at time *t* means: there inheres in *c* a specifically deendent continuant which concretizes *b* at *t*." []
+synonym: "g-depends on" EXACT []
+holds_over_chain: RO:0000052 RO:0000058
+inverse_of: RO:0010002 ! is carrier of
+
+[Typedef]
+id: RO:0010002
+name: is_carrier_of
+def: "*b* is carrier of *c* at time *t* if and only if *c* *g-depends on* *b* at *t*" []
+holds_over_chain: RO:0000059 RO:0000053
+
+[Typedef]
+id: RO:0040035
+name: disease_relationship
+def: "This relation groups  relations between diseases and any other kind of entity." []
 
 [Typedef]
 id: RO:HOM0000000

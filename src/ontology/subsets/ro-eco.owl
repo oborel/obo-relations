@@ -110,10 +110,7 @@
 
     <!-- http://purl.obolibrary.org/obo/IAO_0000589 -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000589">
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <rdfs:label xml:lang="en">OBO foundry unique label</rdfs:label>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000589"/>
     
 
 
@@ -793,6 +790,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
@@ -1092,6 +1095,7 @@ range: spatial region or site (immaterial continuant)
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002001">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
+        <obo:IAO_0000116>May be obsoleted, see https://github.com/oborel/obo-relations/issues/260</obo:IAO_0000116>
         <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
         <rdfs:label xml:lang="en">aligned with</rdfs:label>
@@ -2200,6 +2204,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000115>a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b.</obo:IAO_0000115>
+        <obo:IAO_0000589>attached to part of (anatomical structure to anatomical structure)</obo:IAO_0000589>
         <rdfs:label xml:lang="en">attached to part of</rdfs:label>
     </owl:ObjectProperty>
     <owl:Axiom>
@@ -3037,33 +3042,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     
 
 
-    <!-- http://purl.obolibrary.org/obo/RO_0002260 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002260">
-        <obo:IAO_0000115>c has-biological-role r iff c has-role r and r is a biological role (CHEBI:24432)</obo:IAO_0000115>
-        <rdfs:label>has biological role</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002261 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002261">
-        <obo:IAO_0000115>c has-application-role r iff c has-role r and r is an application role (CHEBI:33232)</obo:IAO_0000115>
-        <rdfs:label>has application role</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/RO_0002262 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002262">
-        <obo:IAO_0000115>c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)</obo:IAO_0000115>
-        <rdfs:label>has chemical role</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/RO_0002263 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002263">
@@ -3425,6 +3403,7 @@ where
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002321">
         <obo:IAO_0000115>A relationship that is mediated in some way by the environment or environmental feature (ENVO:00002297)</obo:IAO_0000115>
+        <obo:IAO_0000116>Awaiting class for domain/range constraint, see: https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6</obo:IAO_0000116>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions</obo:IAO_0000232>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -3537,6 +3516,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <!-- http://purl.obolibrary.org/obo/RO_0002328 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002328">
+        <obo:IAO_0000115>A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities.</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000232>This is a grouping relation that collects relations used for the purpose of connecting structure and function</obo:IAO_0000232>
         <rdfs:label xml:lang="en">functionally related to</rdfs:label>
@@ -3621,11 +3601,6 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002333">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002215"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <obo:IAO_0000115>inverse of enables</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:label xml:lang="en">enabled by</rdfs:label>
@@ -3891,6 +3866,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>a is attached to b if and only if a and b are discrete objects or object parts, and there are physical connections between a and b such that a force pulling a will move b, or a force pulling b will move a</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000589>attached to (anatomical structure to anatomical structure)</obo:IAO_0000589>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">attached to</rdfs:label>
     </owl:ObjectProperty>
@@ -3928,15 +3904,16 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
     <!-- http://purl.obolibrary.org/obo/RO_0002374 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002374">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002320"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002156"/>
         <obo:IAO_0000112 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115 xml:lang="en">x has_fused_element y iff: there exists some z : x has_part z, z homologous_to y, and y is a distinct element, the boundary between x and z is largely fiat</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22293552"/>
+        <oboInOwl:hasBroadSynonym>has fused element</oboInOwl:hasBroadSynonym>
         <rdfs:comment xml:lang="en">A has_fused_element B does not imply that A has_part some B: rather than A has_part some B&apos;, where B&apos; that has some evolutionary relationship to B.</rdfs:comment>
-        <rdfs:label xml:lang="en">has fused element</rdfs:label>
+        <rdfs:label xml:lang="en">derived from ancestral fusion of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -4329,7 +4306,6 @@ https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/
     <!-- http://purl.obolibrary.org/obo/RO_0002410 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002410">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002609"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115>This relation groups causal relations between material entities and causal relations between processes</obo:IAO_0000115>
         <obo:IAO_0000116>This branch of the ontology deals with causal relations between entities. It is divided into two branches: causal relations between occurrents/processes, and causal relations between material entities. We take an &apos;activity flow-centric approach&apos;, with the former as primary, and define causal relations between material entities in terms of causal relations between occurrents.
@@ -6508,7 +6484,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002609">
         <obo:IAO_0000115>A relationship that holds between two entities, where the relationship holds based on the presence or absence of statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes.</obo:IAO_0000115>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.</obo:IAO_0000232>
-        <rdfs:label>related via dependence to</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete related via dependence to</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
 
@@ -6516,7 +6493,6 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <!-- http://purl.obolibrary.org/obo/RO_0002610 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002610">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002609"/>
         <obo:IAO_0000115>A relationship that holds between two entities, where the entities exhibit a statistical dependence relationship. The entities may be statistical variables, or they may be other kinds of entities such as diseases, chemical entities or processes.</obo:IAO_0000115>
         <obo:IAO_0000232>Groups both positive and negative correlation</obo:IAO_0000232>
         <rdfs:label>correlated with</rdfs:label>
@@ -7167,6 +7143,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004020">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
         <obo:IAO_0000115>A relation that holds between the disease and a material entity where the physical basis of the disease is a disorder of that material entity that affects its function.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease has basis in dysfunction of (disease to anatomical structure)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:29:32Z</oboInOwl:creation_date>
         <rdfs:label>disease has basis in dysfunction of</rdfs:label>
@@ -7179,6 +7156,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004021">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
         <obo:IAO_0000115>A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease has basis in disruption of (disease to process)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:37:52Z</oboInOwl:creation_date>
         <rdfs:label>disease has basis in disruption of</rdfs:label>
@@ -7203,6 +7181,7 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004023">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
         <obo:IAO_0000116>After import upper level from OGMS, make domain more specific.</obo:IAO_0000116>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all of which have a disease as the subject.</obo:IAO_0000232>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
@@ -7221,6 +7200,7 @@ Environmental exposures include those imposed by natural environments, experimen
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000115>A relationship between a disease and a process where the disease process disrupts the execution of the process.</obo:IAO_0000115>
+        <obo:IAO_0000589>disease causes disruption of (disease to process)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:51:09Z</oboInOwl:creation_date>
         <rdfs:label>disease causes disruption of</rdfs:label>
@@ -7236,6 +7216,7 @@ Environmental exposures include those imposed by natural environments, experimen
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0004025"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
+        <obo:IAO_0000589>disease causes dysfunction of (disease to anatomical entity)</obo:IAO_0000589>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-11-05T03:58:20Z</oboInOwl:creation_date>
         <rdfs:label>disease causes dysfunction of</rdfs:label>
@@ -7246,7 +7227,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0004026 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004026">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
         <obo:IAO_0000115>A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity.</obo:IAO_0000115>
         <obo:IAO_0000116>TODO: complete range axiom once more of CARO has been mireoted in to this ontology</obo:IAO_0000116>
         <obo:IAO_0000232>This relation is intentionally very general, and covers isolated diseases, where the disease is realized as a process occurring in the location, and syndromic diseases, where one or more of the features may be present in that location. Thus any given disease can have multiple locations in the sense defined here.</obo:IAO_0000232>
@@ -7288,7 +7269,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0004029 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004029">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004023"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040035"/>
         <obo:IAO_0000115>A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-26T19:50:53Z</oboInOwl:creation_date>
@@ -7478,7 +7459,7 @@ Environmental exposures include those imposed by natural environments, experimen
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>An interaction relationship describing organisms that often occur together at the same time and space or in the same environment.</obo:IAO_0000115>
-        <rdfs:label>co-occurs</rdfs:label>
+        <rdfs:label>ecologically co-occurs with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -7583,6 +7564,91 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0010001 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0010001">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0010002"/>
+        <obo:IAO_0000112>Genetic information generically depend on molecules of DNA.</obo:IAO_0000112>
+        <obo:IAO_0000112>The novel *War and Peace* generically depends on this copy of the novel.</obo:IAO_0000112>
+        <obo:IAO_0000112>The pattern shared by chess boards generically depends on any chess board.</obo:IAO_0000112>
+        <obo:IAO_0000112>The score of a symphony g-depends on a copy of the score.</obo:IAO_0000112>
+        <obo:IAO_0000112>This pdf file generically depends on this server.</obo:IAO_0000112>
+        <obo:IAO_0000115>A generically dependent continuant *b* generically depends on an independent continuant *c* at time *t* means: there inheres in *c* a specifically deendent continuant which concretizes *b* at *t*.</obo:IAO_0000115>
+        <obo:IAO_0000119>[072-ISO]</obo:IAO_0000119>
+        <oboInOwl:hasExactSynonym>g-depends on</oboInOwl:hasExactSynonym>
+        <rdfs:label>generically depends on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0010002 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0010002">
+        <obo:IAO_0000112>Molecules of DNA are carriers of genetic information.</obo:IAO_0000112>
+        <obo:IAO_0000112>This copy of *War and Peace* is carrier of the novel written by Tolstoy.</obo:IAO_0000112>
+        <obo:IAO_0000112>This hard drive is carrier of these data items.</obo:IAO_0000112>
+        <obo:IAO_0000115>*b* is carrier of *c* at time *t* if and only if *c* *g-depends on* *b* at *t*</obo:IAO_0000115>
+        <obo:IAO_0000119>[072-ISO]</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">is carrier of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0040035 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0040035">
+        <obo:IAO_0000115>This relation groups  relations between diseases and any other kind of entity.</obo:IAO_0000115>
+        <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, in which the subject or object is a disease.</obo:IAO_0000232>
+        <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-09-26T00:00:32Z</oboInOwl:creation_date>
+        <rdfs:label>disease relationship</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002029 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002029">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#short"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#short">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#short">100</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <obo:IAO_0000115>Then percentage of organisms in a population that die during some specified age range (age-specific mortality rate), minus the percentage that die in during the same age range in a wild-type population.</obo:IAO_0000115>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-05-22T16:43:28Z</oboInOwl:creation_date>
+        <rdfs:comment>This could be used to record the increased infant morality rate in some population compared to wild-type.  For examples of usage see http://purl.obolibrary.org/obo/FBcv_0000351 and subclasses.</rdfs:comment>
+        <rdfs:label xml:lang="en">has increased age-specific mortality rate</rdfs:label>
+        <oboInOwl1:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dos</oboInOwl1:created_by>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002029"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Then percentage of organisms in a population that die during some specified age range (age-specific mortality rate), minus the percentage that die in during the same age range in a wild-type population.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>PMID:24138933</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Wikipedia:Infant_mortality</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -7591,30 +7657,6 @@ Environmental exposures include those imposed by natural environments, experimen
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000078">
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <rdfs:label xml:lang="en">curation status specification</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000122">
-        <rdfs:label xml:lang="en">ready for release</rdfs:label>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000125">
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <rdfs:label xml:lang="en">pending final vetting</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000225">
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <rdfs:label xml:lang="en">obsolescence reason specification</rdfs:label>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000428">
-        <rdfs:label xml:lang="en">requires discussion</rdfs:label>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0100001">
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <rdfs:label xml:lang="en">term replaced by</rdfs:label>
-    </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0000092">
         <obo:IAO_0000115>inverse of has disposition</obo:IAO_0000115>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
