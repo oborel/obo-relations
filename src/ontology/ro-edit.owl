@@ -21,6 +21,7 @@ Import(<http://purl.obolibrary.org/obo/ro/annotations.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/chemical.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/core.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/rohom.owl>)
@@ -34,6 +35,7 @@ Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26
 Annotation(rdfs:comment "Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]"^^xsd:string)
 Annotation(foaf:homepage " https://github.com/oborel/obo-relations/"^^xsd:anyURI)
 
+Declaration(Class(obo:CARO_0001010))
 Declaration(Class(obo:GO_0004872))
 Declaration(Class(obo:GO_0048018))
 Declaration(Class(obo:RO_0002310))
@@ -496,6 +498,8 @@ Declaration(ObjectProperty(obo:RO_0009005))
 Declaration(ObjectProperty(obo:RO_0009501))
 Declaration(ObjectProperty(obo:RO_0010001))
 Declaration(ObjectProperty(obo:RO_0010002))
+Declaration(ObjectProperty(obo:RO_0040035))
+Declaration(ObjectProperty(obo:RO_0040036))
 Declaration(ObjectProperty(owl:topObjectProperty))
 Declaration(DataProperty(obo:RO_0002029))
 Declaration(AnnotationProperty(obo:IAO_0000232))
@@ -1038,6 +1042,8 @@ AnnotationAssertion(obo:RO_0001900 obo:RO_0000300 obo:RO_0001901)
 AnnotationAssertion(cito:citesAsAuthority obo:RO_0000300 <http://www.ncbi.nlm.nih.gov/pubmed/22402613>)
 AnnotationAssertion(rdfs:label obo:RO_0000300 "in neural circuit with"@en)
 TransitiveObjectProperty(obo:RO_0000300)
+ObjectPropertyDomain(obo:RO_0000300 obo:CL_0000540)
+ObjectPropertyRange(obo:RO_0000300 obo:CL_0000540)
 
 # Object Property: obo:RO_0000301 (upstream in neural circuit with)
 
@@ -1169,6 +1175,7 @@ SubObjectPropertyOf(obo:RO_0002000 obo:RO_0002323)
 # Object Property: obo:RO_0002001 (aligned with)
 
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002001 obo:IAO_0000125)
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002001 "May be obsoleted, see https://github.com/oborel/obo-relations/issues/260")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002001 "David Osumi-Sutherland")
 AnnotationAssertion(obo:RO_0001900 obo:RO_0002001 obo:RO_0001901)
 AnnotationAssertion(rdfs:label obo:RO_0002001 "aligned with"@en)
@@ -1193,6 +1200,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002004 "The relationship that holds 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002004 "David Osumi-Sutherland")
 AnnotationAssertion(rdfs:label obo:RO_0002004 "tracheates"@en)
 SubObjectPropertyOf(obo:RO_0002004 obo:RO_0001018)
+ObjectPropertyDomain(obo:RO_0002004 obo:CARO_0000003)
+ObjectPropertyRange(obo:RO_0002004 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002005 (innervated_by)
 
@@ -1200,6 +1209,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002005 "David Osumi-Sutherland")
 AnnotationAssertion(cito:citesAsAuthority obo:RO_0002005 "http://www.ncbi.nlm.nih.gov/pubmed/22402613"^^xsd:anyURI)
 AnnotationAssertion(rdfs:label obo:RO_0002005 "innervated_by"@en)
 InverseObjectProperties(obo:RO_0002005 obo:RO_0002134)
+ObjectPropertyDomain(obo:RO_0002005 obo:CARO_0000003)
+ObjectPropertyRange(obo:RO_0002005 obo:CARO_0001001)
 
 # Object Property: obo:RO_0002006 (has synaptic terminal of)
 
@@ -1452,6 +1463,7 @@ AnnotationAssertion(obo:RO_0001900 obo:RO_0002100 obo:RO_0001901)
 AnnotationAssertion(rdfs:label obo:RO_0002100 "has soma location"@en)
 SubObjectPropertyOf(obo:RO_0002100 obo:RO_0002131)
 ObjectPropertyDomain(obo:RO_0002100 obo:CL_0000540)
+ObjectPropertyRange(obo:RO_0002100 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002101 (fasciculates with)
 
@@ -1624,6 +1636,7 @@ AnnotationAssertion(obo:IAO_0000114 obo:RO_0002111 obo:IAO_0000125)
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002111 "has neurotransmitter")
 AnnotationAssertion(rdfs:label obo:RO_0002111 "releases neurotransmitter"@en)
 SubObjectPropertyOf(obo:RO_0002111 owl:topObjectProperty)
+ObjectPropertyDomain(obo:RO_0002111 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002112 (synapsed_by_via_type_Is_bouton)
 
@@ -1883,7 +1896,7 @@ AnnotationAssertion(rdfs:comment obo:RO_0002162 "Connects a biological entity to
 AnnotationAssertion(rdfs:label obo:RO_0002162 "in taxon"^^xsd:string)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002162 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubObjectPropertyOf(obo:RO_0002162 obo:RO_0002320)
-ObjectPropertyRange(obo:RO_0002162 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0002162 obo:CARO_0001010)
 
 # Object Property: obo:RO_0002163 (spatially disjoint from)
 
@@ -1928,11 +1941,12 @@ ObjectPropertyRange(obo:RO_0002176 ObjectSomeValuesFrom(obo:BFO_0000050 obo:RO_0
 # Object Property: obo:RO_0002177 (attached to part of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002177 "a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b.")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0002177 "attached to part of (anatomical structure to anatomical structure)")
 AnnotationAssertion(rdfs:label obo:RO_0002177 "attached to part of"@en)
 SubObjectPropertyOf(obo:RO_0002177 obo:RO_0002323)
 SubObjectPropertyOf(obo:RO_0002177 obo:RO_0002567)
-ObjectPropertyDomain(obo:RO_0002177 obo:BFO_0000040)
-ObjectPropertyRange(obo:RO_0002177 obo:BFO_0000040)
+ObjectPropertyDomain(obo:RO_0002177 obo:CARO_0000003)
+ObjectPropertyRange(obo:RO_0002177 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002178 (supplies)
 
@@ -1971,7 +1985,8 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0002200 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002200 "has phenotype"@en)
 SubObjectPropertyOf(obo:RO_0002200 owl:topObjectProperty)
 InverseObjectProperties(obo:RO_0002200 obo:RO_0002201)
-ObjectPropertyDomain(obo:RO_0002200 obo:BFO_0000002)
+ObjectPropertyDomain(obo:RO_0002200 ObjectUnionOf(obo:BFO_0000031 obo:CARO_0000006 obo:OGMS_0000031))
+ObjectPropertyRange(obo:RO_0002200 obo:UPHENO_0001001)
 
 # Object Property: obo:RO_0002201 (phenotype of)
 
@@ -2048,7 +2063,7 @@ AnnotationAssertion(rdfs:label obo:RO_0002206 "expressed in"@en)
 SubObjectPropertyOf(obo:RO_0002206 obo:RO_0002330)
 InverseObjectProperties(obo:RO_0002206 obo:RO_0002292)
 ObjectPropertyDomain(obo:RO_0002206 obo:BFO_0000002)
-ObjectPropertyRange(obo:RO_0002206 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0002206 obo:CARO_0000006)
 
 # Object Property: obo:RO_0002207 (directly develops from)
 
@@ -2144,6 +2159,7 @@ AnnotationAssertion(obo:IAO_0000116 obo:RO_0002214 "Experimental. In future ther
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002214 "This property can be used to make weaker forms of certain relations by chaining an additional property. For example, we may say: retina SubClassOf has_prototype some 'detection of light'. i.e. every retina is related to a prototypical retina instance which is detecting some light. Note that this is very similar to 'capable of', but this relation affords a wider flexibility. E.g. we can make a relation between continuants.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002214 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002214 "has prototype"@en)
+ObjectPropertyDomain(obo:RO_0002214 ObjectUnionOf(obo:BFO_0000004 obo:BFO_0000015))
 
 # Object Property: obo:RO_0002215 (capable of)
 
@@ -2169,6 +2185,7 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002216 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002216 "has function in")
 AnnotationAssertion(obo:IAO_0000424 obo:RO_0002216 "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))")
 AnnotationAssertion(rdfs:label obo:RO_0002216 "capable of part of"@en)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002216 <https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity>)
 SubObjectPropertyOf(obo:RO_0002216 obo:RO_0002328)
 SubObjectPropertyOf(obo:RO_0002216 obo:RO_0002500)
 
@@ -2265,7 +2282,7 @@ AnnotationAssertion(obo:IAO_0000119 obo:RO_0002226 "EHDAA2")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002226 "Jonathan Bard, EHDAA2")
 AnnotationAssertion(rdfs:label obo:RO_0002226 "develops in"@en)
 SubObjectPropertyOf(obo:RO_0002226 obo:RO_0002258)
-ObjectPropertyDomain(obo:RO_0002226 obo:CARO_0000003)
+ObjectPropertyDomain(obo:RO_0002226 obo:CARO_0000000)
 
 # Object Property: obo:RO_0002227 (obligate parasite of)
 
@@ -2445,8 +2462,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002254 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002254 "has developmental contribution from"@en)
 SubObjectPropertyOf(obo:RO_0002254 obo:RO_0002258)
 InverseObjectProperties(obo:RO_0002254 obo:RO_0002255)
-ObjectPropertyDomain(obo:RO_0002254 obo:BFO_0000004)
-ObjectPropertyRange(obo:RO_0002254 obo:CARO_0000003)
+ObjectPropertyDomain(obo:RO_0002254 obo:CARO_0000000)
+ObjectPropertyRange(obo:RO_0002254 obo:CARO_0000000)
 
 # Object Property: obo:RO_0002255 (developmentally contributes to)
 
@@ -2498,24 +2515,6 @@ SubObjectPropertyOf(obo:RO_0002258 obo:RO_0002324)
 InverseObjectProperties(obo:RO_0002258 obo:RO_0002286)
 ObjectPropertyDomain(obo:RO_0002258 obo:BFO_0000002)
 ObjectPropertyRange(obo:RO_0002258 obo:BFO_0000002)
-
-# Object Property: obo:RO_0002260 (has biological role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002260 "c has-biological-role r iff c has-role r and r is a biological role (CHEBI:24432)")
-AnnotationAssertion(rdfs:label obo:RO_0002260 "has biological role")
-SubObjectPropertyOf(obo:RO_0002260 obo:RO_0000087)
-
-# Object Property: obo:RO_0002261 (has application role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002261 "c has-application-role r iff c has-role r and r is an application role (CHEBI:33232)")
-AnnotationAssertion(rdfs:label obo:RO_0002261 "has application role")
-SubObjectPropertyOf(obo:RO_0002261 obo:RO_0000087)
-
-# Object Property: obo:RO_0002262 (has chemical role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002262 "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)")
-AnnotationAssertion(rdfs:label obo:RO_0002262 "has chemical role")
-SubObjectPropertyOf(obo:RO_0002262 obo:RO_0000087)
 
 # Object Property: obo:RO_0002263 (acts upstream of)
 
@@ -2609,8 +2608,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002296 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002296 "http://www.geneontology.org/GO.doc.development.shtml"^^xsd:anyURI)
 AnnotationAssertion(oboInOwl:shorthand obo:RO_0002296 "results_in_development_of"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002296 "results in development of"@en)
-SubObjectPropertyOf(obo:RO_0002296 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002296 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002296 obo:RO_0040036)
 
 # Object Property: obo:RO_0002297 (results in formation of)
 
@@ -2635,8 +2634,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002298 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002298 "GOC:mtg_berkeley_2013")
 AnnotationAssertion(oboInOwl:shorthand obo:RO_0002298 "results_in_morphogenesis_of"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002298 "results in morphogenesis of"@en)
-SubObjectPropertyOf(obo:RO_0002298 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002298 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002298 obo:RO_0040036)
 
 # Object Property: obo:RO_0002299 (results in maturation of)
 
@@ -2648,8 +2647,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002299 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002299 "GOC:mtg_berkeley_2013")
 AnnotationAssertion(oboInOwl:shorthand obo:RO_0002299 "results_in_maturation_of"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002299 "results in maturation of"@en)
-SubObjectPropertyOf(obo:RO_0002299 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002299 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002299 obo:RO_0040036)
 
 # Object Property: obo:RO_0002300 (results in disappearance of)
 
@@ -2692,7 +2691,7 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0002303 subsets:ro-eco)
 AnnotationAssertion(rdfs:comment obo:RO_0002303 "A population of xs will possess adaptations (either evolved naturally or via artifical selection) which permit it to exist and grow in y.")
 AnnotationAssertion(rdfs:label obo:RO_0002303 "has habitat"@en)
 SubObjectPropertyOf(obo:RO_0002303 obo:RO_0002321)
-ObjectPropertyDomain(obo:RO_0002303 obo:CARO_0000006)
+ObjectPropertyDomain(obo:RO_0002303 obo:CARO_0001010)
 ObjectPropertyRange(obo:RO_0002303 obo:ENVO_01000254)
 
 # Object Property: obo:RO_0002304 (causally upstream of, positive effect)
@@ -2736,8 +2735,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002313 "Holds between p and c when p
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002313 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002313 "regulates localization of")
 AnnotationAssertion(rdfs:label obo:RO_0002313 "transports or maintains localization of"@en)
-SubObjectPropertyOf(obo:RO_0002313 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002313 obo:RO_0002337)
+SubObjectPropertyOf(obo:RO_0002313 obo:RO_0040036)
 
 # Object Property: obo:RO_0002314 (inheres in part of)
 
@@ -2747,6 +2746,7 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002314 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002314 <http://www.ncbi.nlm.nih.gov/pubmed/20064205>)
 AnnotationAssertion(obo:RO_0001900 obo:RO_0002314 obo:RO_0001901)
 AnnotationAssertion(rdfs:label obo:RO_0002314 "inheres in part of"@en)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002314 <https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity>)
 SubObjectPropertyOf(obo:RO_0002314 obo:RO_0002502)
 
 # Object Property: obo:RO_0002315 (results in acquisition of features of)
@@ -2757,9 +2757,9 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002315 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002315 "GOC:mtg_berkeley_2013")
 AnnotationAssertion(oboInOwl:shorthand obo:RO_0002315 "results_in_acquisition_of_features_of"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002315 "results in acquisition of features of"@en)
-SubObjectPropertyOf(obo:RO_0002315 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002315 obo:RO_0002295)
-ObjectPropertyRange(obo:RO_0002315 obo:CL_0000000)
+SubObjectPropertyOf(obo:RO_0002315 obo:RO_0040036)
+ObjectPropertyRange(obo:RO_0002315 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002320 (evolutionarily related to)
 
@@ -2771,6 +2771,7 @@ AnnotationAssertion(rdfs:label obo:RO_0002320 "evolutionarily related to"@en)
 # Object Property: obo:RO_0002321 (ecologically related to)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002321 "A relationship that is mediated in some way by the environment or environmental feature (ENVO:00002297)")
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002321 "Awaiting class for domain/range constraint, see: https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002321 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002321 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002321 subsets:ro-eco)
@@ -2784,6 +2785,7 @@ AnnotationAssertion(obo:IAO_0000118 obo:RO_0002322 "adapted for")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002322 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002322 "confers advantage in"@en)
 SubObjectPropertyOf(obo:RO_0002322 obo:RO_0002321)
+ObjectPropertyRange(obo:RO_0002322 obo:ENVO_01000254)
 
 # Object Property: obo:RO_0002323 (mereotopologically related to)
 
@@ -2853,6 +2855,7 @@ InverseObjectProperties(obo:RO_0002327 obo:RO_0002333)
 
 # Object Property: obo:RO_0002328 (functionally related to)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002328 "A grouping relationship for any relationship directly involving a function, or that holds because of a function of one of the related entities.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002328 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002328 "This is a grouping relation that collects relations used for the purpose of connecting structure and function")
 AnnotationAssertion(rdfs:label obo:RO_0002328 "functionally related to"@en)
@@ -2979,8 +2982,8 @@ SubObjectPropertyOf(obo:RO_0002342 obo:RO_0002344)
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0002343 "'pollen tube growth' results_in growth_of some 'pollen tube'")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002343 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002343 "results in growth of"@en)
-SubObjectPropertyOf(obo:RO_0002343 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002343 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002343 obo:RO_0040036)
 
 # Object Property: obo:RO_0002344 (results in transport to from or in)
 
@@ -3045,8 +3048,8 @@ SubObjectPropertyOf(obo:RO_0002354 obo:RO_0002353)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002355 "A relationship between a process and an anatomical entity such that the process contributes to the act of creating the structural organization of the anatomical entity.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002355 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002355 "results in structural organization of"@en)
-SubObjectPropertyOf(obo:RO_0002355 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002355 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002355 obo:RO_0040036)
 
 # Object Property: obo:RO_0002356 (results in specification of)
 
@@ -3075,6 +3078,7 @@ SubObjectPropertyOf(obo:RO_0002360 obo:RO_0002131)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002371 "a is attached to b if and only if a and b are discrete objects or object parts, and there are physical connections between a and b such that a force pulling a will move b, or a force pulling b will move a")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002371 "Chris Mungall")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0002371 "attached to (anatomical structure to anatomical structure)")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002371 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002371 "attached to"@en)
 SubObjectPropertyOf(obo:RO_0002371 obo:RO_0002170)
@@ -3090,6 +3094,7 @@ AnnotationAssertion(rdfs:label obo:RO_0002372 "has muscle origin"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002372 <http://dbpedia.org/property/origin>)
 SubObjectPropertyOf(obo:RO_0002372 obo:RO_0002371)
 SubObjectPropertyOf(obo:RO_0002372 obo:RO_0002567)
+ObjectPropertyDomain(Annotation(rdfs:comment "We need to import uberon muscle to create a stricter domain constraint") obo:RO_0002372 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002373 (has muscle insertion)
 
@@ -3100,8 +3105,9 @@ AnnotationAssertion(rdfs:label obo:RO_0002373 "has muscle insertion"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002373 <http://dbpedia.org/property/insertion>)
 SubObjectPropertyOf(obo:RO_0002373 obo:RO_0002371)
 SubObjectPropertyOf(obo:RO_0002373 obo:RO_0002567)
+ObjectPropertyDomain(Annotation(obo:IAO_0000116 "We need to import uberon muscle into RO to use as a stricter domain constraint") obo:RO_0002373 obo:CARO_0000003)
 
-# Object Property: obo:RO_0002374 (has fused element)
+# Object Property: obo:RO_0002374 (derived from ancestral fusion of)
 
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0002374 "false"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002374 obo:IAO_0000428)
@@ -3109,9 +3115,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002374 "x has_fused_element y iff: t
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002374 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002374 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002374 <http://www.ncbi.nlm.nih.gov/pubmed/22293552>)
+AnnotationAssertion(oboInOwl:hasBroadSynonym obo:RO_0002374 "has fused element")
 AnnotationAssertion(rdfs:comment obo:RO_0002374 "A has_fused_element B does not imply that A has_part some B: rather than A has_part some B', where B' that has some evolutionary relationship to B."@en)
-AnnotationAssertion(rdfs:label obo:RO_0002374 "has fused element"@en)
-SubObjectPropertyOf(obo:RO_0002374 obo:RO_0002320)
+AnnotationAssertion(rdfs:label obo:RO_0002374 "derived from ancestral fusion of"@en)
+SubObjectPropertyOf(obo:RO_0002374 obo:RO_0002156)
 
 # Object Property: obo:RO_0002375 (in branching relationship with)
 
@@ -3230,6 +3237,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002384 "x has developmental potentia
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002384 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002384 "has developmental potential involving"@en)
 SubObjectPropertyOf(obo:RO_0002384 obo:RO_0002324)
+ObjectPropertyDomain(obo:RO_0002384 obo:CARO_0000000)
+ObjectPropertyRange(obo:RO_0002384 obo:CARO_0000000)
 
 # Object Property: obo:RO_0002385 (has potential to developmentally contribute to)
 
@@ -3301,7 +3310,6 @@ AnnotationAssertion(rdfs:comment obo:RO_0002403 "Likely to be obsoleted. See:
 https://docs.google.com/document/d/1QMhs9J-P_q3o_rDh-IX4ZEnz0PnXrzLRVkI3vvz8NEQ/edit")
 AnnotationAssertion(rdfs:label obo:RO_0002403 "obsolete has indirect output"^^xsd:string)
 AnnotationAssertion(owl:deprecated obo:RO_0002403 "true"^^xsd:boolean)
-SubObjectPropertyOf(obo:RO_0002403 obo:RO_0002234)
 
 # Object Property: obo:RO_0002404 (causally downstream of)
 
@@ -3501,6 +3509,7 @@ SubObjectPropertyOf(obo:RO_0002430 obo:RO_0002428)
 # Object Property: obo:RO_0002431 (involved in or involved in regulation of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002431 "c involved in or regulates p if and only if either (i) c is involved in p or (ii) c is involved in regulation of p")
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002431 "OWL does not allow defining object properties via a Union")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002431 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002431 "involved in or reguates")
 AnnotationAssertion(rdfs:label obo:RO_0002431 "involved in or involved in regulation of")
@@ -3835,12 +3844,12 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0002463 "Experimental: relation used 
 AnnotationAssertion(rdfs:label obo:RO_0002463 "target participant in")
 SubObjectPropertyOf(obo:RO_0002463 obo:RO_0002461)
 
-# Object Property: obo:RO_0002464 (helper property)
+# Object Property: obo:RO_0002464 (helper property (not for use in curation))
 
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002464 obo:IAO_0000428)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002464 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002464 "This property or its subproperties is not to be used directly. These properties exist as helper properties that are used to support OWL reasoning.")
-AnnotationAssertion(rdfs:label obo:RO_0002464 "helper property")
+AnnotationAssertion(rdfs:label obo:RO_0002464 "helper property (not for use in curation)")
 
 # Object Property: obo:RO_0002465 (is symbiosis)
 
@@ -3986,6 +3995,7 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002487 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002487 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, typically connecting an anatomical entity to a biological process or developmental stage.")
 AnnotationAssertion(rdfs:label obo:RO_0002487 "relation between structure and stage")
 ObjectPropertyDomain(obo:RO_0002487 obo:BFO_0000002)
+ObjectPropertyDomain(obo:RO_0002487 ObjectUnionOf(obo:CARO_0000006 obo:CARO_0000007))
 ObjectPropertyRange(obo:RO_0002487 obo:BFO_0000003)
 
 # Object Property: obo:RO_0002488 (existence starts during)
@@ -4417,8 +4427,8 @@ InverseObjectProperties(obo:RO_0002551 obo:RO_0002576)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002552 "p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002552 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002552 "results in ending of")
-SubObjectPropertyOf(obo:RO_0002552 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002552 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002552 obo:RO_0040036)
 
 # Object Property: obo:RO_0002553 (hyperparasite of)
 
@@ -4511,7 +4521,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002565 "Holds between p and c when p
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002565 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002565 "")
 AnnotationAssertion(rdfs:label obo:RO_0002565 "results in movement of")
-SubObjectPropertyOf(obo:RO_0002565 obo:RO_0000057)
+SubObjectPropertyOf(obo:RO_0002565 obo:RO_0040036)
 
 # Object Property: obo:RO_0002566 (causally influences)
 
@@ -4529,6 +4539,8 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002567 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002567 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving the biomechanical processes.")
 AnnotationAssertion(rdfs:label obo:RO_0002567 "biomechanically related to")
 SubObjectPropertyOf(obo:RO_0002567 obo:RO_0002328)
+ObjectPropertyDomain(obo:RO_0002567 obo:CARO_0000003)
+ObjectPropertyRange(obo:RO_0002567 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002568 (has muscle antagonist)
 
@@ -4587,6 +4599,7 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0002573 "This relation is intended to
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002573 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002573 "has modifier")
 ObjectPropertyDomain(obo:RO_0002573 obo:BFO_0000020)
+ObjectPropertyRange(obo:RO_0002573 obo:BFO_0000020)
 
 # Object Property: obo:RO_0002574 (participates in a biotic-biotic interaction with)
 
@@ -4595,6 +4608,8 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0002574 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002574 "participates in a biotic-biotic interaction with")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002574 <http://dx.doi.org/10.1016/j.ecoinf.2014.08.005>)
 SubObjectPropertyOf(obo:RO_0002574 obo:RO_0002437)
+ObjectPropertyDomain(obo:RO_0002574 obo:CARO_0001010)
+ObjectPropertyRange(obo:RO_0002574 obo:CARO_0001010)
 
 # Object Property: obo:RO_0002576 (skeleton of)
 
@@ -4636,8 +4651,8 @@ SubObjectPropertyOf(obo:RO_0002584 obo:RO_0002595)
 
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002585 "p 'results in closure of' c if and only if p is a developmental process and p results in a state of c changing from open to closed.")
 AnnotationAssertion(rdfs:label obo:RO_0002585 "results in closure of")
-SubObjectPropertyOf(obo:RO_0002585 obo:RO_0000057)
 SubObjectPropertyOf(obo:RO_0002585 obo:RO_0002295)
+SubObjectPropertyOf(obo:RO_0002585 obo:RO_0040036)
 
 # Object Property: obo:RO_0002586 (results in breakdown of)
 
@@ -4678,7 +4693,7 @@ SubObjectPropertyOf(obo:RO_0002591 obo:RO_0002592)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002592 "p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c")
 AnnotationAssertion(rdfs:label obo:RO_0002592 "results in organization of")
-SubObjectPropertyOf(obo:RO_0002592 obo:RO_0000057)
+SubObjectPropertyOf(obo:RO_0002592 obo:RO_0040036)
 
 # Object Property: obo:RO_0002593 (existence ends at point)
 
@@ -5199,20 +5214,22 @@ AnnotationAssertion(oboInOwl:creation_date obo:RO_0004019 "2017-11-05T03:26:47Z"
 AnnotationAssertion(rdfs:label obo:RO_0004019 "disease has basis in")
 SubObjectPropertyOf(obo:RO_0004019 obo:RO_0004017)
 SubObjectPropertyOf(obo:RO_0004019 obo:RO_0004023)
-ObjectPropertyDomain(obo:RO_0004019 obo:BFO_0000016)
+ObjectPropertyDomain(obo:RO_0004019 obo:OGMS_0000031)
 
 # Object Property: obo:RO_0004020 (disease has basis in dysfunction of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0004020 "A relation that holds between the disease and a material entity where the physical basis of the disease is a disorder of that material entity that affects its function.")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0004020 "disease has basis in dysfunction of (disease to anatomical structure)")
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004020 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004020 "2017-11-05T03:29:32Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004020 "disease has basis in dysfunction of")
 SubObjectPropertyOf(obo:RO_0004020 obo:RO_0004019)
-ObjectPropertyRange(obo:RO_0004020 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0004020 obo:CARO_0000006)
 
 # Object Property: obo:RO_0004021 (disease has basis in disruption of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0004021 "A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process.")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0004021 "disease has basis in disruption of (disease to process)")
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004021 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004021 "2017-11-05T03:37:52Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004021 "disease has basis in disruption of")
@@ -5227,6 +5244,8 @@ AnnotationAssertion(oboInOwl:creation_date obo:RO_0004022 "2017-11-05T03:46:07Z"
 AnnotationAssertion(rdfs:label obo:RO_0004022 "disease has basis in feature")
 SubObjectPropertyOf(obo:RO_0004022 obo:RO_0002200)
 SubObjectPropertyOf(obo:RO_0004022 obo:RO_0004019)
+ObjectPropertyDomain(obo:RO_0004022 obo:OGMS_0000031)
+ObjectPropertyRange(obo:RO_0004022 ObjectUnionOf(obo:OGMS_0000031 obo:UPHENO_0001001))
 
 # Object Property: obo:RO_0004023 (causal relationship with disease as subject)
 
@@ -5236,24 +5255,29 @@ AnnotationAssertion(oboInOwl:created_by obo:RO_0004023 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004023 "2017-11-05T03:50:54Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004023 "causal relationship with disease as subject")
 SubObjectPropertyOf(obo:RO_0004023 obo:RO_0002410)
-ObjectPropertyDomain(obo:RO_0004023 obo:BFO_0000016)
+SubObjectPropertyOf(obo:RO_0004023 obo:RO_0040035)
+ObjectPropertyDomain(obo:RO_0004023 obo:OGMS_0000031)
 
 # Object Property: obo:RO_0004024 (disease causes disruption of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0004024 "A relationship between a disease and a process where the disease process disrupts the execution of the process.")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0004024 "disease causes disruption of (disease to process)")
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004024 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004024 "2017-11-05T03:51:09Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004024 "disease causes disruption of")
 SubObjectPropertyOf(obo:RO_0004024 obo:RO_0004023)
+ObjectPropertyDomain(obo:RO_0004024 obo:OGMS_0000031)
 ObjectPropertyRange(obo:RO_0004024 obo:BFO_0000015)
 
 # Object Property: obo:RO_0004025 (disease causes dysfunction of)
 
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0004025 "disease causes dysfunction of (disease to anatomical entity)")
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004025 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004025 "2017-11-05T03:58:20Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004025 "disease causes dysfunction of")
 SubObjectPropertyOf(obo:RO_0004025 obo:RO_0004023)
-ObjectPropertyRange(obo:RO_0004025 obo:BFO_0000004)
+ObjectPropertyDomain(obo:RO_0004025 obo:OGMS_0000031)
+ObjectPropertyRange(obo:RO_0004025 obo:CARO_0000006)
 
 # Object Property: obo:RO_0004026 (disease has location)
 
@@ -5263,8 +5287,10 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0004026 "This relation is intentional
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004026 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004026 "2017-11-05T04:06:02Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004026 "disease has location")
-SubObjectPropertyOf(obo:RO_0004026 obo:RO_0004023)
+SubObjectPropertyOf(obo:RO_0004026 obo:RO_0040035)
+ObjectPropertyDomain(obo:RO_0004026 obo:OGMS_0000031)
 ObjectPropertyRange(obo:RO_0004026 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0004026 ObjectUnionOf(obo:CARO_0000006 obo:CARO_0000007))
 
 # Object Property: obo:RO_0004027 (disease has inflammation site)
 
@@ -5273,6 +5299,8 @@ AnnotationAssertion(oboInOwl:created_by obo:RO_0004027 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004027 "2017-12-26T19:37:31Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004027 "disease has inflammation site")
 SubObjectPropertyOf(obo:RO_0004027 obo:RO_0004026)
+ObjectPropertyDomain(obo:RO_0004027 obo:OGMS_0000031)
+ObjectPropertyRange(obo:RO_0004027 obo:CARO_0000003)
 
 # Object Property: obo:RO_0004028 (realized in response to stimulus)
 
@@ -5290,8 +5318,9 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0004029 "A relationship between a dis
 AnnotationAssertion(oboInOwl:created_by obo:RO_0004029 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0004029 "2017-12-26T19:50:53Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0004029 "disease has feature")
-SubObjectPropertyOf(obo:RO_0004029 obo:RO_0004023)
-ObjectPropertyRange(obo:RO_0004029 ObjectUnionOf(obo:BFO_0000016 obo:BFO_0000019))
+SubObjectPropertyOf(obo:RO_0004029 obo:RO_0040035)
+ObjectPropertyDomain(obo:RO_0004029 obo:OGMS_0000031)
+ObjectPropertyRange(obo:RO_0004029 ObjectUnionOf(obo:OGMS_0000031 obo:UPHENO_0001001))
 
 # Object Property: obo:RO_0004030 (disease arises from structure)
 
@@ -5400,13 +5429,17 @@ SubObjectPropertyOf(obo:RO_0008504 obo:RO_0002445)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0008505 "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism.")
 AnnotationAssertion(rdfs:label obo:RO_0008505 "creates habitat for")
 SubObjectPropertyOf(obo:RO_0008505 obo:RO_0002321)
+ObjectPropertyDomain(obo:RO_0008505 obo:CARO_0001010)
+ObjectPropertyRange(obo:RO_0008505 obo:CARO_0001010)
 
-# Object Property: obo:RO_0008506 (co-occurs)
+# Object Property: obo:RO_0008506 (ecologically co-occurs with)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0008506 "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment.")
-AnnotationAssertion(rdfs:label obo:RO_0008506 "co-occurs")
+AnnotationAssertion(rdfs:label obo:RO_0008506 "ecologically co-occurs with")
 SubObjectPropertyOf(obo:RO_0008506 obo:RO_0002321)
 SymmetricObjectProperty(obo:RO_0008506)
+ObjectPropertyDomain(obo:RO_0008506 obo:CARO_0001010)
+ObjectPropertyRange(obo:RO_0008506 obo:CARO_0001010)
 
 # Object Property: obo:RO_0008507 (lays eggs on)
 
@@ -5430,6 +5463,8 @@ AnnotationAssertion(obo:IAO_0000116 obo:RO_0009001 "The relation X 'has substanc
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0009001 "Damion Dooley")
 AnnotationAssertion(rdfs:label obo:RO_0009001 "has substance added"@en)
 IrreflexiveObjectProperty(obo:RO_0009001)
+ObjectPropertyDomain(obo:RO_0009001 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0009001 obo:BFO_0000040)
 
 # Object Property: obo:RO_0009002 (has substance removed)
 
@@ -5439,6 +5474,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0009002 "\"has substance removed\" is
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0009002 "Damion Dooley"@en)
 AnnotationAssertion(rdfs:label obo:RO_0009002 "has substance removed"@en)
 IrreflexiveObjectProperty(obo:RO_0009002)
+ObjectPropertyDomain(obo:RO_0009002 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0009002 obo:BFO_0000040)
 
 # Object Property: obo:RO_0009003 (immersed in)
 
@@ -5448,6 +5485,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0009003 "\"immersed in\" is a relatio
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0009003 "Damion Dooley")
 AnnotationAssertion(rdfs:label obo:RO_0009003 "immersed in"@en)
 IrreflexiveObjectProperty(obo:RO_0009003)
+ObjectPropertyDomain(obo:RO_0009003 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0009003 obo:BFO_0000040)
 
 # Object Property: obo:RO_0009005 (has primary substance added)
 
@@ -5502,6 +5541,23 @@ AnnotationAssertion(rdfs:label obo:RO_0010002 "is carrier of"@en)
 ObjectPropertyDomain(obo:RO_0010002 obo:BFO_0000004)
 ObjectPropertyRange(obo:RO_0010002 obo:BFO_0000031)
 
+# Object Property: obo:RO_0040035 (disease relationship)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0040035 "This relation groups  relations between diseases and any other kind of entity.")
+AnnotationAssertion(obo:IAO_0000232 obo:RO_0040035 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, in which the subject or object is a disease.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0040035 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0040035 "2018-09-26T00:00:32Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0040035 "disease relationship")
+
+# Object Property: obo:RO_0040036 (has anatomical participant)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0040036 "p has anatomical participant c iff p has participant c, and c is an anatomical entity")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0040036 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0040036 "2018-09-26T01:08:58Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0040036 "has anatomical participant")
+SubObjectPropertyOf(obo:RO_0040036 obo:RO_0000057)
+ObjectPropertyRange(obo:RO_0040036 ObjectUnionOf(obo:CARO_0000006 obo:CARO_0000007))
+
 # Object Property: obo:RO_HOM0000001 (in homology relationship with)
 
 SubObjectPropertyOf(obo:RO_HOM0000001 obo:RO_0002158)
@@ -5529,6 +5585,23 @@ DataPropertyRange(obo:RO_0002029 DatatypeRestriction(xsd:short xsd:minInclusive 
 ############################
 #   Classes
 ############################
+
+# Class: obo:BFO_0000002 (continuant)
+
+SubClassOf(obo:BFO_0000002 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000002))
+SubClassOf(obo:BFO_0000002 ObjectAllValuesFrom(obo:RO_HOM0000000 obo:BFO_0000002))
+
+# Class: obo:BFO_0000003 (occurrent)
+
+SubClassOf(obo:BFO_0000003 ObjectAllValuesFrom(obo:RO_HOM0000000 obo:BFO_0000003))
+
+# Class: obo:BFO_0000015 (process)
+
+SubClassOf(obo:BFO_0000015 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000015))
+
+# Class: obo:CARO_0000006 (material anatomical entity)
+
+SubClassOf(obo:CARO_0000006 ObjectAllValuesFrom(obo:RO_0002179 obo:CARO_0000003))
 
 # Class: obo:GO_0004842 (ubiquitin-protein ligase activity)
 
@@ -5738,12 +5811,13 @@ DLSafeRule(Annotation(swrla:isRuleEnabled "true"^^xsd:boolean) Annotation(rdfs:c
 DLSafeRule(Annotation(rdfs:comment "GP(X)-enables->MF(Y)-has_part->MF(Z) => GP(X) enables MF(Z),
 e.g.  if GP X enables ATPase coupled transporter activity' and 'ATPase coupled transporter activity' has_part 'ATPase activity' then GP(X) enables 'ATPase activity'") Annotation(rdfs:label "enabling an MF enables its parts") Body(ClassAtom(obo:GO_0003674 Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:BFO_0000051 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Annotation(swrla:isRuleEnabled "true"^^xsd:boolean) Annotation(rdfs:comment "GP(X)-enables->MF(Y)-part_of->BP(Z) => GP(X) involved_in BP(Z) e.g. if X enables 'protein kinase activity' and Y 'part of' 'signal tranduction' then X involved in 'signal transduction'"^^xsd:string) Annotation(rdfs:label "involved in BP"^^xsd:string) Body(ClassAtom(obo:GO_0008150 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:BFO_0000050 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ObjectPropertyAtom(obo:RO_0002331 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
+DLSafeRule(Annotation(rdfs:seeAlso <https://github.com/oborel/obo-relations/issues/259>) Body(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#a1>) Variable(<urn:swrl#a2>)) ClassAtom(obo:GO_0016301 Variable(<urn:swrl#a1>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#a1>) Variable(<urn:swrl#g1>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#a2>) Variable(<urn:swrl#g2>)))Head(ObjectPropertyAtom(obo:RO_0002447 Variable(<urn:swrl#g1>) Variable(<urn:swrl#g2>))))
 DLSafeRule(Annotation(rdfs:label "From ligand activity to has_ligand") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>)) ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)))Head(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>))))
 DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix for expected inference in GO-CAM.  The problem is most acute for transmembrane proteins, such as receptors or cell adhesion molecules, which have some subfunctions inside the cell (e.g. kinase activity) and some subfunctions outside (e.g. ligand binding).  Correct annotation of where these functions occurs leads to incorrect inference about the location of the whole protein.  This should probably be weakened to \"... -> overlaps\"") Body(ObjectPropertyAtom(obo:BFO_0000066 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ObjectPropertyAtom(obo:BFO_0000050 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
@@ -5751,6 +5825,7 @@ DLSafeRule(Annotation(rdfs:comment "if effector directly positively regulates X,
 DLSafeRule(Annotation(rdfs:label "if effector directly negatively regulates X,  its parent MF directly negatively regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
+AnnotationAssertion(owl:deprecated obo:BFO_0000060 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000092 "inverse of has disposition")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0000092 obo:RO_0002259)
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0001000 "This relation is taken from the RO2005 version of RO. It may be obsoleted and replaced by relations with different definitions. See also the 'develops from' family of relations.")
