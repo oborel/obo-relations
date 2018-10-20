@@ -117,6 +117,16 @@ subsets/ro-chado.obo: ro.obo
 	owltools --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@
 
 # ========================================
+# REPORTING (EXPERIMENTAL)
+# ========================================
+# requires sparqlprog
+
+usage.tsv: ro-base.owl
+	pq-ontobee -f tsv -e -i $<  "owl:objectProperty(P), label(P,PN), (ontobee ?? aggregate_group(count(Restr),[P,G],rdf(Restr,owl:onProperty,P,G),Num))" "x(P,PN,G,Num)" > $@.tmp && mv $@.tmp $@
+usage-full.tsv:
+	pq-ontobee -f tsv -e -i ro.owl  "owl:objectProperty(P), (ontobee ?? rdf(Restr,owl:onProperty,P,G),label(P,PN))" "x(Restr,P,PN,G)" > $@.tmp && mv $@.tmp $@
+
+# ========================================
 # EXPERIMENTAL
 # ========================================
 
