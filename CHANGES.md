@@ -1,3 +1,271 @@
+* 2018-10-20
+
+This release contains stronger domain and range constraints for various relations.
+
+commit d852a55de23807bc61f2b3840fa1e233e9aafd2f
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Fri Oct 19 12:12:05 2018 -0400
+
+    Including additional CARO classes in import, in particular the more general 'anatomical structure'
+    Broadening range for some developmental relations to AS. See https://github.com/obophenotype/uberon/issues/1455
+
+
+commit 77d73875a74aaaee4784583cfc8010d21f99e146
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Fri Sep 28 13:54:47 2018 -0700
+
+    Further constraining located_in, see comments from Alan: https://github.com/oborel/obo-relations/pull/256#issuecomment-425558558
+    
+    We keep the weaker D+R constraints in for EL purposes
+
+commit ae9eae11cd51726738ace041a06a61e5e65cc4f4
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Fri Sep 28 13:50:04 2018 -0700
+
+    mireot spatial region
+
+commit a8554e84b6afe2eecd0ba682d1f42d3e7a36c0c7
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Wed Sep 26 11:31:24 2018 -0700
+
+    Adding SWRL for phosphorylates, see #259
+
+commit 98157a6047023e54d2a247a1f5f0214396afe170
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Wed Sep 26 11:20:55 2018 -0700
+
+    domain-range constrs
+
+commit c677fb53557f486729fd307236ec3d77c58bc0b3
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 18:03:12 2018 -0700
+
+    domain-range constrs
+
+commit e8c15a38feaccbe82bda1c63455b074dff398005
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 17:42:25 2018 -0700
+
+    Adding organism from CARO - may change label, see https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6
+
+commit c68f0a1aea97f2418b5388b7394847fc668bf46a
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 17:39:59 2018 -0700
+
+    domain/range
+
+commit 5f61d08282260a46aac06a4d05dfb161de4b028e
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 17:20:52 2018 -0700
+
+    domain and range constraints
+
+commit ddbe35e23095197ed97f5e3cf930606ec892971e
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 16:52:26 2018 -0700
+
+    Separating out chemical relations into separate module
+    See also https://github.com/OBOFoundry/Experimental-OBO-Core/issues/7
+
+commit e8ad2e9b6458e9e1f8bacaeb3687812464623b77
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 16:52:24 2018 -0700
+
+    for-SLME
+
+commit dbf86d2c29733913b73abec3e461f26137cd5e84
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 16:52:07 2018 -0700
+
+    imports
+
+commit 2a86292cb4127782e4e73142b2e351ef62b9ea83
+Merge: 0619f28 185c458
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 16:08:48 2018 -0700
+
+    Merge pull request #237 from oborel/issue-235-redux2
+    
+    Obsoleted "related via dependence to"
+
+commit 0619f28b35d74874c02acde68c2141ff8701b3bd
+Merge: 1c82785 a3db7f2
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Tue Sep 25 16:02:45 2018 -0700
+
+    Merge pull request #256 from oborel/located-in-domain-range
+    
+    Adding domain-range constraints for located_in, see #255
+
+commit a3db7f2630766ed8100fe24df706fb9836d74fd1
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Sep 11 15:39:26 2018 -0700
+
+    Adding domain-range constraints for located_in, see #255
+    
+    note this changes introduces a spurious diff bringing in
+    AP declarations, this can be ignored
+
+commit 1c827855be761c96c6cf82586298a6ad2f0e6b91
+Merge: 8d29f03 ef15212
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Thu Aug 30 16:57:53 2018 -0700
+
+    Merge pull request #233 from msinclair2/master
+    
+    Add generically depends on and inverse generic bearer of
+
+commit ef152124653a04b4264a05df8bf6775abb06e000
+Author: Michael Sinclair <michael.sinclair@utah.edu>
+Date:   Thu Aug 30 17:28:40 2018 -0600
+
+    create property chain with gdo and add is carrier of
+
+commit 06a6e4fbf21bb5d9cc75d4bb4cbccd288393da2b
+Author: Michael Sinclair <michael.sinclair@utah.edu>
+Date:   Fri Jul 20 17:09:25 2018 -0600
+
+    removed generic bearer of, include only generically depends on per BFO spec
+
+commit e3f5f5a3aa54a46b337e2e0e95cb5c9132a2883e
+Author: Michael Sinclair <michael.sinclair@utah.edu>
+Date:   Mon Jun 25 13:46:02 2018 -0600
+
+    Add generically depends on and inverse generic bearer of
+
+commit 8d29f0343bb70621c092c299136cd8c994c0b192
+Merge: 55a7f51 3f04c7d
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Fri Aug 10 11:15:13 2018 -0700
+
+    Merge pull request #248 from oborel/cmungall-patch-2
+    
+    Update README.md
+
+commit 3f04c7debef06cb248b419e27b339f419e1b8088
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Fri Aug 10 11:09:46 2018 -0700
+
+    Update README.md
+    
+    Make google group canonical
+
+commit 55a7f51088c16cc4941c1879be51a6b5b2010328
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Tue Jul 31 08:52:39 2018 -0700
+
+    Update README.md
+
+commit 33cff44978a493e5ab8f8a735ec43df23f914014
+Merge: a216c15 7252617
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Sun Jul 29 20:37:27 2018 -0700
+
+    Merge pull request #245 from oborel/atomic-redux
+    
+    Making release of atomic (base) file
+
+commit 72526174139c6190800645583309e89420e811a2
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Sun Jul 29 20:28:36 2018 -0700
+
+    Renamed component to base
+
+commit f21b93e2606019cbc68dda806c16218ed0caa0bd
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon May 21 13:40:55 2018 -0700
+
+    First attempt at making atomic module, see https://github.com/INCATools/ontology-starter-kit/issues/50
+    
+    Conflicts:
+    	src/ontology/ro-edit.owl
+
+commit a216c15a334fcddec5c80b9f72144c0cc5536076
+Merge: ff3fd1f b26fa8a
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Sun Jul 29 20:13:53 2018 -0700
+
+    Merge pull request #232 from oborel/mortality_rate
+    
+    Data property used to record increases in age-specific mortality rate
+
+commit ff3fd1f77f05a9b59322400cae4eb52aa9b56682
+Merge: 65a367e 976634c
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Sun Jul 29 20:13:13 2018 -0700
+
+    Merge pull request #234 from oborel/cmungall-patch-1
+    
+    Update ro-idranges.owl
+
+commit 65a367eea8957fb11a397660e6b113ed863de24e
+Merge: 953ec84 7107c3e
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Thu Jul 26 18:20:16 2018 -0700
+
+    Merge pull request #243 from balhoff/issue-242
+    
+    Remove inverse expression superproperty for ‘enabled by’.
+
+commit 7107c3e0dcfb6a9b5e8c137139f0785c3f13fcc2
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Thu Jul 26 10:34:21 2018 -0400
+
+    Remove inverse expression super property for ‘enabled by’.
+
+commit 185c45862bd66ee18c7fe6823113148107cb1bfb
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Sun Jul 8 13:38:18 2018 -0700
+
+    Obsoleted "related via dependence to"
+    This was used to group causal relations and correlative relations.
+    The grouping was somewhat arbitrary and very poorly defined.
+    For now we should not group these two sets of relations
+    Fixes #235
+
+commit 953ec8472b20fec4f820796fc68b29129f948dc4
+Merge: d9fa8cd 87a13f3
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Sat Jul 7 12:40:27 2018 -0700
+
+    Merge branch 'master' of github.com:oborel/obo-relations
+
+commit 976634ceebc82ff0bb05dbc0116b6c999e6040ad
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Jun 25 14:47:45 2018 -0700
+
+    Update ro-idranges.owl
+    
+    Adding id range for @msinclair2
+    
+    See #233
+
+commit 87a13f3327fa031925b2ba184af158033acc4b7a
+Author: James A. Overton <james@overton.ca>
+Date:   Wed Jun 6 14:23:18 2018 -0400
+
+    Add diagrams for RO Core
+    
+    - ROCore_Continuants.jpg shows continuant, occurrent, IDC, SDC, GDC, and the relations among them
+    - ROCore_SDCs.jpg focuses on the subtypes of SDC and their relations to IDC and occurrent
+    - ROCore.graffle is the source file for these two diagrams
+
+commit b26fa8a83c47c5fe4f6410775c78bbc1713d4589
+Author: dosumis <dosumis@gmail.com>
+Date:   Tue May 22 18:14:58 2018 +0100
+
+    Extended comments and refs.
+
+commit d132eb9eed09c4851eefd7a7d544b4631090c2c2
+Author: dosumis <dosumis@gmail.com>
+Date:   Tue May 22 18:06:41 2018 +0100
+
+    Adding data property used to record increases in age-specific mortality rate
+
+
+
+
+
 * 2017-07-19 Release
 
 commit 48d076312637419ed24dc77843b7dc84cfd33fcf
