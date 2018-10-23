@@ -2,7 +2,7 @@ OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
 
-ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
+ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl generated-axioms.owl
 
 # ========================================
 # PRODUCTION
@@ -166,6 +166,13 @@ reports/ro-%.ttl: sparql/%.sparql ro.owl
 views/%.owl: sparql/%.sparql ro.owl
 	robot merge -i ro.owl query -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
+gen-%.owl: sparql/construct-%.sparql ro.owl
+	robot query -i ro.owl -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
+
+# See https://github.com/oborel/obo-relations/pull/270
+GENAXIOMS = gen-universal-from-homeomorphy.owl
+generated-axioms.owl: $(GENAXIOMS)
+	robot merge $(patsubst %, -i %, $(GENAXIOMS)) -o $@.tmp.ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
 # generate includes from sparql CONSTRUCT queries;
 # these can then be merged in to the main ontology

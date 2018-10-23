@@ -18,6 +18,7 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 Ontology(<http://purl.obolibrary.org/obo/ro.owl>
 <http://purl.obolibrary.org/obo/ro-edit.owl>
 Import(<http://purl.obolibrary.org/obo/ro/annotations.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/pato_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>)
@@ -559,6 +560,7 @@ Declaration(AnnotationProperty(obo:RO_0002617))
 Declaration(AnnotationProperty(obo:RO_0004048))
 Declaration(AnnotationProperty(obo:RO_0004049))
 Declaration(AnnotationProperty(obo:RO_0004050))
+Declaration(AnnotationProperty(obo:RO_0040042))
 Declaration(AnnotationProperty(subsets:ro-eco))
 Declaration(AnnotationProperty(dc:description))
 Declaration(AnnotationProperty(cito:citesAsAuthority))
@@ -959,6 +961,17 @@ AnnotationAssertion(oboInOwl:creation_date obo:RO_0004050 "2018-03-14T00:03:24Z"
 AnnotationAssertion(rdfs:label obo:RO_0004050 "is negative form of")
 SubAnnotationPropertyOf(obo:RO_0004050 obo:RO_0004048)
 
+# Annotation Property: obo:RO_0040042 (is homeomorphic for)
+
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0040042 "part-of is homeomorphic for independent continuants.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0040042 "R is homemorphic for C iff (1) there exists some x,y such that x R y, and x and y instantiate C and (2) for all x, if x is an instance of C, and there exists some y some such that x R y, then it follows that y is an instance of C.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0040042 "cjm"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0040042 "2018-10-21T19:46:34Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:comment obo:RO_0040042 "R homeomorphic-for C expands to: C SubClassOf R only C. Additionally, for any class D that is disjoint with C, we can also expand to C DisjointWith R some D, D DisjointWith R some C.")
+AnnotationAssertion(rdfs:label obo:RO_0040042 "is homeomorphic for")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0040042 <https://github.com/oborel/obo-relations/issues/164>)
+SubAnnotationPropertyOf(obo:RO_0040042 obo:RO_0002422)
+
 # Annotation Property: subsets:ro-eco (eco subset)
 
 AnnotationAssertion(rdfs:label subsets:ro-eco "eco subset")
@@ -979,6 +992,13 @@ AnnotationAssertion(rdfs:label oboInOwl:inSubset "in_subset"^^xsd:string)
 
 # Object Property: obo:BFO_0000050 (part of)
 
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000002)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000003)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000004)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000017)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000019)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000020)
+AnnotationAssertion(obo:RO_0040042 obo:BFO_0000050 obo:BFO_0000031)
 AnnotationAssertion(rdfs:seeAlso obo:BFO_0000050 <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections>)
 AnnotationAssertion(rdfs:seeAlso obo:BFO_0000050 <http://ontologydesignpatterns.org/wiki/Submissions:PartOf>)
 SubObjectPropertyOf(obo:BFO_0000050 obo:RO_0002131)
@@ -5558,6 +5578,11 @@ AnnotationAssertion(rdfs:label obo:RO_0040036 "has anatomical participant")
 SubObjectPropertyOf(obo:RO_0040036 obo:RO_0000057)
 ObjectPropertyRange(obo:RO_0040036 ObjectUnionOf(obo:CARO_0000006 obo:CARO_0000007))
 
+# Object Property: obo:RO_HOM0000000 (in similarity relationship with)
+
+AnnotationAssertion(obo:RO_0040042 obo:RO_HOM0000000 obo:BFO_0000002)
+AnnotationAssertion(obo:RO_0040042 obo:RO_HOM0000000 obo:BFO_0000003)
+
 # Object Property: obo:RO_HOM0000001 (in homology relationship with)
 
 SubObjectPropertyOf(obo:RO_HOM0000001 obo:RO_0002158)
@@ -5817,7 +5842,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
