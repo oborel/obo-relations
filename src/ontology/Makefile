@@ -2,7 +2,7 @@ OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
 
-ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl generated-axioms.owl
+ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl generated-axioms.owl
 
 # ========================================
 # PRODUCTION
