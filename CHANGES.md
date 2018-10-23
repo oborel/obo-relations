@@ -1,4 +1,16 @@
-* 2018-10-20
+* 2018-10-22
+
+Maintenance release - including missing file
+
+commit 8531e3fe766e85bc3b4b66a217ee05d8a9e06293
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Oct 22 17:42:18 2018 -0700
+
+    Added missing import
+
+
+
+* 2018-10-19
 
 This release contains stronger domain and range constraints for various relations.
 
