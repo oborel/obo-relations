@@ -117,6 +117,53 @@ subsets/ro-chado.obo: ro.obo
 	owltools --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@
 
 # ========================================
+# INTEGRATION TESTS
+# ========================================
+# See https://github.com/oborel/obo-relations/issues/272
+
+# initial test list, this will be expanded
+# Criteria: each ontology must provide a base
+INTEGRATED_ONTS = uberon cl go
+
+# All integration tests
+it_tests: individual_it_tests it-combined.txt it-diff.obodiff
+
+# Run integration tests on an ontology by ontology basis.
+# Note: this will be less complete that running once on the combined
+# set. However, this is useful for debugging.
+individual_it_tests: $(patsubst %, it-base-%.txt, $(INTEGRATED_ONTS))
+
+# perform integration test on an individual ontology
+it-base-%.txt: ro-edit.owl
+	robot merge -i $< -i $(OBO)/$*/$*-base.owl reason -r elk && touch $@
+
+INTEGRATED_ONTS_I := $(foreach ont,$(INTEGRATED_ONTS),-i $(OBO)/$(ont)/$(ont)-base.owl)
+
+# make a merger of bases of integrated ontologies, plus BFO.
+# TODO: build this in advance and distribute it separately, to make
+#  this fast enough for running in travis.
+mirror/ext-combined.owl:
+	robot merge  $(INTEGRATED_ONTS_I) -i $(OBO)/bfo.owl -o $@
+
+# run an integration test on integrated ontologies plus ro-edit
+it-combined.txt: ext-combined.owl ro-edit.owl
+	robot merge -i ro-edit.owl -i $< reason -r elk && touch $@
+
+# merge integrated onts plus ro-edit
+it-inferences-current.obo: ext-combined.owl ro-edit.owl
+	robot merge -i ro-edit.owl -i $< reason -n true -r elk -o $@
+
+# merge integrated onts plus last released RO
+it-inferences-release.obo: ext-combined.owl
+	robot merge -i $(OBO)/ro.owl -i $< reason -n true -r elk -o $@
+
+# How do changes in RO impact downstream ontologies?
+# We do this as an obodiff for now for speed and readability;
+# Will later switch to markdown diffs when integrated in robot
+it-diff.obodiff: it-inferences-release.obo it-inferences-current.obo
+	diff -u $^ > $@
+
+# ========================================
 # REPORTING (EXPERIMENTAL)
 # ========================================
 # requires sparqlprog
