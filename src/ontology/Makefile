@@ -137,24 +137,24 @@ individual_it_tests: $(patsubst %, it-base-%.txt, $(INTEGRATED_ONTS))
 it-base-%.txt: ro-edit.owl
 	robot merge -i $< -i $(OBO)/$*/$*-base.owl reason -r elk && touch $@
 
-INTEGRATED_ONTS_I := $(foreach ont,$(INTEGRATED_ONTS),-i $(OBO)/$(ont)/$(ont)-base.owl)
+INTEGRATED_ONTS_I := $(foreach ont,$(INTEGRATED_ONTS),-I $(OBO)/$(ont)/$(ont)-base.owl)
 
 # make a merger of bases of integrated ontologies, plus BFO.
 # TODO: build this in advance and distribute it separately, to make
 #  this fast enough for running in travis.
 mirror/ext-combined.owl:
-	robot merge  $(INTEGRATED_ONTS_I) -i $(OBO)/bfo.owl -o $@
+	robot merge  $(INTEGRATED_ONTS_I) -I $(OBO)/bfo.owl -o $@
 
 # run an integration test on integrated ontologies plus ro-edit
-it-combined.txt: ext-combined.owl ro-edit.owl
+it-combined.txt: mirror/ext-combined.owl ro-edit.owl
 	robot merge -i ro-edit.owl -i $< reason -r elk && touch $@
 
 # merge integrated onts plus ro-edit
-it-inferences-current.obo: ext-combined.owl ro-edit.owl
+it-inferences-current.obo: mirror/ext-combined.owl ro-edit.owl
 	robot merge -i ro-edit.owl -i $< reason -n true -r elk -o $@
 
 # merge integrated onts plus last released RO
-it-inferences-release.obo: ext-combined.owl
+it-inferences-release.obo: mirror/ext-combined.owl
 	robot merge -i $(OBO)/ro.owl -i $< reason -n true -r elk -o $@
 
 # How do changes in RO impact downstream ontologies?
