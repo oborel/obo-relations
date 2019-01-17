@@ -186,15 +186,5 @@ generated-axioms.owl: $(GENAXIOMS)
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
-
-### TEST: NEW - use robot
-
-ROBOJENKINS=http://build.berkeleybop.org/job/robot/lastSuccessfulBuild/artifact/bin
-
-robot.jar:
-	wget $(ROBOJENKINS)/$@ -O $@
-robot: robot.jar
-	wget $(ROBOJENKINS)/$@ -O $@ && chmod +x $@
-
-test: robot
+test:
 	./robot reason -r HermiT -i ro-edit.owl
