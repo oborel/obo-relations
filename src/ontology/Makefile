@@ -187,4 +187,4 @@ markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
 test:
-	./robot reason -r HermiT -i ro-edit.owl
+	robot reason -r HermiT -i ro-edit.owl
