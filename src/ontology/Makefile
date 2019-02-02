@@ -2,7 +2,8 @@ OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
 
-ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl generated-axioms.owl
+ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
+ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 # ========================================
 # PRODUCTION
@@ -12,7 +13,7 @@ all: build
 
 build: ro.owl ro.obo ro.json  all_subsets
 
-release: 
+release: $(ONTS_TO_BUILD)
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
@@ -136,6 +137,8 @@ build-using-oort: ro-edit.owl
 	ontology-release-runner --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+hom.obo:
+	wget $(OBO)/hom.obo -O $@.tmp && mv $@.tmp $@
 hom-fixed.obo: hom.obo
 	obo-grep.pl --neg -r is_obsolete: $< > $@.tmp && mv $@.tmp $@
 
