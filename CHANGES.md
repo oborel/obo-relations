@@ -1,4 +1,102 @@
-* 2018-10-20
+## 2019-02-01
+
+commit 6cc55ce8da94d380dadd7fd1f8f5f4c090bb83ad
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Thu Jan 31 09:53:31 2019 -0800
+
+    Roll back disjointness axiom in favor of SWRL rule.
+
+commit 689aa13a6c5c76d88a6f9e489d88f5da6a9eeef2
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Thu Jan 31 09:51:47 2019 -0800
+
+    Make ‘causally downstream of’ also “disjoint” with overlaps.
+
+commit 2678ffea0d099151139562b47ba5cb542477b638
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Thu Jan 31 09:45:59 2019 -0800
+
+    Convert disjoint properties to SWRL rule.
+
+commit 6886116c792b18adc01d31169104558aed39125c (origin/issue-298, issue-298)
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Thu Jan 17 20:26:17 2019 -0800
+
+    use odk robot
+
+commit 87c473aca97d89961e9b3567dba96f5406e78baa
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Wed Jan 16 13:54:55 2019 -0800
+
+    removing incorrect subPropertyOf, fixes #298
+
+commit 0a1c6d318259e336e1659e613597986ac09fa558
+Author: Jim Balhoff <jim@balhoff.org>
+Date:   Mon Dec 17 09:59:31 2018 -0500
+
+    Correct ‘directly develops from’ definition error. Fixes #292.
+
+commit d1b3b285d574431d06ffc5af908884bb0b8059f2
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Thu Dec 13 12:31:10 2018 +0100
+
+    making enabled_by a subprop of has participant, fixes #249
+
+commit eb0579c4c6d887803942a2cd0657561440c7f6d1
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Thu Dec 13 12:29:31 2018 +0100
+
+    First pass at more specific has-input relations
+    See also #230 #244
+
+commit f329dcf948b62042c80741c798e45f3b7263179e
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Oct 23 09:32:18 2018 -0700
+
+    Added curator notes to grouping relations
+    Added property chain for disease-causes-dysfunction-of
+    Additional domain/range constraints
+
+commit 2d7a472622d93a75e5caebf3d94206935bb08fcd
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Tue Oct 23 08:16:29 2018 -0700
+
+    Adding more D+R constraints, adding irreflexivity axioms
+
+commit 3a0e8a9eab11323551695216b37925536c6a9c03
+Author: Chris Mungall <cjm@berkeleybop.org>
+Date:   Mon Oct 22 19:39:36 2018 -0700
+
+    Update README-editors.md
+    
+    Updated with more standard docs from ODK
+
+commit b3d0a62afb49e282ae0c97a416eb3a31e3616f72
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Oct 22 18:01:20 2018 -0700
+
+    updating docs
+
+commit 986574b436d47d9fd4e865afe81a50c08dd5eaae (tag: v2018-10-22)
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Oct 22 17:53:26 2018 -0700
+
+    Adding missing imports
+
+
+## 2018-10-22
+
+Maintenance release - including missing file
+
+commit 8531e3fe766e85bc3b4b66a217ee05d8a9e06293
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Oct 22 17:42:18 2018 -0700
+
+    Added missing import
+
+
+
+## 2018-10-19
 
 This release contains stronger domain and range constraints for various relations.
 
@@ -266,7 +364,7 @@ Date:   Tue May 22 18:06:41 2018 +0100
 
 
 
-* 2017-07-19 Release
+## 2017-07-19 Release
 
 commit 48d076312637419ed24dc77843b7dc84cfd33fcf
 Merge: 67d2257 3b74b3a
@@ -333,7 +431,7 @@ Date:   Fri Jun 30 13:30:46 2017 -0700
     added exacerbates condition, consition exacerbated by, condition aameliorated by, and changed label of is preventative for condition to ameliorates condition.
     also made minor updates to text of definitions for causes or contributes to condition relations, as noted in #149
 
-* 2017-06-15 Release
+## 2017-06-15 Release
 
 commit 7bf8fa406e90c8a849dd4acf65b3cd5f8b82e381
 Author: Chris Mungall <cjm@berkeleybop.org>
@@ -424,7 +522,7 @@ Date:   Mon Jun 5 10:52:54 2017 -0700
     gitowl ++  AnnotationAssertion(oboInOwl:created_by obo:RO_0002309 "cjm"^^xsd:string)
     gitowl ||      <http://purl.obolibrary.org/obo/RO_0002309> created_by "cjm"^^string
 
-* 2017-05-29 Release
+## 2017-05-29 Release
 
 commit https://github.com/oborel/obo-relations/commit/dd541eb02d08ab6e8a72c2c7fbcbe5db237fe444
 Author: Chris Mungall <cjm@berkeleybop.org>

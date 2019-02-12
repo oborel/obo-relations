@@ -2,7 +2,8 @@ OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
 
-ONTS= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
+ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
+ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 # ========================================
 # PRODUCTION
@@ -12,7 +13,7 @@ all: build
 
 build: ro.owl ro.obo ro.json  all_subsets
 
-release: 
+release: $(ONTS_TO_BUILD)
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
@@ -136,6 +137,8 @@ build-using-oort: ro-edit.owl
 	ontology-release-runner --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+hom.obo:
+	wget $(OBO)/hom.obo -O $@.tmp && mv $@.tmp $@
 hom-fixed.obo: hom.obo
 	obo-grep.pl --neg -r is_obsolete: $< > $@.tmp && mv $@.tmp $@
 
@@ -166,6 +169,13 @@ reports/ro-%.ttl: sparql/%.sparql ro.owl
 views/%.owl: sparql/%.sparql ro.owl
 	robot merge -i ro.owl query -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
+gen-%.owl: sparql/construct-%.sparql ro.owl
+	robot query -i ro.owl -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
+
+# See https://github.com/oborel/obo-relations/pull/270
+GENAXIOMS = gen-universal-from-homeomorphy.owl
+generated-axioms.owl: $(GENAXIOMS)
+	robot merge $(patsubst %, -i %, $(GENAXIOMS)) -o $@.tmp.ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
 # generate includes from sparql CONSTRUCT queries;
 # these can then be merged in to the main ontology
@@ -179,15 +189,5 @@ views/%.owl: sparql/%.sparql ro.owl
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
-
-### TEST: NEW - use robot
-
-ROBOJENKINS=http://build.berkeleybop.org/job/robot/lastSuccessfulBuild/artifact/bin
-
-robot.jar:
-	wget $(ROBOJENKINS)/$@ -O $@
-robot: robot.jar
-	wget $(ROBOJENKINS)/$@ -O $@ && chmod +x $@
-
-test: robot
-	./robot reason -r HermiT -i ro-edit.owl
+test:
+	robot reason -r HermiT -i ro-edit.owl

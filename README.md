@@ -1,23 +1,21 @@
 [![DOI](https://zenodo.org/badge/13996/oborel/obo-relations.svg)](https://zenodo.org/badge/latestdoi/13996/oborel/obo-relations)
 [![Build Status](https://travis-ci.org/oborel/obo-relations.svg?branch=master)](https://travis-ci.org/oborel/obo-relations)
 
-
-This is the project page for RO, the new OBO Relations Ontology. This ontology replaces [OBO_REL](http://obofoundry.org/ro)
+This is the project page for RO, the OBO Relations Ontology
 
 # Summary
 
 RO is a collection of relations intended primarily for standardization across ontologies in the [OBO Foundry](http://obofoundry.org) and wider OBO library. It incorporates [ROCore](https://github.com/oborel/obo-relations/wiki/ROCore) upper-level relations such as [part of](http://purl.obolibrary.org/obo/BFO_0000050) as well as biology-specific relationship types such as [develops from](http://purl.obolibrary.org/obo/RO_0002202).
 
-See the site [Menu](https://github.com/oborel/obo-relations/wiki/Menu) for more info
+See the site [Menu](https://github.com/oborel/obo-relations/wiki/Menu) for more info, or the [ROGuide](https://github.com/oborel/obo-relations/wiki/ROGuide)
 
 # Download
 
-Use the following URIs to download this ontology:
+This is the main PURL for the ontology:
 
  * http://purl.obolibrary.org/obo/ro.owl
- * http://purl.obolibrary.org/obo/ro.obo
 
-Note that the source ontology is OWL - the [OBO](https://github.com/oborel/obo-relations/wiki/OBOFormatUsersGuide) version may have less axioms. Another difference between the two formats is that the OWL makes use of imports, whereas everything is combined into one with the obo file.
+For all download products, see the [RO OBO page](http://obofoundry.org/ontology/ro.html)
 
 # Browse
 
