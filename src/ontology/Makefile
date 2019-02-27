@@ -96,6 +96,10 @@ all_subsets_obo: $(patsubst %,subsets/ro-%.obo,$(SUBSETS)) subsets/ro-chado.obo
 subsets/ro-eco.owl: build/subsets/ro-eco.owl
 	owltools --use-catalog $< --remove-dangling -o $@
 
+
+subsets/ro-biotic-interaction.owl: ro.owl
+	robot filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@.tmp.owl && mv $@.tmp.owl $@
+
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(OBO)/ro/$@ -o $@
@@ -113,6 +117,10 @@ subsets/ro-developmental.owl: ro.owl
 #	owltools --use-catalog $< --extract-properties -s --list 'ecologically related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
 subsets/ro-hom.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'in similarity relationship with' // --set-ontology-id $(OBO)/ro/$@ -o $@
+
+subsets/%.csv: subsets/%.owl
+	robot query -i $< -s sparql/objectProperties.sparql $@.tmp -f csv && mv $@.tmp $@
+
 
 subsets/ro-chado.obo: ro.obo
 	owltools --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@
