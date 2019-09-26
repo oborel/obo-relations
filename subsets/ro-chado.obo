@@ -9,18 +9,20 @@ remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 291 Logical Axioms: 62]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 110 Logical Axioms: 27]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 109 Logical Axioms: 27]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
-property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
-property_value: http://purl.org/dc/elements/1.1/source http://obofoundry.org/ro
-property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
+property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
+property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
+property_value: http://purl.org/dc/terms/source http://obofoundry.org/ro
+property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
 
 [Typedef]
@@ -85,11 +87,6 @@ transitive_over: BFO:0000050 ! part of
 id: BFO:0000067
 name: contains_process
 def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t" []
-
-[Typedef]
-id: R0:0009004
-name: has_consumer
-def: "'has consumer' is a relation between a material entity and an organism in which the former can normally be digested or otherwise absorbed by the latter without immediate or persistent ill effect." []
 
 [Typedef]
 id: RO:0000052
@@ -280,7 +277,6 @@ is_a: RO:0002323 ! mereotopologically related to
 id: RO:0002003
 name: electrically_synapsed_to
 def: "A relation that holds between two neurons that are electrically coupled via gap junctions." []
-is_a: RO:0000300 ! in neural circuit with
 
 [Typedef]
 id: RO:0002004
@@ -638,6 +634,7 @@ holds_over_chain: BFO:0000050 BFO:0000050
 holds_over_chain: BFO:0000051 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 holds_over_chain: BFO:0000051 RO:0002131
 is_a: RO:0002323 ! mereotopologically related to
+transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002132
@@ -815,7 +812,7 @@ transitive_over: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002207
 name: directly_develops_from
-def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participates in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of y comes from x, and the start of x is coincident with or after the end of y" []
+def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participate in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of x comes from y, and the start of x is coincident with or after the end of y." []
 is_a: RO:0002202 ! develops from
 inverse_of: RO:0002210 ! directly develops into
 
@@ -893,13 +890,14 @@ id: RO:0002217
 name: actively_participates_in
 def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
 is_a: RO:0000056 ! participates in
-inverse_of: RO:0002218 ! has active participant
+inverse_of: RO:0002218 ! obsolete has active participant
 
 [Typedef]
 id: RO:0002218
-name: has_active_participant
+name: obsolete_has_active_participant
 def: "x has participant y if and only if x realizes some active role that inheres in y" []
 is_a: RO:0000057 ! has participant
+is_obsolete: true
 
 [Typedef]
 id: RO:0002219
@@ -1345,6 +1343,7 @@ is_a: RO:0002328 ! functionally related to
 id: RO:0002333
 name: enabled_by
 def: "inverse of enables" []
+is_a: RO:0000057 ! has participant
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -1962,7 +1961,7 @@ inverse_of: RO:0002460 ! has vector
 [Typedef]
 id: RO:0002460
 name: has_vector
-is_a: RO:0002459 ! is vector for
+is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 
 [Typedef]
 id: RO:0002461
@@ -2240,6 +2239,7 @@ id: RO:0002512
 name: ribosomal_translation_of
 def: "x is the ribosomal translation of y if and only if a ribosome reads x through a series of triplet codon-amino acid adaptor activities (GO:0030533) and produces y" []
 is_a: RO:0002330 ! genomically related to
+inverse_of: RO:0002513 ! ribosomally translates to
 
 [Typedef]
 id: RO:0002513
@@ -2386,6 +2386,7 @@ name: has_skeleton
 def: "A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision." []
 is_a: BFO:0000051 ! has part
 inverse_of: RO:0002576 ! skeleton of
+is_asymmetric: true
 
 [Typedef]
 id: RO:0002552
@@ -2668,7 +2669,7 @@ is_a: RO:0002616 ! related via evidence or inference to
 id: RO:0002615
 name: has_model
 def: "Inverse of is-model-of" []
-inverse_of: RO:0003301 ! is model of
+inverse_of: RO:0003301 ! has role in modeling
 
 [Typedef]
 id: RO:0002616
@@ -2823,8 +2824,9 @@ is_a: RO:0002450 ! activity directly positively regulates activity of
 
 [Typedef]
 id: RO:0003301
-name: is_model_of
-def: "Relation between a research artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity." []
+name: has_role_in_modeling
+def: "A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity." []
+is_asymmetric: true
 
 [Typedef]
 id: RO:0003302
@@ -2929,6 +2931,26 @@ is_a: RO:0004000 ! condition has genetic basis in
 inverse_of: RO:0004016 ! is causal germline mutation partially giving rise to
 
 [Typedef]
+id: RO:0004007
+name: has_primary_input_or_output
+def: "p 'has primary input ot output' c iff either (a) p 'has primary input' c or (b) p 'has primary output' c." []
+is_a: RO:0000057 ! has participant
+
+[Typedef]
+id: RO:0004008
+name: has_primary_output
+def: "p has primary output c if (a) p has output c and (b) the goal of process is to modify, produce, or transform c." [GOC:cjm, GOC:dph, GOC:kva, GOC:pt] {comment="PMID:27812932"}
+is_a: RO:0002234 ! has output
+is_a: RO:0004007 ! has primary input or output
+
+[Typedef]
+id: RO:0004009
+name: has_primary_input
+def: "p has primary input c if (a) p has input c and (b) the goal of process is to modify, consume, or transform c." [GOC:cjm, GOC:dph, GOC:kva, GOC:pt] {comment="PMID:27812932"}
+is_a: RO:0002233 ! has input
+is_a: RO:0004007 ! has primary input or output
+
+[Typedef]
 id: RO:0004010
 name: is_genetic_basis_for_condition
 is_a: RO:0004018 ! is basis for realizable
@@ -3015,6 +3037,7 @@ is_a: RO:0040035 ! disease relationship
 id: RO:0004024
 name: disease_causes_disruption_of
 def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
+holds_over_chain: RO:0004025 RO:0002215
 is_a: RO:0004023 ! causal relationship with disease as subject
 transitive_over: BFO:0000050 ! part of
 
@@ -3166,6 +3189,11 @@ def: "\"has substance removed\" is a relation existing between two physical enti
 id: RO:0009003
 name: immersed_in
 def: "\"immersed in\" is a relation between a (physical) entity and a fluid substance in which the entity is wholely or substantially surrounded by the substance." []
+
+[Typedef]
+id: RO:0009004
+name: has_consumer
+def: "'has consumer' is a relation between a material entity and an organism in which the former can normally be digested or otherwise absorbed by the latter without immediate or persistent ill effect." []
 
 [Typedef]
 id: RO:0009005
@@ -3507,7 +3535,7 @@ is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 [Typedef]
 id: RO:HOM0000033
 name: in_mimicry_relationship_with
-def: "Convergence that results from co-evolution usually involving an evolutionary arms race." [http://purl.obolibrary.org/obo/HOM_0000033, http:\://en.wikipedia.org/wiki/Mimicry]
+def: "Convergence that results from co-evolution usually involving an evolutionary arms race." [http://en.wikipedia.org/wiki/Mimicry, http://purl.obolibrary.org/obo/HOM_0000033]
 synonym: "mimicrous to" EXACT []
 is_symmetric: true
 is_a: RO:HOM0000004 ! in convergence relationship with
