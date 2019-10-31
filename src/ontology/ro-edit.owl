@@ -503,6 +503,14 @@ Declaration(ObjectProperty(obo:RO_0009005))
 Declaration(ObjectProperty(obo:RO_0009501))
 Declaration(ObjectProperty(obo:RO_0010001))
 Declaration(ObjectProperty(obo:RO_0010002))
+Declaration(ObjectProperty(obo:RO_0011001))
+Declaration(ObjectProperty(obo:RO_0011002))
+Declaration(ObjectProperty(obo:RO_0011003))
+Declaration(ObjectProperty(obo:RO_0011004))
+Declaration(ObjectProperty(obo:RO_0011007))
+Declaration(ObjectProperty(obo:RO_0011008))
+Declaration(ObjectProperty(obo:RO_0011009))
+Declaration(ObjectProperty(obo:RO_0011010))
 Declaration(ObjectProperty(obo:RO_0040035))
 Declaration(ObjectProperty(obo:RO_0040036))
 Declaration(ObjectProperty(owl:topObjectProperty))
@@ -3746,7 +3754,7 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002448 "Chris Mungall")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002448 "molecularly controls")
 AnnotationAssertion(rdfs:label obo:RO_0002448 "activity directly regulates activity of")
 SubObjectPropertyOf(obo:RO_0002448 obo:RO_0002436)
-SubObjectPropertyOf(obo:RO_0002448 obo:RO_0002566)
+SubObjectPropertyOf(obo:RO_0002448 obo:RO_0011002)
 
 # Object Property: obo:RO_0002449 (activity directly negatively regulates activity of)
 
@@ -4162,16 +4170,16 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0002505 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002505 "has intermediate")
 SubObjectPropertyOf(obo:RO_0002505 obo:RO_0000057)
 
-# Object Property: obo:RO_0002506 (causal relation between material entities)
+# Object Property: obo:RO_0002506 (causal relation between entities)
 
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002506 "The intent is that the process branch of the causal property hierarchy is primary (causal relations hold between occurrents/processes), and that the material branch is defined in terms of the process branch")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002506 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002506 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002506 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.")
-AnnotationAssertion(rdfs:label obo:RO_0002506 "causal relation between material entities")
+AnnotationAssertion(rdfs:label obo:RO_0002506 "causal relation between entities")
 SubObjectPropertyOf(obo:RO_0002506 obo:RO_0002410)
-ObjectPropertyDomain(obo:RO_0002506 obo:BFO_0000040)
-ObjectPropertyRange(obo:RO_0002506 obo:BFO_0000040)
+ObjectPropertyDomain(obo:RO_0002506 obo:BFO_0000002)
+ObjectPropertyRange(obo:RO_0002506 obo:BFO_0000002)
 
 # Object Property: obo:RO_0002507 (determined by)
 
@@ -4545,7 +4553,7 @@ SubObjectPropertyOf(obo:RO_0002558 obo:RO_0002616)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002559 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002559 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
-AnnotationAssertion(obo:IAO_0000589 obo:RO_0002559 "causally influenced by (material entity to material entity)")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0002559 "causally influenced by (entity-centric)")
 AnnotationAssertion(rdfs:label obo:RO_0002559 "causally influenced by")
 SubObjectPropertyOf(obo:RO_0002559 obo:RO_0002506)
 InverseObjectProperties(obo:RO_0002559 obo:RO_0002566)
@@ -4574,12 +4582,14 @@ SubObjectPropertyOf(obo:RO_0002565 obo:RO_0040036)
 
 # Object Property: obo:RO_0002566 (causally influences)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002566 "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002566 "The entity or characteristic A is causally upstream of the entity or characteristic B, A having an effect on B.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002566 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002566 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
-AnnotationAssertion(obo:IAO_0000589 obo:RO_0002566 "causally influences (material entity to material entity)")
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0002566 "causally influences (entity-centric)")
 AnnotationAssertion(rdfs:label obo:RO_0002566 "causally influences")
 SubObjectPropertyOf(obo:RO_0002566 obo:RO_0002506)
+ObjectPropertyDomain(obo:RO_0002566 obo:BFO_0000002)
+ObjectPropertyRange(obo:RO_0002566 obo:BFO_0000002)
 
 # Object Property: obo:RO_0002567 (biomechanically related to)
 
@@ -5628,6 +5638,54 @@ AnnotationAssertion(rdfs:label obo:RO_0010002 "is carrier of"@en)
 ObjectPropertyDomain(obo:RO_0010002 obo:BFO_0000004)
 ObjectPropertyRange(obo:RO_0010002 obo:BFO_0000031)
 
+# Object Property: obo:RO_0011001 (has activity that regulates)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011001 "has activity that regulates"@en)
+AnnotationAssertion(rdfs:label obo:RO_0011001 "has activity that regulates")
+SubObjectPropertyOf(obo:RO_0011001 obo:RO_0002566)
+ObjectPropertyDomain(obo:RO_0011001 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0011001 obo:BFO_0000002)
+
+# Object Property: obo:RO_0011002 (has activity that regulates the activity of)
+
+AnnotationAssertion(oboInOwl:hasOBOFormatVersion obo:RO_0011002 "has activity that regulates the activity of"@en)
+AnnotationAssertion(rdfs:label obo:RO_0011002 "has activity that regulates the activity of")
+SubObjectPropertyOf(obo:RO_0011002 obo:RO_0011001)
+ObjectPropertyDomain(obo:RO_0011002 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0011002 obo:BFO_0000040)
+
+# Object Property: obo:RO_0011003 (obo:RO_0011003)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011003 "has activity that regulates the quantity of"@en)
+SubObjectPropertyOf(obo:RO_0011003 obo:RO_0011001)
+ObjectPropertyDomain(obo:RO_0011003 obo:BFO_0000040)
+ObjectPropertyRange(obo:RO_0011003 obo:BFO_0000040)
+
+# Object Property: obo:RO_0011004 (obo:RO_0011004)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011004 "has activity that regulates the quantity of"@en)
+SubObjectPropertyOf(obo:RO_0011004 obo:RO_0011003)
+
+# Object Property: obo:RO_0011007 (obo:RO_0011007)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011007 "decreases quantity by repression of"@en)
+SubObjectPropertyOf(obo:RO_0011007 obo:RO_0011010)
+
+# Object Property: obo:RO_0011008 (obo:RO_0011008)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011008 "increases quantity by expression of"@en)
+SubObjectPropertyOf(obo:RO_0011008 obo:RO_0011009)
+
+# Object Property: obo:RO_0011009 (obo:RO_0011009)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011009 "has activity that positively regulates the quantity of"@en)
+SubObjectPropertyOf(obo:RO_0011009 obo:RO_0011004)
+
+# Object Property: obo:RO_0011010 (obo:RO_0011010)
+
+AnnotationAssertion(obo:IAO_0000589 obo:RO_0011010 "has activity that negatively regulates the quantity of"@en)
+SubObjectPropertyOf(obo:RO_0011010 obo:RO_0011004)
+
 # Object Property: obo:RO_0040035 (disease relationship)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0040035 "This relation groups  relations between diseases and any other kind of entity.")
@@ -5914,7 +5972,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
