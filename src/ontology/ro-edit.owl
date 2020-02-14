@@ -81,6 +81,9 @@ Declaration(ObjectProperty(obo:RO_0002023))
 Declaration(ObjectProperty(obo:RO_0002024))
 Declaration(ObjectProperty(obo:RO_0002025))
 Declaration(ObjectProperty(obo:RO_0002026))
+Declaration(ObjectProperty(obo:RO_0002027))
+Declaration(ObjectProperty(obo:RO_0002028))
+Declaration(ObjectProperty(obo:RO_0002030))
 Declaration(ObjectProperty(obo:RO_0002085))
 Declaration(ObjectProperty(obo:RO_0002100))
 Declaration(ObjectProperty(obo:RO_0002101))
@@ -1444,6 +1447,30 @@ AnnotationAssertion(<ttp://www.geneontology.org/formats/oboInOwl#created_by> obo
 SubObjectPropertyOf(obo:RO_0002026 obo:RO_0002323)
 ObjectPropertyDomain(obo:RO_0002026 foaf:image)
 ObjectPropertyRange(obo:RO_0002026 foaf:image)
+
+# Object Property: obo:RO_0002027 (causal relation between qualities)
+
+AnnotationAssertion(obo:IAO_0000232 obo:RO_0002027 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0002027 "dos"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0002027 "2020-02-14T15:11:21Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0002027 "causal relation between qualities"@en)
+SubObjectPropertyOf(obo:RO_0002027 obo:RO_0002410)
+
+# Object Property: obo:RO_0002028 (phenotype results in)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002028 "A relationship between two phenotypes where one phenotype inevitably results in another.  This may be used between phenbotypes or in the internal definition of phenotypes e.g.  abnormal sporulation resulting in formation of ascus containing non-uniform spores (FYPO) could be decomposed into two causally linked phenotypes.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0002028 "dos"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0002028 "2020-02-14T15:25:26Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0002028 "phenotype results in"@en)
+SubObjectPropertyOf(obo:RO_0002028 obo:RO_0002027)
+
+# Object Property: obo:RO_0002030 (phenotype results from)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002030 "A relationship between two phenotype where one phenotype inevitably results from another.  This relation can be used within phenotype definitions when we wish to restrict to a particular cause. Examples: part of the definition of 'hemolytic anemia' is that it results from hemolysis; part of the definition of cyanosis is the it results from decreased oxygenation of the blood.  It can also be used between phenotype definitions. e.g. hydrocephalus results in 'enlarged brain ventricles'.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0002030 "dos"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0002030 "2020-02-14T15:28:43Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0002030 "phenotype results from"@en)
+SubObjectPropertyOf(obo:RO_0002030 obo:RO_0002027)
 
 # Object Property: obo:RO_0002082 (simultaneous with)
 
@@ -5914,7 +5941,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
