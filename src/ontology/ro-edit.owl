@@ -1069,7 +1069,7 @@ ObjectPropertyRange(obo:RO_0000300 obo:CL_0000540)
 # Object Property: obo:RO_0000301 (upstream in neural circuit with)
 
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0000301 obo:IAO_0000125)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0000301 "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000301 "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0000301 "David Osumi-Sutherland"@en)
 AnnotationAssertion(obo:IAO_0000426 obo:RO_0000301 "(forall (?x ?y) 
 	(iff 
@@ -1102,7 +1102,7 @@ TransitiveObjectProperty(obo:RO_0000301)
 # Object Property: obo:RO_0000302 (downstream in neural circuit with)
 
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0000302 obo:IAO_0000125)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0000302 "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000302 "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the first to the last."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0000302 "David Osumi-Sutherland"@en)
 AnnotationAssertion(obo:IAO_0000426 obo:RO_0000302 "(forall (?x ?y) 
 	(iff 
@@ -2218,14 +2218,14 @@ AnnotationAssertion(rdfs:seeAlso obo:RO_0002216 <https://github.com/oborel/obo-r
 SubObjectPropertyOf(obo:RO_0002216 obo:RO_0002328)
 SubObjectPropertyOf(obo:RO_0002216 obo:RO_0002500)
 
-# Object Property: obo:RO_0002217 (actively participates in)
+# Object Property: obo:RO_0002217 (obsolete actively participates in)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002217 "x actively participates in y if and only if x participates in y and x realizes some active role")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002217 "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002217 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002217 "agent in")
-AnnotationAssertion(rdfs:label obo:RO_0002217 "actively participates in"@en)
-SubObjectPropertyOf(obo:RO_0002217 obo:RO_0000056)
-InverseObjectProperties(obo:RO_0002217 obo:RO_0002218)
+AnnotationAssertion(rdfs:comment obo:RO_0002217 "Obsoleted as the inverse property was obsoleted."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0002217 "obsolete actively participates in"@en)
+AnnotationAssertion(owl:deprecated obo:RO_0002217 "true"^^xsd:boolean)
 
 # Object Property: obo:RO_0002218 (obsolete has active participant)
 
@@ -2917,7 +2917,7 @@ AnnotationAssertion(obo:IAO_0000118 obo:RO_0002331 "actively involved in")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002331 "enables part of")
 AnnotationAssertion(rdfs:label obo:RO_0002331 "involved in"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002331 <http://wiki.geneontology.org/index.php/Involved_in>)
-SubObjectPropertyOf(obo:RO_0002331 obo:RO_0002217)
+SubObjectPropertyOf(obo:RO_0002331 obo:RO_0000056)
 SubObjectPropertyOf(obo:RO_0002331 obo:RO_0002431)
 
 # Object Property: obo:RO_0002332 (regulates levels of)
@@ -3379,7 +3379,7 @@ SubObjectPropertyOf(obo:RO_0002406 obo:RO_0002629)
 
 # Object Property: obo:RO_0002407 (indirectly activates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002407 "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002407 "p indirectly activates q if and only if p is upstream of q and there is a chain of directly activates relationships connecting p and q, where the chain is of length greater than one.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002407 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002407 "indirectly positively regulates")
 AnnotationAssertion(obo:RO_0002579 obo:RO_0002407 obo:RO_0002213)
@@ -4027,12 +4027,12 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002486 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002486 "sends output to")
 SubObjectPropertyOf(obo:RO_0002486 obo:RO_0002170)
 
-# Object Property: obo:RO_0002487 (relation between structure and stage)
+# Object Property: obo:RO_0002487 (relation between physical entity and a process or stage)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002487 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002487 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, typically connecting an anatomical entity to a biological process or developmental stage.")
-AnnotationAssertion(rdfs:label obo:RO_0002487 "relation between structure and stage")
-ObjectPropertyDomain(obo:RO_0002487 obo:BFO_0000002)
+AnnotationAssertion(rdfs:label obo:RO_0002487 "relation between physical entity and a process or stage")
+ObjectPropertyDomain(obo:RO_0002487 obo:BFO_0000004)
 ObjectPropertyDomain(obo:RO_0002487 ObjectUnionOf(obo:CARO_0000006 obo:CARO_0000007))
 ObjectPropertyRange(obo:RO_0002487 obo:BFO_0000003)
 
@@ -4681,11 +4681,11 @@ AnnotationAssertion(rdfs:label obo:RO_0002578 "directly regulates")
 SubObjectPropertyOf(obo:RO_0002578 obo:RO_0002211)
 SubObjectPropertyOf(obo:RO_0002578 obo:RO_0002412)
 
-# Object Property: obo:RO_0002583 (existence starts at point)
+# Object Property: obo:RO_0002583 (existence starts at end of)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002583 "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends.")
-AnnotationAssertion(rdfs:label obo:RO_0002583 "existence starts at point")
-SubObjectPropertyOf(obo:RO_0002583 obo:RO_0002487)
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002583 "holds between x and y if and only if the time point at which x starts is equivalent to the time point at which y ends. Formally: iff α(x) = ω(y).")
+AnnotationAssertion(rdfs:label obo:RO_0002583 "existence starts at end of")
+SubObjectPropertyOf(obo:RO_0002583 obo:RO_0002496)
 
 # Object Property: obo:RO_0002584 (has part structure that is capable of)
 
@@ -4744,11 +4744,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002592 "p results in organization of
 AnnotationAssertion(rdfs:label obo:RO_0002592 "results in organization of")
 SubObjectPropertyOf(obo:RO_0002592 obo:RO_0040036)
 
-# Object Property: obo:RO_0002593 (existence ends at point)
+# Object Property: obo:RO_0002593 (existence ends at start of)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002593 "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends.")
-AnnotationAssertion(rdfs:label obo:RO_0002593 "existence ends at point")
-SubObjectPropertyOf(obo:RO_0002593 obo:RO_0002487)
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002593 "holds between x and y if and only if the time point at which x ends is equivalent to the time point at which y starts. Formally: iff ω(x) = α(y).")
+AnnotationAssertion(rdfs:label obo:RO_0002593 "existence ends at start of")
+SubObjectPropertyOf(obo:RO_0002593 obo:RO_0002497)
 
 # Object Property: obo:RO_0002595 (causal relation between material entity and a process)
 
@@ -5527,7 +5527,7 @@ InverseObjectProperties(obo:RO_0008507 obo:RO_0008508)
 
 # Object Property: obo:RO_0008508 (has eggs laid on by)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0008508 "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0008508 "inverse of lays eggs on")
 AnnotationAssertion(rdfs:label obo:RO_0008508 "has eggs laid on by")
 SubObjectPropertyOf(obo:RO_0008508 obo:RO_0002619)
 
@@ -5809,7 +5809,6 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002207 obo:RO_0001025) obo:RO_00
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002211 obo:RO_0002313) obo:RO_0002011)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002212 obo:RO_0002212) obo:RO_0002213)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002214 obo:RO_0002162) obo:RO_0002162)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002214 obo:RO_0002217) obo:RO_0002215)
 SubObjectPropertyOf(Annotation(obo:RO_0002582 "true"^^xsd:boolean) ObjectPropertyChain(obo:RO_0002215 obo:BFO_0000050) obo:RO_0002216)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002162) obo:RO_0002162)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002211) obo:RO_0002596)
@@ -5817,7 +5816,6 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002212) obo:RO_00
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002213) obo:RO_0002598)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002481 obo:RO_0002400) obo:RO_0002447)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002215 obo:RO_0002482 obo:RO_0002400) obo:RO_0002480)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002217 obo:RO_0002162) obo:RO_0002162)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:BFO_0000066) obo:RO_0002231)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:RO_0002230) obo:RO_0002087)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:RO_0002233) obo:RO_0002233)
@@ -5914,7 +5912,7 @@ DLSafeRule(Annotation(rdfs:comment "This rule is dubious: added as a quick fix f
 DLSafeRule(Annotation(rdfs:comment "If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.") Annotation(rdfs:label "inferring direct reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002013 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct neg reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002014 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
 DLSafeRule(Annotation(rdfs:label "inferring direct positive reg edge from input to regulatory subfunction") Body(ObjectPropertyAtom(obo:RO_0002352 Variable(<urn:swrl#B>) Variable(<urn:swrl#C>)) ObjectPropertyAtom(obo:RO_0002333 Variable(<urn:swrl#A>) Variable(<urn:swrl#B>)) ObjectPropertyAtom(obo:RO_0002015 Variable(<urn:swrl#D>) Variable(<urn:swrl#C>)))Head(ObjectPropertyAtom(obo:RO_0002629 Variable(<urn:swrl#A>) Variable(<urn:swrl#D>))))
-DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
+DLSafeRule(Annotation(rdfs:label "From has_ligand to ligand activity") Body(ObjectPropertyAtom(obo:RO_0002327 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002019 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(obo:GO_0048018 Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#z>) Variable(<urn:swrl#x>))))
 DLSafeRule(Annotation(rdfs:label "effector input is compound function input") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:label "Input of effector is input of its parent MF") Body(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#mf>) Variable(<urn:swrl#in>)) ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)))Head(ObjectPropertyAtom(obo:RO_0002233 Variable(<urn:swrl#eff>) Variable(<urn:swrl#in>))))
 DLSafeRule(Annotation(rdfs:comment "if effector directly regulates X,  its parent MF directly regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002578 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
