@@ -1,9 +1,7 @@
 format-version: 1.2
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
-remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 26 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(Anonymous-21)) [Axioms: 32 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 61 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 56 Logical Axioms: 13]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
@@ -13,16 +11,15 @@ remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 109 Logical Axioms: 27]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 104 Logical Axioms: 26]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
-property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
+property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
+property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
-property_value: http://purl.org/dc/terms/source http://obofoundry.org/ro
-property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
 
 [Typedef]
@@ -184,14 +181,14 @@ is_transitive: true
 [Typedef]
 id: RO:0000301
 name: upstream_in_neural_circuit_with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
 is_transitive: true
 is_a: RO:0000300 ! in neural circuit with
 
 [Typedef]
 id: RO:0000302
 name: downstream_in_neural_circuit_with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the first to the last." []
 is_transitive: true
 is_a: RO:0000300 ! in neural circuit with
 
@@ -254,6 +251,7 @@ id: RO:0001025
 name: located_in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
 is_transitive: true
+transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002000
@@ -708,7 +706,6 @@ holds_over_chain: RO:0002202 RO:0002162
 holds_over_chain: RO:0002206 RO:0002162
 holds_over_chain: RO:0002214 RO:0002162
 holds_over_chain: RO:0002215 RO:0002162
-holds_over_chain: RO:0002217 RO:0002162
 holds_over_chain: RO:0002225 RO:0002162
 holds_over_chain: RO:0002254 RO:0002162
 is_a: RO:0002320 ! evolutionarily related to
@@ -874,7 +871,6 @@ def: "x has prototype y if and only if x is an instance of C and y is a prototyp
 id: RO:0002215
 name: capable_of
 def: "A relation between a material entity (such as a cell) and a process, in which the material entity has the ability to carry out the process. " []
-holds_over_chain: RO:0002214 RO:0002217
 is_a: RO:0002216 ! capable of part of
 
 [Typedef]
@@ -887,10 +883,9 @@ is_a: RO:0002500 ! causal agent in process
 
 [Typedef]
 id: RO:0002217
-name: actively_participates_in
-def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
-is_a: RO:0000056 ! participates in
-inverse_of: RO:0002218 ! obsolete has active participant
+name: obsolete_actively_participates_in
+def: "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role" []
+is_obsolete: true
 
 [Typedef]
 id: RO:0002218
@@ -1329,7 +1324,7 @@ id: RO:0002331
 name: involved_in
 def: "c involved_in p if and only if c enables some process p', and p' is part of p" []
 holds_over_chain: RO:0002327 BFO:0000050
-is_a: RO:0002217 ! actively participates in
+is_a: RO:0000056 ! participates in
 is_a: RO:0002431 ! involved in or involved in regulation of
 transitive_over: BFO:0000050 ! part of
 
@@ -1657,7 +1652,7 @@ is_a: RO:0002629 ! directly positively regulates
 [Typedef]
 id: RO:0002407
 name: indirectly_activates
-def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
+def: "p indirectly activates q if and only if p is upstream of q and there is a chain of directly activates relationships connecting p and q, where the chain is of length greater than one." []
 holds_over_chain: RO:0002406 RO:0002406
 holds_over_chain: RO:0002406 RO:0002407
 holds_over_chain: RO:0002409 RO:0002409
@@ -1887,25 +1882,25 @@ is_a: RO:0002436 ! molecularly interacts with
 
 [Typedef]
 id: RO:0002448
-name: activity_directly_regulates_activity_of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A regulates the kinase activity of B." []
+name: directly_regulates_activity_of
+def: "The entity A, immediately upstream of the entity B, has an activity that regulates an activity performed by B. For example, A and B may be gene products and binding of B by A regulates the kinase activity of B.\n\nA and B can be physically interacting but not necessarily. Immediately upstream means there are no intermediate entity between A and B." []
 synonym: "molecularly controls" EXACT []
 is_a: RO:0002436 ! molecularly interacts with
-is_a: RO:0002566 ! causally influences
+is_a: RO:0011002 ! regulates activity of
 
 [Typedef]
 id: RO:0002449
-name: activity_directly_negatively_regulates_activity_of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so negatively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B." []
+name: directly_negatively_regulates_activity_of
+def: "The entity A, immediately upstream of the entity B, has an activity that negatively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B." []
 synonym: "molecularly decreases activity of" EXACT []
-is_a: RO:0002448 ! activity directly regulates activity of
+is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
 id: RO:0002450
-name: activity_directly_positively_regulates_activity_of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so positively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B." []
+name: directly_positively_regulates_activity_of
+def: "The entity A, immediately upstream of the entity B, has an activity that positively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B." []
 synonym: "molecularly increases activity of" EXACT []
-is_a: RO:0002448 ! activity directly regulates activity of
+is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
 id: RO:0002451
@@ -2083,7 +2078,7 @@ is_a: RO:0002170 ! connected to
 
 [Typedef]
 id: RO:0002487
-name: relation_between_structure_and_stage
+name: relation_between_physical_entity_and_a_process_or_stage
 
 [Typedef]
 id: RO:0002488
@@ -2104,7 +2099,7 @@ is_a: RO:0002488 ! existence starts during
 id: RO:0002490
 name: existence_overlaps
 def: "x existence overlaps y if and only if either (a) the start of x is part of y or (b) the end of x is part of y. Formally: x existence starts and ends during y iff (α(x) >= α(y) & α(x) <= ω(y)) OR (ω(x) <= ω(y) & ω(x) >= α(y))" []
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 
 [Typedef]
 id: RO:0002491
@@ -2148,7 +2143,7 @@ name: existence_starts_during_or_after
 def: "x existence starts during or after y if and only if the time point at which x starts is after or equivalent to the time point at which y starts. Formally: x existence starts during or after y iff α (x) >= α (y)." []
 holds_over_chain: BFO:0000050 RO:0002496
 holds_over_chain: RO:0002258 RO:0002496
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 transitive_over: BFO:0000050 ! part of
 transitive_over: BFO:0000062 ! preceded by
 transitive_over: RO:0002082 ! simultaneous with
@@ -2159,7 +2154,7 @@ name: existence_ends_during_or_before
 def: "x existence ends during or before y if and only if the time point at which x ends is before or equivalent to the time point at which y ends." []
 holds_over_chain: BFO:0000050 RO:0002497
 holds_over_chain: RO:0002286 RO:0002497
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 transitive_over: BFO:0000050 ! part of
 transitive_over: BFO:0000063 ! precedes
 transitive_over: RO:0002082 ! simultaneous with
@@ -2195,7 +2190,7 @@ is_a: RO:0000057 ! has participant
 
 [Typedef]
 id: RO:0002506
-name: causal_relation_between_material_entities
+name: causal_relation_between_entities
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -2219,7 +2214,7 @@ name: determined_by_part_of
 def: "s 'determined by part of' w if and only if there exists some f such that (1) s 'determined by' f and (2) f part_of w, or f=w." []
 holds_over_chain: RO:0002507 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002131 ! overlaps
-is_a: RO:0002506 ! causal relation between material entities
+is_a: RO:0002506 ! causal relation between entities
 
 [Typedef]
 id: RO:0002510
@@ -2440,7 +2435,7 @@ is_a: RO:0002616 ! related via evidence or inference to
 [Typedef]
 id: RO:0002559
 name: causally_influenced_by
-is_a: RO:0002506 ! causal relation between material entities
+is_a: RO:0002506 ! causal relation between entities
 inverse_of: RO:0002566 ! causally influences
 
 [Typedef]
@@ -2462,8 +2457,8 @@ is_a: RO:0040036 ! has anatomical participant
 [Typedef]
 id: RO:0002566
 name: causally_influences
-def: "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b" []
-is_a: RO:0002506 ! causal relation between material entities
+def: "The entity or characteristic A is causally upstream of the entity or characteristic B, A having an effect on B. An entity corresponds to any biological type of entity as long as a mass is measurable. A characteristic corresponds to a particular specificity of an entity (e.g., phenotype, shape, size)." []
+is_a: RO:0002506 ! causal relation between entities
 
 [Typedef]
 id: RO:0002567
@@ -2526,9 +2521,9 @@ is_a: RO:0002412 ! immediately causally upstream of
 
 [Typedef]
 id: RO:0002583
-name: existence_starts_at_point
-def: "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends." []
-is_a: RO:0002487 ! relation between structure and stage
+name: existence_starts_at_end_of
+def: "holds between x and y if and only if the time point at which x starts is equivalent to the time point at which y ends. Formally: iff α(x) = ω(y)." []
+is_a: RO:0002496 ! existence starts during or after
 
 [Typedef]
 id: RO:0002584
@@ -2587,9 +2582,9 @@ is_a: RO:0040036 ! has anatomical participant
 
 [Typedef]
 id: RO:0002593
-name: existence_ends_at_point
-def: "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends." []
-is_a: RO:0002487 ! relation between structure and stage
+name: existence_ends_at_start_of
+def: "holds between x and y if and only if the time point at which x ends is equivalent to the time point at which y starts. Formally: iff ω(x) = α(y)." []
+is_a: RO:0002497 ! existence ends during or before
 
 [Typedef]
 id: RO:0002595
@@ -2813,14 +2808,14 @@ def: "a produced_by b iff some process that occurs_in b has_output a." []
 [Typedef]
 id: RO:0003002
 name: represses_expression_of
-def: "Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b." []
-is_a: RO:0002449 ! activity directly negatively regulates activity of
+def: "Holds between entity A (a transcription factor) and a nucleic acid B if and only if A down-regulates the expression of B. The nucleic acid can be a gene or an mRNA." []
+is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0003003
 name: increases_expression_of
-def: "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b." []
-is_a: RO:0002450 ! activity directly positively regulates activity of
+def: "Holds between entity A (a transcription factor) and nucleic acid B if and only if A up-regulates the expression of B. The nucleic acid can be a gene or mRNA." []
+is_a: RO:0002450 ! directly positively regulates activity of
 
 [Typedef]
 id: RO:0003301
@@ -3172,7 +3167,7 @@ inverse_of: RO:0008508 ! has eggs laid on by
 [Typedef]
 id: RO:0008508
 name: has_eggs_laid_on_by
-def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+def: "inverse of lays eggs on" []
 is_a: RO:0002619 ! visited by
 
 [Typedef]
@@ -3222,6 +3217,96 @@ id: RO:0010002
 name: is_carrier_of
 def: "*b* is carrier of *c* at time *t* if and only if *c* *g-depends on* *b* at *t*" []
 holds_over_chain: RO:0000059 RO:0000053
+
+[Typedef]
+id: RO:0011002
+name: regulates_activity_of
+def: "The entity A has an activity that regulates an activity of the entity B. For example, A and B are gene products where the catalytic activity of A regulates the kinase activity of B." []
+is_a: RO:0002566 ! causally influences
+
+[Typedef]
+id: RO:0011003
+name: regulates_quantity_of
+def: "The entity A has an activity that regulates the quantity or abundance or concentration of the entity B." []
+is_a: RO:0002566 ! causally influences
+
+[Typedef]
+id: RO:0011004
+name: indirectly_regulates_activity_of
+def: "The entity A is not immediately upstream of the entity B but A has an activity that regulates an activity performed by B." []
+is_a: RO:0011002 ! regulates activity of
+
+[Typedef]
+id: RO:0011007
+name: decreases_by_repression_quantity_of
+def: "The entity A has an activity that down-regulates by repression the quantity of B. The down-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly decreases by repression the quantity of protein B (gene product) if and only if A negatively regulates the process of transcription or translation of a nucleic acid element that produces B." []
+is_a: RO:0011023 ! indirectly negatively regulates quantity of
+
+[Typedef]
+id: RO:0011008
+name: increases_by_expression_quantity_of
+def: "The entity A has an activity that up-regulates by expression the quantity of B. The up-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly increases by expression the quantity of protein B (gene product) if and only if A positively regulates the process of transcription or translation of a nucleic acid element that produces B." []
+is_a: RO:0011024 ! indirectly positively regulates quantity of
+
+[Typedef]
+id: RO:0011009
+name: directly_positively_regulates_quantity_of
+def: "The entity A has an activity that directly positively regulates the quantity of B." []
+is_a: RO:0011021 ! directly regulates quantity of
+
+[Typedef]
+id: RO:0011010
+name: directly_negatively_regulates_quantity_of
+def: "The entity A has an activity that directly negatively regulates the quantity of B." []
+is_a: RO:0011021 ! directly regulates quantity of
+
+[Typedef]
+id: RO:0011013
+name: indirectly_positively_regulates_activity_of
+def: "The entity A is not immediately upstream of the entity B and has an activity that up-regulates an activity performed by B." []
+is_a: RO:0011004 ! indirectly regulates activity of
+
+[Typedef]
+id: RO:0011014
+name: destabilizes_quantity_of
+def: "An entity A directly interacts with B and A has an activity that decreases the amount of an entity B by degradating it." []
+is_a: RO:0011010 ! directly negatively regulates quantity of
+
+[Typedef]
+id: RO:0011015
+name: stabilizes_quantity_of
+def: "An entity A physically interacts with B and A has an activity that increases the amount of an entity B by stabilizing it." []
+is_a: RO:0011009 ! directly positively regulates quantity of
+
+[Typedef]
+id: RO:0011016
+name: indirectly_negatively_regulates_activity_of
+def: "The entity A is not immediately upstream of the entity B and has an activity that down-regulates an activity performed by B." []
+is_a: RO:0011004 ! indirectly regulates activity of
+
+[Typedef]
+id: RO:0011021
+name: directly_regulates_quantity_of
+def: "The entity A, immediately upstream of B, has an activity that directly regulates the quantity of B." []
+is_a: RO:0011003 ! regulates quantity of
+
+[Typedef]
+id: RO:0011022
+name: indirectly_regulates_quantity_of
+def: "The entity A is not immediately upstream of the entity B, but A has an activity that regulates the quantity or abundance or concentration of B." []
+is_a: RO:0011003 ! regulates quantity of
+
+[Typedef]
+id: RO:0011023
+name: indirectly_negatively_regulates_quantity_of
+def: "The entity A does not physically interact with the entity B, and A has an activity that down-regulates the quantity or abundance or concentration of B." []
+is_a: RO:0011022 ! indirectly regulates quantity of
+
+[Typedef]
+id: RO:0011024
+name: indirectly_positively_regulates_quantity_of
+def: "The entity A does not physically interact with the entity B, and A has an activity that up-regulates the quantity or abundance or concentration of B." []
+is_a: RO:0011022 ! indirectly regulates quantity of
 
 [Typedef]
 id: RO:0040035
