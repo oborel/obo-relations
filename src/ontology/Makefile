@@ -1,6 +1,7 @@
 OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
+REPORT_FAIL_ON = ERROR
 
 ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
 ONTS= $(ONTS_TO_BUILD) rohom.owl
@@ -157,7 +158,7 @@ odp/%.owl:
 # Reports
 # ----------------------------------------
 REPORTS=basicReport
-all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS))
+all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS)) reports/ro.owl-obo-report.tsv
 
 reports/ro-%.csv: sparql/%.sparql ro.owl
 	robot query -i ro.owl -s $< $@.tmp -f csv && mv $@.tmp $@
@@ -181,7 +182,11 @@ generated-axioms.owl: $(GENAXIOMS)
 # these can then be merged in to the main ontology
 #reports/include-%.owl: sparql/construct-%.sparql ecto-core.owl
 
-
+# ----------------------------------------
+# ROBOT report
+# ----------------------------------------
+reports/%-obo-report.tsv: %
+	$(ROBOT) merge --collapse-import-closure true -i $< report --labels true --fail-on $(REPORT_FAIL_ON) --print 5 -o $@
 
 # ----------------------------------------
 # MARKDOWN EXPORT
