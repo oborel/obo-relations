@@ -44,7 +44,7 @@ is_transitive: true
 [Typedef]
 id: RO:0000301
 name: upstream in neural circuit with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
@@ -56,7 +56,7 @@ is_a: RO:0000300 ! in neural circuit with
 [Typedef]
 id: RO:0000302
 name: downstream in neural circuit with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next." []
+def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the first to the last." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
@@ -323,8 +323,8 @@ creation_date: 2017-09-22T14:14:36Z
 id: RO:0002026
 name: in register with
 def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [GOC:dos]
-property_value: created_by "dos" xsd:string
 is_a: RO:0002323 ! mereotopologically related to
+created_by: dos
 creation_date: 2017-12-07T12:58:06Z
 
 [Typedef]
@@ -724,7 +724,6 @@ holds_over_chain: RO:0002202 RO:0002162
 holds_over_chain: RO:0002206 RO:0002162
 holds_over_chain: RO:0002214 RO:0002162
 holds_over_chain: RO:0002215 RO:0002162
-holds_over_chain: RO:0002217 RO:0002162
 holds_over_chain: RO:0002225 RO:0002162
 holds_over_chain: RO:0002254 RO:0002162
 is_a: RO:0002320 ! evolutionarily related to
@@ -990,7 +989,6 @@ property_value: IAO:0000118 "has function realized in" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20123131
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/21208450
 property_value: IAO:0000232 "For compatibility with BFO, this relation has a shortcut definition in which the expression \"capable of some P\" expands to \"bearer_of (some realized_by only P)\"." xsd:string
-holds_over_chain: RO:0002214 RO:0002217
 is_a: RO:0002216 ! capable of part of
 expand_expression_to: "RO_0000053 some (RO_0000054 only ?Y)" []
 
@@ -1008,11 +1006,12 @@ expand_expression_to: "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))" 
 
 [Typedef]
 id: RO:0002217
-name: actively participates in
-def: "x actively participates in y if and only if x participates in y and x realizes some active role" []
+name: obsolete actively participates in
+def: "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role" []
+comment: Obsoleted as the inverse property was obsoleted.
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "agent in" xsd:string
-inverse_of: RO:0002218 ! obsolete has active participant
+is_obsolete: true
 
 [Typedef]
 id: RO:0002218
@@ -1586,7 +1585,6 @@ property_value: IAO:0000118 "actively involved in" xsd:string
 property_value: IAO:0000118 "enables part of" xsd:string
 property_value: seeAlso Involved:in
 holds_over_chain: RO:0002327 BFO:0000050
-is_a: RO:0002217 ! actively participates in
 is_a: RO:0002431 ! involved in or involved in regulation of
 transitive_over: BFO:0000050
 
@@ -2032,7 +2030,7 @@ is_a: RO:0002629 ! directly positively regulates
 [Typedef]
 id: RO:0002407
 name: indirectly activates
-def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
+def: "p indirectly activates q if and only if p is upstream of q and there is a chain of directly activates relationships connecting p and q, where the chain is of length greater than one." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "indirectly positively regulates" xsd:string
 property_value: RO:0002579 RO:0002213
@@ -2384,30 +2382,33 @@ is_a: RO:0002436 ! molecularly interacts with
 
 [Typedef]
 id: RO:0002448
-name: activity directly regulates activity of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A regulates the kinase activity of B." []
+name: directly regulates activity of
+def: "The entity A, immediately upstream of the entity B, has an activity that regulates an activity performed by B. For example, A and B may be gene products and binding of B by A regulates the kinase activity of B.\n\nA and B can be physically interacting but not necessarily. Immediately upstream means there are no intermediate entity between A and B." []
 synonym: "molecularly controls" EXACT []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
 is_a: RO:0002436 ! molecularly interacts with
-is_a: RO:0002566 ! causally influences
+is_a: RO:0011002 ! regulates activity of
 
 [Typedef]
 id: RO:0002449
-name: activity directly negatively regulates activity of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so negatively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B." []
+name: directly negatively regulates activity of
+def: "The entity A, immediately upstream of the entity B, has an activity that negatively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A negatively regulates the kinase activity of B." []
 synonym: "molecularly decreases activity of" EXACT []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000118 "inhibits" xsd:string
-is_a: RO:0002448 ! activity directly regulates activity of
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+property_value: IAO:0000118 "directly inhibits" xsd:string
+is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
 id: RO:0002450
-name: activity directly positively regulates activity of
-def: "Holds between molecular entities A and B where A can physically interact with B and in doing so positively regulates a process that B is capable of.  For example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B." []
+name: directly positively regulates activity of
+def: "The entity A, immediately upstream of the entity B, has an activity that positively regulates an activity performed by B. \nFor example, A and B may be gene products and binding of B by A positively regulates the kinase activity of B." []
 synonym: "molecularly increases activity of" EXACT []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000118 "activates" xsd:string
-is_a: RO:0002448 ! activity directly regulates activity of
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+property_value: IAO:0000118 "directly activates" xsd:string
+is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
 id: RO:0002451
@@ -2662,7 +2663,7 @@ is_a: RO:0002170 ! connected to
 
 [Typedef]
 id: RO:0002487
-name: relation between structure and stage
+name: relation between physical entity and a process or stage
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, typically connecting an anatomical entity to a biological process or developmental stage." xsd:string
 
@@ -2689,7 +2690,7 @@ name: existence overlaps
 def: "x existence overlaps y if and only if either (a) the start of x is part of y or (b) the end of x is part of y. Formally: x existence starts and ends during y iff (α(x) >= α(y) & α(x) <= ω(y)) OR (ω(x) <= ω(y) & ω(x) >= α(y))" []
 comment: The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription.
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 
 [Typedef]
 id: RO:0002491
@@ -2744,7 +2745,7 @@ comment: The relations here were created based on work originally by Fabian Neuh
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 holds_over_chain: BFO:0000050 RO:0002496
 holds_over_chain: RO:0002258 RO:0002496
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 transitive_over: BFO:0000050
 transitive_over: BFO:0000062
 transitive_over: RO:0002082
@@ -2757,7 +2758,7 @@ comment: The relations here were created based on work originally by Fabian Neuh
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 holds_over_chain: BFO:0000050 RO:0002497
 holds_over_chain: RO:0002286 RO:0002497
-is_a: RO:0002487 ! relation between structure and stage
+is_a: RO:0002487 ! relation between physical entity and a process or stage
 transitive_over: BFO:0000050
 transitive_over: BFO:0000063
 transitive_over: RO:0002082
@@ -2805,7 +2806,7 @@ property_value: IAO:0000118 "has intermediate product" xsd:string
 
 [Typedef]
 id: RO:0002506
-name: causal relation between material entities
+name: causal relation between entities
 property_value: IAO:0000116 "The intent is that the process branch of the causal property hierarchy is primary (causal relations hold between occurrents/processes), and that the material branch is defined in terms of the process branch" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
@@ -2847,7 +2848,7 @@ subset: ro-eco
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 holds_over_chain: RO:0002507 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002131 ! overlaps
-is_a: RO:0002506 ! causal relation between material entities
+is_a: RO:0002506 ! causal relation between entities
 
 [Typedef]
 id: RO:0002510
@@ -3172,8 +3173,8 @@ id: RO:0002559
 name: causally influenced by
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
-property_value: IAO:0000589 "causally influenced by (material entity to material entity)" xsd:string
-is_a: RO:0002506 ! causal relation between material entities
+property_value: IAO:0000589 "causally influenced by (entity-centric)" xsd:string
+is_a: RO:0002506 ! causal relation between entities
 inverse_of: RO:0002566 ! causally influences
 
 [Typedef]
@@ -3201,11 +3202,12 @@ is_a: RO:0040036 ! has anatomical participant
 [Typedef]
 id: RO:0002566
 name: causally influences
-def: "Holds between materal entities a and b if the activity of a is causally upstream of the activity of b, or causally upstream of a an activity that modifies b" []
+def: "The entity or characteristic A is causally upstream of the entity or characteristic B, A having an effect on B. An entity corresponds to any biological type of entity as long as a mass is measurable. A characteristic corresponds to a particular specificity of an entity (e.g., phenotype, shape, size)." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
-property_value: IAO:0000589 "causally influences (material entity to material entity)" xsd:string
-is_a: RO:0002506 ! causal relation between material entities
+property_value: IAO:0000589 "causally influences (entity-centric)" xsd:string
+is_a: RO:0002506 ! causal relation between entities
 
 [Typedef]
 id: RO:0002567
@@ -3297,9 +3299,9 @@ is_a: RO:0002412 ! immediately causally upstream of
 
 [Typedef]
 id: RO:0002583
-name: existence starts at point
-def: "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends." []
-is_a: RO:0002487 ! relation between structure and stage
+name: existence starts at end of
+def: "holds between x and y if and only if the time point at which x starts is equivalent to the time point at which y ends. Formally: iff α(x) = ω(y)." []
+is_a: RO:0002496 ! existence starts during or after
 
 [Typedef]
 id: RO:0002584
@@ -3360,9 +3362,9 @@ is_a: RO:0040036 ! has anatomical participant
 
 [Typedef]
 id: RO:0002593
-name: existence ends at point
-def: "x existence starts at point y if and only if the time point at which x starts is equivalent to the time point at which y ends." []
-is_a: RO:0002487 ! relation between structure and stage
+name: existence ends at start of
+def: "holds between x and y if and only if the time point at which x ends is equivalent to the time point at which y starts. Formally: iff ω(x) = α(y)." []
+is_a: RO:0002497 ! existence ends during or before
 
 [Typedef]
 id: RO:0002595
@@ -3635,16 +3637,16 @@ property_value: IAO:0000117 "Melissa Haendel" xsd:string
 [Typedef]
 id: RO:0003002
 name: represses expression of
-def: "Holds between protein a (a transcription factor) and DNA element b if and only if a diminishes the process of transcription of b." []
-property_value: IAO:0000116 "Logical axioms to be added after the relevant branch of GO is MIREOTed in" xsd:string
-is_a: RO:0002449 ! activity directly negatively regulates activity of
+def: "Holds between entity A (a transcription factor) and a nucleic acid B if and only if A down-regulates the expression of B. The nucleic acid can be a gene or an mRNA." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0003003
 name: increases expression of
-def: "Holds between protein a (a transcription factor) and DNA element b if and only if a activates the process of transcription of b." []
-property_value: IAO:0000116 "Logical axioms to be added after the relevant branch of GO is MIREOTed in" xsd:string
-is_a: RO:0002450 ! activity directly positively regulates activity of
+def: "Holds between entity A (a transcription factor) and nucleic acid B if and only if A up-regulates the expression of B. The nucleic acid can be a gene or mRNA." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0002450 ! directly positively regulates activity of
 
 [Typedef]
 id: RO:0003301
@@ -4112,7 +4114,7 @@ inverse_of: RO:0008508 ! has eggs laid on by
 [Typedef]
 id: RO:0008508
 name: has eggs laid on by
-def: "An interaction relationship in which organism a lays eggs on the outside surface of organism b. Organism b is neither helped nor harmed in the process of egg laying or incubation." []
+def: "inverse of lays eggs on" []
 is_a: RO:0002619 ! visited by
 
 [Typedef]
@@ -4193,6 +4195,115 @@ property_value: IAO:0000112 "Molecules of DNA are carriers of genetic informatio
 property_value: IAO:0000112 "This copy of *War and Peace* is carrier of the novel written by Tolstoy." xsd:string
 property_value: IAO:0000112 "This hard drive is carrier of these data items." xsd:string
 property_value: IAO:0000119 "[072-ISO]" xsd:string
+
+[Typedef]
+id: RO:0011002
+name: regulates activity of
+def: "The entity A has an activity that regulates an activity of the entity B. For example, A and B are gene products where the catalytic activity of A regulates the kinase activity of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0002566 ! causally influences
+
+[Typedef]
+id: RO:0011003
+name: regulates quantity of
+def: "The entity A has an activity that regulates the quantity or abundance or concentration of the entity B." []
+property_value: IAO:0000117 "Vasundra  Touré" xsd:string
+is_a: RO:0002566 ! causally influences
+
+[Typedef]
+id: RO:0011004
+name: indirectly regulates activity of
+def: "The entity A is not immediately upstream of the entity B but A has an activity that regulates an activity performed by B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011002 ! regulates activity of
+
+[Typedef]
+id: RO:0011007
+name: decreases by repression quantity of
+def: "The entity A has an activity that down-regulates by repression the quantity of B. The down-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly decreases by repression the quantity of protein B (gene product) if and only if A negatively regulates the process of transcription or translation of a nucleic acid element that produces B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011023 ! indirectly negatively regulates quantity of
+
+[Typedef]
+id: RO:0011008
+name: increases by expression quantity of
+def: "The entity A has an activity that up-regulates by expression the quantity of B. The up-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly increases by expression the quantity of protein B (gene product) if and only if A positively regulates the process of transcription or translation of a nucleic acid element that produces B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011024 ! indirectly positively regulates quantity of
+
+[Typedef]
+id: RO:0011009
+name: directly positively regulates quantity of
+def: "The entity A has an activity that directly positively regulates the quantity of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011021 ! directly regulates quantity of
+
+[Typedef]
+id: RO:0011010
+name: directly negatively regulates quantity of
+def: "The entity A has an activity that directly negatively regulates the quantity of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011021 ! directly regulates quantity of
+
+[Typedef]
+id: RO:0011013
+name: indirectly positively regulates activity of
+def: "The entity A is not immediately upstream of the entity B and has an activity that up-regulates an activity performed by B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+property_value: IAO:0000118 "indirectly activates" xsd:string
+is_a: RO:0011004 ! indirectly regulates activity of
+
+[Typedef]
+id: RO:0011014
+name: destabilizes quantity of
+def: "An entity A directly interacts with B and A has an activity that decreases the amount of an entity B by degradating it." []
+property_value: IAO:0000112 "AKT1 destabilizes quantity of FOXO (interaction from Signor database: SIGNOR-252844)" xsd:string
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011010 ! directly negatively regulates quantity of
+
+[Typedef]
+id: RO:0011015
+name: stabilizes quantity of
+def: "An entity A physically interacts with B and A has an activity that increases the amount of an entity B by stabilizing it." []
+property_value: IAO:0000112 "AKT1 stabilizes quantity of XIAP (interaction from Signor database: SIGNOR-119488)" xsd:string
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011009 ! directly positively regulates quantity of
+
+[Typedef]
+id: RO:0011016
+name: indirectly negatively regulates activity of
+def: "The entity A is not immediately upstream of the entity B and has an activity that down-regulates an activity performed by B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+property_value: IAO:0000118 "indirectly inhibits" xsd:string
+is_a: RO:0011004 ! indirectly regulates activity of
+
+[Typedef]
+id: RO:0011021
+name: directly regulates quantity of
+def: "The entity A, immediately upstream of B, has an activity that directly regulates the quantity of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011003 ! regulates quantity of
+
+[Typedef]
+id: RO:0011022
+name: indirectly regulates quantity of
+def: "The entity A is not immediately upstream of the entity B, but A has an activity that regulates the quantity or abundance or concentration of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011003 ! regulates quantity of
+
+[Typedef]
+id: RO:0011023
+name: indirectly negatively regulates quantity of
+def: "The entity A does not physically interact with the entity B, and A has an activity that down-regulates the quantity or abundance or concentration of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011022 ! indirectly regulates quantity of
+
+[Typedef]
+id: RO:0011024
+name: indirectly positively regulates quantity of
+def: "The entity A does not physically interact with the entity B, and A has an activity that up-regulates the quantity or abundance or concentration of B." []
+property_value: IAO:0000117 "Vasundra Touré" xsd:string
+is_a: RO:0011022 ! indirectly regulates quantity of
 
 [Typedef]
 id: RO:0040035
