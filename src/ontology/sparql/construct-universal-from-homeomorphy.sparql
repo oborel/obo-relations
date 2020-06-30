@@ -1,0 +1,20 @@
+prefix oio: <http://www.geneontology.org/formats/oboInOwl#>
+prefix def: <http://purl.obolibrary.org/obo/IAO_0000115>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix dbi: <http://purl.obolibrary.org/obo/RO_0002259>
+prefix is_homeomorphic_for: <http://purl.obolibrary.org/obo/RO_0040042>
+
+CONSTRUCT {
+   ?c rdfs:subClassOf
+     [ a owl:Restriction ;
+       owl:onProperty ?p ;
+       owl:allValuesFrom ?c ]
+}
+WHERE 
+{
+  ?p is_homeomorphic_for: ?c
+  FILTER(isIRI(?p))
+  FILTER(isIRI(?c))
+}
+
