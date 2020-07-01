@@ -2,6 +2,7 @@ OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
 REPORT_FAIL_ON = ERROR
+RELEASEDATE ?= `date +%Y-%m-%d`
 
 ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
 ONTS= $(ONTS_TO_BUILD) rohom.owl
@@ -19,7 +20,7 @@ release: $(ONTS_TO_BUILD)
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
-	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 # turtle file is merged, for querying via arq
@@ -29,7 +30,7 @@ ro.ttl: ro.owl
 EXT_IMPORTS = pato_import go_cc_import go_mf_import go-biotic other_import annotations
 
 ro-base.owl: ro-edit.owl
-	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id $(OBO)/ro/$@ -o $@
+	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/$@ $(OBO)/ro/$@ -o $@
 
 %.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && mv $@.tmp $@
