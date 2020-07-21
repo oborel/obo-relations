@@ -32,38 +32,39 @@ is_a: RO:0002222
 
 [Typedef]
 id: RO:0000300
-name: in neural circuit with
-def: "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
+name: obsolete in neural circuit with
+def: "OBSOLETE A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
+comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(or \n				(synapsed_by ?x ?y) \n				(synapsed_to ?x ?y))))) \n\n(forall (...s ?x ?y ?z) \n	(iff \n		(neural_circuit_path  ...s ?x ?y ?z)\n		(and\n			(neural_circuit_path  ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(or \n				(synapsed_by ?y ?z) \n				(synapsed_to ?y ?z))))) \n\n(forall (?x ?y) \n	(iff \n		(in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(neural_circuit_path  ?x ...s ?y)))) " xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
+is_obsolete: true
 
 [Typedef]
 id: RO:0000301
-name: upstream in neural circuit with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
+name: obsolete upstream in neural circuit with
+def: "OBSOLETE A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
+comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(upstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_to ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(upstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(upstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_to ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(upstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(upstream_neural_circuit_path  ?x ...s ?y))))" xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
-is_a: RO:0000300 ! in neural circuit with
+is_obsolete: true
 
 [Typedef]
 id: RO:0000302
-name: downstream in neural circuit with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the first to the last." []
+name: obsolete downstream in neural circuit with
+def: "OBSOLETE A relation that holds between a neuron that is synapsed_by another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_by the next, in which the direction is from the last to the first." []
+comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: IAO:0000426 "(forall (?x ?y) \n	(iff \n		(downstream_neural_circuit_path  ?x ?y)\n		(and\n			(\"neuron ; CL_0000540\" ?x)\n			(\"neuron ; CL_0000540\" ?y)\n			(synapsed_by ?x ?y))))\n\n\n(forall (...s ?x ?y ?z) \n	(iff \n		(downstream_neural_circuit_path ...s ?x ?y ?z )\n		(and\n			(downstream_neural_circuit_path ...s ?x ?y)\n			(\"neuron ; CL_0000540\" ?z)\n			(synapsed_by ?y ?z))))\n			\n(forall (?x ?y) \n	(iff \n		(downstream_in_neural_circuit_with ?x ?y)\n		(exists (...s)\n			(downstream_neural_circuit_path  ?x ...s ?y)))) \n			" xsd:string
 property_value: RO:0001900 RO:0001901
 is_transitive: true
-is_a: RO:0000300 ! in neural circuit with
+is_obsolete: true
 
 [Typedef]
 id: RO:0001018
@@ -132,6 +133,7 @@ name: electrically_synapsed_to
 def: "A relation that holds between two neurons that are electrically coupled via gap junctions." []
 property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
+is_a: RO:0002170 ! connected to
 
 [Typedef]
 id: RO:0002004
@@ -315,7 +317,6 @@ def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003
 comment: This relation is designed for constructing compound molecular functions, typically in combination with one or more regulatory component activity relations.
 is_functional: true
 is_a: RO:0002017 ! has component activity
-is_a: RO:0002211 ! regulates
 created_by: dos
 creation_date: 2017-09-22T14:14:36Z
 
@@ -405,7 +406,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: RO:0001900 RO:0001901
-is_a: RO:0000301 ! upstream in neural circuit with
+is_a: RO:0002485 ! receives input from
 inverse_of: RO:0002120 ! synapsed to
 expand_expression_to: "BFO_0000051 some (GO_0045211 that part_of some (GO_0045202 that has_part some (GO_0042734 that BFO_0000050 some Y?)))" []
 
@@ -565,7 +566,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: RO:0001900 RO:0001901
-is_a: RO:0000302 ! downstream in neural circuit with
+is_a: RO:0002486 ! sends output to
 expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_0045202 that BFO_0000051 some (GO_0045211 that BFO_0000050 some Y?)))" []
 
 [Typedef]
@@ -936,6 +937,7 @@ holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
 is_a: RO:0002411 ! causally upstream of
 inverse_of: RO:0002334 ! regulated by
+transitive_over: RO:0002025 ! has effector activity
 
 [Typedef]
 id: RO:0002212
@@ -1233,11 +1235,11 @@ def: "A relationship that holds between a substance and a chemical entity, if th
 synonym: "has active pharmaceutical ingredient" RELATED []
 synonym: "has active substance" EXACT []
 property_value: IAO:0000112 "Any portion of roundup 'has active ingredient' some glyphosate" xsd:string
-inverse_of: RO:0002249 ! active ingredient in'
+inverse_of: RO:0002249 ! active ingredient in
 
 [Typedef]
 id: RO:0002249
-name: active ingredient in'
+name: active ingredient in
 def: "inverse of has active ingredient" []
 subset: RO:0002259
 is_a: BFO:0000050
@@ -2437,6 +2439,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002454
 name: has host
+def: "X 'has host' y if and only if: x is an organism, y is an organism, and x can live on the surface of or within the body of y" []
 subset: ro-eco
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso http://eol.org/schema/terms/hasHost xsd:string
@@ -4304,6 +4307,115 @@ name: indirectly positively regulates quantity of
 def: "The entity A does not physically interact with the entity B, and A has an activity that up-regulates the quantity or abundance or concentration of B." []
 property_value: IAO:0000117 "Vasundra Touré" xsd:string
 is_a: RO:0011022 ! indirectly regulates quantity of
+
+[Typedef]
+id: RO:0012000
+name: has small molecule regulator
+def: "a relation between a process and a continuant, in which the process is regulated by the small molecule continuant" []
+created_by: pg
+creation_date: 2020-04-22T20:27:26Z
+
+[Typedef]
+id: RO:0012001
+name: has small molecule activator
+def: "a relation between a process and a continuant, in which the process is activated by the small molecule continuant" []
+is_a: RO:0012000 ! has small molecule regulator
+created_by: pg
+creation_date: 2020-04-22T20:28:37Z
+
+[Typedef]
+id: RO:0012002
+name: has small molecule inhibitor
+def: "a relation between a process and a continuant, in which the continuant is a small molecule that inhibits the process\na relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
+is_a: RO:0012000 ! has small molecule regulator
+created_by: pg
+creation_date: 2020-04-22T20:28:54Z
+
+[Typedef]
+id: RO:0012003
+name: acts on population of
+def: "p acts on population of c iff c' is a collection, has members of type c, and p has participant c" []
+created_by: pg
+creation_date: 2020-06-08T17:21:33Z
+
+[Typedef]
+id: RO:0012004
+name: is small molecule regulator
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that regulates the process" []
+created_by: pg
+creation_date: 2020-06-24T13:15:17Z
+
+[Typedef]
+id: RO:0012005
+name: is small molecule activator
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibited the process" []
+is_a: RO:0012004 ! is small molecule regulator
+created_by: pg
+creation_date: 2020-06-24T13:15:26Z
+
+[Typedef]
+id: RO:0012006
+name: is small molecule inhibitor
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
+is_a: RO:0012004 ! is small molecule regulator
+created_by: pg
+creation_date: 2020-06-24T13:15:35Z
+
+[Typedef]
+id: RO:0013001
+name: has synaptic IO in
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
+synonym: "has synaptic input or output in" EXACT []
+is_a: RO:0002130 ! has synaptic terminal in
+transitive_over: BFO:0000050
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:26:52Z
+
+[Typedef]
+id: RO:0013002
+name: receives synaptic input in
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
+is_a: RO:0002110 ! has postsynaptic terminal in
+is_a: RO:0013001 ! has synaptic IO in
+transitive_over: BFO:0000050
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:42:23Z
+
+[Typedef]
+id: RO:0013003
+name: sends synaptic output to
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
+is_a: RO:0002113 ! has presynaptic terminal in
+is_a: RO:0013001 ! has synaptic IO in
+transitive_over: BFO:0000050
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:45:06Z
+
+[Typedef]
+id: RO:0013004
+name: has synaptic IO throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013001 ! has synaptic IO in
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:52:19Z
+
+[Typedef]
+id: RO:0013005
+name: receives synaptic input throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013002 ! receives synaptic input in
+is_a: RO:0013004 ! has synaptic IO throughout
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:55:36Z
+
+[Typedef]
+id: RO:0013006
+name: sends synaptic output throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013003 ! sends synaptic output to
+is_a: RO:0013004 ! has synaptic IO throughout
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2020-07-17T09:57:27Z
 
 [Typedef]
 id: RO:0040035
