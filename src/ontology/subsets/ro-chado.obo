@@ -174,23 +174,24 @@ is_a: RO:0000052 ! inheres in
 
 [Typedef]
 id: RO:0000300
-name: in_neural_circuit_with
-def: "A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
+name: obsolete_in_neural_circuit_with
+def: "OBSOLETE A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
 is_transitive: true
+is_obsolete: true
 
 [Typedef]
 id: RO:0000301
-name: upstream_in_neural_circuit_with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
+name: obsolete_upstream_in_neural_circuit_with
+def: "OBSOLETE A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
 is_transitive: true
-is_a: RO:0000300 ! in neural circuit with
+is_obsolete: true
 
 [Typedef]
 id: RO:0000302
-name: downstream_in_neural_circuit_with
-def: "A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the first to the last." []
+name: obsolete_downstream_in_neural_circuit_with
+def: "OBSOLETE A relation that holds between a neuron that is synapsed_by another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_by the next, in which the direction is from the last to the first." []
 is_transitive: true
-is_a: RO:0000300 ! in neural circuit with
+is_obsolete: true
 
 [Typedef]
 id: RO:0001000
@@ -275,6 +276,7 @@ is_a: RO:0002323 ! mereotopologically related to
 id: RO:0002003
 name: electrically_synapsed_to
 def: "A relation that holds between two neurons that are electrically coupled via gap junctions." []
+is_a: RO:0002170 ! connected to
 
 [Typedef]
 id: RO:0002004
@@ -412,7 +414,6 @@ name: has_effector_activity
 def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003674),  A 'has component activity' B and B is the effector (output function) of B.  Each compound function has only one effector activity." [GOC:dos]
 is_functional: true
 is_a: RO:0002017 ! has component activity
-is_a: RO:0002211 ! regulates
 
 [Typedef]
 id: RO:0002026
@@ -525,7 +526,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002103
 name: synapsed_by
 def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
-is_a: RO:0000301 ! upstream in neural circuit with
+is_a: RO:0002485 ! receives input from
 inverse_of: RO:0002120 ! synapsed to
 
 [Typedef]
@@ -608,7 +609,7 @@ is_a: RO:0002103 ! synapsed by
 id: RO:0002120
 name: synapsed_to
 def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n        " []
-is_a: RO:0000302 ! downstream in neural circuit with
+is_a: RO:0002486 ! sends output to
 
 [Typedef]
 id: RO:0002121
@@ -841,6 +842,7 @@ holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
 is_a: RO:0002411 ! causally upstream of
 inverse_of: RO:0002334 ! regulated by
+transitive_over: RO:0002025 ! has effector activity
 
 [Typedef]
 id: RO:0002212
@@ -1072,11 +1074,11 @@ def: "A relationship that holds between a substance and a chemical entity, if th
 synonym: "has active pharmaceutical ingredient" RELATED []
 synonym: "has active substance" EXACT []
 is_a: BFO:0000051 ! has part
-inverse_of: RO:0002249 ! active ingredient in'
+inverse_of: RO:0002249 ! active ingredient in
 
 [Typedef]
 id: RO:0002249
-name: active_ingredient_in'
+name: active_ingredient_in
 def: "inverse of has active ingredient" []
 is_a: BFO:0000050 ! part of
 
@@ -1922,6 +1924,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002454
 name: has_host
+def: "X 'has host' y if and only if: x is an organism, y is an organism, and x can live on the surface of or within the body of y" []
 is_a: RO:0002440 ! symbiotically interacts with
 
 [Typedef]
@@ -3307,6 +3310,92 @@ id: RO:0011024
 name: indirectly_positively_regulates_quantity_of
 def: "The entity A does not physically interact with the entity B, and A has an activity that up-regulates the quantity or abundance or concentration of B." []
 is_a: RO:0011022 ! indirectly regulates quantity of
+
+[Typedef]
+id: RO:0012000
+name: has_small_molecule_regulator
+def: "a relation between a process and a continuant, in which the process is regulated by the small molecule continuant" []
+is_a: RO:0000057 ! has participant
+
+[Typedef]
+id: RO:0012001
+name: has_small_molecule_activator
+def: "a relation between a process and a continuant, in which the process is activated by the small molecule continuant" []
+is_a: RO:0012000 ! has small molecule regulator
+
+[Typedef]
+id: RO:0012002
+name: has_small_molecule_inhibitor
+def: "a relation between a process and a continuant, in which the continuant is a small molecule that inhibits the process\na relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
+is_a: RO:0012000 ! has small molecule regulator
+
+[Typedef]
+id: RO:0012003
+name: acts_on_population_of
+def: "p acts on population of c iff c' is a collection, has members of type c, and p has participant c" []
+is_a: RO:0000057 ! has participant
+
+[Typedef]
+id: RO:0012004
+name: is_small_molecule_regulator
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that regulates the process" []
+is_a: RO:0000057 ! has participant
+
+[Typedef]
+id: RO:0012005
+name: is_small_molecule_activator
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibited the process" []
+is_a: RO:0012004 ! is small molecule regulator
+
+[Typedef]
+id: RO:0012006
+name: is_small_molecule_inhibitor
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
+is_a: RO:0012004 ! is small molecule regulator
+
+[Typedef]
+id: RO:0013001
+name: has_synaptic_IO_in
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
+synonym: "has synaptic input or output in" EXACT []
+is_a: RO:0002130 ! has synaptic terminal in
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0013002
+name: receives_synaptic_input_in
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
+is_a: RO:0002110 ! has postsynaptic terminal in
+is_a: RO:0013001 ! has synaptic IO in
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0013003
+name: sends_synaptic_output_to
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
+is_a: RO:0002113 ! has presynaptic terminal in
+is_a: RO:0013001 ! has synaptic IO in
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0013004
+name: has_synaptic_IO_throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013001 ! has synaptic IO in
+
+[Typedef]
+id: RO:0013005
+name: receives_synaptic_input_throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013002 ! receives synaptic input in
+is_a: RO:0013004 ! has synaptic IO throughout
+
+[Typedef]
+id: RO:0013006
+name: sends_synaptic_output_throughout
+def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
+is_a: RO:0013003 ! sends synaptic output to
+is_a: RO:0013004 ! has synaptic IO throughout
 
 [Typedef]
 id: RO:0040035
