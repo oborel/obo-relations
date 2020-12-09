@@ -1,4 +1,54 @@
-## 2019-02-01
+## 2020-02-26
+
+Highlights:
+
+ * Tidying namespaces and errors reported by ROBOT
+ * Adding causal relations between material entities (Vasundra Toure)
+
+commit 06058a99280d62d19590acf520bea2b939968bb4
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Feb 24 11:48:12 2020 -0800
+
+    fixing namespaces
+
+commit 1a23248730289cef7d79904c3732416c3383a4ff
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Mon Feb 24 11:34:23 2020 -0800
+
+    switch DC namespace to be dce11. Fixes some robot reports
+
+commit 632f94e880a4f8e089284f6ef952dde66fe365a9
+Author: cmungall <cjm@berkeleybop.org>
+Date:   Fri Feb 21 15:47:21 2020 -0800
+
+    fixing ontology so robot report passes.
+    Fixing duplicate defs.
+    Clarified names of structure to stage relations
+    obsolete actively participates in
+
+commit c31fcc5ff2592e9c32366eb127cf3c76d8ad339e
+Author: vtoure <vasundra.toure@gmail.com>
+Date:   Fri Jan 10 13:56:02 2020 +0100
+
+    removed transcription & translation + simplified terms
+
+commit e360582d66529f346dce0f6952c89a906088568e
+Author: vtoure <vasundra.toure@gmail.com>
+Date:   Sat Nov 2 02:17:55 2019 +0100
+
+    updated causal relations: quantity vs. activity + direct vs. indirect
+
+commit 6d5e23952480888eac1c99286d8e14aea31193bc
+Author: vtoure <vasundra.toure@gmail.com>
+Date:   Fri Nov 1 05:30:00 2019 +0100
+
+    causal mat. entities: has activity that reg. activity of
+
+commit 9ef471e9654e9953e79e3c416ab7dfb53e6ee6aa
+Author: vtoure <vasundra.toure@gmail.com>
+Date:   Thu Oct 31 22:49:07 2019 +0100
+
+    first commit causality
 
 commit 6cc55ce8da94d380dadd7fd1f8f5f4c090bb83ad
 Author: Jim Balhoff <jim@balhoff.org>
