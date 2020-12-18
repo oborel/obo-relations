@@ -40,6 +40,7 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002297",
       "meta" : {
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -69,6 +70,7 @@
           "val" : "The relationship that links an entity with the process that results in the formation and shaping of that entity over time from an immature to a mature state.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
           "val" : "results_in_morphogenesis_of"
@@ -98,6 +100,7 @@
           "val" : "The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it's shape and results in an end point state of that entity.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
           "val" : "results_in_maturation_of"
@@ -171,6 +174,7 @@
           "val" : "p 'results in development of' c if and only if p is a developmental process and p results in the state of c changing from its initial state as a primordium or anlage through its mature state and to its final state.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -200,6 +204,19 @@
       },
       "type" : "CLASS",
       "lbl" : "quality"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/valid_for_gocam",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "pg"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-09-22T11:05:45Z"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "valid_for_gocam"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002286",
       "meta" : {
@@ -395,6 +412,7 @@
           "val" : "c acts upstream of or within p if c is enables f, and f is causally upstream of or within p. c is a material entity and p is an process.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
           "val" : "affects",
@@ -587,6 +605,7 @@
           "val" : "c acts upstream of p if and only if c enables some f that is involved in p' and p' occurs chronologically before p, is not part of p, and affects the execution of p. c is a material entity and f, p, p' are processes.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "A faulty traffic light (material entity) whose malfunctioning (a process) is causally upstream of a traffic collision (a process): the traffic light acts upstream of the collision."
@@ -958,10 +977,15 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0002491",
       "meta" : {
         "definition" : {
-          "val" : "x existence starts and ends during y if and only if the start of x is part of y and the end of x is part of y. Formally: x existence starts and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x) >= α(y)",
+          "val" : "x exists during y if and only if: 1) the time point at which x begins to exist is after or equal to the time point at which y begins and 2) the time point at which x ceases to exist is before or equal to the point at which y ends. Formally: x existence starts and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x) >= α(y)",
           "xrefs" : [ ]
         },
         "comments" : [ "The relations here were created based on work originally by Fabian Neuhaus and David Osumi-Sutherland. The work has not yet been vetted and errors in definitions may have occurred during transcription." ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "exists during",
+          "xrefs" : [ ]
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -1732,7 +1756,7 @@
           "val" : "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p.",
           "xrefs" : [ ]
         },
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -1773,7 +1797,7 @@
           "val" : "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p.",
           "xrefs" : [ ]
         },
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/ro/subsets#ro-eco", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
@@ -2116,12 +2140,26 @@
       "type" : "CLASS",
       "lbl" : "dendrite"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/valid_for_go_ontology",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "pg"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-09-22T11:04:12Z"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "valid_for_go_ontology"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002220",
       "meta" : {
         "definition" : {
           "val" : "x adjacent to y if and only if x and y share a boundary.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "The skin of the forelimb is adjacent to the skin of the torso if these are considered anatomical subdivisions with a defined border. Otherwise a relation such as continuous_with would be used."
@@ -2449,6 +2487,7 @@
           "val" : "Process(P1) postively regulates process(P2) iff: P1 initiates P2, or P1 increases the the frequency of initiation of P2 or the magnitude or rate of output of P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_gp2term", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "http://purl.obolibrary.org/obo/ro/docs/causal-relations"
@@ -2594,9 +2633,6 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/21208450"
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000424",
-          "val" : "RO_0000053 some (RO_0000054 only ?Y)"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "mechanosensory neuron capable of detection of mechanical stimulus involved in sensory perception (GO:0050974)"
         }, {
@@ -2683,9 +2719,6 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000424",
-          "val" : "RO_0000053 some (RO_0000054 only (BFO_0000050 some ?Y))"
-        }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
           "val" : "https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity"
         } ]
@@ -2755,6 +2788,7 @@
           "val" : "process(P1) regulates process(P2) iff: P1 results in the initiation or termination of P2 OR affects the frequency of its initiation or termination OR affects the magnitude or rate of output of P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "Regulation precludes parthood; the regulatory process may not be within the regulated process."
@@ -2850,6 +2884,7 @@
           "val" : "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000589",
           "val" : "negatively regulates (process to process)"
@@ -3824,6 +3859,7 @@
           "val" : "p is causally upstream of q if and only if p precedes q and p and q are linked in a causal chain",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -4259,6 +4295,7 @@
           "val" : "Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000589",
           "val" : "directly negatively regulates (process to process)"
@@ -4307,12 +4344,26 @@
       "type" : "PROPERTY",
       "lbl" : "has flowers visited by"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/valid_for_go_gp2term",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "pg"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-09-22T11:05:18Z"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "valid_for_go_gp2term"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002629",
       "meta" : {
         "definition" : {
           "val" : "Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000589",
           "val" : "directly positively regulates (process to process)"
@@ -6409,7 +6460,7 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0012002",
       "meta" : {
         "definition" : {
-          "val" : "a relation between a process and a continuant, in which the continuant is a small molecule that inhibits the process\na relation between a process and a continuant, in which the process is inhibited by the small molecule continuant",
+          "val" : "a relation between a process and a continuant, in which the process is inhibited by the small molecule continuant",
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
@@ -6443,7 +6494,7 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0012005",
       "meta" : {
         "definition" : {
-          "val" : "a relation between a continuant and a process, in which the continuant is a small molecule that inhibited the process",
+          "val" : "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process",
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
@@ -6460,7 +6511,7 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0012006",
       "meta" : {
         "definition" : {
-          "val" : "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process",
+          "val" : "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process",
           "xrefs" : [ ]
         },
         "basicPropertyValues" : [ {
@@ -6480,6 +6531,7 @@
           "val" : "p acts on population of c iff c' is a collection, has members of type c, and p has participant c",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2020-06-08T17:21:33Z"
@@ -6507,6 +6559,23 @@
       },
       "type" : "PROPERTY",
       "lbl" : "is small molecule regulator"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0012007",
+      "meta" : {
+        "definition" : {
+          "val" : "The relationship that links anatomical entities with a process that results in the adhesion of two or more entities via the non-covalent interaction of molecules expressed in, located in, and/or adjacent to, those entities.",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "pg"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-08-27T08:13:59Z"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "results in adhesion of"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_HOM0000037",
       "meta" : {
@@ -6873,7 +6942,7 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0002092",
       "meta" : {
         "comments" : [ "X happens_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (end(X) before_or_simultaneous_with end(Y))" ],
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "during"
@@ -6950,6 +7019,7 @@
           "val" : "c 'acts upstream of, negative effect' p if c is enables f, and f is causally upstream of p, and the direction of f is negative",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2018-01-26T23:53:22Z"
@@ -6969,6 +7039,7 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0004032",
       "meta" : {
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
           "val" : "cjm"
@@ -7009,6 +7080,7 @@
           "val" : "c 'acts upstream of, positive effect' p if c is enables f, and f is causally upstream of p, and the direction of f is positive",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/RO_0004049",
           "val" : "http://purl.obolibrary.org/obo/RO_0002263"
@@ -7028,6 +7100,7 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0004033",
       "meta" : {
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/RO_0004050",
           "val" : "http://purl.obolibrary.org/obo/RO_0002264"
@@ -7079,6 +7152,20 @@
       },
       "type" : "PROPERTY",
       "lbl" : "realized in response to stimulus"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0014001",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent.",
+          "xrefs" : [ ]
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "http://orcid.org/0000-0001-5208-3432"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "disease has infectious agent"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002081",
       "meta" : {
@@ -7542,6 +7629,7 @@
           "val" : "p 'has primary input ot output' c iff either (a) p 'has primary input' c or (b) p 'has primary output' c.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2018-12-13T11:26:17Z"
@@ -7576,6 +7664,7 @@
           "val" : "p has primary input c if (a) p has input c and (b) the goal of process is to modify, consume, or transform c.",
           "xrefs" : [ "GOC:cjm", "GOC:dph", "GOC:kva", "GOC:pt" ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
           "val" : "cjm"
@@ -7593,6 +7682,7 @@
           "val" : "p has primary output c if (a) p has output c and (b) the goal of process is to modify, produce, or transform c.",
           "xrefs" : [ "GOC:cjm", "GOC:dph", "GOC:kva", "GOC:pt" ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2018-12-13T11:26:32Z"
@@ -8764,7 +8854,7 @@
           "val" : "x overlaps y if and only if there exists some z such that x has part z and z part of y",
           "xrefs" : [ ]
         },
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
@@ -8905,6 +8995,7 @@
           "val" : "The relationship linking a cell and its participation in a process that results in the fate of the cell being specified. Once specification has taken place, a cell will be committed to differentiate down a specific pathway if left in its normal environment. ",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9459,6 +9550,7 @@
           "val" : "p 'results in determination of' c if and only if p is a developmental process and c is a cell and p results in the state of c changing to be determined. Once a cell becomes determined, it becomes committed to differentiate down a particular pathway regardless of its environment.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9579,6 +9671,11 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002345",
       "meta" : {
+        "definition" : {
+          "val" : "Holds between p and c when p is a transportation or localization process and the outcome of this process is to move c to a destination that is part of some s, where the end location of c is part of the region that surrounds s.",
+          "xrefs" : [ ]
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9620,6 +9717,13 @@
       "type" : "PROPERTY",
       "lbl" : "location of"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002588",
+      "meta" : {
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "results in assembly of"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002104",
       "meta" : {
         "definition" : {
@@ -9654,10 +9758,6 @@
       },
       "type" : "PROPERTY",
       "lbl" : "has plasma membrane part"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0002588",
-      "type" : "PROPERTY",
-      "lbl" : "results in assembly of"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002589",
       "meta" : {
@@ -9699,6 +9799,27 @@
       "type" : "PROPERTY",
       "lbl" : "synapsed_via_type_Ib_bouton_to"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002348",
+      "meta" : {
+        "definition" : {
+          "val" : "p 'results in commitment to' c if and only if p is a developmental process and c is a cell and p results in the state of c changing such that is can only develop into a single cell type.",
+          "xrefs" : [ ]
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "http://www.geneontology.org/GO.doc.development.shtml#fate"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "an annotation of gene X to cell commitment with results_in_commitment_to CL:0000540 (neuron) means that at the end of the process an unspecified cell has been specified and determined to develop into a neuron."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Chris Mungall"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "results in commitment to"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002106",
       "meta" : {
         "definition" : {
@@ -9728,26 +9849,6 @@
       },
       "type" : "PROPERTY",
       "lbl" : "synapsed_via_type_Is_bouton_to"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/RO_0002348",
-      "meta" : {
-        "definition" : {
-          "val" : "p 'results in commitment to' c if and only if p is a developmental process and c is a cell and p results in the state of c changing such that is can only develop into a single cell type.",
-          "xrefs" : [ ]
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "http://www.geneontology.org/GO.doc.development.shtml#fate"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
-          "val" : "an annotation of gene X to cell commitment with results_in_commitment_to CL:0000540 (neuron) means that at the end of the process an unspecified cell has been specified and determined to develop into a neuron."
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "Chris Mungall"
-        } ]
-      },
-      "type" : "PROPERTY",
-      "lbl" : "results in commitment to"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002341",
       "meta" : {
@@ -9819,6 +9920,7 @@
           "val" : "Holds between p and m when p is a transportation or localization process and the outcome of this process is to move c from one location to another, and the route taken by c follows a path that crosses m.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9954,6 +10056,7 @@
           "val" : "Holds between p and c when p is a transportation or localization process and the outcome of this process is to move c to a destination that is part of some s, where the start location of c is part of the region that surrounds s.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9978,6 +10081,7 @@
           "val" : "This relationship holds between p and l when p is a transport or localization process in which the outcome is to move some cargo c from some initial location l to some destination.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -9992,6 +10096,7 @@
           "val" : "This relationship holds between p and l when p is a transport or localization process in which the outcome is to move some cargo c from a an initial location to some destination l.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -10074,6 +10179,7 @@
           "val" : "Process(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/RO_0002575",
           "val" : "http://purl.obolibrary.org/obo/RO_0002211"
@@ -10313,6 +10419,7 @@
           "val" : "inverse of enables",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -10421,6 +10528,7 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002327",
       "meta" : {
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "executes"
@@ -10513,6 +10621,7 @@
           "val" : "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : ""
@@ -10929,6 +11038,7 @@
           "val" : "Holds between p and c when p is a localization process (localization covers maintenance of localization as well as its establishment)  and the outcome of this process is to regulate the localization of c.",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "Chris Mungall"
@@ -10983,6 +11093,7 @@
           "val" : "The relationship that links a specified entity with the process that results in an unspecified entity acquiring the features and characteristics of the specified entity",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
           "val" : "results_in_acquisition_of_features_of"
@@ -11251,6 +11362,7 @@
       "id" : "http://purl.obolibrary.org/obo/RO_0002304",
       "meta" : {
         "comments" : [ "holds between x and y if and only if x is causally upstream of y and the progression of x increases the frequency, rate or extent of y" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/creator",
           "val" : "cjm"
@@ -11857,6 +11969,19 @@
       },
       "type" : "PROPERTY",
       "lbl" : "ribosomal translation of"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "pg"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-09-22T11:05:29Z"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "valid_for_go_annotation_extension"
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002513",
       "meta" : {
@@ -12669,6 +12794,7 @@
           "val" : "a core relation that holds between a part and its whole",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_gp2term", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "part_of"
@@ -12763,6 +12889,7 @@
           "val" : "a core relation that holds between a whole and its part",
           "xrefs" : [ ]
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."
@@ -12927,6 +13054,36 @@
       "type" : "PROPERTY",
       "lbl" : "has synaptic IO in"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0013007",
+      "meta" : {
+        "definition" : {
+          "val" : "Relation between a sensory neuron and some structure in which it receives sensory input via a sensory dendrite.",
+          "xrefs" : [ ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has sensory terminal in",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "has sensory dendrite location",
+          "xrefs" : [ ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "has sensory terminal location",
+          "xrefs" : [ ]
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2020-07-20T12:10:09Z"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "http://orcid.org/0000-0002-1373-1705"
+        } ]
+      },
+      "type" : "PROPERTY",
+      "lbl" : "has sensory dendrite in"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0013006",
       "meta" : {
         "definition" : {
@@ -13023,6 +13180,7 @@
           "xrefs" : [ ]
         },
         "comments" : [ "Paraphrase of definition: a relation between a process and an independent continuant, in which the process takes place entirely within the independent continuant" ],
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_gocam", "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "occurs_in"
@@ -13556,6 +13714,10 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002292"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002110",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002113"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002103",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002120"
@@ -13608,6 +13770,10 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002595"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0014001",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0004019"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/BFO_0000141",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
@@ -13652,10 +13818,6 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002418"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0004005",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0004000"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002016",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002017"
@@ -13663,6 +13825,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002411",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002418"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0004005",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0004000"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0010001",
       "pred" : "inverseOf",
@@ -13924,10 +14090,6 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002488"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002102",
-      "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002110"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002598",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002596"
@@ -14000,13 +14162,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002286"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002440",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002574"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0004004",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0004000"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002440",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002574"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002291",
       "pred" : "subPropertyOf",
@@ -14136,13 +14298,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0012004"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002230",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000022",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000011"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002230",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002590",
       "pred" : "subPropertyOf",
@@ -14188,13 +14350,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002344"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002012",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002418"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002012",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002418"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002209",
       "pred" : "subPropertyOf",
@@ -14324,10 +14486,6 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002131"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0008502",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002440"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/PATO_0001199",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/PATO_0000052"
@@ -14335,6 +14493,10 @@
       "sub" : "http://purl.obolibrary.org/obo/GO_0030425",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/GO_0043005"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0008502",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002440"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002478",
       "pred" : "subPropertyOf",
@@ -14384,25 +14546,25 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002442"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002466",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002465"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002252",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002375"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002466",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002465"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002263",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002264"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000007",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000001"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002310",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000007",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0011014",
       "pred" : "subPropertyOf",
@@ -14692,13 +14854,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002479"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0011007",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0011023"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0051702",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/GO_0044419"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0011007",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0011023"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002439",
       "pred" : "subPropertyOf",
@@ -14783,6 +14945,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002234",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002353"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0013007",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002360"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/BFO_0000019",
       "pred" : "is_a",
@@ -15116,13 +15282,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002514"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002160",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002162"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/PATO_0002009",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/PATO_0000052"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002160",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002162"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002261",
       "pred" : "subPropertyOf",
@@ -15160,13 +15326,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0004010"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0004024",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0004023"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002007",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000050"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0004024",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0004023"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002525",
       "pred" : "subPropertyOf",
@@ -15204,13 +15370,13 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002092"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002084",
-      "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002093"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002087",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002090"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002084",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002093"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0011004",
       "pred" : "subPropertyOf",
@@ -15280,13 +15446,13 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002002"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002216",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002500"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002495",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002494"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002216",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002500"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000044",
       "pred" : "subPropertyOf",
@@ -15480,6 +15646,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002221"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0012007",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0040036"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000025",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000034"
@@ -15600,6 +15770,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0004018"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002092",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002091"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000063",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000007"
@@ -15704,13 +15878,13 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000085"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002090",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000063"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002159",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002320"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002090",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000063"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000045",
       "pred" : "subPropertyOf",
@@ -15916,13 +16090,13 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002574"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002177",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002323"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0003305",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0003304"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002177",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002323"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002551",
       "pred" : "inverseOf",
@@ -16264,10 +16438,6 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000052"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002218",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0000057"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0019787",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/GO_0016881"
@@ -16432,6 +16602,10 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002461"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002297",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002295"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000065",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000000"
@@ -16439,10 +16613,6 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_HOM0000060",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_HOM0000050"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002297",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0051705",
       "pred" : "is_a",
@@ -16739,7 +16909,7 @@
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : " https://github.com/oborel/obo-relations/"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2020-07-21/ro.owl"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2020-12-18/ro.owl"
     },
     "equivalentNodesSets" : [ ],
     "logicalDefinitionAxioms" : [ ],
@@ -16825,13 +16995,13 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002207",
       "allValuesFromEdges" : [ {
-        "sub" : "http://purl.obolibrary.org/obo/CARO_0010000",
-        "pred" : "http://purl.obolibrary.org/obo/RO_0002207",
-        "obj" : "http://purl.obolibrary.org/obo/CARO_0010000"
-      }, {
         "sub" : "http://purl.obolibrary.org/obo/CL_0000000",
         "pred" : "http://purl.obolibrary.org/obo/RO_0002207",
         "obj" : "http://purl.obolibrary.org/obo/CL_0000000"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/CARO_0010000",
+        "pred" : "http://purl.obolibrary.org/obo/RO_0002207",
+        "obj" : "http://purl.obolibrary.org/obo/CARO_0010000"
       } ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002449",
@@ -16840,33 +17010,33 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000050",
       "allValuesFromEdges" : [ {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000019",
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000003",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000019"
-      }, {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000002",
-        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000002"
-      }, {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000031",
-        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000031"
-      }, {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000004",
-        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
       }, {
         "sub" : "http://purl.obolibrary.org/obo/BFO_0000017",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000017"
       }, {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000004",
+        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
+      }, {
         "sub" : "http://purl.obolibrary.org/obo/BFO_0000020",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000020"
       }, {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000003",
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000019",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000019"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000031",
+        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000031"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000002",
+        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000002"
       } ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002202",
@@ -16928,6 +17098,9 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002315",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/CARO_0000003" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0013007",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000101" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000091",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ],
@@ -17081,6 +17254,9 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002372",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/CARO_0000003" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002130",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000540" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002010",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
@@ -17150,7 +17326,7 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0004027",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/OGMS_0000031" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/CARO_0000003" ]
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002244",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/RO_0002310" ]
@@ -17220,6 +17396,9 @@
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002110",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000540" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0001022",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ]
     }, {
@@ -17236,11 +17415,13 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002233",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ]
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0001023",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002113",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000540" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002476",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/GO_0005634" ],
@@ -17305,6 +17486,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002101",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000540" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/CARO_0001001" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002102",
@@ -17323,13 +17505,13 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002214",
       "allValuesFromEdges" : [ {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000002",
-        "pred" : "http://purl.obolibrary.org/obo/RO_0002214",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000002"
-      }, {
         "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
         "pred" : "http://purl.obolibrary.org/obo/RO_0002214",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000002",
+        "pred" : "http://purl.obolibrary.org/obo/RO_0002214",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000002"
       } ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002215",
@@ -17682,6 +17864,9 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002090",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002230", "http://purl.obolibrary.org/obo/RO_0002224" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0013007",
+      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0013007", "http://purl.obolibrary.org/obo/BFO_0000050" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002488",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002583", "http://purl.obolibrary.org/obo/BFO_0000050" ]

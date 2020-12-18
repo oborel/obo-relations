@@ -1,4 +1,8 @@
 format-version: 1.2
+subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
+subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
+subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
+subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
@@ -493,6 +497,7 @@ is_a: RO:0002222 ! temporally related to
 id: RO:0002092
 name: happens_during
 is_transitive: true
+is_a: RO:0002091 ! starts during
 is_a: RO:0002093 ! ends during
 
 [Typedef]
@@ -519,7 +524,6 @@ id: RO:0002102
 name: axon_synapses_in
 def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
 is_a: RO:0002113 ! has presynaptic terminal in
-inverse_of: RO:0002110 ! has postsynaptic terminal in
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -573,6 +577,7 @@ id: RO:0002110
 name: has_postsynaptic_terminal_in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
 is_a: RO:0002130 ! has synaptic terminal in
+inverse_of: RO:0002113 ! has presynaptic terminal in
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
@@ -893,7 +898,6 @@ is_obsolete: true
 id: RO:0002218
 name: obsolete_has_active_participant
 def: "x has participant y if and only if x realizes some active role that inheres in y" []
-is_a: RO:0000057 ! has participant
 is_obsolete: true
 
 [Typedef]
@@ -1415,6 +1419,7 @@ is_a: RO:0002337 ! related via localization to
 [Typedef]
 id: RO:0002345
 name: exports
+def: "Holds between p and c when p is a transportation or localization process and the outcome of this process is to move c to a destination that is part of some s, where the end location of c is part of the region that surrounds s." []
 is_a: RO:0002020 ! transports
 transitive_over: BFO:0000051 ! has part
 
@@ -2107,7 +2112,8 @@ is_a: RO:0002487 ! relation between physical entity and a process or stage
 [Typedef]
 id: RO:0002491
 name: existence_starts_and_ends_during
-def: "x existence starts and ends during y if and only if the start of x is part of y and the end of x is part of y. Formally: x existence starts and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x) >= α(y)" []
+def: "x exists during y if and only if: 1) the time point at which x begins to exist is after or equal to the time point at which y begins and 2) the time point at which x ceases to exist is before or equal to the point at which y ends. Formally: x existence starts and ends during y iff α(x) >= α(y) & α(x) <= ω(y) & ω(x) <= ω(y) & ω(x) >= α(y)" []
+synonym: "exists during" EXACT []
 is_a: RO:0002488 ! existence starts during
 is_a: RO:0002492 ! existence ends during
 
@@ -3326,7 +3332,7 @@ is_a: RO:0012000 ! has small molecule regulator
 [Typedef]
 id: RO:0012002
 name: has_small_molecule_inhibitor
-def: "a relation between a process and a continuant, in which the continuant is a small molecule that inhibits the process\na relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
+def: "a relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
 is_a: RO:0012000 ! has small molecule regulator
 
 [Typedef]
@@ -3344,14 +3350,20 @@ is_a: RO:0000057 ! has participant
 [Typedef]
 id: RO:0012005
 name: is_small_molecule_activator
-def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibited the process" []
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
 is_a: RO:0012004 ! is small molecule regulator
 
 [Typedef]
 id: RO:0012006
 name: is_small_molecule_inhibitor
-def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
+def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process" []
 is_a: RO:0012004 ! is small molecule regulator
+
+[Typedef]
+id: RO:0012007
+name: results_in_adhesion_of
+def: "The relationship that links anatomical entities with a process that results in the adhesion of two or more entities via the non-covalent interaction of molecules expressed in, located in, and/or adjacent to, those entities." []
+is_a: RO:0040036 ! has anatomical participant
 
 [Typedef]
 id: RO:0013001
@@ -3396,6 +3408,22 @@ name: sends_synaptic_output_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
 is_a: RO:0013003 ! sends synaptic output to
 is_a: RO:0013004 ! has synaptic IO throughout
+
+[Typedef]
+id: RO:0013007
+name: has_sensory_dendrite_in
+def: "Relation between a sensory neuron and some structure in which it receives sensory input via a sensory dendrite." []
+synonym: "has sensory dendrite location" EXACT []
+synonym: "has sensory terminal in" EXACT []
+synonym: "has sensory terminal location" EXACT []
+is_a: RO:0002360 ! has dendrite location
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0014001
+name: disease_has_infectious_agent
+def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
+is_a: RO:0004019 ! disease has basis in
 
 [Typedef]
 id: RO:0040035
