@@ -1,8 +1,10 @@
 # How to contribute to this project
 
-Please use our tracker for new relation requests, etc.
+Please use our tracker for requests for new relations, modifications, clarifications, etc.
 
 https://github.com/oborel/obo-relations
+
+Creating a new issue in the tracker allows the RO editors and community to discuss proposed changes, fixes, or additions. If you'd like faster turnaround on your request, and you know how to use GitHub, please specify your desired changes by submitting a GitHub Pull Request on the appropriate file.
 
 ## Before you write a new request, please consider the following: 
 
@@ -17,5 +19,7 @@ https://github.com/oborel/obo-relations
 3. **For new term request:** Be sure to provide suggestions for label (name), definition, references, position in hierarchy, etc.
 
 4. **For updates to relationships:** Provide details of the current axioms, why you think they are wrong or not sufficient, and what exactly should be added or removed.
+
+## 
 
 Thank you for contributing to RO!
