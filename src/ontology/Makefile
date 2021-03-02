@@ -13,6 +13,9 @@ ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 all: build
 
+test:
+	robot reason -r HermiT -i ro-edit.owl
+
 build: ro.owl ro.obo ro.json  all_subsets
 
 release: $(ONTS_TO_BUILD)
@@ -50,6 +53,14 @@ validate-using-oort: ro-edit.owl
 	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+# ========================================
+# DOCUMENTATION
+# ========================================
+# requires mkdocs: `pip install mkdocs`
+docs-serve:
+	(cd ../.. && mkdocs serve)
+docs-deploy:
+	(cd ../.. && mkdocs gh-deploy)
 
 
 # ========================================
@@ -195,5 +206,3 @@ reports/%-obo-report.tsv: %
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
-test:
-	robot reason -r HermiT -i ro-edit.owl
