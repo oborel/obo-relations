@@ -20,6 +20,13 @@ However, we expect some users may have a need to browse the whole
 ontology. These include ontology developers or data modelers looking
 to reuse relations. Here some additional guidance may prove useful.
 
+## Slides
+
+The best place to get a general overview of RO is the slides presented at Denver 2018 RO Meeting.
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSEOxkNG0UqXU44BO-BWWFLAOj1j0EbR1rUu0eMuQ1eaAKDLXB4FK2LgKgUfTYVWswUGJ3eoNZ28DlE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
 ## How to browse RO
 
 In order to fully comprehend RO it is necessary to inspect it using a
