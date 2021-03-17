@@ -64,7 +64,7 @@ use of OORT to build releases - subset files are generated as part of
 the release process.
 
 Currently we only have a single subset, ro-eco, but we will add more
-later, e.g. for [RONeuro](RONeuro). One possibility is to have an editor in
+later, e.g. for [RONeuro](ro-neuro.md). One possibility is to have an editor in
 charge of the content of each module (or at least representing a
 community of stakeholders).
 
