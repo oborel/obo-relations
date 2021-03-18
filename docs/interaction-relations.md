@@ -16,8 +16,7 @@ The way we do this is via the introduction of 'helper
 properties'. Unfortunately these clog up the ontology from a browsing
 perspective, but assist with reasoning.
 
-The design pattern is documented here:
-http://ontologydesignpatterns.org/wiki/Submissions:N-Ary_Relation_Pattern_%28OWL_2%29
+The design pattern is documented [here.](http://ontologydesignpatterns.org/wiki/Submissions:N-Ary_Relation_Pattern_%28OWL_2%29)
 
 For every interaction process Proc we create as isProc ObjectProperty that is locally reflexive for any instance of Proc, ie
 

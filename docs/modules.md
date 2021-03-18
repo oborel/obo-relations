@@ -32,7 +32,7 @@ modules according to application or domain.
   * Grouping relations
   * Subsets
 
-Grouping relations are OPs that form the root of a property hierarchy
+Grouping relations are OPs [(Object Properties)](object-properties.md) that form the root of a property hierarchy
 including the desired properties. For example, 'developmentally
 related to' (http://purl.obolibrary.org/obo/RO_0002324) groups all OPs
 used to specify developmental relationships between two structures.
@@ -57,14 +57,14 @@ group. Sometimes it is desirable to cherry pick certain OPs
 independently of the subProperty hierarchy. Here we explicitly assert
 membership in a group.
 
-Currently this is done using the 'in subset' AP from the OiO
+Currently this is done using the 'in subset' AP [(AnnotationProperty)](annotation-properties.md) from the OiO
 vocabulary. This may be changed to IAO in future, but for now use of
 this vocabulary has advantages for mapping to obo format and making
 use of OORT to build releases - subset files are generated as part of
 the release process.
 
 Currently we only have a single subset, ro-eco, but we will add more
-later, e.g. for [RONeuro](RONeuro). One possibility is to have an editor in
+later, e.g. for [RONeuro](ro-neuro.md). One possibility is to have an editor in
 charge of the content of each module (or at least representing a
 community of stakeholders).
 
@@ -102,10 +102,10 @@ Using 'part of' and 'has part' and all their descendant relations:
 
 
 
-Getting the right module requires an understanding of the modularization algorithm which is non-trivial - particularly where this interacts with [ShortcutRelations](ShortcutRelations) - in future we will provide a more intuitive high-level modularization capability.
+Getting the right module requires an understanding of the modularization algorithm which is non-trivial - particularly where this interacts with [ShortcutRelations](shortcut-relations.md) - in future we will provide a more intuitive high-level modularization capability.
 
 ## Manual Module Extraction ##
 
 Another method is to manually take the properties and/or related axioms one requires and copy them into the working ontology. This technique is not ideal, but the operation is relatively infrequent since most ontologies do not use large numbers of relations. This is the method that has been used in practice for GO, the drosophila anatomy, Uberon, etc.
 
-See [OBOFormatUsersGuide](OBOFormatUsersGuide) for details
+See [OBOFormatUsersGuide](https://github.com/oborel/obo-relations/wiki/OBOFormatUsersGuide) for details
