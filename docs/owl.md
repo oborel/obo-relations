@@ -11,7 +11,7 @@ help. At a minimum, it helps to know:
   * The difference between an [ObjectProperty](object-properties.md) and an [AnnotationProperty](annotation-properties.md)
   * The meaning of Object Property Characteristics, such as 'Transitive'
   * The meaning of Object Property Axiom types, such as SubPropertyOf
-  * What a [PropertyChain](PropertyChain) is
+  * What a [PropertyChain](property-chains.md) is
   * What it means to import an ontology
 
 It also helps to know some of the practices of the OBO Community. For example:
