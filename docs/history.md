@@ -25,3 +25,16 @@ For more details see:
  * [RO Core](../ro-core).
 
 ## Current development
+
+Currently RO is actively maintained by core team with contributions by pull request from many community members. See
+
+ * [CONTRIBUTING.md](https://github.com/oborel/obo-relations/blob/master/CONTRIBUTING.md)
+ * [releases](https://github.com/oborel/obo-relations/releases/)
+ * [contributors](https://github.com/oborel/obo-relations/graphs/contributors)
+ * [commits](https://github.com/oborel/obo-relations/commits/master)
+
+## Visual Depiction
+
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTtxkGff7DVy2D1iCMIgBvOVI0pDyQPhr6Rnf5vv_QVMtjN52ZmP7Dt02K2wa6ji7JS_vj0WW2fwgEI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+

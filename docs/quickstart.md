@@ -38,4 +38,3 @@ For more information, see [ShortcutRelations](shortcut-relations.md)
 RO combines multiple relations from different biological sub-domains into one ontology. Sometimes these relations are very specialized and of limited use outside that domain. For more on extracting specific modules, see:
 
 See [modules](modules.md).
-
