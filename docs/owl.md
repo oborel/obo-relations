@@ -21,7 +21,7 @@ It also helps to know some of the practices of the OBO Community. For example:
   * Use of the IAO metadata vocabulary
 
 Finally, for browsing in Protege, we recommend a tutorial such as the
-Pizza tutorial. A few additional tips help:
+[Pizza tutorial](https://protegewiki.stanford.edu/wiki/Protege4Pizzas10Minutes). A few additional tips help:
 
   * Hovering over an axiom reveals its ontology source (RO imports parts of other ontologies)
   * Using a reasoner will show you entailed axioms
