@@ -1,3 +1,12 @@
+# Causal Relations in RO
+
+The best place to start are the GREEKC slides in Causal Relations in RO:
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTilx9FrYETX3IJkk3YWZ5KlfPnevE2DNWgnVDZG88TmQEFPfT5NcvA0kY8QrNCfku2dTzVxDf1cjQj/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+# Causal Algebra
+
 Here we define a causal algebra for connecting two occurrents p and q
 according to the causal influence p has on q. We leave open the
 possibility of generalizing to allow p or q to be qualities.

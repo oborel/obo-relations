@@ -28,8 +28,13 @@ Use the following URIs to download this ontology:
 
 The OWL product is more expressive than the OBO format one, and includes additional axioms.
 
+See also:
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRRn8SADE0IIDl2fBXH4qKzjcL6oNsbpA9zj-7oCFlLqcUSqKZE4Jq-P2HRCOUuvBE827JTFuzNosWn/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 ## Contributing
 
-  * Join the [Google Group](http://groups.google.com/group/obo-relations)
-  * Request new relations via the [obo-relations issue tracker](https://github.com/oborel/obo-relations/issues)
+ * [CONTRIBUTING.md](https://github.com/oborel/obo-relations/blob/master/CONTRIBUTING.md)
+ * Join the [Google Group](http://groups.google.com/group/obo-relations)
+ * Request new relations via the [obo-relations issue tracker](https://github.com/oborel/obo-relations/issues)
 

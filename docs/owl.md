@@ -26,3 +26,7 @@ Finally, for browsing in Protege, we recommend a tutorial such as the
   * Hovering over an axiom reveals its ontology source (RO imports parts of other ontologies)
   * Using a reasoner will show you entailed axioms
   * A colored "@" means the axiom has annotations (e.g. provenance of the axiom). Click on the "@" to see these
+
+## Additional guides
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQuwDEZvymCg3zJmq72RzyucWzb1V3iNo_eDS-EyQfAfKFOmEXSs6pmyWjA-I6NCrjP_y6V6hp6k7Ml/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
