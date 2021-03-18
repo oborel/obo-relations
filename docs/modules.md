@@ -102,7 +102,7 @@ Using 'part of' and 'has part' and all their descendant relations:
 
 
 
-Getting the right module requires an understanding of the modularization algorithm which is non-trivial - particularly where this interacts with [ShortcutRelations](ShortcutRelations) - in future we will provide a more intuitive high-level modularization capability.
+Getting the right module requires an understanding of the modularization algorithm which is non-trivial - particularly where this interacts with [ShortcutRelations](shortcut-relations.md) - in future we will provide a more intuitive high-level modularization capability.
 
 ## Manual Module Extraction ##
 
