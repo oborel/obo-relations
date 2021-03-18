@@ -108,4 +108,4 @@ Getting the right module requires an understanding of the modularization algorit
 
 Another method is to manually take the properties and/or related axioms one requires and copy them into the working ontology. This technique is not ideal, but the operation is relatively infrequent since most ontologies do not use large numbers of relations. This is the method that has been used in practice for GO, the drosophila anatomy, Uberon, etc.
 
-See [OBOFormatUsersGuide](OBOFormatUsersGuide) for details
+See [OBOFormatUsersGuide](https://github.com/oborel/obo-relations/wiki/OBOFormatUsersGuide) for details
