@@ -32,7 +32,7 @@ modules according to application or domain.
   * Grouping relations
   * Subsets
 
-Grouping relations are OPs that form the root of a property hierarchy
+Grouping relations are OPs [(Object Properties)](object-properties.md) that form the root of a property hierarchy
 including the desired properties. For example, 'developmentally
 related to' (http://purl.obolibrary.org/obo/RO_0002324) groups all OPs
 used to specify developmental relationships between two structures.
@@ -57,7 +57,7 @@ group. Sometimes it is desirable to cherry pick certain OPs
 independently of the subProperty hierarchy. Here we explicitly assert
 membership in a group.
 
-Currently this is done using the 'in subset' AP from the OiO
+Currently this is done using the 'in subset' AP [(AnnotationProperty)](annotation-properties.md) from the OiO
 vocabulary. This may be changed to IAO in future, but for now use of
 this vocabulary has advantages for mapping to obo format and making
 use of OORT to build releases - subset files are generated as part of

@@ -8,7 +8,7 @@ looking at the entire ontology understanding OWL2 will definitely
 help. At a minimum, it helps to know:
 
   * How to read [ManchesterSyntax](ManchesterSyntax)
-  * The difference between an [ObjectProperty](ObjectProperty) and an [AnnotationProperty](AnnotationProperty)
+  * The difference between an [ObjectProperty](object-properties.md) and an [AnnotationProperty](annotation-properties.md)
   * The meaning of Object Property Characteristics, such as 'Transitive'
   * The meaning of Object Property Axiom types, such as SubPropertyOf
   * What a [PropertyChain](PropertyChain) is
