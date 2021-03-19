@@ -1,6 +1,8 @@
 OBO=http://purl.obolibrary.org/obo
 SRC=ro-edit.owl
 ROBOT=robot
+REPORT_FAIL_ON = ERROR
+RELEASEDATE ?= `date +%Y-%m-%d`
 
 ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
 ONTS= $(ONTS_TO_BUILD) rohom.owl
@@ -11,6 +13,9 @@ ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 all: build
 
+test:
+	robot reason -r HermiT -i ro-edit.owl
+
 build: ro.owl ro.obo ro.json  all_subsets
 
 release: $(ONTS_TO_BUILD)
@@ -18,7 +23,7 @@ release: $(ONTS_TO_BUILD)
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
-	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 # turtle file is merged, for querying via arq
@@ -28,7 +33,7 @@ ro.ttl: ro.owl
 EXT_IMPORTS = pato_import go_cc_import go_mf_import go-biotic other_import annotations
 
 ro-base.owl: ro-edit.owl
-	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id $(OBO)/ro/$@ -o $@
+	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/$@ $(OBO)/ro/$@ -o $@
 
 %.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && mv $@.tmp $@
@@ -48,6 +53,14 @@ validate-using-oort: ro-edit.owl
 	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+# ========================================
+# DOCUMENTATION
+# ========================================
+# requires mkdocs: `pip install mkdocs`
+docs-serve:
+	(cd ../.. && mkdocs serve)
+docs-deploy:
+	(cd ../.. && mkdocs gh-deploy)
 
 
 # ========================================
@@ -157,7 +170,7 @@ odp/%.owl:
 # Reports
 # ----------------------------------------
 REPORTS=basicReport
-all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS))
+all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS)) reports/ro.owl-obo-report.tsv
 
 reports/ro-%.csv: sparql/%.sparql ro.owl
 	robot query -i ro.owl -s $< $@.tmp -f csv && mv $@.tmp $@
@@ -181,7 +194,11 @@ generated-axioms.owl: $(GENAXIOMS)
 # these can then be merged in to the main ontology
 #reports/include-%.owl: sparql/construct-%.sparql ecto-core.owl
 
-
+# ----------------------------------------
+# ROBOT report
+# ----------------------------------------
+reports/%-obo-report.tsv: %
+	$(ROBOT) merge --collapse-import-closure true -i $< report --labels true --fail-on $(REPORT_FAIL_ON) --print 5 -o $@
 
 # ----------------------------------------
 # MARKDOWN EXPORT
@@ -189,5 +206,3 @@ generated-axioms.owl: $(GENAXIOMS)
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
-test:
-	robot reason -r HermiT -i ro-edit.owl
