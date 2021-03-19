@@ -68,11 +68,11 @@ first type
 to make sure you are on master
 
     cd src/ontology
-    ./build.sh
+    sh run.sh make all 
 
-If this looks good type:
+if that worked without an error,
 
-    ./prepare_release.sh
+    sh run.sh make release
 
 This generates derived files such as ro.owl and ro.obo and places
 them in the top level (../..).
