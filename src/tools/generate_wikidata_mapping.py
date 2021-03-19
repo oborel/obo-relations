@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-"""Generates summaries of the relation ontology."""
+"""Generates summaries of the relation ontology.
+
+This script requires the installation of the :mod:`requests` library.
+"""
 
 import json
 import os
@@ -13,19 +16,21 @@ SSSOM_PATH = os.path.abspath(os.path.join(HERE, os.pardir, 'mappings', 'ro-to-wi
 OBO_PATH = os.path.abspath(os.path.join(HERE, os.pardir, os.pardir, 'ro.json'))
 
 
-def get_id_names():
+def get_id_name_mapping():
+    """Get a mapping from RO_XXXXXXX identifiers to their labels."""
     with open(OBO_PATH) as file:
         obo_json = json.load(file)
     return {
-        node['id'].removeprefix('http://purl.obolibrary.org/obo/'): node.get('lbl')
+        node['id'][len('http://purl.obolibrary.org/obo/'):]: node['lbl']
         for node in obo_json['graphs'][0]['nodes']
+        if 'lbl' in node
     }
 
 
 # URL for the Wikidata SPARQL service
-URL = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
+WIKIDATA_SPARQL_ENDPOINT = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
 
-Q1 = '''
+MAPPING_SPARQL = '''
 SELECT ?prop ?propLabel ?ro_id
 WHERE  {
     ?prop wdt:P3590 ?ro_id .
@@ -34,9 +39,10 @@ WHERE  {
 '''
 
 
-def get_query(query, base: str = URL):
+def get_query(query: str):
+    """Get the results of a SPARQL query to the Wikidata SPARQL endpoint as JSON."""
     res = requests.get(
-        base,
+        WIKIDATA_SPARQL_ENDPOINT,
         params={'query': query, 'format': 'json'},
     )
     res.raise_for_status()
@@ -45,10 +51,9 @@ def get_query(query, base: str = URL):
 
 
 def main():
-    ro_id_name = get_id_names()
+    ro_id_name = get_id_name_mapping()
 
     predicate = 'owl:equivalentProperty'
-    mapping_license = 'https://creativecommons.org/publicdomain/zero/1.0/'
     match_type = 'Curated'
     comments = 'derived from wikidata via SPARQL'
 
@@ -73,7 +78,7 @@ def main():
                 row['prop']['value'][len('http://www.wikidata.org/entity/'):],
                 row['propLabel']['value']
             )
-            for row in get_query(Q1)
+            for row in get_query(MAPPING_SPARQL)
         ]
         for ro_id, wd_id, wd_label in sorted(rows):
             print(
