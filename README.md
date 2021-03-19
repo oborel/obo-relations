@@ -23,6 +23,10 @@ Currently the optimal way to browse RO is to use Protege and inspect ro.owl
 
 See the [list of relations on OntoBee](http://www.ontobee.org/browser/term.php?o=RO&iri=http://www.w3.org/2002/07/owl%23ObjectProperty&graph=http://purl.obolibrary.org/obo/merged/RO) -- note that sometimes OntoBee fails to display the full hierarchy
 
+# How to cite
+
+Please cite RO by its GitHub URL [https://github.com/oborel/obo-relations](https://github.com/oborel/obo-relations) or its Zenodo DOI, [DOI: 10.5281/zenodo.32899](https://zenodo.org/record/3955125#.X3vzkZOpFyo) .
+
 # Mail List
 
  * http://groups.google.com/group/obo-relations
