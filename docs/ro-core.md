@@ -9,3 +9,11 @@ RO Core imports a subset of classes from BFO 2.0, defines relations among them, 
 ![img](https://github.com/oborel/obo-relations/raw/master/docs/ROCore_Continuants.jpg)
 
 ![img](https://github.com/oborel/obo-relations/raw/master/docs/ROCore_SDCs.jpg)
+
+## Additional Notes
+
+RO Core also diverges from BFO in that we do not include the BFO 'inheres in' relation. We instead have a relation [characteristic of](http://purl.obolibrary.org/obo/RO_0000052), which is in some aspects more general that inheres-in (it relaxes range constraints, such that things can be characteristics of processes), and in some aspects more specific than inheres-in (it restricts the relation to be functional).
+
+Note that the RO [characteristic of](http://purl.obolibrary.org/obo/RO_0000052) used to be called 'inheres in', as it was originally modeled after the RO relation, but was renamed in 2021 to avoid confusion. See [this pull request](https://github.com/oborel/obo-relations/pulls/284) for historic context.
+
+
