@@ -44,6 +44,8 @@ Declaration(Class(obo:RO_0002534))
 Declaration(Class(foaf:image))
 Declaration(ObjectProperty(obo:BFO_0000050))
 Declaration(ObjectProperty(obo:BFO_0000051))
+Declaration(ObjectProperty(obo:RO_0000093))
+Declaration(ObjectProperty(obo:RO_0000094))
 Declaration(ObjectProperty(obo:RO_0000300))
 Declaration(ObjectProperty(obo:RO_0000301))
 Declaration(ObjectProperty(obo:RO_0000302))
@@ -614,6 +616,7 @@ Declaration(AnnotationProperty(oboInOwl:created_by))
 Declaration(AnnotationProperty(oboInOwl:creation_date))
 Declaration(AnnotationProperty(oboInOwl:inSubset))
 Declaration(AnnotationProperty(rdfs:seeAlso))
+Declaration(AnnotationProperty(skos:closeMatch))
 ############################
 #   Annotation Properties
 ############################
@@ -626,7 +629,6 @@ SubAnnotationPropertyOf(obo:IAO_0000426 obo:RO_0002422)
 # Annotation Property: obo:RO_0001900 (temporal interpretation)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0001900 "An assertion that holds between an OWL Object Property and a temporal interpretation that elucidates how OWL Class Axioms that use this property are to be interpreted in a temporal context.")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/>)
 SubAnnotationPropertyOf(obo:RO_0001900 obo:RO_0002422)
 
 # Annotation Property: obo:RO_0002161 (never in taxon)
@@ -638,6 +640,10 @@ AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/20973947>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002161 "?X DisjointWith RO_0002162 some ?Y ")
 AnnotationAssertion(rdfs:label obo:RO_0002161 "never in taxon"^^xsd:string)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/direct-and-indirect-relations/>)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/>)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002161 obo:RO_0002172)
 
@@ -777,69 +783,59 @@ SubAnnotationPropertyOf(obo:RO_0002536 obo:RO_0002423)
 # Annotation Property: obo:RO_0002537 (has start time value)
 
 AnnotationAssertion(rdfs:label obo:RO_0002537 "has start time value")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002537 obo:RO_0002535)
 
 # Annotation Property: obo:RO_0002538 (has end time value)
 
 AnnotationAssertion(rdfs:label obo:RO_0002538 "has end time value")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002538 obo:RO_0002535)
 
 # Annotation Property: obo:RO_0002539 (start, days post fertilization)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002539 "Count of number of days intervening between the start of the stage and the time of fertilization according to a reference model. Note that the first day of development has the value of 0 for this property.")
 AnnotationAssertion(rdfs:label obo:RO_0002539 "start, days post fertilization")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002539 obo:RO_0002537)
 
 # Annotation Property: obo:RO_0002540 (end, days post fertilization)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002540 "Count of number of days intervening between the end of the stage and the time of fertilization according to a reference model. Note that the first day of development has the value of 1 for this property.")
 AnnotationAssertion(rdfs:label obo:RO_0002540 "end, days post fertilization")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002540 obo:RO_0002538)
 
 # Annotation Property: obo:RO_0002541 (start, years post birth)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002541 "Count of number of years intervening between the start of the stage and the time of birth according to a reference model. Note that the first year of post-birth development has the value of 0 for this property, and the period during which the child is one year old has the value 1.")
 AnnotationAssertion(rdfs:label obo:RO_0002541 "start, years post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002541 obo:RO_0002537)
 
 # Annotation Property: obo:RO_0002542 (end, years post birth)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002542 "Count of number of years intervening between the end of the stage and the time of birth according to a reference model. Note that the first year of post-birth development has the value of 1 for this property, and the period during which the child is one year old has the value 2")
 AnnotationAssertion(rdfs:label obo:RO_0002542 "end, years post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002542 obo:RO_0002538)
 
 # Annotation Property: obo:RO_0002543 (start, months post birth)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002543 "Count of number of months intervening between the start of the stage and the time of birth according to a reference model. Note that the first month of post-birth development has the value of 0 for this property, and the period during which the child is one month old has the value 1.")
 AnnotationAssertion(rdfs:label obo:RO_0002543 "start, months post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002543 obo:RO_0002537)
 
 # Annotation Property: obo:RO_0002544 (end, months post birth)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002544 "Count of number of months intervening between the end of the stage and the time of birth according to a reference model. Note that the first month of post-birth development has the value of 1 for this property, and the period during which the child is one month old has the value 2")
 AnnotationAssertion(rdfs:label obo:RO_0002544 "end, months post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002544 obo:RO_0002538)
 
 # Annotation Property: obo:RO_0002545 (month of gestation)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002545 "Defines the start and end of a stage with a duration of 1 month, relative to either the time of fertilization or last menstrual period of the mother (to be clarified), counting from one, in terms of a reference model. Thus if month_of_gestation=3, then the stage is 2 month in.")
 AnnotationAssertion(rdfs:label obo:RO_0002545 "month of gestation")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002545 obo:RO_0002535)
 
 # Annotation Property: obo:RO_0002546 (has developmental stage marker)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002546 "A relationship between a stage class and an anatomical structure or developmental process class, in which the stage is characterized by the appearance of the structure or the occurrence of the biological process")
 AnnotationAssertion(rdfs:label obo:RO_0002546 "has developmental stage marker")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002546 obo:RO_0002535)
 
 # Annotation Property: obo:RO_0002547 (start, days post coitum)
@@ -847,26 +843,22 @@ SubAnnotationPropertyOf(obo:RO_0002546 obo:RO_0002535)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002547 "Count of number of days intervening between the start of the stage and the time of coitum.")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002547 "For mouse staging: assuming that it takes place around midnight during a 7pm to 5am dark cycle (noon of the day on which the vaginal plug is found, the embryos are aged 0.5 days post coitum)")
 AnnotationAssertion(rdfs:label obo:RO_0002547 "start, days post coitum")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002547 obo:RO_0002537)
 
 # Annotation Property: obo:RO_0002548 (end, days post coitum)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002548 "Count of number of days intervening between the end of the stage and the time of coitum.")
 AnnotationAssertion(rdfs:label obo:RO_0002548 "end, days post coitum")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002548 obo:RO_0002538)
 
 # Annotation Property: obo:RO_0002549 (start, weeks post birth)
 
 AnnotationAssertion(rdfs:label obo:RO_0002549 "start, weeks post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002549 obo:RO_0002537)
 
 # Annotation Property: obo:RO_0002550 (end, weeks post birth)
 
 AnnotationAssertion(rdfs:label obo:RO_0002550 "end, weeks post birth")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/temporal-durations/>)
 SubAnnotationPropertyOf(obo:RO_0002550 obo:RO_0002538)
 
 # Annotation Property: obo:RO_0002560 (is asymmetric relational form of process class)
@@ -904,7 +896,6 @@ Where we have an annotation assertion
 AnnotationAssertion(obo:RO_0002423 obo:RO_0002575 "If we have the annotation P is-direct-form-of Q, and we have inverses P' and Q', then it follows that P' is-direct-form-of Q'")
 AnnotationAssertion(dc:creator obo:RO_0002575 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002575 "is direct form of")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/direct-and-indirect-relations/>)
 SubAnnotationPropertyOf(obo:RO_0002575 obo:RO_0002422)
 
 # Annotation Property: obo:RO_0002579 (is indirect form of)
@@ -912,7 +903,6 @@ SubAnnotationPropertyOf(obo:RO_0002575 obo:RO_0002422)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002579 "relation p is the indirect form of relation q iff p is a subPropertyOf q, and there exists some p' such that p' is the direct form of q, p' o p' -> p, and forall x,y : x q y -> either (1) x p y or (2) x p' y")
 AnnotationAssertion(dc:creator obo:RO_0002579 "Chris Mungall")
 AnnotationAssertion(rdfs:label obo:RO_0002579 "is indirect form of")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/direct-and-indirect-relations/>)
 SubAnnotationPropertyOf(obo:RO_0002579 obo:RO_0002422)
 
 # Annotation Property: obo:RO_0002580 (logical macro assertion on an axiom)
@@ -1037,7 +1027,6 @@ SubAnnotationPropertyOf(obo:RO_0040042 obo:RO_0002422)
 AnnotationAssertion(oboInOwl:created_by obo:valid_for_go_annotation_extension "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:valid_for_go_annotation_extension "2020-09-22T11:05:29Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:valid_for_go_annotation_extension "valid_for_go_annotation_extension"@en)
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
 SubAnnotationPropertyOf(obo:valid_for_go_annotation_extension oboInOwl:SubsetProperty)
 
 # Annotation Property: obo:valid_for_go_gp2term (valid_for_go_gp2term)
@@ -1045,7 +1034,6 @@ SubAnnotationPropertyOf(obo:valid_for_go_annotation_extension oboInOwl:SubsetPro
 AnnotationAssertion(oboInOwl:created_by obo:valid_for_go_gp2term "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:valid_for_go_gp2term "2020-09-22T11:05:18Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:valid_for_go_gp2term "valid_for_go_gp2term"@en)
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
 SubAnnotationPropertyOf(obo:valid_for_go_gp2term oboInOwl:SubsetProperty)
 
 # Annotation Property: obo:valid_for_go_ontology (valid_for_go_ontology)
@@ -1053,7 +1041,6 @@ SubAnnotationPropertyOf(obo:valid_for_go_gp2term oboInOwl:SubsetProperty)
 AnnotationAssertion(oboInOwl:created_by obo:valid_for_go_ontology "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:valid_for_go_ontology "2020-09-22T11:04:12Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:valid_for_go_ontology "valid_for_go_ontology"@en)
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
 SubAnnotationPropertyOf(obo:valid_for_go_ontology oboInOwl:SubsetProperty)
 
 # Annotation Property: obo:valid_for_gocam (valid_for_gocam)
@@ -1061,13 +1048,11 @@ SubAnnotationPropertyOf(obo:valid_for_go_ontology oboInOwl:SubsetProperty)
 AnnotationAssertion(oboInOwl:created_by obo:valid_for_gocam "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:valid_for_gocam "2020-09-22T11:05:45Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:valid_for_gocam "valid_for_gocam"@en)
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
 SubAnnotationPropertyOf(obo:valid_for_gocam oboInOwl:SubsetProperty)
 
 # Annotation Property: subsets:ro-eco (eco subset)
 
 AnnotationAssertion(rdfs:label subsets:ro-eco "eco subset")
-AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <http://purl.obolibrary.org/obo/ro/docs/subsets/>)
 SubAnnotationPropertyOf(subsets:ro-eco oboInOwl:SubsetProperty)
 
 # Annotation Property: oboInOwl:SubsetProperty (subset_property)
@@ -1123,7 +1108,27 @@ AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000066 obo:valid_for_go_ontology)
 AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000066 obo:valid_for_gocam)
 
 # Object Property: obo:RO_0000052 (characteristic of)
+
 SubObjectPropertyOf(obo:RO_0000052 obo:RO_0002314)
+
+# Object Property: obo:RO_0000093 (encircles)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000093 "x encircles y if both x and y are regions of the 2D structure z and the boundary of y on z is exclusively continuous with x."@en)
+AnnotationAssertion(oboInOwl:created_by obo:RO_0000093 "Jennifer Girón")
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0000093 "2021-04-21")
+AnnotationAssertion(rdfs:label obo:RO_0000093 "encircles"@en)
+SubObjectPropertyOf(obo:RO_0000093 obo:RO_0002150)
+InverseObjectProperties(obo:RO_0000093 obo:RO_0000094)
+TransitiveObjectProperty(obo:RO_0000093)
+
+# Object Property: obo:RO_0000094 (encircled by)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000094 "y is encircled by x if both x and y are regions of the 2D structure z and the boundary of y on z is exclusively continuous with y."@en)
+AnnotationAssertion(oboInOwl:created_by obo:RO_0000094 "Jennifer Girón")
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0000094 "2021-04-21")
+AnnotationAssertion(rdfs:label obo:RO_0000094 "encircled by"@en)
+SubObjectPropertyOf(obo:RO_0000094 obo:RO_0002150)
+TransitiveObjectProperty(obo:RO_0000094)
 
 # Object Property: obo:RO_0000300 (obsolete in neural circuit with)
 
@@ -1269,7 +1274,6 @@ ObjectPropertyRange(obo:RO_0002005 obo:CARO_0001001)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002006 "David Osumi-Sutherland")
 AnnotationAssertion(rdfs:label obo:RO_0002006 "has synaptic terminal of"@en)
-AnnotationAssertion(cito:citesAsAuthority obo:RO_0002003 <http://www.ncbi.nlm.nih.gov/pubmed/22402613>)
 SubObjectPropertyOf(obo:RO_0002006 obo:RO_0002131)
 InverseObjectProperties(obo:RO_0002006 obo:RO_0002130)
 
@@ -3686,8 +3690,8 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0002434 "Note that this relationship 
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002434 "in pairwise interaction with")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002434 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002434 "interacts with")
-AnnotationAssertion(skos:closeMatch obo:RO_0002434 "http://purl.obolibrary.org/obo/MI_0914"^^xsd:anyURI)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002434 "http://purl.obolibrary.org/obo/ro/docs/interaction-relations/"^^xsd:anyURI)
+AnnotationAssertion(skos:closeMatch obo:RO_0002434 "http://purl.obolibrary.org/obo/MI_0914"^^xsd:anyURI)
 SymmetricObjectProperty(obo:RO_0002434)
 ObjectPropertyDomain(obo:RO_0002434 obo:BFO_0000040)
 ObjectPropertyRange(obo:RO_0002434 obo:BFO_0000040)
@@ -5124,6 +5128,7 @@ SubObjectPropertyOf(obo:RO_0002639 obo:RO_0002635)
 # Object Property: obo:RO_0002640 (intracellular endoparasite of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002640 "A sub-relation of endoparasite-of in which the parasite inhabits host cells.")
+AnnotationAssertion(obo:IAO_0000119 obo:RO_0002640 <https://en.wikipedia.org/wiki/Communal_roosting>)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002640 <https://en.wikipedia.org/wiki/Parasitism#Types>)
 AnnotationAssertion(rdfs:label obo:RO_0002640 "intracellular endoparasite of")
 SubObjectPropertyOf(obo:RO_0002640 obo:RO_0002634)
@@ -5139,7 +5144,6 @@ SubObjectPropertyOf(obo:RO_0002641 obo:RO_0002635)
 # Object Property: obo:RO_0002801 (co-roosts with)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002801 "Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:RO_0002640 <https://en.wikipedia.org/wiki/Communal_roosting>)
 AnnotationAssertion(rdfs:label obo:RO_0002801 "co-roosts with"@en)
 SubObjectPropertyOf(obo:RO_0002801 obo:RO_0008506)
 SymmetricObjectProperty(obo:RO_0002801)
