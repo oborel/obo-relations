@@ -12,20 +12,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  merge_template:
-    runs-on: ubuntu-latest
-    container: obolibrary/odkfull:v1.2.26
+  reset_branch:
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-
       - name: Reset RO edit
         env:
           DEFAULT_BRANCH: master
         run: |
           git checkout origin/master -- src/ontology/ro-edit.owl
+  merge_template:
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.2.26
+    steps:
       - name: Run merge templates
         env:
           DEFAULT_BRANCH: master
