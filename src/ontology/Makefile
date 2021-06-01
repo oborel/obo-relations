@@ -216,7 +216,6 @@ markdown: ro.owl
 
 
 merge_template: ../templates/new_relations.tsv
-	git checkout origin/master -- $(SRC)
 	$(ROBOT) template --merge-before --input $(SRC) \
  --template $< --output $(SRC).ofn && mv $(SRC).ofn $(SRC)
 	
