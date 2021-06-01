@@ -14,9 +14,11 @@ jobs:
     container: obolibrary/odkfull:v1.2.26
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Run ontology QC checks
         env:
           DEFAULT_BRANCH: master
         run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
-
