@@ -214,3 +214,8 @@ reports/%-obo-report.tsv: %
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
+
+merge_template: ../templates/new_relations.tsv 
+	$(ROBOT) template --merge-before --input $(SRC) \
+ --template $< --output $(SRC).ofn && mv $(SRC).ofn $(SRC)
+	
