@@ -1,0 +1,22 @@
+name: Merge template
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  merge_template:
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.2.26
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run ontology QC checks
+        env:
+          DEFAULT_BRANCH: master
+        run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
+
