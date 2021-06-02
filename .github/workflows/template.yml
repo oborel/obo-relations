@@ -12,36 +12,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  reset_branch:
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-      - name: Commit files
-        run: |
-          git checkout origin/master -- src/ontology/ro-edit.owl
-          git add src/ontology/ro-edit.owl
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Resetting ro-edit.owl"
   merge_template:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
-    container: obolibrary/odkfull:v1.2.28
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      - name: Reset ro-edit.owl
+        run: |
+          git checkout origin/master -- src/ontology/ro-edit.owl
       - name: Run merge templates
-        env:
-          DEFAULT_BRANCH: master
-        run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
+        run: cd src/ontology && sh run.sh make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
       - name: Commit files
         run: |
           git add src/ontology/ro-edit.owl
