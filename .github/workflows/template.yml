@@ -21,6 +21,7 @@ jobs:
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+          ref: refs/head/${{ github.head_ref }}
       - name: Reset ro-edit.owl
         run: |
           curl https://raw.githubusercontent.com/oborel/obo-relations/master/src/ontology/ro-edit.owl > src/ontology/ro-edit.owl
@@ -32,4 +33,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update ro-edit.owl"
-          git push -u origin HEAD:${GITHUB_REF##*/}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
