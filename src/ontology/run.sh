@@ -9,4 +9,4 @@
 # we therefore map the whole repo_name (../..) to a docker volume.
 #
 # See README-editors.md for more details.
-docker run -v $PWD/../../:/work -w /work/src/ontology --rm -ti obolibrary/odkfull "$@"
+docker run -v $PWD/../../:/work -w /work/src/ontology --rm obolibrary/odkfull "$@"
