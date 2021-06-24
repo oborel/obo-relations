@@ -7,9 +7,9 @@ subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 56 Logical Axioms: 13]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 291 Logical Axioms: 62]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 311 Logical Axioms: 69]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
@@ -91,15 +91,17 @@ def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a proce
 
 [Typedef]
 id: RO:0000052
-name: inheres_in
-def: "a relation between a specifically dependent continuant (the dependent) and an independent continuant (the bearer), in which the dependent specifically depends on the bearer for its existence" []
-is_a: RO:0002314 ! inheres in part of
-inverse_of: RO:0000053 ! bearer of
+name: characteristic_of
+def: "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence." []
+is_functional: true
+is_a: RO:0002314 ! characteristic of part of
+inverse_of: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000053
-name: bearer_of
-def: "a relation between an independent continuant (the bearer) and a specifically dependent continuant (the dependent), in which the dependent specifically depends on the bearer for its existence" []
+name: has_characteristic
+def: "Inverse of characteristic_of" []
+is_inverse_functional: true
 
 [Typedef]
 id: RO:0000056
@@ -128,53 +130,53 @@ def: "A relationship between a specifically dependent continuant and a generical
 id: RO:0000079
 name: function_of
 def: "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000085 ! has function
 
 [Typedef]
 id: RO:0000080
 name: quality_of
 def: "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000086 ! has quality
 
 [Typedef]
 id: RO:0000081
 name: role_of
 def: "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000087 ! has role
 
 [Typedef]
 id: RO:0000085
 name: has_function
 def: "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000086
 name: has_quality
 def: "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000087
 name: has_role
 def: "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000091
 name: has_disposition
 def: "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 inverse_of: RO:0000092 ! disposition of
 
 [Typedef]
 id: RO:0000092
 name: disposition_of
 def: "inverse of has disposition" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 
 [Typedef]
 id: RO:0000300
@@ -1256,8 +1258,8 @@ is_a: RO:0040036 ! has anatomical participant
 
 [Typedef]
 id: RO:0002314
-name: inheres_in_part_of
-def: "q inheres in part of w if and only if there exists some p such that q inheres in p and p part of w." []
+name: characteristic_of_part_of
+def: "q characteristic of part of w if and only if there exists some p such that q inheres in p and p part of w." []
 holds_over_chain: RO:0000052 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002502 ! depends on
 transitive_over: BFO:0000050 ! part of
@@ -3130,6 +3132,17 @@ is_a: RO:0002418 ! causally upstream of or within
 id: RO:0004047
 name: causally_upstream_of_or_within,_positive_effect
 is_a: RO:0002418 ! causally upstream of or within
+
+[Typedef]
+id: RO:0004096
+name: DEPRECATED_inheres_in
+inverse_of: RO:0004097 ! DEPRECATED bearer of
+is_obsolete: true
+
+[Typedef]
+id: RO:0004097
+name: DEPRECATED_bearer_of
+is_obsolete: true
 
 [Typedef]
 id: RO:0008501

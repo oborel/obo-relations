@@ -197,10 +197,6 @@ is_a: has_presynaptic_terminal_in ! has presynaptic terminal in
 expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\n      GO_0042734 and BFO_0000050 some (\n         GO_0045202 and BFO_0000050 some ?Y)))" []
 
 [Typedef]
-id: bearer_of
-xref: RO:0000053
-
-[Typedef]
 id: biomechanically_related_to
 name: biomechanically related to
 def: "A relation that holds between elements of a musculoskeletal system or its analogs." []
@@ -306,7 +302,7 @@ def: "c stands in this relationship to p if and only if there exists some p' suc
 xref: RO:0002216
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
-property_value: seeAlso "defining-property-chains-involving-reflexivity"
+property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/reflexivity/
 is_a: causal_agent_in_process ! causal agent in process
 is_a: functionally_related_to ! functionally related to
 
@@ -565,6 +561,7 @@ id: co-roosts_with
 name: co-roosts with
 def: "Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting." []
 xref: RO:0002801
+property_value: IAO:0000119 Communal:roosting
 is_symmetric: true
 is_a: ecologically_co-occurs_with ! ecologically co-occurs with
 
@@ -673,10 +670,10 @@ id: connected_to
 name: connected to
 def: "a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b" []
 xref: RO:0002170
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 property_value: IAO:0000112 "a 'toe distal phalanx bone' that is connected to a 'toe medial phalanx bone' (an interphalangeal joint *connects* these two bones)." xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
@@ -692,11 +689,11 @@ id: connects
 name: connects
 def: "c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system." []
 xref: RO:0002176
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 property_value: IAO:0000112 "a 'toe distal phalanx bone' that is connected to a 'toe medial phalanx bone' (an interphalangeal joint *connects* these two bones)." xsd:string
 property_value: IAO:0000112 "The M8 connects Glasgow and Edinburgh" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 domain: BFO:0000004
 is_a: mereotopologically_related_to ! mereotopologically related to
 
@@ -1520,10 +1517,10 @@ property_value: IAO:0000232 "This is a grouping relation that collects relations
 id: genetically_interacts_with
 name: genetically interacts with
 xref: RO:0002435
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0208 xsd:anyURI
 property_value: IAO:0000116 "An interaction that holds between two genetic entities (genes, alleles) through some genetic interaction (e.g. epistasis)" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso ECO:0000316
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0208 xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -1581,6 +1578,10 @@ subset: RO:0002259
 xref: RO:0002569
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
+
+[Typedef]
+id: has_characteristic
+xref: RO:0000053
 
 [Typedef]
 id: has_component
@@ -2367,6 +2368,7 @@ expand_expression_to: "RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)" []
 id: has_synaptic_terminal_of
 name: has synaptic terminal of
 xref: RO:0002006
+property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 is_a: overlaps ! overlaps
 inverse_of: has_synaptic_terminal_in ! has synaptic terminal in
@@ -2501,12 +2503,12 @@ id: in_branching_relationship_with
 name: in branching relationship with
 def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
 xref: RO:0002375
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving branching relationships" xsd:string
 property_value: IAO:0000232 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)" xsd:string
 property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png
+property_value: seeAlso https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_a: mereotopologically_related_to ! mereotopologically related to
@@ -2659,12 +2661,12 @@ def: "A relationship that holds between two entities in which the processes exec
 subset: ro-eco
 synonym: "in pairwise interaction with" EXACT []
 xref: RO:0002434
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/oborel/obo-relations/wiki/InteractionRelations xsd:anyURI
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0914 xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0914 xsd:anyURI
+property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/interaction-relations/ xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_symmetric: true
@@ -2695,7 +2697,6 @@ id: intracellular_endoparasite_of
 name: intracellular endoparasite of
 def: "A sub-relation of endoparasite-of in which the parasite inhabits host cells." []
 xref: RO:0002640
-property_value: IAO:0000119 Communal:roosting
 property_value: IAO:0000119 "Types"
 is_a: endoparasite_of ! endoparasite of
 inverse_of: has_intracellular_endoparasite ! has intracellular endoparasite
@@ -3145,11 +3146,11 @@ id: molecularly_interacts_with
 name: molecularly interacts with
 def: "An interaction relationship in which the two partners are molecular entities that directly physically interact with each other for example via a stable binding interaction or a brief interaction during which one modifies the other." []
 xref: RO:0002436
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0915 xsd:anyURI
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "binds" xsd:string
 property_value: IAO:0000118 "molecularly binds with" xsd:string
 property_value: seeAlso ECO:0000353
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0915 xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -4104,13 +4105,13 @@ name: spatially disjoint from
 def: "A is spatially_disjoint_from B if and only if they have no parts in common" []
 subset: ro-eco
 xref: RO:0002163
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "There are two ways to encode this as a shortcut relation. The other possibility to use an annotation assertion between two classes, and expand this to a disjointness axiom. " xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 property_value: IAO:0000232 "Note that it would be possible to use the relation to label the relationship between a near infinite number of structures - between the rings of saturn and my left earlobe. The intent is that this is used for parsiomoniously for disambiguation purposes - for example, between siblings in a jointly exhaustive pairwise disjointness hierarchy" xsd:string
 property_value: RO:0001900 RO:0001901
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern xsd:anyURI
 is_a: mereotopologically_related_to ! mereotopologically related to
 expand_expression_to: "BFO_0000051 exactly 0 (BFO_0000050 some ?Y)" []
 

@@ -38,6 +38,15 @@ RO also uses BFO IDs for the following relations
   * [BFO_0000063 precedes](http://purl.obolibrary.org/obo/BFO_0000063)
   * [BFO_0000066 occurs_in](http://purl.obolibrary.org/obo/BFO_0000066)
 
+## Inheres in vs characteristic of
+
+We have tried to align the core with BFO reference relations as far as
+possible, but we opted not to adopt BFO "inheres in", and instead use
+a more general "characteristic of" relation that allows qualities to
+be associated to processes.
+
+ * [RO:0000052](http://purl.obolibrary.org/obo/RO_0000052) -- characteristic of
+ * [PR 284](https://github.com/oborel/obo-relations/pull/284) -- this pull request includes historic discussion
 
 ## History ##
 
