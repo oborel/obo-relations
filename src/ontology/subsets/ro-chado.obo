@@ -12,8 +12,8 @@ remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 311 Logical Axioms: 69]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 45 Logical Axioms: 10]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 104 Logical Axioms: 26]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
@@ -895,12 +895,14 @@ id: RO:0002217
 name: obsolete_actively_participates_in
 def: "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role" []
 is_obsolete: true
+replaced_by: RO:0002608
 
 [Typedef]
 id: RO:0002218
 name: obsolete_has_active_participant
-def: "x has participant y if and only if x realizes some active role that inheres in y" []
+def: "OBSOLETE x has participant y if and only if x realizes some active role that inheres in y" []
 is_obsolete: true
+replaced_by: RO:0002500
 
 [Typedef]
 id: RO:0002219
@@ -3085,7 +3087,7 @@ is_a: RO:0040035 ! disease relationship
 [Typedef]
 id: RO:0004030
 name: disease_arises_from_structure
-def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 is_a: RO:0004019 ! disease has basis in
 
 [Typedef]
@@ -3389,7 +3391,7 @@ is_a: RO:0002592 ! results in organization of
 
 [Typedef]
 id: RO:0013001
-name: has_synaptic_IO_in
+name: has_synaptic_IO_in_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
 synonym: "has synaptic input or output in" EXACT []
 is_a: RO:0002130 ! has synaptic terminal in
@@ -3397,38 +3399,38 @@ transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013002
-name: receives_synaptic_input_in
+name: receives_synaptic_input_in_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
 is_a: RO:0002110 ! has postsynaptic terminal in
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013003
-name: sends_synaptic_output_to
+name: sends_synaptic_output_to_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
 is_a: RO:0002113 ! has presynaptic terminal in
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013004
 name: has_synaptic_IO_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 
 [Typedef]
 id: RO:0013005
 name: receives_synaptic_input_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013002 ! receives synaptic input in
+is_a: RO:0013002 ! receives synaptic input in region
 is_a: RO:0013004 ! has synaptic IO throughout
 
 [Typedef]
 id: RO:0013006
 name: sends_synaptic_output_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013003 ! sends synaptic output to
+is_a: RO:0013003 ! sends synaptic output to region
 is_a: RO:0013004 ! has synaptic IO throughout
 
 [Typedef]
@@ -3440,6 +3442,19 @@ synonym: "has sensory terminal in" EXACT []
 synonym: "has sensory terminal location" EXACT []
 is_a: RO:0002360 ! has dendrite location
 transitive_over: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0013008
+name: receives_synaptic_input_from_neuron
+def: "A relationship between an anatomical structure (including cells) and a neuron that has a functionally relevant number of chemical synapses to it." []
+is_a: RO:0002103 ! synapsed by
+inverse_of: RO:0013009 ! sends synaptic output to cell
+
+[Typedef]
+id: RO:0013009
+name: sends_synaptic_output_to_cell
+def: "A relationship between a neuron and a cell that it has a functionally relevant number of chemical synapses to." []
+is_a: RO:0002120 ! synapsed to
 
 [Typedef]
 id: RO:0014001
