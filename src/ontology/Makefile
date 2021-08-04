@@ -1,6 +1,11 @@
 OBO=http://purl.obolibrary.org/obo
+SRC=ro-edit.owl
+ROBOT=robot
+REPORT_FAIL_ON = ERROR
+RELEASEDATE ?= `date +%Y-%m-%d`
 
-ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl rohom.owl
+ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
+ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 # ========================================
 # PRODUCTION
@@ -8,19 +13,27 @@ ONTS= ro.obo ro.owl ro.json annotations.owl core.owl go-biotic.owl pato_import.o
 
 all: build
 
+test:
+	robot reason -r HermiT -i ro-edit.owl
+
 build: ro.owl ro.obo ro.json  all_subsets
 
-release: 
+release: $(ONTS_TO_BUILD)
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
-	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/`date +%Y-%m-%d`/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 # turtle file is merged, for querying via arq
 ro.ttl: ro.owl
 	owltools --use-catalog $< --merge-import-closure -o -f ttl $@.tmp && mv $@.tmp $@
+
+EXT_IMPORTS = pato_import go_cc_import go_mf_import go-biotic other_import annotations
+
+ro-base.owl: ro-edit.owl
+	owltools --use-catalog $< $(patsubst %, --remove-import-declaration $(OBO)/ro/%.owl, $(EXT_IMPORTS)) --merge-imports-closure --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/$@ $(OBO)/ro/$@ -o $@
 
 %.obo: %.owl
 	owltools --use-catalog $< --merge-import-closure -o -f obo $@.tmp && mv $@.tmp $@
@@ -40,6 +53,14 @@ validate-using-oort: ro-edit.owl
 	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+# ========================================
+# DOCUMENTATION
+# ========================================
+# requires mkdocs: `pip install mkdocs`
+docs-serve:
+	(cd ../.. && mkdocs serve)
+docs-deploy:
+	(cd ../.. && mkdocs gh-deploy)
 
 
 # ========================================
@@ -56,16 +77,18 @@ ro-diff.html: ro-diff.md
 # ========================================
 # IMPORTS
 # ========================================
-seed.owl: ro-edit.owl
-	owltools --use-catalog $< --merge-imports-closure --remove-imports-declarations -o $@
+seed.txt: $(SRC)
+	$(ROBOT) query -f csv -i $< --query sparql/terms.sparql $@
 
-# TODO - have to manually remove OPs for now...
-#pato_mirror.owl: ro-edit.owl
-#	owltools $(OBO)/pato.owl --extract-mingraph --make-subset-by-properties // --remove-dangling-annotations --set-ontology-id $(OBO)/pato.owl -o $@
-#pato_import.owl: seed.owl pato_mirror.owl
-#	owltools --use-catalog $< pato_mirror.owl --add-imports-from-supports --extract-module -c -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
-##	owltools --use-catalog --map-ontology-iri $(OBO)/ro/pato_import.owl pato_mirror.owl ro-edit.owl --extract-module -s $(OBO)/pato.owl --set-ontology-id $(OBO)/ro/$@ -o $@
+imports/%_terms_combined.txt: seed.txt
+	cat $< imports/$*_terms.txt | sort | uniq >  $@
 
+%_import.owl: mirror/%.owl imports/%_terms.txt
+	$(ROBOT) extract -i $< -T imports/$*_terms.txt --method BOT -O $(BASE)/$@ -o $@
+.PRECIOUS: imports/%_import.owl
+
+mirror/%.owl:
+	wget --no-check-certificate $(OBO)/$*.owl -O $@
 
 # ========================================
 # MIREOT
@@ -86,6 +109,10 @@ all_subsets_obo: $(patsubst %,subsets/ro-%.obo,$(SUBSETS)) subsets/ro-chado.obo
 subsets/ro-eco.owl: build/subsets/ro-eco.owl
 	owltools --use-catalog $< --remove-dangling -o $@
 
+
+subsets/ro-biotic-interaction.owl: ro.owl
+	robot filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@.tmp.owl && mv $@.tmp.owl $@
+
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(OBO)/ro/$@ -o $@
@@ -104,8 +131,22 @@ subsets/ro-developmental.owl: ro.owl
 subsets/ro-hom.owl: ro.owl
 	owltools --use-catalog $< --extract-properties -s --list 'in similarity relationship with' // --set-ontology-id $(OBO)/ro/$@ -o $@
 
+subsets/%.csv: subsets/%.owl
+	robot query -i $< -s sparql/objectProperties.sparql $@.tmp -f csv && mv $@.tmp $@
+
+
 subsets/ro-chado.obo: ro.obo
 	owltools --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@
+
+# ========================================
+# REPORTING (EXPERIMENTAL)
+# ========================================
+# requires sparqlprog
+
+usage.tsv: ro-base.owl
+	pq-ontobee -f tsv -e -i $<  "owl:objectProperty(P), label(P,PN), (ontobee ?? aggregate_group(count(Restr),[P,G],rdf(Restr,owl:onProperty,P,G),Num))" "x(P,PN,G,Num)" > $@.tmp && mv $@.tmp $@
+usage-full.tsv:
+	pq-ontobee -f tsv -e -i ro.owl  "owl:objectProperty(P), (ontobee ?? rdf(Restr,owl:onProperty,P,G),label(P,PN))" "x(Restr,P,PN,G)" > $@.tmp && mv $@.tmp $@
 
 # ========================================
 # EXPERIMENTAL
@@ -117,6 +158,8 @@ build-using-oort: ro-edit.owl
 	ontology-release-runner --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+hom.obo:
+	wget $(OBO)/hom.obo -O $@.tmp && mv $@.tmp $@
 hom-fixed.obo: hom.obo
 	obo-grep.pl --neg -r is_obsolete: $< > $@.tmp && mv $@.tmp $@
 
@@ -135,7 +178,7 @@ odp/%.owl:
 # Reports
 # ----------------------------------------
 REPORTS=basicReport
-all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS))
+all_reports: $(patsubst %, reports/envo-%.csv, $(REPORTS)) reports/ro.owl-obo-report.tsv
 
 reports/ro-%.csv: sparql/%.sparql ro.owl
 	robot query -i ro.owl -s $< $@.tmp -f csv && mv $@.tmp $@
@@ -147,12 +190,23 @@ reports/ro-%.ttl: sparql/%.sparql ro.owl
 views/%.owl: sparql/%.sparql ro.owl
 	robot merge -i ro.owl query -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
+gen-%.owl: sparql/construct-%.sparql ro.owl
+	robot query -i ro.owl -c $< $@.tmp.ttl -f ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
+
+# See https://github.com/oborel/obo-relations/pull/270
+GENAXIOMS = gen-universal-from-homeomorphy.owl
+generated-axioms.owl: $(GENAXIOMS)
+	robot merge $(patsubst %, -i %, $(GENAXIOMS)) -o $@.tmp.ttl && robot annotate -i $@.tmp.ttl -O $(OBO)/ro/$@ -o $@
 
 # generate includes from sparql CONSTRUCT queries;
 # these can then be merged in to the main ontology
 #reports/include-%.owl: sparql/construct-%.sparql ecto-core.owl
 
-
+# ----------------------------------------
+# ROBOT report
+# ----------------------------------------
+reports/%-obo-report.tsv: %
+	$(ROBOT) merge --collapse-import-closure true -i $< report --labels true --fail-on $(REPORT_FAIL_ON) --print 5 -o $@
 
 # ----------------------------------------
 # MARKDOWN EXPORT
@@ -160,15 +214,3 @@ views/%.owl: sparql/%.sparql ro.owl
 markdown: ro.owl
 	owltools $< --merge-imports-closure --ontology-to-markdown -l 0 md
 
-
-### TEST: NEW - use robot
-
-ROBOJENKINS=http://build.berkeleybop.org/job/robot/lastSuccessfulBuild/artifact/bin
-
-robot.jar:
-	wget $(ROBOJENKINS)/$@ -O $@
-robot: robot.jar
-	wget $(ROBOJENKINS)/$@ -O $@ && chmod +x $@
-
-test: robot
-	./robot reason -r HermiT -i ro-edit.owl
