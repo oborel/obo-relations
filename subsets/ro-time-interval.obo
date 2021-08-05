@@ -599,7 +599,6 @@ subset: ro-eco
 xref: RO:0002441
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
-property_value: RO:0002561 GO:0085031
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -1184,7 +1183,7 @@ is_a: regulates_quantity_of ! regulates quantity of
 [Typedef]
 id: disease_arises_from_structure
 name: disease arises from structure
-def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 xref: RO:0004030
 range: CARO:0000003
 is_a: disease_has_basis_in ! disease has basis in
@@ -2332,8 +2331,8 @@ domain: OGMS:0000031
 is_a: has_phenotype ! has phenotype
 
 [Typedef]
-id: has_synaptic_IO_in
-name: has synaptic IO in
+id: has_synaptic_IO_in_region
+name: has synaptic IO in region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
 synonym: "has synaptic input or output in" EXACT []
 xref: RO:0013001
@@ -2346,7 +2345,7 @@ id: has_synaptic_IO_throughout
 name: has synaptic IO throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013004
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:52:19Z
 
@@ -2622,28 +2621,6 @@ property_value: IAO:0000117 "Vasundra Touré" xsd:string
 is_a: regulates_quantity_of ! regulates quantity of
 
 [Typedef]
-id: innervated_by
-name: innervated_by
-xref: RO:0002005
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613 xsd:anyURI
-property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-domain: CARO:0000003
-range: CARO:0001001
-inverse_of: innervates ! innervates
-
-[Typedef]
-id: innervates
-name: innervates
-def: "Relation between a 'neuron projection bundle' and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
-xref: RO:0002134
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
-property_value: IAO:0000114 IAO:0000125
-property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: RO:0001900 RO:0001901
-domain: CARO:0001001
-expand_expression_to: "RO_0002132 some (GO_0043005 that (RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)))" []
-
-[Typedef]
 id: input_of
 name: input of
 def: "inverse of has input" []
@@ -2680,7 +2657,6 @@ xref: RO:0002443
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
 property_value: IAO:0000232 "This relation groups a pair of inverse relations, parasite of and parasitized by" xsd:string
-property_value: RO:0002561 GO:0072519
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -3162,7 +3138,6 @@ subset: ro-eco
 xref: RO:0002442
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
-property_value: RO:0002561 GO:0085030
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -3260,7 +3235,6 @@ xref: RO:0002444
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "parasitizes" xsd:string
-property_value: RO:0002560 GO:0072519
 property_value: seeAlso http://eol.org/schema/terms/parasitizes xsd:string
 is_a: has_host ! has host
 is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
@@ -3577,12 +3551,22 @@ is_a: connected_to ! connected to
 inverse_of: sends_output_to ! sends output to
 
 [Typedef]
-id: receives_synaptic_input_in
-name: receives synaptic input in
+id: receives_synaptic_input_from_neuron
+name: receives synaptic input from neuron
+def: "A relationship between an anatomical structure (including cells) and a neuron that has a functionally relevant number of chemical synapses to it." []
+xref: RO:0013008
+is_a: synapsed_by ! synapsed by
+inverse_of: sends_synaptic_output_to_cell ! sends synaptic output to cell
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2021-05-26T08:40:18Z
+
+[Typedef]
+id: receives_synaptic_input_in_region
+name: receives synaptic input in region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
 xref: RO:0013002
 is_a: has_postsynaptic_terminal_in ! has postsynaptic terminal in
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:42:23Z
 
@@ -3592,7 +3576,7 @@ name: receives synaptic input throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013005
 is_a: has_synaptic_IO_throughout ! has synaptic IO throughout
-is_a: receives_synaptic_input_in ! receives synaptic input in
+is_a: receives_synaptic_input_in_region ! receives synaptic input in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:55:36Z
 
@@ -3694,15 +3678,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is a grouping relation." xsd:string
 domain: BFO:0000015
 range: BFO:0000002
-
-[Typedef]
-id: releases_neurotransmitter
-name: releases neurotransmitter
-xref: RO:0002111
-property_value: IAO:0000114 IAO:0000125
-property_value: IAO:0000118 "has neurotransmitter" xsd:string
-domain: CARO:0000003
-range: BFO:0000040
 
 [Typedef]
 id: represses_expression_of
@@ -4038,17 +4013,27 @@ name: sends synaptic output throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013006
 is_a: has_synaptic_IO_throughout ! has synaptic IO throughout
-is_a: sends_synaptic_output_to ! sends synaptic output to
+is_a: sends_synaptic_output_to_region ! sends synaptic output to region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:57:27Z
 
 [Typedef]
-id: sends_synaptic_output_to
-name: sends synaptic output to
+id: sends_synaptic_output_to_cell
+name: sends synaptic output to cell
+def: "A relationship between a neuron and a cell that it has a functionally relevant number of chemical synapses to." []
+comment: Not restricting range to 'cell' - object may be a muscle containing a cell targeted by the neuron.
+xref: RO:0013009
+is_a: synapsed_to ! synapsed to
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2021-05-26T08:41:07Z
+
+[Typedef]
+id: sends_synaptic_output_to_region
+name: sends synaptic output to region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
 xref: RO:0013003
 is_a: has_presynaptic_terminal_in ! has presynaptic terminal in
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:45:06Z
 
@@ -4195,7 +4180,6 @@ xref: RO:0002440
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
 property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
-property_value: RO:0002561 GO:0044403
 is_symmetric: true
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
 
