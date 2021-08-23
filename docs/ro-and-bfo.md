@@ -71,6 +71,3 @@ The above relations import ontology imports a set of BFO classes that are a subs
 
   * TODO: resolve processural entity/process distinction
 
-## Temporal interpretations ##
-
-
