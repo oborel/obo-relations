@@ -1605,6 +1605,16 @@ created_by: dos
 creation_date: 2017-05-24T09:44:33Z
 
 [Typedef]
+id: has_component_participant
+name: has component participant
+def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
+xref: RO:0002238
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000117 "Bill Duncan" xsd:string
+property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
+is_a: has_participant
+
+[Typedef]
 id: has_component_process
 name: has component process
 def: "w 'has process component' p if p and w are processes,  w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
