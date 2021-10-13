@@ -619,7 +619,9 @@ Declaration(AnnotationProperty(swrla:isRuleEnabled))
 Declaration(AnnotationProperty(oboInOwl:SubsetProperty))
 Declaration(AnnotationProperty(oboInOwl:created_by))
 Declaration(AnnotationProperty(oboInOwl:creation_date))
+Declaration(AnnotationProperty(oboInOwl:editor_note))
 Declaration(AnnotationProperty(oboInOwl:inSubset))
+Declaration(AnnotationProperty(oboInOwl:source))
 Declaration(AnnotationProperty(rdfs:seeAlso))
 Declaration(AnnotationProperty(skos:closeMatch))
 ############################
@@ -6095,6 +6097,8 @@ SubObjectPropertyOf(obo:RO_0014001 obo:RO_0004019)
 
 # Object Property: obo:RO_0015001 (has exemplar data)
 
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0015001 "transcriptomically defined cell type X equivalent to ‘cell’ and (has_exemplar_data value [transcriptomic profile data])")
+AnnotationAssertion(Annotation(oboInOwl:source "U.S. Department of Agriculture Natural Resources Conservation Service") obo:IAO_0000112 obo:RO_0015001 "ultra acidic soil equivalent to ‘soil’ and (has_exemplar_data value pH <3.5)")
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0015001 "A relation between a material entity and some data in which the data is taken as exemplifying the material entity.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0015001 "C has_exemplar_data y iff x is an instance of C and y is data about x that is taken as exemplifying of C.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0015001 "Patrick Ray")
@@ -6104,23 +6108,22 @@ More complex relations holding between Air Quality Index (AQI) categories (i.e.,
 AnnotationAssertion(rdfs:label obo:RO_0015001 "has exemplar data")
 SubObjectPropertyOf(obo:RO_0015001 owl:topObjectProperty)
 InverseObjectProperties(obo:RO_0015001 obo:RO_0015002)
-TransitiveObjectProperty(obo:RO_0015001)
 
 # Object Property: obo:RO_0015002 (exemplar data of)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0015002 "Patrick Ray")
 AnnotationAssertion(rdfs:label obo:RO_0015002 "exemplar data of")
 SubObjectPropertyOf(obo:RO_0015002 owl:topObjectProperty)
-TransitiveObjectProperty(obo:RO_0015002)
 
 # Object Property: obo:RO_0015003 (subcluster of)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0015003 "A relation between a group and another group it is part of but does not fully constitute.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0015003 "A relation between clustered sets of data that obtains when one set of data (S1) is a member of another set of data (S2), where (S2) has at least one member that is not also a member of (S1).")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0015003 "X subcluster of Y iff every entity of X is an entity of Y but Y constitutes more than entities of X.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0015003 "Shawn Tan")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0015003 "This is used for clustering analyses (eg in single cell transcriptomics).")
+AnnotationAssertion(oboInOwl:editor_note obo:RO_0015003 "Differs from part_of as a cluster of data is not a subcluster_of itself.")
 AnnotationAssertion(rdfs:label obo:RO_0015003 "subcluster of")
-SubObjectPropertyOf(obo:RO_0015003 owl:topObjectProperty)
+SubObjectPropertyOf(obo:RO_0015003 obo:RO_0002323)
 TransitiveObjectProperty(obo:RO_0015003)
 
 # Object Property: obo:RO_0040035 (disease relationship)
