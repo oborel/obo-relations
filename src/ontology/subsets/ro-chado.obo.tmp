@@ -2411,7 +2411,7 @@ id: RO:0002553
 name: hyperparasite of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 synonym: "epiparasite of" RELATED []
-synonym: "hyperparasitoid of" RELATED []
+synonym: "hyperparasitoid of" NARROW []
 holds_over_chain: RO:0002444 RO:0002444
 is_a: RO:0002454 ! has host
 inverse_of: RO:0002554 ! hyperparasitized by
@@ -3467,6 +3467,24 @@ id: RO:0014001
 name: disease has infectious agent
 def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
 is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0015001
+name: has exemplar data
+def: "A relation between a material entity and some data in which the data is taken as exemplifying the material entity." []
+inverse_of: RO:0015002 ! exemplar data of
+transitive_over: RO:0015003 ! subcluster of
+
+[Typedef]
+id: RO:0015002
+name: exemplar data of
+
+[Typedef]
+id: RO:0015003
+name: subcluster of
+def: "A relation between a group and another group it is part of but does not fully constitute." []
+is_transitive: true
+is_a: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0040035
