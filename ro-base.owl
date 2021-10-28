@@ -18,7 +18,7 @@
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro/ro-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2021-08-31/ro-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2021-10-27/ro-base.owl"/>
         <dc:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</dc:description>
         <dc:title xml:lang="en">OBO Relations Ontology</dc:title>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
@@ -928,6 +928,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#editor_note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#editor_note"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym">
@@ -948,6 +954,14 @@ Where we have an annotation assertion
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_exact_synonym</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_narrow_synonym</rdfs:label>
     </owl:AnnotationProperty>
     
 
@@ -985,6 +999,12 @@ Where we have an annotation assertion
     <!-- http://www.geneontology.org/formats/oboInOwl#shorthand -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#shorthand"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#source -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#source"/>
     
 
 
@@ -7393,8 +7413,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>http://eol.org/schema/terms/hyperparasitoidOf</obo:IAO_0000119>
         <obo:IAO_0000119>https://en.wikipedia.org/wiki/Hyperparasite</obo:IAO_0000119>
+        <oboInOwl:hasNarrowSynonym>hyperparasitoid of</oboInOwl:hasNarrowSynonym>
         <oboInOwl:hasRelatedSynonym>epiparasite of</oboInOwl:hasRelatedSynonym>
-        <oboInOwl:hasRelatedSynonym>hyperparasitoid of</oboInOwl:hasRelatedSynonym>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>hyperparasite of</rdfs:label>
     </owl:ObjectProperty>
@@ -9734,6 +9754,49 @@ For example, protein A (transcription factor) indirectly increases by expression
         <obo:IAO_0000115>A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0001-5208-3432"/>
         <rdfs:label>disease has infectious agent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015001 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015001">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0015002"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0015001"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0015003"/>
+        </owl:propertyChainAxiom>
+        <obo:IAO_0000112>transcriptomically defined cell type X equivalent to ‘cell’ and (has_exemplar_data value [transcriptomic profile data])</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between a material entity and some data in which the data is taken as exemplifying the material entity.</obo:IAO_0000115>
+        <obo:IAO_0000116>C has_exemplar_data y iff x is an instance of C and y is data about x that is taken as exemplifying of C.</obo:IAO_0000116>
+        <obo:IAO_0000117>Patrick Ray</obo:IAO_0000117>
+        <obo:IAO_0000232>This relation is not meant to capture the relation between occurrents and data.</obo:IAO_0000232>
+        <rdfs:label>has exemplar data</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015002 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015002">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <obo:IAO_0000117>Patrick Ray</obo:IAO_0000117>
+        <rdfs:label>exemplar data of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015003 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015003">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <obo:IAO_0000115>A relation between a group and another group it is part of but does not fully constitute.</obo:IAO_0000115>
+        <obo:IAO_0000116>X subcluster_of Y iff: X and Y are clusters/groups; X != Y; all members of X are also members of Y.</obo:IAO_0000116>
+        <obo:IAO_0000117>Shawn Tan</obo:IAO_0000117>
+        <obo:IAO_0000232>This is used specifically for sets whose members are specified by some set-forming operator (method of grouping) such as clustering analyses in single cell transcriptomics.</obo:IAO_0000232>
+        <rdfs:label>subcluster of</rdfs:label>
     </owl:ObjectProperty>
     
 

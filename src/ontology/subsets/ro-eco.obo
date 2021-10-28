@@ -3220,7 +3220,7 @@ name: hyperparasite of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 subset: ro-eco
 synonym: "epiparasite of" RELATED []
-synonym: "hyperparasitoid of" RELATED []
+synonym: "hyperparasitoid of" NARROW []
 property_value: IAO:0000116 "Note that parasite-of is a diret relationship, so hyperparasite-of is not considered a sub-relation, even though hyperparasitism can be considered a form of parasitism" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://eol.org/schema/terms/hyperparasitoidOf xsd:string
@@ -4613,6 +4613,32 @@ name: disease has infectious agent
 def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
 is_a: RO:0004019 ! disease has basis in
 created_by: http://orcid.org/0000-0001-5208-3432
+
+[Typedef]
+id: RO:0015001
+name: has exemplar data
+def: "A relation between a material entity and some data in which the data is taken as exemplifying the material entity." []
+property_value: IAO:0000112 "transcriptomically defined cell type X equivalent to ‘cell’ and (has_exemplar_data value [transcriptomic profile data])" xsd:string
+property_value: IAO:0000116 "C has_exemplar_data y iff x is an instance of C and y is data about x that is taken as exemplifying of C." xsd:string
+property_value: IAO:0000117 "Patrick Ray" xsd:string
+property_value: IAO:0000232 "This relation is not meant to capture the relation between occurrents and data." xsd:string
+inverse_of: RO:0015002 ! exemplar data of
+transitive_over: RO:0015003 ! subcluster of
+
+[Typedef]
+id: RO:0015002
+name: exemplar data of
+property_value: IAO:0000117 "Patrick Ray" xsd:string
+
+[Typedef]
+id: RO:0015003
+name: subcluster of
+def: "A relation between a group and another group it is part of but does not fully constitute." []
+property_value: IAO:0000116 "X subcluster_of Y iff: X and Y are clusters/groups; X != Y; all members of X are also members of Y." xsd:string
+property_value: IAO:0000117 "Shawn Tan" xsd:string
+property_value: IAO:0000232 "This is used specifically for sets whose members are specified by some set-forming operator (method of grouping) such as clustering analyses in single cell transcriptomics." xsd:string
+is_transitive: true
+is_a: BFO:0000050
 
 [Typedef]
 id: RO:0040035
