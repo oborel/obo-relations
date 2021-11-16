@@ -312,6 +312,18 @@ that is **acting on** the protein.
 * [RO:0004009 _has primary input_](http://purl.obolibrary.org/obo/RO_0004009)
 * [RO:0004008 _has primary output_](http://purl.obolibrary.org/obo/RO_0004008)
 
-The definitions primary input/output refer to the "goal" of the process, but this should not be understood to be reflecting some sentient goal (see [PMID:27812932](https://pubmed.ncbi.nlm.nih.gov/27812932/)_
+The definitions primary input/output refer to the "goal" of the process, but this should not be understood to be reflecting some sentient goal (see [PMID:27812932](https://pubmed.ncbi.nlm.nih.gov/27812932/))
 
-## OBI input/output relations
+### OBI input/output relations
+
+Work is ongoing to reconcile the relations has-specified-input and has-specified-output in OBI with RO, see the tracker for details
+
+## Other process relations
+
+The summary above is intended to describe some of the key ways to model processes using RO design patterns. It is not exhaustive.
+
+Not covered here:
+
+* causal relations between processes, including regulation
+* patterns that describe how processes realize realizables
+
