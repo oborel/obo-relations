@@ -1,5 +1,7 @@
 # Core Process Relations
 
+This document walks us through a subset of the relations used in RO for modeling processes
+
 ## Process Classes
 
 The most generic conception of process is
@@ -16,7 +18,7 @@ Some ontologies provide specific subclasses of this:
 Some key ontologies or ontology branches that represent processes in OBO:
 
  * The biological process and molecular activity branches of GO
-     * [GO:0003674 _molecular_function -- represents molecular activities_](http://purl.obolibrary.org/obo/GO_0003674)
+     * [GO:0003674 _molecular_function_](http://purl.obolibrary.org/obo/GO_0003674)  -- represents molecular activities
      * [GO:0008150 _biological_process_](http://purl.obolibrary.org/obo/GO_0008150)
  * The planned process branch of OBI
  * The environmental process branch of ENVO
@@ -94,7 +96,13 @@ In this conceptualization, the life cycle starts-with the zygote stage, and ends
 
 Start and end relationship types can be very useful for design
 patterns for processes. For example, in GO, signaling pathways can be
-defined by the initiating molecular activity
+defined by the initiating molecular activity.
+
+In RO, all processes are considered to have starts and ends, even if
+we don't know them. Some processes may have fuzzy temporal boundaries,
+just as anatomical structures do. We can build some of this fuzziness
+into class descriptions, but the understanding is that instances
+always have a start and end.
 
 ### Overlaps
 
@@ -132,10 +140,178 @@ may cross organism boundaries, e.g. for symbionts inside a host.
 
 ## Process-participation relationships
 
+Note that this section is a little wordier, as we are still working through some of the issues raised.
+
+### Participation
+
 RO includes a very general participation relation and its inverse
 
  * [RO:0000056 _participates in_](http://purl.obolibrary.org/obo/RO_0000056)
  * [RO:0000057 _has participant_](http://purl.obolibrary.org/obo/RO_0000057)
 
+these are often too general to be used to assert information
+directly. For this reason, we include sub-relations that indicate what
+the *role* of the partipant is in the relationship.
 
+That are different ways to slice and dice participants, but one of the
+most useful patterns is the IOA triad:
 
+### Input-Output-Agent triad
+
+In this conceptualization, processes have participants that are broken
+down as to whether they are "agents" or "acted upon". The participants
+that are acted upon can be further broken down into inputs and
+outputs. We can think of the role classification as:
+
+ * agent
+ * acted upon
+   * input
+   * output
+
+This framework is useful for thinking about a number of different
+kinds of processes, both in the life sciences, and outside:
+
+ * chemical reactions, where the "agent" is the catalyst molecule
+ * industrial processes that refine raw materials into processes materials
+ * evolved biological processes such as biosynthesis and catabolism that are coordinated by the activities of gene products
+ * environmental processes such as erosion of geographic features over time, through the actions of other processes e.g. wind
+ * cooking a meal from ingredients
+
+In implementing this in RO there are a number of different choices:
+
+* Do the participants have to be material entities?
+   * developmental process may have non-material entities such as cavities as inputs and outputs
+   * information processes may have information entities as inputs or outputs
+   * some processes may be conceived of in terms of changing characteristics - e.g. in changing the state or structure of an entity
+* Does the input have to be present at the start of a process, and the output at the end?
+   * e.g. a biosynthetic process may have "intermediate inputs", chemicals that are fed in to a reaction in the middle
+* Do particant relations propagate up or down the partonomy of the participants?
+   * if a manufacturing process makes a car, are the parts of the car also inputs?
+* If a protein complex is the "agent" in a reaction, can the protein parts also be agents?
+* Is anything consumed by a process an input, and anything produced an output?
+   * are by-products outputs?
+   * many biological processes produce/consume ADP/ATP, are these considered inputs/outputs, even if that is not the "focus" of the process?
+
+There are many valid ways to slice-and-dice this. RO implements this as follows:
+
+* RO:0000057 ! has participant
+    * AGENT RELATIONS
+        * RO:0002333 ! enabled by
+    * NON-AGENT RELATIONS
+        * RO:0002233 ! has input
+            * RO:0004009 ! has primary input
+        * RO:0002234 ! has output
+            * RO:0004008 ! has primary output
+
+Participation is then subdivided into agent and non-agent relations. (At this time there is not an actual grouping relation in RO but we show a grouping for illustrative purposes in the above).
+Non-agent relations are divided into inputs and outputs, and inputs/outputs can be further specified as being "primary", which is elucidated below.
+
+We are only showing a slice of the hierarchy, for simplicity. There is also a parallel set of inverses, not shown.
+
+Note that it is incorrect to assume the hierarchy aboves implies either disjointness or exhaustiveness.
+
+### Participation axioms
+
+Walking from the root, the most general notion is one of *participation*.
+
+Note this has the following [property-chain](property-chain) axiom:
+
+```
+'has part' o 'has participant' SubPropertyOf: 'has participant'
+```
+
+This means that participants of part of a process are necessarily participants in the process:
+
+ * participants in the execution phase of apoptosis are also participants in apoptosis
+ * if a process of preparing food includes both chopping of vegetables as well as cooking, then participants in the chopping are participants in the overall process
+ * note there is no "bottoming out" to this chain. These particpants are also participants in the organisms' life and in the life of the universe
+
+Has participant also has constraining axioms:
+
+ * Domain: BFO:0000003 ! occurrent
+ * Range: BFO:0000002 ! continuant
+
+These are very high level BFO concepts. "occurrent" includes processes
+and other process-like things. "continuant" includes material entities
+(atoms, molecules, cellular and anatomical structures, organisms,
+planets) as well as immaterial (spaces and holes) and also
+characteristics (qualities, roles, states, functions, and
+information).
+
+Note that the core sub-relations above do not further constrain the range
+
+This means the following are consistent with the domain/range constraints:
+
+* the process of running a computer program that has information as inputs and outputs
+* a developmental process that has input two holes and has output one (i.e by eliminating a septum)
+* a cellular process that has as input one state and output another state
+
+Individual ontologies may constrain usage further, but RO itself is permissive with these relations, allowing for a variety of scenarios.
+
+However, the following are not permitted:
+
+* a process with another process as participant (instead use a different relation, such as a parthood or regulation relation)
+* a material entity having a participant
+
+### Agents
+
+* RO:0000057 ! has participant
+    * AGENT RELATIONS
+        * RO:0002333 ! enabled by
+
+The first level divides participants into agent vs non-agent. See the
+original RO paper for discussion of has-agent. An agent can be thought
+of a participant that "carries out" a process.
+
+It may seem unusual to ascribe "purpose" in this way to non-sentient
+participants in a cellular process, for a discussion see [the chapter
+on Function from the GO
+handbook](https://pubmed.ncbi.nlm.nih.gov/27812932/). Even for
+processes that are neither evolved nor goal-driven such as earthquakes
+or natural erosion of coastlines, it can be useful to divide the
+participants into "drivers" and "driven".
+
+Currently the main agent relation is "enabled by", which is used by the GO for relating gene products and complexes to the molecular activities they catalyze, but is not restricted to pathway steps. See the [GO-CAM paper](https://pubmed.ncbi.nlm.nih.gov/31548717/) for further elucidation on GO's usage.
+
+Enabled-by should only be used for participants that carry out the whole process
+
+* for reactions, the molecule that catalyzes the reaction
+* for a multi-reaction process with each step carried out by a different catalyst, the catalysts are **not** considered to enable the whole process
+* if a complex carries out a process, then the individual complex components cannot do this unaided, then they are not considered enablers
+   * this case you can use a weaker relation: RO:0002326 ! contributes to
+
+### Participants that are acted upon
+
+* RO:0000057 ! has participant
+    * NON-AGENT RELATIONS
+        * RO:0002233 ! has input
+        * RO:0002234 ! has output
+
+As currently modeled, for a participant to be an input, it must:
+
+* be present at the start of the process
+* be modified (including being broken down or destroyed) by the process
+
+For a participant to be an output, it must:
+
+* be present at the end of the process
+* not be present in the same state at the start of the process
+
+Although somewhat restrictive, this lumps together primary and secondary input/outputs. Consider a protein phosphorylation process:
+
+ * `protein + ATP => a phosphoprotein + ADP`
+
+With the hierarchy above, the two inputs (the protein and ATP) do not have distinguished roles, neither do the two outputs (the protein and ADP).
+
+While this is sufficient for a purely biochemical account, if we look
+instead from the perspectibe of evolved function, and the parts we
+care about from a signaling pathway perspective, we might want to
+model this as the kinase gene product/complex carrying out a process
+that is **acting on** the protein.
+
+* RO:0004009 ! has primary input
+* RO:0004008 ! has primary output
+
+The definitions primary input/output refer to the "goal" of the process, but this should not be understood to be reflecting some sentient goal (see [PMID:27812932](https://pubmed.ncbi.nlm.nih.gov/27812932/)_
+
+## OBI input/output relations
