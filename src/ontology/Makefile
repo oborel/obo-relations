@@ -1,6 +1,6 @@
-OBO= http://purl.obolibrary.org/obo
-ONT= ro
-ONTBASE= $(OBO)/$(ONT)
+OBO=http://purl.obolibrary.org/obo
+ONT=ro
+ONTBASE=$(OBO)/$(ONT)
 
 SRC=ro-edit.owl
 CATALOG=catalog-v001.xml
