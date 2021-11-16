@@ -194,14 +194,14 @@ In implementing this in RO there are a number of different choices:
 
 There are many valid ways to slice-and-dice this. RO implements this as follows:
 
-* RO:0000057 ! has participant
+* [RO:0000057 _has participant_](http://purl.obolibrary.org/obo/RO_0000057)
     * AGENT RELATIONS
-        * RO:0002333 ! enabled by
+        * [RO:0002333 _enabled by_](http://purl.obolibrary.org/obo/RO_0002333)
     * NON-AGENT RELATIONS
-        * RO:0002233 ! has input
-            * RO:0004009 ! has primary input
-        * RO:0002234 ! has output
-            * RO:0004008 ! has primary output
+        * [RO:0002233 _has input_](http://purl.obolibrary.org/obo/RO_0002233)
+            * [RO:0004009 _has primary input_](http://purl.obolibrary.org/obo/RO_0004009)
+        * [RO:0002234 _has output_](http://purl.obolibrary.org/obo/RO_0002234)
+            * [RO:0004008 _has primary output_](http://purl.obolibrary.org/obo/RO_0004008)
 
 Participation is then subdivided into agent and non-agent relations. (At this time there is not an actual grouping relation in RO but we show a grouping for illustrative purposes in the above).
 Non-agent relations are divided into inputs and outputs, and inputs/outputs can be further specified as being "primary", which is elucidated below.
@@ -228,8 +228,8 @@ This means that participants of part of a process are necessarily participants i
 
 Has participant also has constraining axioms:
 
- * Domain: BFO:0000003 ! occurrent
- * Range: BFO:0000002 ! continuant
+ * Domain: [BFO:0000003 _occurrent_](http://purl.obolibrary.org/obo/BFO_0000003)
+ * Range: [BFO:0000002 _continuant_](http://purl.obolibrary.org/obo/BFO_0000002)
 
 These are very high level BFO concepts. "occurrent" includes processes
 and other process-like things. "continuant" includes material entities
@@ -255,9 +255,9 @@ However, the following are not permitted:
 
 ### Agents
 
-* RO:0000057 ! has participant
+* [RO:0000057 _has participant_](http://purl.obolibrary.org/obo/RO_0000057)
     * AGENT RELATIONS
-        * RO:0002333 ! enabled by
+        * [RO:0002333 _enabled by_](http://purl.obolibrary.org/obo/RO_0002333)
 
 The first level divides participants into agent vs non-agent. See the
 original RO paper for discussion of has-agent. An agent can be thought
@@ -278,14 +278,14 @@ Enabled-by should only be used for participants that carry out the whole process
 * for reactions, the molecule that catalyzes the reaction
 * for a multi-reaction process with each step carried out by a different catalyst, the catalysts are **not** considered to enable the whole process
 * if a complex carries out a process, then the individual complex components cannot do this unaided, then they are not considered enablers
-   * this case you can use a weaker relation: RO:0002326 ! contributes to
+   * this case you can use a weaker relation: [RO:0002326 _contributes to_](http://purl.obolibrary.org/obo/RO_0002326)
 
 ### Participants that are acted upon
 
-* RO:0000057 ! has participant
+* [RO:0000057 _has participant_](http://purl.obolibrary.org/obo/RO_0000057)
     * NON-AGENT RELATIONS
-        * RO:0002233 ! has input
-        * RO:0002234 ! has output
+        * [RO:0002233 _has input_](http://purl.obolibrary.org/obo/RO_0002233)
+        * [RO:0002234 _has output_](http://purl.obolibrary.org/obo/RO_0002234)
 
 As currently modeled, for a participant to be an input, it must:
 
@@ -309,8 +309,8 @@ care about from a signaling pathway perspective, we might want to
 model this as the kinase gene product/complex carrying out a process
 that is **acting on** the protein.
 
-* RO:0004009 ! has primary input
-* RO:0004008 ! has primary output
+* [RO:0004009 _has primary input_](http://purl.obolibrary.org/obo/RO_0004009)
+* [RO:0004008 _has primary output_](http://purl.obolibrary.org/obo/RO_0004008)
 
 The definitions primary input/output refer to the "goal" of the process, but this should not be understood to be reflecting some sentient goal (see [PMID:27812932](https://pubmed.ncbi.nlm.nih.gov/27812932/)_
 
