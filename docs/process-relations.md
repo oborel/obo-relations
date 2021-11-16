@@ -4,23 +4,23 @@
 
 The most generic conception of process is
 
- * BFO:0000015 ! process
+ * [BFO:0000015 _process_](http://purl.obolibrary.org/obo/BFO_0000015)
 
 From BFO/COB. This captures processes in the general sense, as well as the notion of smaller individual "events"
 
 Some ontologies provide specific subclasses of this:
 
- * GO:0008150 ! biological_process
- * COB:0000082 ! planned process
+ * [GO:0008150 _biological_process_](http://purl.obolibrary.org/obo/GO_0008150)
+ * [COB:0000082 _planned process_](http://purl.obolibrary.org/obo/COB_0000082)
 
 Some key ontologies or ontology branches that represent processes in OBO:
 
  * The biological process and molecular activity branches of GO
-     * GO:0003674 ! molecular_function -- represents molecular activities
-     * GO:0008150 ! biological_process
+     * [GO:0003674 _molecular_function -- represents molecular activities_](http://purl.obolibrary.org/obo/GO_0003674)
+     * [GO:0008150 _biological_process_](http://purl.obolibrary.org/obo/GO_0008150)
  * The planned process branch of OBI
  * The environmental process branch of ENVO
-    * ENVO:02500000 ! environmental system process
+    * [ENVO:02500000 _environmental system process_](http://purl.obolibrary.org/obo/ENVO_02500000)
  * Behaviors in NBO
 
 ## Core process-to-process relationships
@@ -29,8 +29,8 @@ Some key ontologies or ontology branches that represent processes in OBO:
 
 Processes can be disassembled into sub-parts using the standard generic part-of/has-part relations in RO:
 
- * BFO:0000050 ! part of
- * BFO:0000051 ! has part
+ * [BFO:0000050 _part of_](http://purl.obolibrary.org/obo/BFO_0000050)
+ * [BFO:0000051 _has part_](http://purl.obolibrary.org/obo/BFO_0000051)
 
 These are inverses (please read the [OWL](owl) intro to avoid common misconceptions about inverses)
 
@@ -50,7 +50,7 @@ issues are revealed even when using performant reasoners like Elk).
 
 that RO also provides more specific relations:
 
- * RO:0002012 ! occurent part of
+ * [RO:0002012 _occurent part of_](http://purl.obolibrary.org/obo/RO_0002012)
 
 However, be very careful using these, they are in some sense
 incompatible with the generic relations. This is because in OWL it is
@@ -67,12 +67,12 @@ Part-of includes both cases where one process is a "temporal slice" of another (
 
 The part relations have two sub-relations to indicate which processes start or end a process:
 
- * BFO:0000050 ! part of
-    * RO:0002223 ! starts
-    * RO:0002229 ! ends
- * BFO:0000051 ! has part
-    * RO:0002224 ! starts with
-    * RO:0002230 ! ends with
+ * [BFO:0000050 _part of_](http://purl.obolibrary.org/obo/BFO_0000050)
+    * [RO:0002223 _starts_](http://purl.obolibrary.org/obo/RO_0002223)
+    * [RO:0002229 _ends_](http://purl.obolibrary.org/obo/RO_0002229)
+ * [BFO:0000051 _has part_](http://purl.obolibrary.org/obo/BFO_0000051)
+    * [RO:0002224 _starts with_](http://purl.obolibrary.org/obo/RO_0002224)
+    * [RO:0002230 _ends with_](http://purl.obolibrary.org/obo/RO_0002230)
 
 Note these two hierarchies are inverses of each other.
 
@@ -100,9 +100,9 @@ defined by the initiating molecular activity
 
 As with material entities, part-of and has-part both imply overlaps
 
- * RO:0002131 ! overlaps
-    * BFO:0000050 ! part of
-    * BFO:0000051 ! has part
+ * [RO:0002131 _overlaps_](http://purl.obolibrary.org/obo/RO_0002131)
+    * [BFO:0000050 _part of_](http://purl.obolibrary.org/obo/BFO_0000050)
+    * [BFO:0000051 _has part_](http://purl.obolibrary.org/obo/BFO_0000051)
 
 This may seem unintuitive at first, but makes sense as in RO (and
 standard mereology) "overlaps" means at least one part in common, and
@@ -113,7 +113,7 @@ sharing the identical block of space time.
 
 the occurs in relation links processes to material entities (or immaterial ones, such as anatomical spaces) in which they occur
 
- * BFO:0000066 ! occurs in
+ * [BFO:0000066 _occurs in_](http://purl.obolibrary.org/obo/BFO_0000066)
 
 RO includes a [property-chain](property chain):
 
@@ -134,8 +134,8 @@ may cross organism boundaries, e.g. for symbionts inside a host.
 
 RO includes a very general participation relation and its inverse
 
- * RO:0000056 ! participates in
- * RO:0000057 ! has participant
+ * [RO:0000056 _participates in_](http://purl.obolibrary.org/obo/RO_0000056)
+ * [RO:0000057 _has participant_](http://purl.obolibrary.org/obo/RO_0000057)
 
 
 
