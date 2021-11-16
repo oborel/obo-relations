@@ -179,18 +179,21 @@ kinds of processes, both in the life sciences, and outside:
 
 In implementing this in RO there are a number of different choices:
 
-* Do the participants have to be material entities?
+* CONSTRAINTS: Do the participants have to be material entities?
    * developmental process may have non-material entities such as cavities as inputs and outputs
    * information processes may have information entities as inputs or outputs
    * some processes may be conceived of in terms of changing characteristics - e.g. in changing the state or structure of an entity
-* Does the input have to be present at the start of a process, and the output at the end?
+* TEMPORAL BOUNDARIES: Does the input have to be present at the start of a process, and the output at the end?
    * e.g. a biosynthetic process may have "intermediate inputs", chemicals that are fed in to a reaction in the middle
-* Do particant relations propagate up or down the partonomy of the participants?
+* PROPAGATION RULES: Do particant relations propagate up or down the partonomy of the participants?
    * if a manufacturing process makes a car, are the parts of the car also inputs?
-* If a protein complex is the "agent" in a reaction, can the protein parts also be agents?
-* Is anything consumed by a process an input, and anything produced an output?
-   * are by-products outputs?
+   * If a protein complex is the "agent" in a reaction, can the protein parts also be agents?
+* PRIMARY VS SECONDARY: Is anything consumed by a process an input, and anything produced an output?
+   * are by-products or waste products outputs?
+   * are co-factors inputs?
    * many biological processes produce/consume ADP/ATP, are these considered inputs/outputs, even if that is not the "focus" of the process?
+   * Cooking a meal may require 
+* CAPABILITIES: How do we easily represent that an agent is evolved or designed to carry out/enable a process
 
 There are many valid ways to slice-and-dice this. RO implements this as follows:
 
