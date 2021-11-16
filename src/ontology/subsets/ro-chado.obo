@@ -7,13 +7,13 @@ subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 56 Logical Axioms: 13]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 291 Logical Axioms: 62]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 311 Logical Axioms: 69]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 42 Logical Axioms: 16]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 14]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 45 Logical Axioms: 10]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 104 Logical Axioms: 26]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
@@ -91,15 +91,17 @@ def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a proce
 
 [Typedef]
 id: RO:0000052
-name: inheres_in
-def: "a relation between a specifically dependent continuant (the dependent) and an independent continuant (the bearer), in which the dependent specifically depends on the bearer for its existence" []
-is_a: RO:0002314 ! inheres in part of
-inverse_of: RO:0000053 ! bearer of
+name: characteristic_of
+def: "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence." []
+is_functional: true
+is_a: RO:0002314 ! characteristic of part of
+inverse_of: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000053
-name: bearer_of
-def: "a relation between an independent continuant (the bearer) and a specifically dependent continuant (the dependent), in which the dependent specifically depends on the bearer for its existence" []
+name: has_characteristic
+def: "Inverse of characteristic_of" []
+is_inverse_functional: true
 
 [Typedef]
 id: RO:0000056
@@ -128,53 +130,53 @@ def: "A relationship between a specifically dependent continuant and a generical
 id: RO:0000079
 name: function_of
 def: "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000085 ! has function
 
 [Typedef]
 id: RO:0000080
 name: quality_of
 def: "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000086 ! has quality
 
 [Typedef]
 id: RO:0000081
 name: role_of
 def: "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000087 ! has role
 
 [Typedef]
 id: RO:0000085
 name: has_function
 def: "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000086
 name: has_quality
 def: "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000087
 name: has_role
 def: "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000091
 name: has_disposition
 def: "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence" []
-is_a: RO:0000053 ! bearer of
+is_a: RO:0000053 ! has characteristic
 inverse_of: RO:0000092 ! disposition of
 
 [Typedef]
 id: RO:0000092
 name: disposition_of
 def: "inverse of has disposition" []
-is_a: RO:0000052 ! inheres in
+is_a: RO:0000052 ! characteristic of
 
 [Typedef]
 id: RO:0000300
@@ -893,12 +895,14 @@ id: RO:0002217
 name: obsolete_actively_participates_in
 def: "OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role" []
 is_obsolete: true
+replaced_by: RO:0002608
 
 [Typedef]
 id: RO:0002218
 name: obsolete_has_active_participant
-def: "x has participant y if and only if x realizes some active role that inheres in y" []
+def: "OBSOLETE x has participant y if and only if x realizes some active role that inheres in y" []
 is_obsolete: true
+replaced_by: RO:0002500
 
 [Typedef]
 id: RO:0002219
@@ -1028,6 +1032,12 @@ id: RO:0002237
 name: hemiparasite_of
 def: "A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well." []
 is_a: RO:0002444 ! parasite of
+
+[Typedef]
+id: RO:0002238
+name: has_component_participant
+def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
+is_a: RO:0000057 ! has participant
 
 [Typedef]
 id: RO:0002240
@@ -1256,8 +1266,8 @@ is_a: RO:0040036 ! has anatomical participant
 
 [Typedef]
 id: RO:0002314
-name: inheres_in_part_of
-def: "q inheres in part of w if and only if there exists some p such that q inheres in p and p part of w." []
+name: characteristic_of_part_of
+def: "q characteristic of part of w if and only if there exists some p such that q inheres in p and p part of w." []
 holds_over_chain: RO:0000052 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
 is_a: RO:0002502 ! depends on
 transitive_over: BFO:0000050 ! part of
@@ -2401,7 +2411,7 @@ id: RO:0002553
 name: hyperparasite_of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 synonym: "epiparasite of" RELATED []
-synonym: "hyperparasitoid of" RELATED []
+synonym: "hyperparasitoid of" NARROW []
 holds_over_chain: RO:0002444 RO:0002444
 is_a: RO:0002454 ! has host
 inverse_of: RO:0002554 ! hyperparasitized by
@@ -3083,7 +3093,7 @@ is_a: RO:0040035 ! disease relationship
 [Typedef]
 id: RO:0004030
 name: disease_arises_from_structure
-def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 is_a: RO:0004019 ! disease has basis in
 
 [Typedef]
@@ -3130,6 +3140,17 @@ is_a: RO:0002418 ! causally upstream of or within
 id: RO:0004047
 name: causally_upstream_of_or_within,_positive_effect
 is_a: RO:0002418 ! causally upstream of or within
+
+[Typedef]
+id: RO:0004096
+name: DEPRECATED_inheres_in
+inverse_of: RO:0004097 ! DEPRECATED bearer of
+is_obsolete: true
+
+[Typedef]
+id: RO:0004097
+name: DEPRECATED_bearer_of
+is_obsolete: true
 
 [Typedef]
 id: RO:0008501
@@ -3376,7 +3397,7 @@ is_a: RO:0002592 ! results in organization of
 
 [Typedef]
 id: RO:0013001
-name: has_synaptic_IO_in
+name: has_synaptic_IO_in_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
 synonym: "has synaptic input or output in" EXACT []
 is_a: RO:0002130 ! has synaptic terminal in
@@ -3384,38 +3405,38 @@ transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013002
-name: receives_synaptic_input_in
+name: receives_synaptic_input_in_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
 is_a: RO:0002110 ! has postsynaptic terminal in
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013003
-name: sends_synaptic_output_to
+name: sends_synaptic_output_to_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
 is_a: RO:0002113 ! has presynaptic terminal in
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0013004
 name: has_synaptic_IO_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013001 ! has synaptic IO in
+is_a: RO:0013001 ! has synaptic IO in region
 
 [Typedef]
 id: RO:0013005
 name: receives_synaptic_input_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013002 ! receives synaptic input in
+is_a: RO:0013002 ! receives synaptic input in region
 is_a: RO:0013004 ! has synaptic IO throughout
 
 [Typedef]
 id: RO:0013006
 name: sends_synaptic_output_throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
-is_a: RO:0013003 ! sends synaptic output to
+is_a: RO:0013003 ! sends synaptic output to region
 is_a: RO:0013004 ! has synaptic IO throughout
 
 [Typedef]
@@ -3429,10 +3450,41 @@ is_a: RO:0002360 ! has dendrite location
 transitive_over: BFO:0000050 ! part of
 
 [Typedef]
+id: RO:0013008
+name: receives_synaptic_input_from_neuron
+def: "A relationship between an anatomical structure (including cells) and a neuron that has a functionally relevant number of chemical synapses to it." []
+is_a: RO:0002103 ! synapsed by
+inverse_of: RO:0013009 ! sends synaptic output to cell
+
+[Typedef]
+id: RO:0013009
+name: sends_synaptic_output_to_cell
+def: "A relationship between a neuron and a cell that it has a functionally relevant number of chemical synapses to." []
+is_a: RO:0002120 ! synapsed to
+
+[Typedef]
 id: RO:0014001
 name: disease_has_infectious_agent
 def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
 is_a: RO:0004019 ! disease has basis in
+
+[Typedef]
+id: RO:0015001
+name: has_exemplar_data
+def: "A relation between a material entity and some data in which the data is taken as exemplifying the material entity." []
+inverse_of: RO:0015002 ! exemplar data of
+transitive_over: RO:0015003 ! subcluster of
+
+[Typedef]
+id: RO:0015002
+name: exemplar_data_of
+
+[Typedef]
+id: RO:0015003
+name: subcluster_of
+def: "A relation between a group and another group it is part of but does not fully constitute." []
+is_transitive: true
+is_a: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0040035

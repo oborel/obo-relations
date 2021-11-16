@@ -197,10 +197,6 @@ is_a: has_presynaptic_terminal_in ! has presynaptic terminal in
 expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\n      GO_0042734 and BFO_0000050 some (\n         GO_0045202 and BFO_0000050 some ?Y)))" []
 
 [Typedef]
-id: bearer_of
-xref: RO:0000053
-
-[Typedef]
 id: biomechanically_related_to
 name: biomechanically related to
 def: "A relation that holds between elements of a musculoskeletal system or its analogs." []
@@ -306,7 +302,7 @@ def: "c stands in this relationship to p if and only if there exists some p' suc
 xref: RO:0002216
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "has function in" xsd:string
-property_value: seeAlso "defining-property-chains-involving-reflexivity"
+property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/reflexivity/
 is_a: causal_agent_in_process ! causal agent in process
 is_a: functionally_related_to ! functionally related to
 
@@ -565,6 +561,7 @@ id: co-roosts_with
 name: co-roosts with
 def: "Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting." []
 xref: RO:0002801
+property_value: IAO:0000119 Communal:roosting
 is_symmetric: true
 is_a: ecologically_co-occurs_with ! ecologically co-occurs with
 
@@ -602,7 +599,6 @@ subset: ro-eco
 xref: RO:0002441
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
-property_value: RO:0002561 GO:0085031
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -673,10 +669,10 @@ id: connected_to
 name: connected to
 def: "a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b" []
 xref: RO:0002170
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 property_value: IAO:0000112 "a 'toe distal phalanx bone' that is connected to a 'toe medial phalanx bone' (an interphalangeal joint *connects* these two bones)." xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
@@ -692,11 +688,11 @@ id: connects
 name: connects
 def: "c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system." []
 xref: RO:0002176
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 property_value: IAO:0000112 "a 'toe distal phalanx bone' that is connected to a 'toe medial phalanx bone' (an interphalangeal joint *connects* these two bones)." xsd:string
 property_value: IAO:0000112 "The M8 connects Glasgow and Edinburgh" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern xsd:anyURI
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern xsd:anyURI
 domain: BFO:0000004
 is_a: mereotopologically_related_to ! mereotopologically related to
 
@@ -1187,7 +1183,7 @@ is_a: regulates_quantity_of ! regulates quantity of
 [Typedef]
 id: disease_arises_from_structure
 name: disease arises from structure
-def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure." []
+def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 xref: RO:0004030
 range: CARO:0000003
 is_a: disease_has_basis_in ! disease has basis in
@@ -1520,10 +1516,10 @@ property_value: IAO:0000232 "This is a grouping relation that collects relations
 id: genetically_interacts_with
 name: genetically interacts with
 xref: RO:0002435
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0208 xsd:anyURI
 property_value: IAO:0000116 "An interaction that holds between two genetic entities (genes, alleles) through some genetic interaction (e.g. epistasis)" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso ECO:0000316
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0208 xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -1583,6 +1579,10 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: in_branching_relationship_with ! in branching relationship with
 
 [Typedef]
+id: has_characteristic
+xref: RO:0000053
+
+[Typedef]
 id: has_component
 name: has component
 def: "w 'has component' p if w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
@@ -1603,6 +1603,16 @@ xref: RO:0002017
 is_a: has_component_process ! has component process
 created_by: dos
 creation_date: 2017-05-24T09:44:33Z
+
+[Typedef]
+id: has_component_participant
+name: has component participant
+def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
+xref: RO:0002238
+property_value: IAO:0000114 IAO:0000428
+property_value: IAO:0000117 "Bill Duncan" xsd:string
+property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
+is_a: has_participant
 
 [Typedef]
 id: has_component_process
@@ -2331,8 +2341,8 @@ domain: OGMS:0000031
 is_a: has_phenotype ! has phenotype
 
 [Typedef]
-id: has_synaptic_IO_in
-name: has synaptic IO in
+id: has_synaptic_IO_in_region
+name: has synaptic IO in region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
 synonym: "has synaptic input or output in" EXACT []
 xref: RO:0013001
@@ -2345,7 +2355,7 @@ id: has_synaptic_IO_throughout
 name: has synaptic IO throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013004
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:52:19Z
 
@@ -2367,6 +2377,7 @@ expand_expression_to: "RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)" []
 id: has_synaptic_terminal_of
 name: has synaptic terminal of
 xref: RO:0002006
+property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 is_a: overlaps ! overlaps
 inverse_of: has_synaptic_terminal_in ! has synaptic terminal in
@@ -2423,7 +2434,7 @@ name: hyperparasite of
 def: "x is a hyperparasite of y iff x is a parasite of a parasite of the target organism y" []
 subset: ro-eco
 synonym: "epiparasite of" RELATED []
-synonym: "hyperparasitoid of" RELATED []
+synonym: "hyperparasitoid of" NARROW []
 xref: RO:0002553
 property_value: IAO:0000116 "Note that parasite-of is a diret relationship, so hyperparasite-of is not considered a sub-relation, even though hyperparasitism can be considered a form of parasitism" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -2501,12 +2512,12 @@ id: in_branching_relationship_with
 name: in branching relationship with
 def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
 xref: RO:0002375
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving branching relationships" xsd:string
 property_value: IAO:0000232 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)" xsd:string
 property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png
+property_value: seeAlso https://github.com/obophenotype/uberon/issues/170 xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_a: mereotopologically_related_to ! mereotopologically related to
@@ -2620,28 +2631,6 @@ property_value: IAO:0000117 "Vasundra Touré" xsd:string
 is_a: regulates_quantity_of ! regulates quantity of
 
 [Typedef]
-id: innervated_by
-name: innervated_by
-xref: RO:0002005
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613 xsd:anyURI
-property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-domain: CARO:0000003
-range: CARO:0001001
-inverse_of: innervates ! innervates
-
-[Typedef]
-id: innervates
-name: innervates
-def: "Relation between a 'neuron projection bundle' and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
-xref: RO:0002134
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
-property_value: IAO:0000114 IAO:0000125
-property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
-property_value: RO:0001900 RO:0001901
-domain: CARO:0001001
-expand_expression_to: "RO_0002132 some (GO_0043005 that (RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)))" []
-
-[Typedef]
 id: input_of
 name: input of
 def: "inverse of has input" []
@@ -2659,12 +2648,12 @@ def: "A relationship that holds between two entities in which the processes exec
 subset: ro-eco
 synonym: "in pairwise interaction with" EXACT []
 xref: RO:0002434
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/oborel/obo-relations/wiki/InteractionRelations xsd:anyURI
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0914 xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0914 xsd:anyURI
+property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/interaction-relations/ xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_symmetric: true
@@ -2678,7 +2667,6 @@ xref: RO:0002443
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
 property_value: IAO:0000232 "This relation groups a pair of inverse relations, parasite of and parasitized by" xsd:string
-property_value: RO:0002561 GO:0072519
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -2695,7 +2683,6 @@ id: intracellular_endoparasite_of
 name: intracellular endoparasite of
 def: "A sub-relation of endoparasite-of in which the parasite inhabits host cells." []
 xref: RO:0002640
-property_value: IAO:0000119 Communal:roosting
 property_value: IAO:0000119 "Types"
 is_a: endoparasite_of ! endoparasite of
 inverse_of: has_intracellular_endoparasite ! has intracellular endoparasite
@@ -3145,11 +3132,11 @@ id: molecularly_interacts_with
 name: molecularly interacts with
 def: "An interaction relationship in which the two partners are molecular entities that directly physically interact with each other for example via a stable binding interaction or a brief interaction during which one modifies the other." []
 xref: RO:0002436
+property_value: closeMatch http://purl.obolibrary.org/obo/MI_0915 xsd:anyURI
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "binds" xsd:string
 property_value: IAO:0000118 "molecularly binds with" xsd:string
 property_value: seeAlso ECO:0000353
-property_value: seeAlso http://purl.obolibrary.org/obo/MI_0915 xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -3161,7 +3148,6 @@ subset: ro-eco
 xref: RO:0002442
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
-property_value: RO:0002561 GO:0085030
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
@@ -3259,7 +3245,6 @@ xref: RO:0002444
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "parasitizes" xsd:string
-property_value: RO:0002560 GO:0072519
 property_value: seeAlso http://eol.org/schema/terms/parasitizes xsd:string
 is_a: has_host ! has host
 is_a: interacts_with_via_parasite-host_interaction ! interacts with via parasite-host interaction
@@ -3576,12 +3561,22 @@ is_a: connected_to ! connected to
 inverse_of: sends_output_to ! sends output to
 
 [Typedef]
-id: receives_synaptic_input_in
-name: receives synaptic input in
+id: receives_synaptic_input_from_neuron
+name: receives synaptic input from neuron
+def: "A relationship between an anatomical structure (including cells) and a neuron that has a functionally relevant number of chemical synapses to it." []
+xref: RO:0013008
+is_a: synapsed_by ! synapsed by
+inverse_of: sends_synaptic_output_to_cell ! sends synaptic output to cell
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2021-05-26T08:40:18Z
+
+[Typedef]
+id: receives_synaptic_input_in_region
+name: receives synaptic input in region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region." []
 xref: RO:0013002
 is_a: has_postsynaptic_terminal_in ! has postsynaptic terminal in
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:42:23Z
 
@@ -3591,7 +3586,7 @@ name: receives synaptic input throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013005
 is_a: has_synaptic_IO_throughout ! has synaptic IO throughout
-is_a: receives_synaptic_input_in ! receives synaptic input in
+is_a: receives_synaptic_input_in_region ! receives synaptic input in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:55:36Z
 
@@ -3693,15 +3688,6 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "Do not use this relation directly. It is a grouping relation." xsd:string
 domain: BFO:0000015
 range: BFO:0000002
-
-[Typedef]
-id: releases_neurotransmitter
-name: releases neurotransmitter
-xref: RO:0002111
-property_value: IAO:0000114 IAO:0000125
-property_value: IAO:0000118 "has neurotransmitter" xsd:string
-domain: CARO:0000003
-range: BFO:0000040
 
 [Typedef]
 id: represses_expression_of
@@ -4037,17 +4023,27 @@ name: sends synaptic output throughout
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number output synapses distributed throughout that region (rather than confined to a subregion)." []
 xref: RO:0013006
 is_a: has_synaptic_IO_throughout ! has synaptic IO throughout
-is_a: sends_synaptic_output_to ! sends synaptic output to
+is_a: sends_synaptic_output_to_region ! sends synaptic output to region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:57:27Z
 
 [Typedef]
-id: sends_synaptic_output_to
-name: sends synaptic output to
+id: sends_synaptic_output_to_cell
+name: sends synaptic output to cell
+def: "A relationship between a neuron and a cell that it has a functionally relevant number of chemical synapses to." []
+comment: Not restricting range to 'cell' - object may be a muscle containing a cell targeted by the neuron.
+xref: RO:0013009
+is_a: synapsed_to ! synapsed to
+created_by: http://orcid.org/0000-0002-1373-1705
+creation_date: 2021-05-26T08:41:07Z
+
+[Typedef]
+id: sends_synaptic_output_to_region
+name: sends synaptic output to region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region." []
 xref: RO:0013003
 is_a: has_presynaptic_terminal_in ! has presynaptic terminal in
-is_a: has_synaptic_IO_in ! has synaptic IO in
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 created_by: http://orcid.org/0000-0002-1373-1705
 creation_date: 2020-07-17T09:45:06Z
 
@@ -4104,13 +4100,13 @@ name: spatially disjoint from
 def: "A is spatially_disjoint_from B if and only if they have no parts in common" []
 subset: ro-eco
 xref: RO:0002163
-property_value: http://xmlns.com/foaf/0.1/page https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "There are two ways to encode this as a shortcut relation. The other possibility to use an annotation assertion between two classes, and expand this to a disjointness axiom. " xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 property_value: IAO:0000232 "Note that it would be possible to use the relation to label the relationship between a near infinite number of structures - between the rings of saturn and my left earlobe. The intent is that this is used for parsiomoniously for disambiguation purposes - for example, between siblings in a jointly exhaustive pairwise disjointness hierarchy" xsd:string
 property_value: RO:0001900 RO:0001901
+property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern xsd:anyURI
 is_a: mereotopologically_related_to ! mereotopologically related to
 expand_expression_to: "BFO_0000051 exactly 0 (BFO_0000050 some ?Y)" []
 
@@ -4145,6 +4141,17 @@ name: stem parasite of
 def: "A parasite-of relationship in which the host is a plant and the parasite that attaches to the host stem (PO:0009047)" []
 xref: RO:0002235
 is_a: parasite_of ! parasite of
+
+[Typedef]
+id: subcluster_of
+name: subcluster of
+def: "A relation between a group and another group it is part of but does not fully constitute." []
+xref: RO:0015003
+property_value: IAO:0000116 "X subcluster_of Y iff: X and Y are clusters/groups; X != Y; all members of X are also members of Y." xsd:string
+property_value: IAO:0000117 "Shawn Tan" xsd:string
+property_value: IAO:0000232 "This is used specifically for sets whose members are specified by some set-forming operator (method of grouping) such as clustering analyses in single cell transcriptomics." xsd:string
+is_transitive: true
+is_a: part_of
 
 [Typedef]
 id: subject_participant_in
@@ -4194,7 +4201,6 @@ xref: RO:0002440
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyURI
 property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
-property_value: RO:0002561 GO:0044403
 is_symmetric: true
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
 

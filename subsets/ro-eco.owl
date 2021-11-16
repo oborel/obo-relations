@@ -8,8 +8,8 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:cito="http://purl.org/spar/cito/"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
@@ -120,10 +120,17 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0100001 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0100001"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0001900 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0001900">
         <obo:IAO_0000115>An assertion that holds between an OWL Object Property and a temporal interpretation that elucidates how OWL Class Axioms that use this property are to be interpreted in a temporal context.</obo:IAO_0000115>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
     </owl:AnnotationProperty>
     
@@ -155,7 +162,7 @@
         <obo:IAO_0000425>Class: &lt;http://www.w3.org/2002/07/owl#Nothing&gt; EquivalentTo: (BFO_0000050 some ?X) and (BFO_0000050 some ?Y)</obo:IAO_0000425>
         <rdfs:label xml:lang="en">mutually spatially disjoint with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/RO_0002163"/>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern</rdfs:seeAlso>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002420"/>
     </owl:AnnotationProperty>
     
@@ -224,7 +231,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002416">
         <obo:IAO_0000115>An assertion that involves at least one OWL object that is intended to be expanded into one or more logical axioms. The logical expansion can yield axioms expressed using any formal logical system, including, but not limited to OWL2-DL.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">logical macro assertion</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/ShortcutRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/shortcut-relations/</rdfs:seeAlso>
     </owl:AnnotationProperty>
     
 
@@ -358,6 +365,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002537">
         <rdfs:label>has start time value</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002535"/>
     </owl:AnnotationProperty>
     
@@ -367,6 +375,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002538">
         <rdfs:label>has end time value</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002535"/>
     </owl:AnnotationProperty>
     
@@ -377,6 +386,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002539">
         <obo:IAO_0000115>Count of number of days intervening between the start of the stage and the time of fertilization according to a reference model. Note that the first day of development has the value of 0 for this property.</obo:IAO_0000115>
         <rdfs:label>start, days post fertilization</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
     </owl:AnnotationProperty>
     
@@ -387,6 +397,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002540">
         <obo:IAO_0000115>Count of number of days intervening between the end of the stage and the time of fertilization according to a reference model. Note that the first day of development has the value of 1 for this property.</obo:IAO_0000115>
         <rdfs:label>end, days post fertilization</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </owl:AnnotationProperty>
     
@@ -397,6 +408,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002541">
         <obo:IAO_0000115>Count of number of years intervening between the start of the stage and the time of birth according to a reference model. Note that the first year of post-birth development has the value of 0 for this property, and the period during which the child is one year old has the value 1.</obo:IAO_0000115>
         <rdfs:label>start, years post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
     </owl:AnnotationProperty>
     
@@ -407,6 +419,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002542">
         <obo:IAO_0000115>Count of number of years intervening between the end of the stage and the time of birth according to a reference model. Note that the first year of post-birth development has the value of 1 for this property, and the period during which the child is one year old has the value 2</obo:IAO_0000115>
         <rdfs:label>end, years post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </owl:AnnotationProperty>
     
@@ -417,6 +430,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002543">
         <obo:IAO_0000115>Count of number of months intervening between the start of the stage and the time of birth according to a reference model. Note that the first month of post-birth development has the value of 0 for this property, and the period during which the child is one month old has the value 1.</obo:IAO_0000115>
         <rdfs:label>start, months post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
     </owl:AnnotationProperty>
     
@@ -427,6 +441,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002544">
         <obo:IAO_0000115>Count of number of months intervening between the end of the stage and the time of birth according to a reference model. Note that the first month of post-birth development has the value of 1 for this property, and the period during which the child is one month old has the value 2</obo:IAO_0000115>
         <rdfs:label>end, months post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </owl:AnnotationProperty>
     
@@ -437,6 +452,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002545">
         <obo:IAO_0000115>Defines the start and end of a stage with a duration of 1 month, relative to either the time of fertilization or last menstrual period of the mother (to be clarified), counting from one, in terms of a reference model. Thus if month_of_gestation=3, then the stage is 2 month in.</obo:IAO_0000115>
         <rdfs:label>month of gestation</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002535"/>
     </owl:AnnotationProperty>
     
@@ -447,6 +463,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002546">
         <obo:IAO_0000115>A relationship between a stage class and an anatomical structure or developmental process class, in which the stage is characterized by the appearance of the structure or the occurrence of the biological process</obo:IAO_0000115>
         <rdfs:label>has developmental stage marker</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002535"/>
     </owl:AnnotationProperty>
     
@@ -458,6 +475,7 @@
         <obo:IAO_0000115>Count of number of days intervening between the start of the stage and the time of coitum.</obo:IAO_0000115>
         <obo:IAO_0000232>For mouse staging: assuming that it takes place around midnight during a 7pm to 5am dark cycle (noon of the day on which the vaginal plug is found, the embryos are aged 0.5 days post coitum)</obo:IAO_0000232>
         <rdfs:label>start, days post coitum</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
     </owl:AnnotationProperty>
     
@@ -468,6 +486,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002548">
         <obo:IAO_0000115>Count of number of days intervening between the end of the stage and the time of coitum.</obo:IAO_0000115>
         <rdfs:label>end, days post coitum</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </owl:AnnotationProperty>
     
@@ -477,6 +496,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002549">
         <rdfs:label>start, weeks post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002537"/>
     </owl:AnnotationProperty>
     
@@ -486,6 +506,7 @@
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002550">
         <rdfs:label>end, weeks post birth</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/temporal-durations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002538"/>
     </owl:AnnotationProperty>
     
@@ -496,7 +517,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002560">
         <obo:IAO_0000115>If Rel is the relational form of a process Pr, then it follow that: Rel(x,y) &lt;-&gt; exists p : Pr(p), x subject-partner-in p, y object-partner-in p</obo:IAO_0000115>
         <rdfs:label>is asymmetric relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/interaction-relations/</rdfs:seeAlso>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002562"/>
     </owl:AnnotationProperty>
     
@@ -507,7 +528,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002561">
         <obo:IAO_0000115>If Rel is the relational form of a process Pr, then it follow that: Rel(x,y) &lt;-&gt; exists p : Pr(p), x partner-in p, y partner-in p</obo:IAO_0000115>
         <rdfs:label>is symmetric relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/interaction-relations/</rdfs:seeAlso>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002562"/>
     </owl:AnnotationProperty>
     
@@ -518,7 +539,7 @@
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002562">
         <obo:IAO_0000115>R is the relational form of a process if and only if either (1) R is the symmetric relational form of a process or (2) R is the asymmetric relational form of a process</obo:IAO_0000115>
         <rdfs:label>is relational form of process class</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/interaction-relations/</rdfs:seeAlso>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002594"/>
     </owl:AnnotationProperty>
     
@@ -539,6 +560,7 @@ Where we have an annotation assertion
         <obo:RO_0002423>If we have the annotation P is-direct-form-of Q, and we have inverses P&apos; and Q&apos;, then it follows that P&apos; is-direct-form-of Q&apos;</obo:RO_0002423>
         <terms:creator>Chris Mungall</terms:creator>
         <rdfs:label>is direct form of</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/direct-and-indirect-relations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
     </owl:AnnotationProperty>
     
@@ -550,6 +572,7 @@ Where we have an annotation assertion
         <obo:IAO_0000115>relation p is the indirect form of relation q iff p is a subPropertyOf q, and there exists some p&apos; such that p&apos; is the direct form of q, p&apos; o p&apos; -&gt; p, and forall x,y : x q y -&gt; either (1) x p y or (2) x p&apos; y</obo:IAO_0000115>
         <terms:creator>Chris Mungall</terms:creator>
         <rdfs:label>is indirect form of</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/direct-and-indirect-relations/"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002422"/>
     </owl:AnnotationProperty>
     
@@ -746,6 +769,7 @@ Where we have an annotation assertion
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-22T11:05:29Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">valid_for_go_annotation_extension</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/subsets/"/>
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -757,6 +781,7 @@ Where we have an annotation assertion
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-22T11:05:18Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">valid_for_go_gp2term</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/subsets/"/>
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -768,6 +793,7 @@ Where we have an annotation assertion
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-22T11:04:12Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">valid_for_go_ontology</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/subsets/"/>
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -779,6 +805,7 @@ Where we have an annotation assertion
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pg</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-22T11:05:45Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">valid_for_gocam</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/subsets/"/>
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -788,6 +815,7 @@ Where we have an annotation assertion
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/ro/subsets#ro-eco">
         <rdfs:label>eco subset</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/subsets/"/>
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -796,6 +824,12 @@ Where we have an annotation assertion
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
     
 
 
@@ -867,6 +901,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#editor_note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#editor_note"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
@@ -882,6 +922,14 @@ Where we have an annotation assertion
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_narrow_synonym</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -905,9 +953,21 @@ Where we have an annotation assertion
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/page -->
+    <!-- http://www.geneontology.org/formats/oboInOwl#source -->
 
-    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/page"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#source"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#seeAlso -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
     
 
 
@@ -1193,6 +1253,7 @@ range: spatial region or site (immaterial continuant)
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002131"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002130"/>
         <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <cito:citesAsAuthority rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22402613"/>
         <rdfs:label xml:lang="en">has synaptic terminal of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -2230,7 +2291,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spatially disjoint from</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -2249,8 +2310,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000115>a is connected to b if and only if a and b are discrete structure, and there exists some connecting structure c, such that c connects a and b</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22293552"/>
         <rdfs:label xml:lang="en">connected to</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</foaf:page>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -2264,8 +2325,8 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000115>c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/22293552"/>
         <rdfs:label xml:lang="en">connects</rdfs:label>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</foaf:page>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -2640,7 +2701,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>has function in</obo:IAO_0000118>
         <rdfs:label xml:lang="en">capable of part of</rdfs:label>
-        <rdfs:seeAlso rdf:resource="https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity"/>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/reflexivity/"/>
     </owl:ObjectProperty>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/RO_0002216"/>
@@ -2660,8 +2721,9 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000115>OBSOLETE x actively participates in y if and only if x participates in y and x realizes some active role</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>agent in</obo:IAO_0000118>
+        <obo:IAO_0100001 rdf:resource="http://purl.obolibrary.org/obo/RO_0002608"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Obsoleted as the inverse property was obsoleted.</rdfs:comment>
-        <rdfs:label xml:lang="en">obsolete actively participates in</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete actively participates in</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
@@ -2670,13 +2732,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002218 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002218">
-        <obo:IAO_0000112>&apos;heart development&apos; has active participant some Shh protein</obo:IAO_0000112>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <obo:IAO_0000115>x has participant y if and only if x realizes some active role that inheres in y</obo:IAO_0000115>
-        <obo:IAO_0000116>This may be obsoleted and replaced by the original &apos;has agent&apos; relation</obo:IAO_0000116>
+        <obo:IAO_0000115>OBSOLETE x has participant y if and only if x realizes some active role that inheres in y</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>has agent</obo:IAO_0000118>
-        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <obo:IAO_0100001 rdf:resource="http://purl.obolibrary.org/obo/RO_0002500"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">obsolete has active participant</rdfs:label>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
@@ -2947,6 +3006,20 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002444"/>
         <obo:IAO_0000115>A sub-relation of parasite-of in which the parasite is a plant, and the parasite is parasitic under natural conditions and is also photosynthetic to some degree. Hemiparasites may just obtain water and mineral nutrients from the host plant. Many obtain at least part of their organic nutrients from the host as well.</obo:IAO_0000115>
         <rdfs:label>hemiparasite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002238 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002238">
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
+        <obo:IAO_0000115>X &apos;has component participant&apos; Y means X &apos;has participant&apos; Y and there is a cardinality constraint that specifies the numbers of Ys.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000232>This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).
+
+If you need an axiom that says &apos;has_participant min 2 object&apos;, you should instead say &apos;has_component_participant min 2 object&apos;.</obo:IAO_0000232>
+        <rdfs:label xml:lang="en">has component participant</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -3503,13 +3576,14 @@ where
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002314"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
-        <obo:IAO_0000115>q inheres in part of w if and only if there exists some p such that q inheres in p and p part of w.</obo:IAO_0000115>
-        <obo:IAO_0000116>Because part_of is transitive, inheres in is a sub-relation of inheres in part of</obo:IAO_0000116>
+        <obo:IAO_0000115>q characteristic of part of w if and only if there exists some p such that q inheres in p and p part of w.</obo:IAO_0000115>
+        <obo:IAO_0000116>Because part_of is transitive, inheres in is a sub-relation of characteristic of part of</obo:IAO_0000116>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
+        <obo:IAO_0000118>inheres in part of</obo:IAO_0000118>
         <obo:IAO_0000119 rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20064205"/>
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
-        <rdfs:label xml:lang="en">inheres in part of</rdfs:label>
-        <rdfs:seeAlso rdf:resource="https://github.com/oborel/obo-relations/wiki/ROGuide#defining-property-chains-involving-reflexivity"/>
+        <rdfs:label xml:lang="en">characteristic of part of</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/reflexivity/"/>
     </owl:ObjectProperty>
     
 
@@ -4103,7 +4177,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000232>This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)</obo:IAO_0000232>
         <rdfs:label xml:lang="en">in branching relationship with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png"/>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/issues/170</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/obophenotype/uberon/issues/170</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -4769,8 +4843,8 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasExactSynonym>in pairwise interaction with</oboInOwl:hasExactSynonym>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>interacts with</rdfs:label>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0914</rdfs:seeAlso>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/interaction-relations/</rdfs:seeAlso>
+        <skos:closeMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0914</skos:closeMatch>
     </owl:ObjectProperty>
     
 
@@ -4784,7 +4858,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:label>genetically interacts with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ECO_0000316"/>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0208</rdfs:seeAlso>
+        <skos:closeMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0208</skos:closeMatch>
     </owl:ObjectProperty>
     
 
@@ -4800,7 +4874,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000118>molecularly binds with</obo:IAO_0000118>
         <rdfs:label>molecularly interacts with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/ECO_0000353"/>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0915</rdfs:seeAlso>
+        <skos:closeMatch rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/MI_0915</skos:closeMatch>
     </owl:ObjectProperty>
     
 
@@ -4872,7 +4946,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <obo:IAO_0000232>We follow GO and PAMGO in using &apos;symbiosis&apos; as the broad term encompassing mutualism through parasitism</obo:IAO_0000232>
-        <obo:RO_0002561 rdf:resource="http://purl.obolibrary.org/obo/GO_0044403"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>symbiotically interacts with</rdfs:label>
     </owl:ObjectProperty>
@@ -4893,7 +4966,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000115>An interaction relationship between two organisms living together in more or less intimate association in a relationship in which one benefits and the other is unaffected (GO).</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
-        <obo:RO_0002561 rdf:resource="http://purl.obolibrary.org/obo/GO_0085031"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>commensually interacts with</rdfs:label>
     </owl:ObjectProperty>
@@ -4914,7 +4986,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000115>An interaction relationship between two organisms living together in more or less intimate association in a relationship in which both organisms benefit from each other (GO).</obo:IAO_0000115>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
-        <obo:RO_0002561 rdf:resource="http://purl.obolibrary.org/obo/GO_0085030"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>mutualistically interacts with</rdfs:label>
     </owl:ObjectProperty>
@@ -4936,7 +5007,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
         <obo:IAO_0000232>This relation groups a pair of inverse relations, parasite of and parasitized by</obo:IAO_0000232>
-        <obo:RO_0002561 rdf:resource="http://purl.obolibrary.org/obo/GO_0072519"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>interacts with via parasite-host interaction</rdfs:label>
     </owl:ObjectProperty>
@@ -4959,7 +5029,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <obo:IAO_0000112>Pediculus humanus capitis parasite of human</obo:IAO_0000112>
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>parasitizes</obo:IAO_0000118>
-        <obo:RO_0002560 rdf:resource="http://purl.obolibrary.org/obo/GO_0072519"/>
         <oboInOwl:hasExactSynonym>direct parasite of</oboInOwl:hasExactSynonym>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>parasite of</rdfs:label>
@@ -6185,8 +6254,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>http://eol.org/schema/terms/hyperparasitoidOf</obo:IAO_0000119>
         <obo:IAO_0000119>https://en.wikipedia.org/wiki/Hyperparasite</obo:IAO_0000119>
+        <oboInOwl:hasNarrowSynonym>hyperparasitoid of</oboInOwl:hasNarrowSynonym>
         <oboInOwl:hasRelatedSynonym>epiparasite of</oboInOwl:hasRelatedSynonym>
-        <oboInOwl:hasRelatedSynonym>hyperparasitoid of</oboInOwl:hasRelatedSynonym>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>hyperparasite of</rdfs:label>
     </owl:ObjectProperty>
@@ -6285,7 +6354,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <rdfs:label>interaction relation helper property</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://ontologydesignpatterns.org/wiki/Submissions:N-Ary_Relation_Pattern_%28OWL_2%29"/>
-        <foaf:page rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/wiki/InteractionRelations</foaf:page>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.obolibrary.org/obo/ro/docs/interaction-relations/</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -6980,7 +7049,6 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002634"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002641"/>
         <obo:IAO_0000115>A sub-relation of endoparasite-of in which the parasite inhabits host cells.</obo:IAO_0000115>
-        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Communal_roosting"/>
         <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Parasitism#Types"/>
         <rdfs:label>intracellular endoparasite of</rdfs:label>
     </owl:ObjectProperty>
@@ -7004,6 +7072,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0008506"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115 xml:lang="en">Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Communal_roosting"/>
         <rdfs:label xml:lang="en">co-roosts with</rdfs:label>
     </owl:ObjectProperty>
     
@@ -7611,7 +7680,7 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0004030">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0004019"/>
-        <obo:IAO_0000115>A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure.</obo:IAO_0000115>
+        <obo:IAO_0000115>A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cjm</oboInOwl:created_by>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-26T19:58:44Z</oboInOwl:creation_date>
         <rdfs:label>disease arises from structure</rdfs:label>
@@ -8238,7 +8307,7 @@ For example, protein A (transcription factor) indirectly increases by expression
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0002-1373-1705"/>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-07-17T09:26:52Z</oboInOwl:creation_date>
         <oboInOwl:hasExactSynonym>has synaptic input or output in</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">has synaptic IO in</rdfs:label>
+        <rdfs:label xml:lang="en">has synaptic IO in region</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -8255,7 +8324,7 @@ For example, protein A (transcription factor) indirectly increases by expression
         <obo:IAO_0000115>A relationship between a neuron and a region, where the neuron has a functionally relevant number of input synapses in that region.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0002-1373-1705"/>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-07-17T09:42:23Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">receives synaptic input in</rdfs:label>
+        <rdfs:label xml:lang="en">receives synaptic input in region</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -8272,7 +8341,7 @@ For example, protein A (transcription factor) indirectly increases by expression
         <obo:IAO_0000115>A relationship between a neuron and a region, where the neuron has a functionally relevant number of output synapses in that region.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0002-1373-1705"/>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-07-17T09:45:06Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">sends synaptic output to</rdfs:label>
+        <rdfs:label xml:lang="en">sends synaptic output to region</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -8334,6 +8403,32 @@ For example, protein A (transcription factor) indirectly increases by expression
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0013008 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0013008">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002103"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0013009"/>
+        <obo:IAO_0000115>A relationship between an anatomical structure (including cells) and a neuron that has a functionally relevant number of chemical synapses to it.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0002-1373-1705"/>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-05-26T08:40:18Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">receives synaptic input from neuron</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0013009 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0013009">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002120"/>
+        <obo:IAO_0000115>A relationship between a neuron and a cell that it has a functionally relevant number of chemical synapses to.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0002-1373-1705"/>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-05-26T08:41:07Z</oboInOwl:creation_date>
+        <rdfs:comment>Not restricting range to &apos;cell&apos; - object may be a muscle containing a cell targeted by the neuron.</rdfs:comment>
+        <rdfs:label xml:lang="en">sends synaptic output to cell</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0014001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0014001">
@@ -8341,6 +8436,47 @@ For example, protein A (transcription factor) indirectly increases by expression
         <obo:IAO_0000115>A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0001-5208-3432"/>
         <rdfs:label>disease has infectious agent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015001 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015001">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0015002"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0015001"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0015003"/>
+        </owl:propertyChainAxiom>
+        <obo:IAO_0000112>transcriptomically defined cell type X equivalent to ‘cell’ and (has_exemplar_data value [transcriptomic profile data])</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between a material entity and some data in which the data is taken as exemplifying the material entity.</obo:IAO_0000115>
+        <obo:IAO_0000116>C has_exemplar_data y iff x is an instance of C and y is data about x that is taken as exemplifying of C.</obo:IAO_0000116>
+        <obo:IAO_0000117>Patrick Ray</obo:IAO_0000117>
+        <obo:IAO_0000232>This relation is not meant to capture the relation between occurrents and data.</obo:IAO_0000232>
+        <rdfs:label>has exemplar data</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015002 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015002">
+        <obo:IAO_0000117>Patrick Ray</obo:IAO_0000117>
+        <rdfs:label>exemplar data of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0015003 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0015003">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <obo:IAO_0000115>A relation between a group and another group it is part of but does not fully constitute.</obo:IAO_0000115>
+        <obo:IAO_0000116>X subcluster_of Y iff: X and Y are clusters/groups; X != Y; all members of X are also members of Y.</obo:IAO_0000116>
+        <obo:IAO_0000117>Shawn Tan</obo:IAO_0000117>
+        <obo:IAO_0000232>This is used specifically for sets whose members are specified by some set-forming operator (method of grouping) such as clustering analyses in single cell transcriptomics.</obo:IAO_0000232>
+        <rdfs:label>subcluster of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -8476,15 +8612,6 @@ For example, protein A (transcription factor) indirectly increases by expression
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="urn:swrl#x">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#y">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#z">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
     <rdf:Description rdf:about="urn:swrl#B">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
@@ -8509,50 +8636,23 @@ For example, protein A (transcription factor) indirectly increases by expression
     <rdf:Description rdf:about="urn:swrl#mf2">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description>
-        <rdfs:comment>This rule is dubious: added as a quick fix for expected inference in GO-CAM.  The problem is most acute for transmembrane proteins, such as receptors or cell adhesion molecules, which have some subfunctions inside the cell (e.g. kinase activity) and some subfunctions outside (e.g. ligand binding).  Correct annotation of where these functions occurs leads to incorrect inference about the location of the whole protein.  This should probably be weakened to &quot;... -&gt; overlaps&quot;</rdfs:comment>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000066"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
+    <rdf:Description rdf:about="urn:swrl#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
         <rdfs:comment>If a molecular function (X) has a regulatory subfunction, then any gene product which is an input to that subfunction has an activity that directly_regulates X.  Note:  this is intended for cases where the regaultory subfunction is protein binding, so it could be tightened with an additional clause to specify this.</rdfs:comment>
@@ -9036,6 +9136,50 @@ For example, protein A (transcription factor) indirectly increases by expression
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
                         <swrl:argument1 rdf:resource="urn:swrl#x"/>
                         <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002264"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002263"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>

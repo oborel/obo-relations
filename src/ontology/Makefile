@@ -70,7 +70,7 @@ ro-lastbuild.owl: ro-edit.owl
 	wget --no-check-certificate $(OBO)/ro.owl -O $@
 
 ro-diff.md: ro.owl ro-lastbuild.owl 
-	owljs-diff -o $@ ro-lastbuild.owl $<
+	$(ROBOT) diff --left ro-lastbuild.owl --right $< -f markdown -o $@
 ro-diff.html: ro-diff.md
 	pandoc $< -o $@
 
