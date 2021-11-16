@@ -52,7 +52,7 @@ issues are revealed even when using performant reasoners like Elk).
 
 that RO also provides more specific relations:
 
- * [RO:0002012 _occurent part of_](http://purl.obolibrary.org/obo/RO_0002012)
+ * [RO:0002012 _occurrent part of_](http://purl.obolibrary.org/obo/RO_0002012)
 
 However, be very careful using these, they are in some sense
 incompatible with the generic relations. This is because in OWL it is
