@@ -333,8 +333,8 @@ holds_over_chain: RO:0002211 RO:0002313
 
 [Typedef]
 id: RO:0002012
-name: occurent_part_of
-def: "A part of relation that applies only between occurents." []
+name: occurrent_part_of
+def: "A part of relation that applies only between occurrents." []
 is_a: BFO:0000050 ! part of
 is_a: RO:0002418 ! causally upstream of or within
 
@@ -766,6 +766,7 @@ is_a: BFO:0000051 ! has part
 id: RO:0002200
 name: has_phenotype
 def: "A relationship that holds between a biological entity and a phenotype. Here a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). The subject of this relationship can be an organism (where the organism has the phenotype, i.e. the qualities inhere in parts of this organism), a genomic entity such as a gene or genotype (if modifications of the gene or the genotype causes the phenotype), or a condition such as a disease (such that if the condition inheres in an organism, then the organism has the phenotype)." []
+is_a: RO:0016001 ! has phenotype or disease
 inverse_of: RO:0002201 ! phenotype of
 
 [Typedef]
@@ -1010,7 +1011,7 @@ inverse_of: RO:0002352 ! input of
 [Typedef]
 id: RO:0002234
 name: has_output
-def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p." []
+def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." []
 holds_over_chain: RO:0002230 RO:0002234
 is_a: RO:0000057 ! has participant
 inverse_of: RO:0002353 ! output of
@@ -1262,7 +1263,7 @@ id: RO:0002313
 name: transports_or_maintains_localization_of
 def: "Holds between p and c when p is a localization process (localization covers maintenance of localization as well as its establishment)  and the outcome of this process is to regulate the localization of c." []
 is_a: RO:0002337 ! related via localization to
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002314
@@ -1417,7 +1418,7 @@ is_a: RO:0002344 ! results in transport to from or in
 id: RO:0002343
 name: results_in_growth_of
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002344
@@ -1480,7 +1481,7 @@ id: RO:0002355
 name: results_in_structural_organization_of
 def: "A relationship between a process and an anatomical entity such that the process contributes to the act of creating the structural organization of the anatomical entity." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002356
@@ -2404,7 +2405,7 @@ id: RO:0002552
 name: results_in_ending_of
 def: "p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002553
@@ -2468,7 +2469,7 @@ is_a: RO:0002563 ! interaction relation helper property
 id: RO:0002565
 name: results_in_movement_of
 def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002566
@@ -2553,7 +2554,7 @@ is_a: RO:0002595 ! causal relation between material entity and a process
 id: RO:0002585
 name: results_in_closure_of
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002586
@@ -2594,7 +2595,7 @@ is_a: RO:0002592 ! results in organization of
 id: RO:0002592
 name: results_in_organization_of
 def: "p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c" []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002593
@@ -3092,7 +3093,7 @@ is_a: RO:0040035 ! disease relationship
 
 [Typedef]
 id: RO:0004030
-name: disease_arises_from_structure
+name: disease_arises_from_alteration_in_structure
 def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 is_a: RO:0004019 ! disease has basis in
 
@@ -3388,7 +3389,7 @@ is_a: RO:0012004 ! is small molecule regulator
 id: RO:0012007
 name: results_in_adhesion_of
 def: "The relationship that links anatomical entities with a process that results in the adhesion of two or more entities via the non-covalent interaction of molecules expressed in, located in, and/or adjacent to, those entities." []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0012008
@@ -3487,13 +3488,29 @@ is_transitive: true
 is_a: BFO:0000050 ! part of
 
 [Typedef]
+id: RO:0016001
+name: has_phenotype_or_disease
+
+[Typedef]
+id: RO:0016002
+name: has_disease
+def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
+is_a: RO:0016001 ! has phenotype or disease
+
+[Typedef]
+id: RO:0017001
+name: utilizes
+def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+holds_over_chain: RO:0002215 RO:0002233
+
+[Typedef]
 id: RO:0040035
 name: disease_relationship
 def: "This relation groups  relations between diseases and any other kind of entity." []
 
 [Typedef]
 id: RO:0040036
-name: has_anatomical_participant
+name: results_in_changes_to_anatomical_or_cellular_structure
 def: "p has anatomical participant c iff p has participant c, and c is an anatomical entity" []
 is_a: RO:0000057 ! has participant
 
@@ -4107,14 +4124,14 @@ id: results_in_acquisition_of_features_of
 name: results_in_acquisition_of_features_of
 def: "The relationship that links a specified entity with the process that results in an unspecified entity acquiring the features and characteristics of the specified entity" []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_development_of
 name: results_in_development_of
 def: "p 'results in development of' c if and only if p is a developmental process and p results in the state of c changing from its initial state as a primordium or anlage through its mature state and to its final state." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_developmental_progression_of
@@ -4138,12 +4155,12 @@ id: results_in_maturation_of
 name: results_in_maturation_of
 def: "The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it's shape and results in an end point state of that entity." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_morphogenesis_of
 name: results_in_morphogenesis_of
 def: "The relationship that links an entity with the process that results in the formation and shaping of that entity over time from an immature to a mature state." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
