@@ -228,8 +228,8 @@ holds_over_chain: RO:0002211 RO:0002313
 
 [Typedef]
 id: RO:0002012
-name: occurent part of
-def: "A part of relation that applies only between occurents." []
+name: occurrent part of
+def: "A part of relation that applies only between occurrents." []
 is_a: BFO:0000050
 is_a: RO:0002418 ! causally upstream of or within
 
@@ -851,6 +851,7 @@ def: "A relationship that holds between a biological entity and a phenotype. Her
 subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+is_a: RO:0016001 ! has phenotype or disease
 inverse_of: RO:0002201 ! phenotype of
 
 [Typedef]
@@ -1214,7 +1215,7 @@ inverse_of: RO:0002352 ! input of
 [Typedef]
 id: RO:0002234
 name: has output
-def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p." []
+def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
@@ -1247,8 +1248,7 @@ is_a: RO:0002444 ! parasite of
 id: RO:0002238
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
-property_value: IAO:0000114 IAO:0000428
-property_value: IAO:0000117 "Bill Duncan" xsd:string
+property_value: IAO:0000117 "Bill Duncan (https://orcid.org/0000-0001-9625-1899)" xsd:string
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
 
 [Typedef]
@@ -1540,7 +1540,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_gocam
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000118 "regulates localization of" xsd:string
 is_a: RO:0002337 ! related via localization to
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002314
@@ -1633,7 +1633,6 @@ property_value: IAO:0000118 "has" xsd:string
 property_value: IAO:0000118 "is catalyzing" xsd:string
 property_value: IAO:0000118 "is executing" xsd:string
 property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
-property_value: IAO:0000232 "This relation is currently used experimentally by the Gene Ontology Consortium. It may not be stable and may be obsoleted at some future time." xsd:string
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
 transitive_over: BFO:0000051
@@ -1777,7 +1776,7 @@ name: results in growth of
 property_value: IAO:0000112 "'pollen tube growth' results_in growth_of some 'pollen tube'" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002344
@@ -1847,7 +1846,7 @@ name: results in structural organization of
 def: "A relationship between a process and an anatomical entity such that the process contributes to the act of creating the structural organization of the anatomical entity." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002356
@@ -3212,7 +3211,7 @@ name: results in ending of
 def: "p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded." []
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002553
@@ -3310,7 +3309,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000232 "" xsd:string
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002566
@@ -3434,7 +3433,7 @@ id: RO:0002585
 name: results in closure of
 property_value: IAO:0000116 "p 'results in closure of' c if and only if p is a developmental process and p results in a state of c changing from open to closed." xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002586
@@ -3478,7 +3477,7 @@ is_a: RO:0002592 ! results in organization of
 id: RO:0002592
 name: results in organization of
 def: "p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c" []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002593
@@ -4125,7 +4124,7 @@ creation_date: 2017-12-26T19:50:53Z
 
 [Typedef]
 id: RO:0004030
-name: disease arises from structure
+name: disease arises from alteration in structure
 def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 is_a: RO:0004019 ! disease has basis in
 created_by: cjm
@@ -4507,7 +4506,7 @@ creation_date: 2020-06-24T13:15:35Z
 id: RO:0012007
 name: results in adhesion of
 def: "The relationship that links anatomical entities with a process that results in the adhesion of two or more entities via the non-covalent interaction of molecules expressed in, located in, and/or adjacent to, those entities." []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 created_by: pg
 creation_date: 2020-08-27T08:13:59Z
 
@@ -4641,6 +4640,35 @@ is_transitive: true
 is_a: BFO:0000050
 
 [Typedef]
+id: RO:0016001
+name: has phenotype or disease
+property_value: http://purl.org/dc/elements/1.1/contributor http://orcid.org/0000-0002-7463-6306
+property_value: http://purl.org/dc/elements/1.1/date 2021-11-05T17:30:14Z xsd:dateTime
+property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a set of relations regarding presentation of phenotypes and disease." xsd:string
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/478 xsd:string
+
+[Typedef]
+id: RO:0016002
+name: has disease
+def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
+property_value: http://purl.org/dc/elements/1.1/contributor http://orcid.org/0000-0002-7463-6306 xsd:string
+property_value: http://purl.org/dc/elements/1.1/date 2021-11-05T17:30:44Z xsd:dateTime
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/478 xsd:string
+is_a: RO:0016001 ! has phenotype or disease
+
+[Typedef]
+id: RO:0017001
+name: utilizes
+def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+property_value: IAO:0000112 "A diagnostic testing device utilizes a specimen." xsd:string
+property_value: IAO:0000117 "Asiyah Lin" xsd:string
+property_value: IAO:0000117 "Bill Duncan (https://orcid.org/0000-0001-9625-1899)" xsd:string
+property_value: IAO:0000232 "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input." xsd:string
+property_value: IAO:0000232 "See github ticket https://github.com/oborel/obo-relations/issues/497" xsd:string
+holds_over_chain: RO:0002215 RO:0002233
+creation_date: 2021-11-08
+
+[Typedef]
 id: RO:0040035
 name: disease relationship
 def: "This relation groups  relations between diseases and any other kind of entity." []
@@ -4650,7 +4678,7 @@ creation_date: 2018-09-26T00:00:32Z
 
 [Typedef]
 id: RO:0040036
-name: has anatomical participant
+name: results in changes to anatomical or cellular structure
 def: "p has anatomical participant c iff p has participant c, and c is an anatomical entity" []
 created_by: cjm
 creation_date: 2018-09-26T01:08:58Z
@@ -4666,7 +4694,7 @@ property_value: IAO:0000112 "an annotation of gene X to cell differentiation wit
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_development_of
@@ -4680,7 +4708,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 http://www.geneontology.org/GO.doc.development.shtml xsd:anyURI
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_developmental_progression_of
@@ -4729,7 +4757,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_morphogenesis_of
@@ -4744,5 +4772,5 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000119 GOC:mtg_berkeley_2013 xsd:string
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
