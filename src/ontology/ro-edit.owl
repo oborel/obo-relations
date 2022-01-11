@@ -600,6 +600,7 @@ Declaration(AnnotationProperty(obo:RO_0002611))
 Declaration(AnnotationProperty(obo:RO_0002612))
 Declaration(AnnotationProperty(obo:RO_0002613))
 Declaration(AnnotationProperty(obo:RO_0002617))
+Declaration(AnnotationProperty(obo:RO_0004036))
 Declaration(AnnotationProperty(obo:RO_0004048))
 Declaration(AnnotationProperty(obo:RO_0004049))
 Declaration(AnnotationProperty(obo:RO_0004050))
@@ -1014,6 +1015,13 @@ AnnotationAssertion(rdfs:label obo:RO_0002617 "is representative IRI for equival
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002617 "OWLAPI Reasoner documentation for representativeElement, which follows a similar idea, but selects an arbitrary member")
 SubAnnotationPropertyOf(obo:RO_0002617 obo:RO_0002601)
 
+# Annotation Property: obo:RO_0004036 (nominally disjoint with)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0004036 "true if the two properties are disjoint, according to OWL semantics. This should only be used if using a logical axiom introduces a non-simple property violation.")
+AnnotationAssertion(dce:creator obo:RO_0004036 "cjm"^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0004036 "nominally disjoint with"@en)
+SubAnnotationPropertyOf(obo:RO_0004036 obo:RO_0002422)
+
 # Annotation Property: obo:RO_0004048 (is directional form of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0004048 "Used to annotate object properties representing a causal relationship where the value indicates a direction. Should be \"+\", \"-\" or \"0\"")
@@ -1118,8 +1126,6 @@ AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000050 obo:valid_for_gocam)
 AnnotationAssertion(rdfs:seeAlso obo:BFO_0000050 <http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections>)
 AnnotationAssertion(rdfs:seeAlso obo:BFO_0000050 <http://ontologydesignpatterns.org/wiki/Submissions:PartOf>)
 SubObjectPropertyOf(obo:BFO_0000050 obo:RO_0002131)
-DisjointObjectProperties(obo:BFO_0000050 obo:RO_0002252)
-DisjointObjectProperties(obo:BFO_0000050 obo:RO_0002375)
 
 # Object Property: obo:BFO_0000051 (has part)
 
@@ -1127,7 +1133,6 @@ AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000051 obo:valid_for_go_annotatio
 AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000051 obo:valid_for_go_ontology)
 AnnotationAssertion(oboInOwl:inSubset obo:BFO_0000051 obo:valid_for_gocam)
 SubObjectPropertyOf(obo:BFO_0000051 obo:RO_0002131)
-DisjointObjectProperties(obo:BFO_0000051 obo:RO_0002253)
 
 # Object Property: obo:BFO_0000062 (preceded by)
 
@@ -2559,6 +2564,7 @@ SubObjectPropertyOf(obo:RO_0002249 obo:BFO_0000050)
 
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0002252 "In the tree T depicted in https://oborel.github.io/obo-relations/branching_part_of.png, B1 is connecting branch of S, and B1-1 as a connecting branch of B1.")
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002252 "b connecting-branch-of s iff b is connected to s, and there exists some tree-like structure t such that the mereological sum of b plus s is either the same as t or a branching-part-of t.")
+AnnotationAssertion(obo:RO_0004036 obo:RO_0002252 obo:BFO_0000050)
 AnnotationAssertion(rdfs:label obo:RO_0002252 "connecting branch of")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002252 <https://github.com/obophenotype/uberon/issues/2212>)
 SubObjectPropertyOf(obo:RO_0002252 obo:RO_0002170)
@@ -2568,6 +2574,7 @@ InverseObjectProperties(obo:RO_0002252 obo:RO_0002253)
 # Object Property: obo:RO_0002253 (has connecting branch)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002253 "inverse of connecting branch of")
+AnnotationAssertion(obo:RO_0004036 obo:RO_0002253 obo:BFO_0000051)
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002253 obo:RO_0002259)
 AnnotationAssertion(rdfs:label obo:RO_0002253 "has connecting branch")
 SubObjectPropertyOf(obo:RO_0002253 obo:RO_0002375)
@@ -3295,6 +3302,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0002375 "A relationship that holds be
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002375 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002375 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving branching relationships")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002375 "This relation can be used for geographic features (e.g. rivers) as well as anatomical structures (plant branches and roots, leaf veins, animal veins, arteries, nerves)")
+AnnotationAssertion(obo:RO_0004036 obo:RO_0002375 obo:BFO_0000050)
 AnnotationAssertion(rdfs:label obo:RO_0002375 "in branching relationship with"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002375 <http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png>)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002375 "https://github.com/obophenotype/uberon/issues/170"^^xsd:anyURI)
