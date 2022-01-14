@@ -650,10 +650,28 @@ SubAnnotationPropertyOf(obo:RO_0001900 obo:RO_0002422)
 
 # Annotation Property: obo:RO_0002027 (modifies externally defined OWL Entity)
 
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0002027 "'geographic region' subClassOf 'material entity'   @ 'modifies externally defined OWL Entity' true
+
+more formally:
+
+owl:Axiom ;
+  owl:annotatedSource GAZ:00000448 ; # geographic region
+  owl:annotatedProperty rdfs:subClassOf ;
+  owl:annotatedTarget BFO:0000040 ; # material entity
+  RO:0002027 true;  # modifies externally defined OWL Entity")
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002027 "This axiom alters the meaning of an OWL Entity, but has not been officially sanctioned by the editors of the ontology to which this entity belongs.")
 AnnotationAssertion(oboInOwl:created_by obo:RO_0002027 <http://orcid.org/0000-0002-7073-9172>)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0002027 "2022-01-14T11:43:02Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:comment obo:RO_0002027 "Justification:  It is sometimes useful, for local purposes, to modify/restrict the meanings of imported OWL Classes or Properties via the addition of logical axioms.  In such cases, tagging these axioms using a standard annotation property allows downstream users to filter out such axioms from their imports.  Without this ability to filter, it can be difficult to avoid inconsistencies arising from imports.  
+
+Examples: 
+1. Two ontologies classify a term from a third ontology using different, disjoint upper ontology classes. e.g. FOODON and OBI and used to classify GAZ:Geographic entity as BFO: Material entity and site respectively.
+2. An ontology injects an upper level classification on a class from an imported ontology that clashes with a domain specification on a relation used to define subclasses of that class , e.g. OBI used to classify GO:Molecular_Function under BFO:function.  But GO uses RO:has_participant (domain: occurrent) to define molecular functions.  function is disjointWith occurrent.
+
+Note: There is no implication in using this annotation that the original ontology is more correct than the modified version.")
 AnnotationAssertion(rdfs:label obo:RO_0002027 "modifies externally defined OWL Entity")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002027 "https://github.com/OBOFoundry/OBOFoundry.github.io/issues/1443")
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002027 "https://github.com/oborel/obo-relations/issues/550")
 AnnotationPropertyRange(obo:RO_0002027 xsd:boolean)
 AnnotationPropertyDomain(obo:RO_0002027 owl:Axiom)
 
