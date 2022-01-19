@@ -23,8 +23,8 @@ Creating a new issue in the tracker allows the RO editors and community to discu
 ## RO mailing list
 Visit http://groups.google.com/group/obo-relations to join the (low-traffic) RO mailing list.
 
-## RO meetings
-Currently (January 2022) we meet once every 8 weeks on Tuesdays at 9am PT / 12pm ET. These meetings are open to the community. Please join the [RO mailing list](http://groups.google.com/group/obo-relations) to be informed about upcoming meetings.
+## RO working group meetings
+Currently (January 2022) the RO working group meets once every 8 weeks on Tuesdays at 9am PT / 12pm ET. These meetings are open to the community. Please join the [RO mailing list](http://groups.google.com/group/obo-relations) to be informed about upcoming meetings.
 
 ## 
 
