@@ -541,13 +541,20 @@ Declaration(ObjectProperty(obo:RO_0014001))
 Declaration(ObjectProperty(obo:RO_0015001))
 Declaration(ObjectProperty(obo:RO_0015002))
 Declaration(ObjectProperty(obo:RO_0015003))
+Declaration(ObjectProperty(obo:RO_0015006))
+Declaration(ObjectProperty(obo:RO_0015007))
+Declaration(ObjectProperty(obo:RO_0015008))
+Declaration(ObjectProperty(obo:RO_0015009))
+Declaration(ObjectProperty(obo:RO_0015010))
+Declaration(ObjectProperty(obo:RO_0015011))
+Declaration(ObjectProperty(obo:RO_0015012))
 Declaration(ObjectProperty(obo:RO_0016001))
 Declaration(ObjectProperty(obo:RO_0016002))
 Declaration(ObjectProperty(obo:RO_0017001))
-Declaration(ObjectProperty(obo:RO_0019501))
 Declaration(ObjectProperty(obo:RO_0019000))
 Declaration(ObjectProperty(obo:RO_0019001))
 Declaration(ObjectProperty(obo:RO_0019002))
+Declaration(ObjectProperty(obo:RO_0019501))
 Declaration(ObjectProperty(obo:RO_0040035))
 Declaration(ObjectProperty(obo:RO_0040036))
 Declaration(DataProperty(obo:RO_0002029))
@@ -6169,6 +6176,52 @@ AnnotationAssertion(rdfs:label obo:RO_0015003 "subcluster of")
 SubObjectPropertyOf(obo:RO_0015003 obo:BFO_0000050)
 TransitiveObjectProperty(obo:RO_0015003)
 
+# Object Property: obo:RO_0015006 (different in magnitude relative to)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015006 "q1 different_in_magnitude_relative_to q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.")
+AnnotationAssertion(rdfs:label obo:RO_0015006 "different in magnitude relative to")
+ObjectPropertyDomain(obo:RO_0015006 obo:PATO_0000001)
+ObjectPropertyRange(obo:RO_0015006 obo:PATO_0000001)
+
+# Object Property: obo:RO_0015007 (increased in magnitude relative to)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015007 "q1 increased_in_magnitude_relative_to q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.")
+AnnotationAssertion(rdfs:comment obo:RO_0015007 "This relation is used to determine the 'directionality' of relative qualities such as 'increased strength', relative to the parent type, 'strength'."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0015007 "increased in magnitude relative to")
+SubObjectPropertyOf(obo:RO_0015007 obo:RO_0015006)
+ObjectPropertyDomain(obo:RO_0015007 obo:PATO_0000001)
+ObjectPropertyRange(obo:RO_0015007 obo:PATO_0000001)
+
+# Object Property: obo:RO_0015008 (decreased in magnitude relative to)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015008 "q1 decreased_in_magnitude_relative_to q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.")
+AnnotationAssertion(rdfs:comment obo:RO_0015008 "This relation is used to determine the 'directionality' of relative qualities such as 'decreased strength', relative to the parent type, 'strength'."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0015008 "decreased in magnitude relative to")
+SubObjectPropertyOf(obo:RO_0015008 obo:RO_0015006)
+ObjectPropertyDomain(obo:RO_0015008 obo:PATO_0000001)
+ObjectPropertyRange(obo:RO_0015008 obo:PATO_0000001)
+
+# Object Property: obo:RO_0015009 (similar in magnitude relative to)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015009 "q1 similar_in_magnitude_relative_to q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.")
+AnnotationAssertion(rdfs:label obo:RO_0015009 "similar in magnitude relative to")
+
+# Object Property: obo:RO_0015010 (has relative magnitude)
+
+AnnotationAssertion(rdfs:label obo:RO_0015010 "has relative magnitude")
+
+# Object Property: obo:RO_0015011 (has cross section)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015011 "s3 has_cross_section s3 if and only if : there exists some 2d plane that intersects the bearer of s3, and the impression of s3 upon that plane has shape quality s2.")
+AnnotationAssertion(rdfs:comment obo:RO_0015011 "Example: a spherical object has the quality of being spherical, and the spherical quality has_cross_section round."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0015011 "has cross section")
+
+# Object Property: obo:RO_0015012 (reciprocal of)
+
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://orcid.org/0000-0002-6601-2165") obo:IAO_0000115 obo:RO_0015012 "q1 reciprocal_of q2 if and only if : q1 and q2 are relational qualities and a phenotype e q1 e2 mutually implies a phenotype e2 q2 e.")
+AnnotationAssertion(rdfs:comment obo:RO_0015012 "There are frequently two ways to state the same thing: we can say 'spermatocyte lacks asters' or 'asters absent from spermatocyte'. In this case the quality is 'lacking all parts of type' - it is a (relational) quality of the spermatocyte, and it is with respect to instances of 'aster'. One of the popular requirements of PATO is that it continue to support 'absent', so we need to relate statements which use this quality to the 'lacking all parts of type' quality."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0015012 "reciprocal of")
+
 # Object Property: obo:RO_0016001 (has phenotype or disease)
 
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0016001 "Do not use this relation directly. It is intended as a grouping for a set of relations regarding presentation of phenotypes and disease.")
@@ -6197,15 +6250,6 @@ AnnotationAssertion(obo:IAO_0000232 obo:RO_0017001 "See github ticket https://gi
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0017001 "2021-11-08")
 AnnotationAssertion(rdfs:label obo:RO_0017001 "utilizes"@en)
 
-
-# Object Property: obo:RO_0019501 (confers susceptibility to condition)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0019501 "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition.")
-AnnotationAssertion(oboInOwl:created_by obo:RO_0019501 <http://orcid.org/0000-0002-4142-7153>)
-AnnotationAssertion(rdfs:label obo:RO_0019501 "confers susceptibility to condition")
-SubObjectPropertyOf(obo:RO_0019501 obo:RO_0003304)
-
-
 # Object Property: obo:RO_0019000 (regulates characteristic)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0019000 "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C.")
@@ -6228,6 +6272,13 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0019002 "A relationship that holds be
 AnnotationAssertion(dc:contributor obo:RO_0019002 <https://orcid.org/0000-0002-8688-6599>)
 AnnotationAssertion(rdfs:label obo:RO_0019002 "negatively regulates characteristic")
 SubObjectPropertyOf(obo:RO_0019002 obo:RO_0019000)
+
+# Object Property: obo:RO_0019501 (confers susceptibility to condition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0019501 "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0019501 <http://orcid.org/0000-0002-4142-7153>)
+AnnotationAssertion(rdfs:label obo:RO_0019501 "confers susceptibility to condition")
+SubObjectPropertyOf(obo:RO_0019501 obo:RO_0003304)
 
 # Object Property: obo:RO_0040035 (disease relationship)
 
