@@ -25,7 +25,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2022-01-20" xsd:string
+property_value: owl:versionInfo "2022-02-07" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -3504,6 +3504,49 @@ name: subcluster_of
 def: "A relation between a group and another group it is part of but does not fully constitute." []
 is_transitive: true
 is_a: BFO:0000050 ! part of
+
+[Typedef]
+id: RO:0015004
+name: has_characterizing_marker_set
+def: "A relation that applies between a cell type and a set of markers that can be used to uniquely identify that cell type." []
+synonym: "has marker gene combination" EXACT []
+synonym: "has marker signature set" EXACT []
+
+[Typedef]
+id: RO:0015006
+name: different_in_magnitude_relative_to
+def: "q1 different_in_magnitude_relative_to q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015007
+name: increased_in_magnitude_relative_to
+def: "q1 increased_in_magnitude_relative_to q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015008
+name: decreased_in_magnitude_relative_to
+def: "q1 decreased_in_magnitude_relative_to q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015009
+name: similar_in_magnitude_relative_to
+def: "q1 similar_in_magnitude_relative_to q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015010
+name: has_relative_magnitude
+
+[Typedef]
+id: RO:0015011
+name: has_cross_section
+def: "s3 has_cross_section s3 if and only if : there exists some 2d plane that intersects the bearer of s3, and the impression of s3 upon that plane has shape quality s2." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015012
+name: reciprocal_of
+def: "q1 reciprocal_of q2 if and only if : q1 and q2 are relational qualities and a phenotype e q1 e2 mutually implies a phenotype e2 q2 e." [https://orcid.org/0000-0002-6601-2165]
 
 [Typedef]
 id: RO:0016001
