@@ -1,8 +1,14 @@
 OBO=http://purl.obolibrary.org/obo
+ONT=ro
+ONTBASE=$(OBO)/$(ONT)
+
 SRC=ro-edit.owl
-ROBOT=robot
+CATALOG=catalog-v001.xml
+ROBOT=robot --catalog $(CATALOG)
 REPORT_FAIL_ON = ERROR
 RELEASEDATE ?= `date +%Y-%m-%d`
+ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(RELEASEDATE)/$@ --annotation owl:versionInfo $(RELEASEDATE)
+
 
 ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
 ONTS= $(ONTS_TO_BUILD) rohom.owl
@@ -18,12 +24,14 @@ test:
 
 build: ro.owl ro.obo ro.json  all_subsets
 
-release: $(ONTS_TO_BUILD)
+release: all $(ONTS_TO_BUILD)
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 ro.owl: ro-edit.owl core.owl temporal-intervals.owl validate-using-oort
-	owltools --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+	$(ROBOT) reason -i $< --axiom-generators "SubClass SubObjectProperty ObjectPropertyRange ObjectPropertyDomain" \
+		annotate --ontology-iri $(OBO)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
+
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 # turtle file is merged, for querying via arq
