@@ -22,8 +22,13 @@
 
 # new one proposed in https://github.com/oborel/obo-relations/pull/522
 # TODO: allow contributor to 'flow through' all named entities by default
-- id: RO:0018002
-  conforms_to: ObjectPropertyDefinedByInteractionProcess
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018001
+    label: is myristoyltransferase activity
+    rolification_of: GO:0019107
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018002
   label: myristoylates
   definition: >-
     A molecularly-interacts-with relationship between two entities,
@@ -36,10 +41,24 @@
     definition: inverse of myristoylates
     contributor: orcid:0000-0003-4423-4370
   subject_to_process_property: RO:0002215  ## capable of
-  uses_rolified_property:
-    id: RO:0018001
-    label: is myristoyltransferase activity
-    rolification_of: GO:0019107
-    contributor: orcid:0000-0003-4423-4370
   process_to_object_property: RO:0002400   ## has direct input
-
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018004
+    label: is palmitoyltransferase activity
+    rolification_of: GO:0016409
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018005
+  label: palmitoylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a palmitoyltransferase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018006
+    label: palmitoylated by
+    definition: inverse of palmitoylates
+    contributor: orcid:0000-0003-4423-4370
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
