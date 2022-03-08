@@ -1,5 +1,7 @@
 # Reflexivity in RO
 
+We first introduce a pattern used in RO for combination with property chains, then we discuss the general treatment of reflexivity in RO, and how relations in RO may be *locally* reflexive but are rarely *globally* reflexive.
+
 ## Defining Property Chains involving Reflexivity
 
 When defining property chains over _R_ and _R2_ we typically name this according to the composition and include an axiom:
@@ -37,19 +39,44 @@ with two property expressions or assertions.
 The placement of the base form as a child of the parent is justified
 via the local reflexivity of the 2nd argument.
 
-## Local Reflexivity
+## Reflexivity
 
 In many formal treatments of relations, the Reflexivity characteristic
 is frequently used. For example, in mereology, 'part of' is frequently
 characterized as reflexive. This can seem confusing when compared
 with everyday usage (no one typically considers an object to be part
 of itself). However, it is convenient from the point of view of
-mathematical formulation. A 'proper R' sub-relation is often
-introduced, e.g. 'proper part of'.
+mathematical formulation.
 
-(We typically do not include a 'proper' form of the relation. This is
+For example, it is common to have a property chain axiom:
+
+* `overlaps <- has-part o part-of`
+
+If has-part and part-of are *not* reflexive then this inference will be incomplete.
+We can get around this by adding individual subPropertyOf axioms:
+
+* `has-part -> overlaps`
+* `part-of` -> overlaps`
+
+However, the rules are easier to maintain for the reflexive case.
+
+Another case is declaring two structures to have no parts in common:
+
+* `(part-of some X) disjointWith (part-of some Y)`
+
+This is also incomplete if reflexivity is not declared.
+
+## Proper-X relations
+
+Some ontologies introduce a relation `proper_R` to mark the non-reflexive case of R.
+
+E.g. proper-part-of.
+
+In RO, we typically do not include a 'proper' form of the relation. This is
 because it inflates the ontology, and complicates reasoning. Also, it
-does not actually add information or provide real utility or intuition).
+does not actually add information or provide real utility or intuition.
+
+## Local Reflexivity
 
 We rarely if ever declare a relation to be reflexive. Reflexivity is
 incompatible with domain and range assertions. Consider:
