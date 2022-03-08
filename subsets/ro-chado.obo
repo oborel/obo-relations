@@ -9,7 +9,7 @@ remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 311 Logical Axioms: 69]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 310 Logical Axioms: 68]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
@@ -25,6 +25,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
+property_value: owl:versionInfo "2022-02-07" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -1101,6 +1102,7 @@ is_a: BFO:0000050 ! part of
 id: RO:0002252
 name: connecting_branch_of
 def: "b connecting-branch-of s iff b is connected to s, and there exists some tree-like structure t such that the mereological sum of b plus s is either the same as t or a branching-part-of t." []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 inverse_of: RO:0002253 ! has connecting branch
 
@@ -1533,19 +1535,20 @@ is_a: RO:0002156 ! derived by descent from
 id: RO:0002375
 name: in_branching_relationship_with
 def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
-is_a: BFO:0000050 ! part of
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
 id: RO:0002376
 name: tributary_of
 def: "x tributary_of y if and only if x a channel for the flow of a substance into y, where y is larger than x. If x and y are hydrographic features, then y is the main stem of a river, or a lake or bay, but not the sea or ocean. If x and y are anatomical, then y is a vein." []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
 id: RO:0002377
 name: distributary_of
 def: "x distributary_of y if and only if x is capable of channeling the flow of a substance to y, where y channels less of the substance than x" []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -1575,6 +1578,7 @@ inverse_of: RO:0002569 ! has branching part
 id: RO:0002381
 name: main_stem_of
 def: "x main_stem_of y if y is a branching structure and x is a channel that traces a linear path through y, such that x has higher capacity than any other such path." []
+is_a: BFO:0000050 ! part of
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -2493,6 +2497,7 @@ is_a: RO:0002567 ! biomechanically related to
 id: RO:0002569
 name: has_branching_part
 def: "inverse of branching part of" []
+is_a: BFO:0000051 ! has part
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -2990,12 +2995,14 @@ is_a: RO:0004010 ! is genetic basis for condition
 id: RO:0004013
 name: is_causal_germline_mutation_in
 def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+is_a: RO:0003303 ! causes condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
 id: RO:0004014
 name: is_causal_somatic_mutation_in
 def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition but that cannot be passed on to offspring[modified from orphanet]." []
+is_a: RO:0003303 ! causes condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
@@ -3008,6 +3015,7 @@ is_a: RO:0004010 ! is genetic basis for condition
 id: RO:0004016
 name: is_causal_germline_mutation_partially_giving_rise_to
 def: "Relates a gene to condition, such that a mutation in this gene partially contributes to the presentation of this condition[modified from orphanet]." []
+is_a: RO:0003304 ! contributes to condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
@@ -3145,13 +3153,23 @@ is_a: RO:0002418 ! causally upstream of or within
 [Typedef]
 id: RO:0004096
 name: DEPRECATED_inheres_in
-inverse_of: RO:0004097 ! DEPRECATED bearer of
 is_obsolete: true
 
 [Typedef]
 id: RO:0004097
 name: DEPRECATED_bearer_of
 is_obsolete: true
+
+[Typedef]
+id: RO:0007000
+name: has_driver
+def: "A relation between two entities, in which one of the entities is any natural or human-influenced factor that directly or indirectly causes a change in the other entity." []
+
+[Typedef]
+id: RO:0007001
+name: has_disease_driver
+def: "A relation between an entity and a disease of a host, in which the entity is not part of the host itself, and the condition results in pathological processes." []
+is_a: RO:0007000 ! has driver
 
 [Typedef]
 id: RO:0008501
@@ -3488,6 +3506,49 @@ is_transitive: true
 is_a: BFO:0000050 ! part of
 
 [Typedef]
+id: RO:0015004
+name: has_characterizing_marker_set
+def: "A relation that applies between a cell type and a set of markers that can be used to uniquely identify that cell type." []
+synonym: "has marker gene combination" EXACT []
+synonym: "has marker signature set" EXACT []
+
+[Typedef]
+id: RO:0015006
+name: different_in_magnitude_relative_to
+def: "q1 different_in_magnitude_relative_to q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015007
+name: increased_in_magnitude_relative_to
+def: "q1 increased_in_magnitude_relative_to q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015008
+name: decreased_in_magnitude_relative_to
+def: "q1 decreased_in_magnitude_relative_to q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015009
+name: similar_in_magnitude_relative_to
+def: "q1 similar_in_magnitude_relative_to q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015010
+name: has_relative_magnitude
+
+[Typedef]
+id: RO:0015011
+name: has_cross_section
+def: "s3 has_cross_section s3 if and only if : there exists some 2d plane that intersects the bearer of s3, and the impression of s3 upon that plane has shape quality s2." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015012
+name: reciprocal_of
+def: "q1 reciprocal_of q2 if and only if : q1 and q2 are relational qualities and a phenotype e q1 e2 mutually implies a phenotype e2 q2 e." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
 id: RO:0016001
 name: has_phenotype_or_disease
 
@@ -3502,6 +3563,34 @@ id: RO:0017001
 name: utilizes
 def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
 holds_over_chain: RO:0002215 RO:0002233
+
+[Typedef]
+id: RO:0019000
+name: regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
+holds_over_chain: RO:0002211 RO:0019000
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0019001
+name: positively_regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) positively regulates characteristic (C) iff: P results in an increase in the intensity or magnitude of C." []
+holds_over_chain: RO:0002213 RO:0019001
+is_a: RO:0019000 ! regulates characteristic
+
+[Typedef]
+id: RO:0019002
+name: negatively_regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) negatively regulates characteristic (C) iff: P results in a decrease in the intensity or magnitude of C." []
+holds_over_chain: RO:0002212 RO:0019001
+holds_over_chain: RO:0002213 RO:0019002
+is_a: RO:0019000 ! regulates characteristic
+
+[Typedef]
+id: RO:0019501
+name: confers_susceptibility_to_condition
+def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
+is_a: RO:0003304 ! contributes to condition
 
 [Typedef]
 id: RO:0040035

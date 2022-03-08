@@ -24,7 +24,7 @@ test:
 
 build: ro.owl ro.obo ro.json  all_subsets
 
-release: $(ONTS_TO_BUILD)
+release: all $(ONTS_TO_BUILD)
 	cp -pr catalog-v001.xml $(ONTS) subsets ../..
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
