@@ -533,6 +533,9 @@ classes:
       process_to_object_property:
         range: ObjectProperty
         domain: ObjectProperty
+      opposite_of:
+        range: ObjectProperty
+        domain: ObjectProperty
       uses_rolified_property:
         range: RolifiedObjectProperty
         domain: ObjectProperty
@@ -547,6 +550,7 @@ classes:
       owl.template: |-
         SubObjectPropertyOf( {{uses_rolified_property.id}} RO:0002564 )  ## molecular interaction helper relation
         AnnotationAssertion( IAO:0000115 {{uses_rolified_property.id}} "Helper relation for OWL definition of {{id}} {{label}}")
+        AnnotationAssertion( RO:0002604 {{id}} {{opposite_of}})
         SubObjectPropertyOf(
            ObjectPropertyChain({{subject_to_process_property}}
                                {{uses_rolified_property.id}}
