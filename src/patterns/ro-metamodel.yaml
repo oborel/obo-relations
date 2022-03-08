@@ -19,6 +19,7 @@ prefixes:
   OIO: http://www.geneontology.org/formats/oboInOwl#
   skos: http://www.w3.org/2004/02/skos/core#
   dcterms: http://purl.org/dc/terms/
+  orcid: https://orcid.org/
 
 annotations:
   logo: https://oborel.github.io/obo-relations/RO-logo.png
@@ -62,6 +63,11 @@ slots:
     exact_mappings:
       - skos:definition
     domain: NamedThing
+  contributor:
+    slot_uri: dcterms:contributor
+    annotations:
+      owl: AnnotationProperty, AnnotationAssertion
+    range: Agent
   exact_match:
     slot_uri: skos:exactMatch
     range: NamedThing
@@ -88,7 +94,7 @@ slots:
     slot_uri: dcterms:conformsTo
     multivalued: false
     designates_type: true
-    range: uriorcurie
+    range: string
     annotations:
       owl.fstring: |-
         AnnotationAssertion( dcterms:conformsTo {id} rometa:{V} )
@@ -166,6 +172,10 @@ slots:
   participant_role:
     range: RoleClass
     inlined: true
+  has_intermediary_of_type:
+    #required: true
+    range: Class
+    description: A class that is the type of the entity that sits between a property chain of length 2
 
   relational_logical_characteristic:
     abstract: true
@@ -270,7 +280,16 @@ classes:
       - definition
       - in_subset
       - exact_match
+      - contributor
       - conforms_to
+  NamedIndividual:
+    is_a: NamedThing
+    class_uri: owl:NamedIndividual
+    annotations:
+      owl: NamedIndividual
+  Agent:
+    is_a: NamedIndividual
+    class_uri: prov:Agent
   Class:
     class_uri: owl:Class
     is_a: NamedThing
@@ -431,6 +450,26 @@ classes:
     todos:
       - this currently assumes chains of length 2
       - swrl
+  DefinedTransitiveObjectPropertyByIntermediary:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is a shortcut for two hops via some intermediary
+    slots:
+      - has_intermediary_of_type
+    slot_usage:
+      genus:
+        required: true
+        description: The relation that is specialized, e.g. has-part
+    examples:
+      - value: has plasma membrane part
+        description: has plasma membrane part is a has-part relationship with a plasma membrane as intermediary
+    annotations:
+      common_logic: |-
+        (forall (i j)
+           (if ({{ id }} i j)
+               (exists (k)
+                   (and ({{ has intermediary of type }} k)
+                        ({{ id }} i k)
+                        ({{ id }} k j))))
   DefinedObjectPropertyByChainToReflexive:
     is_a: DefinedObjectPropertyByChain
     description: >-
@@ -466,6 +505,20 @@ classes:
       - value: has input
     slots:
       - participant_role
+  DefinedObjectPropertyByIntersection:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by the intersection of its superproperties
+    slot_usage:
+      subproperty_of:
+        multivalued: true
+    examples:
+      - value: existence starts and ends during
+    annotations:
+      swrl: |-
+        {% for p in subproperty_of %}
+        {{ p }}(?i, ?j){% if not loop.last %},{% endif %}
+        {% endfor %}
+        -> {{ id }}(?i, ?j)
   ObjectPropertyDefinedByInteractionProcess:
     is_a: DefinedObjectProperty
     description: |-
@@ -492,7 +545,8 @@ classes:
     annotations:
       depiction: https://raw.githubusercontent.com/oborel/obo-relations/master/docs/images/go-interaction-relation-example.png
       owl.template: |-
-        SubObjectPropertyOf( {{uses_rolified_property.id}} RO:0002564 )
+        SubObjectPropertyOf( {{uses_rolified_property.id}} RO:0002564 )  ## molecular interaction helper relation
+        AnnotationAssertion( IAO:00000115 {{uses_rolified_property.id}} "Helper relation for OWL definition of {{id}} {{label}}")
         SubObjectPropertyOf(
            ObjectPropertyChain({{subject_to_process_property}}
                                {{uses_rolified_property.id}}
