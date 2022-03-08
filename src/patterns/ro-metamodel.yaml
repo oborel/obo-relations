@@ -152,6 +152,12 @@ slots:
     domain: ObjectProperty
     range: ObjectProperty
     description: connects an ObjectProperty to its inverse
+  opposite_of:
+    slot_uri: RO:0002604
+    inlined: false
+    domain: ObjectProperty
+    range: ObjectProperty
+    description: connects an ObjectProperty to its opposite
   has_transitive_form:
     slot_uri: owl:inverseOf
     inlined: true
@@ -336,6 +342,7 @@ classes:
       - locally_reflexive
       - has_transitive_form
       - subproperty_of_pairwise_chain
+      - opposite_of
     slot_usage:
       genus:
         range: ObjectProperty
@@ -358,6 +365,9 @@ classes:
       owl.template: |-
         {% if inverse_of and not inverse_of.definition %}
         AnnotationAssertion( IAO:0000115 {{inverse_of.id}} "Inverse of {{id}} {{label}}")
+        {% endif %}
+        {% if opposite_of %}
+        AnnotationAssertion( RO:0002604 {{id}} {{opposite_of}})
         {% endif %}
         {% for chain in subproperty_of_pairwise_chain %}
             SubObjectPropertyOf(
