@@ -27,14 +27,11 @@ jobs:
           curl https://raw.githubusercontent.com/oborel/obo-relations/master/src/ontology/ro-edit.owl > src/ontology/ro-edit.owl
       - name: Run merge templates
         run: cd src/ontology && sh run.sh make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
-      - name: Commit files
-        run: |
-          git add src/ontology/ro-edit.owl
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Update ro-edit.owl"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ GitHub.head_ref }}
+          commit-message: Merge template to ro-edit
+          title: 'Merge template to ro-edit'
+          body: |
+            Merges the contents of src/templates/new_relations.tsv to ro-edit
+          assignees: matentzn
