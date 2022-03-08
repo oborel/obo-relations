@@ -21,6 +21,10 @@ At this stage there is a lot that could potentially go wrong. There is no clear 
 
 At this stage we assume the person using this workflow is relatively advanced and can debug any such issues. We will iterate this and make the processes easier over time.
 
+## Editing the templates
+
+The template file is ro-metadata.yaml. Currently editing this is considered advanced. Please consult [linkml-owl](https://linkml.io/linkml-owl/). More docs will be added on this process over time.
+
 ## TODO
 
 How should this best be integrated into the general ontology workflow? Eventually everything should be in the ODK container such that any editor can just edit the source files and run Make
