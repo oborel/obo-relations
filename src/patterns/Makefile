@@ -27,6 +27,9 @@ ro-edit-stage-%.ofn: $(ONT_EDIT) ro-%.owl
 diff-%.md: ro-edit-stage-%.ofn $(ONT_EDIT)
 	robot diff --left  $(ONT_EDIT) --right $< -o $@
 
+file-diff-%.txt: $(ONT_EDIT) ro-edit-stage-%.ofn
+	diff $^ > $@
+
 
 TEMP_PATH = $(HOME)/repos/linkml-owl/
 gendocs: $(METAMODEL)
