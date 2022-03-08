@@ -9,7 +9,7 @@ remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 311 Logical Axioms: 69]
+remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 310 Logical Axioms: 68]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
 remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
@@ -25,6 +25,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
+property_value: owl:versionInfo "2022-02-07" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -333,8 +334,8 @@ holds_over_chain: RO:0002211 RO:0002313
 
 [Typedef]
 id: RO:0002012
-name: occurent_part_of
-def: "A part of relation that applies only between occurents." []
+name: occurrent_part_of
+def: "A part of relation that applies only between occurrents." []
 is_a: BFO:0000050 ! part of
 is_a: RO:0002418 ! causally upstream of or within
 
@@ -766,6 +767,7 @@ is_a: BFO:0000051 ! has part
 id: RO:0002200
 name: has_phenotype
 def: "A relationship that holds between a biological entity and a phenotype. Here a phenotype is construed broadly as any kind of quality of an organism part, a collection of these qualities, or a change in quality or qualities (e.g. abnormally increased temperature). The subject of this relationship can be an organism (where the organism has the phenotype, i.e. the qualities inhere in parts of this organism), a genomic entity such as a gene or genotype (if modifications of the gene or the genotype causes the phenotype), or a condition such as a disease (such that if the condition inheres in an organism, then the organism has the phenotype)." []
+is_a: RO:0016001 ! has phenotype or disease
 inverse_of: RO:0002201 ! phenotype of
 
 [Typedef]
@@ -1010,7 +1012,7 @@ inverse_of: RO:0002352 ! input of
 [Typedef]
 id: RO:0002234
 name: has_output
-def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present at the beginning of p." []
+def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." []
 holds_over_chain: RO:0002230 RO:0002234
 is_a: RO:0000057 ! has participant
 inverse_of: RO:0002353 ! output of
@@ -1100,6 +1102,7 @@ is_a: BFO:0000050 ! part of
 id: RO:0002252
 name: connecting_branch_of
 def: "b connecting-branch-of s iff b is connected to s, and there exists some tree-like structure t such that the mereological sum of b plus s is either the same as t or a branching-part-of t." []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 inverse_of: RO:0002253 ! has connecting branch
 
@@ -1262,7 +1265,7 @@ id: RO:0002313
 name: transports_or_maintains_localization_of
 def: "Holds between p and c when p is a localization process (localization covers maintenance of localization as well as its establishment)  and the outcome of this process is to regulate the localization of c." []
 is_a: RO:0002337 ! related via localization to
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002314
@@ -1417,7 +1420,7 @@ is_a: RO:0002344 ! results in transport to from or in
 id: RO:0002343
 name: results_in_growth_of
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002344
@@ -1480,7 +1483,7 @@ id: RO:0002355
 name: results_in_structural_organization_of
 def: "A relationship between a process and an anatomical entity such that the process contributes to the act of creating the structural organization of the anatomical entity." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002356
@@ -1532,19 +1535,20 @@ is_a: RO:0002156 ! derived by descent from
 id: RO:0002375
 name: in_branching_relationship_with
 def: "A relationship that holds between two material entities in a system of connected structures, where the branching relationship holds based on properties of the connecting network." []
-is_a: BFO:0000050 ! part of
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
 id: RO:0002376
 name: tributary_of
 def: "x tributary_of y if and only if x a channel for the flow of a substance into y, where y is larger than x. If x and y are hydrographic features, then y is the main stem of a river, or a lake or bay, but not the sea or ocean. If x and y are anatomical, then y is a vein." []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
 id: RO:0002377
 name: distributary_of
 def: "x distributary_of y if and only if x is capable of channeling the flow of a substance to y, where y channels less of the substance than x" []
+is_a: RO:0002170 ! connected to
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -1574,6 +1578,7 @@ inverse_of: RO:0002569 ! has branching part
 id: RO:0002381
 name: main_stem_of
 def: "x main_stem_of y if y is a branching structure and x is a channel that traces a linear path through y, such that x has higher capacity than any other such path." []
+is_a: BFO:0000050 ! part of
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -2404,7 +2409,7 @@ id: RO:0002552
 name: results_in_ending_of
 def: "p results in the end of s if p results in a change of state in s whereby s either ceases to exist, or s becomes functionally impaired or s has its fate committed such that it is put on a path to be degraded." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002553
@@ -2468,7 +2473,7 @@ is_a: RO:0002563 ! interaction relation helper property
 id: RO:0002565
 name: results_in_movement_of
 def: "Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c" []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002566
@@ -2492,6 +2497,7 @@ is_a: RO:0002567 ! biomechanically related to
 id: RO:0002569
 name: has_branching_part
 def: "inverse of branching part of" []
+is_a: BFO:0000051 ! has part
 is_a: RO:0002375 ! in branching relationship with
 
 [Typedef]
@@ -2553,7 +2559,7 @@ is_a: RO:0002595 ! causal relation between material entity and a process
 id: RO:0002585
 name: results_in_closure_of
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002586
@@ -2594,7 +2600,7 @@ is_a: RO:0002592 ! results in organization of
 id: RO:0002592
 name: results_in_organization_of
 def: "p results in organization of c iff p results in the assembly, arrangement of constituent parts, or disassembly of c" []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002593
@@ -2989,12 +2995,14 @@ is_a: RO:0004010 ! is genetic basis for condition
 id: RO:0004013
 name: is_causal_germline_mutation_in
 def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition and that can be passed on to offspring[modified from orphanet]." []
+is_a: RO:0003303 ! causes condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
 id: RO:0004014
 name: is_causal_somatic_mutation_in
 def: "Relates a gene to condition, such that a mutation in this gene is sufficient to produce the condition but that cannot be passed on to offspring[modified from orphanet]." []
+is_a: RO:0003303 ! causes condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
@@ -3007,6 +3015,7 @@ is_a: RO:0004010 ! is genetic basis for condition
 id: RO:0004016
 name: is_causal_germline_mutation_partially_giving_rise_to
 def: "Relates a gene to condition, such that a mutation in this gene partially contributes to the presentation of this condition[modified from orphanet]." []
+is_a: RO:0003304 ! contributes to condition
 is_a: RO:0004010 ! is genetic basis for condition
 
 [Typedef]
@@ -3092,7 +3101,7 @@ is_a: RO:0040035 ! disease relationship
 
 [Typedef]
 id: RO:0004030
-name: disease_arises_from_structure
+name: disease_arises_from_alteration_in_structure
 def: "A relationship between a disease and an anatomical structure where the material basis of the disease is some pathological change in the structure. Anatomical structure includes cellular and sub-cellular entities, such as chromosome and organelles." []
 is_a: RO:0004019 ! disease has basis in
 
@@ -3144,13 +3153,23 @@ is_a: RO:0002418 ! causally upstream of or within
 [Typedef]
 id: RO:0004096
 name: DEPRECATED_inheres_in
-inverse_of: RO:0004097 ! DEPRECATED bearer of
 is_obsolete: true
 
 [Typedef]
 id: RO:0004097
 name: DEPRECATED_bearer_of
 is_obsolete: true
+
+[Typedef]
+id: RO:0007000
+name: has_driver
+def: "A relation between two entities, in which one of the entities is any natural or human-influenced factor that directly or indirectly causes a change in the other entity." []
+
+[Typedef]
+id: RO:0007001
+name: has_disease_driver
+def: "A relation between an entity and a disease of a host, in which the entity is not part of the host itself, and the condition results in pathological processes." []
+is_a: RO:0007000 ! has driver
 
 [Typedef]
 id: RO:0008501
@@ -3388,7 +3407,7 @@ is_a: RO:0012004 ! is small molecule regulator
 id: RO:0012007
 name: results_in_adhesion_of
 def: "The relationship that links anatomical entities with a process that results in the adhesion of two or more entities via the non-covalent interaction of molecules expressed in, located in, and/or adjacent to, those entities." []
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0012008
@@ -3487,13 +3506,100 @@ is_transitive: true
 is_a: BFO:0000050 ! part of
 
 [Typedef]
+id: RO:0015004
+name: has_characterizing_marker_set
+def: "A relation that applies between a cell type and a set of markers that can be used to uniquely identify that cell type." []
+synonym: "has marker gene combination" EXACT []
+synonym: "has marker signature set" EXACT []
+
+[Typedef]
+id: RO:0015006
+name: different_in_magnitude_relative_to
+def: "q1 different_in_magnitude_relative_to q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015007
+name: increased_in_magnitude_relative_to
+def: "q1 increased_in_magnitude_relative_to q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015008
+name: decreased_in_magnitude_relative_to
+def: "q1 decreased_in_magnitude_relative_to q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+is_a: RO:0015006 ! different in magnitude relative to
+
+[Typedef]
+id: RO:0015009
+name: similar_in_magnitude_relative_to
+def: "q1 similar_in_magnitude_relative_to q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015010
+name: has_relative_magnitude
+
+[Typedef]
+id: RO:0015011
+name: has_cross_section
+def: "s3 has_cross_section s3 if and only if : there exists some 2d plane that intersects the bearer of s3, and the impression of s3 upon that plane has shape quality s2." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0015012
+name: reciprocal_of
+def: "q1 reciprocal_of q2 if and only if : q1 and q2 are relational qualities and a phenotype e q1 e2 mutually implies a phenotype e2 q2 e." [https://orcid.org/0000-0002-6601-2165]
+
+[Typedef]
+id: RO:0016001
+name: has_phenotype_or_disease
+
+[Typedef]
+id: RO:0016002
+name: has_disease
+def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
+is_a: RO:0016001 ! has phenotype or disease
+
+[Typedef]
+id: RO:0017001
+name: utilizes
+def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+holds_over_chain: RO:0002215 RO:0002233
+
+[Typedef]
+id: RO:0019000
+name: regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
+holds_over_chain: RO:0002211 RO:0019000
+is_a: RO:0002410 ! causally related to
+
+[Typedef]
+id: RO:0019001
+name: positively_regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) positively regulates characteristic (C) iff: P results in an increase in the intensity or magnitude of C." []
+holds_over_chain: RO:0002213 RO:0019001
+is_a: RO:0019000 ! regulates characteristic
+
+[Typedef]
+id: RO:0019002
+name: negatively_regulates_characteristic
+def: "A relationship that holds between a process and a characteristic in which process (P) negatively regulates characteristic (C) iff: P results in a decrease in the intensity or magnitude of C." []
+holds_over_chain: RO:0002212 RO:0019001
+holds_over_chain: RO:0002213 RO:0019002
+is_a: RO:0019000 ! regulates characteristic
+
+[Typedef]
+id: RO:0019501
+name: confers_susceptibility_to_condition
+def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
+is_a: RO:0003304 ! contributes to condition
+
+[Typedef]
 id: RO:0040035
 name: disease_relationship
 def: "This relation groups  relations between diseases and any other kind of entity." []
 
 [Typedef]
 id: RO:0040036
-name: has_anatomical_participant
+name: results_in_changes_to_anatomical_or_cellular_structure
 def: "p has anatomical participant c iff p has participant c, and c is an anatomical entity" []
 is_a: RO:0000057 ! has participant
 
@@ -4107,14 +4213,14 @@ id: results_in_acquisition_of_features_of
 name: results_in_acquisition_of_features_of
 def: "The relationship that links a specified entity with the process that results in an unspecified entity acquiring the features and characteristics of the specified entity" []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_development_of
 name: results_in_development_of
 def: "p 'results in development of' c if and only if p is a developmental process and p results in the state of c changing from its initial state as a primordium or anlage through its mature state and to its final state." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_developmental_progression_of
@@ -4138,12 +4244,12 @@ id: results_in_maturation_of
 name: results_in_maturation_of
 def: "The relationship that links an entity with a process that results in the progression of the entity over time that is independent of changes in it's shape and results in an end point state of that entity." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: results_in_morphogenesis_of
 name: results_in_morphogenesis_of
 def: "The relationship that links an entity with the process that results in the formation and shaping of that entity over time from an immature to a mature state." []
 is_a: results_in_developmental_progression_of ! results in developmental progression of
-is_a: RO:0040036 ! has anatomical participant
+is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 

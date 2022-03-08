@@ -68,11 +68,7 @@ first type
 to make sure you are on master
 
     cd src/ontology
-    sh run.sh make all 
-
-if that worked without an error,
-
-    sh run.sh make release
+    sh run.sh make release 
 
 This generates derived files such as ro.owl and ro.obo and places
 them in the top level (../..).
@@ -80,7 +76,7 @@ them in the top level (../..).
 Note that the versionIRI value automatically will be added, and will
 end with YYYY-MM-DD, as per OBO guidelines.
 
-Commit and push these files.
+If that worked without an error, commit and push these files.
 
     git commit -a
 
