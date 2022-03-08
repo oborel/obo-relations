@@ -20,6 +20,9 @@ prefixes:
   skos: http://www.w3.org/2004/02/skos/core#
   dcterms: http://purl.org/dc/terms/
 
+annotations:
+  logo: https://oborel.github.io/obo-relations/RO-logo.png
+
 default_prefix: rometa
 default_curi_maps:
   - semweb_context
@@ -134,21 +137,32 @@ slots:
     multivalued: true
     range: PairwisePropertyChain
     domain: ObjectProperty
+    description: connects an ObjectProperty to a chain that entails the Objectproperty
+    comments:
+      - some metaclasses may choose to use this more strictly to include equivalence
   inverse_of:
     slot_uri: owl:inverseOf
     inlined: true
     domain: ObjectProperty
     range: ObjectProperty
+    description: connects an ObjectProperty to its inverse
   has_transitive_form:
     slot_uri: owl:inverseOf
     inlined: true
     domain: ObjectProperty
     range: ObjectProperty
+    description: connects an ObjectProperty to its transitive form
+    examples:
+      - value: genealogical ancestor of
+        description: genealogical ancestor of is the transitive form of genealogical parent of
   has_reflexive_transitive_form:
     slot_uri: owl:inverseOf
     inlined: true
     domain: ObjectProperty
     range: ObjectProperty
+    description: connects an ObjectProperty to its transitive form
+    comments:
+      - it can be useful to have relations such as reflexive-ancestor-of that includes self
   participant_role:
     range: RoleClass
     inlined: true
@@ -237,9 +251,11 @@ classes:
     attributes:
       first_member:
         range: ObjectProperty
+        domain: PairwisePropertyChain
         #required: true
       last_member:
         range: ObjectProperty
+        domain: PairwisePropertyChain
         #required: true
 
   NamedThing:
@@ -342,6 +358,7 @@ classes:
     description: An ObjectProperty that has is used in OWL rolification
     attributes:
       rolification_of:
+        domain: ObjectProperty
         range: Class
     see_also:
       - https://stackoverflow.com/questions/16989042/owl-2-rolification
@@ -459,10 +476,13 @@ classes:
     attributes:
       subject_to_process_property:
         range: ObjectProperty
+        domain: ObjectProperty
       process_to_object_property:
         range: ObjectProperty
+        domain: ObjectProperty
       uses_rolified_property:
         range: RolifiedObjectProperty
+        domain: ObjectProperty
         inlined: true
     see_also:
       - https://oborel.github.io/obo-relations/interaction-relations/
@@ -470,6 +490,7 @@ classes:
       - https://github.com/oborel/obo-relations/pull/522
       - https://github.com/oborel/obo-relations/issues/521
     annotations:
+      depiction: https://raw.githubusercontent.com/oborel/obo-relations/master/docs/images/go-interaction-relation-example.png
       owl.template: |-
         SubObjectPropertyOf( {{uses_rolified_property.id}} RO:0002564 )
         SubObjectPropertyOf(
