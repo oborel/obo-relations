@@ -1,0 +1,563 @@
+id: http://purl.obolibrary.org/obo/ro/ro-metamodel.yaml
+name: RO-Metamodel
+description: |-
+  Metamodel for RO
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  rometa: http://purl.obolibrary.org/obo/ro/ro-metamodel/
+  biolink: https://w3id.org/biolink/vocab/
+  SO: http://purl.obolibrary.org/obo/SO_
+  GO: http://purl.obolibrary.org/obo/GO_
+  BFO: http://purl.obolibrary.org/obo/BFO_
+  IAO: http://purl.obolibrary.org/obo/IAO_
+  RO: http://purl.obolibrary.org/obo/RO_
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  edam: http://edamontology.org/
+  OIO: http://www.geneontology.org/formats/oboInOwl#
+  skos: http://www.w3.org/2004/02/skos/core#
+  dcterms: http://purl.org/dc/terms/
+  orcid: https://orcid.org/
+
+annotations:
+  logo: https://oborel.github.io/obo-relations/RO-logo.png
+
+default_prefix: rometa
+default_curi_maps:
+  - semweb_context
+
+types:
+  label type:
+    typeof: string
+    description: >-
+      A string that provides a human-readable name for an entity
+
+  narrative text:
+    typeof: string
+    description: >-
+      A string that provides a human-readable description of something
+
+slots:
+
+  ## -- Annotations --
+
+  id:
+    identifier: true
+    range: uriorcurie
+    domain: NamedThing
+  label:
+    slot_uri: rdfs:label
+    annotations:
+      owl: AnnotationProperty, AnnotationAssertion
+    range: label type
+    exact_mappings:
+      - skos:prefLabel
+    domain: NamedThing
+  definition:
+    slot_uri: IAO:0000115
+    annotations:
+      owl: AnnotationProperty, AnnotationAssertion
+    range: narrative text
+    exact_mappings:
+      - skos:definition
+    domain: NamedThing
+  contributor:
+    slot_uri: dcterms:contributor
+    annotations:
+      owl: AnnotationProperty, AnnotationAssertion
+    range: Agent
+  exact_match:
+    slot_uri: skos:exactMatch
+    range: NamedThing
+    multivalued: true
+    annotations:
+      owl: AnnotationProperty, AnnotationAssertion
+    domain: NamedThing
+  comment:
+    slot_uri: rdfs:comment
+    multivalued: false
+    comments:
+      - in obo format, a term cannot have more than one comment
+    domain: NamedThing
+    range: narrative text
+  in_subset:
+    slot_uri: OIO:inSubset
+    multivalued: true
+    range: Subset
+    description: >-
+      Maps an ontology element to a subset it belongs to
+    domain: NamedThing
+
+  conforms_to:
+    slot_uri: dcterms:conformsTo
+    multivalued: false
+    designates_type: true
+    range: string
+    annotations:
+      owl.fstring: |-
+        AnnotationAssertion( dcterms:conformsTo {id} rometa:{V} )
+    domain: NamedThing
+
+  ## Logic
+
+  is_child_of:
+    abstract: true
+    domain: NamedThing
+  subclass_of:
+    is_a: is_child_of
+    slot_uri: rdfs:subClassOf
+    domain: NamedThing
+    range: NamedThing
+    multivalued: true
+    description: the parent class
+  subproperty_of:
+    is_a: is_child_of
+    slot_uri: rdfs:subPropertyOf
+    domain: Property
+    range: Property
+    multivalued: true
+    description: the parent relation
+  genus:
+    is_a: is_child_of
+    multivalued: false
+    description: >-
+      The part of the logical definition that indicates the parent that is being specialized
+    notes:
+      - in RO we are typically refining an ObjectProperty, so the range is typically an ObjectProperty, but not always
+  domain:
+    slot_uri: rdfs:domain
+    multivalued: false
+    range: Class
+    domain: Property
+    description: The kinds of entity that can be the subject of the object property
+  range:
+    slot_uri: rdfs:range
+    multivalued: false
+    range: Class
+    domain: Property
+    description: The kinds of entity that can be the object of the object property
+  subproperty_of_pairwise_chain:
+    is_a: subproperty_of
+    multivalued: true
+    range: PairwisePropertyChain
+    domain: ObjectProperty
+    description: connects an ObjectProperty to a chain that entails the Objectproperty
+    comments:
+      - some metaclasses may choose to use this more strictly to include equivalence
+  inverse_of:
+    slot_uri: owl:inverseOf
+    inlined: true
+    domain: ObjectProperty
+    range: ObjectProperty
+    description: connects an ObjectProperty to its inverse
+  has_transitive_form:
+    slot_uri: owl:inverseOf
+    inlined: true
+    domain: ObjectProperty
+    range: ObjectProperty
+    description: connects an ObjectProperty to its transitive form
+    examples:
+      - value: genealogical ancestor of
+        description: genealogical ancestor of is the transitive form of genealogical parent of
+  has_reflexive_transitive_form:
+    slot_uri: owl:inverseOf
+    inlined: true
+    domain: ObjectProperty
+    range: ObjectProperty
+    description: connects an ObjectProperty to its transitive form
+    comments:
+      - it can be useful to have relations such as reflexive-ancestor-of that includes self
+  participant_role:
+    range: RoleClass
+    inlined: true
+  has_intermediary_of_type:
+    #required: true
+    range: Class
+    description: A class that is the type of the entity that sits between a property chain of length 2
+
+  relational_logical_characteristic:
+    abstract: true
+    range: boolean
+    description: A boolean logical characteristic of a property
+
+  symmetric:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: boolean form of the OWL SymmetricProperty characteristic
+    close_mappings:
+      - owl:SymmetricProperty
+    annotations:
+      boolean_form_of: owl:SymmetricProperty
+
+  asymmetric:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: boolean form of the OWL AsymmetricProperty characteristic
+    comments:
+      - asymmetry is the combination of antisymmetry and irreflexivity
+    close_mappings:
+      - owl:AsymmetricProperty
+    annotations:
+      boolean_form_of: owl:AsymmetricProperty
+
+  reflexive:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: boolean form of the OWL ReflexiveProperty characteristic
+    comments:
+      - it is rare for a property to be reflexive, this characteristic is added for completeness, consider instead locally_reflexive
+    close_mappings:
+      - owl:ReflexiveProperty
+    annotations:
+      boolean_form_of: owl:ReflexiveProperty
+
+  irreflexive:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: boolean form of the OWL IrreflexiveProperty characteristic
+    close_mappings:
+      - owl:IrreflexiveProperty
+    annotations:
+      boolean_form_of: owl:IrreflexiveProperty
+
+  locally_reflexive:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: If s is locally_reflexive, then i.s=i for all instances i where s if a class slot for the type of i
+
+  transitive:
+    is_a: relational_logical_characteristic
+    domain: ObjectProperty
+    range: boolean
+    description: boolean form of the OWL TransitiveProperty characteristic
+    close_mappings:
+      - owl:TransitiveProperty
+    annotations:
+      boolean_form_of: owl:TransitiveProperty
+
+classes:
+
+  Expression:
+    abstract: true
+    description: >-
+      abstract grouping for constructs that are not OWL entities like ObjectProperties.
+
+  PropertyChain:
+    abstract: true
+    description: >-
+      An ordered list of object properties P1...Pn that constitute a path through an ABox graph
+    todos:
+      - implement for more than pairwise
+
+  PairwisePropertyChain:
+    description: a property chain of length 2
+    attributes:
+      first_member:
+        range: ObjectProperty
+        domain: PairwisePropertyChain
+        #required: true
+      last_member:
+        range: ObjectProperty
+        domain: PairwisePropertyChain
+        #required: true
+
+  NamedThing:
+    abstract: true
+    class_uri: owl:Thing
+    description: >-
+      A grouping for any entity with an IRI that can be generated from a template.
+      Typically for RO this is ObjectProperties but can be helper classes
+    slots:
+      - id
+      - label
+      - definition
+      - in_subset
+      - exact_match
+      - contributor
+      - conforms_to
+  NamedIndividual:
+    is_a: NamedThing
+    class_uri: owl:NamedIndividual
+    annotations:
+      owl: NamedIndividual
+  Agent:
+    is_a: NamedIndividual
+    class_uri: prov:Agent
+  Class:
+    class_uri: owl:Class
+    is_a: NamedThing
+    description: Instances of this are OWL classes
+    comments:
+      - rarely used for RO, but used for some helper classes
+  RoleClass:
+    is_a: Class
+  Subset:
+    is_a: AnnotationProperty
+    class_uri: oio:Subset
+    description: A grouping for ontology terms
+  Property:
+    is_a: NamedThing
+    abstract: true
+    class_uri: rdfs:Property
+    description: Instances of this are OWL properties
+    slots:
+      - subproperty_of
+      - domain
+      - range
+      - genus
+    slot_usage:
+      genus:
+        range: Property
+  AnnotationProperty:
+    is_a: Property
+    class_uri: owl:AnnotationProperty
+    description: Instances of this are OWL AnnotationProperties
+    slot_usage:
+      genus:
+        range: AnnotationProperty
+      subproperty_of:
+        range: AnnotationProperty
+  ObjectProperty:
+    is_a: Property
+    class_uri: owl:ObjectProperty
+    description: Instances of this are OWL ObjectProperties
+    slots:
+      - inverse_of
+      - symmetric
+      - transitive
+      - reflexive
+      - locally_reflexive
+      - has_transitive_form
+      - subproperty_of_pairwise_chain
+    slot_usage:
+      genus:
+        range: ObjectProperty
+      subproperty_of:
+        range: ObjectProperty
+        annotations:
+          owl: SubObjectPropertyOf
+    rules:
+      - preconditions:
+          slot_conditions:
+            inverse_of:
+              range: ObjectProperty
+        postconditions:
+          slot_conditions:
+            symmetric:
+              equals_expression: false
+        description: inverses should not be declared for symmetric properties
+    annotations:
+      owl: ObjectProperty
+      owl.template: |-
+        {% if inverse_of and not inverse_of.definition %}
+        AnnotationAssertion( IAO:00000115 {{inverse_of.id}} "Inverse of {{id}} {{label}}")
+        {% endif %}
+        {% for chain in subproperty_of_pairwise_chain %}
+            SubObjectPropertyOf(
+               ObjectPropertyChain({{chain.first_member}}
+                                   {{chain.last_member}})
+               {{id}})
+        {% endfor %}
+
+  GroupingObjectProperty:
+    is_a: ObjectProperty
+    description: An ObjectProperty that has is used for grouping purposes and should not be instantiated
+  HelperObjectProperty:
+    is_a: ObjectProperty
+    description: An ObjectProperty that has is used for OWL axiomatization purposes and should not be used
+  RolifiedObjectProperty:
+    is_a: ObjectProperty
+    description: An ObjectProperty that has is used in OWL rolification
+    attributes:
+      rolification_of:
+        domain: ObjectProperty
+        range: Class
+    see_also:
+      - https://stackoverflow.com/questions/16989042/owl-2-rolification
+    annotations:
+      owl.template: |-
+        SubClassOf( {{rolification_of}} ObjectHasSelf( {{id}} ) )
+  DefinedObjectProperty:
+    abstract: true
+    is_a: ObjectProperty
+    description: An ObjectProperty that has logical conditions determining membership
+    comments:
+      - although properties cannot be defined in OWL, weaker ABox rules can be made in SWRL, and tricks like rolification can be used to preserve some inferences
+    slots:
+      - genus
+  DefinedObjectPropertyByDomain:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by a parent property and a domain
+    slot_usage:
+      definition:
+        string_serialization: "A {genus} that holds between a {domain} and something"
+    comments:
+      - hidden GCI analogs not supported (i.e. adding a more specific domain that is used for classification)
+    todos:
+      - rolification
+    see_also:
+      - https://oborel.github.io/obo-relations/domain-or-range-specific-relation/
+    annotations:
+      swrl: |-
+        {{genus}}(?s, ?o), {{domain}}(?s) -> {{id}}(?s, ?o)
+  DefinedObjectPropertyByRange:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by a parent property and a range
+    slot_usage:
+      definition:
+        string_serialization: "A {genus} that holds between something and a {range}"
+    comments:
+      - hidden GCI analogs not supported (i.e. adding a more specific domain that is used for classification)
+    todos:
+      - rolification
+    see_also:
+      - https://oborel.github.io/obo-relations/domain-or-range-specific-relation/
+    annotations:
+      swrl: |-
+        {{genus}}(?s, ?o), {{range}}(?o) -> {{id}}(?s, ?o)
+  DefinedObjectPropertyByDomainAndRange:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by a parent property and a domain and a range
+    slot_usage:
+      definition:
+        string_serialization: "A {genus} that holds between a {domain} and a {range}"
+    comments:
+      - hidden GCI analogs not supported (i.e. adding a more specific domain that is used for classification)
+    todos:
+      - SWRL rule
+      - rolification
+    see_also:
+      - https://oborel.github.io/obo-relations/domain-or-range-specific-relation/
+    annotations:
+      swrl: |-
+        {{genus}}(?s, ?o), {{range}}(?o), {{domain}}(?s) -> {{id}}(?s, ?o)
+  DefinedObjectPropertyByChain:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by a chain of two properties
+    slot_usage:
+      subproperty_of_pairwise_chain:
+        required: true
+    examples:
+      - value: overlaps
+        description: overlaps is defined as the chain of has-part followed by part-of
+    todos:
+      - this currently assumes chains of length 2
+      - swrl
+  DefinedTransitiveObjectPropertyByIntermediary:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is a shortcut for two hops via some intermediary
+    slots:
+      - has_intermediary_of_type
+    slot_usage:
+      genus:
+        required: true
+        description: The relation that is specialized, e.g. has-part
+    examples:
+      - value: has plasma membrane part
+        description: has plasma membrane part is a has-part relationship with a plasma membrane as intermediary
+    annotations:
+      common_logic: |-
+        (forall (i j)
+           (if ({{ id }} i j)
+               (exists (k)
+                   (and ({{ has intermediary of type }} k)
+                        ({{ id }} i k)
+                        ({{ id }} k j))))
+  DefinedObjectPropertyByChainToReflexive:
+    is_a: DefinedObjectPropertyByChain
+    description: >-
+      An ObjectProperty that is defined by a chain of two properties where the second/final member
+      is used in a reflexive sense (regardless of whether it is actually reflexive). This has
+      the effect of making the chain relation a subproperty of the first member of the chain
+    slot_usage:
+      subproperty_of_pairwise_chain:
+        required: true
+    examples:
+      - value: characteristic of part of
+    todos:
+      - this currently assumes chains of length 2
+      - swrl
+    #annotations:
+    #  owl.template: |-
+    #     SubObjectPropertyOf( {{subproperty_of_pairwise_chain.last_member}} {{id}} )
+  TransitiveForm:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined as the transitive form of another relation
+    examples:
+      - value: ancestor of
+        description: ancestor of is the transitive form of parent of
+    rules:
+      postconditions:
+        slot_conditions:
+          transitive:
+            equals_expression: true
+  DefinedObjectPropertyByParticipantRole:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by the role the participant plays
+    examples:
+      - value: has input
+    slots:
+      - participant_role
+  DefinedObjectPropertyByIntersection:
+    is_a: DefinedObjectProperty
+    description: An ObjectProperty that is defined by the intersection of its superproperties
+    slot_usage:
+      subproperty_of:
+        multivalued: true
+    examples:
+      - value: existence starts and ends during
+    annotations:
+      swrl: |-
+        {% for p in subproperty_of %}
+        {{ p }}(?i, ?j){% if not loop.last %},{% endif %}
+        {% endfor %}
+        -> {{ id }}(?i, ?j)
+  ObjectPropertyDefinedByInteractionProcess:
+    is_a: DefinedObjectProperty
+    description: |-
+      An object property that is a shortcut for a chain of relations with an intervening process
+    examples:
+      - value: phosphorylates
+        description: a phosphorylates b iff a is the active participant in a phosphorylation event where b is the target of that process
+    attributes:
+      subject_to_process_property:
+        range: ObjectProperty
+        domain: ObjectProperty
+      process_to_object_property:
+        range: ObjectProperty
+        domain: ObjectProperty
+      uses_rolified_property:
+        range: RolifiedObjectProperty
+        domain: ObjectProperty
+        inlined: true
+    see_also:
+      - https://oborel.github.io/obo-relations/interaction-relations/
+      - http://ontologydesignpatterns.org/wiki/Submissions:N-Ary_Relation_Pattern_%28OWL_2%29
+      - https://github.com/oborel/obo-relations/pull/522
+      - https://github.com/oborel/obo-relations/issues/521
+    annotations:
+      depiction: https://raw.githubusercontent.com/oborel/obo-relations/master/docs/images/go-interaction-relation-example.png
+      owl.template: |-
+        SubObjectPropertyOf( {{uses_rolified_property.id}} RO:0002564 )  ## molecular interaction helper relation
+        AnnotationAssertion( IAO:00000115 {{uses_rolified_property.id}} "Helper relation for OWL definition of {{id}} {{label}}")
+        SubObjectPropertyOf(
+           ObjectPropertyChain({{subject_to_process_property}}
+                               {{uses_rolified_property.id}}
+                               {{process_to_object_property}})
+           {{id}})
+      swrl: |-
+        {{subject_to_process_property}}(?s, ?proc),
+        {{uses_rolified_property.rolification_of}}(?proc),
+        {{process_to_object_property}}(?o, ?proc)
+        -> {{id}}(?s, ?o)
+
+      
+      
+    

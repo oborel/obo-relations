@@ -1,0 +1,45 @@
+
+# NOTE: this one exists in RO
+#  merging it in now will create conflicting defs, figure out pipeline later
+
+#- id: RO:0002447
+#  conforms_to: ObjectPropertyDefinedByInteractionProcess
+#  label: phosphorylates
+#  definition: >-
+#    A molecularly-interacts-with relationship between two entities,
+#    where the subject catalyzes a kinase activity that takes the object as input
+#  contributor: orcid:0000-0002-6601-2165   
+#  subproperty_of: RO:0002436  ## molecularly interacts with
+#  inverse_of:
+#    id: RO:9999999
+#    label: phosphorylated by
+#  subject_to_process_property: RO:0002215  ## capable of
+#  uses_rolified_property:
+#    id: RO:0002481
+#    label: is kinase activity
+#    rolification_of: GO:0016301
+#  process_to_object_property: RO:0002400   ## has direct input
+
+# new one proposed in https://github.com/oborel/obo-relations/pull/522
+# TODO: allow contributor to 'flow through' all named entities by default
+- id: RO:0018002
+  conforms_to: ObjectPropertyDefinedByInteractionProcess
+  label: myristoylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a myristoylation activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018003
+    label: myristoylated by
+    definition: inverse of myristoylates
+    contributor: orcid:0000-0003-4423-4370
+  subject_to_process_property: RO:0002215  ## capable of
+  uses_rolified_property:
+    id: RO:0018001
+    label: is myristoyltransferase activity
+    rolification_of: GO:0019107
+    contributor: orcid:0000-0003-4423-4370
+  process_to_object_property: RO:0002400   ## has direct input
+
