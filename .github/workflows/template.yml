@@ -14,6 +14,7 @@ on:
 jobs:
   merge_template:
     runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.3.0
     strategy:
       max-parallel: 1
     steps:
@@ -26,7 +27,7 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/oborel/obo-relations/master/src/ontology/ro-edit.owl > src/ontology/ro-edit.owl
       - name: Run merge templates
-        run: cd src/ontology && sh run.sh make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
+        run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
