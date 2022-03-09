@@ -1,0 +1,37 @@
+name: Merge template
+
+on:
+  push:
+    branches-ignore:
+      - master
+    paths:
+      - 'src/templates/new_relations.tsv'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'src/templates/new_relations.tsv'
+  workflow_dispatch:
+
+jobs:
+  merge_template:
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.3.0
+    strategy:
+      max-parallel: 1
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Reset ro-edit.owl
+        run: |
+          curl https://raw.githubusercontent.com/oborel/obo-relations/master/src/ontology/ro-edit.owl > src/ontology/ro-edit.owl
+      - name: Run merge templates
+        run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v8
+        with:
+          default_author: github_actions
+          message: 'Applying template to RO'
+          add: 'src/ontology/ro-edit.owl'
