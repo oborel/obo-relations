@@ -25,11 +25,9 @@ jobs:
           curl https://raw.githubusercontent.com/oborel/obo-relations/master/src/ontology/ro-edit.owl > src/ontology/ro-edit.owl
       - name: Run merge templates
         run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' merge_template
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v8
         with:
-          commit-message: Merge template to ro-edit
-          title: 'Merge template to ro-edit'
-          body: |
-            Merges the contents of src/templates/new_relations.tsv to ro-edit
-          assignees: matentzn
+          default_author: github_actions
+          message: 'Applying template to RO'
+          add: 'src/ontology/ro-edit.owl'
