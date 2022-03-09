@@ -19,10 +19,16 @@
 #    rolification_of: GO:0016301
 #  process_to_object_property: RO:0002400   ## has direct input
 
-# new one proposed in https://github.com/oborel/obo-relations/pull/522
 # TODO: allow contributor to 'flow through' all named entities by default
-- id: RO:0018002
-  conforms_to: ObjectPropertyDefinedByInteractionProcess
+
+# new one proposed in https://github.com/oborel/obo-relations/pull/522
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018001
+    label: is myristoyltransferase activity
+    rolification_of: GO:0019107
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018002
   label: myristoylates
   definition: >-
     A molecularly-interacts-with relationship between two entities,
@@ -34,10 +40,212 @@
     label: myristoylated by
     definition: inverse of myristoylates
     contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018005
+  opposite_of: RO:0018004                  ## demyristoylates
   subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
   uses_rolified_property:
     id: RO:0018001
     label: is myristoyltransferase activity
     rolification_of: GO:0019107
     contributor: orcid:0000-0003-4423-4370
+  id: RO:0018004
+  label: demyristoylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a myristoylation activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018005
+    label: demyristoylated by
+    definition: inverse of demyristoylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018003
+  opposite_of: RO:0018001                  ## myristoylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+
+# Proposed in https://github.com/oborel/obo-relations/pull/589/files
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018006
+    label: is palmitoyltransferase activity
+    rolification_of: GO:0016409
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018007
+  label: palmitoylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a palmitoyltransferase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018008
+    label: palmitoylated by
+    definition: inverse of palmitoylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:00180010
+  opposite_of: RO:0018009                  ## depalmitoylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018006
+    label: is palmitoyltransferase activity
+    rolification_of: GO:0016409
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018009
+  label: depalmitoylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a palmitoyltransferase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:00180010
+    label: depalmitoylated by
+    definition: inverse of depalmitoylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018008
+  opposite_of: RO:0018007                  ## palmitoylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018011
+    label: is methyltransferase activity
+    rolification_of: GO:0008168
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018012
+  label: methylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a methyltransferase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018013
+    label: methylated by
+    definition: inverse of methylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018015
+  opposite_of: RO:0018014                  ## demethylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018011
+    label: is methyltransferase activity
+    rolification_of: GO:0008168
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018014
+  label: demethylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a methyltransferase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018015
+    label: demethylated by
+    definition: inverse of demethylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018013
+  opposite_of: RO:0018012                  ## methylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018016
+    label: is protein ADP-ribosylase activity
+    rolification_of: GO:1990404
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018017
+  label: ribosylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a protein ADP-ribosylase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018018
+    label: ribosylated by
+    definition: inverse of ribosylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018020
+  opposite_of: RO:0018019                  ## deribosylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018016
+    label: is protein ADP-ribosylase activity
+    rolification_of: GO:1990404
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018019
+  label: deribosylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a protein ADP-ribosylase activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018020
+    label: deribosylated by
+    definition: inverse of deribosylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018018
+  opposite_of: RO:0018017                  ## ribosylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018021
+    label: is protein geranylgeranyl-diphosphate geranylgeranyltransferase activity
+    rolification_of: GO:0016767
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018022
+  label: geranylgeranylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a geranylgeranyl-diphosphate geranylgeranyltransferase
+    activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018023
+    label: geranylgeranylated by
+    definition: inverse of geranylgeranylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018026
+  opposite_of: RO:0018024                  ## degeranylgeranylates
+  subject_to_process_property: RO:0002215  ## capable of
+  process_to_object_property: RO:0002400   ## has direct input
+- conforms_to: ObjectPropertyDefinedByInteractionProcess
+  uses_rolified_property:
+    id: RO:0018021
+    label: is protein geranylgeranyl-diphosphate geranylgeranyltransferase activity
+    rolification_of: GO:0016767
+    contributor: orcid:0000-0003-4423-4370
+  id: RO:0018025
+  label: degeranylgeranylates
+  definition: >-
+    A molecularly-interacts-with relationship between two entities,
+    where the subject catalyzes a geranylgeranyl-diphosphate geranylgeranyltransferase
+    activity that takes the object as input
+  contributor: orcid:0000-0003-4423-4370
+  subproperty_of: RO:0002436  ## molecularly interacts with
+  inverse_of:
+    id: RO:0018026
+    label: degeranylgeranylated by
+    definition: inverse of degeranylgeranylates
+    contributor: orcid:0000-0003-4423-4370
+    opposite_of: RO:0018023
+  opposite_of: RO:0018022                  ## geranylgeranylates
+  subject_to_process_property: RO:0002215  ## capable of
   process_to_object_property: RO:0002400   ## has direct input
