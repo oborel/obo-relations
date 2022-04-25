@@ -1765,6 +1765,16 @@ xref: RO:0008502
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
+id: has_exposure_medium
+name: has exposure medium
+def: "X has exposure medium Y if X is an exposure event (process), Y is a material entity, and the stimulus for X is transmitted or carried in Y." []
+xref: RO:0016004
+property_value: http://purl.org/dc/elements/1.1/date 2021-12-14T20:41:45Z xsd:dateTime
+property_value: IAO:0000119 ExO:0000083 xsd:string
+is_a: related_via_exposure_to ! related via exposure to
+created_by: https://orcid.org/0000-0002-7463-6306
+
+[Typedef]
 id: has_exposure_receptor
 name: has exposure receptor
 def: "A broad relationship between an exposure event or process and any entity (e.g., an organism, organism population, or an organism part) that interacts with an exposure stimulus during the exposure event." []
@@ -1844,6 +1854,17 @@ range: ENVO:01000254
 is_a: ecologically_related_to ! ecologically related to
 
 [Typedef]
+id: has_high_plasma_membrane_amount
+name: has high plasma membrane amount
+def: "A relation between a cell and molecule or complex such that every instance of the cell has a high number of instances of that molecule expressed on the cell surface." [PMID:19243617]
+xref: RO:0015015
+property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0003-1617-8244
+property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0003-1940-6740
+property_value: IAO:0000112 "'Ly-76 high positive erythrocyte' equivalent to 'enucleate erythrocyte' and (has_high_plasma_membrane_amount some 'lymphocyte antigen 76 (mouse)')" xsd:string
+domain: CL:0000000
+is_a: has_plasma_membrane_part ! has plasma membrane part
+
+[Typedef]
 id: has_host
 name: has host
 def: "X 'has host' y if and only if: x is an organism, y is an organism, and x can live on the surface of or within the body of y" []
@@ -1904,6 +1925,17 @@ xref: RO:0002019
 is_a: has_input ! has input
 created_by: dos
 creation_date: 2017-07-19T17:30:36Z
+
+[Typedef]
+id: has_low_plasma_membrane_amount
+name: has low plasma membrane amount
+def: "A relation between a cell and molecule or complex such that every instance of the cell has a low number of instances of that molecule expressed on the cell surface." [PMID:19243617]
+xref: RO:0015016
+property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0003-1617-8244
+property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0003-1940-6740
+property_value: IAO:0000112 "'DN2b thymocyte' equivalent to 'DN2 thymocyte' and (has_low_plasma_membrane_amount some 'mast/stem cell growth factor receptor')" xsd:string
+domain: CL:0000000
+is_a: has_plasma_membrane_part ! has plasma membrane part
 
 [Typedef]
 id: has_major_susceptibility_factor
@@ -3180,6 +3212,23 @@ property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/19278549 xsd:anyU
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
+id: myristoylated_by
+name: myristoylated by
+def: "inverse of myristoylates" []
+xref: RO:0018003
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+
+[Typedef]
+id: myristoylates
+name: myristoylates
+def: "A molecularly-interacts-with relationship between two entities, where the subject catalyzes a myristoylation activity that takes the object as input" []
+xref: RO:0018002
+property_value: http://purl.org/dc/terms/conformsTo http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+is_a: molecularly_interacts_with ! molecularly interacts with
+inverse_of: myristoylated_by ! myristoylated by
+
+[Typedef]
 id: negatively_regulated_by
 name: negatively regulated by
 def: "inverse of negatively regulates" []
@@ -3259,6 +3308,7 @@ subset: ro-eco
 xref: RO:0002131
 property_value: IAO:0000114 IAO:0000125
 property_value: RO:0001900 RO:0001901
+is_symmetric: true
 is_a: mereotopologically_related_to ! mereotopologically related to
 expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)" []
 
