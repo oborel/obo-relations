@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: ro/releases/2022-04-25/ro-base.owl
+data-version: ro/releases/2022-05-23/ro-base.owl
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
@@ -640,6 +640,7 @@ property_value: IAO:0000118 "2D_boundary_of" xsd:string
 property_value: IAO:0000118 "boundary of" xsd:string
 property_value: IAO:0000118 "is 2D boundary of" xsd:string
 property_value: IAO:0000118 "is boundary of" xsd:string
+property_value: IAO:0000118 "surface of" xsd:string
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002323 ! mereotopologically related to
 inverse_of: RO:0002002 ! has 2D boundary
@@ -5475,6 +5476,7 @@ id: RO:0012000
 name: has small molecule regulator
 def: "a relation between a process and a continuant, in which the process is regulated by the small molecule continuant" []
 is_a: RO:0000057 ! has participant
+inverse_of: RO:0012004 ! is small molecule regulator of
 created_by: pg
 creation_date: 2020-04-22T20:27:26Z
 
@@ -5483,6 +5485,7 @@ id: RO:0012001
 name: has small molecule activator
 def: "a relation between a process and a continuant, in which the process is activated by the small molecule continuant" []
 is_a: RO:0012000 ! has small molecule regulator
+inverse_of: RO:0012005 ! is small molecule activator of
 created_by: pg
 creation_date: 2020-04-22T20:28:37Z
 
@@ -5491,6 +5494,7 @@ id: RO:0012002
 name: has small molecule inhibitor
 def: "a relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
 is_a: RO:0012000 ! has small molecule regulator
+inverse_of: RO:0012006 ! is small molecule inhibitor of
 created_by: pg
 creation_date: 2020-04-22T20:28:54Z
 
@@ -5507,25 +5511,25 @@ creation_date: 2020-06-08T17:21:33Z
 
 [Typedef]
 id: RO:0012004
-name: is small molecule regulator
+name: is small molecule regulator of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that regulates the process" []
-is_a: RO:0000057 ! has participant
+is_a: RO:0000056 ! participates in
 created_by: pg
 creation_date: 2020-06-24T13:15:17Z
 
 [Typedef]
 id: RO:0012005
-name: is small molecule activator
+name: is small molecule activator of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
-is_a: RO:0012004 ! is small molecule regulator
+is_a: RO:0012004 ! is small molecule regulator of
 created_by: pg
 creation_date: 2020-06-24T13:15:26Z
 
 [Typedef]
 id: RO:0012006
-name: is small molecule inhibitor
+name: is small molecule inhibitor of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process" []
-is_a: RO:0012004 ! is small molecule regulator
+is_a: RO:0012004 ! is small molecule regulator of
 created_by: pg
 creation_date: 2020-06-24T13:15:35Z
 
@@ -5774,11 +5778,12 @@ created_by: https://orcid.org/0000-0002-7463-6306
 
 [Typedef]
 id: RO:0017001
-name: utilizes
-def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+name: device utilizes material
+def: "X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+synonym: "utilizes" BROAD []
 property_value: IAO:0000112 "A diagnostic testing device utilizes a specimen." xsd:string
-property_value: IAO:0000117 "Asiyah Lin" xsd:string
-property_value: IAO:0000117 "https://orcid.org/0000-0001-9625-1899 Bill Duncan" xsd:string
+property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899 xsd:string
+property_value: IAO:0000117 https://orcid.org/0000-0003-2620-0345 xsd:string
 property_value: IAO:0000232 "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input." xsd:string
 property_value: IAO:0000232 "See github ticket https://github.com/oborel/obo-relations/issues/497" xsd:string
 holds_over_chain: RO:0002215 RO:0002233

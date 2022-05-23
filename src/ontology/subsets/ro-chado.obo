@@ -25,7 +25,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2022-04-25" xsd:string
+property_value: owl:versionInfo "2022-05-23" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -3412,18 +3412,21 @@ id: RO:0012000
 name: has_small_molecule_regulator
 def: "a relation between a process and a continuant, in which the process is regulated by the small molecule continuant" []
 is_a: RO:0000057 ! has participant
+inverse_of: RO:0012004 ! is small molecule regulator of
 
 [Typedef]
 id: RO:0012001
 name: has_small_molecule_activator
 def: "a relation between a process and a continuant, in which the process is activated by the small molecule continuant" []
 is_a: RO:0012000 ! has small molecule regulator
+inverse_of: RO:0012005 ! is small molecule activator of
 
 [Typedef]
 id: RO:0012002
 name: has_small_molecule_inhibitor
 def: "a relation between a process and a continuant, in which the process is inhibited by the small molecule continuant" []
 is_a: RO:0012000 ! has small molecule regulator
+inverse_of: RO:0012006 ! is small molecule inhibitor of
 
 [Typedef]
 id: RO:0012003
@@ -3433,21 +3436,21 @@ is_a: RO:0000057 ! has participant
 
 [Typedef]
 id: RO:0012004
-name: is_small_molecule_regulator
+name: is_small_molecule_regulator_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that regulates the process" []
-is_a: RO:0000057 ! has participant
+is_a: RO:0000056 ! participates in
 
 [Typedef]
 id: RO:0012005
-name: is_small_molecule_activator
+name: is_small_molecule_activator_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
-is_a: RO:0012004 ! is small molecule regulator
+is_a: RO:0012004 ! is small molecule regulator of
 
 [Typedef]
 id: RO:0012006
-name: is_small_molecule_inhibitor
+name: is_small_molecule_inhibitor_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process" []
-is_a: RO:0012004 ! is small molecule regulator
+is_a: RO:0012004 ! is small molecule regulator of
 
 [Typedef]
 id: RO:0012007
@@ -3624,8 +3627,9 @@ is_a: RO:0002244 ! related via exposure to
 
 [Typedef]
 id: RO:0017001
-name: utilizes
-def: "X utilizes Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+name: device_utilizes_material
+def: "X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y." []
+synonym: "utilizes" BROAD []
 holds_over_chain: RO:0002215 RO:0002233
 
 [Typedef]
