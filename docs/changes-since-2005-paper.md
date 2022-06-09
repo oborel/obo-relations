@@ -34,7 +34,7 @@ The original OBO_REL followed the Genome Biology paper in defining relations as 
 
 RO makes a clean break with OBO_REL, and abandons class level relations.
 
-For a discussion of how RO aligns with OBO_REL in terms of temporal quantification, see [ROAndTime](ROAndTime).
+For a discussion of how RO aligns with OBO_REL in terms of temporal quantification, see [temporal-semantics](temporal-semantics).
 
 An exception is made for a small number of "macro" relations such as [RO_0002161](http://purl.obolibrary.org/obo/RO_0002161) (never in taxon), which is modeled as an annotation property and expanded to a more complex OWL statement using an OWL macro expansion engine. See the OWL macros section of the obo format spec for more details
 

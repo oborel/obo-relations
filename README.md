@@ -30,12 +30,13 @@ See the [list of relations on OntoBee](http://www.ontobee.org/browser/term.php?o
 
 Please cite RO by its GitHub URL [https://github.com/oborel/obo-relations](https://github.com/oborel/obo-relations) or its Zenodo DOI, [DOI: 10.5281/zenodo.32899](https://zenodo.org/record/3955125#.X3vzkZOpFyo) .
 
-## Mail List
+## Mailing list
 
  * http://groups.google.com/group/obo-relations
 
 ## Requesting new relations
 
-Use [the github issue tracker](https://github.com/oborel/obo-relations/issues) and/or the obo-relations mail list.
+Use [the GitHub issue tracker](https://github.com/oborel/obo-relations/issues) and/or the obo-relations mailing list.
 
-
+# How to contribute to RO and join the RO working group
+Please see our page on [Contributing to RO](https://github.com/oborel/obo-relations/blob/master/CONTRIBUTING.md).
