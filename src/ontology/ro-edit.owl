@@ -18,34 +18,35 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 Ontology(<http://purl.obolibrary.org/obo/ro.owl>
 <http://purl.obolibrary.org/obo/ro-edit.owl>
-Import(<http://purl.obolibrary.org/obo/ro/components/annotations.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/chemical.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/core.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/el-constraints.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/generated-axioms.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/go-biotic.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/go_cc_import.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/go_mf_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/other_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/rohom.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/temporal-intervals.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/caro_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/cl_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/envo_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/go_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/pato_import.owl>)
 Annotation(dce:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."@en)
 Annotation(dce:title "OBO Relations Ontology"@en)
 Annotation(dc:license <https://creativecommons.org/publicdomain/zero/1.0/>)
 Annotation(foaf:homepage " https://github.com/oborel/obo-relations/"^^xsd:anyURI)
 
+Declaration(Class(obo:BFO_0000019))
+Declaration(Class(obo:BFO_0000031))
 Declaration(Class(obo:CHEBI_50906))
-Declaration(Class(obo:CL_0000101))
-Declaration(Class(obo:GO_0004872))
-Declaration(Class(obo:GO_0019107))
+Declaration(Class(obo:OGMS_0000031))
 Declaration(Class(obo:RO_0002310))
 Declaration(Class(obo:RO_0002532))
 Declaration(Class(obo:RO_0002533))
 Declaration(Class(obo:RO_0002534))
+Declaration(Class(obo:UPHENO_0001001))
 Declaration(Class(foaf:image))
 Declaration(ObjectProperty(obo:BFO_0000050))
 Declaration(ObjectProperty(obo:BFO_0000051))
+Declaration(ObjectProperty(obo:RO_0000058))
 Declaration(ObjectProperty(obo:RO_0000300))
 Declaration(ObjectProperty(obo:RO_0000301))
 Declaration(ObjectProperty(obo:RO_0000302))
@@ -55,6 +56,7 @@ Declaration(ObjectProperty(obo:RO_0001020))
 Declaration(ObjectProperty(obo:RO_0001021))
 Declaration(ObjectProperty(obo:RO_0001022))
 Declaration(ObjectProperty(obo:RO_0001023))
+Declaration(ObjectProperty(obo:RO_0002000))
 Declaration(ObjectProperty(obo:RO_0002001))
 Declaration(ObjectProperty(obo:RO_0002003))
 Declaration(ObjectProperty(obo:RO_0002004))
@@ -80,6 +82,7 @@ Declaration(ObjectProperty(obo:RO_0002023))
 Declaration(ObjectProperty(obo:RO_0002024))
 Declaration(ObjectProperty(obo:RO_0002025))
 Declaration(ObjectProperty(obo:RO_0002026))
+Declaration(ObjectProperty(obo:RO_0002082))
 Declaration(ObjectProperty(obo:RO_0002085))
 Declaration(ObjectProperty(obo:RO_0002100))
 Declaration(ObjectProperty(obo:RO_0002101))
@@ -141,6 +144,7 @@ Declaration(ObjectProperty(obo:RO_0002219))
 Declaration(ObjectProperty(obo:RO_0002220))
 Declaration(ObjectProperty(obo:RO_0002221))
 Declaration(ObjectProperty(obo:RO_0002222))
+Declaration(ObjectProperty(obo:RO_0002223))
 Declaration(ObjectProperty(obo:RO_0002225))
 Declaration(ObjectProperty(obo:RO_0002226))
 Declaration(ObjectProperty(obo:RO_0002227))
@@ -566,11 +570,17 @@ Declaration(ObjectProperty(obo:RO_0019002))
 Declaration(ObjectProperty(obo:RO_0019501))
 Declaration(ObjectProperty(obo:RO_0040035))
 Declaration(ObjectProperty(obo:RO_0040036))
+Declaration(ObjectProperty(obo:RO_HOM0000000))
+Declaration(ObjectProperty(obo:RO_HOM0000001))
+Declaration(ObjectProperty(obo:RO_HOM0000003))
 Declaration(DataProperty(obo:RO_0002029))
+Declaration(AnnotationProperty(obo:IAO_0000111))
 Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(obo:IAO_0000232))
+Declaration(AnnotationProperty(obo:IAO_0000426))
 Declaration(AnnotationProperty(obo:IAO_0000589))
 Declaration(AnnotationProperty(obo:IAO_0100001))
+Declaration(AnnotationProperty(obo:RO_0001900))
 Declaration(AnnotationProperty(obo:RO_0002161))
 Declaration(AnnotationProperty(obo:RO_0002171))
 Declaration(AnnotationProperty(obo:RO_0002172))
@@ -658,12 +668,12 @@ Declaration(AnnotationProperty(skos:closeMatch))
 #   Annotation Properties
 ############################
 
-# Annotation Property: obo:IAO_0000426 (first order logic expression)
+# Annotation Property: obo:IAO_0000426 (obo:IAO_0000426)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000426 "An assertion that holds between an OWL Object Property and a string or literal, where the value of the string or literal is a Common Logic sentence of collection of sentences that define the Object Property.")
 SubAnnotationPropertyOf(obo:IAO_0000426 obo:RO_0002422)
 
-# Annotation Property: obo:RO_0001900 (temporal interpretation)
+# Annotation Property: obo:RO_0001900 (obo:RO_0001900)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0001900 "An assertion that holds between an OWL Object Property and a temporal interpretation that elucidates how OWL Class Axioms that use this property are to be interpreted in a temporal context.")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0001900 <http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/>)
@@ -1549,13 +1559,13 @@ TransitiveObjectProperty(obo:RO_0002085)
 
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002088 subsets:ro-eco)
 
-# Object Property: obo:RO_0002090 (immediately precedes)
+# Object Property: obo:RO_0002090 (immediately_precedes)
 
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002090 "David Osumi-Sutherland")
 AnnotationAssertion(obo:RO_0002575 obo:RO_0002090 obo:BFO_0000063)
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002090 subsets:ro-eco)
 
-# Object Property: obo:RO_0002091 (starts during)
+# Object Property: obo:RO_0002091 (starts_during)
 
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002091 subsets:ro-eco)
 
@@ -2667,6 +2677,24 @@ SubObjectPropertyOf(obo:RO_0002258 obo:RO_0002324)
 InverseObjectProperties(obo:RO_0002258 obo:RO_0002286)
 ObjectPropertyDomain(obo:RO_0002258 obo:BFO_0000002)
 ObjectPropertyRange(obo:RO_0002258 obo:BFO_0000002)
+
+# Object Property: obo:RO_0002260 (has biological role)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002260 "c has-biological-role r iff c has-role r and r is a biological role (CHEBI:24432)")
+AnnotationAssertion(rdfs:label obo:RO_0002260 "has biological role")
+SubObjectPropertyOf(obo:RO_0002260 obo:RO_0000087)
+
+# Object Property: obo:RO_0002261 (has application role)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002261 "c has-application-role r iff c has-role r and r is an application role (CHEBI:33232)")
+AnnotationAssertion(rdfs:label obo:RO_0002261 "has application role")
+SubObjectPropertyOf(obo:RO_0002261 obo:RO_0000087)
+
+# Object Property: obo:RO_0002262 (has chemical role)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002262 "c has-chemical-role r iff c has-role r and r is a chemical role (CHEBI:51086)")
+AnnotationAssertion(rdfs:label obo:RO_0002262 "has chemical role")
+SubObjectPropertyOf(obo:RO_0002262 obo:RO_0000087)
 
 # Object Property: obo:RO_0002263 (acts upstream of)
 
@@ -6425,7 +6453,7 @@ SubClassOf(obo:CARO_0000006 ObjectAllValuesFrom(obo:RO_0002179 obo:CARO_0000003)
 
 SubClassOf(obo:CHEBI_50906 obo:PATO_0000001)
 
-# Class: obo:GO_0004842 (ubiquitin-protein ligase activity)
+# Class: obo:GO_0004842 (ubiquitin-protein transferase activity)
 
 SubClassOf(obo:GO_0004842 ObjectHasSelf(obo:RO_0002482))
 
@@ -6433,7 +6461,7 @@ SubClassOf(obo:GO_0004842 ObjectHasSelf(obo:RO_0002482))
 
 SubClassOf(obo:GO_0016301 ObjectHasSelf(obo:RO_0002481))
 
-# Class: obo:GO_0019107 (obo:GO_0019107)
+# Class: obo:GO_0019107 (myristoyltransferase activity)
 
 SubClassOf(obo:GO_0019107 ObjectHasSelf(obo:RO_0018001))
 
