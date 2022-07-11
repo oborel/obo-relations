@@ -571,6 +571,7 @@ Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(obo:IAO_0000232))
 Declaration(AnnotationProperty(obo:IAO_0000589))
 Declaration(AnnotationProperty(obo:IAO_0100001))
+Declaration(AnnotationProperty(obo:OMO_0002000))
 Declaration(AnnotationProperty(obo:RO_0002161))
 Declaration(AnnotationProperty(obo:RO_0002171))
 Declaration(AnnotationProperty(obo:RO_0002172))
@@ -663,6 +664,11 @@ Declaration(AnnotationProperty(skos:closeMatch))
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000426 "An assertion that holds between an OWL Object Property and a string or literal, where the value of the string or literal is a Common Logic sentence of collection of sentences that define the Object Property.")
 SubAnnotationPropertyOf(obo:IAO_0000426 obo:RO_0002422)
 
+# Annotation Property: obo:OMO_0002000 (defined by construct)
+
+AnnotationAssertion(obo:IAO_0000115 obo:OMO_0002000 "Links an annotation property to a SPARQL CONSTRUCT query which is meant to provide semantics for a shortcut relation.")
+AnnotationAssertion(rdfs:label obo:OMO_0002000 "defined by construct")
+
 # Annotation Property: obo:RO_0001900 (temporal interpretation)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0001900 "An assertion that holds between an OWL Object Property and a temporal interpretation that elucidates how OWL Class Axioms that use this property are to be interpreted in a temporal context.")
@@ -688,6 +694,25 @@ AnnotationAssertion(obo:IAO_0000118 obo:RO_0002171 "non-overlapping with")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002171 "shares no parts with")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002171 <http://www.ncbi.nlm.nih.gov/pubmed/22293552>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002171 "Class: <http://www.w3.org/2002/07/owl#Nothing> EquivalentTo: (BFO_0000050 some ?X) and (BFO_0000050 some ?Y)")
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002171 "PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX mutually_spatially_disjoint_with: <http://purl.obolibrary.org/obo/RO_0002171>
+CONSTRUCT {
+  part_of: a owl:ObjectProperty .
+  [
+    a owl:Restriction ;
+    owl:onProperty part_of: ;
+    owl:someValuesFrom ?x ;
+    owl:disjointWith [
+      a owl:Restriction ;
+      owl:onProperty part_of: ;
+      owl:someValuesFrom ?y
+    ]
+  ]
+}
+WHERE {
+  ?x mutually_spatially_disjoint_with: ?y .
+}"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002171 "mutually spatially disjoint with"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002171 obo:RO_0002163)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002171 "https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern"^^xsd:anyURI)
