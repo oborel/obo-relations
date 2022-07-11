@@ -683,6 +683,29 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002161 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/17921072>)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/20973947>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002161 "Class: ?X DisjointWith: RO_0002162 some ?Y ")
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002161 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX in_taxon: <http://purl.obolibrary.org/obo/RO_0002162>
+PREFIX never_in_taxon: <http://purl.obolibrary.org/obo/RO_0002161>
+CONSTRUCT {
+  in_taxon: a owl:ObjectProperty .
+  ?x owl:disjointWith [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom ?taxon
+  ] .
+  ?x rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom [
+      a owl:Class ;
+      owl:complementOf ?taxon
+    ]
+  ] .
+}
+WHERE {
+  ?x never_in_taxon: ?taxon .
+}"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002161 "never in taxon"^^xsd:string)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002161 obo:RO_0002172)
