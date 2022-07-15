@@ -683,6 +683,29 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002161 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/17921072>)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/20973947>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002161 "Class: ?X DisjointWith: RO_0002162 some ?Y ")
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002161 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX in_taxon: <http://purl.obolibrary.org/obo/RO_0002162>
+PREFIX never_in_taxon: <http://purl.obolibrary.org/obo/RO_0002161>
+CONSTRUCT {
+  in_taxon: a owl:ObjectProperty .
+  ?x owl:disjointWith [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom ?taxon
+  ] .
+  ?x rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom [
+      a owl:Class ;
+      owl:complementOf ?taxon
+    ]
+  ] .
+}
+WHERE {
+  ?x never_in_taxon: ?taxon .
+}"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002161 "never in taxon"^^xsd:string)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002161 obo:RO_0002172)
@@ -747,6 +770,31 @@ SubAnnotationPropertyOf(obo:RO_0002174 obo:RO_0002172)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002175 "S present_in_taxon T if some instance of T has some S. This does not means that all instances of T have an S - it may only be certain life stages or sexes that have S")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002175 "https://orcid.org/0000-0002-6601-2165")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002175 <http://www.ncbi.nlm.nih.gov/pubmed/22293552>)
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002175 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX in_taxon: <http://purl.obolibrary.org/obo/RO_0002162>
+PREFIX present_in_taxon: <http://purl.obolibrary.org/obo/RO_0002175>
+CONSTRUCT {
+  in_taxon: a owl:ObjectProperty .
+  ?witness rdfs:label ?label .
+  ?witness rdfs:subClassOf ?x .
+  ?witness rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom ?taxon
+  ] .
+}
+WHERE {
+  ?x present_in_taxon: ?taxon .
+  BIND(IRI(CONCAT(
+    \"http://purl.obolibrary.org/obo/RO_0002175#\",
+    MD5(STR(?x)),
+    \"-\",
+    MD5(STR(?taxon))
+  )) as ?witness)
+  BIND(CONCAT(STR(?x), \" in taxon \", STR(?taxon)) AS ?label)
+}"^^xsd:string)
+AnnotationAssertion(rdfs:comment obo:RO_0002175 "The SPARQL expansion for this relation introduces new named classes into the ontology. For this reason it is likely that the expansion should only be performed during a QC pipeline; the expanded output should usually not be included in a published version of the ontology.")
 AnnotationAssertion(rdfs:label obo:RO_0002175 "present in taxon"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002175 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002175 obo:RO_0002172)
