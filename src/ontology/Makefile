@@ -10,7 +10,7 @@ RELEASEDATE ?= `date +%Y-%m-%d`
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(RELEASEDATE)/$@ --annotation owl:versionInfo $(RELEASEDATE)
 
 
-ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl
+ONTS_TO_BUILD= ro.obo ro.owl ro.json ro-base.owl ro-base.obo ro-base.json chemical.owl annotations.owl other_import.owl core.owl go-biotic.owl pato_import.owl temporal-intervals.owl bfo-axioms.owl bfo-classes-minimal.owl el-constraints.owl go_mf_import.owl go_cc_import.owl  generated-axioms.owl omo_import.owl
 ONTS= $(ONTS_TO_BUILD) rohom.owl
 
 # ========================================
