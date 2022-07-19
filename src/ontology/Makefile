@@ -52,7 +52,7 @@ ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 
 FORMATS = $(sort  owl obo json owl)
 FORMATS_INCL_TSV = $(sort $(FORMATS) tsv)
-RELEASE_ARTEFACTS = $(sort $(ONT)-base $(ONT)-full rohom $(ONT)-base $(ONT)-full)
+RELEASE_ARTEFACTS = $(sort $(ONT)-base $(ONT)-full rohom core $(ONT)-base $(ONT)-full)
 
 # ----------------------------------------
 # Top-level targets
@@ -441,6 +441,12 @@ rohom.json: rohom.owl
 	$(ROBOT) annotate --input $< --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
 		convert --check false -f json -o $@.tmp.json &&\
 	jq -S 'walk(if type == "array" then sort else . end)' $@.tmp.json > $@ && rm $@.tmp.json
+core.obo: core.owl
+	$(ROBOT) convert --input $< --check false -f obo $(OBO_FORMAT_OPTIONS) -o $@.tmp.obo && grep -v ^owl-axioms $@.tmp.obo > $@ && rm $@.tmp.obo
+core.json: core.owl
+	$(ROBOT) annotate --input $< --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+		convert --check false -f json -o $@.tmp.json &&\
+	jq -S 'walk(if type == "array" then sort else . end)' $@.tmp.json > $@ && rm $@.tmp.json
 # ----------------------------------------
 # Release artefacts: main release artefacts
 # ----------------------------------------
@@ -482,6 +488,9 @@ $(ONT)-full.owl: $(SRC) $(OTHER_SRC) $(IMPORT_FILES)
 
 
 rohom.owl:
+	echo "ERROR: You have configured a custom release artefact ($@); this release artefact needs to be define in ro.Makefile!" && false
+
+core.owl:
 	echo "ERROR: You have configured a custom release artefact ($@); this release artefact needs to be define in ro.Makefile!" && false
 # ----------------------------------------
 # Debugging Tools

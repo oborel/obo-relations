@@ -24,6 +24,10 @@ validate-using-oort: ro-edit.owl
 	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+core.owl: components/core.owl
+	$(ROBOT) annotate -i $< -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION) -o $@
+
+
 # ========================================
 # DOCUMENTATION
 # ========================================
