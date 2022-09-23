@@ -29,6 +29,7 @@ Import(<http://purl.obolibrary.org/obo/ro/imports/cl_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/envo_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/go_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/pato_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/omo_import.owl>)
 Annotation(dce:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."@en)
 Annotation(dce:title "OBO Relations Ontology"@en)
 Annotation(dc:license <https://creativecommons.org/publicdomain/zero/1.0/>)
@@ -580,6 +581,7 @@ Declaration(AnnotationProperty(obo:IAO_0000232))
 Declaration(AnnotationProperty(obo:IAO_0000426))
 Declaration(AnnotationProperty(obo:IAO_0000589))
 Declaration(AnnotationProperty(obo:IAO_0100001))
+Declaration(AnnotationProperty(obo:OMO_0002000))
 Declaration(AnnotationProperty(obo:RO_0001900))
 Declaration(AnnotationProperty(obo:RO_0002161))
 Declaration(AnnotationProperty(obo:RO_0002171))
@@ -687,6 +689,29 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002161 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/17921072>)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002161 <http://www.ncbi.nlm.nih.gov/pubmed/20973947>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002161 "Class: ?X DisjointWith: RO_0002162 some ?Y ")
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002161 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX in_taxon: <http://purl.obolibrary.org/obo/RO_0002162>
+PREFIX never_in_taxon: <http://purl.obolibrary.org/obo/RO_0002161>
+CONSTRUCT {
+  in_taxon: a owl:ObjectProperty .
+  ?x owl:disjointWith [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom ?taxon
+  ] .
+  ?x rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom [
+      a owl:Class ;
+      owl:complementOf ?taxon
+    ]
+  ] .
+}
+WHERE {
+  ?x never_in_taxon: ?taxon .
+}"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002161 "never in taxon"^^xsd:string)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002161 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002161 obo:RO_0002172)
@@ -698,6 +723,25 @@ AnnotationAssertion(obo:IAO_0000118 obo:RO_0002171 "non-overlapping with")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002171 "shares no parts with")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002171 <http://www.ncbi.nlm.nih.gov/pubmed/22293552>)
 AnnotationAssertion(obo:IAO_0000425 obo:RO_0002171 "Class: <http://www.w3.org/2002/07/owl#Nothing> EquivalentTo: (BFO_0000050 some ?X) and (BFO_0000050 some ?Y)")
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002171 "PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX mutually_spatially_disjoint_with: <http://purl.obolibrary.org/obo/RO_0002171>
+CONSTRUCT {
+  part_of: a owl:ObjectProperty .
+  [
+    a owl:Restriction ;
+    owl:onProperty part_of: ;
+    owl:someValuesFrom ?x ;
+    owl:disjointWith [
+      a owl:Restriction ;
+      owl:onProperty part_of: ;
+      owl:someValuesFrom ?y
+    ]
+  ]
+}
+WHERE {
+  ?x mutually_spatially_disjoint_with: ?y .
+}"^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002171 "mutually spatially disjoint with"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002171 obo:RO_0002163)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002171 "https://github.com/obophenotype/uberon/wiki/Part-disjointness-Design-Pattern"^^xsd:anyURI)
@@ -732,6 +776,31 @@ SubAnnotationPropertyOf(obo:RO_0002174 obo:RO_0002172)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002175 "S present_in_taxon T if some instance of T has some S. This does not means that all instances of T have an S - it may only be certain life stages or sexes that have S")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002175 "https://orcid.org/0000-0002-6601-2165")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002175 <http://www.ncbi.nlm.nih.gov/pubmed/22293552>)
+AnnotationAssertion(obo:OMO_0002000 obo:RO_0002175 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX in_taxon: <http://purl.obolibrary.org/obo/RO_0002162>
+PREFIX present_in_taxon: <http://purl.obolibrary.org/obo/RO_0002175>
+CONSTRUCT {
+  in_taxon: a owl:ObjectProperty .
+  ?witness rdfs:label ?label .
+  ?witness rdfs:subClassOf ?x .
+  ?witness rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty in_taxon: ;
+    owl:someValuesFrom ?taxon
+  ] .
+}
+WHERE {
+  ?x present_in_taxon: ?taxon .
+  BIND(IRI(CONCAT(
+    \"http://purl.obolibrary.org/obo/RO_0002175#\",
+    MD5(STR(?x)),
+    \"-\",
+    MD5(STR(?taxon))
+  )) as ?witness)
+  BIND(CONCAT(STR(?x), \" in taxon \", STR(?taxon)) AS ?label)
+}"^^xsd:string)
+AnnotationAssertion(rdfs:comment obo:RO_0002175 "The SPARQL expansion for this relation introduces new named classes into the ontology. For this reason it is likely that the expansion should only be performed during a QC pipeline; the expanded output should usually not be included in a published version of the ontology.")
 AnnotationAssertion(rdfs:label obo:RO_0002175 "present in taxon"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002175 <https://github.com/obophenotype/uberon/wiki/Taxon-constraints>)
 SubAnnotationPropertyOf(obo:RO_0002175 obo:RO_0002172)
@@ -1937,6 +2006,7 @@ AnnotationAssertion(obo:RO_0001900 obo:RO_0002150 obo:RO_0001901)
 AnnotationAssertion(rdfs:label obo:RO_0002150 "continuous with"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0002150 "FMA:85972")
 SubObjectPropertyOf(obo:RO_0002150 obo:RO_0002323)
+SymmetricObjectProperty(obo:RO_0002150)
 ObjectPropertyDomain(obo:RO_0002150 obo:BFO_0000004)
 ObjectPropertyRange(obo:RO_0002150 obo:BFO_0000004)
 
@@ -4812,6 +4882,7 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0002569 subsets:ro-eco)
 AnnotationAssertion(rdfs:label obo:RO_0002569 "has branching part")
 SubObjectPropertyOf(obo:RO_0002569 obo:BFO_0000051)
 SubObjectPropertyOf(obo:RO_0002569 obo:RO_0002375)
+TransitiveObjectProperty(obo:RO_0002569)
 
 # Object Property: obo:RO_0002570 (conduit for)
 
@@ -6444,10 +6515,6 @@ SubClassOf(obo:BFO_0000003 ObjectAllValuesFrom(obo:RO_HOM0000000 obo:BFO_0000003
 # Class: obo:BFO_0000015 (process)
 
 SubClassOf(obo:BFO_0000015 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000015))
-
-# Class: obo:CARO_0000006 (material anatomical entity)
-
-SubClassOf(obo:CARO_0000006 ObjectAllValuesFrom(obo:RO_0002179 obo:CARO_0000003))
 
 # Class: obo:CHEBI_50906 (obo:CHEBI_50906)
 
