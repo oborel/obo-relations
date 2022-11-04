@@ -535,6 +535,10 @@ Declaration(ObjectProperty(obo:RO_0012005))
 Declaration(ObjectProperty(obo:RO_0012006))
 Declaration(ObjectProperty(obo:RO_0012007))
 Declaration(ObjectProperty(obo:RO_0012008))
+Declaration(ObjectProperty(obo:RO_0012009))
+Declaration(ObjectProperty(obo:RO_0012010))
+Declaration(ObjectProperty(obo:RO_0012011))
+Declaration(ObjectProperty(obo:RO_0012012))
 Declaration(ObjectProperty(obo:RO_0013001))
 Declaration(ObjectProperty(obo:RO_0013002))
 Declaration(ObjectProperty(obo:RO_0013003))
@@ -2307,9 +2311,7 @@ SubObjectPropertyOf(obo:RO_0002210 obo:RO_0002203)
 
 # Object Property: obo:RO_0002211 (regulates)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002211 obo:IAO_0000125)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002211 "process(P1) regulates process(P2) iff: P1 results in the initiation or termination of P2 OR affects the frequency of its initiation or termination OR affects the magnitude or rate of output of P2.")
-AnnotationAssertion(obo:IAO_0000116 obo:RO_0002211 "We use 'regulates' here to specifically imply control. However, many colloquial usages of the term correctly correspond to the weaker relation of 'causally upstream of or within' (aka influences). Consider relabeling to make things more explicit")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002211 "p regulates q iff p is causally upstream of q, the execution of p is not constant and varies according to specific conditions, and p influences the rate or magnitude of execution of q due to an effect either on some enabler of q or some enabler of a part of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002211 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002211 "David Hill")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002211 "Tanya Berardini")
@@ -2330,7 +2332,7 @@ ObjectPropertyRange(obo:RO_0002211 obo:BFO_0000015)
 
 # Object Property: obo:RO_0002212 (negatively regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002212 "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002212 "p negatively regulates q iff p regulates q, and p decreases the rate or magnitude of execution of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002212 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002212 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002212 "negatively regulates (process to process)")
@@ -2345,7 +2347,7 @@ InverseObjectProperties(obo:RO_0002212 obo:RO_0002335)
 
 # Object Property: obo:RO_0002213 (positively regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002213 "Process(P1) postively regulates process(P2) iff: P1 initiates P2, or P1 increases the the frequency of initiation of P2 or the magnitude or rate of output of P2.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002213 "p positively regulates q iff p regulates q, and p increases the rate or magnitude of execution of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002213 "Chris Mungall"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002213 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002213 "positively regulates (process to process)")
@@ -2954,6 +2956,7 @@ ObjectPropertyRange(obo:RO_0002303 obo:ENVO_01000254)
 
 # Object Property: obo:RO_0002304 (causally upstream of, positive effect)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002304 "p is causally upstream of, positive effect q iff p is casually upstream of q, and the execution of p is required for the execution of q.")
 AnnotationAssertion(obo:RO_0004049 obo:RO_0002304 obo:RO_0002411)
 AnnotationAssertion(dc:creator obo:RO_0002304 "cjm"^^xsd:string)
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002304 obo:valid_for_go_annotation_extension)
@@ -2965,9 +2968,11 @@ SubObjectPropertyOf(obo:RO_0002304 obo:RO_0004047)
 
 # Object Property: obo:RO_0002305 (causally upstream of, negative effect)
 
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002305 "p is causally upstream of, negative effect q iff p is casually upstream of q, and the execution of p decreases the execution of q.")
 AnnotationAssertion(obo:RO_0004050 obo:RO_0002305 obo:RO_0002411)
 AnnotationAssertion(dc:creator obo:RO_0002305 "cjm"^^xsd:string)
-AnnotationAssertion(rdfs:comment obo:RO_0002305 "holds between x and y if and only if x is causally upstream of y and the progression of x decreases the frequency, rate or extent of y")
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0002305 obo:valid_for_go_annotation_extension)
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0002305 obo:valid_for_gocam)
 AnnotationAssertion(rdfs:label obo:RO_0002305 "causally upstream of, negative effect")
 SubObjectPropertyOf(obo:RO_0002305 obo:RO_0002411)
 SubObjectPropertyOf(obo:RO_0002305 obo:RO_0004046)
@@ -3107,6 +3112,7 @@ SubObjectPropertyOf(obo:RO_0002326 obo:RO_0002329)
 # Object Property: obo:RO_0002327 (enables)
 
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0002327 "a particular instances of akt-2 enables some instance of protein kinase activity")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002327 "c enables p iff c is capable of p and c acts to execute p.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002327 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002327 "catalyzes")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002327 "executes")
@@ -3623,57 +3629,52 @@ SubObjectPropertyOf(obo:RO_0002405 obo:RO_0002087)
 SubObjectPropertyOf(obo:RO_0002405 obo:RO_0002404)
 InverseObjectProperties(obo:RO_0002405 obo:RO_0002412)
 
-# Object Property: obo:RO_0002406 (directly activates)
+# Object Property: obo:RO_0002406 (obsolete directly activates)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002406 obo:IAO_0000428)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002406 "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q")
-AnnotationAssertion(obo:IAO_0000117 obo:RO_0002406 "Chris Mungall")
-AnnotationAssertion(obo:IAO_0000118 obo:RO_0002406 "directly positively regulates")
-AnnotationAssertion(obo:IAO_0000119 obo:RO_0002406 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
-AnnotationAssertion(obo:IAO_0000589 obo:RO_0002406 "directly activates (process to process)")
-AnnotationAssertion(rdfs:label obo:RO_0002406 "directly activates"@en)
-SubObjectPropertyOf(obo:RO_0002406 obo:RO_0002629)
+AnnotationAssertion(rdfs:comment obo:RO_0002406 "This term was obsoleted because it has the same meaning as 'directly positively regulates'."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0002406 "obsolete directly activates"@en)
+AnnotationAssertion(obo:IAO_0100001 obo:RO_0002406 obo:RO_0002629)
+AnnotationAssertion(owl:deprecated obo:RO_0002406 "true"^^xsd:boolean)
 
-# Object Property: obo:RO_0002407 (indirectly activates)
+# Object Property: obo:RO_0002407 (indirectly positively regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002407 "p indirectly activates q if and only if p is upstream of q and there is a chain of directly activates relationships connecting p and q, where the chain is of length greater than one.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002407 "p indirectly positively regulates q iff p is indirectly causally upstream of q and p positively regulates q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002407 "Chris Mungall")
-AnnotationAssertion(obo:IAO_0000118 obo:RO_0002407 "indirectly positively regulates")
+AnnotationAssertion(obo:IAO_0000118 obo:RO_0002407 "indirectly activates")
 AnnotationAssertion(obo:RO_0002579 obo:RO_0002407 obo:RO_0002213)
-AnnotationAssertion(rdfs:label obo:RO_0002407 "indirectly activates"@en)
+AnnotationAssertion(rdfs:label obo:RO_0002407 "indirectly positively regulates"@en)
 SubObjectPropertyOf(obo:RO_0002407 obo:RO_0002213)
+SubObjectPropertyOf(obo:RO_0002407 obo:RO_0012012)
 TransitiveObjectProperty(obo:RO_0002407)
 
-# Object Property: obo:RO_0002408 (directly inhibits)
+# Object Property: obo:RO_0002408 (obsolete directly inhibits)
 
-AnnotationAssertion(obo:IAO_0000117 obo:RO_0002408 "Chris Mungall")
-AnnotationAssertion(obo:IAO_0000118 obo:RO_0002408 "directly negatively regulates")
-AnnotationAssertion(obo:IAO_0000119 obo:RO_0002408 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
-AnnotationAssertion(obo:IAO_0000589 obo:RO_0002408 "directly inhibits (process to process)")
-AnnotationAssertion(rdfs:label obo:RO_0002408 "directly inhibits"@en)
-SubObjectPropertyOf(obo:RO_0002408 obo:RO_0002630)
+AnnotationAssertion(rdfs:comment obo:RO_0002408 "This term was obsoleted because it has the same meaning as 'directly negatively regulates'."^^xsd:string)
+AnnotationAssertion(rdfs:label obo:RO_0002408 "obsolete directly inhibits"@en)
+AnnotationAssertion(obo:IAO_0100001 obo:RO_0002408 obo:RO_0002630)
+AnnotationAssertion(owl:deprecated obo:RO_0002408 "true"^^xsd:boolean)
 
-# Object Property: obo:RO_0002409 (indirectly inhibits)
+# Object Property: obo:RO_0002409 (indirectly negatively regulates)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002409 obo:IAO_0000428)
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002409 "p indirectly negatively regulates q iff p is indirectly causally upstream of q and p negatively regulates q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002409 "Chris Mungall")
-AnnotationAssertion(obo:IAO_0000118 obo:RO_0002409 "indirectly negatively regulates")
+AnnotationAssertion(obo:IAO_0000118 obo:RO_0002409 "indirectly inhibits")
 AnnotationAssertion(obo:RO_0002579 obo:RO_0002409 obo:RO_0002212)
-AnnotationAssertion(rdfs:label obo:RO_0002409 "indirectly inhibits"@en)
+AnnotationAssertion(rdfs:label obo:RO_0002409 "indirectly negatively regulates"@en)
 SubObjectPropertyOf(obo:RO_0002409 obo:RO_0002212)
+SubObjectPropertyOf(obo:RO_0002409 obo:RO_0012012)
 TransitiveObjectProperty(obo:RO_0002409)
 
 # Object Property: obo:RO_0002410 (causally related to)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002410 obo:IAO_0000428)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002410 "This relation groups causal relations between material entities and causal relations between processes")
+AnnotationAssertion(Annotation(oboInOwl:hasDbXref "https://en.wikipedia.org/wiki/Causality") obo:IAO_0000115 obo:RO_0002410 "relation that links two events, processes, states, or objects such that one event, process, state, or object (a cause) contributes to the production of another event, process, state, or object (an effect) where the cause is partly or wholly responsible for the effect, and the effect is partly or wholly dependent on the cause.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002410 "This branch of the ontology deals with causal relations between entities. It is divided into two branches: causal relations between occurrents/processes, and causal relations between material entities. We take an 'activity flow-centric approach', with the former as primary, and define causal relations between material entities in terms of causal relations between occurrents.
 
 To define causal relations in an activity-flow type network, we make use of 3 primitives:
 
  * Temporal: how do the intervals of the two occurrents relate? 
  * Is the causal relation regulatory?
- * Is the influence positive or negative
+ * Is the influence positive or negative?
 
 The first of these can be formalized in terms of the Allen Interval Algebra. Informally, the 3 bins we care about are 'direct', 'indirect' or overlapping. Note that all causal relations should be classified under a RO temporal relation (see the branch under 'temporally related to'). Note that all causal relations are temporal, but not all temporal relations are causal. Two occurrents can be related in time without being causally connected. We take causal influence to be primitive, elucidated as being such that has the upstream changed, some qualities of the donwstream would necessarily be modified.
 
@@ -3688,8 +3689,7 @@ AnnotationAssertion(rdfs:label obo:RO_0002410 "causally related to"@en)
 
 # Object Property: obo:RO_0002411 (causally upstream of)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002411 obo:IAO_0000428)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002411 "p is causally upstream of q if and only if p precedes q and p and q are linked in a causal chain")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002411 "p is causally upstream of q iff p is causally related to q, the end of p precedes the end of q, and p is not an occurrent part of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002411 "Chris Mungall")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002411 obo:valid_for_go_annotation_extension)
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0002411 obo:valid_for_gocam)
@@ -3700,8 +3700,7 @@ TransitiveObjectProperty(obo:RO_0002411)
 
 # Object Property: obo:RO_0002412 (immediately causally upstream of)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002412 obo:IAO_0000428)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002412 "p is immediately causally upstream of q iff both (a) p immediately precedes q and (b) p is causally upstream of q. In addition, the output of p  must be an input of q.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002412 "p is immediately causally upstream of q iff p is causally upstream of q, and the end of p is coincident with the beginning of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002412 "Chris Mungall")
 AnnotationAssertion(obo:RO_0002575 obo:RO_0002412 obo:RO_0002411)
 AnnotationAssertion(rdfs:label obo:RO_0002412 "immediately causally upstream of"@en)
@@ -3710,8 +3709,7 @@ SubObjectPropertyOf(obo:RO_0002412 obo:RO_0002411)
 
 # Object Property: obo:RO_0002413 (directly provides input for)
 
-AnnotationAssertion(obo:IAO_0000114 obo:RO_0002413 obo:IAO_0000428)
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002413 "p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002413 "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002413 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002413 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002413 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
@@ -3728,14 +3726,14 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002414 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002414 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')")
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002414 "transitively provides input for (process to process)")
 AnnotationAssertion(rdfs:label obo:RO_0002414 "transitively provides input for"@en)
-SubObjectPropertyOf(obo:RO_0002414 obo:RO_0002411)
+SubObjectPropertyOf(obo:RO_0002414 obo:RO_0004047)
 TransitiveObjectProperty(obo:RO_0002414)
 ObjectPropertyDomain(obo:RO_0002414 obo:BFO_0000015)
 ObjectPropertyRange(obo:RO_0002414 obo:BFO_0000015)
 
 # Object Property: obo:RO_0002418 (causally upstream of or within)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002418 "p 'causally upstream or within' q iff (1) the end of p is before the end of q and (2) the execution of p exerts some causal influence over the outputs of q; i.e. if p was abolished or the outputs of p were to be modified, this would necessarily affect q.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002418 "p is 'causally upstream or within' q iff p is causally related to q, and the end of p precedes, or is coincident with, the end of q.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002418 "We would like to make this disjoint with 'preceded by', but this is prohibited in OWL2")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002418 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000118 obo:RO_0002418 "influences (processual)")
@@ -4396,7 +4394,7 @@ InverseObjectProperties(obo:RO_0002500 obo:RO_0002608)
 
 # Object Property: obo:RO_0002501 (causal relation between processes)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002501 "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one of direct activation or direct inhibition. p may be upstream, downstream, part of or a container of q.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002501 "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one where the execution of p influences the execution of q. p may be upstream, downstream, part of, or a container of q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002501 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002501 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002501 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect.")
@@ -4948,7 +4946,7 @@ ObjectPropertyRange(obo:RO_0002576 obo:CARO_0000003)
 
 # Object Property: obo:RO_0002578 (directly regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002578 "Process(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002578 "p directly regulates q iff p is immediately causally upstream of q and p regulates q.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002578 "Chris Mungall")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002578 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002578 "directly regulates (processual)")
@@ -5190,7 +5188,7 @@ SubObjectPropertyOf(obo:RO_0002627 obo:RO_0002574)
 
 # Object Property: obo:RO_0002629 (directly positively regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002629 "Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002629 "p directly positively regulates q iff p is immediately causally upstream of q, and p positively regulates q.")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002629 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002629 "directly positively regulates (process to process)")
 AnnotationAssertion(obo:RO_0004049 obo:RO_0002629 obo:RO_0002578)
@@ -5203,7 +5201,7 @@ SubObjectPropertyOf(obo:RO_0002629 obo:RO_0002578)
 
 # Object Property: obo:RO_0002630 (directly negatively regulates)
 
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0002630 "Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2.")
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0002630 "p directly negatively regulates q iff p is immediately causally upstream of q, and p negatively regulates q.")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002630 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002630 "directly negatively regulates (process to process)")
 AnnotationAssertion(obo:RO_0004050 obo:RO_0002630 obo:RO_0002578)
@@ -6131,7 +6129,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0012004 "a relation between a continu
 AnnotationAssertion(oboInOwl:created_by obo:RO_0012004 "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0012004 "2020-06-24T13:15:17Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0012004 "is small molecule regulator of"@en)
-SubObjectPropertyOf(obo:RO_0012004 obo:RO_0000056)
+SubObjectPropertyOf(obo:RO_0012004 obo:RO_0002596)
 
 # Object Property: obo:RO_0012005 (is small molecule activator of)
 
@@ -6139,6 +6137,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0012005 "a relation between a continu
 AnnotationAssertion(oboInOwl:created_by obo:RO_0012005 "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0012005 "2020-06-24T13:15:26Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0012005 "is small molecule activator of"@en)
+SubObjectPropertyOf(obo:RO_0012005 obo:RO_0002598)
 SubObjectPropertyOf(obo:RO_0012005 obo:RO_0012004)
 
 # Object Property: obo:RO_0012006 (is small molecule inhibitor of)
@@ -6147,6 +6146,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0012006 "a relation between a continu
 AnnotationAssertion(oboInOwl:created_by obo:RO_0012006 "pg"^^xsd:string)
 AnnotationAssertion(oboInOwl:creation_date obo:RO_0012006 "2020-06-24T13:15:35Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0012006 "is small molecule inhibitor of"@en)
+SubObjectPropertyOf(obo:RO_0012006 obo:RO_0002597)
 SubObjectPropertyOf(obo:RO_0012006 obo:RO_0012004)
 
 # Object Property: obo:RO_0012007 (results in adhesion of)
@@ -6166,6 +6166,43 @@ AnnotationAssertion(oboInOwl:inSubset obo:RO_0012008 obo:valid_for_go_ontology)
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0012008 obo:valid_for_gocam)
 AnnotationAssertion(rdfs:label obo:RO_0012008 "results in fusion of"@en)
 SubObjectPropertyOf(obo:RO_0012008 obo:RO_0002592)
+
+# Object Property: obo:RO_0012009 (constitutively upstream of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0012009 "p is constitutively upstream of q iff p is causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0012009 "pg"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0012009 "2022-09-26T06:01:01Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0012009 obo:valid_for_go_annotation_extension)
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0012009 obo:valid_for_gocam)
+AnnotationAssertion(rdfs:label obo:RO_0012009 "constitutively upstream of"@en)
+SubObjectPropertyOf(obo:RO_0012009 obo:RO_0002304)
+
+# Object Property: obo:RO_0012010 (removes input for)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0012010 "p removes input for q iff p is causally upstream of q, there exists some c such that p has_input c and q has_input c, p reduces the levels of c, and c is rate limiting for execution of q.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0012010 "pg"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0012010 "2022-09-26T06:06:20Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0012010 obo:valid_for_go_annotation_extension)
+AnnotationAssertion(oboInOwl:inSubset obo:RO_0012010 obo:valid_for_gocam)
+AnnotationAssertion(rdfs:label obo:RO_0012010 "removes input for"@en)
+SubObjectPropertyOf(obo:RO_0012010 obo:RO_0002305)
+
+# Object Property: obo:RO_0012011 (indirectly causally upstream of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0012011 "p is indirectly causally upstream of q iff p is causally upstream of q and there exists some process r such that p is causally upstream of r and r is causally upstream of q.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0012011 "pg"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0012011 "2022-09-26T06:07:17Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0012011 "indirectly causally upstream of"@en)
+SubObjectPropertyOf(obo:RO_0012011 obo:RO_0002411)
+
+# Object Property: obo:RO_0012012 (indirectly regulates)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0012012 "p indirectly regulates q iff p is indirectly causally upstream of q and p regulates q.")
+AnnotationAssertion(oboInOwl:created_by obo:RO_0012012 "pg"^^xsd:string)
+AnnotationAssertion(oboInOwl:creation_date obo:RO_0012012 "2022-09-26T06:08:01Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0012012 "indirectly regulates"@en)
+SubObjectPropertyOf(obo:RO_0012012 obo:RO_0002211)
+SubObjectPropertyOf(obo:RO_0012012 obo:RO_0012011)
 
 # Object Property: obo:RO_0013001 (has synaptic IO in region)
 
@@ -6679,13 +6716,9 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002339 obo:BFO_0000050) obo:RO_0
 SubObjectPropertyOf(Annotation(obo:RO_0002582 "true"^^xsd:boolean) ObjectPropertyChain(obo:RO_0002371 obo:BFO_0000050) obo:RO_0002177)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002377 obo:RO_0002381) obo:RO_0002380)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002402 obo:RO_0002400) obo:RO_0002413)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002406 obo:RO_0002406) obo:RO_0002407)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002406 obo:RO_0002407) obo:RO_0002407)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002407 obo:RO_0002406) obo:RO_0002407)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002408 obo:RO_0002408) obo:RO_0002409)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002408 obo:RO_0002409) obo:RO_0002409)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002409 obo:RO_0002408) obo:RO_0002409)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002407 obo:RO_0002629) obo:RO_0002407)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002409 obo:RO_0002409) obo:RO_0002407)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002409 obo:RO_0002630) obo:RO_0002409)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002411 obo:RO_0002402) obo:RO_0002403)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002444 obo:RO_0002444) obo:RO_0002553)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002445 obo:RO_0002445) obo:RO_0002554)
@@ -6711,6 +6744,10 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002583 obo:BFO_0000050) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002583 obo:BFO_0000062 ObjectInverseOf(obo:RO_0002583)) obo:RO_0002496)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002593 obo:BFO_0000050) obo:RO_0002492)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002593 obo:BFO_0000063 ObjectInverseOf(obo:RO_0002593)) obo:RO_0002497)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002629 obo:RO_0002407) obo:RO_0002407)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002629 obo:RO_0002629) obo:RO_0002407)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002630 obo:RO_0002409) obo:RO_0002409)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002630 obo:RO_0002630) obo:RO_0002409)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0004024 obo:BFO_0000050) obo:RO_0004024)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0004025 obo:BFO_0000050) obo:RO_0004025)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0004025 obo:RO_0002215) obo:RO_0004024)
@@ -6738,10 +6775,12 @@ DLSafeRule(Annotation(rdfs:comment "if effector directly positively regulates X,
 DLSafeRule(Annotation(rdfs:label "if effector directly negatively regulates X,  its parent MF directly negatively regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
 DLSafeRule(Annotation(rdfs:label "'causally downstream of' and 'overlaps' should be disjoint properties (a SWRL rule is required because these are non-simple properties).") Body(ObjectPropertyAtom(obo:RO_0002404 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002131 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(owl:Nothing Variable(<urn:swrl#x>)) ClassAtom(owl:Nothing Variable(<urn:swrl#y>))))
 DLSafeRule(Annotation(rdfs:label "'causally upstream of' and 'overlaps' should be disjoint properties (a SWRL rule is required because these are non-simple properties).") Body(ObjectPropertyAtom(obo:RO_0002411 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002131 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(owl:Nothing Variable(<urn:swrl#x>)) ClassAtom(owl:Nothing Variable(<urn:swrl#y>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002211 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)) ObjectPropertyAtom(obo:RO_0012011 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)))Head(ObjectPropertyAtom(obo:RO_0012012 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0019002 Variable(<urn:swrl:var#y>) Variable(<urn:swrl:var#z>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#y>)))Head(ObjectPropertyAtom(obo:RO_0019001 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002264 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#y>)) ObjectPropertyAtom(obo:RO_0002411 Variable(<urn:swrl:var#y>) Variable(<urn:swrl:var#z>)))Head(ObjectPropertyAtom(obo:RO_0002263 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#z>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002411 Variable(<urn:swrl:var#q>) Variable(<urn:swrl:var#u>)) ObjectPropertyAtom(obo:RO_0002411 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)))Head(ObjectPropertyAtom(obo:RO_0012011 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#u>))))
 AnnotationAssertion(owl:deprecated obo:BFO_0000060 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000092 "inverse of has disposition")
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0000092 obo:RO_0002259)
