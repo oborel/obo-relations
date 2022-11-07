@@ -9,7 +9,7 @@
 
 # fairly dump release process whilst waiting for Oort - check than versionIRI has been entered manually.
 #ro.owl: ro-edit.owl components/core.owl components/temporal-intervals.owl validate-using-oort
-#	$(OWLTOOLS) --use-catalog $<  --set-ontology-id -v $(OBO)/ro/releases/$(RELEASEDATE)/ro.owl $(OBO)/ro.owl -o file://`pwd`/$@
+#	$(OWLTOOLS) --use-catalog $<  --set-ontology-id -v $(URIBASE)/ro/releases/$(RELEASEDATE)/ro.owl $(URI)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
 %-sh.obo: %.owl
@@ -42,7 +42,7 @@ docs-deploy:
 # DIFFS
 # ========================================
 ro-lastbuild.owl: ro-edit.owl
-	wget --no-check-certificate $(OBO)/ro.owl -O $@
+	wget --no-check-certificate $(URIBASE)/ro.owl -O $@
 
 ro-diff.md: ro.owl ro-lastbuild.owl 
 	$(ROBOT) diff --left ro-lastbuild.owl --right $< -f markdown -o $@
@@ -54,7 +54,7 @@ ro-diff.html: ro-diff.md
 # ========================================
 
 bfo2-classes.owl:
-	$(OWLTOOLS) $(OBO)/bfo.owl --make-subset-by-properties // --set-ontology-id $(OBO)/ro/bfo2-classes.owl -o file://`pwd`/bfo2-classes.owl
+	$(OWLTOOLS) $(URIBASE)/bfo.owl --make-subset-by-properties // --set-ontology-id $(URIBASE)/ro/bfo2-classes.owl -o file://`pwd`/bfo2-classes.owl
 
 # ========================================
 # SUBSETS
@@ -69,27 +69,27 @@ subsets/ro-biotic-interaction.owl: ro.owl
 
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'interacts with' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-sequence.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'sequentially related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'sequentially related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-time-interval.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'temporally related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'temporally related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-mereotopology.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'mereotopologically related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'mereotopologically related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-causal.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'causally related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'causally related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-developmental.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'developmentally related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'developmentally related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 #subsets/ro-eco.owl: ro.owl
-#	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'ecologically related to' // --set-ontology-id $(OBO)/ro/$@ -o $@
+#	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'ecologically related to' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 subsets/ro-hom.owl: ro.owl
-	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'in similarity relationship with' // --set-ontology-id $(OBO)/ro/$@ -o $@
+	$(OWLTOOLS) --use-catalog $< --extract-properties -s --list 'in similarity relationship with' // --set-ontology-id $(URIBASE)/ro/$@ -o $@
 
 subsets/%.csv: subsets/%.owl
 	$(ROBOT) query -i $< -s $(SPARQLDIR)/objectProperties.sparql $@.tmp -f csv && mv $@.tmp $@
 
 subsets/ro-chado.obo: ro.obo
-	$(OWLTOOLS) --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(OBO)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@ && rm $@.tmp
+	$(OWLTOOLS) --use-catalog $< --merge-imports-closure --remove-tbox --remove-annotation-assertions -r -l -s -d --remove-dangling --set-ontology-id $(URIBASE)/ro/$@ -o -f obo $@.tmp && ../tools/translate-to-chado-obo.pl $@.tmp > $@ && rm $@.tmp
 
 # ========================================
 # REPORTING (EXPERIMENTAL)
@@ -112,7 +112,7 @@ build-using-oort: ro-edit.owl
 	touch $@
 
 hom.obo:
-	wget $(OBO)/hom.obo -O $@.tmp && mv $@.tmp $@
+	wget $(URIBASE)/hom.obo -O $@.tmp && mv $@.tmp $@
 hom-fixed.obo: hom.obo
 	obo-grep.pl --neg -r is_obsolete: $< > $@.tmp && mv $@.tmp $@
 
@@ -138,18 +138,18 @@ reports/ro-%.csv: $(SPARQLDIR)/%.sparql ro.owl
 
 # SPARQL constructs
 $(REPORTDIR)/ro-%.ttl: $(SPARQLDIR)/%.sparql ro.owl
-	$(ROBOT) query -i ro.owl -c $< $@.tmp.ttl -f ttl annotate -O $(OBO)/ro/$@ -o $@
+	$(ROBOT) query -i ro.owl -c $< $@.tmp.ttl -f ttl annotate -O $(URIBASE)/ro/$@ -o $@
 
 views/%.owl: $(SPARQLDIR)/%.sparql ro.owl
-	$(ROBOT) merge -i ro.owl query -c $< $@.tmp.ttl -f ttl annotate -O $(OBO)/ro/$@ -o $@
+	$(ROBOT) merge -i ro.owl query -c $< $@.tmp.ttl -f ttl annotate -O $(URIBASE)/ro/$@ -o $@
 
 gen-%.owl: $(SPARQLDIR)/construct-%.sparql ro.owl
-	$(ROBOT) query -i ro.owl -c $< $@.tmp.ttl -f ttl annotate -O $(OBO)/ro/$@ -o $@
+	$(ROBOT) query -i ro.owl -c $< $@.tmp.ttl -f ttl annotate -O $(URIBASE)/ro/$@ -o $@
 
 # See https://github.com/oborel/obo-relations/pull/270
 GENAXIOMS = gen-universal-from-homeomorphy.owl
 generated-axioms.owl: $(GENAXIOMS)
-	$(ROBOT) merge $(patsubst %, -i %, $(GENAXIOMS)) -o $@.tmp.ttl annotate -O $(OBO)/ro/$@ -o $@
+	$(ROBOT) merge $(patsubst %, -i %, $(GENAXIOMS)) -o $@.tmp.ttl annotate -O $(URIBASE)/ro/$@ -o $@
 
 # generate includes from sparql CONSTRUCT queries;
 # these can then be merged in to the main ontology
