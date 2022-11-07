@@ -267,6 +267,15 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms_combined.txt
 
 .PRECIOUS: $(IMPORTDIR)/%_import.owl
 
+## Module for ontology: envo
+
+$(IMPORTDIR)/envo_import.owl: $(MIRRORDIR)/envo.owl $(IMPORTDIR)/envo_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) extract  -i $< -T $(IMPORTDIR)/envo_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
+		remove --base-iri $(URIBASE)/ENVO --axioms external --preserve-structure false --trim false \
+		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru \
+		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/envo_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
+		annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) --output $@.tmp.owl && mv $@.tmp.owl $@; fi
+
 
 .PHONY: refresh-imports
 refresh-imports:
