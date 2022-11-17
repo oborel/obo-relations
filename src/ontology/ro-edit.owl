@@ -3606,9 +3606,9 @@ InverseObjectProperties(obo:RO_0002405 obo:RO_0002412)
 
 # Object Property: obo:RO_0002406 (obsolete directly activates)
 
+AnnotationAssertion(obo:IAO_0100001 obo:RO_0002406 obo:RO_0002629)
 AnnotationAssertion(rdfs:comment obo:RO_0002406 "This term was obsoleted because it has the same meaning as 'directly positively regulates'."^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002406 "obsolete directly activates"@en)
-AnnotationAssertion(obo:IAO_0100001 obo:RO_0002406 obo:RO_0002629)
 AnnotationAssertion(owl:deprecated obo:RO_0002406 "true"^^xsd:boolean)
 
 # Object Property: obo:RO_0002407 (indirectly positively regulates)
@@ -3624,9 +3624,9 @@ TransitiveObjectProperty(obo:RO_0002407)
 
 # Object Property: obo:RO_0002408 (obsolete directly inhibits)
 
+AnnotationAssertion(obo:IAO_0100001 obo:RO_0002408 obo:RO_0002630)
 AnnotationAssertion(rdfs:comment obo:RO_0002408 "This term was obsoleted because it has the same meaning as 'directly negatively regulates'."^^xsd:string)
 AnnotationAssertion(rdfs:label obo:RO_0002408 "obsolete directly inhibits"@en)
-AnnotationAssertion(obo:IAO_0100001 obo:RO_0002408 obo:RO_0002630)
 AnnotationAssertion(owl:deprecated obo:RO_0002408 "true"^^xsd:boolean)
 
 # Object Property: obo:RO_0002409 (indirectly negatively regulates)
@@ -3682,14 +3682,15 @@ AnnotationAssertion(rdfs:label obo:RO_0002412 "immediately causally upstream of"
 SubObjectPropertyOf(obo:RO_0002412 obo:RO_0002090)
 SubObjectPropertyOf(obo:RO_0002412 obo:RO_0002411)
 
-# Object Property: obo:RO_0002413 (directly provides input for)
+# Object Property: obo:RO_0002413 (provides input for)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002413 "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002413 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002413 "Chris Mungall")
+AnnotationAssertion(obo:IAO_0000118 obo:RO_0002413 "directly provides input for")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002413 <http://purl.obolibrary.org/obo/ro/docs/causal-relations>)
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002413 "directly provides input for (process to process)")
-AnnotationAssertion(rdfs:label obo:RO_0002413 "directly provides input for"@en)
+AnnotationAssertion(rdfs:label obo:RO_0002413 "provides input for"@en)
 SubObjectPropertyOf(obo:RO_0002413 obo:RO_0002412)
 SubObjectPropertyOf(obo:RO_0002413 obo:RO_0002414)
 
@@ -3698,7 +3699,7 @@ SubObjectPropertyOf(obo:RO_0002413 obo:RO_0002414)
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002414 obo:IAO_0000428)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002414 "transitive form of directly_provides_input_for")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002414 "Chris Mungall")
-AnnotationAssertion(obo:IAO_0000232 obo:RO_0002414 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')")
+AnnotationAssertion(obo:IAO_0000232 obo:RO_0002414 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'provides input for'.")
 AnnotationAssertion(obo:IAO_0000589 obo:RO_0002414 "transitively provides input for (process to process)")
 AnnotationAssertion(rdfs:label obo:RO_0002414 "transitively provides input for"@en)
 SubObjectPropertyOf(obo:RO_0002414 obo:RO_0004047)
@@ -6777,7 +6778,7 @@ DLSafeRule(Annotation(rdfs:comment "if effector directly positively regulates X,
 DLSafeRule(Annotation(rdfs:label "if effector directly negatively regulates X,  its parent MF directly negatively regulates X") Body(ObjectPropertyAtom(obo:RO_0002025 Variable(<urn:swrl#mf>) Variable(<urn:swrl#eff>)) ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#mf>) Variable(<urn:swrl#mf2>)))Head(ObjectPropertyAtom(obo:RO_0002630 Variable(<urn:swrl#eff>) Variable(<urn:swrl#mf2>))))
 DLSafeRule(Annotation(rdfs:label "'causally downstream of' and 'overlaps' should be disjoint properties (a SWRL rule is required because these are non-simple properties).") Body(ObjectPropertyAtom(obo:RO_0002404 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002131 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(owl:Nothing Variable(<urn:swrl#x>)) ClassAtom(owl:Nothing Variable(<urn:swrl#y>))))
 DLSafeRule(Annotation(rdfs:label "'causally upstream of' and 'overlaps' should be disjoint properties (a SWRL rule is required because these are non-simple properties).") Body(ObjectPropertyAtom(obo:RO_0002411 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002131 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ClassAtom(owl:Nothing Variable(<urn:swrl#x>)) ClassAtom(owl:Nothing Variable(<urn:swrl#y>))))
-DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002211 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)) ObjectPropertyAtom(obo:RO_0012011 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)))Head(ObjectPropertyAtom(obo:RO_0012012 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0012011 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)) ObjectPropertyAtom(obo:RO_0002211 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>)))Head(ObjectPropertyAtom(obo:RO_0012012 Variable(<urn:swrl:var#p>) Variable(<urn:swrl:var#q>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002213 Variable(<urn:swrl#x>) Variable(<urn:swrl#y>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#y>) Variable(<urn:swrl#z>)))Head(ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl#x>) Variable(<urn:swrl#z>))))
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0019002 Variable(<urn:swrl:var#y>) Variable(<urn:swrl:var#z>)) ObjectPropertyAtom(obo:RO_0002212 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#y>)))Head(ObjectPropertyAtom(obo:RO_0019001 Variable(<urn:swrl:var#x>) Variable(<urn:swrl:var#z>))))
