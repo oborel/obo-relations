@@ -98,6 +98,22 @@ imports/%_terms_combined.txt: seed.txt
 mirror/%.owl:
 	wget --no-check-certificate $(OBO)/$*.owl -O $@
 
+iao_import.owl:
+	$(ROBOT) filter -I http://purl.obolibrary.org/obo/iao.owl \
+    	--select "annotations self" \
+		--term "obo:BFO_0000031" \
+		--term "obo:IAO_0000030" \
+		--term "obo:IAO_0000136" \
+		--term "obo:IAO_0000219" \
+		--term "obo:IAO_0000413" \
+		--term "obo:IAO_0000221" \
+		--term "obo:IAO_0000418" \
+		--term "obo:IAO_0000142" \
+ 	annotate \
+    	--annotate-defined-by true \
+ 	annotate \
+ 		--ontology-iri http://purl.obolibrary.org/obo/ro/iao_import.owl \
+ 	--output $@
 # ========================================
 # MIREOT
 # ========================================
