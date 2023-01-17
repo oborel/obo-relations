@@ -883,7 +883,7 @@ is_a: has_potential_to_developmentally_contribute_to ! has potential to developm
 [Typedef]
 id: developmentally_induced_by
 name: developmentally induced by
-def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
+def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor material anatomical entity type T to T', where T' develops_from T" []
 xref: RO:0002256
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
@@ -894,8 +894,8 @@ property_value: IAO:0000119 " Developmental Biology, Gilbert, 8th edition, figur
 property_value: IAO:0000119 GO:0001759 xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: IAO:0000232 "We place this under 'developmentally preceded by'. This placement should be examined in the context of reciprocal inductions[cjm]" xsd:string
-domain: CARO:0000003
-range: CARO:0000003
+domain: CARO:0000006
+range: CARO:0000006
 is_a: developmentally_preceded_by ! developmentally preceded by
 inverse_of: developmentally_induces ! developmentally induces
 
@@ -1123,18 +1123,6 @@ property_value: IAO:0000117 "Vasundra Touré" xsd:string
 domain: BFO:0000040
 range: BFO:0000040
 is_a: directly_regulates_quantity_of ! directly regulates quantity of
-
-[Typedef]
-id: directly_provides_input_for
-name: directly provides input for
-def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
-xref: RO:0002413
-property_value: IAO:0000116 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit" xsd:string
-property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
-property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
-is_a: immediately_causally_upstream_of ! immediately causally upstream of
-is_a: transitively_provides_input_for ! transitively provides input for
 
 [Typedef]
 id: directly_regulated_by
@@ -2822,6 +2810,16 @@ is_a: functionally_related_to ! functionally related to
 is_a: overlaps ! overlaps
 
 [Typedef]
+id: is_agonist_of
+name: is agonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
+xref: RO:0018027
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "mibolerone (CHEBI:34849) is agonist of androgen receptor (PR:P10275)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P3772
+is_a: directly_positively_regulates_activity_of ! directly positively regulates activity of
+
+[Typedef]
 id: is_allergic_trigger_for
 name: is allergic trigger for
 def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
@@ -2830,6 +2828,16 @@ property_value: IAO:0000112 "penicillin (CHEBI:17334) is allergic trigger for pe
 domain: BFO:0000040
 is_a: causes_or_contributes_to_condition ! causes or contributes to condition
 inverse_of: has_allergic_trigger ! has allergic trigger
+
+[Typedef]
+id: is_antagonist_of
+name: is antagonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
+xref: RO:0018029
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "tretinoin (CHEBI:15367) is antagonist of Nuclear receptor ROR-beta (PR:Q92753)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P3773
+is_a: directly_negatively_regulates_activity_of ! directly negatively regulates activity of
 
 [Typedef]
 id: is_autoimmune_trigger_for
@@ -2999,6 +3007,16 @@ property_value: IAO:0000112 "A 5'UTR is immediately upstream of the sequence of 
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: is_upstream_of_sequence_of ! is upstream of sequence of
 is_a: sequentially_adjacent_to ! sequentially adjacent to
+
+[Typedef]
+id: is_inverse_agonist_of
+name: is inverse agonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
+xref: RO:0018028
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "pimavanserin (CHEBI:133017) is inverse agonist of HTR2A (PR:P28223)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P9275
+is_a: directly_negatively_regulates_activity_of ! directly negatively regulates activity of
 
 [Typedef]
 id: is_killed_by
@@ -3619,6 +3637,19 @@ property_value: IAO:0000117 "Chris Mungall" xsd:string
 is_a: tributary_of ! tributary of
 
 [Typedef]
+id: provides_input_for
+name: provides input for
+def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
+xref: RO:0002413
+property_value: IAO:0000116 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit" xsd:string
+property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "directly provides input for" xsd:string
+property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
+property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
+is_a: immediately_causally_upstream_of ! immediately causally upstream of
+is_a: transitively_provides_input_for ! transitively provides input for
+
+[Typedef]
 id: provides_nutrients_for
 name: provides nutrients for
 subset: ro-eco
@@ -3947,14 +3978,14 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 [Typedef]
 id: results_in_developmental_progression_of
 name: results in developmental progression of
-def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
+def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical entity and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
 xref: RO:0002295
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "This property and its subproperties are being used primarily for the definition of GO developmental processes. The property hierarchy mirrors the core GO hierarchy. In future we may be able to make do with a more minimal set of properties, but due to the way GO is currently structured we require highly specific relations to avoid incorrect entailments. To avoid this, the corresponding genus terms in GO should be declared mutually disjoint." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso Ontology:extensions
 domain: GO:0008150
-range: CARO:0000003
+range: CARO:0000000
 is_a: developmentally_related_to ! developmentally related to
 
 [Typedef]
@@ -4511,7 +4542,7 @@ def: "transitive form of directly_provides_input_for" []
 xref: RO:0002414
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')" xsd:string
+property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'provides input for'." xsd:string
 property_value: IAO:0000589 "transitively provides input for (process to process)" xsd:string
 domain: BFO:0000015
 range: BFO:0000015
