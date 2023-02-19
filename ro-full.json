@@ -1689,6 +1689,24 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0001901",
+      "lbl" : "axiom holds for all times",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "## Elucidation\n\nThis is used when the statement/axiom is assumed to hold true &apos;eternally&apos;\n\n## How to interpret (informal)\n\nFirst the &quot;atemporal&quot; FOL is derived from the OWL using the standard\ninterpretation. This axiom is temporalized by embedding the axiom\nwithin a for-all-times quantified sentence. The t argument is added to\nall instantiation predicates and predicates that use this relation.\n\n## Example\n\n    Class: nucleus\n    SubClassOf: part_of some cell\n\n    forall t :\n      forall n :\n        instance_of(n,Nucleus,t)\n         implies\n        exists c :\n          instance_of(c,Cell,t)\n          part_of(n,c,t)\n\n## Notes\n\nThis interpretation is *not* the same as an at-all-times relation"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0001902",
+      "lbl" : "relation has no temporal argument",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "## Elucidation\n\nThis is used when the first-order logic form of the relation is\nbinary, and takes no temporal argument.\n\n## Example:\n\n    Class: limb\n    SubClassOf: develops_from some lateral-plate-mesoderm\n\n     forall t, t2:\n      forall x :\n        instance_of(x,Limb,t)\n         implies\n        exists y :\n          instance_of(y,LPM,t2)\n          develops_from(x,y)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002000",
       "lbl" : "2D boundary of",
       "type" : "PROPERTY",

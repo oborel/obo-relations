@@ -52,12 +52,24 @@ docs-deploy:
 # DIFFS
 # ========================================
 ro-lastbuild.owl: ro-edit.owl
-	wget --no-check-certificate $(URIBASE)/ro.owl -O $@
+	$(ROBOT) merge -I $(URIBASE)/ro.owl -o $@
 
-ro-diff.md: ro.owl ro-lastbuild.owl 
-	$(ROBOT) diff --left ro-lastbuild.owl --right $< -f markdown -o $@
-ro-diff.html: ro-diff.md
-	pandoc $< -o $@
+ro-lastbuild-core.owl: ro-edit.owl
+	$(ROBOT) merge -I $(URIBASE)/ro/core.owl -o $@
+
+ro-diff.txt: ro.owl ro-lastbuild.owl 
+	$(ROBOT) diff --left ro-lastbuild.owl --right ro.owl -o $@
+
+ro-diff-core.txt: core.owl ro-lastbuild-core.owl 
+	$(ROBOT) diff --left ro-lastbuild-core.owl  --right core.owl -o $@
+
+dev-diffs:
+	$(MAKE_FAST) ro-diff-core.txt
+	$(MAKE_FAST) ro-diff.txt
+
+grepro:
+	cat ro-diff.txt | grep /RO_ > ro-diff.txt.ro.txt
+	cat ro-diff-core.txt | grep /RO_ > ro-diff-core.txt.ro.txt
 
 # ========================================
 # MIREOT
