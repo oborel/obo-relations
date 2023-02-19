@@ -12,20 +12,24 @@
 #	$(OWLTOOLS) --use-catalog $<  --set-ontology-id -v $(URIBASE)/ro/releases/$(RELEASEDATE)/ro.owl $(URI)/ro.owl -o file://`pwd`/$@
 #	grep versionIRI $< && (echo "check the version:" && echo versionIRI: `grep versionIRI $<` && cp $< $@) || echo 'You must set the versionIRI!!'
 
-%-sh.obo: %.owl
-	$(OWLTOOLS) --use-catalog $< --merge-import-closure --add-obo-shorthand-to-properties -o -f obo $@.tmp && grep -v ^owl-axioms $@.tmp >  $@
+#%-sh.obo: %.owl
+#	$(OWLTOOLS) --use-catalog $< --merge-import-closure --add-obo-shorthand-to-properties -o -f obo $@.tmp && grep -v ^owl-axioms $@.tmp >  $@
 
 # soon this will be incorporated into Oort
-ro-el.owl: ro.owl
-	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
+#ro-el.owl: ro.owl
+#	makeElWithoutReasoning.sh -i `pwd`/$< -o `pwd`/$@
 
 # note we don't do anything with the generated ontology, this is just for checking purposes.
 validate-using-oort: ro-edit.owl
 	ontology-release-runner  --catalog-xml catalog-v001.xml --outdir build --simple --allow-overwrite --reasoner hermit ro-edit.owl
 	touch $@
 
+# ========================================
+# Custom components
+# ========================================
+
 core.owl: components/core.owl
-	$(ROBOT) annotate -i $< -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION) -o $@
+	$(ROBOT) annotate -i $< --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
 
 # ========================================

@@ -51,7 +51,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/other_import.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl 
+OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/other_import.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -310,6 +310,16 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms_combined.txt
 
 .PRECIOUS: $(IMPORTDIR)/%_import.owl
 
+## Module for ontology: omo
+
+$(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+    extract -T $(IMPORTDIR)/omo_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
+    remove --base-iri $(OBOBASE)/OMO --axioms external --preserve-structure false --trim false \
+		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/omo_terms_combined.txt --select complement \
+		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
+		$(ANNOTATE_CONVERT_FILE); fi
+
 ## Module for ontology: pato
 
 $(IMPORTDIR)/pato_import.owl: $(MIRRORDIR)/pato.owl $(IMPORTDIR)/pato_terms_combined.txt
@@ -318,6 +328,16 @@ $(IMPORTDIR)/pato_import.owl: $(MIRRORDIR)/pato.owl $(IMPORTDIR)/pato_terms_comb
 		remove --base-iri $(URIBASE)/PATO --axioms external --preserve-structure false --trim false \
 		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru \
 		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/pato_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
+		$(ANNOTATE_CONVERT_FILE); fi
+
+## Module for ontology: cl
+
+$(IMPORTDIR)/cl_import.owl: $(MIRRORDIR)/cl.owl $(IMPORTDIR)/cl_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+    extract -T $(IMPORTDIR)/cl_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
+		remove --base-iri $(URIBASE)/CL --axioms external --preserve-structure false --trim false \
+		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru \
+		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cl_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
 		$(ANNOTATE_CONVERT_FILE); fi
 
 ## Module for ontology: envo
@@ -338,6 +358,16 @@ $(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl $(IMPORTDIR)/go_terms_combined.t
 		remove --base-iri $(URIBASE)/GO --axioms external --preserve-structure false --trim false \
 		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru \
 		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/go_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
+		$(ANNOTATE_CONVERT_FILE); fi
+
+## Module for ontology: caro
+
+$(IMPORTDIR)/caro_import.owl: $(MIRRORDIR)/caro.owl $(IMPORTDIR)/caro_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+    extract -T $(IMPORTDIR)/caro_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
+		remove --base-iri $(URIBASE)/CARO --axioms external --preserve-structure false --trim false \
+		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru \
+		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/caro_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
 		$(ANNOTATE_CONVERT_FILE); fi
 
 
@@ -391,6 +421,7 @@ no-mirror-recreate-%:
 $(COMPONENTSDIR)/%: | $(COMPONENTSDIR)
 	touch $@
 .PRECIOUS: $(COMPONENTSDIR)/%
+
 
 
 
