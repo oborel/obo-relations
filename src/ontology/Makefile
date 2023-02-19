@@ -51,7 +51,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/other_import.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl 
+OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -425,7 +425,6 @@ no-mirror-recreate-%:
 $(COMPONENTSDIR)/%: | $(COMPONENTSDIR)
 	touch $@
 .PRECIOUS: $(COMPONENTSDIR)/%
-
 
 
 
