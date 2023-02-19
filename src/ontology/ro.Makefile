@@ -28,8 +28,8 @@ validate-using-oort: ro-edit.owl
 # Custom components
 # ========================================
 
-core.owl: components/core.owl
-	$(ROBOT) annotate -i $< --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
+core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-minimal.owl
+	$(ROBOT) merge -i components/core.owl -i components/bfo-axioms.owl -i components/bfo-classes-minimal.owl annotate -i $< --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
 
 # ========================================
