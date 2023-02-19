@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: ro/releases/2022-10-26/ro-base.owl
+data-version: ro/releases/2023-01-04/ro-base.owl
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
@@ -2059,7 +2059,7 @@ is_a: RO:0002385 ! has potential to developmentally contribute to
 [Typedef]
 id: RO:0002256
 name: developmentally induced by
-def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
+def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor material anatomical entity type T to T', where T' develops_from T" []
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
@@ -2069,8 +2069,8 @@ property_value: IAO:0000119 " Developmental Biology, Gilbert, 8th edition, figur
 property_value: IAO:0000119 GO:0001759 xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: IAO:0000232 "We place this under 'developmentally preceded by'. This placement should be examined in the context of reciprocal inductions[cjm]" xsd:string
-domain: CARO:0000003
-range: CARO:0000003
+domain: CARO:0000006
+range: CARO:0000006
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002257 ! developmentally induces
 
@@ -2193,13 +2193,13 @@ is_a: RO:0002292 ! expresses
 [Typedef]
 id: RO:0002295
 name: results in developmental progression of
-def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
+def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical entity and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "This property and its subproperties are being used primarily for the definition of GO developmental processes. The property hierarchy mirrors the core GO hierarchy. In future we may be able to make do with a more minimal set of properties, but due to the way GO is currently structured we require highly specific relations to avoid incorrect entailments. To avoid this, the corresponding genus terms in GO should be declared mutually disjoint." xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
 property_value: seeAlso Ontology:extensions
 domain: GO:0008150
-range: CARO:0000003
+range: CARO:0000000
 is_a: RO:0002324 ! developmentally related to
 
 [Typedef]
@@ -3068,10 +3068,11 @@ is_a: RO:0002411 ! causally upstream of
 
 [Typedef]
 id: RO:0002413
-name: directly provides input for
+name: provides input for
 def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
 property_value: IAO:0000116 "This is currently called 'directly provides input for' to be consistent with our terminology where we use 'direct' whenever two occurrents succeed one another directly. We may relabel this simply 'provides input for', as directness is implicit" xsd:string
 property_value: IAO:0000117 "Chris Mungall" xsd:string
+property_value: IAO:0000118 "directly provides input for" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
 holds_over_chain: RO:0002402 RO:0002400
@@ -3084,7 +3085,7 @@ name: transitively provides input for
 def: "transitive form of directly_provides_input_for" []
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 "Chris Mungall" xsd:string
-property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'directly provides input for' (which may later be relabeled simply to 'provides input for')" xsd:string
+property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'provides input for'." xsd:string
 property_value: IAO:0000589 "transitively provides input for (process to process)" xsd:string
 domain: BFO:0000015 ! process
 range: BFO:0000015 ! process
@@ -5842,6 +5843,33 @@ id: RO:0018003
 name: myristoylated by
 def: "inverse of myristoylates" []
 property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+
+[Typedef]
+id: RO:0018027
+name: is agonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "mibolerone (CHEBI:34849) is agonist of androgen receptor (PR:P10275)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P3772
+is_a: RO:0002450 ! directly positively regulates activity of
+
+[Typedef]
+id: RO:0018028
+name: is inverse agonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "pimavanserin (CHEBI:133017) is inverse agonist of HTR2A (PR:P28223)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P9275
+is_a: RO:0002449 ! directly negatively regulates activity of
+
+[Typedef]
+id: RO:0018029
+name: is antagonist of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
+property_value: http://purl.org/dc/elements/1.1/creator https://orcid.org/0000-0003-4423-4370
+property_value: IAO:0000112 "tretinoin (CHEBI:15367) is antagonist of Nuclear receptor ROR-beta (PR:Q92753)" xsd:string
+property_value: seeAlso https://www.wikidata.org/wiki/Property:P3773
+is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0019000

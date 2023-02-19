@@ -26,7 +26,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2022-10-26" xsd:string
+property_value: owl:versionInfo "2023-01-04" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -1134,7 +1134,7 @@ is_a: RO:0002385 ! has potential to developmentally contribute to
 [Typedef]
 id: RO:0002256
 name: developmentally_induced_by
-def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
+def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor material anatomical entity type T to T', where T' develops_from T" []
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002257 ! developmentally induces
 
@@ -1225,7 +1225,7 @@ is_a: RO:0002292 ! expresses
 [Typedef]
 id: RO:0002295
 name: results_in_developmental_progression_of
-def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
+def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical entity and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
 is_a: RO:0002324 ! developmentally related to
 
 [Typedef]
@@ -1770,7 +1770,7 @@ is_a: RO:0002411 ! causally upstream of
 
 [Typedef]
 id: RO:0002413
-name: directly_provides_input_for
+name: provides_input_for
 def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
 holds_over_chain: RO:0002402 RO:0002400
 is_a: RO:0002412 ! immediately causally upstream of
@@ -3686,6 +3686,24 @@ inverse_of: RO:0018003 ! myristoylated by
 id: RO:0018003
 name: myristoylated_by
 def: "inverse of myristoylates" []
+
+[Typedef]
+id: RO:0018027
+name: is_agonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
+is_a: RO:0002450 ! directly positively regulates activity of
+
+[Typedef]
+id: RO:0018028
+name: is_inverse_agonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
+is_a: RO:0002449 ! directly negatively regulates activity of
+
+[Typedef]
+id: RO:0018029
+name: is_antagonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
+is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0019000
