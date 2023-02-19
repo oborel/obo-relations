@@ -26,7 +26,7 @@ property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations O
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-01-04" xsd:string
+property_value: owl:versionInfo "2023-02-19" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -823,6 +823,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002207
 name: directly_develops_from
 def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participate in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of x comes from y, and the start of x is coincident with or after the end of y." []
+synonym: "has developmental precursor" EXACT []
 is_a: RO:0002202 ! develops from
 inverse_of: RO:0002210 ! directly develops into
 
@@ -2390,7 +2391,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002524
 name: has_subsequence
-def: "x has subsequence y iff all of the sequence parts of x are sequence parts of y" []
+def: "x has subsequence y iff all of the sequence parts of y are sequence parts of x" []
 is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002522 ! bounds sequence of
@@ -2409,7 +2410,7 @@ is_a: RO:0002526 ! overlaps sequence of
 [Typedef]
 id: RO:0002526
 name: overlaps_sequence_of
-def: "x overlaps the sequence of x if and only if x has a subsequence z and z is a subsequence of y." []
+def: "x overlaps the sequence of y if and only if x has a subsequence z and z is a subsequence of y." []
 holds_over_chain: RO:0002524 RO:0002525
 is_symmetric: true
 is_a: RO:0002131 ! overlaps
@@ -2418,7 +2419,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002527
 name: does_not_overlap_sequence_of
-def: "x does not overlaps the sequence of x if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
+def: "x does not overlap the sequence of y if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
 is_symmetric: true
 is_a: RO:0002514 ! sequentially related to
 
