@@ -31,6 +31,12 @@ validate-using-oort: ro-edit.owl
 core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-minimal.owl
 	$(ROBOT) merge -i components/core.owl -i components/bfo-axioms.owl -i components/bfo-classes-minimal.owl annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
+# ========================================
+# Custom imports
+# ========================================
+
+$(IMPORTDIR)/other_import.owl: 
+	echo "$@ is manually maintained." && touch $@
 
 # ========================================
 # DOCUMENTATION

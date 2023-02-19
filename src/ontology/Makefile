@@ -109,7 +109,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  omo pato cl envo go caro
+IMPORTS =  omo pato cl envo go caro other
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -370,6 +370,10 @@ $(IMPORTDIR)/caro_import.owl: $(MIRRORDIR)/caro.owl $(IMPORTDIR)/caro_terms_comb
 		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/caro_terms_combined.txt --select complement --select "classes individuals annotation-properties" \
 		$(ANNOTATE_CONVERT_FILE); fi
 
+## Module for ontology: other
+
+$(IMPORTDIR)/other_import.owl: 
+	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in ro.Makefile!" && false
 
 .PHONY: refresh-imports
 refresh-imports:
@@ -487,6 +491,10 @@ mirror-go: | $(TMPDIR)
 mirror-caro: | $(TMPDIR)
 	if [ $(MIR) = true ] && [ $(IMP) = true ]; then curl -L $(OBOBASE)/caro/caro-base.owl --create-dirs -o $(MIRRORDIR)/caro.owl --retry 4 --max-time 200 &&\
 		$(ROBOT) convert -i $(MIRRORDIR)/caro.owl -o $@.tmp.owl && mv $@.tmp.owl $(TMPDIR)/$@.owl; fi
+
+
+## ONTOLOGY: other
+## You have configured your default mirror type to no_mirror.
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)

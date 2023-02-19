@@ -123,12 +123,6 @@ id: GO:0016301
 id: GO:0019107
 
 [Term]
-id: OGMS:0000031
-name: disease
-def: "A disposition (i) to undergo pathological processes that (ii) exists in an organism because of one or more disorders in that organism." []
-is_a: BFO:0000016 ! disposition
-
-[Term]
 id: RO:0002310
 name: exposure event or process
 def: "A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism." []
@@ -172,11 +166,6 @@ is_a: BFO:0000040 ! material entity
 property_value: IAO:0000116 "May be replaced by a BFO class, as discussed in http://www.jbiomedsem.com/content/4/1/43" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.jbiomedsem.com/content/4/1/43" xsd:string
-
-[Term]
-id: UPHENO:0001001
-name: phenotype
-is_a: PATO:0000001
 
 [Typedef]
 id: BFO:0000050
@@ -1498,7 +1487,7 @@ def: "A relationship that holds between a biological entity and a phenotype. Her
 subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-range: UPHENO:0001001 ! phenotype
+range: UPHENO:0001001
 is_a: RO:0016001 ! has phenotype or disease
 inverse_of: RO:0002201 ! phenotype of
 
@@ -3413,7 +3402,7 @@ id: RO:0002452
 name: has symptom
 def: "A relation that holds between a disease or an organism and a phenotype" []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 is_a: RO:0002200 ! has phenotype
 
 [Typedef]
@@ -4967,7 +4956,7 @@ creation_date: 2017-11-05T03:20:29Z
 [Typedef]
 id: RO:0004019
 name: disease has basis in
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 is_a: RO:0004017 ! realizable has basis in
 is_a: RO:0004023 ! causal relationship with disease as subject
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -4997,7 +4986,7 @@ creation_date: 2017-11-05T03:37:52Z
 id: RO:0004022
 name: disease has basis in feature
 def: "A relation that holds between the disease and a feature (a phenotype or other disease) where the physical basis of the disease is the feature." []
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 is_a: RO:0002200 ! has phenotype
 is_a: RO:0004019 ! disease has basis in
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5007,7 +4996,7 @@ creation_date: 2017-11-05T03:46:07Z
 id: RO:0004023
 name: causal relationship with disease as subject
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all of which have a disease as the subject." xsd:string
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 is_a: RO:0002410 ! causally related to
 is_a: RO:0040035 ! disease relationship
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5018,7 +5007,7 @@ id: RO:0004024
 name: disease causes disruption of
 def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
 property_value: IAO:0000589 "disease causes disruption of (disease to process)" xsd:string
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 range: BFO:0000015 ! process
 holds_over_chain: RO:0004025 RO:0002215
 is_a: RO:0004023 ! causal relationship with disease as subject
@@ -5030,7 +5019,7 @@ creation_date: 2017-11-05T03:51:09Z
 id: RO:0004025
 name: disease causes dysfunction of
 property_value: IAO:0000589 "disease causes dysfunction of (disease to anatomical entity)" xsd:string
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 range: CARO:0000006
 is_a: RO:0004023 ! causal relationship with disease as subject
 transitive_over: BFO:0000050 ! part of
@@ -5043,7 +5032,7 @@ name: disease has location
 def: "A relationship between a disease and an anatomical entity where the disease has one or more features that are located in that entity." []
 property_value: IAO:0000116 "TODO: complete range axiom once more of CARO has been mireoted in to this ontology" xsd:string
 property_value: IAO:0000232 "This relation is intentionally very general, and covers isolated diseases, where the disease is realized as a process occurring in the location, and syndromic diseases, where one or more of the features may be present in that location. Thus any given disease can have multiple locations in the sense defined here." xsd:string
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 range: BFO:0000004 ! independent continuant
 is_a: RO:0040035 ! disease relationship
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5053,7 +5042,7 @@ creation_date: 2017-11-05T04:06:02Z
 id: RO:0004027
 name: disease has inflammation site
 def: "A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity" []
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 range: BFO:0000004 ! independent continuant
 is_a: RO:0004026 ! disease has location
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5074,7 +5063,7 @@ creation_date: 2017-12-26T19:45:49Z
 id: RO:0004029
 name: disease has feature
 def: "A relationship between a disease and some feature of that disease, where the feature is either a phenotype or an isolated disease." []
-domain: OGMS:0000031 ! disease
+domain: OGMS:0000031
 is_a: RO:0040035 ! disease relationship
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-12-26T19:50:53Z
