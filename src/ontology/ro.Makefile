@@ -38,6 +38,10 @@ core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-m
 $(IMPORTDIR)/other_import.owl: 
 	echo "$@ is manually maintained." && touch $@
 
+$(IMPORTDIR)/orcidio_terms_combined.txt: $(SRCMERGED)
+	$(ROBOT) query -f csv -i $< --query ../sparql/orcids.sparql $@.tmp &&\
+	cat $@.tmp | sort | uniq >  $@
+
 # ========================================
 # DOCUMENTATION
 # ========================================

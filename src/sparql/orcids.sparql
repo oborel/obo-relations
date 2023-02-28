@@ -1,0 +1,8 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT ?orcid
+WHERE {
+  VALUES ?property { <http://purl.org/dc/elements/1.1/creator>  <http://purl.org/dc/elements/1.1/contributor> <http://purl.org/dc/terms/creator> <http://purl.org/dc/terms/contributor> }
+  ?term ?property ?orcid . 
+  FILTER(isIRI(?term))
+}

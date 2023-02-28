@@ -19,6 +19,11 @@ namespaces:
   - http://purl.obolibrary.org/obo/BFO_0000051
   - http://purl.obolibrary.org/obo/BFO_0000060
 import_group:
+  annotation_properties:
+        - rdfs:label
+        - dc:description
+        - dc:source
+        - IAO:0000115
   products:
     - id: omo
       module_type: filter
@@ -40,6 +45,12 @@ import_group:
     - id: other
       module_type: custom
       mirror_type: no_mirror
+    - id: orcidio
+      mirror_from: https://w3id.org/orcidio/orcidio.owl
+      module_type: filter
+      base_iris:
+        - https://orcid.org/
+
 subset_group:
   products:
     - id: ro-interaction
