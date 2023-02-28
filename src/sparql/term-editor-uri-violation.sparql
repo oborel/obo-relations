@@ -1,9 +1,11 @@
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX term_editor: <http://purl.obolibrary.org/obo/IAO_0000117>
+PREFIX definition_source: <http://purl.obolibrary.org/obo/IAO_0000119>
+PREFIX oio: <http://www.geneontology.org/formats/oboInOwl#>
 
 SELECT ?subject ?orcid
 WHERE {
-  VALUES ?predicate { dcterms:contributor term_editor: }
+  VALUES ?predicate { dc:contributor dc:creator term_editor: oio:created_by }
   ?subject ?predicate ?orcid .
   FILTER(!regex(str(?orcid), "^https://github.com/orgs/[a-z-_]+/teams/") &&
          !regex(str(?orcid), "^(https?://orcid.org/)[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}(?:[0-9]|X)") &&
