@@ -286,7 +286,7 @@ ALLSEED = $(PRESEED) \
 $(IMPORTSEED): $(ALLSEED) | $(TMPDIR)
 	if [ $(IMP) = true ]; then cat $(ALLSEED) | sort | uniq > $@; fi
 
-ANNOTATION_PROPERTIES=rdfs:label http://purl.org/dc/elements/1.1/description http://purl.org/dc/elements/1.1/source IAO:0000115 
+ANNOTATION_PROPERTIES=rdfs:label dc:description dc:source IAO:0000115 
 
 # ----------------------------------------
 # Import modules
