@@ -5,27 +5,13 @@ subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 310 Logical Axioms: 68]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 45 Logical Axioms: 10]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 104 Logical Axioms: 26]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2022-05-23" xsd:string
+property_value: owl:versionInfo "2023-02-22" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -89,6 +75,11 @@ transitive_over: BFO:0000050 ! part of
 id: BFO:0000067
 name: contains_process
 def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t" []
+
+[Typedef]
+id: ENVO:01003004
+name: derives_from_part_of
+def: "A relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist through the separation or transformation of a part of the old entity, and the new entity inherits a significant portion of the matter belonging to that part of the old entity." []
 
 [Typedef]
 id: RO:0000052
@@ -660,6 +651,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002150
 name: continuous_with
 def: "X continuous_with Y if and only if X and Y share a fiat boundary." []
+is_symmetric: true
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -821,6 +813,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002207
 name: directly_develops_from
 def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participate in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of x comes from y, and the start of x is coincident with or after the end of y." []
+synonym: "has developmental precursor" EXACT []
 is_a: RO:0002202 ! develops from
 inverse_of: RO:0002210 ! directly develops into
 
@@ -846,7 +839,7 @@ is_a: RO:0002203 ! develops into
 [Typedef]
 id: RO:0002211
 name: regulates
-def: "process(P1) regulates process(P2) iff: P1 results in the initiation or termination of P2 OR affects the frequency of its initiation or termination OR affects the magnitude or rate of output of P2." []
+def: "p regulates q iff p is causally upstream of q, the execution of p is not constant and varies according to specific conditions, and p influences the rate or magnitude of execution of q due to an effect either on some enabler of q or some enabler of a part of q." []
 holds_over_chain: RO:0002230 RO:0002211
 holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
@@ -857,7 +850,7 @@ transitive_over: RO:0002025 ! has effector activity
 [Typedef]
 id: RO:0002212
 name: negatively_regulates
-def: "Process(P1) negatively regulates process(P2) iff: P1 terminates P2, or P1 descreases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
+def: "p negatively regulates q iff p regulates q, and p decreases the rate or magnitude of execution of q." []
 holds_over_chain: RO:0002230 RO:0002212
 is_a: RO:0002211 ! regulates
 is_a: RO:0002305 ! causally upstream of, negative effect
@@ -866,7 +859,7 @@ inverse_of: RO:0002335 ! negatively regulated by
 [Typedef]
 id: RO:0002213
 name: positively_regulates
-def: "Process(P1) postively regulates process(P2) iff: P1 initiates P2, or P1 increases the the frequency of initiation of P2 or the magnitude or rate of output of P2." []
+def: "p positively regulates q iff p regulates q, and p increases the rate or magnitude of execution of q." []
 holds_over_chain: RO:0002212 RO:0002212
 holds_over_chain: RO:0002230 RO:0002213
 is_transitive: true
@@ -1132,7 +1125,7 @@ is_a: RO:0002385 ! has potential to developmentally contribute to
 [Typedef]
 id: RO:0002256
 name: developmentally_induced_by
-def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor anatomical structure type T to T', where T' develops_from T" []
+def: "t1 induced_by t2 if there is a process of developmental induction (GO:0031128) with t1 and t2 as interacting participants. t2 causes t1 to change its fate from a precursor material anatomical entity type T to T', where T' develops_from T" []
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002257 ! developmentally induces
 
@@ -1223,7 +1216,7 @@ is_a: RO:0002292 ! expresses
 [Typedef]
 id: RO:0002295
 name: results_in_developmental_progression_of
-def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical structure and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
+def: "p results in the developmental progression of s iff p is a developmental process and s is an anatomical entity and p causes s to undergo a change in state at some point along its natural developmental cycle (this cycle starts with its formation, through the mature structure, and ends with its loss)." []
 is_a: RO:0002324 ! developmentally related to
 
 [Typedef]
@@ -1280,12 +1273,14 @@ is_a: RO:0002321 ! ecologically related to
 [Typedef]
 id: RO:0002304
 name: causally_upstream_of,_positive_effect
+def: "p is causally upstream of, positive effect q iff p is casually upstream of q, and the execution of p is required for the execution of q." []
 is_a: RO:0002411 ! causally upstream of
 is_a: RO:0004047 ! causally upstream of or within, positive effect
 
 [Typedef]
 id: RO:0002305
 name: causally_upstream_of,_negative_effect
+def: "p is causally upstream of, negative effect q iff p is casually upstream of q, and the execution of p decreases the execution of q." []
 is_a: RO:0002411 ! causally upstream of
 is_a: RO:0004046 ! causally upstream of or within, negative effect
 
@@ -1362,6 +1357,7 @@ is_a: RO:0002329 ! part of structure that is capable of
 [Typedef]
 id: RO:0002327
 name: enables
+def: "c enables p iff c is capable of p and c acts to execute p." []
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
 transitive_over: BFO:0000051 ! has part
@@ -1710,44 +1706,48 @@ inverse_of: RO:0002412 ! immediately causally upstream of
 
 [Typedef]
 id: RO:0002406
-name: directly_activates
-def: "p directly activates q if and only if p is immediately upstream of q and p is the realization of a function to increase the rate or activity of q" []
-is_a: RO:0002629 ! directly positively regulates
+name: obsolete_directly_activates
+is_obsolete: true
+replaced_by: RO:0002629
 
 [Typedef]
 id: RO:0002407
-name: indirectly_activates
-def: "p indirectly activates q if and only if p is upstream of q and there is a chain of directly activates relationships connecting p and q, where the chain is of length greater than one." []
-holds_over_chain: RO:0002406 RO:0002406
-holds_over_chain: RO:0002406 RO:0002407
+name: indirectly_positively_regulates
+def: "p indirectly positively regulates q iff p is indirectly causally upstream of q and p positively regulates q." []
 holds_over_chain: RO:0002409 RO:0002409
+holds_over_chain: RO:0002629 RO:0002407
+holds_over_chain: RO:0002629 RO:0002629
 is_transitive: true
 is_a: RO:0002213 ! positively regulates
-transitive_over: RO:0002406 ! directly activates
+is_a: RO:0012012 ! indirectly regulates
+transitive_over: RO:0002629 ! directly positively regulates
 
 [Typedef]
 id: RO:0002408
-name: directly_inhibits
-is_a: RO:0002630 ! directly negatively regulates
+name: obsolete_directly_inhibits
+is_obsolete: true
+replaced_by: RO:0002630
 
 [Typedef]
 id: RO:0002409
-name: indirectly_inhibits
-holds_over_chain: RO:0002408 RO:0002408
-holds_over_chain: RO:0002408 RO:0002409
+name: indirectly_negatively_regulates
+def: "p indirectly negatively regulates q iff p is indirectly causally upstream of q and p negatively regulates q." []
+holds_over_chain: RO:0002630 RO:0002409
+holds_over_chain: RO:0002630 RO:0002630
 is_transitive: true
 is_a: RO:0002212 ! negatively regulates
-transitive_over: RO:0002408 ! directly inhibits
+is_a: RO:0012012 ! indirectly regulates
+transitive_over: RO:0002630 ! directly negatively regulates
 
 [Typedef]
 id: RO:0002410
 name: causally_related_to
-def: "This relation groups causal relations between material entities and causal relations between processes" []
+def: "relation that links two events, processes, states, or objects such that one event, process, state, or object (a cause) contributes to the production of another event, process, state, or object (an effect) where the cause is partly or wholly responsible for the effect, and the effect is partly or wholly dependent on the cause." [https://en.wikipedia.org/wiki/Causality]
 
 [Typedef]
 id: RO:0002411
 name: causally_upstream_of
-def: "p is causally upstream of q if and only if p precedes q and p and q are linked in a causal chain" []
+def: "p is causally upstream of q iff p is causally related to q, the end of p precedes the end of q, and p is not an occurrent part of q." []
 is_transitive: true
 is_a: BFO:0000063 ! precedes
 is_a: RO:0002418 ! causally upstream of or within
@@ -1755,14 +1755,14 @@ is_a: RO:0002418 ! causally upstream of or within
 [Typedef]
 id: RO:0002412
 name: immediately_causally_upstream_of
-def: "p is immediately causally upstream of q iff both (a) p immediately precedes q and (b) p is causally upstream of q. In addition, the output of p  must be an input of q." []
+def: "p is immediately causally upstream of q iff p is causally upstream of q, and the end of p is coincident with the beginning of q." []
 is_a: RO:0002090 ! immediately precedes
 is_a: RO:0002411 ! causally upstream of
 
 [Typedef]
 id: RO:0002413
-name: directly_provides_input_for
-def: "p1 directly provides input for p2 iff there exists some c such that p1 has_output c and p2 has_input c" []
+name: provides_input_for
+def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
 holds_over_chain: RO:0002402 RO:0002400
 is_a: RO:0002412 ! immediately causally upstream of
 is_a: RO:0002414 ! transitively provides input for
@@ -1772,12 +1772,12 @@ id: RO:0002414
 name: transitively_provides_input_for
 def: "transitive form of directly_provides_input_for" []
 is_transitive: true
-is_a: RO:0002411 ! causally upstream of
+is_a: RO:0004047 ! causally upstream of or within, positive effect
 
 [Typedef]
 id: RO:0002418
 name: causally_upstream_of_or_within
-def: "p 'causally upstream or within' q iff (1) the end of p is before the end of q and (2) the execution of p exerts some causal influence over the outputs of q; i.e. if p was abolished or the outputs of p were to be modified, this would necessarily affect q." []
+def: "p is 'causally upstream or within' q iff p is causally related to q, and the end of p precedes, or is coincident with, the end of q." []
 synonym: "affects" RELATED []
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
@@ -2236,7 +2236,7 @@ inverse_of: RO:0002608 ! process has causal agent
 [Typedef]
 id: RO:0002501
 name: causal_relation_between_processes
-def: "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one of direct activation or direct inhibition. p may be upstream, downstream, part of or a container of q." []
+def: "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one where the execution of p influences the execution of q. p may be upstream, downstream, part of, or a container of q." []
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -2381,7 +2381,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002524
 name: has_subsequence
-def: "x has subsequence y iff all of the sequence parts of x are sequence parts of y" []
+def: "x has subsequence y iff all of the sequence parts of y are sequence parts of x" []
 is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002522 ! bounds sequence of
@@ -2400,7 +2400,7 @@ is_a: RO:0002526 ! overlaps sequence of
 [Typedef]
 id: RO:0002526
 name: overlaps_sequence_of
-def: "x overlaps the sequence of x if and only if x has a subsequence z and z is a subsequence of y." []
+def: "x overlaps the sequence of y if and only if x has a subsequence z and z is a subsequence of y." []
 holds_over_chain: RO:0002524 RO:0002525
 is_symmetric: true
 is_a: RO:0002131 ! overlaps
@@ -2409,7 +2409,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002527
 name: does_not_overlap_sequence_of
-def: "x does not overlaps the sequence of x if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
+def: "x does not overlap the sequence of y if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
 is_symmetric: true
 is_a: RO:0002514 ! sequentially related to
 
@@ -2543,6 +2543,7 @@ is_a: RO:0002567 ! biomechanically related to
 id: RO:0002569
 name: has_branching_part
 def: "inverse of branching part of" []
+is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002375 ! in branching relationship with
 
@@ -2583,7 +2584,7 @@ is_a: BFO:0000050 ! part of
 [Typedef]
 id: RO:0002578
 name: directly_regulates
-def: "Process(P1) directly regulates process(P2) iff: P1 regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  regulates the kinase activity (P2) of protein B then P1 directly regulates P2." []
+def: "p directly regulates q iff p is immediately causally upstream of q and p regulates q." []
 is_a: RO:0002211 ! regulates
 is_a: RO:0002412 ! immediately causally upstream of
 
@@ -2787,14 +2788,14 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002629
 name: directly_positively_regulates
-def: "Process(P1) directly postively regulates process(P2) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P1 directly positively regulates P2." []
+def: "p directly positively regulates q iff p is immediately causally upstream of q, and p positively regulates q." []
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
 [Typedef]
 id: RO:0002630
 name: directly_negatively_regulates
-def: "Process(P1) directly negatively regulates process(P2) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P1 directly negatively regulates P2." []
+def: "p directly negatively regulates q iff p is immediately causally upstream of q, and p negatively regulates q." []
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -3438,18 +3439,20 @@ is_a: RO:0000057 ! has participant
 id: RO:0012004
 name: is_small_molecule_regulator_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that regulates the process" []
-is_a: RO:0000056 ! participates in
+is_a: RO:0002596 ! capable of regulating
 
 [Typedef]
 id: RO:0012005
 name: is_small_molecule_activator_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
+is_a: RO:0002598 ! capable of positively regulating
 is_a: RO:0012004 ! is small molecule regulator of
 
 [Typedef]
 id: RO:0012006
 name: is_small_molecule_inhibitor_of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process" []
+is_a: RO:0002597 ! capable of negatively regulating
 is_a: RO:0012004 ! is small molecule regulator of
 
 [Typedef]
@@ -3462,6 +3465,31 @@ is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 id: RO:0012008
 name: results_in_fusion_of
 is_a: RO:0002592 ! results in organization of
+
+[Typedef]
+id: RO:0012009
+name: constitutively_upstream_of
+def: "p is constitutively upstream of q iff p is causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant." []
+is_a: RO:0002304 ! causally upstream of, positive effect
+
+[Typedef]
+id: RO:0012010
+name: removes_input_for
+def: "p removes input for q iff p is causally upstream of q, there exists some c such that p has_input c and q has_input c, p reduces the levels of c, and c is rate limiting for execution of q." []
+is_a: RO:0002305 ! causally upstream of, negative effect
+
+[Typedef]
+id: RO:0012011
+name: indirectly_causally_upstream_of
+def: "p is indirectly causally upstream of q iff p is causally upstream of q and there exists some process r such that p is causally upstream of r and r is causally upstream of q." []
+is_a: RO:0002411 ! causally upstream of
+
+[Typedef]
+id: RO:0012012
+name: indirectly_regulates
+def: "p indirectly regulates q iff p is indirectly causally upstream of q and p regulates q." []
+is_a: RO:0002211 ! regulates
+is_a: RO:0012011 ! indirectly causally upstream of
 
 [Typedef]
 id: RO:0013001
@@ -3649,6 +3677,24 @@ inverse_of: RO:0018003 ! myristoylated by
 id: RO:0018003
 name: myristoylated_by
 def: "inverse of myristoylates" []
+
+[Typedef]
+id: RO:0018027
+name: is_agonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
+is_a: RO:0002450 ! directly positively regulates activity of
+
+[Typedef]
+id: RO:0018028
+name: is_inverse_agonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
+is_a: RO:0002449 ! directly negatively regulates activity of
+
+[Typedef]
+id: RO:0018029
+name: is_antagonist_of
+def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
+is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0019000

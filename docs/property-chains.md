@@ -23,4 +23,4 @@ Note the converse is not implied.
 
 ## Property Chains in RO
 
-RO makes frequent use of property chains. See [ROGuide](ROGuide) for more details
+RO makes frequent use of property chains. 
