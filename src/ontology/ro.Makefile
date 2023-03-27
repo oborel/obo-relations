@@ -28,8 +28,8 @@ validate-using-oort: ro-edit.owl
 # Custom components
 # ========================================
 
-core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-minimal.owl
-	$(ROBOT) merge -i components/core.owl -i components/bfo-axioms.owl -i components/bfo-classes-minimal.owl annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
+core.owl: components/core.owl imports/bfo_import.owl
+	$(ROBOT) merge -i components/core.owl -i imports/bfo_import.owl annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
 # ========================================
 # Custom imports
@@ -74,13 +74,6 @@ dev-diffs:
 grepro:
 	cat ro-diff.txt | grep /RO_ > ro-diff.txt.ro.txt
 	cat ro-diff-core.txt | grep /RO_ > ro-diff-core.txt.ro.txt
-
-# ========================================
-# MIREOT
-# ========================================
-
-bfo2-classes.owl:
-	$(OWLTOOLS) $(URIBASE)/bfo.owl --make-subset-by-properties // --set-ontology-id $(URIBASE)/ro/bfo2-classes.owl -o file://`pwd`/bfo2-classes.owl
 
 # ========================================
 # SUBSETS
