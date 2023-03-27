@@ -51,7 +51,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl 
+OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/rohom.owl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -109,7 +109,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  omo pato cl envo go caro other orcidio
+IMPORTS =  bfo omo pato cl envo go caro other orcidio
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -441,8 +441,6 @@ $(COMPONENTSDIR)/%: | $(COMPONENTSDIR)
 
 
 
-
-
 # ----------------------------------------
 # Mirroring upstream ontologies
 # ----------------------------------------
@@ -451,6 +449,16 @@ IMP=true # Global parameter to bypass import generation
 MIR=true # Global parameter to bypass mirror generation
 IMP_LARGE=true # Global parameter to bypass handling of large imports
 
+
+
+## ONTOLOGY: bfo
+.PHONY: mirror-bfo
+.PRECIOUS: $(MIRRORDIR)/bfo.owl
+mirror-bfo: | $(TMPDIR)
+	if [ $(MIR) = true ] && [ $(IMP) = true ]; then curl -L $(OBOBASE)/bfo.owl --create-dirs -o $(MIRRORDIR)/bfo.owl --retry 4 --max-time 200 &&\
+		$(ROBOT) convert -i $(MIRRORDIR)/bfo.owl -o $@.tmp.owl && \
+		$(ROBOT) remove -i $@.tmp.owl --base-iri $(URIBASE)/BFO --axioms external --preserve-structure false --trim false -o $@.tmp.owl &&\
+		mv $@.tmp.owl $(TMPDIR)/$@.owl; fi
 
 
 ## ONTOLOGY: omo
