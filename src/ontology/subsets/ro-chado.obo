@@ -5,28 +5,13 @@ subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/annotations.owl>) VersionIRI(<null>))) [Axioms: 60 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 7]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/bfo-classes-minimal.owl>) VersionIRI(<null>))) [Axioms: 49 Logical Axioms: 12]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/chemical.owl>) VersionIRI(<null>))) [Axioms: 9 Logical Axioms: 3]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/core.owl>) VersionIRI(<null>))) [Axioms: 310 Logical Axioms: 68]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/el-constraints.owl>) VersionIRI(<null>))) [Axioms: 6 Logical Axioms: 2]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/generated-axioms.owl>) VersionIRI(<null>))) [Axioms: 18 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go-biotic.owl>) VersionIRI(<null>))) [Axioms: 0 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_cc_import.owl>) VersionIRI(<null>))) [Axioms: 45 Logical Axioms: 10]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/go_mf_import.owl>) VersionIRI(<null>))) [Axioms: 29 Logical Axioms: 9]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/omo_import.owl>) VersionIRI(<null>))) [Axioms: 3 Logical Axioms: 0]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/other_import.owl>) VersionIRI(<null>))) [Axioms: 104 Logical Axioms: 26]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/pato_import.owl>) VersionIRI(<null>))) [Axioms: 20 Logical Axioms: 6]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/rohom.owl>) VersionIRI(<null>))) [Axioms: 731 Logical Axioms: 148]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/ro/temporal-intervals.owl>) VersionIRI(<null>))) [Axioms: 146 Logical Axioms: 45]
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-01-04" xsd:string
+property_value: owl:versionInfo "2023-02-22" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -90,6 +75,11 @@ transitive_over: BFO:0000050 ! part of
 id: BFO:0000067
 name: contains_process
 def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t" []
+
+[Typedef]
+id: ENVO:01003004
+name: derives_from_part_of
+def: "A relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist through the separation or transformation of a part of the old entity, and the new entity inherits a significant portion of the matter belonging to that part of the old entity." []
 
 [Typedef]
 id: RO:0000052
@@ -823,6 +813,7 @@ transitive_over: BFO:0000050 ! part of
 id: RO:0002207
 name: directly_develops_from
 def: "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participate in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of x comes from y, and the start of x is coincident with or after the end of y." []
+synonym: "has developmental precursor" EXACT []
 is_a: RO:0002202 ! develops from
 inverse_of: RO:0002210 ! directly develops into
 
@@ -2390,7 +2381,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002524
 name: has_subsequence
-def: "x has subsequence y iff all of the sequence parts of x are sequence parts of y" []
+def: "x has subsequence y iff all of the sequence parts of y are sequence parts of x" []
 is_transitive: true
 is_a: BFO:0000051 ! has part
 is_a: RO:0002522 ! bounds sequence of
@@ -2409,7 +2400,7 @@ is_a: RO:0002526 ! overlaps sequence of
 [Typedef]
 id: RO:0002526
 name: overlaps_sequence_of
-def: "x overlaps the sequence of x if and only if x has a subsequence z and z is a subsequence of y." []
+def: "x overlaps the sequence of y if and only if x has a subsequence z and z is a subsequence of y." []
 holds_over_chain: RO:0002524 RO:0002525
 is_symmetric: true
 is_a: RO:0002131 ! overlaps
@@ -2418,7 +2409,7 @@ is_a: RO:0002514 ! sequentially related to
 [Typedef]
 id: RO:0002527
 name: does_not_overlap_sequence_of
-def: "x does not overlaps the sequence of x if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
+def: "x does not overlap the sequence of y if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
 is_symmetric: true
 is_a: RO:0002514 ! sequentially related to
 

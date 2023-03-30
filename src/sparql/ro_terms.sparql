@@ -1,0 +1,7 @@
+SELECT DISTINCT ?term
+WHERE {
+  { ?s1 ?p1 ?term . }
+  UNION
+  { ?term ?p2 ?o2 . }
+  FILTER(isIRI(?term) && (STRSTARTS(str(?term), "http://purl.obolibrary.org/obo/RO_") || STRSTARTS(str(?term), "http://purl.obolibrary.org/obo/BFO_0000050") || STRSTARTS(str(?term), "http://purl.obolibrary.org/obo/BFO_0000051") || STRSTARTS(str(?term), "http://purl.obolibrary.org/obo/BFO_0000060")))
+}

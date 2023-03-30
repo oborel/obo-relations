@@ -1,0 +1,91 @@
+id: ro
+title: "OBO Relations Ontology"
+github_org: oborel
+repo: obo-relations
+report_fail_on: Error
+edit_format: owl
+export_formats:
+  - owl
+  - obo
+  - json
+release_artefacts:
+  - base
+  - full
+  - custom-core
+primary_release: full
+namespaces:
+  - http://purl.obolibrary.org/obo/RO_
+  - http://purl.obolibrary.org/obo/BFO_0000050
+  - http://purl.obolibrary.org/obo/BFO_0000051
+  - http://purl.obolibrary.org/obo/BFO_0000060
+import_group:
+  annotation_properties:
+        - rdfs:label
+        - dc:description
+        - dc:source
+        - IAO:0000115
+  products:
+    - id: omo
+      module_type: filter
+    - id: pato
+      make_base: TRUE
+      module_type: minimal
+    - id: cl
+      make_base: TRUE
+      module_type: minimal
+    - id: envo
+      make_base: TRUE
+      module_type: minimal
+    - id: go
+      make_base: TRUE
+      module_type: minimal
+    - id: caro
+      make_base: TRUE
+      module_type: minimal
+    - id: other
+      module_type: custom
+      mirror_type: no_mirror
+    - id: orcidio
+      mirror_from: https://w3id.org/orcidio/orcidio.owl
+      module_type: filter
+      base_iris:
+        - https://orcid.org/
+
+subset_group:
+  products:
+    - id: ro-interaction
+    - id: ro-sequence
+    - id: ro-time-interval
+    - id: ro-mereotopology
+    - id: ro-causal
+    - id: ro-developmental
+    - id: ro-eco
+    - id: ro-hom
+    - id: ro-chado
+    - id: ro-biotic-interaction
+components:
+  products:
+    - filename: core.owl
+    - filename: el-constraints.owl
+    - filename: generated-axioms.owl
+    - filename: temporal-intervals.owl
+    - filename: bfo-axioms.owl
+    - filename: bfo-classes-minimal.owl
+    - filename: rohom.owl
+robot_java_args: '-Xmx8G'
+robot_report:
+  release_reports: False
+  fail_on: ERROR
+  use_labels: True
+  custom_profile: True
+  use_base_iris: True
+  report_on:
+    - edit
+    - ro-base.owl
+  custom_sparql_checks:
+    - owldef-self-reference
+    - iri-range
+    - label-with-iri
+    - multiple-replaced_by
+    - term-editor-uri
+    - dce
