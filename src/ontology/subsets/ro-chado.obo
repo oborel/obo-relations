@@ -1,17 +1,19 @@
 format-version: 1.2
+subsetdef: common_anatomy ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
+subsetdef: upper_level ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
-property_value: http://purl.org/dc/elements/1.1/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
-property_value: http://purl.org/dc/elements/1.1/title "OBO Relations Ontology" xsd:string
+property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
+property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-02-22" xsd:string
+property_value: owl:versionInfo "2023-06-21" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -395,28 +397,28 @@ inverse_of: RO:0002578 ! directly regulates
 [Typedef]
 id: RO:0002023
 name: directly_negatively_regulated_by
-def: "Process(P2) is directly negatively regulated by process(P1) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P2 directly negatively regulated by P1." [GOC:dos]
+def: "Process(P2) is directly negatively regulated by process(P1) iff: P1 negatively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding  negatively regulates the kinase activity (P2) of protein B then P2 directly negatively regulated by P1." [https://orcid.org/0000-0002-7073-9172]
 is_a: RO:0002022 ! directly regulated by
 inverse_of: RO:0002630 ! directly negatively regulates
 
 [Typedef]
 id: RO:0002024
 name: directly_positively_regulated_by
-def: "Process(P2) is directly postively regulated by process(P1) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P2 is directly postively regulated by P1." [GOC:dos]
+def: "Process(P2) is directly postively regulated by process(P1) iff: P1 positively regulates P2 via direct physical interaction between an agent executing P1 (or some part of P1) and an agent executing P2 (or some part of P2).  For example, if protein A has protein binding activity(P1) that targets protein B and this binding positively regulates the kinase activity (P2) of protein B then P2 is directly postively regulated by P1." [https://orcid.org/0000-0002-7073-9172]
 is_a: RO:0002022 ! directly regulated by
 inverse_of: RO:0002629 ! directly positively regulates
 
 [Typedef]
 id: RO:0002025
 name: has_effector_activity
-def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003674),  A 'has component activity' B and B is the effector (output function) of B.  Each compound function has only one effector activity." [GOC:dos]
+def: "A 'has effector activity' B if A and B are GO molecular functions (GO_0003674),  A 'has component activity' B and B is the effector (output function) of B.  Each compound function has only one effector activity." [https://orcid.org/0000-0002-7073-9172]
 is_functional: true
 is_a: RO:0002017 ! has component activity
 
 [Typedef]
 id: RO:0002026
 name: in_register_with
-def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [GOC:dos]
+def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [https://orcid.org/0000-0002-7073-9172]
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -427,6 +429,8 @@ is_a: RO:0002222 ! temporally related to
 [Typedef]
 id: RO:0002082
 name: simultaneous_with
+def: "x simultaneous with y iff ω(x) = ω(y) and ω(α ) = ω(α), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point and '=' indicates the same instance in time." []
+is_symmetric: true
 is_transitive: true
 is_a: RO:0002081 ! before or simultaneous with
 
@@ -502,7 +506,7 @@ is_a: RO:0002222 ! temporally related to
 [Typedef]
 id: RO:0002100
 name: has_soma_location
-def: "Relation between a neuron and an anatomical structure that its soma is part of." []
+def: "Relation between a neuron and a material anatomical entity that its soma is part of." []
 is_a: RO:0002131 ! overlaps
 transitive_over: BFO:0000050 ! part of
 
@@ -1204,7 +1208,7 @@ inverse_of: RO:0002293 ! ubiquitously expresses
 [Typedef]
 id: RO:0002292
 name: expresses
-def: "Inverse of 'expressed in'" []
+def: "y expresses x if and only if there is a gene expression process (GO:0010467) that occurs in y, and one of the following holds: (i) x is a gene, and x is transcribed into a transcript as part of the gene expression process (ii) x is a transcript, and x was transcribed from a gene as part of the gene expression process (iii) x is a mature gene product (protein or RNA), and x was translated or otherwise processed from a transcript that was transcribed as part of the gene expression process." []
 is_a: RO:0002330 ! genomically related to
 
 [Typedef]
@@ -1840,7 +1844,7 @@ is_a: RO:0002500 ! causal agent in process
 [Typedef]
 id: RO:0002432
 name: is_active_in
-def: "c executes activity in d if and only if c enables p and p occurs_in d.  Assuming no action at a distance by gene products, if a gene product enables (is capable of) a process that occurs in some structure, it must have at least some part in that structure." [GOC:cjm, GOC:dos]
+def: "c executes activity in d if and only if c enables p and p occurs_in d.  Assuming no action at a distance by gene products, if a gene product enables (is capable of) a process that occurs in some structure, it must have at least some part in that structure." [https://orcid.org/0000-0002-6601-2165, https://orcid.org/0000-0002-7073-9172]
 synonym: "enables activity in" EXACT []
 holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
 is_a: RO:0002131 ! overlaps
@@ -3010,14 +3014,14 @@ is_a: RO:0000057 ! has participant
 [Typedef]
 id: RO:0004008
 name: has_primary_output
-def: "p has primary output c if (a) p has output c and (b) the goal of process is to modify, produce, or transform c." [GOC:cjm, GOC:dph, GOC:kva, GOC:pt] {comment="PMID:27812932"}
+def: "p has primary output c if (a) p has output c and (b) the goal of process is to modify, produce, or transform c." [GOC:dph, GOC:kva, GOC:pt, https://orcid.org/0000-0002-6601-2165] {comment="PMID:27812932"}
 is_a: RO:0002234 ! has output
 is_a: RO:0004007 ! has primary input or output
 
 [Typedef]
 id: RO:0004009
 name: has_primary_input
-def: "p has primary input c if (a) p has input c and (b) the goal of process is to modify, consume, or transform c." [GOC:cjm, GOC:dph, GOC:kva, GOC:pt] {comment="PMID:27812932"}
+def: "p has primary input c if (a) p has input c and (b) the goal of process is to modify, consume, or transform c." [GOC:dph, GOC:kva, GOC:pt, https://orcid.org/0000-0002-6601-2165] {comment="PMID:27812932"}
 is_a: RO:0002233 ! has input
 is_a: RO:0004007 ! has primary input or output
 
@@ -3300,7 +3304,7 @@ is_a: RO:0009001 ! has substance added
 id: RO:0009501
 name: realized_in_response_to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
-synonym: "triggered by process" EXACT [RO:cjm]
+synonym: "triggered by process" EXACT [https://orcid.org/0000-0002-6601-2165]
 holds_over_chain: BFO:0000054 RO:0002404
 is_a: RO:0002410 ! causally related to
 
@@ -3661,6 +3665,21 @@ synonym: "utilizes" BROAD []
 holds_over_chain: RO:0002215 RO:0002233
 
 [Typedef]
+id: RO:0017003
+name: positively_correlated_with
+def: "A relation between entities in which one increases or decreases as the other does the same." []
+is_reflexive: true
+is_symmetric: true
+is_a: RO:0002610 ! correlated with
+
+[Typedef]
+id: RO:0017004
+name: negatively_correlated_with
+def: "A relation between entities in which one increases as the other decreases." []
+is_symmetric: true
+is_a: RO:0002610 ! correlated with
+
+[Typedef]
 id: RO:0018001
 name: is_myristoyltransferase_activity
 def: "Helper relation for OWL definition of RO:0018002 myristoylates" []
@@ -3695,6 +3714,81 @@ id: RO:0018029
 name: is_antagonist_of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
 is_a: RO:0002449 ! directly negatively regulates activity of
+
+[Typedef]
+id: RO:0018030
+name: chemical_relationship
+
+[Typedef]
+id: RO:0018031
+name: is_direct_conjugate_base_of
+def: "A is a direct conjugate base of B if and only if A is chemical entity that is a Brønsted–Lowry Base (i.e., can receive a proton) and by receiving a particular proton transforms it into B." []
+is_a: RO:0018033 ! is deprotonated form of
+inverse_of: RO:0018032 ! is direct conjugate acid of
+
+[Typedef]
+id: RO:0018032
+name: is_direct_conjugate_acid_of
+def: "A is a direct conjugate acid of B if and only if A is chemical entity that is a Brønsted–Lowry Acid (i.e., can give up a proton) and by removing a particular proton transforms it into B." []
+is_a: RO:0018034 ! is protonated form of
+
+[Typedef]
+id: RO:0018033
+name: is_deprotonated_form_of
+def: "A is a deprotonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Base (i.e., can receive a proton) and by adding some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
+is_transitive: true
+is_a: RO:0018030 ! chemical relationship
+inverse_of: RO:0018034 ! is protonated form of
+
+[Typedef]
+id: RO:0018034
+name: is_protonated_form_of
+def: "A is a protonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Acid (i.e., can give up a proton) and by removing some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
+is_transitive: true
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018035
+name: is_matched_small_molecular_pair_with
+def: "A and B are a matched small molecular pair (MMP) if their chemical structures define by a single, relatively small, well-defined structural modification.\n\nWhile this is normally called \"matched molecular pair\" in the cheminformatics literaturel, it is labeled as \"matched small molecular pair\" so as to reduce confusion with peptides and other macromolecules, which are also referenced as \"molecules\" in some contexts.\n\nThis relationship is symmetric, meaning if A is a MMP with B iff B is a MMP with A.\n\nThis relationship is not transitive, meaning that A is a MMP with B and B is a MMP with C, then A is not necessarily an MMP with C." [] {http://purl.org/dc/terms/source="https://en.wikipedia.org/wiki/Matched_molecular_pair_analysis", http://purl.org/dc/terms/source="https://doi.org/10.1002/ddr.21045", http://purl.org/dc/terms/source="https://doi.org/10.1021/jm200452d"}
+synonym: "is matched molecular pair with" EXACT []
+synonym: "is MMP with" EXACT []
+is_symmetric: true
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018036
+name: is_tautomer_of
+def: "Two chemicals are tautomers if they can be readily interconverted.\n\nThis commonly refers to prototropy in which a hydrogen's position is changed, such as between ketones and enols. This is also often observed in heterocyclic rings, e.g., ones containing nitrogens and/or have aryl functional groups containing heteroatoms." []
+synonym: "is desmotrope of" EXACT []
+is_symmetric: true
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018037
+name: is_substitutent_group_from
+def: "Group A is a substituent group from Chemical B if A represents the functional part of A and includes information about where it is connected. A is not itself a chemical with a fully formed chemical graph, but is rather a partial graph with one or more connection points that can be used to attach to another chemical graph, typically as a functionalization." []
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018038
+name: has_functional_parent
+def: "Chemical A has functional parent Chemical B if there is chemical transformation through which chemical B can be produced from chemical A. \n\nFor example, the relationship between a salt and a freebased compound is a \"has functional parent\" relationship." []
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018039
+name: is_enantiomer_of
+def: "Chemicals A and B are enantiomers if they share the same molecular graph except the change of the configuration of substituents around exactly one chiral center.\n\nA chemical with no chiral centers can not have an enantiomer. A chemical with multiple chiral centers can have multiple enantiomers, but its enantiomers are not themselves enantiomers (they are diastereomers)." []
+synonym: "is optical isomer of" EXACT []
+is_symmetric: true
+is_a: RO:0018030 ! chemical relationship
+
+[Typedef]
+id: RO:0018040
+name: has_parent_hydride
+def: "Chemical A has parent hydride Chemical B if there exists a molecular graphical transformation where functional groups on A are replaced with hydrogens in order to yield B." []
+is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
 id: RO:0019000
