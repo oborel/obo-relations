@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2023-06-22
+data-version: releases/2023-06-23
 subsetdef: common_anatomy ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
@@ -13,7 +13,7 @@ property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-06-22" xsd:string
+property_value: owl:versionInfo "2023-06-23" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -571,7 +571,7 @@ property_value: RO:0040042 BFO:0000031
 property_value: seeAlso http://ontologydesignpatterns.org/wiki/Community:Parts_and_Collections
 property_value: seeAlso http://ontologydesignpatterns.org/wiki/Submissions:PartOf
 property_value: seeAlso "http://www.obofoundry.org/ro/#OBO_REL:part_of" xsd:string
-property_value: seeAlso Part:of
+property_value: seeAlso "https://wiki.geneontology.org/Part_of" xsd:anyURI
 is_transitive: true
 is_a: RO:0002131 ! overlaps
 inverse_of: BFO:0000051 ! has part
@@ -676,7 +676,7 @@ property_value: IAO:0000118 "occurs_in" xsd:string
 property_value: IAO:0000118 "unfolds in" xsd:string
 property_value: IAO:0000118 "unfolds_in" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
-property_value: seeAlso Occurs:in
+property_value: seeAlso "https://wiki.geneontology.org/Occurs_in" xsd:anyURI
 domain: BFO:0000003
 range: BFO:0000004
 holds_over_chain: BFO:0000050 BFO:0000066
@@ -997,7 +997,7 @@ property_value: IAO:0000116 "Location as a relation between instances: The primi
 property_value: IAO:0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/" xsd:string
 property_value: IAO:0000118 "located_in" xsd:string
 property_value: RO:0001900 RO:0001901
-property_value: seeAlso Located:in
+property_value: seeAlso "https://wiki.geneontology.org/Located_in" xsd:anyURI
 domain: BFO:0000004 {http://purl.obolibrary.org/obo/IAO_0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
 range: BFO:0000004 {http://purl.obolibrary.org/obo/IAO_0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
 is_transitive: true
@@ -1381,7 +1381,7 @@ subset: ro-eco
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000118 "d" xsd:string
 property_value: IAO:0000118 "during" xsd:string
-property_value: seeAlso Happens:during
+property_value: seeAlso "https://wiki.geneontology.org/Happens_during" xsd:anyURI
 is_transitive: true
 is_a: RO:0002091 ! starts during
 is_a: RO:0002093 ! ends during
@@ -2285,7 +2285,7 @@ subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "consumes" xsd:string
-property_value: seeAlso Has:input
+property_value: seeAlso "https://wiki.geneontology.org/Has_input" xsd:anyURI
 domain: BFO:0000015
 holds_over_chain: RO:0002224 RO:0002233
 is_a: RO:0000057 ! has participant
@@ -2302,7 +2302,7 @@ subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "produces" xsd:string
-property_value: seeAlso Has:output
+property_value: seeAlso "https://wiki.geneontology.org/Has_output" xsd:anyURI
 holds_over_chain: RO:0002230 RO:0002234
 is_a: RO:0000057 ! has participant
 inverse_of: RO:0002353 ! output of
@@ -2519,7 +2519,6 @@ def: "c acts upstream of or within p if c is enables f, and f is causally upstre
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 synonym: "affects" RELATED []
 property_value: IAO:0000112 "A gene product that has some activity, where that activity may be a part of a pathway or upstream of the pathway." xsd:string
-property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within
 property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of_or_within
 holds_over_chain: RO:0002327 RO:0002418
 is_a: RO:0002500 ! causal agent in process
@@ -2835,7 +2834,7 @@ property_value: IAO:0000112 "Subunits of nuclear RNA polymerases: none of the in
 property_value: IAO:0000116 "We would like to say\n\nif and only if\n exists c', p'\n  c part_of c' and c' capable_of p\n   and\n  c capable_of p' and p' part_of p\nthen\n c contributes_to p\n\nHowever, this is not possible in OWL. We instead make this relation a sub-relation of the two chains, which gives us the inference in the one direction." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "In the context of the Gene Ontology, contributes_to may be used only with classes from the molecular function ontology. " xsd:string
-property_value: seeAlso Contributes:to
+property_value: seeAlso "https://wiki.geneontology.org/Contributes_to" xsd:anyURI
 is_a: RO:0002216 ! capable of part of
 is_a: RO:0002329 ! part of structure that is capable of
 
@@ -2852,7 +2851,7 @@ property_value: IAO:0000118 "has" xsd:string
 property_value: IAO:0000118 "is catalyzing" xsd:string
 property_value: IAO:0000118 "is executing" xsd:string
 property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
-property_value: seeAlso https://wiki.geneontology.org/Enables
+property_value: seeAlso "https://wiki.geneontology.org/Enables" xsd:anyURI
 is_a: RO:0002215 ! capable of
 inverse_of: RO:0002333 ! enabled by
 transitive_over: BFO:0000051 ! has part
@@ -2890,8 +2889,7 @@ def: "c involved_in p if and only if c enables some process p', and p' is part o
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "actively involved in" xsd:string
 property_value: IAO:0000118 "enables part of" xsd:string
-property_value: seeAlso Involved:in
-property_value: seeAlso Involved:in
+property_value: seeAlso "https://wiki.geneontology.org/Involved_in" xsd:anyURI
 holds_over_chain: RO:0002327 BFO:0000050
 is_a: RO:0000056 ! participates in
 is_a: RO:0002431 ! involved in or involved in regulation of
@@ -2915,7 +2913,7 @@ name: enabled by
 def: "inverse of enables" []
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-property_value: seeAlso Enabled:by
+property_value: seeAlso "https://wiki.geneontology.org/Enabled_by" xsd:anyURI
 is_a: RO:0000057 ! has participant
 is_a: RO:0002328 ! functionally related to
 
@@ -3401,7 +3399,7 @@ def: "p indirectly positively regulates q iff p is indirectly causally upstream 
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "indirectly activates" xsd:string
 property_value: RO:0002579 RO:0002213
-property_value: seeAlso https://wiki.geneontology.org/Indirectly_positively_regulates
+property_value: seeAlso "https://wiki.geneontology.org/Indirectly_positively_regulates" xsd:anyURI
 holds_over_chain: RO:0002409 RO:0002409
 holds_over_chain: RO:0002629 RO:0002407
 holds_over_chain: RO:0002629 RO:0002629
@@ -3424,7 +3422,7 @@ def: "p indirectly negatively regulates q iff p is indirectly causally upstream 
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "indirectly inhibits" xsd:string
 property_value: RO:0002579 RO:0002212
-property_value: seeAlso https://wiki.geneontology.org/Indirectly_negatively_regulates
+property_value: seeAlso "https://wiki.geneontology.org/Indirectly_negatively_regulates" xsd:anyURI
 holds_over_chain: RO:0002630 RO:0002409
 holds_over_chain: RO:0002630 RO:0002630
 is_transitive: true
@@ -3468,7 +3466,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "directly provides input for" xsd:string
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly provides input for (process to process)" xsd:string
-property_value: seeAlso https://wiki.geneontology.org/Provides_input_for
+property_value: seeAlso "https://wiki.geneontology.org/Provides_input_for" xsd:anyURI
 holds_over_chain: RO:0002402 RO:0002400
 is_a: RO:0002412 ! immediately causally upstream of
 is_a: RO:0002414 ! transitively provides input for
@@ -3578,7 +3576,7 @@ synonym: "enables activity in" EXACT []
 property_value: IAO:0000112 "A protein that enables activity in a cytosol." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "executes activity in" xsd:string
-property_value: seeAlso https://wiki.geneontology.org/Is_active_in
+property_value: seeAlso "https://wiki.geneontology.org/Is_active_in" xsd:anyURI
 holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002328 ! functionally related to
@@ -4968,7 +4966,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_gocam
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly positively regulates (process to process)" xsd:string
 property_value: RO:0004049 RO:0002578
-property_value: seeAlso https://wiki.geneontology.org/Directly_positively_regulates
+property_value: seeAlso "https://wiki.geneontology.org/Directly_positively_regulates" xsd:anyURI
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -4982,7 +4980,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_gocam
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "directly negatively regulates (process to process)" xsd:string
 property_value: RO:0004050 RO:0002578
-property_value: seeAlso https://wiki.geneontology.org/Directly_negatively_regulates
+property_value: seeAlso "https://wiki.geneontology.org/Directly_negatively_regulates" xsd:anyURI
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -5493,8 +5491,7 @@ id: RO:0004032
 name: acts upstream of or within, positive effect
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 property_value: RO:0004049 RO:0002264
-property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of_or_within,_positive_effect
-property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of_or_within,_positive_effect
+property_value: seeAlso "https://wiki.geneontology.org/Acts_upstream_of_or_within,_positive_effect" xsd:anyURI
 holds_over_chain: RO:0002327 RO:0004047
 is_a: RO:0002264 ! acts upstream of or within
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5505,7 +5502,7 @@ id: RO:0004033
 name: acts upstream of or within, negative effect
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 property_value: RO:0004050 RO:0002264
-property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of_or_within,_negative_effect
+property_value: seeAlso "https://wiki.geneontology.org/Acts_upstream_of_or_within,_negative_effect" xsd:anyURI
 holds_over_chain: RO:0002327 RO:0004046
 is_a: RO:0002264 ! acts upstream of or within
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5517,8 +5514,7 @@ name: acts upstream of, positive effect
 def: "c 'acts upstream of, positive effect' p if c is enables f, and f is causally upstream of p, and the direction of f is positive" []
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 property_value: RO:0004049 RO:0002263
-property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of,_positive_effect
-property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of,_positive_effect
+property_value: seeAlso "https://wiki.geneontology.org/Acts_upstream_of,_positive_effect" xsd:anyURI
 holds_over_chain: RO:0002327 RO:0002304
 is_a: RO:0002263 ! acts upstream of
 is_a: RO:0004032 ! acts upstream of or within, positive effect
@@ -5531,8 +5527,7 @@ name: acts upstream of, negative effect
 def: "c 'acts upstream of, negative effect' p if c is enables f, and f is causally upstream of p, and the direction of f is negative" []
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 property_value: RO:0004050 RO:0002263
-property_value: seeAlso http://wiki.geneontology.org/index.php/Acts_upstream_of,_negative_effect
-property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of,_negative_effect
+property_value: seeAlso "https://wiki.geneontology.org/Acts_upstream_of,_negative_effect" xsd:anyURI
 holds_over_chain: RO:0002327 RO:0002305
 is_a: RO:0002263 ! acts upstream of
 is_a: RO:0004033 ! acts upstream of or within, negative effect
@@ -5543,7 +5538,7 @@ creation_date: 2018-01-26T23:53:22Z
 id: RO:0004046
 name: causally upstream of or within, negative effect
 property_value: RO:0004050 RO:0002418
-property_value: seeAlso https://wiki.geneontology.org/Causally_upstream_of_or_within,_negative_effect
+property_value: seeAlso "https://wiki.geneontology.org/Causally_upstream_of_or_within,_negative_effect" xsd:anyURI
 is_a: RO:0002418 ! causally upstream of or within
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2018-03-13T23:55:05Z
@@ -5918,7 +5913,7 @@ creation_date: 2020-06-24T13:15:17Z
 id: RO:0012005
 name: is small molecule activator of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that activates the process" []
-property_value: seeAlso https://wiki.geneontology.org/Is_small_molecule_activator_of
+property_value: seeAlso "https://wiki.geneontology.org/Is_small_molecule_activator_of" xsd:anyURI
 is_a: RO:0002598 ! capable of positively regulating
 is_a: RO:0012004 ! is small molecule regulator of
 created_by: https://orcid.org/0000-0003-1813-6857
@@ -5928,7 +5923,7 @@ creation_date: 2020-06-24T13:15:26Z
 id: RO:0012006
 name: is small molecule inhibitor of
 def: "a relation between a continuant and a process, in which the continuant is a small molecule that inhibits the process" []
-property_value: seeAlso https://wiki.geneontology.org/Is_small_molecule_inhibitor_of
+property_value: seeAlso "https://wiki.geneontology.org/Is_small_molecule_inhibitor_of" xsd:anyURI
 is_a: RO:0002597 ! capable of negatively regulating
 is_a: RO:0012004 ! is small molecule regulator of
 created_by: https://orcid.org/0000-0003-1813-6857
@@ -5958,7 +5953,7 @@ name: constitutively upstream of
 def: "p is constitutively upstream of q iff p is causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-property_value: seeAlso https://wiki.geneontology.org/Constitutively_upstream_of
+property_value: seeAlso "https://wiki.geneontology.org/Constitutively_upstream_of" xsd:anyURI
 is_a: RO:0002304 ! causally upstream of, positive effect
 created_by: https://orcid.org/0000-0003-1813-6857
 creation_date: 2022-09-26T06:01:01Z
@@ -5969,7 +5964,7 @@ name: removes input for
 def: "p removes input for q iff p is causally upstream of q, there exists some c such that p has_input c and q has_input c, p reduces the levels of c, and c is rate limiting for execution of q." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-property_value: seeAlso https://wiki.geneontology.org/Removes_input_for
+property_value: seeAlso "https://wiki.geneontology.org/Removes_input_for" xsd:anyURI
 is_a: RO:0002305 ! causally upstream of, negative effect
 created_by: https://orcid.org/0000-0003-1813-6857
 creation_date: 2022-09-26T06:06:20Z
@@ -6328,7 +6323,7 @@ is_a: RO:0018034 ! is protonated form of
 id: RO:0018033
 name: is deprotonated form of
 def: "A is a deprotonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Base (i.e., can receive a proton) and by adding some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
-property_value: exactMatch is_conjugate_base_of
+xref: obo:chebi#is_conjugate_base_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "(E)-cinnamoyl-CoA(4-) (CHEBI:57252) is a deprotonated form (E)-cinnamoyl-CoA (CHEBI:10956), which involves removing four protons." xsd:string
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
@@ -6340,7 +6335,7 @@ inverse_of: RO:0018034 ! is protonated form of
 id: RO:0018034
 name: is protonated form of
 def: "A is a protonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Acid (i.e., can give up a proton) and by removing some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
-property_value: exactMatch is_conjugate_acid_of
+xref: obo:chebi#is_conjugate_acid_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "(E)-cinnamoyl-CoA (CHEBI:10956) is a protonated form of (E)-cinnamoyl-CoA(4-) (CHEBI:57252), which involves adding four protons." xsd:string
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
@@ -6364,7 +6359,7 @@ id: RO:0018036
 name: is tautomer of
 def: "Two chemicals are tautomers if they can be readily interconverted.\n\nThis commonly refers to prototropy in which a hydrogen's position is changed, such as between ketones and enols. This is also often observed in heterocyclic rings, e.g., ones containing nitrogens and/or have aryl functional groups containing heteroatoms." []
 synonym: "is desmotrope of" EXACT []
-property_value: exactMatch is_tautomer_of
+xref: obo:chebi#is_tautomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
 property_value: IAO:0000112 "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38707", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38709"}
@@ -6376,7 +6371,7 @@ is_a: RO:0018030 ! chemical relationship
 id: RO:0018037
 name: is substitutent group from
 def: "Group A is a substituent group from Chemical B if A represents the functional part of A and includes information about where it is connected. A is not itself a chemical with a fully formed chemical graph, but is rather a partial graph with one or more connection points that can be used to attach to another chemical graph, typically as a functionalization." []
-property_value: exactMatch is_substituent_group_from
+xref: obo:chebi#is_substituent_group_from
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
 property_value: IAO:0000112 "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:30795", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:58957"}
@@ -6387,7 +6382,7 @@ is_a: RO:0018030 ! chemical relationship
 id: RO:0018038
 name: has functional parent
 def: "Chemical A has functional parent Chemical B if there is chemical transformation through which chemical B can be produced from chemical A. \n\nFor example, the relationship between a salt and a freebased compound is a \"has functional parent\" relationship." []
-property_value: exactMatch has_functional_parent
+xref: obo:chebi#has_functional_parent
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
 property_value: IAO:0000112 "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50851", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50854"}
@@ -6399,7 +6394,7 @@ id: RO:0018039
 name: is enantiomer of
 def: "Chemicals A and B are enantiomers if they share the same molecular graph except the change of the configuration of substituents around exactly one chiral center.\n\nA chemical with no chiral centers can not have an enantiomer. A chemical with multiple chiral centers can have multiple enantiomers, but its enantiomers are not themselves enantiomers (they are diastereomers)." []
 synonym: "is optical isomer of" EXACT []
-property_value: exactMatch is_enantiomer_of
+xref: obo:chebi#is_enantiomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
 property_value: IAO:0000112 "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped." xsd:string {comment="CHEBI:48557", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:31472"}
@@ -6411,7 +6406,7 @@ is_a: RO:0018030 ! chemical relationship
 id: RO:0018040
 name: has parent hydride
 def: "Chemical A has parent hydride Chemical B if there exists a molecular graphical transformation where functional groups on A are replaced with hydrogens in order to yield B." []
-property_value: exactMatch has_parent_hydride
+xref: obo:chebi#has_parent_hydride
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
 property_value: IAO:0000112 "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:39106", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:52083"}
