@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: ro/releases/2023-06-23/ro-base.owl
+data-version: ro/releases/2023-06-28/ro-base.owl
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
@@ -12,7 +12,7 @@ property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-06-23" xsd:string
+property_value: owl:versionInfo "2023-06-28" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -33,7 +33,8 @@ relationship: RO:HOM0000000 BFO:0000003 {all_only="true"} ! occurrent
 [Term]
 id: BFO:0000004
 name: independent continuant
-def: "A continuant that is a bearer of quality and realizable entity entities, in which other entities inhere and which itself cannot inhere in anything." []
+def: "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t. (axiom label in BFO2 Reference: [017-002])" []
+comment: A continuant that is a bearer of quality and realizable entity entities, in which other entities inhere and which itself cannot inhere in anything.
 is_a: BFO:0000002 ! continuant
 disjoint_from: BFO:0000020 ! specifically dependent continuant
 disjoint_from: BFO:0000031 ! generically dependent continuant
@@ -47,7 +48,8 @@ is_a: BFO:0000141 ! immaterial entity
 [Term]
 id: BFO:0000015
 name: process
-def: "An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t." []
+def: "p is a process = Def. p is an occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t. (axiom label in BFO2 Reference: [083-003])" []
+comment: An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t.
 is_a: BFO:0000003 ! occurrent
 relationship: RO:0002214 BFO:0000015 {all_only="true"} ! has prototype process
 
@@ -74,7 +76,8 @@ relationship: BFO:0000050 BFO:0000019 {all_only="true"} ! part of quality
 [Term]
 id: BFO:0000020
 name: specifically dependent continuant
-def: "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." []
+def: "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])" []
+comment: A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same.
 is_a: BFO:0000002 ! continuant
 disjoint_from: BFO:0000031 ! generically dependent continuant
 relationship: BFO:0000050 BFO:0000020 {all_only="true"} ! part of specifically dependent continuant
@@ -88,7 +91,8 @@ is_a: BFO:0000017 ! realizable entity
 [Term]
 id: BFO:0000031
 name: generically dependent continuant
-def: "A continuant that is dependent on one or other independent continuant bearers. For every instance of A requires some instance of (an independent continuant type) B but which instance of B serves can change from time to time." []
+def: "b is a generically dependent continuant = Def. b is a continuant that g-depends_on one or more other entities. (axiom label in BFO2 Reference: [074-001])" []
+comment: A continuant that is dependent on one or other independent continuant bearers. For every instance of A requires some instance of (an independent continuant type) B but which instance of B serves can change from time to time.
 is_a: BFO:0000002 ! continuant
 relationship: BFO:0000050 BFO:0000031 {all_only="true"} ! part of generically dependent continuant
 
@@ -2137,7 +2141,7 @@ def: "c acts upstream of or within p if c is enables f, and f is causally upstre
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 synonym: "affects" RELATED []
 property_value: IAO:0000112 "A gene product that has some activity, where that activity may be a part of a pathway or upstream of the pathway." xsd:string
-property_value: seeAlso https://wiki.geneontology.org/Acts_upstream_of_or_within
+property_value: seeAlso "https://wiki.geneontology.org/Acts_upstream_of_or_within" xsd:anyURI
 holds_over_chain: RO:0002327 RO:0002418
 is_a: RO:0002500 ! causal agent in process
 
@@ -5257,6 +5261,19 @@ def: "inverse of lays eggs on" []
 is_a: RO:0002619 ! visited by
 
 [Typedef]
+id: RO:0008509
+name: has roost
+def: "x 'has roost' y if and only if: x is an organism, y is a habitat, and y can support rest behaviors x." []
+comment: A population of xs will possess adaptations (either evolved naturally or via artifical selection) which permit it to rest in y.
+subset: ro-eco
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2908-3327
+property_value: http://purl.org/dc/terms/date "2023-01-18T14:28:21Z" xsd:dateTime
+property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
+domain: OBI:0100026
+range: ENVO:01000739
+is_a: RO:0002303 ! has habitat
+
+[Typedef]
 id: RO:0009001
 name: has substance added
 def: "\"has substance added\" is a relation existing between a (physical) entity and a substance in which the entity has had the substance added to it at some point in time." []
@@ -5815,7 +5832,7 @@ property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd
 id: RO:0016002
 name: has disease
 def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
+property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0002-7463-6306
 property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:44Z" xsd:dateTime
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
 is_a: RO:0016001 ! has phenotype or disease
@@ -5824,10 +5841,10 @@ is_a: RO:0016001 ! has phenotype or disease
 id: RO:0016004
 name: has exposure medium
 def: "X has exposure medium Y if X is an exposure event (process), Y is a material entity, and the stimulus for X is transmitted or carried in Y." []
+property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-7463-6306
 property_value: http://purl.org/dc/terms/date "2021-12-14T20:41:45Z" xsd:dateTime
 property_value: IAO:0000119 "ExO:0000083" xsd:string
 is_a: RO:0002244 ! related via exposure to
-created_by: https://orcid.org/0000-0002-7463-6306
 
 [Typedef]
 id: RO:0017001
@@ -5979,7 +5996,7 @@ def: "Two chemicals are tautomers if they can be readily interconverted.\n\nThis
 synonym: "is desmotrope of" EXACT []
 xref: obo:chebi#is_tautomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
+property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38707", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38709"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_symmetric: true
@@ -5991,7 +6008,7 @@ name: is substitutent group from
 def: "Group A is a substituent group from Chemical B if A represents the functional part of A and includes information about where it is connected. A is not itself a chemical with a fully formed chemical graph, but is rather a partial graph with one or more connection points that can be used to attach to another chemical graph, typically as a functionalization." []
 xref: obo:chebi#is_substituent_group_from
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
+property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:30795", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:58957"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
@@ -6002,7 +6019,7 @@ name: has functional parent
 def: "Chemical A has functional parent Chemical B if there is chemical transformation through which chemical B can be produced from chemical A. \n\nFor example, the relationship between a salt and a freebased compound is a \"has functional parent\" relationship." []
 xref: obo:chebi#has_functional_parent
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
+property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50851", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50854"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
@@ -6014,7 +6031,7 @@ def: "Chemicals A and B are enantiomers if they share the same molecular graph e
 synonym: "is optical isomer of" EXACT []
 xref: obo:chebi#is_enantiomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
+property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped." xsd:string {comment="CHEBI:48557", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:31472"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_symmetric: true
@@ -6026,7 +6043,7 @@ name: has parent hydride
 def: "Chemical A has parent hydride Chemical B if there exists a molecular graphical transformation where functional groups on A are replaced with hydrogens in order to yield B." []
 xref: obo:chebi#has_parent_hydride
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:string
+property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:39106", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:52083"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
