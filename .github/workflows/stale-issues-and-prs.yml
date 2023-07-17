@@ -1,0 +1,29 @@
+name: 'Mark and close stale issues and identify stale pull requests'
+# This workflow was adapted from the uberon stale-issue workflow: https://github.com/obophenotype/uberon/blob/master/.github/workflows/stale-issues.yml
+# See https://github.com/actions/stale for info about the action
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v7
+        with:
+          days-before-issue-stale: 630
+          days-before-issue-close: 60
+          close-issue-label: 'autoclosed-unfixed'
+          close-issue-reason: 'not_planned'
+          stale-issue-message: 'This issue has not seen any activity in the past 2 years. It will be closed automatically 60 days from now if no action is taken.'
+          close-issue-message: 'This issue has been closed automatically because it has not been updated in over two years. Please re-open if you still need this to be addressed.'
+          start-date: '2015-07-02T00:00:00Z'
+          days-before-pr-stale: 90
+          days-before-pr-close: -1
+          stale-pr-message: 'This PR has not seen any activity in 90 days and has been marked as stale. If it is no longer needed, please close the PR. Otherwise, please update the PR with a status update.'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'approval required'
+          exempt-draft-pr: true
