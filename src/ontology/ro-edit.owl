@@ -17,13 +17,13 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 Ontology(<http://purl.obolibrary.org/obo/ro.owl>
 <http://purl.obolibrary.org/obo/ro-edit.owl>
+Import(<http://purl.obolibrary.org/obo/ro/components/bfo-axioms.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/components/bfo-classes-minimal.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/core.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/el-constraints.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/generated-axioms.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/rohom.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/components/temporal-intervals.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/bfo-classes-minimal.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/components/bfo-axioms.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/cl_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/cob_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/envo_import.owl>)
@@ -34,7 +34,6 @@ Import(<http://purl.obolibrary.org/obo/ro/imports/orcidio_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/other_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/pato_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/uberon_import.owl>)
-Import(<http://purl.obolibrary.org/obo/ro/imports/obi_import.owl>)
 Annotation(dc:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."@en)
 Annotation(dc:license <https://creativecommons.org/publicdomain/zero/1.0/>)
 Annotation(dc:title "OBO Relations Ontology"@en)
@@ -509,6 +508,8 @@ Declaration(ObjectProperty(obo:RO_0008506))
 Declaration(ObjectProperty(obo:RO_0008507))
 Declaration(ObjectProperty(obo:RO_0008508))
 Declaration(ObjectProperty(obo:RO_0008509))
+Declaration(ObjectProperty(obo:RO_0008510))
+Declaration(ObjectProperty(obo:RO_0008511))
 Declaration(ObjectProperty(obo:RO_0009001))
 Declaration(ObjectProperty(obo:RO_0009002))
 Declaration(ObjectProperty(obo:RO_0009003))
@@ -703,7 +704,7 @@ Declaration(AnnotationProperty(skos:exactMatch))
 
 AnnotationAssertion(rdfs:label obo:IAO_0000112 "example of usage")
 
-# Annotation Property: obo:IAO_0000426 (obo:IAO_0000426)
+# Annotation Property: obo:IAO_0000426 (first order logic expression)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000426 "An assertion that holds between an OWL Object Property and a string or literal, where the value of the string or literal is a Common Logic sentence of collection of sentences that define the Object Property.")
 SubAnnotationPropertyOf(obo:IAO_0000426 obo:RO_0002422)
@@ -2311,7 +2312,6 @@ AnnotationAssertion(obo:IAO_0000114 obo:RO_0002207 obo:IAO_0000125)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002207 "Candidate definition: x directly_develops from y if and only if there exists some developmental process (GO:0032502) p such that x and y both participate in p, and x is the output of p and y is the input of p, and a substantial portion of the matter of x comes from y, and the start of x is coincident with or after the end of y.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002207 <https://orcid.org/0000-0002-6601-2165>)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002207 <https://orcid.org/0000-0002-7073-9172>)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002207 "has developmental precursor")
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002207 "FBbt")
 AnnotationAssertion(obo:RO_0002575 obo:RO_0002207 obo:RO_0002202)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002207 "has developmental precursor")
@@ -3877,8 +3877,8 @@ SubObjectPropertyOf(obo:RO_0002433 obo:RO_0002131)
 # Object Property: obo:RO_0002434 (interacts with)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002434 "A relationship that holds between two entities in which the processes executed by the two entities are causally connected.")
-AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact.")
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "Considering relabeling as 'pairwise interacts with'"^^xsd:anyURI)
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact.")
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002434 <https://orcid.org/0000-0002-6601-2165>)
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002434 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules.")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002434 "in pairwise interaction with")
@@ -5918,6 +5918,22 @@ SubObjectPropertyOf(obo:RO_0008509 obo:RO_0002303)
 ObjectPropertyDomain(obo:RO_0008509 obo:OBI_0100026)
 ObjectPropertyRange(obo:RO_0008509 obo:ENVO_01000739)
 
+# Object Property: obo:RO_0008510 (symbiotrophically interacts with)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0008510 "A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism")
+AnnotationAssertion(<http://purl.org/dc/elements/1.1/creator> obo:RO_0008510 <http://orcid.org/0000-0002-2908-3327>)
+AnnotationAssertion(<http://purl.org/dc/elements/1.1/date> obo:RO_0008510 "2023-07-17T14:39:56Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0008510 "symbiotrophically interacts with"@en)
+SubObjectPropertyOf(obo:RO_0008510 obo:RO_0002438)
+
+# Object Property: obo:RO_0008511 (trophic parasite of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0008511 "A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism")
+AnnotationAssertion(<http://purl.org/dc/elements/1.1/creator> obo:RO_0008511 <http://orcid.org/0000-0002-2908-3327>)
+AnnotationAssertion(<http://purl.org/dc/elements/1.1/date> obo:RO_0008511 "2023-07-17T14:41:07Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0008511 "trophic parasite of"@en)
+SubObjectPropertyOf(obo:RO_0008511 obo:RO_0008510)
+
 # Object Property: obo:RO_0009001 (has substance added)
 
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0009001 "muffin 'has substance added' some 'baking soda'"@en)
@@ -6608,9 +6624,9 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0018033 "A is a deprotonated form of 
 
 This is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations.")
 AnnotationAssertion(dc:creator obo:RO_0018033 <https://orcid.org/0000-0003-4423-4370>)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018033 "obo:chebi#is_conjugate_base_of")
 AnnotationAssertion(rdfs:label obo:RO_0018033 "is deprotonated form of")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018033 <https://github.com/oborel/obo-relations/issues/643>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018033 "obo:chebi#is_conjugate_base_of")
 SubObjectPropertyOf(obo:RO_0018033 obo:RO_0018030)
 InverseObjectProperties(obo:RO_0018033 obo:RO_0018034)
 TransitiveObjectProperty(obo:RO_0018033)
@@ -6622,9 +6638,9 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0018034 "A is a protonated form of B 
 
 This is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations.")
 AnnotationAssertion(dc:creator obo:RO_0018034 <https://orcid.org/0000-0003-4423-4370>)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018034 "obo:chebi#is_conjugate_acid_of")
 AnnotationAssertion(rdfs:label obo:RO_0018034 "is protonated form of")
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018034 <https://github.com/oborel/obo-relations/issues/643>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018034 "obo:chebi#is_conjugate_acid_of")
 SubObjectPropertyOf(obo:RO_0018034 obo:RO_0018030)
 TransitiveObjectProperty(obo:RO_0018034)
 
@@ -6654,10 +6670,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0018036 "Two chemicals are tautomers 
 This commonly refers to prototropy in which a hydrogen's position is changed, such as between ketones and enols. This is also often observed in heterocyclic rings, e.g., ones containing nitrogens and/or have aryl functional groups containing heteroatoms.")
 AnnotationAssertion(dc:creator obo:RO_0018036 <https://orcid.org/0000-0003-4423-4370>)
 AnnotationAssertion(dc:date obo:RO_0018036 "2023-03-18T23:49:31Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018036 "obo:chebi#is_tautomer_of")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0018036 "is desmotrope of")
 AnnotationAssertion(rdfs:label obo:RO_0018036 "is tautomer of"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018036 <https://github.com/oborel/obo-relations/issues/697>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018036 "obo:chebi#is_tautomer_of")
 SubObjectPropertyOf(obo:RO_0018036 obo:RO_0018030)
 SymmetricObjectProperty(obo:RO_0018036)
 
@@ -6667,9 +6683,9 @@ AnnotationAssertion(Annotation(rdfs:seeAlso obo:CHEBI_30795) Annotation(rdfs:see
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0018037 "Group A is a substituent group from Chemical B if A represents the functional part of A and includes information about where it is connected. A is not itself a chemical with a fully formed chemical graph, but is rather a partial graph with one or more connection points that can be used to attach to another chemical graph, typically as a functionalization.")
 AnnotationAssertion(dc:creator obo:RO_0018037 <https://orcid.org/0000-0003-4423-4370>)
 AnnotationAssertion(dc:date obo:RO_0018037 "2023-03-18T23:49:31Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018037 "obo:chebi#is_substituent_group_from")
 AnnotationAssertion(rdfs:label obo:RO_0018037 "is substitutent group from"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018037 <https://github.com/oborel/obo-relations/issues/697>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018037 "obo:chebi#is_substituent_group_from")
 SubObjectPropertyOf(obo:RO_0018037 obo:RO_0018030)
 
 # Object Property: obo:RO_0018038 (has functional parent)
@@ -6680,9 +6696,9 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0018038 "Chemical A has functional pa
 For example, the relationship between a salt and a freebased compound is a \"has functional parent\" relationship.")
 AnnotationAssertion(dc:creator obo:RO_0018038 <https://orcid.org/0000-0003-4423-4370>)
 AnnotationAssertion(dc:date obo:RO_0018038 "2023-03-18T23:49:31Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018038 "obo:chebi#has_functional_parent")
 AnnotationAssertion(rdfs:label obo:RO_0018038 "has functional parent"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018038 <https://github.com/oborel/obo-relations/issues/697>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018038 "obo:chebi#has_functional_parent")
 SubObjectPropertyOf(obo:RO_0018038 obo:RO_0018030)
 
 # Object Property: obo:RO_0018039 (is enantiomer of)
@@ -6693,10 +6709,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0018039 "Chemicals A and B are enanti
 A chemical with no chiral centers can not have an enantiomer. A chemical with multiple chiral centers can have multiple enantiomers, but its enantiomers are not themselves enantiomers (they are diastereomers).")
 AnnotationAssertion(dc:creator obo:RO_0018039 <https://orcid.org/0000-0003-4423-4370>)
 AnnotationAssertion(dc:date obo:RO_0018039 "2023-03-18T23:49:31Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018039 "obo:chebi#is_enantiomer_of")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0018039 "is optical isomer of")
 AnnotationAssertion(rdfs:label obo:RO_0018039 "is enantiomer of"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018039 <https://github.com/oborel/obo-relations/issues/697>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018039 "obo:chebi#is_enantiomer_of")
 SubObjectPropertyOf(obo:RO_0018039 obo:RO_0018030)
 SymmetricObjectProperty(obo:RO_0018039)
 
@@ -6706,9 +6722,9 @@ AnnotationAssertion(Annotation(rdfs:seeAlso obo:CHEBI_39106) Annotation(rdfs:see
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0018040 "Chemical A has parent hydride Chemical B if there exists a molecular graphical transformation where functional groups on A are replaced with hydrogens in order to yield B.")
 AnnotationAssertion(dc:creator obo:RO_0018040 <https://orcid.org/0000-0003-4423-4370>)
 AnnotationAssertion(dc:date obo:RO_0018040 "2023-03-18T23:49:31Z"^^xsd:dateTime)
+AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018040 "obo:chebi#has_parent_hydride")
 AnnotationAssertion(rdfs:label obo:RO_0018040 "has parent hydride"@en)
 AnnotationAssertion(rdfs:seeAlso obo:RO_0018040 <https://github.com/oborel/obo-relations/issues/697>)
-AnnotationAssertion(oboInOwl:hasDbXref obo:RO_0018040 "obo:chebi#has_parent_hydride")
 SubObjectPropertyOf(obo:RO_0018040 obo:RO_0018030)
 
 # Object Property: obo:RO_0019000 (regulates characteristic)
@@ -6791,16 +6807,16 @@ DataPropertyRange(obo:RO_0002029 DatatypeRestriction(xsd:short xsd:minInclusive 
 #   Classes
 ############################
 
-# Class: obo:BFO_0000002 (obo:BFO_0000002)
+# Class: obo:BFO_0000002 (continuant)
 
 SubClassOf(obo:BFO_0000002 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000002))
 SubClassOf(obo:BFO_0000002 ObjectAllValuesFrom(obo:RO_HOM0000000 obo:BFO_0000002))
 
-# Class: obo:BFO_0000003 (obo:BFO_0000003)
+# Class: obo:BFO_0000003 (occurrent)
 
 SubClassOf(obo:BFO_0000003 ObjectAllValuesFrom(obo:RO_HOM0000000 obo:BFO_0000003))
 
-# Class: obo:BFO_0000015 (obo:BFO_0000015)
+# Class: obo:BFO_0000015 (process)
 
 SubClassOf(obo:BFO_0000015 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000015))
 
