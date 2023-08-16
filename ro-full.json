@@ -3,22 +3,22 @@
     "id" : "http://purl.obolibrary.org/obo/ro/ro-full.json",
     "meta" : {
       "basicPropertyValues" : [ {
-        "pred" : "http://purl.org/dc/terms/description",
+        "pred" : "http://purl.org/dc/elements/1.1/description",
         "val" : "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."
       }, {
-        "pred" : "http://purl.org/dc/terms/license",
+        "pred" : "http://purl.org/dc/elements/1.1/license",
         "val" : "https://creativecommons.org/publicdomain/zero/1.0/"
       }, {
-        "pred" : "http://purl.org/dc/terms/title",
+        "pred" : "http://purl.org/dc/elements/1.1/title",
         "val" : "OBO Relations Ontology"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2023-06-28"
+        "val" : "2023-08-16"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : " https://github.com/oborel/obo-relations/"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-06-28/ro-full.json"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-08-16/ro-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000125",
@@ -153,7 +153,14 @@
         "definition" : {
           "val" : "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"
         },
-        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ]
+        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/OBOFoundry/COB/issues/65"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/pull/284"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000023",
@@ -459,10 +466,9 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.",
-          "xrefs" : [ "CARO:mah" ]
+          "val" : "A material entity that has a plasma membrane and results from cellular division."
         },
-        "comments" : [ "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one)." ],
+        "comments" : [ "CL and GO definitions of cell differ based on inclusive or exclusive of cell wall, etc.", "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).", "We struggled with this definition. We are worried about circularity. We also considered requiring the capability of metabolism." ],
         "xrefs" : [ {
           "val" : "CALOHA:TS-2035"
         }, {
@@ -596,7 +602,7 @@
           "val" : "A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.",
           "xrefs" : [ "GOC:pdt" ]
         },
-        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex." ],
+        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.", "This is the same as GO molecular function" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "molecular function"
@@ -924,10 +930,9 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A biological process is the execution of a genetically-encoded biological module or program. It consists of all the steps required to achieve the specific biological objective of the module. A biological process is accomplished by a particular set of molecular functions carried out by specific gene products (or macromolecular complexes), often in a highly regulated manner and in a particular temporal sequence.",
-          "xrefs" : [ "GOC:pdt" ]
+          "val" : "A process that emerges from two or more causally-connected macromolecular activities and has evolved to achieve a biological objective."
         },
-        "comments" : [ "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
+        "comments" : [ "A biological process is an evolved process", "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "biological process"
@@ -2385,7 +2390,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "CHEBI:26523 (reactive oxygen species) has an exact synonym (ROS), which is of type OMO:0003000 (abbreviation)"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2397,7 +2402,7 @@
           "val" : "A synonym type for describing ambiguous synonyms"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2409,7 +2414,7 @@
           "val" : "A synonym type for describing dubious synonyms"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2424,7 +2429,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "EFO:0006346 (severe cutaneous adverse reaction) has an exact synonym (scar), which is of the type OMO:0003003 (layperson synonym)"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2439,7 +2444,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "CHEBI:23367 (molecular entity) has an exact synonym (molecular entities), which is of the type OMO:0003004 (plural form)"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2454,7 +2459,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "CHEBI:16189 (sulfate) has an exact synonym (sulphate), which is of the type OMO:0003005 (UK spelling synonym)"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2466,7 +2471,7 @@
           "val" : "A synonym type for common misspellings"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2478,7 +2483,37 @@
           "val" : "A synonym type for misnomers, i.e., a synonym that is not technically correct but is commonly used anyway"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0003-4423-4370"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OMO_0003008",
+      "lbl" : "previous name",
+      "meta" : {
+        "definition" : {
+          "val" : "A synonym type for names that have been used as primary labels in the past."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "MAPT, the gene that encodes the Tau protein, has a previous name DDPAC. Note: in this case, the name type is more specifically the gene symbol."
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0003-4423-4370"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OMO_0003009",
+      "lbl" : "legal name",
+      "meta" : {
+        "definition" : {
+          "val" : "A synonym type for the legal entity name"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The legal name for Harvard University (https://ror.org/03vek6s52) is President and Fellows of Harvard College"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -2533,7 +2568,7 @@
           "xrefs" : [ "PATOC:GVG" ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-2061-091X"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
@@ -2595,6 +2630,9 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/pull/284"
         } ]
       }
     }, {
@@ -2988,10 +3026,9 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001018",
-      "lbl" : "contained in",
+      "lbl" : "obsolete contained in",
       "type" : "PROPERTY",
       "meta" : {
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
           "val" : "contained in"
@@ -3008,23 +3045,24 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "contained_in"
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
-          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        } ]
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/issues/693"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001019",
-      "lbl" : "contains",
+      "lbl" : "obsolete contains",
       "type" : "PROPERTY",
       "meta" : {
-        "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
           "val" : "contains"
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
-          "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        } ]
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/issues/693"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0001020",
@@ -3326,7 +3364,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-7073-9172"
         }, {
-          "pred" : "http://purl.org/dc/terms/description",
+          "pred" : "http://purl.org/dc/elements/1.1/description",
           "val" : "x 'cell expresses' y iff:\ncell(x)\nAND gene(y)\nAND exists some 'transcription, DNA templated (GO_0006351)'(t)\nAND t occurs_in x\nAND t has_input y"
         } ]
       }
@@ -5351,7 +5389,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends."
         }, {
-          "pred" : "http://purl.org/dc/terms/source",
+          "pred" : "http://purl.org/dc/elements/1.1/source",
           "val" : "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1"
         } ]
       }
@@ -6233,7 +6271,7 @@
         },
         "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         } ]
       }
@@ -6275,7 +6313,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0004049",
           "val" : "http://purl.obolibrary.org/obo/RO_0002411"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -6295,7 +6333,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0004050",
           "val" : "http://purl.obolibrary.org/obo/RO_0002411"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -6311,13 +6349,13 @@
           "val" : "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0001-6996-0040"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-8461-9745"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
@@ -6345,7 +6383,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "This class is intended as a grouping for various domain and species-specific exposure classes. The ExO class http://purl.obolibrary.org/obo/ExO_0000002 'exposure event' assumes that all exposures involve stressors, which limits the applicability of this class to 'positive' exposures, e.g. exposing a plant to beneficial growing conditions."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
@@ -7046,7 +7084,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
-          "pred" : "http://purl.org/dc/terms/source",
+          "pred" : "http://purl.org/dc/elements/1.1/source",
           "val" : "http://neurolex.org/wiki/Property:DendriteLocation"
         } ]
       }
@@ -9146,10 +9184,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000589",
           "val" : "determined by (system to material entity)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-4366-3088"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         } ]
       }
@@ -10271,7 +10309,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0002423",
           "val" : "If we have the annotation P is-direct-form-of Q, and we have inverses P' and Q', then it follows that P' is-direct-form-of Q'"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -10343,7 +10381,7 @@
           "val" : "relation p is the indirect form of relation q iff p is a subPropertyOf q, and there exists some p' such that p' is the direct form of q, p' o p' -> p, and forall x,y : x q y -> either (1) x p y or (2) x p' y"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -11817,7 +11855,7 @@
           "val" : "true if the two properties are disjoint, according to OWL semantics. This should only be used if using a logical axiom introduces a non-simple property violation."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         } ]
       }
@@ -11925,7 +11963,7 @@
           "val" : "A relation between two entities, in which one of the entities is any natural or human-influenced factor that directly or indirectly causes a change in the other entity."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0001-8910-9851"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -11941,7 +11979,7 @@
           "val" : "A relation between an entity and a disease of a host, in which the entity is not part of the host itself, and the condition results in pathological processes."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0001-8910-9851"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -12044,10 +12082,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-2908-3327"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-01-18T14:28:21Z"
         } ]
       }
@@ -12172,16 +12210,16 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph."
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0001-6996-0040"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-6601-2165"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-7073-9172"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-8461-9745"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -12921,7 +12959,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "This relation is not meant for cases where set of genes/proteins are only useful as markers in some specific context - e.g. in some specific location. In these cases it is recommended to make a more specific cell class restricted to the relevant context."
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0001-7258-9596"
         } ]
       }
@@ -13006,10 +13044,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "'Ly-76 high positive erythrocyte' equivalent to 'enucleate erythrocyte' and (has_high_plasma_membrane_amount some 'lymphocyte antigen 76 (mouse)')"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1617-8244"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1940-6740"
         } ]
       }
@@ -13026,10 +13064,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "'DN2b thymocyte' equivalent to 'DN2 thymocyte' and (has_low_plasma_membrane_amount some 'mast/stem cell growth factor receptor')"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1617-8244"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1940-6740"
         } ]
       }
@@ -13042,10 +13080,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "Do not use this relation directly. It is intended as a grouping for a set of relations regarding presentation of phenotypes and disease."
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-7463-6306"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2021-11-05T17:30:14Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13061,10 +13099,10 @@
           "val" : "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
-          "val" : "http://orcid.org/0000-0002-7463-6306"
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7463-6306"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2021-11-05T17:30:44Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13083,10 +13121,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "ExO:0000083"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0002-7463-6306"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2021-12-14T20:41:45Z"
         } ]
       }
@@ -13134,7 +13172,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "directly correlated with"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1909-9269"
         } ]
       }
@@ -13150,7 +13188,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "inversely correlated with"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-1909-9269"
         } ]
       }
@@ -13163,7 +13201,7 @@
           "val" : "Helper relation for OWL definition of RO:0018002 myristoylates"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -13176,10 +13214,10 @@
           "val" : "A molecularly-interacts-with relationship between two entities, where the subject catalyzes a myristoylation activity that takes the object as input"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/conformsTo",
+          "pred" : "http://purl.org/dc/elements/1.1/conformsTo",
           "val" : "http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess"
         }, {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -13192,7 +13230,7 @@
           "val" : "inverse of myristoylates"
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -13208,7 +13246,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "mibolerone (CHEBI:34849) is agonist of androgen receptor (PR:P10275)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13227,7 +13265,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "pimavanserin (CHEBI:133017) is inverse agonist of HTR2A (PR:P28223)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13246,7 +13284,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "tretinoin (CHEBI:15367) is antagonist of Nuclear receptor ROR-beta (PR:Q92753)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13262,7 +13300,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, in which the subject or object is a chemical."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         } ]
       }
@@ -13281,7 +13319,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0002575",
           "val" : "http://purl.obolibrary.org/obo/RO_0018033"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13303,7 +13341,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0002575",
           "val" : "http://purl.obolibrary.org/obo/RO_0018034"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13325,7 +13363,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "(E)-cinnamoyl-CoA(4-) (CHEBI:57252) is a deprotonated form (E)-cinnamoyl-CoA (CHEBI:10956), which involves removing four protons."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13347,7 +13385,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "(E)-cinnamoyl-CoA (CHEBI:10956) is a protonated form of (E)-cinnamoyl-CoA(4-) (CHEBI:57252), which involves adding four protons."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13373,10 +13411,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "phenol (CHEBI:15882) and aniline (CHEBI:17296) are matched molecular pairs because they differ by one chemical transformation i.e., the replacement of aryl primary amine with aryl primary alcohol."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-02-28T18:53:32Z"
         } ]
       }
@@ -13399,10 +13437,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-03-18T23:49:31Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13424,10 +13462,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-03-18T23:49:31Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13449,10 +13487,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)"
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-03-18T23:49:31Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13478,10 +13516,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-03-18T23:49:31Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13503,10 +13541,10 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates."
         }, {
-          "pred" : "http://purl.org/dc/terms/creator",
+          "pred" : "http://purl.org/dc/elements/1.1/creator",
           "val" : "https://orcid.org/0000-0003-4423-4370"
         }, {
-          "pred" : "http://purl.org/dc/terms/date",
+          "pred" : "http://purl.org/dc/elements/1.1/date",
           "val" : "2023-03-18T23:49:31Z"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13522,7 +13560,7 @@
           "val" : "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-8688-6599"
         } ]
       }
@@ -13535,7 +13573,7 @@
           "val" : "A relationship that holds between a process and a characteristic in which process (P) positively regulates characteristic (C) iff: P results in an increase in the intensity or magnitude of C."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-8688-6599"
         } ]
       }
@@ -13548,7 +13586,7 @@
           "val" : "A relationship that holds between a process and a characteristic in which process (P) negatively regulates characteristic (C) iff: P results in a decrease in the intensity or magnitude of C."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/contributor",
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
           "val" : "https://orcid.org/0000-0002-8688-6599"
         } ]
       }
@@ -15917,6 +15955,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "Researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "Researcher"
         } ]
@@ -15927,6 +15968,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -15937,6 +15981,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher, metadata, diseases, University of Maryland"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher, metadata, diseases, University of Maryland"
         } ]
@@ -15947,6 +15994,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "data scientist"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "data scientist"
         } ]
@@ -15957,6 +16007,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -15967,6 +16020,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "bioinformatics researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "bioinformatics researcher"
         } ]
@@ -15977,6 +16033,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -15987,6 +16046,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -15997,6 +16059,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -16007,6 +16072,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -16017,6 +16085,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -16027,6 +16098,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "researcher"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
         } ]
@@ -16037,6 +16111,9 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/elements/1.1/description",
+          "val" : "American chemist"
+        }, {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "American chemist"
         } ]
@@ -16115,8 +16192,24 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/ENVO_01000254"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0003674",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0004842",
       "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/GO_0003674"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0005634",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0008150",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0008150",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
       "obj" : "http://purl.obolibrary.org/obo/GO_0003674"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0016301",
@@ -16301,7 +16394,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002004",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0001018"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0001025"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002006",
       "pred" : "subPropertyOf",
@@ -19031,10 +19124,6 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0001025"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0001018",
-      "pred" : "inverseOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0001019"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0001020",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0001022"
@@ -19446,6 +19535,10 @@
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
       }, {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
+        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+      }, {
         "sub" : "http://purl.obolibrary.org/obo/BFO_0000017",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000017"
@@ -19485,6 +19578,13 @@
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
       } ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "allValuesFromEdges" : [ {
+        "sub" : "http://purl.obolibrary.org/obo/BFO_0000020",
+        "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+        "obj" : "http://purl.obolibrary.org/obo/BFO_0000020"
+      } ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000054",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000017" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
@@ -19502,7 +19602,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000066",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ],
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003", "http://purl.obolibrary.org/obo/BFO_0000015" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000056",
@@ -19510,7 +19610,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000057",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ],
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003", "http://purl.obolibrary.org/obo/BFO_0000015" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000002" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000058",
