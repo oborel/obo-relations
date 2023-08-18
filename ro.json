@@ -13,12 +13,12 @@
         "val" : "OBO Relations Ontology"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2023-08-16"
+        "val" : "2023-08-18"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : " https://github.com/oborel/obo-relations/"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-08-16/ro.json"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-08-18/ro.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000125",
@@ -153,14 +153,7 @@
         "definition" : {
           "val" : "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"
         },
-        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://github.com/OBOFoundry/COB/issues/65"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://github.com/oborel/obo-relations/pull/284"
-        } ]
+        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000023",
@@ -391,7 +384,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "preceded_by"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.obofoundry.org/ro/#OBO_REL:preceded_by"
         } ]
       }
@@ -466,9 +459,10 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A material entity that has a plasma membrane and results from cellular division."
+          "val" : "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.",
+          "xrefs" : [ "CARO:mah" ]
         },
-        "comments" : [ "CL and GO definitions of cell differ based on inclusive or exclusive of cell wall, etc.", "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).", "We struggled with this definition. We are worried about circularity. We also considered requiring the capability of metabolism." ],
+        "comments" : [ "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one)." ],
         "xrefs" : [ {
           "val" : "CALOHA:TS-2035"
         }, {
@@ -602,7 +596,7 @@
           "val" : "A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.",
           "xrefs" : [ "GOC:pdt" ]
         },
-        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.", "This is the same as GO molecular function" ],
+        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "molecular function"
@@ -930,9 +924,10 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A process that emerges from two or more causally-connected macromolecular activities and has evolved to achieve a biological objective."
+          "val" : "A biological process is the execution of a genetically-encoded biological module or program. It consists of all the steps required to achieve the specific biological objective of the module. A biological process is accomplished by a particular set of molecular functions carried out by specific gene products (or macromolecular complexes), often in a highly regulated manner and in a particular temporal sequence.",
+          "xrefs" : [ "GOC:pdt" ]
         },
-        "comments" : [ "A biological process is an evolved process", "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
+        "comments" : [ "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "biological process"
@@ -2630,9 +2625,6 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://github.com/oborel/obo-relations/pull/284"
         } ]
       }
     }, {
@@ -2687,7 +2679,7 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "has_participant"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.obofoundry.org/ro/#OBO_REL:has_participant"
         } ]
       }
@@ -3039,9 +3031,6 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):"
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Intended meaning:\ndomain: material entity\nrange: spatial region or site (immaterial continuant)\n        "
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "contained_in"
         }, {
@@ -3139,7 +3128,7 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.obofoundry.org/ro/#OBO_REL:located_in"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13699,10 +13688,10 @@
           "pred" : "http://purl.obolibrary.org/obo/RO_0040042",
           "val" : "http://purl.obolibrary.org/obo/BFO_0000003"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13724,10 +13713,10 @@
           "val" : "homologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13751,10 +13740,10 @@
           "val" : "analogy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13779,10 +13768,10 @@
           "val" : "ECO:0000075"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13804,10 +13793,10 @@
           "val" : "analogy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13829,10 +13818,10 @@
           "val" : "parallel evolution"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13861,10 +13850,10 @@
           "val" : "MI:2163"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13915,10 +13904,10 @@
           "val" : "TAO:homologous_to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13946,10 +13935,10 @@
           "val" : "ECO:0000067"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -13976,10 +13965,10 @@
           "val" : "reversion"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14010,10 +13999,10 @@
           "val" : "SO:0005858"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14041,10 +14030,10 @@
           "val" : "SO:paralogous_to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14071,10 +14060,10 @@
           "val" : "paralogon"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14095,10 +14084,10 @@
           "val" : "syntenic orthologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14137,10 +14126,10 @@
           "val" : "percent homology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14164,10 +14153,10 @@
           "val" : "MeSH:Structural_Homology,_Protein"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14194,10 +14183,10 @@
           "val" : "SO:non_functional_homolog_of"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14228,10 +14217,10 @@
           "val" : "SO:orthologous_to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14253,10 +14242,10 @@
           "val" : "xenologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14283,10 +14272,10 @@
           "val" : "one-to-one homology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14313,10 +14302,10 @@
           "val" : "one-to-one orthology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14340,10 +14329,10 @@
           "val" : "homoeology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14370,10 +14359,10 @@
           "val" : "symparalogy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14400,10 +14389,10 @@
           "val" : "outparalogy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14424,10 +14413,10 @@
           "val" : "pro-orthologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14449,10 +14438,10 @@
           "val" : "semi-orthologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14476,10 +14465,10 @@
           "val" : "homonomy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14503,10 +14492,10 @@
           "val" : "heterochrony"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14530,10 +14519,10 @@
           "val" : "pedomorphosis"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14550,10 +14539,10 @@
           "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000030" ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14570,10 +14559,10 @@
           "xrefs" : [ "http://en.wikipedia.org/wiki/Progenesis", "http://purl.obolibrary.org/obo/HOM_0000031", "ISBN:978-0674639416" ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14597,10 +14586,10 @@
           "val" : "neotenous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14621,10 +14610,10 @@
           "val" : "mimicrous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14657,10 +14646,10 @@
           "val" : "many to 1 orthology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14687,10 +14676,10 @@
           "val" : "many:many homology "
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14717,10 +14706,10 @@
           "val" : "1:many homology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14744,10 +14733,10 @@
           "val" : "synapomorphy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14772,10 +14761,10 @@
           "val" : "symplesiomorphy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14806,10 +14795,10 @@
           "val" : "homoiology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14830,10 +14819,10 @@
           "val" : "hemiplasous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14854,10 +14843,10 @@
           "val" : "gametologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14881,10 +14870,10 @@
           "val" : "MeSH:Chromosome_Pairing"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14920,10 +14909,10 @@
           "val" : "trans-homology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14944,10 +14933,10 @@
           "val" : "within-species paralogous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14969,10 +14958,10 @@
           "val" : "between-species paralogous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -14993,10 +14982,10 @@
           "val" : "post-displacement"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15013,10 +15002,10 @@
           "xrefs" : [ "http://en.wikipedia.org/wiki/Peramorphosis", "http://purl.obolibrary.org/obo/HOM_0000052", "ISBN:978-0674639416" ]
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15037,10 +15026,10 @@
           "val" : "synologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15064,10 +15053,10 @@
           "val" : "ECO:0000080"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15094,10 +15083,10 @@
           "val" : "serial paralogy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15137,10 +15126,10 @@
           "val" : "re-awakening"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15165,10 +15154,10 @@
           "val" : "syngenous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15199,10 +15188,10 @@
           "val" : "pseudoorthology"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15224,10 +15213,10 @@
           "val" : "pseudoparalogous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15249,10 +15238,10 @@
           "val" : "equivalogous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15273,10 +15262,10 @@
           "val" : "interologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15297,10 +15286,10 @@
           "val" : "functional similarity"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15321,10 +15310,10 @@
           "val" : "iterative homologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15351,10 +15340,10 @@
           "val" : "paraxenologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15376,10 +15365,10 @@
           "val" : "plerologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15401,10 +15390,10 @@
           "val" : "homotopous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15425,10 +15414,10 @@
           "val" : "heterotopy"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15450,10 +15439,10 @@
           "val" : "homoeologous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15474,10 +15463,10 @@
           "val" : "axis paramorphism"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -15498,10 +15487,10 @@
           "val" : "regulogous to"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/elements/1.1/creator",
+          "pred" : "http://purl.org/dc/terms/creator",
           "val" : "http://bgee.unil.ch"
         }, {
-          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20116127"
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
@@ -16153,24 +16142,8 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/ENVO_01000254"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0003674",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0004842",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/GO_0003674"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0005634",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0008150",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/GO_0008150",
-      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
       "obj" : "http://purl.obolibrary.org/obo/GO_0003674"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0016301",
@@ -19496,10 +19469,6 @@
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
       }, {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000015",
-        "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
-      }, {
         "sub" : "http://purl.obolibrary.org/obo/BFO_0000017",
         "pred" : "http://purl.obolibrary.org/obo/BFO_0000050",
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000017"
@@ -19539,13 +19508,6 @@
         "obj" : "http://purl.obolibrary.org/obo/BFO_0000003"
       } ]
     }, {
-      "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000051",
-      "allValuesFromEdges" : [ {
-        "sub" : "http://purl.obolibrary.org/obo/BFO_0000020",
-        "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
-        "obj" : "http://purl.obolibrary.org/obo/BFO_0000020"
-      } ]
-    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000054",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000017" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
@@ -19563,7 +19525,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000066",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003", "http://purl.obolibrary.org/obo/BFO_0000015" ],
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000056",
@@ -19571,7 +19533,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000057",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003", "http://purl.obolibrary.org/obo/BFO_0000015" ],
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000003" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000002" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000058",
@@ -19596,10 +19558,6 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000091",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000016" ]
-    }, {
-      "predicateId" : "http://purl.obolibrary.org/obo/RO_0001018",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0001020",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ]
@@ -20178,9 +20136,6 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0010002",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0000059", "http://purl.obolibrary.org/obo/RO_0000053" ]
-    }, {
-      "predicateId" : "http://purl.obolibrary.org/obo/RO_0001018",
-      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0001025", "http://purl.obolibrary.org/obo/BFO_0000050" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0001025",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0001025", "http://purl.obolibrary.org/obo/BFO_0000050" ]
