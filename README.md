@@ -7,6 +7,7 @@ This is the project page for RO, the OBO Relations Ontology
 
 RO is a collection of relations intended primarily for standardization across ontologies in the [OBO Foundry](http://obofoundry.org) and wider OBO library. It incorporates [ROCore](https://github.com/oborel/obo-relations/wiki/ROCore) upper-level relations such as [part of](http://purl.obolibrary.org/obo/BFO_0000050) as well as biology-specific relationship types such as [develops from](http://purl.obolibrary.org/obo/RO_0002202).
 
+
 ## Documentation
 
  * [RO Guide](https://oborel.github.io/obo-relations/)
