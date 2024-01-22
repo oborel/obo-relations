@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2023-06-28
+data-version: releases/2023-08-18
 subsetdef: common_anatomy ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
@@ -13,7 +13,7 @@ property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-06-28" xsd:string
+property_value: owl:versionInfo "2023-08-18" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -711,7 +711,7 @@ id: BFO:0000062
 name: preceded by
 def: "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." []
 subset: ro-eco
-property_value: http://purl.org/dc/elements/1.1/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
+property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 property_value: IAO:0000111 "preceded by" xsd:string
 property_value: IAO:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other." xsd:string
 property_value: IAO:0000118 "is preceded by" xsd:string
@@ -816,7 +816,7 @@ inverse_of: RO:0000057 ! has participant
 id: RO:0000057
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
-property_value: http://purl.org/dc/elements/1.1/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
+property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 property_value: IAO:0000111 "has participant" xsd:string
 property_value: IAO:0000112 "this blood coagulation has participant this blood clot" xsd:string
 property_value: IAO:0000112 "this investigation has participant this investigator" xsd:string
@@ -941,7 +941,6 @@ property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.n
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
-is_transitive: true
 is_obsolete: true
 
 [Typedef]
@@ -953,7 +952,6 @@ property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.n
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
-is_transitive: true
 is_obsolete: true
 
 [Typedef]
@@ -965,7 +963,6 @@ property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.n
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
-is_transitive: true
 is_obsolete: true
 
 [Typedef]
@@ -1007,25 +1004,20 @@ inverse_of: RO:0001025 ! located in
 
 [Typedef]
 id: RO:0001018
-name: contained in
-subset: ro-eco
+name: obsolete contained in
 property_value: IAO:0000111 "contained in" xsd:string
 property_value: IAO:0000116 "Containment is location not involving parthood, and arises only where some immaterial continuant is involved." xsd:string
 property_value: IAO:0000116 "Containment obtains in each case between material and immaterial continuants, for instance: lung contained_in thoracic cavity; bladder contained_in pelvic cavity. Hence containment is not a transitive relation.    If c part_of c1 at t then we have also, by our definition and by the axioms of mereology applied to spatial regions, c located_in c1 at t. Thus, many examples of instance-level location relations for continuants are in fact cases of instance-level parthood. For material continuants location and parthood coincide. Containment is location not involving parthood, and arises only where some immaterial continuant is involved. To understand this relation, we first define overlap for continuants as follows:    c1 overlap c2 at t =def for some c, c part_of c1 at t and c part_of c2 at t. The containment relation on the instance level can then be defined (see definition):" xsd:string
-property_value: IAO:0000116 "Intended meaning:\ndomain: material entity\nrange: spatial region or site (immaterial continuant)\n        " xsd:string
 property_value: IAO:0000118 "contained_in" xsd:string
-property_value: RO:0001900 RO:0001901
-domain: BFO:0000040 ! material entity
-range: BFO:0000004 ! independent continuant
-holds_over_chain: RO:0001025 BFO:0000050
-inverse_of: RO:0001019 ! contains
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/693
+is_obsolete: true
 
 [Typedef]
 id: RO:0001019
-name: contains
-subset: ro-eco
+name: obsolete contains
 property_value: IAO:0000111 "contains" xsd:string
-property_value: RO:0001900 RO:0001901
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/693
+is_obsolete: true
 
 [Typedef]
 id: RO:0001020
@@ -1064,7 +1056,7 @@ id: RO:0001025
 name: located in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
-property_value: http://purl.org/dc/elements/1.1/source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
+property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
 property_value: IAO:0000111 "located in" xsd:string
 property_value: IAO:0000112 "my brain is located in my head" xsd:string
 property_value: IAO:0000112 "this rat is located in this cage" xsd:string
@@ -1133,7 +1125,7 @@ def: "The relationship that holds between a trachea or tracheole and an antomica
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 domain: UBERON:0000061 ! anatomical structure
 range: UBERON:0000061 ! anatomical structure
-is_a: RO:0001018 ! contained in
+is_a: RO:0001025 ! located in
 
 [Typedef]
 id: RO:0002005
@@ -6285,7 +6277,7 @@ property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd
 id: RO:0016002
 name: has disease
 def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
-property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0002-7463-6306
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
 property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:44Z" xsd:dateTime
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
 is_a: RO:0016001 ! has phenotype or disease
@@ -6318,7 +6310,6 @@ name: positively correlated with
 def: "A relation between entities in which one increases or decreases as the other does the same." []
 property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
 property_value: IAO:0000118 "directly correlated with" xsd:string
-is_reflexive: true
 is_symmetric: true
 is_a: RO:0002610 ! correlated with
 
@@ -6561,8 +6552,8 @@ synonym: "sameness" EXACT []
 synonym: "similar to" EXACT []
 xref: ECO:0000041
 xref: SO:similar_to
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: IAO:0000116 "TODO: Add homeomorphy axiom" xsd:string
 property_value: RO:0040042 BFO:0000002
 property_value: RO:0040042 BFO:0000003
@@ -6575,8 +6566,8 @@ name: in homology relationship with
 def: "Similarity that results from common evolutionary origin." [http://dx.doi.org/10.1002/bies.950180611, http://dx.doi.org/10.1002/jmor.1051730307, http://dx.doi.org/10.1007/BF02814480, http://purl.obolibrary.org/obo/HOM_0000001]
 comment: This broad definition encompasses all the working definitions proposed so far in the literature.
 synonym: "homologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000001
 is_symmetric: true
 is_a: RO:0002158 ! shares ancestor with
@@ -6589,8 +6580,8 @@ name: in homoplasy relationship with
 def: "Similarity that results from independent evolution." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000002]
 synonym: "analogy" RELATED []
 synonym: "homoplasous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000002
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -6602,8 +6593,8 @@ def: "Similarity that is characterized by the organization of anatomical structu
 comment: Homology and homocracy are not mutually exclusive. The homology relationships of patterning genes may be unresolved and thus may include orthologues and paralogues.
 synonym: "homocracous to" EXACT []
 xref: ECO:0000075
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000003
 is_symmetric: true
 is_a: RO:0002320 ! evolutionarily related to
@@ -6615,8 +6606,8 @@ name: in convergence relationship with
 def: "Homoplasy that involves different underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000004]
 comment: Convergence usually implies a notion of adaptation.
 synonym: "analogy" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000004
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
@@ -6627,8 +6618,8 @@ name: in parallelism relationship with
 def: "Homoplasy that involves homologous underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000005]
 comment: Can be applied for features present in closely related organisms but not present continuously in all the members of the lineage.
 synonym: "parallel evolution" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000005
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
@@ -6641,8 +6632,8 @@ synonym: "idealistic homology" RELATED []
 synonym: "structural homologous to" EXACT []
 xref: ECO:0000071
 xref: MI:2163
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000006
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
@@ -6664,8 +6655,8 @@ xref: SO:0000853
 xref: SO:0000857
 xref: SO:homologous_to
 xref: TAO:homologous_to
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000007
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
@@ -6678,8 +6669,8 @@ comment: Applicable only to morphology. A certain degree of ambiguity is accepte
 synonym: "biological homologous to" EXACT []
 synonym: "transformational homology" RELATED []
 xref: ECO:0000067
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000008
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
@@ -6691,8 +6682,8 @@ def: "Homoplasy that involves phenotypes similar to those seen in ancestors with
 synonym: "atavism" EXACT []
 synonym: "reversion" RELATED []
 synonym: "rudiment" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000009
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
@@ -6706,8 +6697,8 @@ synonym: "synteny" RELATED []
 xref: MeSH:Synteny
 xref: SO:0000860
 xref: SO:0005858
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000010
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
@@ -6720,8 +6711,8 @@ synonym: "paralogous to" EXACT []
 xref: SO:0000854
 xref: SO:0000859
 xref: SO:paralogous_to
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000011
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -6734,8 +6725,8 @@ def: "Paralogy that involves sets of syntenic blocks." [DOI:10.1002/1097-010X(20
 synonym: "duplicon" RELATED []
 synonym: "paralogon" RELATED []
 synonym: "syntenic paralogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000012
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
@@ -6746,8 +6737,8 @@ id: RO:HOM0000013
 name: in syntenic orthology relationship with
 def: "Syntenic homology that involves chromosomes of different species." [http://dx.doi.org/10.1101/gr.6380007, http://purl.obolibrary.org/obo/HOM_0000013]
 synonym: "syntenic orthologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000013
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
@@ -6763,8 +6754,8 @@ synonym: "partial correspondence" RELATED []
 synonym: "partial homologous to" EXACT []
 synonym: "percent homology" RELATED []
 synonym: "segmental homology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000014
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
@@ -6775,8 +6766,8 @@ name: in protein structural homology relationship with
 def: "Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence." [http://dx.doi.org/10.1016/0022-2836(76)90195-9, http://purl.obolibrary.org/obo/HOM_0000015]
 synonym: "protein structural homologous to" EXACT []
 xref: MeSH:Structural_Homology\,_Protein
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000015
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
@@ -6788,8 +6779,8 @@ def: "Structural homology that involves a pseudogenic feature and its functional
 synonym: "non functional homologous to" EXACT []
 synonym: "pseudogene" BROAD []
 xref: SO:non_functional_homolog_of
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000016
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
@@ -6805,8 +6796,8 @@ xref: ECO:00000060
 xref: SO:0000855
 xref: SO:0000858
 xref: SO:orthologous_to
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000017
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -6817,8 +6808,8 @@ name: in xenology relationship with
 def: "Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000018]
 comment: The term is sometimes also used for anatomical structures (e.g. in case of a symbiosis).
 synonym: "xenologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000018
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -6830,8 +6821,8 @@ def: "Historical homology that involves two members sharing no other homologs in
 synonym: "1 to 1 homologous to" EXACT []
 synonym: "1:1 homology" EXACT []
 synonym: "one-to-one homology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000019
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -6843,8 +6834,8 @@ def: "Orthology that involves two genes that did not experience any duplication 
 synonym: "1 to 1 orthologous to" EXACT []
 synonym: "1:1 orthology" EXACT []
 synonym: "one-to-one orthology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000020
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
@@ -6856,8 +6847,8 @@ name: in ohnology relationship with
 def: "Paralogy that results from a whole genome duplication event." [http://dx.doi.org/10.1038/75560, http://purl.obolibrary.org/obo/HOM_0000022]
 synonym: "homoeology" RELATED []
 synonym: "ohnologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000022
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -6869,8 +6860,8 @@ def: "Paralogy that results from a lineage-specific duplication subsequent to a 
 synonym: "in-paralogous to" EXACT []
 synonym: "inparalogy" EXACT []
 synonym: "symparalogy" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000023
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -6883,8 +6874,8 @@ def: "Paralogy that results from a duplication preceding a given speciation even
 synonym: "alloparalogy" EXACT []
 synonym: "out-paralogous to" EXACT []
 synonym: "outparalogy" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000024
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -6894,8 +6885,8 @@ id: RO:HOM0000025
 name: in pro-orthology relationship with
 def: "1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000025]
 synonym: "pro-orthologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000025
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
@@ -6906,8 +6897,8 @@ name: in semi-orthology relationship with
 def: "1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000026]
 comment: The converse of pro-orthologous.
 synonym: "semi-orthologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000026
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
@@ -6918,8 +6909,8 @@ name: in serial homology relationship with
 def: "Iterative homology that involves structures arranged along the main body axis." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000027]
 synonym: "homonomy" RELATED []
 synonym: "serial homologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000027
 is_symmetric: true
 is_a: RO:HOM0000066 ! in iterative homology relationship with
@@ -6930,8 +6921,8 @@ name: in heterochronous homology relationship with
 def: "Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures." [http://purl.obolibrary.org/obo/HOM_0000028, ISBN:978-0674639416]
 synonym: "heterochronous homologous to" EXACT []
 synonym: "heterochrony" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000028
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
@@ -6942,8 +6933,8 @@ name: in paedomorphorsis relationship with
 def: "Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000029, ISBN:978-0674639416]
 synonym: "juvenification" EXACT []
 synonym: "pedomorphosis" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000029
 is_symmetric: true
 is_a: RO:HOM0000028 ! in heterochronous homology relationship with
@@ -6953,8 +6944,8 @@ disjoint_from: RO:HOM0000030 ! in peramorphosis relationship with
 id: RO:HOM0000030
 name: in peramorphosis relationship with
 def: "Heterochronous homology that is produced by a maturation of individuals of a species past adulthood, which take on hitherto unseen traits." [http://en.wikipedia.org/wiki/Peramorphosis, http://purl.obolibrary.org/obo/HOM_0000030]
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000030
 is_symmetric: true
 is_a: RO:HOM0000028 ! in heterochronous homology relationship with
@@ -6963,8 +6954,8 @@ is_a: RO:HOM0000028 ! in heterochronous homology relationship with
 id: RO:HOM0000031
 name: in progenesis relationship with
 def: "Paedomorphosis that is produced by precocious sexual maturation of an organism still in a morphologically juvenile stage." [http://en.wikipedia.org/wiki/Progenesis, http://purl.obolibrary.org/obo/HOM_0000031, ISBN:978-0674639416]
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000031
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
@@ -6975,8 +6966,8 @@ name: in neoteny relationship with
 def: "Paedomorphosis that is produced by a retardation of somatic development." [http://en.wikipedia.org/wiki/Neoteny, http://purl.obolibrary.org/obo/HOM_0000032, ISBN:978-0674639416]
 synonym: "juvenilization" EXACT []
 synonym: "neotenous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000032
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
@@ -6986,8 +6977,8 @@ id: RO:HOM0000033
 name: in mimicry relationship with
 def: "Convergence that results from co-evolution usually involving an evolutionary arms race." [http://en.wikipedia.org/wiki/Mimicry, http://purl.obolibrary.org/obo/HOM_0000033]
 synonym: "mimicrous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000033
 is_symmetric: true
 is_a: RO:HOM0000004 ! in convergence relationship with
@@ -7001,8 +6992,8 @@ synonym: "1:many orthology" EXACT []
 synonym: "co-orthology" RELATED []
 synonym: "many to 1 orthology" RELATED []
 synonym: "one-to-many orthology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000034
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
@@ -7015,8 +7006,8 @@ def: "Historical homology that involves two members of a larger set of homologs.
 synonym: "many to many homologous to" EXACT []
 synonym: "many-to-many homology" EXACT []
 synonym: "many:many homology " EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000036
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7028,8 +7019,8 @@ def: "Historical homology that involves a structure that has no other homologs i
 synonym: "1 to many homologous to" EXACT []
 synonym: "1:many homology" RELATED []
 synonym: "one-to-many homology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000037
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7040,8 +7031,8 @@ name: in apomorphy relationship with
 def: "Historical homology that is based on recent shared ancestry, characterizing a monophyletic group." [http://purl.obolibrary.org/obo/HOM_0000042, ISBN:978-0252068140]
 synonym: "apomorphous to" EXACT []
 synonym: "synapomorphy" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000042
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7054,8 +7045,8 @@ def: "Historical homology that is based on distant shared ancestry." [http://pur
 comment: This term is usually contrasted to apomorphy.
 synonym: "plesiomorphous to" EXACT []
 synonym: "symplesiomorphy" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000043
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7069,8 +7060,8 @@ synonym: "deep genetic homology" EXACT []
 synonym: "deep homologous to" EXACT []
 synonym: "generative homology" RELATED []
 synonym: "homoiology" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000044
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
@@ -7081,8 +7072,8 @@ id: RO:HOM0000045
 name: in hemiplasy relationship with
 def: "Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree." [http://dx.doi.org/10.1073/pnas.0807433105, http://purl.obolibrary.org/obo/HOM_0000045]
 synonym: "hemiplasous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000045
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7092,8 +7083,8 @@ id: RO:HOM0000046
 name: in gametology relationship with
 def: "Historical homology that involves not recombining and subsequently differentiated sex chromosomes." [http://purl.obolibrary.org/obo/HOM_0000046, http://www.ncbi.nlm.nih.gov/pubmed/11110898]
 synonym: "gametologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000046
 is_symmetric: true
 is_a: RO:HOM0000047 ! in chromosomal homology relationship with
@@ -7104,8 +7095,8 @@ name: in chromosomal homology relationship with
 def: "Historical homology that involves the chromosomes able to pair (synapse) during meiosis." [http://purl.obolibrary.org/obo/HOM_0000047, ISBN:0195307615]
 synonym: "chromosomal homologous to" EXACT []
 xref: MeSH:Chromosome_Pairing
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000047
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7120,8 +7111,8 @@ synonym: "many-to-many orthology" EXACT []
 synonym: "many:many orthology" EXACT []
 synonym: "trans-homology" RELATED []
 synonym: "trans-orthology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000048
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
@@ -7132,8 +7123,8 @@ id: RO:HOM0000049
 name: in within-species paralogy relationship with
 def: "Paralogy that involves genes from the same species." [http://purl.obolibrary.org/obo/HOM_0000049, http://www.ensembl.org/info/docs/compara/homology_method.html]
 synonym: "within-species paralogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000049
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -7145,8 +7136,8 @@ name: in between-species paralogy relationship with
 def: "Paralogy that involves genes from different species." [http://purl.obolibrary.org/obo/HOM_0000050, http://www.ensembl.org/info/docs/compara/homology_method.html]
 comment: The genes have diverged before a speciation event.
 synonym: "between-species paralogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000050
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -7156,8 +7147,8 @@ id: RO:HOM0000051
 name: in postdisplacement relationship with
 def: "Paedomorphosis that is produced by delayed growth of immature structures into the adult form." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000051]
 synonym: "post-displacement" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000051
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
@@ -7166,8 +7157,8 @@ is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 id: RO:HOM0000052
 name: in hypermorphosis relationship with
 def: "Peramorphosis that is produced by a delay in the offset of development." [http://en.wikipedia.org/wiki/Peramorphosis, http://purl.obolibrary.org/obo/HOM_0000052, ISBN:978-0674639416]
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000052
 is_symmetric: true
 is_a: RO:HOM0000030 ! in peramorphosis relationship with
@@ -7177,8 +7168,8 @@ id: RO:HOM0000053
 name: in synology relationship with
 def: "Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species." [http://dx.doi.org/10.1007/BF00173425, http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000053]
 synonym: "synologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000053
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
@@ -7189,8 +7180,8 @@ name: in isoorthology relationship with
 def: "Orthology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000054]
 synonym: "isoorthologous to" EXACT []
 xref: ECO:0000080
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000054
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
@@ -7203,8 +7194,8 @@ def: "Paralogy that is characterized by duplication of adjacent sequences on a c
 synonym: "iterative paralogy" RELATED []
 synonym: "serial paralogy" RELATED []
 synonym: "tandem paralogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000055
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -7221,8 +7212,8 @@ synonym: "homoplastic tendency" RELATED []
 synonym: "latent homologous to" EXACT []
 synonym: "re-awakening" RELATED []
 synonym: "underlying synapomorphy" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000057
 is_symmetric: true
 is_a: RO:HOM0000005 ! in parallelism relationship with
@@ -7235,8 +7226,8 @@ def: "Homocracy that involves recognizably corresponding characters that occurs 
 comment: Cannot be used when orthologous patterning gene are organizing obviously non-homologous structures in different organisms due for example to pleiotropic functions of these genes.
 synonym: "generative homology" EXACT []
 synonym: "syngenous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000058
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
@@ -7250,8 +7241,8 @@ synonym: "1:1 paralogy" EXACT []
 synonym: "apparent 1:1 orthology" EXACT []
 synonym: "apparent orthologous to" EXACT []
 synonym: "pseudoorthology" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000060
 is_symmetric: true
 is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
@@ -7263,8 +7254,8 @@ name: in pseudoparalogy relationship with
 def: "Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000061]
 comment: These genes may come out as paralogs in a single-genome analysis.
 synonym: "pseudoparalogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000061
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
@@ -7275,8 +7266,8 @@ name: in equivalogy relationship with
 def: "Historical homology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1093/nar/gkl1043, http://purl.obolibrary.org/obo/HOM_0000062]
 comment: This may include examples of orthology, paralogy and xenology.
 synonym: "equivalogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000062
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7287,8 +7278,8 @@ id: RO:HOM0000063
 name: in interology relationship with
 def: "Historical homology that involves orthologous pairs of interacting molecules in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://dx.doi.org/10.1126/science.287.5450.116, http://purl.obolibrary.org/obo/HOM_0000063]
 synonym: "interologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000063
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
@@ -7298,8 +7289,8 @@ id: RO:HOM0000065
 name: in functional equivalence relationship with
 def: "Similarity that is characterized by interchangeability in function." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1038/415741a, http://purl.obolibrary.org/obo/HOM_0000065]
 synonym: "functional similarity" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000065
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -7309,8 +7300,8 @@ id: RO:HOM0000066
 name: in iterative homology relationship with
 def: "Biological homology that involves parts of the same organism." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000066]
 synonym: "iterative homologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000066
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
@@ -7322,8 +7313,8 @@ def: "Xenology that is characterized by multiple horizontal transfer events, res
 synonym: "duplicate xenology" EXACT []
 synonym: "multiple xenology" EXACT []
 synonym: "paraxenologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000068
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
@@ -7334,8 +7325,8 @@ name: in plerology relationship with
 def: "Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution." [http://purl.obolibrary.org/obo/HOM_0000069, http://www.ncbi.nlm.nih.gov/pubmed/3065587]
 comment: This phenomenon is usually due to gene conversion process.
 synonym: "plerologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000069
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -7346,8 +7337,8 @@ name: in homotopy relationship with
 def: "Structural homology that involves structures with the same or similar relative positions." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1007/BF02814485, http://purl.obolibrary.org/obo/HOM_0000071, ISBN:0123195837]
 comment: Theissen (2005) mentions that some authors may consider homotopy to be distinct from homology, but this is not the standard use.
 synonym: "homotopous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000071
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
@@ -7358,8 +7349,8 @@ id: RO:HOM0000072
 name: in homeosis relationship with
 def: "Biological homology that involves an ectopic structure and the normally positioned structure." [http://dx.doi.org/10.1007/BF02814485, http://dx.doi.org/10.1016/j.cell.2008.06.030, http://purl.obolibrary.org/obo/HOM_0000072]
 synonym: "heterotopy" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000072
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
@@ -7370,8 +7361,8 @@ name: in homoeology relationship with
 def: "Synology that results from allopolyploidy." [http://dx.doi.org/10.1073/pnas.0505156102, http://purl.obolibrary.org/obo/HOM_0000073]
 comment: On a long term, it is hard to distinguish allopolyploidy from whole genome duplication.
 synonym: "homoeologous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000073
 is_symmetric: true
 is_a: RO:HOM0000022 ! in ohnology relationship with
@@ -7382,8 +7373,8 @@ id: RO:HOM0000074
 name: in paramorphism relationship with
 def: "Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure." [http://dx.doi.org/10.1007/s10441-007-9023-8, http://dx.doi.org/10.1046/j.1525-142x.2000.00054.x, http://purl.obolibrary.org/obo/HOM_0000074]
 synonym: "axis paramorphism" RELATED []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000074
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
@@ -7394,8 +7385,8 @@ id: RO:HOM0000075
 name: in regulogy relationship with
 def: "Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://purl.obolibrary.org/obo/HOM_0000075]
 synonym: "regulogous to" EXACT []
-property_value: http://purl.org/dc/elements/1.1/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/elements/1.1/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
+property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
+property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000075
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
