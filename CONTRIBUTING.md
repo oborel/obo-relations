@@ -101,6 +101,14 @@ Please refer to the [OBO Academy best practices](https://oboacademy.github.io/ob
 
 Please refer to the [OBO Academy best practices](https://oboacademy.github.io/obook/howto/github-create-pull-request/)
 
+## Guidelines for creating Pull Requests
+
+Anyone is welcome to make Pull Requests (PRs), however, you are advised to coordinate with other RO developers and announce your
+intentions on the relevant GitHub issue first to avoid doing work that may later be rejected. The `#relation-ontology` channel on
+OBO slack is also a good place to discuss PRs.
+
+In RO, all PRs must be approved by *two* RO editors.
+
 ## RO mailing list
 Visit http://groups.google.com/group/obo-relations to join the (low-traffic) RO mailing list.
 
