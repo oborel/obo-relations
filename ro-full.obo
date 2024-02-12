@@ -1,19 +1,24 @@
 format-version: 1.2
-data-version: ro/releases/2023-08-18/ro-full.owl
+data-version: ro/releases/2024-02-12/ro-full.owl
 subsetdef: common_anatomy ""
+subsetdef: efo_slim ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
+subsetdef: human_reference_atlas ""
+subsetdef: pheno_slim ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
+subsetdef: uberon_slim ""
 subsetdef: upper_level ""
+subsetdef: vertebrate_core ""
 ontology: ro/ro-full
 property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-08-18" xsd:string
+property_value: owl:versionInfo "2024-02-12" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -37,7 +42,7 @@ name: independent continuant
 def: "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t. (axiom label in BFO2 Reference: [017-002])" []
 comment: A continuant that is a bearer of quality and realizable entity entities, in which other entities inhere and which itself cannot inhere in anything.
 is_a: BFO:0000002 ! continuant
-disjoint_from: BFO:0000020 ! specifically dependent continuant
+disjoint_from: BFO:0000020 ! characteristic
 disjoint_from: BFO:0000031 ! generically dependent continuant
 relationship: BFO:0000050 BFO:0000004 {all_only="true"} ! part of independent continuant
 
@@ -52,6 +57,7 @@ name: process
 def: "p is a process = Def. p is an occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t. (axiom label in BFO2 Reference: [083-003])" []
 comment: An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t.
 is_a: BFO:0000003 ! occurrent
+relationship: BFO:0000050 BFO:0000015 {all_only="true"} ! part of process
 relationship: RO:0002214 BFO:0000015 {all_only="true"} ! has prototype process
 
 [Term]
@@ -62,26 +68,31 @@ disjoint_from: BFO:0000023 ! role
 
 [Term]
 id: BFO:0000017
+name: realizable
 name: realizable entity
 def: "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances." []
-is_a: BFO:0000020 ! specifically dependent continuant
+is_a: BFO:0000020 ! characteristic
 disjoint_from: BFO:0000019 ! quality
 relationship: BFO:0000050 BFO:0000017 {all_only="true"} ! part of realizable entity
 
 [Term]
 id: BFO:0000019
 name: quality
-is_a: BFO:0000020 ! specifically dependent continuant
+is_a: BFO:0000020 ! characteristic
 relationship: BFO:0000050 BFO:0000019 {all_only="true"} ! part of quality
 
 [Term]
 id: BFO:0000020
+name: characteristic
 name: specifically dependent continuant
 def: "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])" []
 comment: A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same.
 is_a: BFO:0000002 ! continuant
 disjoint_from: BFO:0000031 ! generically dependent continuant
-relationship: BFO:0000050 BFO:0000020 {all_only="true"} ! part of specifically dependent continuant
+relationship: BFO:0000050 BFO:0000020 {all_only="true"} ! part of characteristic
+relationship: BFO:0000051 BFO:0000020 {all_only="true"} ! has part characteristic
+property_value: seeAlso "https://github.com/OBOFoundry/COB/issues/65" xsd:string
+property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
 
 [Term]
 id: BFO:0000023
@@ -122,7 +133,10 @@ is_a: PATO:0000001 ! quality
 id: CL:0000000
 name: cell
 def: "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane." [CARO:mah]
+def: "A material entity that has a plasma membrane and results from cellular division." []
+comment: CL and GO definitions of cell differ based on inclusive or exclusive of cell wall, etc.
 comment: The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).
+comment: We struggled with this definition. We are worried about circularity. We also considered requiring the capability of metabolism.
 xref: CALOHA:TS-2035
 xref: FBbt:00007002
 xref: FMA:68646
@@ -161,6 +175,16 @@ is_a: CL:0000000 ! cell
 property_value: RO:0002175 NCBITaxon:9606
 
 [Term]
+id: COB:0000121
+name: measurement datum
+
+[Term]
+id: COB:0001000
+name: exposure of organism
+def: "A process during which an organism comes into contact with another entity." []
+is_a: BFO:0000015 ! process
+
+[Term]
 id: ENVO:01000254
 name: environmental system
 def: "A system which has the disposition to environ one or more material entities." [DOI:10.1186/2041-1480-4-43]
@@ -183,10 +207,14 @@ is_a: ENVO:01000254 ! environmental system
 
 [Term]
 id: GO:0003674
+name: gene product or complex activity
 name: molecular_function
 def: "A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs." [GOC:pdt]
 comment: Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.
+comment: This is the same as GO molecular function
 synonym: "molecular function" EXACT []
+is_a: BFO:0000015 ! process
+disjoint_from: GO:0008150 ! biological_process
 
 [Term]
 id: GO:0004842
@@ -333,23 +361,30 @@ is_a: GO:0003674 ! molecular_function
 
 [Term]
 id: GO:0005634
+name: cell nucleus
 name: nucleus
 def: "A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent." [GOC:go_curators]
 synonym: "cell nucleus" EXACT []
 synonym: "horsetail nucleus" NARROW [GOC:al, GOC:mah, GOC:vw, PMID:15030757]
 xref: NIF_Subcellular:sao1702920020
 xref: Wikipedia:Cell_nucleus
+is_a: BFO:0000040 ! material entity
 
 [Term]
 id: GO:0008150
+name: biological process
 name: biological_process
 def: "A biological process is the execution of a genetically-encoded biological module or program. It consists of all the steps required to achieve the specific biological objective of the module. A biological process is accomplished by a particular set of molecular functions carried out by specific gene products (or macromolecular complexes), often in a highly regulated manner and in a particular temporal sequence." [GOC:pdt]
+def: "A process that emerges from two or more causally-connected macromolecular activities and has evolved to achieve a biological objective." []
+comment: A biological process is an evolved process
 comment: Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this.
 synonym: "biological process" EXACT []
 synonym: "physiological process" EXACT []
 synonym: "single organism process" RELATED []
 synonym: "single-organism process" RELATED []
 xref: Wikipedia:Biological_process
+is_a: BFO:0000015 ! process
+relationship: BFO:0000051 GO:0003674 ! has part molecular_function
 created_by: jl
 creation_date: 2012-09-19T15:05:24Z
 
@@ -389,6 +424,40 @@ property_value: IAO:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>" xsd
 property_value: IAO:0000119 "OBI_0000266" xsd:string
 
 [Term]
+id: OBI:0000047
+name: processed material
+def: "Is a material entity that is created or changed during material processing." []
+is_a: BFO:0000040 ! material entity
+property_value: IAO:0000111 "processed material" xsd:string
+property_value: IAO:0000112 "Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples" xsd:string
+property_value: IAO:0000114 IAO:0000122
+property_value: IAO:0000117 "PERSON: Alan Ruttenberg" xsd:string
+
+[Term]
+id: OBI:0000967
+name: container
+def: "A device that can be used to restrict the location of material entities over time" []
+is_a: OBI:0000968 ! device
+property_value: IAO:0000111 "container" xsd:string
+property_value: IAO:0000114 IAO:0000123
+property_value: IAO:0000116 "03/21/2010: Added to allow classification of children (similar to what we want to do for 'measurement device'. Lookint at what classifies here, we may want to reconsider a contain function assigned to a part of an entity is necessarily also a function of the whole (e.g. is a centrifuge a container because it has test tubes as parts?)" xsd:string
+property_value: IAO:0000117 "PERSON: Bjoern Peters" xsd:string
+
+[Term]
+id: OBI:0000968
+name: device
+def: "A material entity that is designed to perform a function in a scientific investigation, but is not a reagent." []
+is_a: OBI:0000047 ! processed material
+property_value: IAO:0000111 "device" xsd:string
+property_value: IAO:0000112 "A voltmeter is a measurement device which is intended to perform some measure function." xsd:string
+property_value: IAO:0000112 "An autoclave is a device that sterlizes instruments or contaminated waste by applying high temperature and pressure." xsd:string
+property_value: IAO:0000114 IAO:0000122
+property_value: IAO:0000116 "2012-12-17 JAO: In common lab usage, there is a distinction made between devices and reagents that is difficult to model. Therefore we have chosen to specifically exclude reagents from the definition of \"device\", and are enumerating the types of roles that a reagent can perform.\n\n2013-6-5 MHB: The following clarifications are outcomes of the May 2013 Philly Workshop. Reagents are distinguished from devices that also participate in scientific techniques by the fact that reagents are chemical or biological in nature and necessarily participate in some chemical interaction or reaction during the realization of their experimental role. By contrast, devices do not participate in such chemical reactions/interactions.  Note that there are cases where devices use reagent components during their operation, where the reagent-device distinction is less clear.  For example:\n\n(1) An HPLC machine is considered a device, but has a column that holds a stationary phase resin as an operational component.  This resin qualifies as a device if it participates purely in size exclusion, but bears a reagent role that is realized in the running of a column if it interacts electrostatically or chemically with the evaluant. The container the resin is in (“the column”) considered alone is a device. So the entire column as well as the entire HPLC machine are devices that have a reagent as an operating part.\n\n(2) A pH meter is a device, but its electrode component bears a reagent role in virtue of its interacting directly with the evaluant in execution of an assay.\n\n(3) A gel running  box  is a device that has a metallic lead as a component that participates in a chemical reaction with the running buffer when a charge is passed through it.  This metallic lead is considered to have a reagent role as a component of this device realized in the running of a gel.\n\nIn the examples above, a reagent is an operational component of a device, but the device itself does not realize a reagent role (as bearing a reagent role is not transitive across the part_of relation).  In this way, the asserted disjointness between a reagent and device holds, as both roles are never realized in the same bearer during execution of an assay." xsd:string
+property_value: IAO:0000117 "PERSON: Helen Parkinson" xsd:string
+property_value: IAO:0000118 "instrument" xsd:string
+property_value: IAO:0000119 "OBI development call 2012-12-17." xsd:string
+
+[Term]
 id: OBI:0100026
 name: organism
 def: "A material entity that is an individual living system, such as animal, plant, bacteria or virus, that is capable of replicating or reproducing, growth and maintenance in the right environment. An organism may be unicellular or made up, like humans, of many billions of cells divided into specialized tissues and organs." []
@@ -414,7 +483,7 @@ is_a: BFO:0000016 ! disposition
 id: PATO:0000001
 name: quality
 def: "A dependent entity that inheres in a bearer by virtue of how the bearer is related to other entities" [PATOC:GVG]
-is_a: BFO:0000020 ! specifically dependent continuant
+is_a: BFO:0000020 ! characteristic
 
 [Term]
 id: PATO:0000402
@@ -441,14 +510,14 @@ creation_date: 2009-10-06T04:37:14Z
 
 [Term]
 id: RO:0002310
-name: exposure event or process
-def: "A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism." []
-is_a: BFO:0000015 ! process
+name: obsolete exposure event or process
+def: "OBSOLETE A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism." []
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000112 "An exposure event in which a human is exposed to particulate matter in the air. Here the exposure stimulus/stress is the particulate matter, the receptor is the airways and lungs of the human," xsd:string
 property_value: IAO:0000112 "An exposure event in which a plant is provided with fertilizer. The exposure receptor is the root system of the plant, the stimulus is the fertilizing chemical, the route is via the soil, possibly mediated by symbotic microbes." xsd:anyURI
 property_value: IAO:0000116 "This class is intended as a grouping for various domain and species-specific exposure classes. The ExO class http://purl.obolibrary.org/obo/ExO_0000002 'exposure event' assumes that all exposures involve stressors, which limits the applicability of this class to 'positive' exposures, e.g. exposing a plant to beneficial growing conditions." xsd:string
 property_value: seeAlso "https://github.com/oborel/obo-relations/pull/173" xsd:anyURI
+is_obsolete: true
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-06-05T17:55:39Z
 
@@ -498,7 +567,6 @@ xref: BILA:0000003
 xref: CARO:0000003
 xref: EHDAA2:0003003
 xref: EMAPA:0
-xref: FBbt:00007001
 xref: FMA:305751
 xref: FMA:67135
 xref: GAID:781
@@ -524,7 +592,6 @@ synonym: "funiculus" EXACT []
 synonym: "nerve fiber bundle" EXACT [FBbt:00005099]
 synonym: "neural fiber bundle" EXACT []
 xref: CARO:0001001
-xref: FBbt:00005099
 xref: NLX:147821
 is_a: UBERON:0000061 ! anatomical structure
 
@@ -539,7 +606,6 @@ xref: AEO:0000006
 xref: BILA:0000006
 xref: CARO:0000006
 xref: EHDAA2:0003006
-xref: FBbt:00007016
 xref: FMA:67165
 xref: HAO:0000006
 xref: TAO:0001836
@@ -563,7 +629,6 @@ xref: AEO:0000007
 xref: BILA:0000007
 xref: CARO:0000007
 xref: EHDAA2:0003007
-xref: FBbt:00007015
 xref: FMA:67112
 xref: HAO:0000007
 xref: TAO:0001835
@@ -582,11 +647,11 @@ subset: common_anatomy
 subset: upper_level
 xref: AAO:0010841
 xref: AEO:0000000
+xref: BFO:0000004
 xref: BILA:0000000
 xref: BIRNLEX:6
 xref: CARO:0000000
 xref: EHDAA2:0002229
-xref: FBbt:10000000
 xref: FMA:62955
 xref: HAO:0000000
 xref: MA:0000001
@@ -602,6 +667,77 @@ property_value: RO:0002175 NCBITaxon:33090
 property_value: RO:0002175 NCBITaxon:4751
 
 [Term]
+id: UBERON:0001981
+name: blood vessel
+def: "A vessel through which blood circulates in the body." [BTO:0001102, Wikipedia:Blood_vessel]
+subset: efo_slim
+subset: human_reference_atlas
+subset: pheno_slim
+subset: uberon_slim
+subset: vertebrate_core
+synonym: "region of vascular tree organ" EXACT [FMA:50722]
+synonym: "vascular element" BROAD [EMAPA:35993]
+synonym: "vascular tree organ region" EXACT [FMA:50722]
+xref: AAO:0011004
+xref: AEO:0000207
+xref: BTO:0001102
+xref: CALOHA:TS-0080
+xref: EFO:0000817
+xref: EHDAA2:0003252
+xref: EHDAA:240
+xref: EMAPA:32743
+xref: EMAPA:35993
+xref: FMA:50722
+xref: FMA:63183
+xref: GAID:169
+xref: MA:0000060
+xref: MAT:0000393
+xref: MESH:D001808
+xref: NCIT:C12679
+xref: NLXANAT:090901
+xref: SCTID:361097006
+xref: TAO:0002137
+xref: UMLS:C0005847 {source="ncithesaurus:Blood_Vessel"}
+xref: VHOG:0001250
+xref: Wikipedia:Blood_vessel
+xref: XAO:0001011
+xref: ZFA:0005314
+is_a: UBERON:0010000 ! multicellular anatomical structure
+property_value: IAO:0000116 "consider adopting the EMAPA superclass 'vascular element', which includes microvasculature (e.g. capillaries), vascular plexus" xsd:string
+
+[Term]
+id: UBERON:0001982
+name: capillary
+def: "Any of the smallest blood vessels connecting arterioles with venules." [https://github.com/obophenotype/uberon/issues/137, ISBN:0073040584, Wikipedia:Capillary]
+subset: efo_slim
+subset: human_reference_atlas
+subset: pheno_slim
+subset: uberon_slim
+subset: vertebrate_core
+synonym: "blood capillary" EXACT []
+synonym: "capillary vessel" EXACT []
+xref: AAO:0010252
+xref: BTO:0002045
+xref: CALOHA:TS-2006
+xref: EFO:0001906
+xref: EMAPA:35198
+xref: EV:0100035
+xref: FMA:63194
+xref: MA:0000065
+xref: MESH:D002196
+xref: NCIT:C12685
+xref: NLXANAT:090902
+xref: TAO:0005250
+xref: UMLS:C0935624 {source="ncithesaurus:Capillary"}
+xref: VHOG:0001253
+xref: Wikipedia:Capillary
+xref: XAO:0000116
+xref: ZFA:0005250
+is_a: UBERON:0001981 ! blood vessel
+property_value: IAO:0000116 "not all sources agree capillary is a blood vessel - consider adopting EMAPA superclass of vascular element" xsd:string
+property_value: seeAlso "https://github.com/obophenotype/uberon/issues/2186" xsd:string
+
+[Term]
 id: UBERON:0010000
 name: multicellular anatomical structure
 def: "An anatomical structure that has more than one cell as a part." [CARO:0010000]
@@ -609,7 +745,6 @@ subset: common_anatomy
 subset: upper_level
 synonym: "multicellular structure" EXACT [FBbt:00100313]
 xref: CARO:0010000
-xref: FBbt:00100313
 is_a: UBERON:0000061 ! anatomical structure
 property_value: RO:0002175 NCBITaxon:33090
 property_value: RO:0002175 NCBITaxon:4751
@@ -753,6 +888,7 @@ property_value: IAO:0000118 "unfolds_in" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
 property_value: seeAlso "https://wiki.geneontology.org/Occurs_in" xsd:anyURI
 domain: BFO:0000003 ! occurrent
+domain: BFO:0000015 ! process
 range: BFO:0000004 ! independent continuant
 holds_over_chain: BFO:0000050 BFO:0000066
 inverse_of: BFO:0000067 ! contains process
@@ -796,7 +932,8 @@ property_value: IAO:0000116 "A bearer can have many dependents, and its dependen
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
-range: BFO:0000020 ! specifically dependent continuant
+property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
+range: BFO:0000020 ! characteristic
 is_inverse_functional: true
 
 [Typedef]
@@ -824,6 +961,7 @@ property_value: IAO:0000112 "this process has participant this input material (o
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000003 ! occurrent
+domain: BFO:0000015 ! process
 range: BFO:0000002 ! continuant
 holds_over_chain: BFO:0000051 RO:0000057
 
@@ -834,7 +972,7 @@ def: "A relationship between a generically dependent continuant and a specifical
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
 domain: BFO:0000031 ! generically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
+range: BFO:0000020 ! characteristic
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
@@ -843,7 +981,7 @@ name: concretizes
 def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
-domain: BFO:0000020 ! specifically dependent continuant
+domain: BFO:0000020 ! characteristic
 range: BFO:0000031 ! generically dependent continuant
 
 [Typedef]
@@ -1065,8 +1203,8 @@ property_value: IAO:0000116 "Most location relations will only hold at certain t
 property_value: IAO:0000118 "located_in" xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso "https://wiki.geneontology.org/Located_in" xsd:anyURI
-domain: BFO:0000004 {http://purl.obolibrary.org/obo/IAO_0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
-range: BFO:0000004 {http://purl.obolibrary.org/obo/IAO_0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
+domain: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
+range: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
 is_transitive: true
 transitive_over: BFO:0000050 ! part of
 
@@ -1175,12 +1313,14 @@ is_a: RO:0002292 ! expresses
 
 [Typedef]
 id: RO:0002010
-name: regulates in other organism
+name: regulates in another organism
 def: "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "regulates in other organism" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 domain: BFO:0000015 ! process
 range: BFO:0000015 ! process
-is_a: RO:0002418 ! causally upstream of or within
+is_a: RO:0002211 ! regulates
 
 [Typedef]
 id: RO:0002011
@@ -1723,7 +1863,7 @@ subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: RO:0001900 RO:0001901
 holds_over_chain: BFO:0000050 BFO:0000050
-holds_over_chain: BFO:0000051 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: BFO:0000051 BFO:0000050 {RO:0002582="true"}
 holds_over_chain: BFO:0000051 RO:0002131
 is_symmetric: true
 is_a: RO:0002323 ! mereotopologically related to
@@ -1903,7 +2043,7 @@ def: "a is attached to part of b if a is attached to b, or a is attached to some
 property_value: IAO:0000589 "attached to part of (anatomical structure to anatomical structure)" xsd:string
 domain: UBERON:0000061 ! anatomical structure
 range: UBERON:0000061 ! anatomical structure
-holds_over_chain: RO:0002371 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002371 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002323 ! mereotopologically related to
 is_a: RO:0002567 ! biomechanically related to
 
@@ -1969,6 +2109,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0003-1980-3228
 domain: BFO:0000004 ! independent continuant
 range: BFO:0000004 ! independent continuant
 is_transitive: true
+is_a: RO:0002254 ! has developmental contribution from
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002203 ! develops into
 
@@ -2155,7 +2296,7 @@ def: "c stands in this relationship to p if and only if there exists some p' suc
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "has function in" xsd:string
 property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/reflexivity/
-holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002215 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002328 ! functionally related to
 is_a: RO:0002500 ! causal agent in process
 
@@ -2195,7 +2336,7 @@ def: "x adjacent to y if and only if x and y share a boundary." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-property_value: IAO:0000112 "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="issuecomment-218584934"}
+property_value: IAO:0000112 "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts." xsd:string {seeAlso="issuecomment-218584934"}
 property_value: IAO:0000112 "The epidermis layer of a vertebrate is adjacent to the dermis." xsd:string
 property_value: IAO:0000112 "The plasma membrane of a cell is adjacent to the cytoplasm, and also to the cell lumen which the cytoplasm occupies." xsd:string
 property_value: IAO:0000112 "The skin of the forelimb is adjacent to the skin of the torso if these are considered anatomical subdivisions with a defined border. Otherwise a relation such as continuous_with would be used." xsd:string
@@ -2433,7 +2574,7 @@ id: RO:0002244
 name: related via exposure to
 def: "Any relationship between an exposure event or process and any other entity." []
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes." xsd:string
-domain: RO:0002310 ! exposure event or process
+domain: COB:0001000 ! exposure of organism
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -2672,7 +2813,7 @@ is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002297
-name: results in formation of
+name: results in formation of anatomical entity
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
@@ -2820,7 +2961,7 @@ property_value: IAO:0000118 "inheres in part of" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/reflexivity/
-holds_over_chain: RO:0000052 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0000052 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002502 ! depends on
 transitive_over: BFO:0000050 ! part of
 
@@ -2937,7 +3078,7 @@ name: part of structure that is capable of
 def: "this relation holds between c and p when c is part of some c', and c' is capable of p." []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "false" xsd:boolean
-holds_over_chain: BFO:0000050 RO:0002215 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: BFO:0000050 RO:0002215 {RO:0002581="true"}
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -3221,7 +3362,7 @@ def: "m has_muscle_insertion s iff m is attaches_to s, and it is the case that w
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "Wikipedia:Insertion_(anatomy)" xsd:string
 property_value: seeAlso http://dbpedia.org/property/insertion
-domain: UBERON:0000061 {http://purl.obolibrary.org/obo/IAO_0000116="We need to import uberon muscle into RO to use as a stricter domain constraint"} ! anatomical structure
+domain: UBERON:0000061 {IAO:0000116="We need to import uberon muscle into RO to use as a stricter domain constraint"} ! anatomical structure
 is_a: RO:0002371 ! attached to
 is_a: RO:0002567 ! biomechanically related to
 
@@ -3581,7 +3722,7 @@ is_a: RO:0002424 ! differs in
 id: RO:0002426
 name: differs in attribute
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-range: BFO:0000020 ! specifically dependent continuant
+range: BFO:0000020 ! characteristic
 is_a: RO:0002424 ! differs in
 
 [Typedef]
@@ -3644,7 +3785,7 @@ property_value: IAO:0000112 "A protein that enables activity in a cytosol." xsd:
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "executes activity in" xsd:string
 property_value: seeAlso "https://wiki.geneontology.org/Is_active_in" xsd:anyURI
-holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: RO:0002327 BFO:0000066 {RO:0002581="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002328 ! functionally related to
 
@@ -4078,7 +4219,7 @@ subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: BFO:0000003 ! occurrent
 range: BFO:0000004 ! independent continuant
-holds_over_chain: BFO:0000051 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: BFO:0000051 BFO:0000066 {RO:0002581="true"}
 
 [Typedef]
 id: RO:0002480
@@ -4312,7 +4453,7 @@ subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: RO:0002577 ! system
 range: BFO:0000040 ! material entity
-holds_over_chain: RO:0002507 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002507 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002506 ! causal relation between entities
 
@@ -4563,7 +4704,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "has supporting framework" xsd:string
 property_value: IAO:0000232 "The skeleton of a structure may be a true skeleton (for example, the bony skeleton of a hand) or any kind of support framework (the hydrostatic skeleton of a sea star, the exoskeleton of an insect, the cytoskeleton of a cell)." xsd:string
 domain: UBERON:0000061 ! anatomical structure
-range: UBERON:0000465 {http://purl.obolibrary.org/obo/IAO_0000116="This should be to a more restricted class, but not the Uberon class may be too restricted since it is a composition-based definition of skeleton rather than functional."} ! material anatomical entity
+range: UBERON:0000465 {IAO:0000116="This should be to a more restricted class, but not the Uberon class may be too restricted since it is a composition-based definition of skeleton rather than functional."} ! material anatomical entity
 is_a: BFO:0000051 ! has part
 inverse_of: RO:0002576 ! skeleton of
 is_asymmetric: true
@@ -4754,8 +4895,8 @@ subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: IAO:0000232 "This relation is intended to be used in combination with PATO, to be able to refine PATO quality classes using modifiers such as 'abnormal' and 'normal'. It has yet to be formally aligned into an ontological framework; it's not clear what the ontological status of the \"modifiers\" are." xsd:string
-domain: BFO:0000020 ! specifically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
+domain: BFO:0000020 ! characteristic
+range: BFO:0000020 ! characteristic
 
 [Typedef]
 id: RO:0002574
@@ -4823,7 +4964,7 @@ is_a: RO:0002233 ! has input
 [Typedef]
 id: RO:0002587
 name: results in synthesis of
-is_a: RO:0002297 ! results in formation of
+is_a: RO:0002297 ! results in formation of anatomical entity
 
 [Typedef]
 id: RO:0002588
@@ -4831,7 +4972,7 @@ name: results in assembly of
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-is_a: RO:0002297 ! results in formation of
+is_a: RO:0002297 ! results in formation of anatomical entity
 is_a: RO:0002592 ! results in organization of
 
 [Typedef]
@@ -5131,6 +5272,26 @@ def: "Two or more individuals sharing the same roost site (cave, mine, tree or t
 property_value: IAO:0000119 Communal:roosting
 is_symmetric: true
 is_a: RO:0008506 ! ecologically co-occurs with
+
+[Typedef]
+id: RO:0002802
+name: reservoir host of
+def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
+comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
+property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
+property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002803 ! has reservoir host
+
+[Typedef]
+id: RO:0002803
+name: has reservoir host
+def: "inverse of reservoir host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s." xsd:string
+is_a: RO:0002454 ! has host
 
 [Typedef]
 id: RO:0003000
@@ -6067,6 +6228,28 @@ created_by: https://orcid.org/0000-0003-1813-6857
 creation_date: 2022-09-26T06:08:01Z
 
 [Typedef]
+id: RO:0012013
+name: positively regulates in another organism
+def: "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "positively regulates in other organism" EXACT []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
+property_value: RO:0004049 RO:0002010
+is_a: RO:0002010 ! regulates in another organism
+creation_date: 2023-10-12T10:02:28Z
+
+[Typedef]
+id: RO:0012014
+name: negatively regulates in another organism
+def: "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "negatively regulates in other organism" EXACT []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
+property_value: RO:0004050 RO:0002010
+is_a: RO:0002010 ! regulates in another organism
+creation_date: 2023-10-12T10:02:42Z
+
+[Typedef]
 id: RO:0013001
 name: has synaptic IO in region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
@@ -6323,6 +6506,16 @@ is_symmetric: true
 is_a: RO:0002610 ! correlated with
 
 [Typedef]
+id: RO:0017005
+name: contains measured amount
+def: "A relation between a container and measurement datum that specifies the actual amount of material in the container." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2999-0103
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-5714-991X
+property_value: IAO:0000112 "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen." xsd:string
+domain: OBI:0000967 ! container
+range: COB:0000121 ! measurement datum
+
+[Typedef]
 id: RO:0018001
 name: is myristoyltransferase activity
 def: "Helper relation for OWL definition of RO:0018002 myristoylates" []
@@ -6441,7 +6634,7 @@ synonym: "is desmotrope of" EXACT []
 xref: obo:chebi#is_tautomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
-property_value: IAO:0000112 "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38707", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:38709"}
+property_value: IAO:0000112 "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol." xsd:string {seeAlso="CHEBI:38707", seeAlso="CHEBI:38709"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_symmetric: true
 is_a: RO:0018030 ! chemical relationship
@@ -6453,7 +6646,7 @@ def: "Group A is a substituent group from Chemical B if A represents the functio
 xref: obo:chebi#is_substituent_group_from
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
-property_value: IAO:0000112 "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:30795", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:58957"}
+property_value: IAO:0000112 "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)" xsd:string {seeAlso="CHEBI:30795", seeAlso="CHEBI:58957"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
 
@@ -6464,7 +6657,7 @@ def: "Chemical A has functional parent Chemical B if there is chemical transform
 xref: obo:chebi#has_functional_parent
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
-property_value: IAO:0000112 "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)" xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50851", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:50854"}
+property_value: IAO:0000112 "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)" xsd:string {seeAlso="CHEBI:50851", seeAlso="CHEBI:50854"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
 
@@ -6476,7 +6669,7 @@ synonym: "is optical isomer of" EXACT []
 xref: obo:chebi#is_enantiomer_of
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
-property_value: IAO:0000112 "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped." xsd:string {comment="CHEBI:48557", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:31472"}
+property_value: IAO:0000112 "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped." xsd:string {comment="CHEBI:48557", seeAlso="CHEBI:31472"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_symmetric: true
 is_a: RO:0018030 ! chemical relationship
@@ -6488,7 +6681,7 @@ def: "Chemical A has parent hydride Chemical B if there exists a molecular graph
 xref: obo:chebi#has_parent_hydride
 property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
-property_value: IAO:0000112 "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:39106", http://www.w3.org/2000/01/rdf-schema#seeAlso="CHEBI:52083"}
+property_value: IAO:0000112 "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates." xsd:string {seeAlso="CHEBI:39106", seeAlso="CHEBI:52083"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
 is_a: RO:0018030 ! chemical relationship
 
@@ -6525,6 +6718,40 @@ name: confers susceptibility to condition
 def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
 is_a: RO:0003304 ! contributes to condition
 created_by: https://orcid.org/0000-0002-4142-7153
+
+[Typedef]
+id: RO:0020101
+name: vessel supplies blood to
+def: "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:22Z" xsd:dateTime
+property_value: IAO:0000112 "brachial artery vessel supplies blood to brachialis muscle" xsd:string
+domain: UBERON:0001981 ! blood vessel
+range: UBERON:0000061 ! anatomical structure
+is_a: RO:0002178 ! supplies
+
+[Typedef]
+id: RO:0020102
+name: vessel drains blood from
+def: "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:41Z" xsd:dateTime
+property_value: IAO:0000112 "cystic vein vessel drains blood from gallbladder" xsd:string
+domain: UBERON:0001981 ! blood vessel
+range: UBERON:0000061 ! anatomical structure
+is_a: RO:0002179 ! drains
+
+[Typedef]
+id: RO:0020103
+name: directly supplies and drains
+def: "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:59Z" xsd:dateTime
+property_value: IAO:0000112 "alveolar capillary directly supplies and drains some alveolus" xsd:string
+domain: UBERON:0001982 ! capillary
+range: UBERON:0000061 ! anatomical structure
+is_a: RO:0002178 ! supplies
+is_a: RO:0002179 ! drains
 
 [Typedef]
 id: RO:0040035
