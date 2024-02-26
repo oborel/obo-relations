@@ -1,19 +1,24 @@
 format-version: 1.2
 subsetdef: common_anatomy ""
+subsetdef: efo_slim ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
+subsetdef: human_reference_atlas ""
+subsetdef: pheno_slim ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
+subsetdef: uberon_slim ""
 subsetdef: upper_level ""
+subsetdef: vertebrate_core ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2023-08-18" xsd:string
+property_value: owl:versionInfo "2024-02-13" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -312,8 +317,9 @@ is_a: RO:0002292 ! expresses
 
 [Typedef]
 id: RO:0002010
-name: regulates_in_other_organism
+name: regulates_in_another_organism
 def: "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+synonym: "regulates in other organism" EXACT []
 is_a: RO:0002418 ! causally upstream of or within
 
 [Typedef]
@@ -630,7 +636,7 @@ id: RO:0002131
 name: overlaps
 def: "x overlaps y if and only if there exists some z such that x has part z and z part of y" []
 holds_over_chain: BFO:0000050 BFO:0000050
-holds_over_chain: BFO:0000051 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: BFO:0000051 BFO:0000050 {RO:0002582="true"}
 holds_over_chain: BFO:0000051 RO:0002131
 is_symmetric: true
 is_a: RO:0002323 ! mereotopologically related to
@@ -735,7 +741,7 @@ is_a: RO:0002323 ! mereotopologically related to
 id: RO:0002177
 name: attached_to_part_of
 def: "a is attached to part of b if a is attached to b, or a is attached to some p, where p is part of b." []
-holds_over_chain: RO:0002371 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002371 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002323 ! mereotopologically related to
 is_a: RO:0002567 ! biomechanically related to
 
@@ -775,6 +781,7 @@ id: RO:0002202
 name: develops_from
 def: "x develops from y if and only if either (a) x directly develops from y or (b) there exists some z such that x directly develops from z and z develops from y" []
 is_transitive: true
+is_a: RO:0002254 ! has developmental contribution from
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002203 ! develops into
 
@@ -883,7 +890,7 @@ is_a: RO:0002216 ! capable of part of
 id: RO:0002216
 name: capable_of_part_of
 def: "c stands in this relationship to p if and only if there exists some p' such that c is capable_of p', and p' is part_of p." []
-holds_over_chain: RO:0002215 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002215 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002328 ! functionally related to
 is_a: RO:0002500 ! causal agent in process
 
@@ -1229,7 +1236,7 @@ is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 
 [Typedef]
 id: RO:0002297
-name: results_in_formation_of
+name: results_in_formation_of_anatomical_entity
 is_a: RO:0002234 ! has output
 is_a: RO:0002295 ! results in developmental progression of
 inverse_of: RO:0002354 ! formed as result of
@@ -1307,7 +1314,7 @@ is_a: RO:0040036 ! results in changes to anatomical or cellular structure
 id: RO:0002314
 name: characteristic_of_part_of
 def: "q characteristic of part of w if and only if there exists some p such that q inheres in p and p part of w." []
-holds_over_chain: RO:0000052 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0000052 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002502 ! depends on
 transitive_over: BFO:0000050 ! part of
 
@@ -1373,7 +1380,7 @@ def: "A grouping relationship for any relationship directly involving a function
 id: RO:0002329
 name: part_of_structure_that_is_capable_of
 def: "this relation holds between c and p when c is part of some c', and c' is capable of p." []
-holds_over_chain: BFO:0000050 RO:0002215 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: BFO:0000050 RO:0002215 {RO:0002581="true"}
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -1843,7 +1850,7 @@ id: RO:0002432
 name: is_active_in
 def: "c executes activity in d if and only if c enables p and p occurs_in d.  Assuming no action at a distance by gene products, if a gene product enables (is capable of) a process that occurs in some structure, it must have at least some part in that structure." [https://orcid.org/0000-0002-6601-2165, https://orcid.org/0000-0002-7073-9172]
 synonym: "enables activity in" EXACT []
-holds_over_chain: RO:0002327 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: RO:0002327 BFO:0000066 {RO:0002581="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002328 ! functionally related to
 
@@ -2114,7 +2121,7 @@ is_a: RO:0002476 ! child nucleus of
 id: RO:0002479
 name: has_part_that_occurs_in
 def: "p has part that occurs in c if and only if there exists some p1, such that p has_part p1, and p1 occurs in c." []
-holds_over_chain: BFO:0000051 BFO:0000066 {http://purl.obolibrary.org/obo/RO_0002581="true"}
+holds_over_chain: BFO:0000051 BFO:0000066 {RO:0002581="true"}
 
 [Typedef]
 id: RO:0002480
@@ -2280,7 +2287,7 @@ is_a: RO:0002566 ! causally influences
 id: RO:0002509
 name: determined_by_part_of
 def: "s 'determined by part of' w if and only if there exists some f such that (1) s 'determined by' f and (2) f part_of w, or f=w." []
-holds_over_chain: RO:0002507 BFO:0000050 {http://purl.obolibrary.org/obo/RO_0002582="true"}
+holds_over_chain: RO:0002507 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002506 ! causal relation between entities
 
@@ -2618,12 +2625,12 @@ is_a: RO:0002233 ! has input
 [Typedef]
 id: RO:0002587
 name: results_in_synthesis_of
-is_a: RO:0002297 ! results in formation of
+is_a: RO:0002297 ! results in formation of anatomical entity
 
 [Typedef]
 id: RO:0002588
 name: results_in_assembly_of
-is_a: RO:0002297 ! results in formation of
+is_a: RO:0002297 ! results in formation of anatomical entity
 is_a: RO:0002592 ! results in organization of
 
 [Typedef]
@@ -2870,6 +2877,19 @@ name: co-roosts_with
 def: "Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting." []
 is_symmetric: true
 is_a: RO:0008506 ! ecologically co-occurs with
+
+[Typedef]
+id: RO:0002802
+name: reservoir_host_of
+def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002803 ! has reservoir host
+
+[Typedef]
+id: RO:0002803
+name: has_reservoir_host
+def: "inverse of reservoir host of" []
+is_a: RO:0002454 ! has host
 
 [Typedef]
 id: RO:0003000
@@ -3499,6 +3519,20 @@ is_a: RO:0002211 ! regulates
 is_a: RO:0012011 ! indirectly causally upstream of
 
 [Typedef]
+id: RO:0012013
+name: positively_regulates_in_another_organism
+def: "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+synonym: "positively regulates in other organism" EXACT []
+is_a: RO:0002010 ! regulates in another organism
+
+[Typedef]
+id: RO:0012014
+name: negatively_regulates_in_another_organism
+def: "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+synonym: "negatively regulates in other organism" EXACT []
+is_a: RO:0002010 ! regulates in another organism
+
+[Typedef]
 id: RO:0013001
 name: has_synaptic_IO_in_region
 def: "A relationship between a neuron and a region, where the neuron has a functionally relevant number of input and/or output synapses in that region." []
@@ -3682,6 +3716,11 @@ is_symmetric: true
 is_a: RO:0002610 ! correlated with
 
 [Typedef]
+id: RO:0017005
+name: contains_measured_amount
+def: "A relation between a container and measurement datum that specifies the actual amount of material in the container." []
+
+[Typedef]
 id: RO:0018001
 name: is_myristoyltransferase_activity
 def: "Helper relation for OWL definition of RO:0018002 myristoylates" []
@@ -3819,6 +3858,25 @@ id: RO:0019501
 name: confers_susceptibility_to_condition
 def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
 is_a: RO:0003304 ! contributes to condition
+
+[Typedef]
+id: RO:0020101
+name: vessel_supplies_blood_to
+def: "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y." []
+is_a: RO:0002178 ! supplies
+
+[Typedef]
+id: RO:0020102
+name: vessel_drains_blood_from
+def: "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y." []
+is_a: RO:0002179 ! drains
+
+[Typedef]
+id: RO:0020103
+name: directly_supplies_and_drains
+def: "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y." []
+is_a: RO:0002178 ! supplies
+is_a: RO:0002179 ! drains
 
 [Typedef]
 id: RO:0040035
