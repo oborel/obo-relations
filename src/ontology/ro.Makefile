@@ -53,10 +53,33 @@ $(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms_combine
 	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
     extract -T $(IMPORTDIR)/cob_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
 	remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cob_terms_combined.txt --select complement \
-	remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060*" --axioms "annotation" \
+	remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060* BFO:0000066*" --axioms "annotation" \
 	query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
 	$(ANNOTATE_CONVERT_FILE); fi
 
+# ========================================
+# Custom imports
+# ========================================
+
+# This filter contains all property characteristic related to RO entities
+# Note: For some reason, IrreflexiveObjectProperty is not supported
+tmp/missing-base.owl: $(EDIT_PREPROCESSED) $(ONTOLOGYTERMS)
+	$(ROBOT) merge -i $(EDIT_PREPROCESSED) \
+		filter -T $(ONTOLOGYTERMS) --trim false --axioms "AsymmetricObjectProperty FunctionalObjectProperty FunctionalDataProperty InverseFunctionalObjectProperty SymmetricObjectProperty TransitiveObjectProperty InverseObjectProperties ObjectPropertyDomain DataPropertyDomain DataPropertyRange ObjectPropertyRange" \
+ -o $@.tmp.owl && mv $@.tmp.owl $@
+
+# TODO: This goal (and tmp/missing-base.owl) can be removed once https://github.com/ontodev/robot/issues/1108 is resolved
+$(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES) tmp/missing-base.owl
+	$(ROBOT_RELEASE_IMPORT_MODE) \
+	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
+	relax \
+	reduce -r ELK \
+	remove --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --axioms external --preserve-structure false --trim false \
+	merge -i tmp/missing-base.owl \
+	$(SHARED_ROBOT_COMMANDS) \
+	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
+		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+		--output $@.tmp.owl && mv $@.tmp.owl $@
 
 # ========================================
 # DOCUMENTATION
