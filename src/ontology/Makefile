@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                f96885ccde6e6d672be71f4d503d7839b9f3dd56fc027929347316276aeb2fd4
+CONFIG_HASH=                075dd4dff2b03ac15eb3fdc35033a80af4fec05442bc35f82dd3131f528c8209
 
 
 # ----------------------------------------
@@ -243,10 +243,10 @@ endif
 # ----------------------------------------
 
 $(REPORTDIR)/$(SRC)-obo-report.tsv: $(SRCMERGED) | $(REPORTDIR)
-	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --print 5 -o $@
+	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --print 5 -o $@
 
 $(REPORTDIR)/%-obo-report.tsv: % | $(REPORTDIR)
-	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --print 5 -o $@
+	$(ROBOT) report -i $< $(REPORT_LABEL) $(REPORT_PROFILE_OPTS) --fail-on $(REPORT_FAIL_ON) --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --print 5 -o $@
 
 check_for_robot_updates:	
 	@cut -f2 "/tools/robot_report_profile.txt" | sort > $(TMPDIR)/sorted_tsv2.txt
@@ -698,7 +698,7 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
 	relax \
 	reduce -r ELK \
-	remove --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --axioms external --preserve-structure false --trim false \
+	remove --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --axioms external --preserve-structure false --trim false \
 	$(SHARED_ROBOT_COMMANDS) \
 	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
 		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
