@@ -4,9 +4,9 @@
     "meta" : {
       "basicPropertyValues" : [ {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2023-08-18"
+        "val" : "2024-02-13"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-08-18/subsets/ro-chado.owl"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2024-02-13/subsets/ro-chado.owl"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -1838,6 +1838,9 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/pull/284"
         } ]
       }
     }, {
@@ -2572,12 +2575,17 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002010",
-      "lbl" : "regulates in other organism",
+      "lbl" : "regulates in another organism",
       "type" : "PROPERTY",
       "meta" : {
         "definition" : {
           "val" : "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "regulates in other organism"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-7073-9172"
@@ -5352,7 +5360,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002297",
-      "lbl" : "results in formation of",
+      "lbl" : "results in formation of anatomical entity",
       "type" : "PROPERTY",
       "meta" : {
         "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
@@ -10144,6 +10152,43 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "lbl" : "reservoir host of",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host."
+        },
+        "comments" : [ "A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "https://doi.org/10.3390/v13071356"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-3120-4802"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-3138-4118"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002803",
+      "lbl" : "has reservoir host",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "inverse of reservoir host of"
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s."
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0003000",
       "lbl" : "produces",
       "type" : "PROPERTY",
@@ -11816,6 +11861,54 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0012013",
+      "lbl" : "positively regulates in another organism",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "positively regulates in other organism"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0004049",
+          "val" : "http://purl.obolibrary.org/obo/RO_0002010"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1813-6857"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-10-12T10:02:28Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0012014",
+      "lbl" : "negatively regulates in another organism",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "negatively regulates in other organism"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0004050",
+          "val" : "http://purl.obolibrary.org/obo/RO_0002010"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1813-6857"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-10-12T10:02:42Z"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0013001",
       "lbl" : "has synaptic IO in region",
       "type" : "PROPERTY",
@@ -12300,6 +12393,25 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017005",
+      "lbl" : "contains measured amount",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between a container and measurement datum that specifies the actual amount of material in the container."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-2999-0103"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-5714-991X"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0018001",
       "lbl" : "is myristoyltransferase activity",
       "type" : "PROPERTY",
@@ -12708,6 +12820,63 @@
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
           "val" : "https://orcid.org/0000-0002-4142-7153"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020101",
+      "lbl" : "vessel supplies blood to",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "brachial artery vessel supplies blood to brachialis muscle"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:22Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020102",
+      "lbl" : "vessel drains blood from",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "cystic vein vessel drains blood from gallbladder"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:41Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "lbl" : "directly supplies and drains",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "alveolar capillary directly supplies and drains some alveolus"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:59Z"
         } ]
       }
     }, {
@@ -14790,6 +14959,16 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0001-6677-8489",
+      "lbl" : "Aleix Puig-Barbé",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Researcher ORCID=0000-0001-6677-8489"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0001-6996-0040",
       "lbl" : "Austin Meier",
       "type" : "INDIVIDUAL",
@@ -14830,8 +15009,28 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0002-2999-0103",
+      "lbl" : "Jie Zheng",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher (ORCID 0000-0002-2999-0103)"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0002-4366-3088",
       "lbl" : "Pier Luigi Buttigieg",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0002-5714-991X",
+      "lbl" : "Christian J Stoeckert",
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
@@ -14900,6 +15099,26 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0003-1813-6857",
+      "lbl" : "Pascale Gaudet",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Canadian biocurator"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-1909-9269",
+      "lbl" : "S. Clint Dowland",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Researcher ORCID=0000-0003-1909-9269"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0003-1940-6740",
       "lbl" : "Anna Maria Masci",
       "type" : "INDIVIDUAL",
@@ -14907,6 +15126,16 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-3138-4118",
+      "lbl" : "Jorrit Poelen",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "software/data engineer"
         } ]
       }
     }, {
@@ -15308,6 +15537,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002200",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0016001"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002202",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002254"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002202",
       "pred" : "subPropertyOf",
@@ -16781,6 +17014,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0008506"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002453"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002803",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002454"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0003002",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002449"
@@ -17193,6 +17434,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0012011"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0012013",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0012014",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002010"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0013001",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002130"
@@ -17360,6 +17609,22 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0019501",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0003304"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020101",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002178"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020102",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002178"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0040036",
       "pred" : "subPropertyOf",
@@ -18036,6 +18301,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002640",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002641"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002803"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0003000",
       "pred" : "inverseOf",
