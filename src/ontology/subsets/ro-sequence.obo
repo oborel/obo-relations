@@ -125,7 +125,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 xref: RO:0002220
-property_value: IAO:0000112 "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts." xsd:string {http://www.w3.org/2000/01/rdf-schema#seeAlso="issuecomment-218584934"}
+property_value: IAO:0000112 "A caterpillar walking on the surface of a leaf is adjacent_to the leaf, if one of the caterpillar appendages is touching the leaf. In contrast, a butterfly flying close to a flower is not considered adjacent, unless there are any touching parts." xsd:string {seeAlso="issuecomment-218584934"}
 property_value: IAO:0000112 "The epidermis layer of a vertebrate is adjacent to the dermis." xsd:string
 property_value: IAO:0000112 "The plasma membrane of a cell is adjacent to the cytoplasm, and also to the cell lumen which the cytoplasm occupies." xsd:string
 property_value: IAO:0000112 "The skin of the forelimb is adjacent to the skin of the torso if these are considered anatomical subdivisions with a defined border. Otherwise a relation such as continuous_with would be used." xsd:string
@@ -1037,6 +1037,7 @@ domain: BFO:0000004
 range: BFO:0000004
 is_transitive: true
 is_a: developmentally_preceded_by ! developmentally preceded by
+is_a: has_developmental_contribution_from ! has developmental contribution from
 inverse_of: develops_into ! develops into
 
 [Typedef]
@@ -1241,6 +1242,19 @@ def: "The entity A, immediately upstream of B, has an activity that directly reg
 xref: RO:0011021
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
 is_a: regulates_quantity_of ! regulates quantity of
+
+[Typedef]
+id: directly_supplies_and_drains
+name: directly supplies and drains
+def: "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y." []
+xref: RO:0020103
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:59Z" xsd:dateTime
+property_value: IAO:0000112 "alveolar capillary directly supplies and drains some alveolus" xsd:string
+domain: UBERON:0001982
+range: UBERON:0000061
+is_a: drains ! drains
+is_a: supplies ! supplies
 
 [Typedef]
 id: disease_arises_from_alteration_in_structure
@@ -1777,6 +1791,7 @@ property_value: IAO:0000116 "A bearer can have many dependents, and its dependen
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
+property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
 range: BFO:0000020
 is_inverse_functional: true
 
@@ -1887,7 +1902,7 @@ id: has_disease
 name: has disease
 def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
 xref: RO:0016002
-property_value: http://purl.org/dc/terms/contributor http://orcid.org/0000-0002-7463-6306
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
 property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:44Z" xsd:dateTime
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
 is_a: has_phenotype_or_disease ! has phenotype or disease
@@ -2245,7 +2260,7 @@ xref: RO:0002373
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "Wikipedia:Insertion_(anatomy)" xsd:string
 property_value: seeAlso http://dbpedia.org/property/insertion
-domain: UBERON:0000061 {http://purl.obolibrary.org/obo/IAO_0000116="We need to import uberon muscle into RO to use as a stricter domain constraint"}
+domain: UBERON:0000061 {IAO:0000116="We need to import uberon muscle into RO to use as a stricter domain constraint"}
 is_a: attached_to ! attached to
 is_a: biomechanically_related_to ! biomechanically related to
 
@@ -2360,7 +2375,7 @@ id: has_participant
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
 xref: RO:0000057
-property_value: http://purl.org/dc/elements/1.1/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
+property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 property_value: IAO:0000111 "has participant" xsd:string
 property_value: IAO:0000112 "this blood coagulation has participant this blood clot" xsd:string
 property_value: IAO:0000112 "this investigation has participant this investigator" xsd:string
@@ -2368,6 +2383,7 @@ property_value: IAO:0000112 "this process has participant this input material (o
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000003
+domain: BFO:0000015
 range: BFO:0000002
 
 [Typedef]
@@ -2546,6 +2562,15 @@ created_by: https://orcid.org/0000-0002-7073-9172
 creation_date: 2017-05-24T09:30:46Z
 
 [Typedef]
+id: has_reservoir_host
+name: has reservoir host
+def: "inverse of reservoir host of" []
+subset: RO:0002259
+xref: RO:0002803
+property_value: IAO:0000112 "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s." xsd:string
+is_a: has_host ! has host
+
+[Typedef]
 id: has_role
 name: has role
 def: "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence" []
@@ -2594,7 +2619,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "has supporting framework" xsd:string
 property_value: IAO:0000232 "The skeleton of a structure may be a true skeleton (for example, the bony skeleton of a hand) or any kind of support framework (the hydrostatic skeleton of a sea star, the exoskeleton of an insect, the cytoskeleton of a cell)." xsd:string
 domain: UBERON:0000061
-range: UBERON:0000465 {http://purl.obolibrary.org/obo/IAO_0000116="This should be to a more restricted class, but not the Uberon class may be too restricted since it is a composition-based definition of skeleton rather than functional."}
+range: UBERON:0000465 {IAO:0000116="This should be to a more restricted class, but not the Uberon class may be too restricted since it is a composition-based definition of skeleton rather than functional."}
 is_a: has_part ! has part
 inverse_of: skeleton_of ! skeleton of
 is_asymmetric: true
@@ -3642,6 +3667,18 @@ property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002
 is_a: regulates_characteristic ! regulates characteristic
 
 [Typedef]
+id: negatively_regulates_in_another_organism
+name: negatively regulates in another organism
+def: "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "negatively regulates in other organism" EXACT []
+xref: RO:0012014
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
+property_value: RO:0004050 RO:0002010
+is_a: regulates_in_another_organism ! regulates in another organism
+creation_date: 2023-10-12T10:02:42Z
+
+[Typedef]
 id: obligate_parasite_of
 name: obligate parasite of
 def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." []
@@ -3935,12 +3972,24 @@ property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002
 is_a: regulates_characteristic ! regulates characteristic
 
 [Typedef]
+id: positively_regulates_in_another_organism
+name: positively regulates in another organism
+def: "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "positively regulates in other organism" EXACT []
+xref: RO:0012013
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
+property_value: RO:0004049 RO:0002010
+is_a: regulates_in_another_organism ! regulates in another organism
+creation_date: 2023-10-12T10:02:28Z
+
+[Typedef]
 id: preceded_by
 name: preceded by
 def: "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." []
 subset: ro-eco
 xref: BFO:0000062
-property_value: http://purl.org/dc/elements/1.1/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
+property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 property_value: IAO:0000111 "preceded by" xsd:string
 property_value: IAO:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other." xsd:string
 property_value: IAO:0000118 "is preceded by" xsd:string
@@ -4190,9 +4239,11 @@ range: PATO:0000001
 is_a: causally_related_to ! causally related to
 
 [Typedef]
-id: regulates_in_other_organism
-name: regulates in other organism
+id: regulates_in_another_organism
+name: regulates in another organism
 def: "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
+subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
+synonym: "regulates in other organism" EXACT []
 xref: RO:0002010
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 domain: BFO:0000015
@@ -4228,7 +4279,7 @@ name: related via exposure to
 def: "Any relationship between an exposure event or process and any other entity." []
 xref: RO:0002244
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes." xsd:string
-domain: RO:0002310
+domain: COB:0001000
 is_a: causally_related_to ! causally related to
 
 [Typedef]
@@ -4264,6 +4315,19 @@ range: BFO:0000040
 is_a: directly_negatively_regulates_activity_of ! directly negatively regulates activity of
 
 [Typedef]
+id: reservoir_host_of
+name: reservoir host of
+def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
+comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
+xref: RO:0002802
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
+property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
+property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+is_a: host_of ! host of
+inverse_of: has_reservoir_host ! has reservoir host
+
+[Typedef]
 id: results_in_acquisition_of_features_of
 name: results in acquisition of features of
 def: "The relationship that links a specified entity with the process that results in an unspecified entity acquiring the features and characteristics of the specified entity" []
@@ -4294,7 +4358,7 @@ subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 xref: RO:0002588
-is_a: results_in_formation_of ! results in formation of
+is_a: results_in_formation_of_anatomical_entity ! results in formation of anatomical entity
 is_a: results_in_organization_of ! results in organization of
 
 [Typedef]
@@ -4426,8 +4490,8 @@ is_a: results_in_changes_to_anatomical_or_cellular_structure ! results in change
 is_a: results_in_developmental_progression_of ! results in developmental progression of
 
 [Typedef]
-id: results_in_formation_of
-name: results in formation of
+id: results_in_formation_of_anatomical_entity
+name: results in formation of anatomical entity
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
@@ -4544,7 +4608,7 @@ is_a: results_in_developmental_progression_of ! results in developmental progres
 id: results_in_synthesis_of
 name: results in synthesis of
 xref: RO:0002587
-is_a: results_in_formation_of ! results in formation of
+is_a: results_in_formation_of_anatomical_entity ! results in formation of anatomical entity
 
 [Typedef]
 id: results_in_transport_across
@@ -5099,6 +5163,30 @@ xref: RO:0002480
 property_value: IAO:0000116 "Axiomatization to GO to be added later" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: molecularly_interacts_with ! molecularly interacts with
+
+[Typedef]
+id: vessel_drains_blood_from
+name: vessel drains blood from
+def: "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y." []
+xref: RO:0020102
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:41Z" xsd:dateTime
+property_value: IAO:0000112 "cystic vein vessel drains blood from gallbladder" xsd:string
+domain: UBERON:0001981
+range: UBERON:0000061
+is_a: drains ! drains
+
+[Typedef]
+id: vessel_supplies_blood_to
+name: vessel supplies blood to
+def: "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y." []
+xref: RO:0020101
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
+property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:22Z" xsd:dateTime
+property_value: IAO:0000112 "brachial artery vessel supplies blood to brachialis muscle" xsd:string
+domain: UBERON:0001981
+range: UBERON:0000061
+is_a: supplies ! supplies
 
 [Typedef]
 id: visited_by
