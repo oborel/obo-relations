@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: ro/releases/2024-02-13/ro-full.owl
+data-version: ro/releases/2024-04-04/ro-full.owl
 subsetdef: common_anatomy ""
 subsetdef: efo_slim ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
@@ -18,7 +18,7 @@ property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2024-02-13" xsd:string
+property_value: owl:versionInfo "2024-04-04" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -384,6 +384,7 @@ synonym: "single organism process" RELATED []
 synonym: "single-organism process" RELATED []
 xref: Wikipedia:Biological_process
 is_a: BFO:0000015 ! process
+disjoint_from: OBI:0000011 ! planned process
 relationship: BFO:0000051 GO:0003674 ! has part molecular_function
 created_by: jl
 creation_date: 2012-09-19T15:05:24Z
@@ -424,6 +425,20 @@ property_value: IAO:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>" xsd
 property_value: IAO:0000119 "OBI_0000266" xsd:string
 
 [Term]
+id: OBI:0000011
+name: planned process
+def: "A process that realizes a plan which is the concretization of a plan specification." []
+is_a: BFO:0000015 ! process
+property_value: IAO:0000111 "planned process" xsd:string
+property_value: IAO:0000111 "planned process" xsd:string
+property_value: IAO:0000112 "Injecting mice with a vaccine in order to test its efficacy" xsd:string
+property_value: IAO:0000114 IAO:0000122
+property_value: IAO:0000116 "'Plan' includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn't have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)" xsd:string
+property_value: IAO:0000116 "We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some \nobjectives is a planned process." xsd:string
+property_value: IAO:0000117 "Bjoern Peters" xsd:string
+property_value: IAO:0000119 "branch derived" xsd:string
+
+[Term]
 id: OBI:0000047
 name: processed material
 def: "Is a material entity that is created or changed during material processing." []
@@ -432,6 +447,20 @@ property_value: IAO:0000111 "processed material" xsd:string
 property_value: IAO:0000112 "Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples" xsd:string
 property_value: IAO:0000114 IAO:0000122
 property_value: IAO:0000117 "PERSON: Alan Ruttenberg" xsd:string
+
+[Term]
+id: OBI:0000070
+name: assay
+def: "A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies." []
+is_a: OBI:0000011 ! planned process
+property_value: IAO:0000111 "assay" xsd:string
+property_value: IAO:0000112 "Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house." xsd:string
+property_value: IAO:0000114 IAO:0000122
+property_value: IAO:0000116 "12/3/12: BP: the reference to the 'physical examination' is included to point out that a prediction is not an assay, as that does not require physical examiniation." xsd:string
+property_value: IAO:0000117 "PlanAndPlannedProcess Branch" xsd:string
+property_value: IAO:0000118 "measuring" xsd:string
+property_value: IAO:0000118 "scientific observation" xsd:string
+property_value: IAO:0000119 "OBI branch derived" xsd:string
 
 [Term]
 id: OBI:0000967
@@ -498,6 +527,18 @@ property_value: RO:0002604 PATO:0000414
 id: PATO:0001199
 name: linear
 def: "A shape quality inhering in a bearer by virtue of the bearer's being narrow, with the two opposite margins parallel." [ISBN:0881923214]
+is_a: PATO:0000001 ! quality
+
+[Term]
+id: PATO:0001470
+name: proportionality to
+def: "A quality inhering in a bearer by virtue of the bearer's magnitude in respect to a related entity." [PATOC:nw]
+comment: Examples: height to weight; brain size to body size. These could all be children of proportionality. Proportions can be measured as ratios. Some measures may be dimensionless. Not all ratios measure proportionality, eg m/s measures velocity which is not a proportion in the sense defined above, it is a quality in its own right.
+synonym: "proportion" EXACT []
+synonym: "proportionality" EXACT []
+synonym: "quotient" EXACT []
+synonym: "rate" RELATED []
+synonym: "ratio" EXACT []
 is_a: PATO:0000001 ! quality
 
 [Term]
@@ -932,7 +973,6 @@ property_value: IAO:0000116 "A bearer can have many dependents, and its dependen
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
-property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
 range: BFO:0000020 ! characteristic
 is_inverse_functional: true
 
@@ -2537,7 +2577,7 @@ is_a: RO:0002444 ! parasite of
 id: RO:0002238
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
-property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
 is_a: RO:0000057 ! has participant
 
@@ -3917,6 +3957,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002444
 name: parasite of
+def: "A parasite-host relationship where an organism benefits at the expense of another." []
 subset: ro-eco
 synonym: "direct parasite of" EXACT []
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
@@ -3930,6 +3971,7 @@ inverse_of: RO:0002445 ! parasitized by
 [Typedef]
 id: RO:0002445
 name: parasitized by
+def: "Inverse of parasite of" []
 subset: ro-eco
 synonym: "directly parasitized by" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -4053,10 +4095,11 @@ is_a: RO:0002442 ! mutualistically interacts with
 [Typedef]
 id: RO:0002457
 name: acquires nutrients from
+def: "Inverse of provides nutrients for" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 inverse_of: RO:0002469 ! provides nutrients for
 
 [Typedef]
@@ -4143,26 +4186,29 @@ is_a: RO:0002465 ! is symbiosis
 [Typedef]
 id: RO:0002469
 name: provides nutrients for
+def: "A biotic interaction where a material entity provides nutrition for an organism." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002470
 name: eats
+def: "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "is subject of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002471
 name: is eaten by
+def: "Inverse of eats" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "eaten by" xsd:string
 property_value: IAO:0000118 "is target of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002472
@@ -4758,6 +4804,7 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002556
 name: pathogen of
+def: "Inverse of has pathogen" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002454 ! has host
@@ -4766,6 +4813,7 @@ inverse_of: RO:0002557 ! has pathogen
 [Typedef]
 id: RO:0002557
 name: has pathogen
+def: "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002453 ! host of
@@ -5930,6 +5978,26 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
 is_a: RO:0009001 ! has substance added
 
 [Typedef]
+id: RO:0009006
+name: assay measures characteristic
+def: "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
+property_value: http://purl.org/dc/terms/date "2023-05-23T15:24:15Z" xsd:dateTime
+property_value: IAO:0000112 "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material." xsd:string
+domain: OBI:0000070 ! assay
+range: BFO:0000020 ! characteristic
+inverse_of: RO:0009007 ! characteristic measured by assay
+
+[Typedef]
+id: RO:0009007
+name: characteristic measured by assay
+def: "Inverse of 'assay measures characteristic'" []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
+property_value: http://purl.org/dc/terms/date "2023-05-23T15:29:50Z" xsd:dateTime
+domain: BFO:0000020 ! characteristic
+range: OBI:0000070 ! assay
+
+[Typedef]
 id: RO:0009501
 name: realized in response to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
@@ -6479,9 +6547,9 @@ id: RO:0017001
 name: device utilizes material
 def: "X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y." []
 synonym: "utilizes" BROAD []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-2620-0345
 property_value: IAO:0000112 "A diagnostic testing device utilizes a specimen." xsd:string
-property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899
-property_value: IAO:0000117 https://orcid.org/0000-0003-2620-0345
 property_value: IAO:0000232 "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input." xsd:string
 property_value: IAO:0000232 "See github ticket https://github.com/oborel/obo-relations/issues/497" xsd:string
 holds_over_chain: RO:0002215 RO:0002233
@@ -6514,6 +6582,40 @@ property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002
 property_value: IAO:0000112 "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen." xsd:string
 domain: OBI:0000967 ! container
 range: COB:0000121 ! measurement datum
+
+[Typedef]
+id: RO:0017006
+name: has maximum capacity
+def: "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2999-0103
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-5714-991X
+property_value: IAO:0000112 "anticoagulant-containing test tube has maximum capacity 10 ml." xsd:string
+domain: OBI:0000967 ! container
+range: COB:0000121 ! measurement datum
+
+[Typedef]
+id: RO:0017008
+name: owns
+def: "A primitive relation that holds between entities x and y in which y is at x’s full disposal." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
+property_value: http://purl.org/dc/terms/description "This primitive relation is the foundation of the owner’s right to have the owned entity at his/her full disposal." xsd:string
+property_value: IAO:0000112 "biobank organization owns a specimen" xsd:string
+property_value: IAO:0000112 "hospital owns a laboratory facility" xsd:string
+inverse_of: RO:0017009 ! is owned by
+creation_date: 2023-03-29T16:57:03Z
+
+[Typedef]
+id: RO:0017009
+name: is owned by
+def: "Inverse of the owns relation." []
+subset: RO:0002259
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
+property_value: IAO:0000112 "freezer is owned by a biobank organization" xsd:string
+creation_date: 2023-03-29T17:06:06Z
 
 [Typedef]
 id: RO:0018001
@@ -6752,6 +6854,26 @@ domain: UBERON:0001982 ! capillary
 range: UBERON:0000061 ! anatomical structure
 is_a: RO:0002178 ! supplies
 is_a: RO:0002179 ! drains
+
+[Typedef]
+id: RO:0020202
+name: has numerator
+def: "A relationship between a ratio or proportion and its dividend." [] {http://purl.org/dc/terms/contributor="https://orcid.org/0000-0002-8280-0487"}
+synonym: "has dividend" EXACT []
+domain: PATO:0001470 ! proportionality to
+range: PATO:0000001 ! quality
+is_a: BFO:0000051 ! has part
+created_by: https://orcid.org/0000-0001-8314-2140
+
+[Typedef]
+id: RO:0020203
+name: has denominator
+def: "A relationship between a ratio or proportion and its divisor." [] {http://purl.org/dc/terms/contributor="https://orcid.org/0000-0002-8280-0487"}
+synonym: "has divisor" EXACT []
+domain: PATO:0001470 ! proportionality to
+range: PATO:0000001 ! quality
+is_a: BFO:0000051 ! has part
+created_by: https://orcid.org/0000-0001-8314-2140
 
 [Typedef]
 id: RO:0040035

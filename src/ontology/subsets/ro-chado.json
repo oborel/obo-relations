@@ -4,9 +4,9 @@
     "meta" : {
       "basicPropertyValues" : [ {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2024-02-13"
+        "val" : "2024-04-04"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2024-02-13/subsets/ro-chado.owl"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2024-04-04/subsets/ro-chado.owl"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -1838,9 +1838,6 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/RO_0001900",
           "val" : "http://purl.obolibrary.org/obo/RO_0001901"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://github.com/oborel/obo-relations/pull/284"
         } ]
       }
     }, {
@@ -4873,11 +4870,11 @@
           "val" : "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0001-9625-1899"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
         } ]
       }
     }, {
@@ -7401,6 +7398,9 @@
       "lbl" : "parasite of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A parasite-host relationship where an organism benefits at the expense of another."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -7425,6 +7425,9 @@
       "lbl" : "parasitized by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of parasite of"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -7661,6 +7664,9 @@
       "lbl" : "acquires nutrients from",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of provides nutrients for"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -7821,6 +7827,9 @@
       "lbl" : "provides nutrients for",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where a material entity provides nutrition for an organism."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -7832,6 +7841,9 @@
       "lbl" : "eats",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -7846,6 +7858,9 @@
       "lbl" : "is eaten by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of eats"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -9143,6 +9158,9 @@
       "lbl" : "pathogen of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of has pathogen"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -9154,6 +9172,9 @@
       "lbl" : "has pathogen",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -11340,6 +11361,41 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0009006",
+      "lbl" : "assay measures characteristic",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8844-9165"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2023-05-23T15:24:15Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0009007",
+      "lbl" : "characteristic measured by assay",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "Inverse of 'assay measures characteristic'"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8844-9165"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2023-05-23T15:29:50Z"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0009501",
       "lbl" : "realized in response to",
       "type" : "PROPERTY",
@@ -12344,17 +12400,17 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "A diagnostic testing device utilizes a specimen."
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0001-9625-1899"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0003-2620-0345"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "See github ticket https://github.com/oborel/obo-relations/issues/497"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-2620-0345"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2021-11-08T12:00:00Z"
@@ -12409,6 +12465,82 @@
         }, {
           "pred" : "http://purl.org/dc/terms/contributor",
           "val" : "https://orcid.org/0000-0002-5714-991X"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017006",
+      "lbl" : "has maximum capacity",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "anticoagulant-containing test tube has maximum capacity 10 ml."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-2999-0103"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-5714-991X"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017008",
+      "lbl" : "owns",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A primitive relation that holds between entities x and y in which y is at x’s full disposal."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "biobank organization owns a specimen"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "hospital owns a laboratory facility"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1834-3856"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1909-9269"
+        }, {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "This primitive relation is the foundation of the owner’s right to have the owned entity at his/her full disposal."
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-03-29T16:57:03Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017009",
+      "lbl" : "is owned by",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "Inverse of the owns relation."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "freezer is owned by a biobank organization"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1834-3856"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1909-9269"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-03-29T17:06:06Z"
         } ]
       }
     }, {
@@ -12877,6 +13009,40 @@
         }, {
           "pred" : "http://purl.org/dc/terms/date",
           "val" : "2024-02-01T10:09:59Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "lbl" : "has numerator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its dividend."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has dividend"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "lbl" : "has denominator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its divisor."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has divisor"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
         } ]
       }
     }, {
@@ -14999,6 +15165,16 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0001-9625-1899",
+      "lbl" : "William D Duncan",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0002-2908-3327",
       "lbl" : "Anne Thessen",
       "type" : "INDIVIDUAL",
@@ -15106,6 +15282,16 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "Canadian biocurator"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-1834-3856",
+      "lbl" : "Mathias Brochhausen",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
         } ]
       }
     }, {
@@ -16404,7 +16590,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002457",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002458",
       "pred" : "subPropertyOf",
@@ -16448,15 +16634,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002469",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002470",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002471",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002472",
       "pred" : "subPropertyOf",
@@ -17626,6 +17812,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0040036",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000057"
@@ -18354,6 +18548,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0008508"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0009006",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0009007"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0010001",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0010002"
@@ -18377,6 +18575,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0015001",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0015002"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0017008",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0017009"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0018002",
       "pred" : "inverseOf",

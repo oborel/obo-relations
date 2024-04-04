@@ -241,9 +241,6 @@
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
           "val" : "has_characteristic"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://github.com/oborel/obo-relations/pull/284"
         } ]
       }
     }, {
@@ -3143,11 +3140,11 @@
           "val" : "RO:0002238"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0001-9625-1899"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
           "val" : "has_component_participant"
@@ -6066,6 +6063,9 @@
       "lbl" : "parasite of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A parasite-host relationship where an organism benefits at the expense of another."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6096,6 +6096,9 @@
       "lbl" : "parasitized by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of parasite of"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6404,6 +6407,9 @@
       "lbl" : "acquires nutrients from",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of provides nutrients for"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002457"
@@ -6553,6 +6559,9 @@
       "lbl" : "provides nutrients for",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where a material entity provides nutrition for an organism."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002469"
@@ -6570,6 +6579,9 @@
       "lbl" : "eats",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002470"
@@ -6590,6 +6602,9 @@
       "lbl" : "is eaten by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of eats"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002471"
@@ -7669,6 +7684,9 @@
       "lbl" : "pathogen of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of has pathogen"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002556"
@@ -7686,6 +7704,9 @@
       "lbl" : "has pathogen",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "xrefs" : [ {
           "val" : "RO:0002557"
@@ -11311,6 +11332,52 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "lbl" : "has numerator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its dividend."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has dividend"
+        } ],
+        "xrefs" : [ {
+          "val" : "RO:0020202"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+          "val" : "has_numerator"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "lbl" : "has denominator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its divisor."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has divisor"
+        } ],
+        "xrefs" : [ {
+          "val" : "RO:0020203"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#shorthand",
+          "val" : "has_denominator"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0040035",
       "lbl" : "disease relationship",
       "type" : "PROPERTY",
@@ -12533,7 +12600,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002457",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002458",
       "pred" : "subPropertyOf",
@@ -12561,15 +12628,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002469",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002470",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002471",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002473",
       "pred" : "subPropertyOf",
@@ -13567,6 +13634,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0040036",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000057"
@@ -14354,6 +14429,14 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0020103",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0001982" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0000061" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0001470" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0000001" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0001470" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0000001" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000053",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ]

@@ -21,11 +21,12 @@ inverse_of: has_2D_boundary ! has 2D boundary
 [Typedef]
 id: acquires_nutrients_from
 name: acquires nutrients from
+def: "Inverse of provides nutrients for" []
 subset: ro-eco
 xref: RO:0002457
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
-is_a: trophically_interacts_with ! trophically interacts with
+is_a: biotically_interacts_with ! biotically interacts with
 inverse_of: provides_nutrients_for ! provides nutrients for
 
 [Typedef]
@@ -1451,11 +1452,12 @@ inverse_of: starts_during ! starts during
 [Typedef]
 id: eats
 name: eats
+def: "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening." []
 subset: ro-eco
 xref: RO:0002470
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "is subject of eating interaction with" xsd:string
-is_a: trophically_interacts_with ! trophically interacts with
+is_a: biotically_interacts_with ! biotically interacts with
 
 [Typedef]
 id: ecologically_co-occurs_with
@@ -1791,7 +1793,6 @@ property_value: IAO:0000116 "A bearer can have many dependents, and its dependen
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
-property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
 range: BFO:0000020
 is_inverse_functional: true
 
@@ -1829,7 +1830,7 @@ id: has_component_participant
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
 xref: RO:0002238
-property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
 is_a: has_participant ! has participant
 
@@ -1860,6 +1861,17 @@ xref: RO:0002360
 property_value: http://purl.org/dc/terms/source "http://neurolex.org/wiki/Property:DendriteLocation" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: overlaps ! overlaps
+
+[Typedef]
+id: has_denominator
+name: has denominator
+def: "A relationship between a ratio or proportion and its divisor." [] {http://purl.org/dc/terms/contributor="https://orcid.org/0000-0002-8280-0487"}
+synonym: "has divisor" EXACT []
+xref: RO:0020203
+domain: PATO:0001470
+range: PATO:0000001
+is_a: has_part ! has part
+created_by: https://orcid.org/0000-0001-8314-2140
 
 [Typedef]
 id: has_developmental_contribution_from
@@ -2298,6 +2310,17 @@ created_by: https://orcid.org/0000-0002-7073-9172
 creation_date: 2017-05-24T09:31:01Z
 
 [Typedef]
+id: has_numerator
+name: has numerator
+def: "A relationship between a ratio or proportion and its dividend." [] {http://purl.org/dc/terms/contributor="https://orcid.org/0000-0002-8280-0487"}
+synonym: "has dividend" EXACT []
+xref: RO:0020202
+domain: PATO:0001470
+range: PATO:0000001
+is_a: has_part ! has part
+created_by: https://orcid.org/0000-0001-8314-2140
+
+[Typedef]
 id: has_output
 name: has output
 def: "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." []
@@ -2389,6 +2412,7 @@ range: BFO:0000002
 [Typedef]
 id: has_pathogen
 name: has pathogen
+def: "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member" []
 subset: ro-eco
 xref: RO:0002557
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -3309,12 +3333,13 @@ inverse_of: is_downstream_of_sequence_of ! is downstream of sequence of
 [Typedef]
 id: is_eaten_by
 name: is eaten by
+def: "Inverse of eats" []
 subset: ro-eco
 xref: RO:0002471
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "eaten by" xsd:string
 property_value: IAO:0000118 "is target of eating interaction with" xsd:string
-is_a: trophically_interacts_with ! trophically interacts with
+is_a: biotically_interacts_with ! biotically interacts with
 
 [Typedef]
 id: is_end_sequence_of
@@ -3743,6 +3768,7 @@ is_a: sequentially_related_to ! sequentially related to
 [Typedef]
 id: parasite_of
 name: parasite of
+def: "A parasite-host relationship where an organism benefits at the expense of another." []
 subset: ro-eco
 synonym: "direct parasite of" EXACT []
 xref: RO:0002444
@@ -3757,6 +3783,7 @@ inverse_of: parasitized_by ! parasitized by
 [Typedef]
 id: parasitized_by
 name: parasitized by
+def: "Inverse of parasite of" []
 subset: ro-eco
 synonym: "directly parasitized by" EXACT []
 xref: RO:0002445
@@ -3887,6 +3914,7 @@ is_a: participates_in ! participates in
 [Typedef]
 id: pathogen_of
 name: pathogen of
+def: "Inverse of has pathogen" []
 subset: ro-eco
 xref: RO:0002556
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -4088,10 +4116,11 @@ is_a: transitively_provides_input_for ! transitively provides input for
 [Typedef]
 id: provides_nutrients_for
 name: provides nutrients for
+def: "A biotic interaction where a material entity provides nutrition for an organism." []
 subset: ro-eco
 xref: RO:0002469
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-is_a: trophically_interacts_with ! trophically interacts with
+is_a: biotically_interacts_with ! biotically interacts with
 
 [Typedef]
 id: quality_of
