@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2024-04-04
+data-version: releases/2024-04-24
 subsetdef: common_anatomy ""
 subsetdef: efo_slim ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
@@ -18,7 +18,7 @@ property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2024-04-04" xsd:string
+property_value: owl:versionInfo "2024-04-24" xsd:string
 
 [Term]
 id: BFO:0000002
@@ -57,7 +57,6 @@ name: process
 def: "p is a process = Def. p is an occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t. (axiom label in BFO2 Reference: [083-003])" []
 comment: An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t.
 is_a: BFO:0000003 ! occurrent
-relationship: BFO:0000050 BFO:0000015 {all_only="true"} ! part of process
 relationship: RO:0002214 BFO:0000015 {all_only="true"} ! has prototype process
 
 [Term]
@@ -90,7 +89,6 @@ comment: A continuant that inheres in or is borne by other entities. Every insta
 is_a: BFO:0000002 ! continuant
 disjoint_from: BFO:0000031 ! generically dependent continuant
 relationship: BFO:0000050 BFO:0000020 {all_only="true"} ! part of characteristic
-relationship: BFO:0000051 BFO:0000020 {all_only="true"} ! has part characteristic
 property_value: seeAlso "https://github.com/OBOFoundry/COB/issues/65" xsd:string
 property_value: seeAlso "https://github.com/oborel/obo-relations/pull/284" xsd:string
 
@@ -385,7 +383,6 @@ synonym: "single-organism process" RELATED []
 xref: Wikipedia:Biological_process
 is_a: BFO:0000015 ! process
 disjoint_from: OBI:0000011 ! planned process
-relationship: BFO:0000051 GO:0003674 ! has part molecular_function
 created_by: jl
 creation_date: 2012-09-19T15:05:24Z
 
@@ -929,7 +926,6 @@ property_value: IAO:0000118 "unfolds_in" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
 property_value: seeAlso "https://wiki.geneontology.org/Occurs_in" xsd:anyURI
 domain: BFO:0000003 ! occurrent
-domain: BFO:0000015 ! process
 range: BFO:0000004 ! independent continuant
 holds_over_chain: BFO:0000050 BFO:0000066
 inverse_of: BFO:0000067 ! contains process
@@ -1001,7 +997,6 @@ property_value: IAO:0000112 "this process has participant this input material (o
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
 domain: BFO:0000003 ! occurrent
-domain: BFO:0000015 ! process
 range: BFO:0000002 ! continuant
 holds_over_chain: BFO:0000051 RO:0000057
 
