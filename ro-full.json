@@ -13,12 +13,12 @@
         "val" : "OBO Relations Ontology"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2023-08-18"
+        "val" : "2024-04-24"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : " https://github.com/oborel/obo-relations/"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2023-08-18/ro-full.json"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2024-04-24/ro-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000125",
@@ -153,7 +153,14 @@
         "definition" : {
           "val" : "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"
         },
-        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ]
+        "comments" : [ "A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/OBOFoundry/COB/issues/65"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/oborel/obo-relations/pull/284"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000023",
@@ -459,10 +466,9 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.",
-          "xrefs" : [ "CARO:mah" ]
+          "val" : "A material entity that has a plasma membrane and results from cellular division."
         },
-        "comments" : [ "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one)." ],
+        "comments" : [ "CL and GO definitions of cell differ based on inclusive or exclusive of cell wall, etc.", "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).", "We struggled with this definition. We are worried about circularity. We also considered requiring the capability of metabolism." ],
         "xrefs" : [ {
           "val" : "CALOHA:TS-2035"
         }, {
@@ -537,6 +543,19 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0000121",
+      "lbl" : "measurement datum",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0001000",
+      "lbl" : "exposure of organism",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A process during which an organism comes into contact with another entity."
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/ENVO_01000254",
       "lbl" : "environmental system",
       "type" : "CLASS",
@@ -596,7 +615,7 @@
           "val" : "A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.",
           "xrefs" : [ "GOC:pdt" ]
         },
-        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex." ],
+        "comments" : [ "Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this. Despite its name, this is not a type of 'function' in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.", "This is the same as GO molecular function" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "molecular function"
@@ -924,10 +943,9 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A biological process is the execution of a genetically-encoded biological module or program. It consists of all the steps required to achieve the specific biological objective of the module. A biological process is accomplished by a particular set of molecular functions carried out by specific gene products (or macromolecular complexes), often in a highly regulated manner and in a particular temporal sequence.",
-          "xrefs" : [ "GOC:pdt" ]
+          "val" : "A process that emerges from two or more causally-connected macromolecular activities and has evolved to achieve a biological objective."
         },
-        "comments" : [ "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
+        "comments" : [ "A biological process is an evolved process", "Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code 'no data' (ND), is used to indicate this." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "biological process"
@@ -2274,6 +2292,152 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000011",
+      "lbl" : "planned process",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A process that realizes a plan which is the concretization of a plan specification."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "planned process"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "planned process"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Injecting mice with a vaccine in order to test its efficacy"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "'Plan' includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn't have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some \nobjectives is a planned process."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "branch derived"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000047",
+      "lbl" : "processed material",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Is a material entity that is created or changed during material processing."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "processed material"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Alan Ruttenberg"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000070",
+      "lbl" : "assay",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "assay"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "12/3/12: BP: the reference to the 'physical examination' is included to point out that a prediction is not an assay, as that does not require physical examiniation."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PlanAndPlannedProcess Branch"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "measuring"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "scientific observation"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI branch derived"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000967",
+      "lbl" : "container",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A device that can be used to restrict the location of material entities over time"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "container"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000123"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "03/21/2010: Added to allow classification of children (similar to what we want to do for 'measurement device'. Lookint at what classifies here, we may want to reconsider a contain function assigned to a part of an entity is necessarily also a function of the whole (e.g. is a centrifuge a container because it has test tubes as parts?)"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Bjoern Peters"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000968",
+      "lbl" : "device",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material entity that is designed to perform a function in a scientific investigation, but is not a reagent."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "device"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A voltmeter is a measurement device which is intended to perform some measure function."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An autoclave is a device that sterlizes instruments or contaminated waste by applying high temperature and pressure."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "2012-12-17 JAO: In common lab usage, there is a distinction made between devices and reagents that is difficult to model. Therefore we have chosen to specifically exclude reagents from the definition of \"device\", and are enumerating the types of roles that a reagent can perform.\n\n2013-6-5 MHB: The following clarifications are outcomes of the May 2013 Philly Workshop. Reagents are distinguished from devices that also participate in scientific techniques by the fact that reagents are chemical or biological in nature and necessarily participate in some chemical interaction or reaction during the realization of their experimental role. By contrast, devices do not participate in such chemical reactions/interactions.  Note that there are cases where devices use reagent components during their operation, where the reagent-device distinction is less clear.  For example:\n\n(1) An HPLC machine is considered a device, but has a column that holds a stationary phase resin as an operational component.  This resin qualifies as a device if it participates purely in size exclusion, but bears a reagent role that is realized in the running of a column if it interacts electrostatically or chemically with the evaluant. The container the resin is in (“the column”) considered alone is a device. So the entire column as well as the entire HPLC machine are devices that have a reagent as an operating part.\n\n(2) A pH meter is a device, but its electrode component bears a reagent role in virtue of its interacting directly with the evaluant in execution of an assay.\n\n(3) A gel running  box  is a device that has a metallic lead as a component that participates in a chemical reaction with the running buffer when a charge is passed through it.  This metallic lead is considered to have a reagent role as a component of this device realized in the running of a gel.\n\nIn the examples above, a reagent is an operational component of a device, but the device itself does not realize a reagent role (as bearing a reagent role is not transitive across the part_of relation).  In this way, the asserted disjointness between a reagent and device holds, as both roles are never realized in the same bearer during execution of an assay."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Helen Parkinson"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "instrument"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI development call 2012-12-17."
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0100026",
       "lbl" : "organism",
       "type" : "CLASS",
@@ -2552,6 +2716,33 @@
           "val" : "A shape quality inhering in a bearer by virtue of the bearer's being narrow, with the two opposite margins parallel.",
           "xrefs" : [ "ISBN:0881923214" ]
         }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/PATO_0001470",
+      "lbl" : "proportionality to",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A quality inhering in a bearer by virtue of the bearer's magnitude in respect to a related entity.",
+          "xrefs" : [ "PATOC:nw" ]
+        },
+        "comments" : [ "Examples: height to weight; brain size to body size. These could all be children of proportionality. Proportions can be measured as ratios. Some measures may be dimensionless. Not all ratios measure proportionality, eg m/s measures velocity which is not a proportion in the sense defined above, it is a quality in its own right." ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "proportion"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "proportionality"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "quotient"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "ratio"
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "rate"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/PATO_0002124",
@@ -3359,12 +3550,17 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002010",
-      "lbl" : "regulates in other organism",
+      "lbl" : "regulates in another organism",
       "type" : "PROPERTY",
       "meta" : {
         "definition" : {
           "val" : "x 'regulates in other organism' y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
         },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "regulates in other organism"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-7073-9172"
@@ -5652,11 +5848,11 @@
           "val" : "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys."
         },
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0001-9625-1899"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
         } ]
       }
     }, {
@@ -6139,7 +6335,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002297",
-      "lbl" : "results in formation of",
+      "lbl" : "results in formation of anatomical entity",
       "type" : "PROPERTY",
       "meta" : {
         "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_annotation_extension", "http://purl.obolibrary.org/obo/valid_for_go_ontology", "http://purl.obolibrary.org/obo/valid_for_gocam" ],
@@ -6356,11 +6552,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002310",
-      "lbl" : "exposure event or process",
+      "lbl" : "obsolete exposure event or process",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism."
+          "val" : "OBSOLETE A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism."
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
@@ -6383,7 +6579,8 @@
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
           "val" : "https://github.com/oborel/obo-relations/pull/173"
-        } ]
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002312",
@@ -8211,6 +8408,9 @@
       "lbl" : "parasite of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A parasite-host relationship where an organism benefits at the expense of another."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8235,6 +8435,9 @@
       "lbl" : "parasitized by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of parasite of"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8471,6 +8674,9 @@
       "lbl" : "acquires nutrients from",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of provides nutrients for"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -8631,6 +8837,9 @@
       "lbl" : "provides nutrients for",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where a material entity provides nutrition for an organism."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -8642,6 +8851,9 @@
       "lbl" : "eats",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening."
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -8656,6 +8868,9 @@
       "lbl" : "is eaten by",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of eats"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -9998,6 +10213,9 @@
       "lbl" : "pathogen of",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "Inverse of has pathogen"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -10009,6 +10227,9 @@
       "lbl" : "has pathogen",
       "type" : "PROPERTY",
       "meta" : {
+        "definition" : {
+          "val" : "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member"
+        },
         "subsets" : [ "http://purl.obolibrary.org/obo/ro/subsets#ro-eco" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -11023,6 +11244,43 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "https://en.wikipedia.org/wiki/Communal_roosting"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "lbl" : "reservoir host of",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host."
+        },
+        "comments" : [ "A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "https://doi.org/10.3390/v13071356"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-3120-4802"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-3138-4118"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0002803",
+      "lbl" : "has reservoir host",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "inverse of reservoir host of"
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s."
         } ]
       }
     }, {
@@ -12177,6 +12435,41 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0009006",
+      "lbl" : "assay measures characteristic",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8844-9165"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2023-05-23T15:24:15Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0009007",
+      "lbl" : "characteristic measured by assay",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "Inverse of 'assay measures characteristic'"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8844-9165"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2023-05-23T15:29:50Z"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0009501",
       "lbl" : "realized in response to",
       "type" : "PROPERTY",
@@ -12698,6 +12991,54 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0012013",
+      "lbl" : "positively regulates in another organism",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "positively regulates in other organism"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0004049",
+          "val" : "http://purl.obolibrary.org/obo/RO_0002010"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1813-6857"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-10-12T10:02:28Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0012014",
+      "lbl" : "negatively regulates in another organism",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_go_ontology" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "negatively regulates in other organism"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/RO_0004050",
+          "val" : "http://purl.obolibrary.org/obo/RO_0002010"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1813-6857"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-10-12T10:02:42Z"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0013001",
       "lbl" : "has synaptic IO in region",
       "type" : "PROPERTY",
@@ -13133,17 +13474,17 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "A diagnostic testing device utilizes a specimen."
         }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0001-9625-1899"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0000-0003-2620-0345"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
           "val" : "See github ticket https://github.com/oborel/obo-relations/issues/497"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-2620-0345"
         }, {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
           "val" : "2021-11-08T12:00:00Z"
@@ -13179,6 +13520,101 @@
         }, {
           "pred" : "http://purl.org/dc/terms/contributor",
           "val" : "https://orcid.org/0000-0003-1909-9269"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017005",
+      "lbl" : "contains measured amount",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation between a container and measurement datum that specifies the actual amount of material in the container."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-2999-0103"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-5714-991X"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017006",
+      "lbl" : "has maximum capacity",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "anticoagulant-containing test tube has maximum capacity 10 ml."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-2999-0103"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-5714-991X"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017008",
+      "lbl" : "owns",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A primitive relation that holds between entities x and y in which y is at x's full disposal."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "biobank organization owns a specimen"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "hospital owns a laboratory facility"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1834-3856"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1909-9269"
+        }, {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "This primitive relation is the foundation of the owner's right to have the owned entity at his/her full disposal."
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-03-29T16:57:03Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0017009",
+      "lbl" : "is owned by",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "Inverse of the owns relation."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/RO_0002259" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "freezer is owned by a biobank organization"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-9625-1899"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1834-3856"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-1909-9269"
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#creation_date",
+          "val" : "2023-03-29T17:06:06Z"
         } ]
       }
     }, {
@@ -13590,6 +14026,97 @@
         "basicPropertyValues" : [ {
           "pred" : "http://www.geneontology.org/formats/oboInOwl#created_by",
           "val" : "https://orcid.org/0000-0002-4142-7153"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020101",
+      "lbl" : "vessel supplies blood to",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "brachial artery vessel supplies blood to brachialis muscle"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:22Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020102",
+      "lbl" : "vessel drains blood from",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "cystic vein vessel drains blood from gallbladder"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:41Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "lbl" : "directly supplies and drains",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "alveolar capillary directly supplies and drains some alveolus"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-6677-8489"
+        }, {
+          "pred" : "http://purl.org/dc/terms/date",
+          "val" : "2024-02-01T10:09:59Z"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "lbl" : "has numerator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its dividend."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has dividend"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "lbl" : "has denominator",
+      "type" : "PROPERTY",
+      "meta" : {
+        "definition" : {
+          "val" : "A relationship between a ratio or proportion and its divisor."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has divisor"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0001-8314-2140"
         } ]
       }
     }, {
@@ -15528,8 +16055,6 @@
         }, {
           "val" : "EMAPA:0"
         }, {
-          "val" : "FBbt:00007001"
-        }, {
           "val" : "FMA:305751"
         }, {
           "val" : "FMA:67135"
@@ -15587,8 +16112,6 @@
         "xrefs" : [ {
           "val" : "CARO:0001001"
         }, {
-          "val" : "FBbt:00005099"
-        }, {
           "val" : "NLX:147821"
         } ]
       }
@@ -15612,8 +16135,6 @@
           "val" : "CARO:0000006"
         }, {
           "val" : "EHDAA2:0003006"
-        }, {
-          "val" : "FBbt:00007016"
         }, {
           "val" : "FMA:67165"
         }, {
@@ -15659,8 +16180,6 @@
         }, {
           "val" : "EHDAA2:0003007"
         }, {
-          "val" : "FBbt:00007015"
-        }, {
           "val" : "FMA:67112"
         }, {
           "val" : "HAO:0000007"
@@ -15694,6 +16213,8 @@
         }, {
           "val" : "AEO:0000000"
         }, {
+          "val" : "BFO:0000004"
+        }, {
           "val" : "BILA:0000000"
         }, {
           "val" : "BIRNLEX:6"
@@ -15701,8 +16222,6 @@
           "val" : "CARO:0000000"
         }, {
           "val" : "EHDAA2:0002229"
-        }, {
-          "val" : "FBbt:10000000"
         }, {
           "val" : "FMA:62955"
         }, {
@@ -15733,6 +16252,143 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UBERON_0001981",
+      "lbl" : "blood vessel",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A vessel through which blood circulates in the body.",
+          "xrefs" : [ "BTO:0001102", "Wikipedia:Blood_vessel" ]
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/uberon/core#efo_slim", "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas", "http://purl.obolibrary.org/obo/uberon/core#pheno_slim", "http://purl.obolibrary.org/obo/uberon/core#uberon_slim", "http://purl.obolibrary.org/obo/uberon/core#vertebrate_core" ],
+        "synonyms" : [ {
+          "pred" : "hasBroadSynonym",
+          "val" : "vascular element",
+          "xrefs" : [ "EMAPA:35993" ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "region of vascular tree organ",
+          "xrefs" : [ "FMA:50722" ]
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "vascular tree organ region",
+          "xrefs" : [ "FMA:50722" ]
+        } ],
+        "xrefs" : [ {
+          "val" : "AAO:0011004"
+        }, {
+          "val" : "AEO:0000207"
+        }, {
+          "val" : "BTO:0001102"
+        }, {
+          "val" : "CALOHA:TS-0080"
+        }, {
+          "val" : "EFO:0000817"
+        }, {
+          "val" : "EHDAA2:0003252"
+        }, {
+          "val" : "EHDAA:240"
+        }, {
+          "val" : "EMAPA:32743"
+        }, {
+          "val" : "EMAPA:35993"
+        }, {
+          "val" : "FMA:50722"
+        }, {
+          "val" : "FMA:63183"
+        }, {
+          "val" : "GAID:169"
+        }, {
+          "val" : "MA:0000060"
+        }, {
+          "val" : "MAT:0000393"
+        }, {
+          "val" : "MESH:D001808"
+        }, {
+          "val" : "NCIT:C12679"
+        }, {
+          "val" : "NLXANAT:090901"
+        }, {
+          "val" : "SCTID:361097006"
+        }, {
+          "val" : "TAO:0002137"
+        }, {
+          "val" : "UMLS:C0005847"
+        }, {
+          "val" : "VHOG:0001250"
+        }, {
+          "val" : "Wikipedia:Blood_vessel"
+        }, {
+          "val" : "XAO:0001011"
+        }, {
+          "val" : "ZFA:0005314"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "consider adopting the EMAPA superclass 'vascular element', which includes microvasculature (e.g. capillaries), vascular plexus"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UBERON_0001982",
+      "lbl" : "capillary",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Any of the smallest blood vessels connecting arterioles with venules.",
+          "xrefs" : [ "ISBN:0073040584", "Wikipedia:Capillary", "https://github.com/obophenotype/uberon/issues/137" ]
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/uberon/core#efo_slim", "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas", "http://purl.obolibrary.org/obo/uberon/core#pheno_slim", "http://purl.obolibrary.org/obo/uberon/core#uberon_slim", "http://purl.obolibrary.org/obo/uberon/core#vertebrate_core" ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "blood capillary"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "capillary vessel"
+        } ],
+        "xrefs" : [ {
+          "val" : "AAO:0010252"
+        }, {
+          "val" : "BTO:0002045"
+        }, {
+          "val" : "CALOHA:TS-2006"
+        }, {
+          "val" : "EFO:0001906"
+        }, {
+          "val" : "EMAPA:35198"
+        }, {
+          "val" : "EV:0100035"
+        }, {
+          "val" : "FMA:63194"
+        }, {
+          "val" : "MA:0000065"
+        }, {
+          "val" : "MESH:D002196"
+        }, {
+          "val" : "NCIT:C12685"
+        }, {
+          "val" : "NLXANAT:090902"
+        }, {
+          "val" : "TAO:0005250"
+        }, {
+          "val" : "UMLS:C0935624"
+        }, {
+          "val" : "VHOG:0001253"
+        }, {
+          "val" : "Wikipedia:Capillary"
+        }, {
+          "val" : "XAO:0000116"
+        }, {
+          "val" : "ZFA:0005250"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "not all sources agree capillary is a blood vessel - consider adopting EMAPA superclass of vascular element"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://github.com/obophenotype/uberon/issues/2186"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UBERON_0010000",
       "lbl" : "multicellular anatomical structure",
       "type" : "CLASS",
@@ -15749,8 +16405,6 @@
         } ],
         "xrefs" : [ {
           "val" : "CARO:0010000"
-        }, {
-          "val" : "FBbt:00100313"
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/RO_0002175",
@@ -15939,6 +16593,16 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0001-6677-8489",
+      "lbl" : "Aleix Puig-Barbé",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Researcher ORCID=0000-0001-6677-8489"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0001-6996-0040",
       "lbl" : "Austin Meier",
       "type" : "INDIVIDUAL",
@@ -15959,6 +16623,16 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0001-8314-2140",
+      "lbl" : "Raymund Stefancsik",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0001-8910-9851",
       "lbl" : "Lynn Schriml",
       "type" : "INDIVIDUAL",
@@ -15966,6 +16640,16 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher, metadata, diseases, University of Maryland"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0001-9625-1899",
+      "lbl" : "William D Duncan",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
         } ]
       }
     }, {
@@ -15979,8 +16663,28 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0002-2999-0103",
+      "lbl" : "Jie Zheng",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher (ORCID 0000-0002-2999-0103)"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0002-4366-3088",
       "lbl" : "Pier Luigi Buttigieg",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0002-5714-991X",
+      "lbl" : "Christian J Stoeckert",
       "type" : "INDIVIDUAL",
       "meta" : {
         "basicPropertyValues" : [ {
@@ -16039,6 +16743,16 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0002-8844-9165",
+      "lbl" : "Damion M Dooley",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher (ORCID 0000-0002-8844-9165)"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0003-1617-8244",
       "lbl" : "Lindsay G Cowell",
       "type" : "INDIVIDUAL",
@@ -16049,6 +16763,36 @@
         } ]
       }
     }, {
+      "id" : "https://orcid.org/0000-0003-1813-6857",
+      "lbl" : "Pascale Gaudet",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Canadian biocurator"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-1834-3856",
+      "lbl" : "Mathias Brochhausen",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "researcher"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-1909-9269",
+      "lbl" : "S. Clint Dowland",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Researcher ORCID=0000-0003-1909-9269"
+        } ]
+      }
+    }, {
       "id" : "https://orcid.org/0000-0003-1940-6740",
       "lbl" : "Anna Maria Masci",
       "type" : "INDIVIDUAL",
@@ -16056,6 +16800,26 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/description",
           "val" : "researcher"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-2620-0345",
+      "lbl" : "Asiyah Yu Lin",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "Researcher ORCID=0000-0003-2620-0345"
+        } ]
+      }
+    }, {
+      "id" : "https://orcid.org/0000-0003-3138-4118",
+      "lbl" : "Jorrit Poelen",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/description",
+          "val" : "software/data engineer"
         } ]
       }
     }, {
@@ -16134,6 +16898,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/CL_0000000"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0001000",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/ENVO_01000254",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002577"
@@ -16142,9 +16910,21 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/ENVO_01000254"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0003674",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0004842",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/GO_0003674"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0005634",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/GO_0008150",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/GO_0016301",
       "pred" : "is_a",
@@ -16157,6 +16937,26 @@
       "sub" : "http://purl.obolibrary.org/obo/IAO_0000030",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000031"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000011",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000047",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000070",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000011"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000967",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000968"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000968",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000047"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0100026",
       "pred" : "is_a",
@@ -16178,13 +16978,13 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/PATO_0000001"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/PATO_0002124",
+      "sub" : "http://purl.obolibrary.org/obo/PATO_0001470",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/PATO_0000001"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002310",
+      "sub" : "http://purl.obolibrary.org/obo/PATO_0002124",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+      "obj" : "http://purl.obolibrary.org/obo/PATO_0000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002532",
       "pred" : "http://purl.obolibrary.org/obo/RO_0002524",
@@ -16229,6 +17029,14 @@
       "sub" : "http://purl.obolibrary.org/obo/UBERON_0001062",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000004"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UBERON_0001981",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UBERON_0010000"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UBERON_0001982",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UBERON_0001981"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UBERON_0010000",
       "pred" : "is_a",
@@ -16633,6 +17441,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002200",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0016001"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002202",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002254"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002202",
       "pred" : "subPropertyOf",
@@ -17496,7 +18308,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002457",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002458",
       "pred" : "subPropertyOf",
@@ -17540,15 +18352,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002469",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002470",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002471",
       "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002438"
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002472",
       "pred" : "subPropertyOf",
@@ -18106,6 +18918,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0008506"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002453"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002803",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002454"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0003002",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002449"
@@ -18518,6 +19338,14 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0012011"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0012013",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0012014",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002010"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0013001",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002130"
@@ -18693,6 +19521,30 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0019501",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0003304"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020101",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002178"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020102",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002178"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002179"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000051"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0040036",
       "pred" : "subPropertyOf",
@@ -19370,6 +20222,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002641"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002802",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002803"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0003000",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0003001"
@@ -19418,6 +20274,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0008508"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0009006",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0009007"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0010001",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0010002"
@@ -19441,6 +20301,10 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0015001",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0015002"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0017008",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0017009"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0018002",
       "pred" : "inverseOf",
@@ -19699,7 +20563,7 @@
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002244",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/RO_0002310" ]
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/COB_0001000" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002248",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ],
@@ -19936,6 +20800,14 @@
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0100026" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0009006",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000070" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0009007",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000070" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0009501",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000017" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ]
@@ -20012,8 +20884,36 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0015016",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/CL_0000000" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0017005",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000967" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000121" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0017006",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000967" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000121" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0019000",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000015" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0000001" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020101",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0001981" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0000061" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020102",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0001981" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0000061" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020103",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0001982" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/UBERON_0000061" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020202",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0001470" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0000001" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0020203",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0001470" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/PATO_0000001" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000053",

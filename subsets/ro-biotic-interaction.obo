@@ -124,6 +124,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002444
 name: parasite of
+def: "A parasite-host relationship where an organism benefits at the expense of another." []
 subset: ro-eco
 synonym: "direct parasite of" EXACT []
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
@@ -137,6 +138,7 @@ inverse_of: RO:0002445 ! parasitized by
 [Typedef]
 id: RO:0002445
 name: parasitized by
+def: "Inverse of parasite of" []
 subset: ro-eco
 synonym: "directly parasitized by" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -199,10 +201,11 @@ is_a: RO:0002442 ! mutualistically interacts with
 [Typedef]
 id: RO:0002457
 name: acquires nutrients from
+def: "Inverse of provides nutrients for" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 inverse_of: RO:0002469 ! provides nutrients for
 
 [Typedef]
@@ -238,26 +241,29 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002469
 name: provides nutrients for
+def: "A biotic interaction where a material entity provides nutrition for an organism." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002470
 name: eats
+def: "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "is subject of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002471
 name: is eaten by
+def: "Inverse of eats" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "eaten by" xsd:string
 property_value: IAO:0000118 "is target of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002553
@@ -300,6 +306,7 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002556
 name: pathogen of
+def: "Inverse of has pathogen" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002454 ! has host
@@ -308,6 +315,7 @@ inverse_of: RO:0002557 ! has pathogen
 [Typedef]
 id: RO:0002557
 name: has pathogen
+def: "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002453 ! host of
@@ -440,6 +448,26 @@ name: has intracellular endoparasite
 def: "inverse of intracellular endoparasite of" []
 subset: RO:0002259
 is_a: RO:0002635 ! has endoparasite
+
+[Typedef]
+id: RO:0002802
+name: reservoir host of
+def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
+comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
+property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
+property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002803 ! has reservoir host
+
+[Typedef]
+id: RO:0002803
+name: has reservoir host
+def: "inverse of reservoir host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s." xsd:string
+is_a: RO:0002454 ! has host
 
 [Typedef]
 id: RO:0008501

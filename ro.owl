@@ -17,15 +17,14 @@
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2023-08-18/ro.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2024-04-24/ro.owl"/>
         <terms:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <terms:title xml:lang="en">OBO Relations Ontology</terms:title>
-        <owl:versionInfo>2023-08-18</owl:versionInfo>
+        <owl:versionInfo>2024-04-24</owl:versionInfo>
         <foaf:homepage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"> https://github.com/oborel/obo-relations/</foaf:homepage>
     </owl:Ontology>
     
@@ -39,12 +38,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://protege.stanford.edu/plugins/owl/protege#defaultLanguage -->
-
-    <owl:AnnotationProperty rdf:about="http://protege.stanford.edu/plugins/owl/protege#defaultLanguage"/>
     
 
 
@@ -1126,9 +1119,49 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://purl.obolibrary.org/obo/uberon/core#efo_slim -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#efo_slim">
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas">
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uberon/core#pheno_slim -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#pheno_slim">
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uberon/core#uberon_slim -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#uberon_slim">
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/uberon/core#upper_level -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#upper_level">
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uberon/core#vertebrate_core -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/uberon/core#vertebrate_core">
         <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
@@ -1146,21 +1179,9 @@ Where we have an annotation assertion
     
 
 
-    <!-- http://purl.org/dc/elements/1.1/date -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
-    
-
-
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/format -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
     
 
 
@@ -1173,12 +1194,6 @@ Where we have an annotation assertion
     <!-- http://purl.org/dc/elements/1.1/source -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
-    
-
-
-    <!-- http://purl.org/dc/elements/1.1/subject -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/subject"/>
     
 
 
@@ -1473,23 +1488,6 @@ Where we have an annotation assertion
     <!-- http://xmlns.com/foaf/0.1/homepage -->
 
     <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/homepage"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#date -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
 
 
@@ -2369,7 +2367,9 @@ AND t has_input y</terms:description>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000115>x &apos;regulates in other organism&apos; y if and only if: (x is the realization of a function to exert an effect on the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2).</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
-        <rdfs:label>regulates in other organism</rdfs:label>
+        <oboInOwl:hasExactSynonym>regulates in other organism</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_ontology"/>
+        <rdfs:label>regulates in another organism</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -3704,6 +3704,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <!-- http://purl.obolibrary.org/obo/RO_0002202 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002202">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002254"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002258"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002203"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
@@ -4397,10 +4398,10 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002238">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
         <obo:IAO_0000115>X &apos;has component participant&apos; Y means X &apos;has participant&apos; Y and there is a cardinality constraint that specifies the numbers of Ys.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
         <obo:IAO_0000232>This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).
 
 If you need an axiom that says &apos;has_participant min 2 object&apos;, you should instead say &apos;has_component_participant min 2 object&apos;.</obo:IAO_0000232>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
         <rdfs:label xml:lang="en">has component participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -4454,7 +4455,7 @@ If you need an axiom that says &apos;has_participant min 2 object&apos;, you sho
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002244">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002410"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/RO_0002310"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0001000"/>
         <obo:IAO_0000115>Any relationship between an exposure event or process and any other entity.</obo:IAO_0000115>
         <obo:IAO_0000232>Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving exposure events or processes.</obo:IAO_0000232>
         <rdfs:label>related via exposure to</rdfs:label>
@@ -4821,7 +4822,7 @@ If you need an axiom that says &apos;has_participant min 2 object&apos;, you sho
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_annotation_extension"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_ontology"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_gocam"/>
-        <rdfs:label xml:lang="en">results in formation of</rdfs:label>
+        <rdfs:label xml:lang="en">results in formation of anatomical entity</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -6560,6 +6561,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
             </rdf:Description>
         </owl:propertyChainAxiom>
         <obo:IAO_0000112>Pediculus humanus capitis parasite of human</obo:IAO_0000112>
+        <obo:IAO_0000115>A parasite-host relationship where an organism benefits at the expense of another.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000118>parasitizes</obo:IAO_0000118>
         <oboInOwl:hasExactSynonym>direct parasite of</oboInOwl:hasExactSynonym>
@@ -6575,6 +6577,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002445">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002443"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
+        <obo:IAO_0000115>Inverse of parasite of</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000118>has parasite</obo:IAO_0000118>
         <obo:IAO_0000118>parasitised by</obo:IAO_0000118>
@@ -6768,8 +6771,9 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/RO_0002457 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002457">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002469"/>
+        <obo:IAO_0000115>Inverse of provides nutrients for</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000232>Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion.</obo:IAO_0000232>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -6906,7 +6910,8 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/RO_0002469 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002469">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
+        <obo:IAO_0000115>A biotic interaction where a material entity provides nutrition for an organism.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>provides nutrients for</rdfs:label>
@@ -6917,7 +6922,8 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/RO_0002470 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002470">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
+        <obo:IAO_0000115>A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000118>is subject of eating interaction with</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -6929,7 +6935,8 @@ For example, A and B may be gene products and binding of B by A positively regul
     <!-- http://purl.obolibrary.org/obo/RO_0002471 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002471">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
+        <obo:IAO_0000115>Inverse of eats</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000118>eaten by</obo:IAO_0000118>
         <obo:IAO_0000118>is target of eating interaction with</obo:IAO_0000118>
@@ -7917,6 +7924,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002556">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002557"/>
+        <obo:IAO_0000115>Inverse of has pathogen</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>pathogen of</rdfs:label>
@@ -7928,6 +7936,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002557">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
+        <obo:IAO_0000115>A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>has pathogen</rdfs:label>
@@ -8710,6 +8719,34 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000115 xml:lang="en">Two or more individuals sharing the same roost site (cave, mine, tree or tree hollow, animal burrow, leaf tent, rock crack, space in man-made structure, etc.). Individuals that are sharing a communal roost may be said to be co-roosting. The roost may be either a day roost where the individuals rest during daytime hours, or a night roost where individuals roost to feed, groom, or rest in between flights and/or foraging bouts.  Communal roosting as thus defined is an umbrella term within which different specialized types -- which are not mutually exclusive -- may be recognized based on taxonomy and the temporal and spatial relationships of the individuals that are co-roosting.</obo:IAO_0000115>
         <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Communal_roosting"/>
         <rdfs:label xml:lang="en">co-roosts with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002802 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002802">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002803"/>
+        <obo:IAO_0000112>An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:resource="https://doi.org/10.3390/v13071356"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-3120-4802"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-3138-4118"/>
+        <rdfs:comment>A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.</rdfs:comment>
+        <rdfs:label>reservoir host of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002803 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002803">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
+        <obo:IAO_0000112>An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s.</obo:IAO_0000112>
+        <obo:IAO_0000115>inverse of reservoir host of</obo:IAO_0000115>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
+        <rdfs:label>has reservoir host</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -9739,6 +9776,34 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0009006 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009006">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009007"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <obo:IAO_0000112 xml:lang="en">A mass measurement assay measures an material&apos;s mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-05-23T15:24:15Z</terms:date>
+        <rdfs:label xml:lang="en">assay measures characteristic</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0009007 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009007">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
+        <obo:IAO_0000115 xml:lang="en">Inverse of &apos;assay measures characteristic&apos;</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-05-23T15:29:50Z</terms:date>
+        <rdfs:label xml:lang="en">characteristic measured by assay</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0009501 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009501">
@@ -10180,6 +10245,36 @@ For example, protein A (transcription factor) indirectly increases by expression
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0012013 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0012013">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002010"/>
+        <obo:IAO_0000115>x &apos;positively regulates in other organism&apos; y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2).</obo:IAO_0000115>
+        <obo:RO_0004049 rdf:resource="http://purl.obolibrary.org/obo/RO_0002010"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1813-6857"/>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-12T10:02:28Z</oboInOwl:creation_date>
+        <oboInOwl:hasExactSynonym>positively regulates in other organism</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_ontology"/>
+        <rdfs:label xml:lang="en">positively regulates in another organism</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0012014 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0012014">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002010"/>
+        <obo:IAO_0000115>x &apos;negatively regulates in other organism&apos; y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2).</obo:IAO_0000115>
+        <obo:RO_0004050 rdf:resource="http://purl.obolibrary.org/obo/RO_0002010"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1813-6857"/>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-10-12T10:02:42Z</oboInOwl:creation_date>
+        <oboInOwl:hasExactSynonym>negatively regulates in other organism</oboInOwl:hasExactSynonym>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_ontology"/>
+        <rdfs:label xml:lang="en">negatively regulates in another organism</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0013001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0013001">
@@ -10583,10 +10678,10 @@ For example, protein A (transcription factor) indirectly increases by expression
         </owl:propertyChainAxiom>
         <obo:IAO_0000112>A diagnostic testing device utilizes a specimen.</obo:IAO_0000112>
         <obo:IAO_0000115>X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0003-2620-0345"/>
         <obo:IAO_0000232>A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input.</obo:IAO_0000232>
         <obo:IAO_0000232>See github ticket https://github.com/oborel/obo-relations/issues/497</obo:IAO_0000232>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-2620-0345"/>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-11-08T12:00:00Z</oboInOwl:creation_date>
         <oboInOwl:hasBroadSynonym>utilizes</oboInOwl:hasBroadSynonym>
         <rdfs:label xml:lang="en">device utilizes material</rdfs:label>
@@ -10617,6 +10712,66 @@ For example, protein A (transcription factor) indirectly increases by expression
         <obo:IAO_0000118 xml:lang="en">inversely correlated with</obo:IAO_0000118>
         <terms:contributor rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
         <rdfs:label xml:lang="en">negatively correlated with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017005 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017005">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000967"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000121"/>
+        <obo:IAO_0000112>anticoagulant-containing test tube contains measured amount 5 ml of blood specimen.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between a container and measurement datum that specifies the actual amount of material in the container.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2999-0103"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-5714-991X"/>
+        <rdfs:label xml:lang="en">contains measured amount</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017006 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017006">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000967"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000121"/>
+        <obo:IAO_0000112>anticoagulant-containing test tube has maximum capacity 10 ml.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2999-0103"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-5714-991X"/>
+        <rdfs:label xml:lang="en">has maximum capacity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017008 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017008">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0017009"/>
+        <obo:IAO_0000112>biobank organization owns a specimen</obo:IAO_0000112>
+        <obo:IAO_0000112>hospital owns a laboratory facility</obo:IAO_0000112>
+        <obo:IAO_0000115>A primitive relation that holds between entities x and y in which y is at x&apos;s full disposal.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1834-3856"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
+        <terms:description>This primitive relation is the foundation of the owner&apos;s right to have the owned entity at his/her full disposal.</terms:description>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-29T16:57:03Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">owns</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017009 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017009">
+        <obo:IAO_0000112>freezer is owned by a biobank organization</obo:IAO_0000112>
+        <obo:IAO_0000115>Inverse of the owns relation.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1834-3856"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-29T17:06:06Z</oboInOwl:creation_date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
+        <rdfs:label xml:lang="en">is owned by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -10987,6 +11142,80 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <obo:IAO_0000115>Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition.</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0002-4142-7153"/>
         <rdfs:label>confers susceptibility to condition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020101 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020101">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002178"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
+        <obo:IAO_0000112>brachial artery vessel supplies blood to brachialis muscle</obo:IAO_0000112>
+        <obo:IAO_0000115>x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-6677-8489"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T10:09:22Z</terms:date>
+        <rdfs:label>vessel supplies blood to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020102 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020102">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002179"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
+        <obo:IAO_0000112>cystic vein vessel drains blood from gallbladder</obo:IAO_0000112>
+        <obo:IAO_0000115>x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-6677-8489"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T10:09:41Z</terms:date>
+        <rdfs:label>vessel drains blood from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020103 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020103">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002178"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002179"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001982"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
+        <obo:IAO_0000112>alveolar capillary directly supplies and drains some alveolus</obo:IAO_0000112>
+        <obo:IAO_0000115>x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-6677-8489"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T10:09:59Z</terms:date>
+        <rdfs:label>directly supplies and drains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020202 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020202">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/PATO_0001470"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/PATO_0000001"/>
+        <obo:IAO_0000115>A relationship between a ratio or proportion and its dividend.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-8314-2140"/>
+        <oboInOwl:hasExactSynonym>has dividend</oboInOwl:hasExactSynonym>
+        <rdfs:label>has numerator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020203 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020203">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/PATO_0001470"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/PATO_0000001"/>
+        <obo:IAO_0000115>A relationship between a ratio or proportion and its divisor.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-8314-2140"/>
+        <oboInOwl:hasExactSynonym>has divisor</oboInOwl:hasExactSynonym>
+        <rdfs:label>has denominator</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -12812,6 +13041,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
         <obo:IAO_0000115 xml:lang="en">A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">realizable</rdfs:label>
         <rdfs:label xml:lang="en">realizable entity</rdfs:label>
     </owl:Class>
     
@@ -12845,7 +13075,10 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <obo:IAO_0000115 xml:lang="en">b is a specifically dependent continuant = Def. b is a continuant &amp; there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])</obo:IAO_0000115>
         <rdfs:comment xml:lang="en">A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same.</rdfs:comment>
+        <rdfs:label xml:lang="en">characteristic</rdfs:label>
         <rdfs:label xml:lang="en">specifically dependent continuant</rdfs:label>
+        <rdfs:seeAlso>https://github.com/OBOFoundry/COB/issues/65</rdfs:seeAlso>
+        <rdfs:seeAlso>https://github.com/oborel/obo-relations/pull/284</rdfs:seeAlso>
     </owl:Class>
     
 
@@ -12931,6 +13164,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000000">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
         <obo:IAO_0000115>A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.</obo:IAO_0000115>
+        <obo:IAO_0000115>A material entity that has a plasma membrane and results from cellular division.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>CALOHA:TS-2035</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FBbt:00007002</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:68646</oboInOwl:hasDbXref>
@@ -12940,8 +13174,11 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <oboInOwl:hasDbXref>VHOG:0001533</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>WBbt:0004017</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>XAO:0003012</oboInOwl:hasDbXref>
+        <rdfs:comment>CL and GO definitions of cell differ based on inclusive or exclusive of cell wall, etc.</rdfs:comment>
         <rdfs:comment>The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one).</rdfs:comment>
+        <rdfs:comment>We struggled with this definition. We are worried about circularity. We also considered requiring the capability of metabolism.</rdfs:comment>
         <rdfs:label>cell</rdfs:label>
+        <rdfs:label xml:lang="en">cell</rdfs:label>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CL_0000000"/>
@@ -12999,6 +13236,24 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
+    <!-- http://purl.obolibrary.org/obo/COB_0000121 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0000121">
+        <rdfs:label>measurement datum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/COB_0001000 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0001000">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115>A process during which an organism comes into contact with another entity.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">exposure of organism</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/ENVO_01000254 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/ENVO_01000254">
@@ -13043,10 +13298,14 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/GO_0003674 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0003674">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
         <obo:IAO_0000115>A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>molecular function</oboInOwl:hasExactSynonym>
         <oboInOwl:id>GO:0003674</oboInOwl:id>
         <rdfs:comment>Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this. Despite its name, this is not a type of &apos;function&apos; in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.</rdfs:comment>
+        <rdfs:comment>This is the same as GO molecular function</rdfs:comment>
+        <rdfs:label xml:lang="en">gene product or complex activity</rdfs:label>
         <rdfs:label>molecular_function</rdfs:label>
     </owl:Class>
     <owl:Axiom>
@@ -13997,12 +14256,14 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/GO_0005634 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0005634">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <obo:IAO_0000115>A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell&apos;s chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>NIF_Subcellular:sao1702920020</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Wikipedia:Cell_nucleus</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>cell nucleus</oboInOwl:hasExactSynonym>
         <oboInOwl:hasNarrowSynonym>horsetail nucleus</oboInOwl:hasNarrowSynonym>
         <oboInOwl:id>GO:0005634</oboInOwl:id>
+        <rdfs:label xml:lang="en">cell nucleus</rdfs:label>
         <rdfs:label>nucleus</rdfs:label>
     </owl:Class>
     <owl:Axiom>
@@ -14026,7 +14287,10 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/GO_0008150 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0008150">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000115>A biological process is the execution of a genetically-encoded biological module or program. It consists of all the steps required to achieve the specific biological objective of the module. A biological process is accomplished by a particular set of molecular functions carried out by specific gene products (or macromolecular complexes), often in a highly regulated manner and in a particular temporal sequence.</obo:IAO_0000115>
+        <obo:IAO_0000115>A process that emerges from two or more causally-connected macromolecular activities and has evolved to achieve a biological objective.</obo:IAO_0000115>
         <oboInOwl:created_by>jl</oboInOwl:created_by>
         <oboInOwl:creation_date>2012-09-19T15:05:24Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>Wikipedia:Biological_process</oboInOwl:hasDbXref>
@@ -14035,7 +14299,9 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <oboInOwl:hasRelatedSynonym>single organism process</oboInOwl:hasRelatedSynonym>
         <oboInOwl:hasRelatedSynonym>single-organism process</oboInOwl:hasRelatedSynonym>
         <oboInOwl:id>GO:0008150</oboInOwl:id>
+        <rdfs:comment>A biological process is an evolved process</rdfs:comment>
         <rdfs:comment>Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this.</rdfs:comment>
+        <rdfs:label xml:lang="en">biological process</rdfs:label>
         <rdfs:label>biological_process</rdfs:label>
     </owl:Class>
     <owl:Axiom>
@@ -14163,6 +14429,99 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OBI_0000011 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000111>planned process</obo:IAO_0000111>
+        <obo:IAO_0000111 xml:lang="en">planned process</obo:IAO_0000111>
+        <obo:IAO_0000112>Injecting mice with a vaccine in order to test its efficacy</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115 xml:lang="en">A process that realizes a plan which is the concretization of a plan specification.</obo:IAO_0000115>
+        <obo:IAO_0000116>&apos;Plan&apos; includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn&apos;t have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)</obo:IAO_0000116>
+        <obo:IAO_0000116>We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some 
+objectives is a planned process.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bjoern Peters</obo:IAO_0000117>
+        <obo:IAO_0000119>branch derived</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">planned process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000047 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000047">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <obo:IAO_0000111 xml:lang="en">processed material</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115 xml:lang="en">Is a material entity that is created or changed during material processing.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Alan Ruttenberg</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">processed material</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000070 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000070">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <obo:IAO_0000111 xml:lang="en">assay</obo:IAO_0000111>
+        <obo:IAO_0000112>Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house.</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115 xml:lang="en">A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.</obo:IAO_0000115>
+        <obo:IAO_0000116>12/3/12: BP: the reference to the &apos;physical examination&apos; is included to point out that a prediction is not an assay, as that does not require physical examiniation.</obo:IAO_0000116>
+        <obo:IAO_0000117 xml:lang="en">PlanAndPlannedProcess Branch</obo:IAO_0000117>
+        <obo:IAO_0000118 xml:lang="en">measuring</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">scientific observation</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">OBI branch derived</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">assay</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000967 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000967">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000968"/>
+        <obo:IAO_0000111>container</obo:IAO_0000111>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000123"/>
+        <obo:IAO_0000115>A device that can be used to restrict the location of material entities over time</obo:IAO_0000115>
+        <obo:IAO_0000116>03/21/2010: Added to allow classification of children (similar to what we want to do for &apos;measurement device&apos;. Lookint at what classifies here, we may want to reconsider a contain function assigned to a part of an entity is necessarily also a function of the whole (e.g. is a centrifuge a container because it has test tubes as parts?)</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Bjoern Peters</obo:IAO_0000117>
+        <rdfs:label>container</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000968 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000968">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <obo:IAO_0000111>device</obo:IAO_0000111>
+        <obo:IAO_0000112>A voltmeter is a measurement device which is intended to perform some measure function.</obo:IAO_0000112>
+        <obo:IAO_0000112>An autoclave is a device that sterlizes instruments or contaminated waste by applying high temperature and pressure.</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115>A material entity that is designed to perform a function in a scientific investigation, but is not a reagent.</obo:IAO_0000115>
+        <obo:IAO_0000116>2012-12-17 JAO: In common lab usage, there is a distinction made between devices and reagents that is difficult to model. Therefore we have chosen to specifically exclude reagents from the definition of &quot;device&quot;, and are enumerating the types of roles that a reagent can perform.
+
+2013-6-5 MHB: The following clarifications are outcomes of the May 2013 Philly Workshop. Reagents are distinguished from devices that also participate in scientific techniques by the fact that reagents are chemical or biological in nature and necessarily participate in some chemical interaction or reaction during the realization of their experimental role. By contrast, devices do not participate in such chemical reactions/interactions.  Note that there are cases where devices use reagent components during their operation, where the reagent-device distinction is less clear.  For example:
+
+(1) An HPLC machine is considered a device, but has a column that holds a stationary phase resin as an operational component.  This resin qualifies as a device if it participates purely in size exclusion, but bears a reagent role that is realized in the running of a column if it interacts electrostatically or chemically with the evaluant. The container the resin is in (“the column”) considered alone is a device. So the entire column as well as the entire HPLC machine are devices that have a reagent as an operating part.
+
+(2) A pH meter is a device, but its electrode component bears a reagent role in virtue of its interacting directly with the evaluant in execution of an assay.
+
+(3) A gel running  box  is a device that has a metallic lead as a component that participates in a chemical reaction with the running buffer when a charge is passed through it.  This metallic lead is considered to have a reagent role as a component of this device realized in the running of a gel.
+
+In the examples above, a reagent is an operational component of a device, but the device itself does not realize a reagent role (as bearing a reagent role is not transitive across the part_of relation).  In this way, the asserted disjointness between a reagent and device holds, as both roles are never realized in the same bearer during execution of an assay.</obo:IAO_0000116>
+        <obo:IAO_0000117>PERSON: Helen Parkinson</obo:IAO_0000117>
+        <obo:IAO_0000118>instrument</obo:IAO_0000118>
+        <obo:IAO_0000119>OBI development call 2012-12-17.</obo:IAO_0000119>
+        <rdfs:label>device</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OBI_0100026 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0100026">
@@ -14249,6 +14608,29 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/PATO_0001470 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/PATO_0001470">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PATO_0000001"/>
+        <obo:IAO_0000115>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in respect to a related entity.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>proportion</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>proportionality</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>quotient</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>ratio</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasRelatedSynonym>rate</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>PATO:0001470</oboInOwl:id>
+        <rdfs:comment>Examples: height to weight; brain size to body size. These could all be children of proportionality. Proportions can be measured as ratios. Some measures may be dimensionless. Not all ratios measure proportionality, eg m/s measures velocity which is not a proportion in the sense defined above, it is a quality in its own right.</rdfs:comment>
+        <rdfs:label>proportionality to</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/PATO_0001470"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in respect to a related entity.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>PATOC:nw</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/PATO_0002124 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/PATO_0002124">
@@ -14271,16 +14653,16 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
     <!-- http://purl.obolibrary.org/obo/RO_0002310 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/RO_0002310">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000112>An exposure event in which a human is exposed to particulate matter in the air. Here the exposure stimulus/stress is the particulate matter, the receptor is the airways and lungs of the human,</obo:IAO_0000112>
         <obo:IAO_0000112 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">An exposure event in which a plant is provided with fertilizer. The exposure receptor is the root system of the plant, the stimulus is the fertilizing chemical, the route is via the soil, possibly mediated by symbotic microbes.</obo:IAO_0000112>
-        <obo:IAO_0000115>A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism.</obo:IAO_0000115>
+        <obo:IAO_0000115>OBSOLETE A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism.</obo:IAO_0000115>
         <obo:IAO_0000116>This class is intended as a grouping for various domain and species-specific exposure classes. The ExO class http://purl.obolibrary.org/obo/ExO_0000002 &apos;exposure event&apos; assumes that all exposures involve stressors, which limits the applicability of this class to &apos;positive&apos; exposures, e.g. exposing a plant to beneficial growing conditions.</obo:IAO_0000116>
         <terms:creator rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-06-05T17:55:39Z</oboInOwl:creation_date>
-        <rdfs:label>exposure event or process</rdfs:label>
+        <rdfs:label>obsolete exposure event or process</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/oborel/obo-relations/pull/173</rdfs:seeAlso>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -14351,7 +14733,6 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <oboInOwl:hasDbXref>CARO:0000003</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>EHDAA2:0003003</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>EMAPA:0</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00007001</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:305751</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:67135</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>GAID:781</oboInOwl:hasDbXref>
@@ -14393,7 +14774,6 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
         <obo:IAO_0000115>A fasciculated bundle of neuron projections (GO:0043005), largely or completely lacking synapses.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>CARO:0001001</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00005099</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>NLX:147821</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>funiculus</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>nerve fiber bundle</oboInOwl:hasExactSynonym>
@@ -14432,7 +14812,6 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <oboInOwl:hasDbXref>BILA:0000006</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>CARO:0000006</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>EHDAA2:0003006</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00007016</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:67165</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>HAO:0000006</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>TAO:0001836</oboInOwl:hasDbXref>
@@ -14465,7 +14844,6 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <oboInOwl:hasDbXref>BILA:0000007</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>CARO:0000007</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>EHDAA2:0003007</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00007015</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:67112</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>HAO:0000007</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>TAO:0001835</oboInOwl:hasDbXref>
@@ -14501,11 +14879,11 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <obo:RO_0002175 rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
         <oboInOwl:hasDbXref>AAO:0010841</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>AEO:0000000</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>BFO:0000004</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>BILA:0000000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>BIRNLEX:6</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>CARO:0000000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>EHDAA2:0002229</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:10000000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:62955</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>HAO:0000000</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>MA:0000001</oboInOwl:hasDbXref>
@@ -14537,6 +14915,132 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/UBERON_0001981 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0001981">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0010000"/>
+        <obo:IAO_0000115>A vessel through which blood circulates in the body.</obo:IAO_0000115>
+        <obo:IAO_0000116>consider adopting the EMAPA superclass &apos;vascular element&apos;, which includes microvasculature (e.g. capillaries), vascular plexus</obo:IAO_0000116>
+        <oboInOwl:hasBroadSynonym>vascular element</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasDbXref>AAO:0011004</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>AEO:0000207</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>BTO:0001102</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>CALOHA:TS-0080</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EFO:0000817</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EHDAA2:0003252</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EHDAA:240</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EMAPA:32743</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EMAPA:35993</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>FMA:50722</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>FMA:63183</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>GAID:169</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>MA:0000060</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>MAT:0000393</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>MESH:D001808</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>NCIT:C12679</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>NLXANAT:090901</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SCTID:361097006</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>TAO:0002137</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>UMLS:C0005847</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>VHOG:0001250</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Wikipedia:Blood_vessel</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>XAO:0001011</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>ZFA:0005314</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>region of vascular tree organ</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>vascular tree organ region</oboInOwl:hasExactSynonym>
+        <oboInOwl:id>UBERON:0001981</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#efo_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#pheno_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#uberon_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#vertebrate_core"/>
+        <rdfs:label>blood vessel</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A vessel through which blood circulates in the body.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>BTO:0001102</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Wikipedia:Blood_vessel</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+        <owl:annotatedTarget>vascular element</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>EMAPA:35993</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>UMLS:C0005847</owl:annotatedTarget>
+        <oboInOwl:source>ncithesaurus:Blood_Vessel</oboInOwl:source>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>region of vascular tree organ</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>FMA:50722</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>vascular tree organ region</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>FMA:50722</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UBERON_0001982 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0001982">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001981"/>
+        <obo:IAO_0000115>Any of the smallest blood vessels connecting arterioles with venules.</obo:IAO_0000115>
+        <obo:IAO_0000116>not all sources agree capillary is a blood vessel - consider adopting EMAPA superclass of vascular element</obo:IAO_0000116>
+        <oboInOwl:hasDbXref>AAO:0010252</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>BTO:0002045</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>CALOHA:TS-2006</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EFO:0001906</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EMAPA:35198</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>EV:0100035</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>FMA:63194</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>MA:0000065</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>MESH:D002196</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>NCIT:C12685</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>NLXANAT:090902</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>TAO:0005250</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>UMLS:C0935624</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>VHOG:0001253</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Wikipedia:Capillary</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>XAO:0000116</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>ZFA:0005250</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>blood capillary</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>capillary vessel</oboInOwl:hasExactSynonym>
+        <oboInOwl:id>UBERON:0001982</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#efo_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#pheno_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#uberon_slim"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#vertebrate_core"/>
+        <rdfs:label>capillary</rdfs:label>
+        <rdfs:seeAlso>https://github.com/obophenotype/uberon/issues/2186</rdfs:seeAlso>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001982"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Any of the smallest blood vessels connecting arterioles with venules.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>ISBN:0073040584</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Wikipedia:Capillary</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>https://github.com/obophenotype/uberon/issues/137</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UBERON_0001982"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>UMLS:C0935624</owl:annotatedTarget>
+        <oboInOwl:source>ncithesaurus:Capillary</oboInOwl:source>
+    </owl:Axiom>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/UBERON_0010000 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0010000">
@@ -14545,7 +15049,6 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
         <obo:RO_0002175 rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_33090"/>
         <obo:RO_0002175 rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
         <oboInOwl:hasDbXref>CARO:0010000</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00100313</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>multicellular structure</oboInOwl:hasExactSynonym>
         <oboInOwl:id>UBERON:0010000</oboInOwl:id>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/uberon/core#common_anatomy"/>
@@ -14751,6 +15254,27 @@ binary, and takes no temporal argument.
     
 
 
+    <!-- https://orcid.org/0000-0001-6677-8489 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-6677-8489">
+        <terms:description>Researcher ORCID=0000-0001-6677-8489</terms:description>
+        <rdfs:label>Aleix Puig-Barbé</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-6677-8489"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>Researcher ORCID=0000-0001-6677-8489</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250332"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-6677-8489"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Aleix Puig-Barbé</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250332"/>
+    </owl:Axiom>
+    
+
+
     <!-- https://orcid.org/0000-0001-6996-0040 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-6996-0040">
@@ -14793,6 +15317,27 @@ binary, and takes no temporal argument.
     
 
 
+    <!-- https://orcid.org/0000-0001-8314-2140 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-8314-2140">
+        <terms:description>researcher</terms:description>
+        <rdfs:label>Raymund Stefancsik</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-8314-2140"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q52097457"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-8314-2140"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Raymund Stefancsik</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q52097457"/>
+    </owl:Axiom>
+    
+
+
     <!-- https://orcid.org/0000-0001-8910-9851 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-8910-9851">
@@ -14810,6 +15355,27 @@ binary, and takes no temporal argument.
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
         <owl:annotatedTarget>Lynn Schriml</owl:annotatedTarget>
         <terms:source rdf:resource="http://www.wikidata.org/entity/Q28913673"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0001-9625-1899 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-9625-1899">
+        <terms:description>researcher</terms:description>
+        <rdfs:label>William D Duncan</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q89881908"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>William D Duncan</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q89881908"/>
     </owl:Axiom>
     
 
@@ -14835,6 +15401,27 @@ binary, and takes no temporal argument.
     
 
 
+    <!-- https://orcid.org/0000-0002-2999-0103 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-2999-0103">
+        <terms:description>researcher (ORCID 0000-0002-2999-0103)</terms:description>
+        <rdfs:label>Jie Zheng</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-2999-0103"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher (ORCID 0000-0002-2999-0103)</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q90780528"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-2999-0103"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Jie Zheng</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q90780528"/>
+    </owl:Axiom>
+    
+
+
     <!-- https://orcid.org/0000-0002-4366-3088 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-4366-3088">
@@ -14852,6 +15439,27 @@ binary, and takes no temporal argument.
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
         <owl:annotatedTarget>Pier Luigi Buttigieg</owl:annotatedTarget>
         <terms:source rdf:resource="http://www.wikidata.org/entity/Q41566750"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0002-5714-991X -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-5714-991X">
+        <terms:description>researcher</terms:description>
+        <rdfs:label>Christian J Stoeckert</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-5714-991X"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q67220657"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-5714-991X"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Christian J Stoeckert</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q67220657"/>
     </owl:Axiom>
     
 
@@ -14961,6 +15569,27 @@ binary, and takes no temporal argument.
     
 
 
+    <!-- https://orcid.org/0000-0002-8844-9165 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-8844-9165">
+        <terms:description>researcher (ORCID 0000-0002-8844-9165)</terms:description>
+        <rdfs:label>Damion M Dooley</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher (ORCID 0000-0002-8844-9165)</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q91868864"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Damion M Dooley</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q91868864"/>
+    </owl:Axiom>
+    
+
+
     <!-- https://orcid.org/0000-0003-1617-8244 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-1617-8244">
@@ -14982,6 +15611,69 @@ binary, and takes no temporal argument.
     
 
 
+    <!-- https://orcid.org/0000-0003-1813-6857 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-1813-6857">
+        <terms:description>Canadian biocurator</terms:description>
+        <rdfs:label>Pascale Gaudet</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1813-6857"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>Canadian biocurator</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q30032484"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1813-6857"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Pascale Gaudet</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q30032484"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0003-1834-3856 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-1834-3856">
+        <terms:description>researcher</terms:description>
+        <rdfs:label>Mathias Brochhausen</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1834-3856"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>researcher</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q57161944"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1834-3856"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Mathias Brochhausen</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q57161944"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0003-1909-9269 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-1909-9269">
+        <terms:description>Researcher ORCID=0000-0003-1909-9269</terms:description>
+        <rdfs:label>S. Clint Dowland</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>Researcher ORCID=0000-0003-1909-9269</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250399"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>S. Clint Dowland</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250399"/>
+    </owl:Axiom>
+    
+
+
     <!-- https://orcid.org/0000-0003-1940-6740 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-1940-6740">
@@ -14999,6 +15691,48 @@ binary, and takes no temporal argument.
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
         <owl:annotatedTarget>Anna Maria Masci</owl:annotatedTarget>
         <terms:source rdf:resource="http://www.wikidata.org/entity/Q37377046"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0003-2620-0345 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-2620-0345">
+        <terms:description>Researcher ORCID=0000-0003-2620-0345</terms:description>
+        <rdfs:label>Asiyah Yu Lin</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-2620-0345"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>Researcher ORCID=0000-0003-2620-0345</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250403"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-2620-0345"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Asiyah Yu Lin</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q123250403"/>
+    </owl:Axiom>
+    
+
+
+    <!-- https://orcid.org/0000-0003-3138-4118 -->
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-3138-4118">
+        <terms:description>software/data engineer</terms:description>
+        <rdfs:label>Jorrit Poelen</rdfs:label>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-3138-4118"/>
+        <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
+        <owl:annotatedTarget>software/data engineer</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q58206618"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://orcid.org/0000-0003-3138-4118"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+        <owl:annotatedTarget>Jorrit Poelen</owl:annotatedTarget>
+        <terms:source rdf:resource="http://www.wikidata.org/entity/Q58206618"/>
     </owl:Axiom>
     
 
@@ -15514,10 +16248,10 @@ No imports</obo:IAO_0000115>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="urn:swrl#w">
+    <rdf:Description rdf:about="urn:swrl:var#w">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#p">
+    <rdf:Description rdf:about="urn:swrl:var#p">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="urn:swrl#e">
@@ -15535,64 +16269,52 @@ No imports</obo:IAO_0000115>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/ro.owl#x">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#y">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#x">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#z">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#a1">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#a2">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#g1">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#g2">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#B">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#C">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#A">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#D">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#mf">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#eff">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#in">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#mf2">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl:var#p">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl:var#q">
+    <rdf:Description rdf:about="urn:swrl:var#y">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="urn:swrl:var#x">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl:var#y">
+    <rdf:Description rdf:about="urn:swrl:var#z">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl:var#z">
+    <rdf:Description rdf:about="urn:swrl:var#a1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#a2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#g1">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#g2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#B">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#C">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#A">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#D">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#eff">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#in">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#mf">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#mf2">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#q">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="urn:swrl:var#u">
@@ -15607,8 +16329,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002180"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#w"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#p"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#w"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#p"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -15618,7 +16340,7 @@ No imports</obo:IAO_0000115>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#w"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#w"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -15628,7 +16350,7 @@ No imports</obo:IAO_0000115>
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -15645,8 +16367,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002018"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#w"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#p"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#w"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#p"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -15908,7 +16630,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/GO_0003674"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -15918,8 +16640,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -15929,8 +16651,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -15947,8 +16669,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -15967,7 +16689,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/GO_0008150"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -15977,8 +16699,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -15988,8 +16710,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002327"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16006,8 +16728,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002331"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16023,8 +16745,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#a1"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#a2"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a1"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#a2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16034,7 +16756,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/GO_0016301"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#a1"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a1"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -16044,8 +16766,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002333"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#a1"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#g1"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a1"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#g1"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest>
@@ -16055,8 +16777,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                             <rdf:Description>
                                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002333"/>
-                                                <swrl:argument1 rdf:resource="urn:swrl#a2"/>
-                                                <swrl:argument2 rdf:resource="urn:swrl#g2"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#a2"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#g2"/>
                                             </rdf:Description>
                                         </rdf:first>
                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16075,8 +16797,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002447"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#g1"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#g2"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#g1"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#g2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16094,8 +16816,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002352"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#B"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#B"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16105,8 +16827,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002333"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#B"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#B"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -16116,8 +16838,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002013"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#D"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#D"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16134,8 +16856,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#D"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#D"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16152,8 +16874,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002352"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#B"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#B"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16163,8 +16885,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002333"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#B"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#B"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -16174,8 +16896,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002014"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#D"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#D"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16192,8 +16914,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002630"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#D"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#D"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16210,8 +16932,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002352"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#B"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#B"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16221,8 +16943,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002333"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#B"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#B"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -16232,8 +16954,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                                     <rdf:Description>
                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002015"/>
-                                        <swrl:argument1 rdf:resource="urn:swrl#D"/>
-                                        <swrl:argument2 rdf:resource="urn:swrl#C"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#D"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#C"/>
                                     </rdf:Description>
                                 </rdf:first>
                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16250,8 +16972,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002629"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#A"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#D"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#A"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#D"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16267,9 +16989,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#eff"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eff"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#in"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16278,9 +17000,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#eff"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#in"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#eff"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16295,8 +17017,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#in"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#in"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16312,9 +17034,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#eff"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#in"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16323,9 +17045,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#in"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#eff"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16340,8 +17062,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002233"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#eff"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#in"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eff"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#in"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16357,9 +17079,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#eff"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16368,9 +17090,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#eff"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16385,8 +17107,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002578"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#eff"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eff"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16402,9 +17124,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#eff"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002629"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16413,9 +17135,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002629"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#eff"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16430,8 +17152,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002629"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#eff"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eff"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16447,9 +17169,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002630"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#eff"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16458,9 +17180,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002025"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#mf"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#eff"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002630"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#mf"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16475,8 +17197,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002630"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#eff"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#mf2"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eff"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#mf2"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16492,9 +17214,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002131"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002404"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16503,9 +17225,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002404"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002131"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16520,7 +17242,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16530,7 +17252,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16548,9 +17270,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002131"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16559,9 +17281,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002131"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16576,7 +17298,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16586,7 +17308,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16603,7 +17325,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0012011"/>
                         <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
                         <swrl:argument2 rdf:resource="urn:swrl:var#q"/>
                     </rdf:Description>
@@ -16614,7 +17336,7 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0012011"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
                                 <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
                                 <swrl:argument2 rdf:resource="urn:swrl:var#q"/>
                             </rdf:Description>
@@ -16647,9 +17369,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16658,9 +17380,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16669,67 +17391,6 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
             </rdf:Description>
         </swrl:body>
         <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
@@ -16737,7 +17398,24 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
                         <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0019002"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16746,9 +17424,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0019002"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
-                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16779,9 +17457,9 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                 <rdf:first>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002213"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16790,9 +17468,53 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002264"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
-                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002212"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002264"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16824,8 +17546,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#q"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#q"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#u"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16835,8 +17557,8 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0002411"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#q"/>
-                                <swrl:argument2 rdf:resource="urn:swrl:var#u"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#p"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#q"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16863,5 +17585,5 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
 
 
 
-<!-- Generated by the OWL API (version 4.5.25) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.26) https://github.com/owlcs/owlapi -->
 
