@@ -1,130 +1,12 @@
 format-version: 1.2
-data-version: ro/releases/2024-02-13/ro-base.owl
-subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
-subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
-subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
-subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
-subsetdef: ro-eco ""
-subsetdef: RO:0002259 ""
+data-version: ro/releases/2024-04-24/ro-base.owl
 ontology: ro/ro-base
 property_value: http://purl.org/dc/elements/1.1/type IAO:8000001
 property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
 property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2024-02-13" xsd:string
-
-[Term]
-id: BFO:0000002
-name: continuant
-def: "An entity that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts." []
-disjoint_from: BFO:0000003 ! occurrent
-relationship: BFO:0000050 BFO:0000002 {all_only="true"} ! part of continuant
-relationship: RO:0002214 BFO:0000002 {all_only="true"} ! has prototype continuant
-relationship: RO:HOM0000000 BFO:0000002 {all_only="true"} ! continuant
-
-[Term]
-id: BFO:0000003
-name: occurrent
-def: "An entity that has temporal parts and that happens, unfolds or develops through time." []
-relationship: BFO:0000050 BFO:0000003 {all_only="true"} ! part of occurrent
-relationship: RO:HOM0000000 BFO:0000003 {all_only="true"} ! occurrent
-
-[Term]
-id: BFO:0000004
-name: independent continuant
-def: "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t. (axiom label in BFO2 Reference: [017-002])" []
-comment: A continuant that is a bearer of quality and realizable entity entities, in which other entities inhere and which itself cannot inhere in anything.
-is_a: BFO:0000002 ! continuant
-disjoint_from: BFO:0000020 ! specifically dependent continuant
-disjoint_from: BFO:0000031 ! generically dependent continuant
-relationship: BFO:0000050 BFO:0000004 {all_only="true"} ! part of independent continuant
-
-[Term]
-id: BFO:0000006
-name: spatial region
-is_a: BFO:0000141 ! immaterial entity
-
-[Term]
-id: BFO:0000015
-name: process
-def: "p is a process = Def. p is an occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t. (axiom label in BFO2 Reference: [083-003])" []
-comment: An occurrent that has temporal proper parts and for some time t, p s-depends_on some material entity at t.
-is_a: BFO:0000003 ! occurrent
-relationship: RO:0002214 BFO:0000015 {all_only="true"} ! has prototype process
-
-[Term]
-id: BFO:0000016
-name: disposition
-is_a: BFO:0000017 ! realizable entity
-disjoint_from: BFO:0000023 ! role
-
-[Term]
-id: BFO:0000017
-name: realizable entity
-def: "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances." []
-is_a: BFO:0000020 ! specifically dependent continuant
-disjoint_from: BFO:0000019 ! quality
-relationship: BFO:0000050 BFO:0000017 {all_only="true"} ! part of realizable entity
-
-[Term]
-id: BFO:0000019
-name: quality
-is_a: BFO:0000020 ! specifically dependent continuant
-relationship: BFO:0000050 BFO:0000019 {all_only="true"} ! part of quality
-
-[Term]
-id: BFO:0000020
-name: specifically dependent continuant
-def: "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])" []
-comment: A continuant that inheres in or is borne by other entities. Every instance of A requires some specific instance of B which must always be the same.
-is_a: BFO:0000002 ! continuant
-disjoint_from: BFO:0000031 ! generically dependent continuant
-relationship: BFO:0000050 BFO:0000020 {all_only="true"} ! part of specifically dependent continuant
-
-[Term]
-id: BFO:0000023
-name: role
-def: "A realizable entity  the manifestation of which brings about some result or end that is not essential to a continuant  in virtue of the kind of thing that it is but that can be served or participated in by that kind of continuant  in some kinds of natural, social or institutional contexts." []
-is_a: BFO:0000017 ! realizable entity
-
-[Term]
-id: BFO:0000031
-name: generically dependent continuant
-def: "b is a generically dependent continuant = Def. b is a continuant that g-depends_on one or more other entities. (axiom label in BFO2 Reference: [074-001])" []
-comment: A continuant that is dependent on one or other independent continuant bearers. For every instance of A requires some instance of (an independent continuant type) B but which instance of B serves can change from time to time.
-is_a: BFO:0000002 ! continuant
-relationship: BFO:0000050 BFO:0000031 {all_only="true"} ! part of generically dependent continuant
-
-[Term]
-id: BFO:0000034
-name: function
-is_a: BFO:0000016 ! disposition
-
-[Term]
-id: BFO:0000040
-name: material entity
-def: "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time." []
-is_a: BFO:0000004 ! independent continuant
-disjoint_from: BFO:0000141 ! immaterial entity
-
-[Term]
-id: BFO:0000141
-name: immaterial entity
-is_a: BFO:0000004 ! independent continuant
-
-[Term]
-id: CHEBI:50906
-is_a: PATO:0000001
-
-[Term]
-id: GO:0004842
-
-[Term]
-id: GO:0016301
-
-[Term]
-id: GO:0019107
+property_value: owl:versionInfo "2024-04-24" xsd:string
 
 [Term]
 id: RO:0002310
@@ -166,7 +48,7 @@ property_value: IAO:0000232 "Sequence bearers can be molecular entities, such as
 id: RO:0002577
 name: system
 def: "A material entity consisting of multiple components that are causally integrated." []
-is_a: BFO:0000040 ! material entity
+is_a: BFO:0000040
 property_value: IAO:0000116 "May be replaced by a BFO class, as discussed in http://www.jbiomedsem.com/content/4/1/43" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.jbiomedsem.com/content/4/1/43" xsd:string
@@ -234,8 +116,8 @@ property_value: IAO:0000118 "is realized by" xsd:string
 property_value: IAO:0000118 "realized_in" xsd:string
 property_value: IAO:0000600 "[copied from inverse property 'realizes'] to say that b realizes c at t is to assert that there is some material entity d & b is a process which has participant d at t & c is a disposition or role of which d is bearer_of at t& the type instantiated by b is correlated with the type instantiated by c. (axiom label in BFO2 Reference: [059-003])" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
-domain: BFO:0000017 ! realizable entity
-range: BFO:0000015 ! process
+domain: BFO:0000017
+range: BFO:0000015
 inverse_of: BFO:0000055 ! realizes
 
 [Typedef]
@@ -248,8 +130,8 @@ property_value: IAO:0000112 "this investigation realizes this investigator role"
 property_value: IAO:0000112 "this shattering realizes this fragility" xsd:string
 property_value: IAO:0000600 "to say that b realizes c at t is to assert that there is some material entity d & b is a process which has participant d at t & c is a disposition or role of which d is bearer_of at t& the type instantiated by b is correlated with the type instantiated by c. (axiom label in BFO2 Reference: [059-003])" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/iao.owl
-domain: BFO:0000015 ! process
-range: BFO:0000017 ! realizable entity
+domain: BFO:0000015
+range: BFO:0000017
 
 [Typedef]
 id: BFO:0000060
@@ -268,8 +150,8 @@ property_value: IAO:0000111 "preceded by" xsd:string
 property_value: IAO:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other." xsd:string
 property_value: IAO:0000118 "is preceded by" xsd:string
 property_value: IAO:0000118 "preceded_by" xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 holds_over_chain: BFO:0000050 BFO:0000062
 holds_over_chain: RO:0002091 BFO:0000062
 holds_over_chain: RO:0002092 BFO:0000062
@@ -283,8 +165,8 @@ name: precedes
 def: "x precedes y if and only if the time point at which x ends is before or equivalent to the time point at which y starts. Formally: x precedes y iff ω(x) <= α(y), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." []
 subset: ro-eco
 property_value: IAO:0000111 "precedes" xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 holds_over_chain: BFO:0000050 BFO:0000063
 holds_over_chain: RO:0002092 BFO:0000063
 is_transitive: true
@@ -304,8 +186,8 @@ property_value: IAO:0000118 "unfolds in" xsd:string
 property_value: IAO:0000118 "unfolds_in" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
 property_value: seeAlso "https://wiki.geneontology.org/Occurs_in" xsd:anyURI
-domain: BFO:0000003 ! occurrent
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000003
+range: BFO:0000004
 holds_over_chain: BFO:0000050 BFO:0000066
 inverse_of: BFO:0000067 ! contains process
 transitive_over: BFO:0000050 ! part of
@@ -343,7 +225,7 @@ property_value: IAO:0000116 "A bearer can have many dependents, and its dependen
 property_value: IAO:0000118 "bearer_of" xsd:string
 property_value: IAO:0000118 "is bearer of" xsd:string
 property_value: RO:0001900 RO:0001901
-range: BFO:0000020 ! specifically dependent continuant
+range: BFO:0000020
 is_inverse_functional: true
 
 [Typedef]
@@ -355,8 +237,8 @@ property_value: IAO:0000112 "this blood clot participates in this blood coagulat
 property_value: IAO:0000112 "this input material (or this output material) participates in this process" xsd:string
 property_value: IAO:0000112 "this investigator participates in this investigation" xsd:string
 property_value: IAO:0000118 "participates_in" xsd:string
-domain: BFO:0000002 ! continuant
-range: BFO:0000003 ! occurrent
+domain: BFO:0000002
+range: BFO:0000003
 inverse_of: RO:0000057 ! has participant
 
 [Typedef]
@@ -370,8 +252,8 @@ property_value: IAO:0000112 "this investigation has participant this investigato
 property_value: IAO:0000112 "this process has participant this input material (or this output material)" xsd:string
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000002 ! continuant
+domain: BFO:0000003
+range: BFO:0000002
 holds_over_chain: BFO:0000051 RO:0000057
 
 [Typedef]
@@ -380,8 +262,8 @@ name: is concretized as
 def: "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
-domain: BFO:0000031 ! generically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
+domain: BFO:0000031
+range: BFO:0000020
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
@@ -390,8 +272,8 @@ name: concretizes
 def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
-domain: BFO:0000020 ! specifically dependent continuant
-range: BFO:0000031 ! generically dependent continuant
+domain: BFO:0000020
+range: BFO:0000031
 
 [Typedef]
 id: RO:0000079
@@ -402,7 +284,7 @@ property_value: IAO:0000112 "this catalysis function is a function of this enzym
 property_value: IAO:0000116 "A function inheres in its bearer at all times for which the function exists, however the function need not be realized at all the times that the function exists." xsd:string
 property_value: IAO:0000118 "function_of" xsd:string
 property_value: IAO:0000118 "is function of" xsd:string
-domain: BFO:0000034 ! function
+domain: BFO:0000034
 is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000085 ! has function
 
@@ -437,8 +319,8 @@ def: "a relation between an independent continuant (the bearer) and a function, 
 property_value: IAO:0000112 "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)" xsd:string
 property_value: IAO:0000116 "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists." xsd:string
 property_value: IAO:0000118 "has_function" xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000034 ! function
+domain: BFO:0000004
+range: BFO:0000034
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
@@ -448,7 +330,7 @@ def: "a relation between an independent continuant (the bearer) and a quality, i
 property_value: IAO:0000112 "this apple has quality this red color" xsd:string
 property_value: IAO:0000116 "A bearer can have many qualities, and its qualities can exist for different periods of time, but none of its qualities can exist when the bearer does not exist." xsd:string
 property_value: IAO:0000118 "has_quality" xsd:string
-range: BFO:0000019 ! quality
+range: BFO:0000019
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
@@ -458,16 +340,16 @@ def: "a relation between an independent continuant (the bearer) and a role, in w
 property_value: IAO:0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)" xsd:string
 property_value: IAO:0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists." xsd:string
 property_value: IAO:0000118 "has_role" xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000023 ! role
+domain: BFO:0000004
+range: BFO:0000023
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000091
 name: has disposition
 def: "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence" []
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000016 ! disposition
+domain: BFO:0000004
+range: BFO:0000016
 is_a: RO:0000053 ! has characteristic
 inverse_of: RO:0000092 ! disposition of
 
@@ -571,7 +453,7 @@ id: RO:0001020
 name: is allergic trigger for
 def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
 property_value: IAO:0000112 "penicillin (CHEBI:17334) is allergic trigger for penicillin allergy (DOID:0060520)" xsd:string
-domain: BFO:0000040 ! material entity
+domain: BFO:0000040
 is_a: RO:0003302 ! causes or contributes to condition
 inverse_of: RO:0001022 ! has allergic trigger
 
@@ -579,7 +461,7 @@ inverse_of: RO:0001022 ! has allergic trigger
 id: RO:0001021
 name: is autoimmune trigger for
 def: "A relation between a material entity and a condition (a phenotype or disease) of a host, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
-domain: BFO:0000040 ! material entity
+domain: BFO:0000040
 is_a: RO:0003302 ! causes or contributes to condition
 inverse_of: RO:0001023 ! has autoimmune trigger
 
@@ -588,14 +470,14 @@ id: RO:0001022
 name: has allergic trigger
 def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is not part of the host, and is considered harmless to non-allergic hosts, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
 property_value: IAO:0000112 "penicillin allergy (DOID:0060520) has allergic trigger penicillin (CHEBI:17334)" xsd:string
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
 id: RO:0001023
 name: has autoimmune trigger
 def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 is_a: RO:0003302 ! causes or contributes to condition
 
 [Typedef]
@@ -612,8 +494,8 @@ property_value: IAO:0000116 "Most location relations will only hold at certain t
 property_value: IAO:0000118 "located_in" xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso "https://wiki.geneontology.org/Located_in" xsd:anyURI
-domain: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
-range: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
+domain: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
+range: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
 is_transitive: true
 transitive_over: BFO:0000050 ! part of
 
@@ -653,8 +535,8 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "has boundary" xsd:string
 property_value: IAO:0000118 "has_2D_boundary" xsd:string
 property_value: RO:0001900 RO:0001901
-domain: BFO:0000040 ! material entity
-range: BFO:0000141 ! immaterial entity
+domain: BFO:0000040
+range: BFO:0000141
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -698,7 +580,7 @@ def: "X outer_layer_of Y iff:\n. X :continuant that bearer_of some PATO:laminar\
 comment: A relationship that applies between a continuant and its outer, bounding layer.  Examples include the relationship between a multicellular organism and its integument, between an animal cell and its plasma membrane, and between a membrane bound organelle and its outer/bounding membrane.
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 is_a: BFO:0000050 ! part of
 
 [Typedef]
@@ -727,8 +609,8 @@ def: "x 'regulates in other organism' y if and only if: (x is the realization of
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 synonym: "regulates in other organism" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
-domain: BFO:0000015 ! process
-range: BFO:0000015 ! process
+domain: BFO:0000015
+range: BFO:0000015
 is_a: RO:0002418 ! causally upstream of or within
 
 [Typedef]
@@ -743,8 +625,8 @@ holds_over_chain: RO:0002211 RO:0002313
 id: RO:0002012
 name: occurrent part of
 def: "A part of relation that applies only between occurrents." []
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 is_a: BFO:0000050 ! part of
 is_a: RO:0002418 ! causally upstream of or within
 
@@ -798,8 +680,8 @@ creation_date: 2017-05-24T09:44:33Z
 id: RO:0002018
 name: has component process
 def: "w 'has process component' p if p and w are processes,  w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
-domain: BFO:0000015 ! process
-range: BFO:0000015 ! process
+domain: BFO:0000015
+range: BFO:0000015
 is_a: RO:0002180 ! has component
 created_by: https://orcid.org/0000-0002-7073-9172
 creation_date: 2017-05-24T09:49:21Z
@@ -982,8 +864,8 @@ comment: X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) 
 subset: ro-eco
 property_value: IAO:0000117 "David Osumi-Sutherland" xsd:string
 property_value: IAO:0000118 "io" xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 is_a: RO:0002222 ! temporally related to
 
 [Typedef]
@@ -1172,7 +1054,7 @@ name: releases neurotransmitter
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "has neurotransmitter" xsd:string
 domain: UBERON:0000061
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 
 [Typedef]
 id: RO:0002112
@@ -1314,8 +1196,8 @@ property_value: IAO:0000118 "connected to" xsd:string
 property_value: IAO:0000232 "The label for this relation was previously connected to. I relabeled this to \"continuous with\". The standard notion of connectedness does not imply shared boundaries - e.g. Glasgow connected_to Edinburgh via M8; my patella connected_to my femur (via patellar-femoral joint)" xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso "FMA:85972" xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000004
+range: BFO:0000004
 is_symmetric: true
 is_a: RO:0002323 ! mereotopologically related to
 
@@ -1442,7 +1324,7 @@ property_value: IAO:0000112 "The M8 connects Glasgow and Edinburgh" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 property_value: seeAlso "https://github.com/obophenotype/uberon/wiki/Connectivity-Design-Pattern" xsd:anyURI
 property_value: seeAlso "https://github.com/obophenotype/uberon/wiki/Modeling-articulations-Design-Pattern" xsd:anyURI
-domain: BFO:0000004 ! independent continuant
+domain: BFO:0000004
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -1515,8 +1397,8 @@ property_value: IAO:0000117 https://orcid.org/0000-0001-9114-8737
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000117 https://orcid.org/0000-0003-1980-3228
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000004
+range: BFO:0000004
 is_transitive: true
 is_a: RO:0002254 ! has developmental contribution from
 is_a: RO:0002258 ! developmentally preceded by
@@ -1543,8 +1425,8 @@ def: "definition \"x has gene product of y if and only if y is a gene (SO:000070
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "We would like to be able to express the rule: if t transcribed from g, and t is a noncoding RNA and has an evolved function, then t has gene product g." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000002 ! continuant
+domain: BFO:0000004
+range: BFO:0000002
 holds_over_chain: RO:0002512 RO:0002510
 is_a: RO:0002330 ! genomically related to
 inverse_of: RO:0002205 ! has gene product
@@ -1557,8 +1439,8 @@ property_value: IAO:0000112 "every HOTAIR lncRNA is the gene product of some HOX
 property_value: IAO:0000112 "every sonic hedgehog protein (PR:000014841) is the gene product of some sonic hedgehog gene" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: BFO:0000002 ! continuant
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000002
+range: BFO:0000004
 holds_over_chain: RO:0002511 RO:0002513
 is_a: RO:0002330 ! genomically related to
 
@@ -1569,7 +1451,7 @@ def: "x expressed in y if and only if there is a gene expression process (GO:001
 property_value: IAO:0000112 "'neural crest cell'  SubClassOf expresses some 'Wnt1 gene'" xsd:string
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: BFO:0000002 ! continuant
+domain: BFO:0000002
 range: UBERON:0000465
 is_a: RO:0002330 ! genomically related to
 inverse_of: RO:0002292 ! expresses
@@ -1627,8 +1509,8 @@ property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relati
 property_value: IAO:0000232 "Regulation precludes parthood; the regulatory process may not be within the regulated process." xsd:string
 property_value: IAO:0000589 "regulates (processual)" xsd:string
 property_value: IAO:0000600 "false" xsd:boolean
-domain: BFO:0000015 ! process
-range: BFO:0000015 ! process
+domain: BFO:0000015
+range: BFO:0000015
 holds_over_chain: RO:0002230 RO:0002211
 holds_over_chain: RO:0002578 RO:0002578
 is_transitive: true
@@ -1694,8 +1576,8 @@ property_value: IAO:0000118 "has function realized in" xsd:string
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20123131
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/21208450
 property_value: IAO:0000232 "For compatibility with BFO, this relation has a shortcut definition in which the expression \"capable of some P\" expands to \"bearer_of (some realized_by only P)\"." xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000015 ! process
+domain: BFO:0000004
+range: BFO:0000015
 is_a: RO:0002216 ! capable of part of
 
 [Typedef]
@@ -1753,8 +1635,8 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "This relation acts as a join point with BSPO" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: RO:0001900 RO:0001901
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000004
+range: BFO:0000004
 is_a: RO:0002163 ! spatially disjoint from
 
 [Typedef]
@@ -1777,8 +1659,8 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 https://en.wikipedia.org/wiki/Allen%27s_interval_algebra
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends." xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 
 [Typedef]
 id: RO:0002223
@@ -1873,8 +1755,8 @@ subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "starts with process that occurs in" xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000015
+range: BFO:0000004
 holds_over_chain: RO:0002224 BFO:0000066
 is_a: RO:0002479 ! has part that occurs in
 
@@ -1886,8 +1768,8 @@ subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "ends with process that occurs in" xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000015
+range: BFO:0000004
 holds_over_chain: RO:0002230 BFO:0000066
 is_a: RO:0002479 ! has part that occurs in
 
@@ -1903,7 +1785,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "consumes" xsd:string
 property_value: seeAlso "https://wiki.geneontology.org/Has_input" xsd:anyURI
-domain: BFO:0000015 ! process
+domain: BFO:0000015
 holds_over_chain: RO:0002224 RO:0002233
 is_a: RO:0000057 ! has participant
 inverse_of: RO:0002352 ! input of
@@ -1946,7 +1828,7 @@ is_a: RO:0002444 ! parasite of
 id: RO:0002238
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
-property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
 is_a: RO:0000057 ! has participant
 
@@ -2005,8 +1887,8 @@ def: "A relationship that holds between a substance and a chemical entity, if th
 synonym: "has active pharmaceutical ingredient" RELATED []
 synonym: "has active substance" EXACT []
 property_value: IAO:0000112 "Any portion of roundup 'has active ingredient' some glyphosate" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: BFO:0000051 ! has part
 inverse_of: RO:0002249 ! active ingredient in
 
@@ -2096,8 +1978,8 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000116 "false" xsd:boolean
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "In general you should not use this relation to make assertions - use one of the more specific relations below this one" xsd:string
-domain: BFO:0000002 ! continuant
-range: BFO:0000002 ! continuant
+domain: BFO:0000002
+range: BFO:0000002
 is_a: RO:0002324 ! developmentally related to
 inverse_of: RO:0002286 ! developmentally succeeded by
 
@@ -2437,8 +2319,8 @@ subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
 property_value: IAO:0000112 "Clp1p relocalizes from the nucleolus to the spindle and site of cell division; i.e. it is associated transiently with the spindle pole body and the contractile ring (evidence from GFP fusion). Clp1p colocalizes_with spindle pole body (GO:0005816) and contractile ring (GO:0005826)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "In the context of the Gene Ontology, colocalizes_with may be used for annotating to cellular component terms[GO]" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -2496,8 +2378,8 @@ name: genomically related to
 def: "holds between two entities when some genome-level process such as gene expression is involved. This includes transcriptional, spliceosomal events. These relations can be used between either macromolecule entities (such as regions of nucleic acid) or between their abstract informational counterparts." []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving the genome of an organism" xsd:string
-domain: BFO:0000002 ! continuant
-range: BFO:0000002 ! continuant
+domain: BFO:0000002
+range: BFO:0000002
 
 [Typedef]
 id: RO:0002331
@@ -2520,8 +2402,8 @@ property_value: IAO:0000112 "every cellular sphingolipid homeostasis process reg
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "regulates levels of (process to entity)" xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000040 ! material entity
+domain: BFO:0000015
+range: BFO:0000040
 is_a: RO:0002328 ! functionally related to
 
 [Typedef]
@@ -2541,8 +2423,8 @@ def: "inverse of regulates" []
 subset: RO:0002259
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000589 "regulated by (processual)" xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000015 ! process
+domain: BFO:0000015
+range: BFO:0000015
 is_transitive: true
 is_a: RO:0002427 ! causally downstream of or within
 
@@ -2568,8 +2450,8 @@ name: related via localization to
 def: "A relationship that holds via some process of localization" []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Do not use this relation directly. It is a grouping relation." xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000002 ! continuant
+domain: BFO:0000015
+range: BFO:0000002
 
 [Typedef]
 id: RO:0002338
@@ -2798,8 +2680,8 @@ property_value: IAO:0000232 "This relation can be used for geographic features (
 property_value: RO:0004036 BFO:0000050
 property_value: seeAlso http://purl.obolibrary.org/obo/ro/docs/branching_part_of.png
 property_value: seeAlso "https://github.com/obophenotype/uberon/issues/170" xsd:anyURI
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002323 ! mereotopologically related to
 
 [Typedef]
@@ -3096,8 +2978,8 @@ property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "This is a grouping relation that should probably not be used in annotation. Consider instead the child relation 'provides input for'." xsd:string
 property_value: IAO:0000589 "transitively provides input for (process to process)" xsd:string
-domain: BFO:0000015 ! process
-range: BFO:0000015 ! process
+domain: BFO:0000015
+range: BFO:0000015
 is_transitive: true
 is_a: RO:0004047 ! causally upstream of or within, positive effect
 
@@ -3131,7 +3013,7 @@ is_a: RO:0002424 ! differs in
 id: RO:0002426
 name: differs in attribute
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-range: BFO:0000020 ! specifically dependent continuant
+range: BFO:0000020
 is_a: RO:0002424 ! differs in
 
 [Typedef]
@@ -3217,8 +3099,8 @@ property_value: IAO:0000116 "This relation and all sub-relations can be applied 
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
 property_value: seeAlso "http://purl.obolibrary.org/obo/ro/docs/interaction-relations/" xsd:anyURI
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_symmetric: true
 
 [Typedef]
@@ -3252,8 +3134,8 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "interacts with on organism level" xsd:string
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
 property_value: seeAlso "http://eol.org/schema/terms/interactsWith" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_symmetric: true
 is_a: RO:0002321 ! ecologically related to
 is_a: RO:0002434 ! interacts with
@@ -3326,6 +3208,7 @@ is_a: RO:0002440 ! symbiotically interacts with
 [Typedef]
 id: RO:0002444
 name: parasite of
+def: "A parasite-host relationship where an organism benefits at the expense of another." []
 subset: ro-eco
 synonym: "direct parasite of" EXACT []
 property_value: IAO:0000112 "Pediculus humanus capitis parasite of human" xsd:string
@@ -3339,6 +3222,7 @@ inverse_of: RO:0002445 ! parasitized by
 [Typedef]
 id: RO:0002445
 name: parasitized by
+def: "Inverse of parasite of" []
 subset: ro-eco
 synonym: "directly parasitized by" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -3374,8 +3258,8 @@ def: "The entity A, immediately upstream of the entity B, has an activity that r
 synonym: "molecularly controls" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002436 ! molecularly interacts with
 is_a: RO:0011002 ! regulates activity of
 
@@ -3387,8 +3271,8 @@ synonym: "molecularly decreases activity of" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
 property_value: IAO:0000118 "directly inhibits" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
@@ -3399,8 +3283,8 @@ synonym: "molecularly increases activity of" EXACT []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
 property_value: IAO:0000118 "directly activates" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002448 ! directly regulates activity of
 
 [Typedef]
@@ -3462,10 +3346,11 @@ is_a: RO:0002442 ! mutualistically interacts with
 [Typedef]
 id: RO:0002457
 name: acquires nutrients from
+def: "Inverse of provides nutrients for" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Intended to be used when the target of the relation is not itself consumed, and does not have integral parts consumed, but provided nutrients in some other fashion." xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 inverse_of: RO:0002469 ! provides nutrients for
 
 [Typedef]
@@ -3552,26 +3437,29 @@ is_a: RO:0002465 ! is symbiosis
 [Typedef]
 id: RO:0002469
 name: provides nutrients for
+def: "A biotic interaction where a material entity provides nutrition for an organism." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002470
 name: eats
+def: "A biotic interaction where one organism consumes a material entity through a type of mouth or other oral opening." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "is subject of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002471
 name: is eaten by
+def: "Inverse of eats" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "eaten by" xsd:string
 property_value: IAO:0000118 "is target of eating interaction with" xsd:string
-is_a: RO:0002438 ! trophically interacts with
+is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
 id: RO:0002472
@@ -3591,8 +3479,8 @@ property_value: IAO:0000112 "'otolith organ' SubClassOf 'composed primarily of' 
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/22293552
 property_value: RO:0001900 RO:0001901
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: BFO:0000051 ! has part
 
 [Typedef]
@@ -3626,8 +3514,8 @@ name: has part that occurs in
 def: "p has part that occurs in c if and only if there exists some p1, such that p has_part p1, and p1 occurs in c." []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: BFO:0000003 ! occurrent
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000003
+range: BFO:0000004
 holds_over_chain: BFO:0000051 BFO:0000066 {RO:0002581="true"}
 
 [Typedef]
@@ -3670,8 +3558,8 @@ id: RO:0002487
 name: relation between physical entity and a process or stage
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, typically connecting an anatomical entity to a biological process or developmental stage." xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000003 ! occurrent
+domain: BFO:0000004
+range: BFO:0000003
 
 [Typedef]
 id: RO:0002488
@@ -3785,8 +3673,8 @@ def: "p is causally related to q if and only if p or any part of p and q or any 
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
-domain: BFO:0000003 ! occurrent
-range: BFO:0000003 ! occurrent
+domain: BFO:0000003
+range: BFO:0000003
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -3821,8 +3709,8 @@ property_value: IAO:0000116 "The intent is that the process branch of the causal
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
-domain: BFO:0000002 ! continuant
-range: BFO:0000002 ! continuant
+domain: BFO:0000002
+range: BFO:0000002
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -3838,7 +3726,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/24330602
 property_value: IAO:0000589 "determined by (system to material entity)" xsd:string
 domain: RO:0002577 ! system
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 is_a: BFO:0000050 ! part of
 is_a: RO:0002509 ! determined by part of
 is_a: RO:0002559 ! causally influenced by
@@ -3861,7 +3749,7 @@ def: "s 'determined by part of' w if and only if there exists some f such that (
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: RO:0002577 ! system
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 holds_over_chain: RO:0002507 BFO:0000050 {RO:0002582="true"}
 is_a: RO:0002131 ! overlaps
 is_a: RO:0002506 ! causal relation between entities
@@ -4167,6 +4055,7 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 [Typedef]
 id: RO:0002556
 name: pathogen of
+def: "Inverse of has pathogen" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002454 ! has host
@@ -4175,6 +4064,7 @@ inverse_of: RO:0002557 ! has pathogen
 [Typedef]
 id: RO:0002557
 name: has pathogen
+def: "A host interaction where the smaller of the two members of a symbiosis causes a disease in the larger member" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002453 ! host of
@@ -4232,8 +4122,8 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
 property_value: IAO:0000589 "causally influences (entity-centric)" xsd:string
-domain: BFO:0000002 ! continuant
-range: BFO:0000002 ! continuant
+domain: BFO:0000002
+range: BFO:0000002
 is_a: RO:0002506 ! causal relation between entities
 
 [Typedef]
@@ -4273,8 +4163,8 @@ subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "UBERON:cjm" xsd:string
 property_value: IAO:0000232 "This relation holds between a thing with a 'conduit' (e.g. a bone foramen) and a 'conduee' (for example, a nerve) such that at the time the relationship holds, the conduee has two ends sticking out either end of the conduit. It should therefore note be used for objects that move through the conduit but whose spatial extent does not span the passage. For example, it would not be used for a mountain that contains a long tunnel through which trains pass. Nor would we use it for a digestive tract and objects such as food that pass through." xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002131 ! overlaps
 
 [Typedef]
@@ -4284,7 +4174,7 @@ def: "x lumen_of y iff x is the space or substance that is part of y and does no
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 https://orcid.org/0000-0002-6601-2165
-range: BFO:0000040 ! material entity
+range: BFO:0000040
 is_a: BFO:0000050 ! part of
 
 [Typedef]
@@ -4293,7 +4183,7 @@ name: luminal space of
 def: "s is luminal space of x iff s is lumen_of x and s is an immaterial entity" []
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
-domain: BFO:0000141 ! immaterial entity
+domain: BFO:0000141
 is_a: RO:0002571 ! lumen of
 
 [Typedef]
@@ -4304,8 +4194,8 @@ subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20064205
 property_value: IAO:0000232 "This relation is intended to be used in combination with PATO, to be able to refine PATO quality classes using modifiers such as 'abnormal' and 'normal'. It has yet to be formally aligned into an ontological framework; it's not clear what the ontological status of the \"modifiers\" are." xsd:string
-domain: BFO:0000020 ! specifically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
+domain: BFO:0000020
+range: BFO:0000020
 
 [Typedef]
 id: RO:0002574
@@ -4421,8 +4311,8 @@ def: "A relationship that holds between a material entity and a process in which
 property_value: IAO:0000116 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://purl.obolibrary.org/obo/ro/docs/causal-relations
-domain: BFO:0000040 ! material entity
-range: BFO:0000015 ! process
+domain: BFO:0000040
+range: BFO:0000015
 is_a: RO:0002410 ! causally related to
 
 [Typedef]
@@ -4710,8 +4600,8 @@ comment: Note that this definition doesn't quite distinguish the output of a tra
 subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-9114-8737
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 inverse_of: RO:0003001 ! produced by
 
 [Typedef]
@@ -4721,16 +4611,16 @@ def: "a produced_by b iff some process that occurs_in b has_output a." []
 subset: ro-eco
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-9114-8737
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 
 [Typedef]
 id: RO:0003002
 name: represses expression of
 def: "Holds between entity A (a transcription factor) and a nucleic acid B if and only if A down-regulates the expression of B. The nucleic acid can be a gene or an mRNA." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
@@ -4738,8 +4628,8 @@ id: RO:0003003
 name: increases expression of
 def: "Holds between entity A (a transcription factor) and nucleic acid B if and only if A up-regulates the expression of B. The nucleic acid can be a gene or mRNA." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002450 ! directly positively regulates activity of
 
 [Typedef]
@@ -4822,7 +4712,7 @@ is_a: RO:0002410 ! causally related to
 id: RO:0004000
 name: condition has genetic basis in
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a more specific relations" xsd:string
-domain: BFO:0000017 ! realizable entity
+domain: BFO:0000017
 is_a: RO:0002410 ! causally related to
 inverse_of: RO:0004010 ! is genetic basis for condition
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -4913,7 +4803,7 @@ creation_date: 2018-12-13T11:26:56Z
 id: RO:0004010
 name: is genetic basis for condition
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a more specific relations" xsd:string
-range: BFO:0000017 ! realizable entity
+range: BFO:0000017
 is_a: RO:0004018 ! is basis for realizable
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-11-05T02:53:08Z
@@ -5014,7 +4904,7 @@ id: RO:0004021
 name: disease has basis in disruption of
 def: "A relation that holds between the disease and a process where the physical basis of the disease disrupts execution of a key biological process." []
 property_value: IAO:0000589 "disease has basis in disruption of (disease to process)" xsd:string
-range: BFO:0000015 ! process
+range: BFO:0000015
 is_a: RO:0004019 ! disease has basis in
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-11-05T03:37:52Z
@@ -5045,7 +4935,7 @@ name: disease causes disruption of
 def: "A relationship between a disease and a process where the disease process disrupts the execution of the process." []
 property_value: IAO:0000589 "disease causes disruption of (disease to process)" xsd:string
 domain: OGMS:0000031
-range: BFO:0000015 ! process
+range: BFO:0000015
 holds_over_chain: RO:0004025 RO:0002215
 is_a: RO:0004023 ! causal relationship with disease as subject
 transitive_over: BFO:0000050 ! part of
@@ -5070,7 +4960,7 @@ def: "A relationship between a disease and an anatomical entity where the diseas
 property_value: IAO:0000116 "TODO: complete range axiom once more of CARO has been mireoted in to this ontology" xsd:string
 property_value: IAO:0000232 "This relation is intentionally very general, and covers isolated diseases, where the disease is realized as a process occurring in the location, and syndromic diseases, where one or more of the features may be present in that location. Thus any given disease can have multiple locations in the sense defined here." xsd:string
 domain: OGMS:0000031
-range: BFO:0000004 ! independent continuant
+range: BFO:0000004
 is_a: RO:0040035 ! disease relationship
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-11-05T04:06:02Z
@@ -5080,7 +4970,7 @@ id: RO:0004027
 name: disease has inflammation site
 def: "A relationship between a disease and an anatomical entity where the disease is triggered by an inflammatory response to stimuli occurring in the anatomical entity" []
 domain: OGMS:0000031
-range: BFO:0000004 ! independent continuant
+range: BFO:0000004
 is_a: RO:0004026 ! disease has location
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-12-26T19:37:31Z
@@ -5089,8 +4979,8 @@ creation_date: 2017-12-26T19:37:31Z
 id: RO:0004028
 name: realized in response to stimulus
 def: "A relationship between a realizable entity R (e.g. function or disposition) and a material entity M where R is realized in response to a process that has an input stimulus of M." []
-domain: BFO:0000017 ! realizable entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000017
+range: BFO:0000040
 holds_over_chain: RO:0009501 RO:0002233
 is_a: RO:0002410 ! causally related to
 created_by: https://orcid.org/0000-0002-6601-2165
@@ -5296,8 +5186,8 @@ property_value: IAO:0000112 "muffin 'has substance added' some 'baking soda'" xs
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000116 "The relation X 'has substance added' some Y doesn't imply that X still has Y in any detectable fashion subsequent to the addition. Water in dehydrated food or ice cubes are examples, as is food that undergoes chemical transformation. This definition should encompass recipe ingredients." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 
 [Typedef]
 id: RO:0009002
@@ -5306,8 +5196,8 @@ def: "\"has substance removed\" is a relation existing between two physical enti
 property_value: IAO:0000112 "'egg white' 'has substance removed' some 'egg yolk'" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 
 [Typedef]
 id: RO:0009003
@@ -5316,8 +5206,8 @@ def: "\"immersed in\" is a relation between a (physical) entity and a fluid subs
 property_value: IAO:0000112 "sardines 'immersed in' some 'oil and mustard'" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 
 [Typedef]
 id: RO:0009004
@@ -5326,7 +5216,7 @@ def: "'has consumer' is a relation between a material entity and an organism in 
 property_value: IAO:0000112 "sardine has consumer some homo sapiens" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
-domain: BFO:0000040 ! material entity
+domain: BFO:0000040
 range: OBI:0100026
 
 [Typedef]
@@ -5337,6 +5227,26 @@ property_value: IAO:0000112 "bread 'has primary substance added' some 'flour'" x
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
 is_a: RO:0009001 ! has substance added
+
+[Typedef]
+id: RO:0009006
+name: assay measures characteristic
+def: "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
+property_value: http://purl.org/dc/terms/date "2023-05-23T15:24:15Z" xsd:dateTime
+property_value: IAO:0000112 "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material." xsd:string
+domain: OBI:0000070
+range: BFO:0000020
+inverse_of: RO:0009007 ! characteristic measured by assay
+
+[Typedef]
+id: RO:0009007
+name: characteristic measured by assay
+def: "Inverse of 'assay measures characteristic'" []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
+property_value: http://purl.org/dc/terms/date "2023-05-23T15:29:50Z" xsd:dateTime
+domain: BFO:0000020
+range: OBI:0000070
 
 [Typedef]
 id: RO:0009501
@@ -5351,8 +5261,8 @@ property_value: IAO:0000112 "A drought sensitivity trait that inheres in a whole
 property_value: IAO:0000112 "An inflammatory disease that is realized in response to an inflammatory process occurring in the gut (which is itself the realization of a process realized in response to harmful stimuli in the mucosal lining of th gut)" xsd:string
 property_value: IAO:0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph." xsd:string
 property_value: seeAlso "https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit" xsd:anyURI
-domain: BFO:0000017 ! realizable entity
-range: BFO:0000015 ! process
+domain: BFO:0000017
+range: BFO:0000015
 holds_over_chain: BFO:0000054 RO:0002404
 is_a: RO:0002410 ! causally related to
 
@@ -5367,8 +5277,8 @@ property_value: IAO:0000112 "The pattern shared by chess boards generically depe
 property_value: IAO:0000112 "The score of a symphony g-depends on a copy of the score." xsd:string
 property_value: IAO:0000112 "This pdf file generically depends on this server." xsd:string
 property_value: IAO:0000119 "[072-ISO]" xsd:string
-domain: BFO:0000031 ! generically dependent continuant
-range: BFO:0000004 ! independent continuant
+domain: BFO:0000031
+range: BFO:0000004
 holds_over_chain: RO:0000052 RO:0000058
 inverse_of: RO:0010002 ! is carrier of
 
@@ -5380,8 +5290,8 @@ property_value: IAO:0000112 "Molecules of DNA are carriers of genetic informatio
 property_value: IAO:0000112 "This copy of *War and Peace* is carrier of the novel written by Tolstoy." xsd:string
 property_value: IAO:0000112 "This hard drive is carrier of these data items." xsd:string
 property_value: IAO:0000119 "[072-ISO]" xsd:string
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000031 ! generically dependent continuant
+domain: BFO:0000004
+range: BFO:0000031
 holds_over_chain: RO:0000059 RO:0000053
 
 [Typedef]
@@ -5389,8 +5299,8 @@ id: RO:0011002
 name: regulates activity of
 def: "The entity A has an activity that regulates an activity of the entity B. For example, A and B are gene products where the catalytic activity of A regulates the kinase activity of B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002566 ! causally influences
 
 [Typedef]
@@ -5398,8 +5308,8 @@ id: RO:0011003
 name: regulates quantity of
 def: "The entity A has an activity that regulates the quantity or abundance or concentration of the entity B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0002566 ! causally influences
 
 [Typedef]
@@ -5407,8 +5317,8 @@ id: RO:0011004
 name: indirectly regulates activity of
 def: "The entity A is not immediately upstream of the entity B but A has an activity that regulates an activity performed by B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011002 ! regulates activity of
 
 [Typedef]
@@ -5416,8 +5326,8 @@ id: RO:0011007
 name: decreases by repression quantity of
 def: "The entity A has an activity that down-regulates by repression the quantity of B. The down-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly decreases by repression the quantity of protein B (gene product) if and only if A negatively regulates the process of transcription or translation of a nucleic acid element that produces B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011023 ! indirectly negatively regulates quantity of
 
 [Typedef]
@@ -5425,8 +5335,8 @@ id: RO:0011008
 name: increases by expression quantity of
 def: "The entity A has an activity that up-regulates by expression the quantity of B. The up-regulation is due to A having an effect on an intermediate entity (typically a DNA or mRNA element) which can produce B.\n\nFor example, protein A (transcription factor) indirectly increases by expression the quantity of protein B (gene product) if and only if A positively regulates the process of transcription or translation of a nucleic acid element that produces B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011024 ! indirectly positively regulates quantity of
 
 [Typedef]
@@ -5434,8 +5344,8 @@ id: RO:0011009
 name: directly positively regulates quantity of
 def: "The entity A has an activity that directly positively regulates the quantity of B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011021 ! directly regulates quantity of
 
 [Typedef]
@@ -5443,8 +5353,8 @@ id: RO:0011010
 name: directly negatively regulates quantity of
 def: "The entity A has an activity that directly negatively regulates the quantity of B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011021 ! directly regulates quantity of
 
 [Typedef]
@@ -5453,8 +5363,8 @@ name: indirectly positively regulates activity of
 def: "The entity A is not immediately upstream of the entity B and has an activity that up-regulates an activity performed by B." []
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
 property_value: IAO:0000118 "indirectly activates" xsd:string
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011004 ! indirectly regulates activity of
 
 [Typedef]
@@ -5463,8 +5373,8 @@ name: destabilizes quantity of
 def: "An entity A directly interacts with B and A has an activity that decreases the amount of an entity B by degradating it." []
 property_value: IAO:0000112 "AKT1 destabilizes quantity of FOXO (interaction from Signor database: SIGNOR-252844)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011010 ! directly negatively regulates quantity of
 
 [Typedef]
@@ -5473,8 +5383,8 @@ name: stabilizes quantity of
 def: "An entity A physically interacts with B and A has an activity that increases the amount of an entity B by stabilizing it." []
 property_value: IAO:0000112 "AKT1 stabilizes quantity of XIAP (interaction from Signor database: SIGNOR-119488)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0003-4639-4431
-domain: BFO:0000040 ! material entity
-range: BFO:0000040 ! material entity
+domain: BFO:0000040
+range: BFO:0000040
 is_a: RO:0011009 ! directly positively regulates quantity of
 
 [Typedef]
@@ -5888,9 +5798,9 @@ id: RO:0017001
 name: device utilizes material
 def: "X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y." []
 synonym: "utilizes" BROAD []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-2620-0345
 property_value: IAO:0000112 "A diagnostic testing device utilizes a specimen." xsd:string
-property_value: IAO:0000117 https://orcid.org/0000-0001-9625-1899
-property_value: IAO:0000117 https://orcid.org/0000-0003-2620-0345
 property_value: IAO:0000232 "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input." xsd:string
 property_value: IAO:0000232 "See github ticket https://github.com/oborel/obo-relations/issues/497" xsd:string
 holds_over_chain: RO:0002215 RO:0002233
@@ -5923,6 +5833,40 @@ property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002
 property_value: IAO:0000112 "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen." xsd:string
 domain: OBI:0000967
 range: COB:0000121
+
+[Typedef]
+id: RO:0017006
+name: has maximum capacity
+def: "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2999-0103
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-5714-991X
+property_value: IAO:0000112 "anticoagulant-containing test tube has maximum capacity 10 ml." xsd:string
+domain: OBI:0000967
+range: COB:0000121
+
+[Typedef]
+id: RO:0017008
+name: owns
+def: "A primitive relation that holds between entities x and y in which y is at x's full disposal." []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
+property_value: http://purl.org/dc/terms/description "This primitive relation is the foundation of the owner's right to have the owned entity at his/her full disposal." xsd:string
+property_value: IAO:0000112 "biobank organization owns a specimen" xsd:string
+property_value: IAO:0000112 "hospital owns a laboratory facility" xsd:string
+inverse_of: RO:0017009 ! is owned by
+creation_date: 2023-03-29T16:57:03Z
+
+[Typedef]
+id: RO:0017009
+name: is owned by
+def: "Inverse of the owns relation." []
+subset: RO:0002259
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
+property_value: IAO:0000112 "freezer is owned by a biobank organization" xsd:string
+creation_date: 2023-03-29T17:06:06Z
 
 [Typedef]
 id: RO:0018001
@@ -6099,7 +6043,7 @@ id: RO:0019000
 name: regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
 property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
-domain: BFO:0000015 ! process
+domain: BFO:0000015
 range: PATO:0000001
 holds_over_chain: RO:0002211 RO:0019000
 is_a: RO:0002410 ! causally related to
@@ -6161,6 +6105,26 @@ domain: UBERON:0001982
 range: UBERON:0000061
 is_a: RO:0002178 ! supplies
 is_a: RO:0002179 ! drains
+
+[Typedef]
+id: RO:0020202
+name: has numerator
+def: "A relationship between a ratio or proportion and its dividend." []
+synonym: "has dividend" EXACT []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+domain: PATO:0001470
+range: PATO:0000001
+is_a: BFO:0000051 ! has part
+
+[Typedef]
+id: RO:0020203
+name: has denominator
+def: "A relationship between a ratio or proportion and its divisor." []
+synonym: "has divisor" EXACT []
+property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+domain: PATO:0001470
+range: PATO:0000001
+is_a: BFO:0000051 ! has part
 
 [Typedef]
 id: RO:0040035
