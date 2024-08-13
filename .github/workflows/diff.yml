@@ -1,0 +1,51 @@
+name: 'Create ROBOT diffs on Pull requests'
+
+on: 
+
+  issue_comment:
+        types: [created]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  diff-reports:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    container: obolibrary/odkfull:v1.4
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: '#gogoeditdiff'
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      # Checks-out current branch
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+      - uses: actions/checkout@v3
+        if: steps.check.outputs.triggered == 'true'
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
+      # Checks-out master branch under "master" directory
+      - uses: actions/checkout@v3
+        if: steps.check.outputs.triggered == 'true'
+        with:
+          ref: master
+          path: master
+      - name: Diff Edit
+        if: steps.check.outputs.triggered == 'true'
+        run: |
+          cd src/ontology
+          robot diff --left ../../master/src/ontology/ro-edit.owl --left-catalog ../../master/src/ontology/catalog-v001.xml --right ro-edit.owl --right-catalog catalog-v001.xml -f markdown -o edit-diff.md
+          echo "<details>\n<summary>Here's a diff of your edit file</summary>\n" > edit-comment.md
+          cat edit-diff.md >> edit-comment.md
+          echo "</details>" >> edit-comment.md
+      - name: Post comment
+        if: steps.check.outputs.triggered == 'true'
+        uses: NejcZdovc/comment-pr@v1.1.1
+        with:
+            file: "../../edit-comment.md"
+            github_token: ${{secrets.GITHUB_TOKEN}}
+      
