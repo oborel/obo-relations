@@ -1,9 +1,15 @@
 format-version: 1.2
-data-version: ro/releases/2024-04-24/core.owl
+data-version: ro/releases/2024-08-14/core.owl
+idspace: dc http://purl.org/dc/elements/1.1/ 
+idspace: foaf http://xmlns.com/foaf/0.1/ 
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: swrl http://www.w3.org/2003/11/swrl# 
+idspace: swrlb http://www.w3.org/2003/11/swrlb# 
+idspace: terms http://purl.org/dc/terms/ 
 ontology: ro/core
-property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
-property_value: http://xmlns.com/foaf/0.1/homepage "https://github.com/oborel/obo-relations/wiki/ROCore" xsd:anyURI
-property_value: owl:versionInfo "2024-04-24" xsd:string
+property_value: foaf:homepage "https://github.com/oborel/obo-relations/wiki/ROCore" xsd:anyURI
+property_value: owl:versionInfo "2024-08-14" xsd:string
+property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 
 [Term]
 id: BFO:0000002
@@ -222,33 +228,31 @@ inverse_of: RO:0000057 ! has participant
 id: RO:0000057
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 property_value: IAO:0000111 "has participant" xsd:string
 property_value: IAO:0000112 "this blood coagulation has participant this blood clot" xsd:string
 property_value: IAO:0000112 "this investigation has participant this investigator" xsd:string
 property_value: IAO:0000112 "this process has participant this input material (or this output material)" xsd:string
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 domain: BFO:0000003 ! occurrent
 range: BFO:0000002 ! continuant
 
 [Typedef]
 id: RO:0000058
 name: is concretized as
-def: "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants." []
+def: "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
 domain: BFO:0000031 ! generically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
 id: RO:0000059
 name: concretizes
-def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
+def: "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
-domain: BFO:0000020 ! specifically dependent continuant
 range: BFO:0000031 ! generically dependent continuant
 
 [Typedef]
@@ -373,7 +377,6 @@ inverse_of: RO:0001025 ! located in
 id: RO:0001025
 name: located in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
 property_value: IAO:0000111 "located in" xsd:string
 property_value: IAO:0000112 "my brain is located in my head" xsd:string
 property_value: IAO:0000112 "this rat is located in this cage" xsd:string
@@ -381,6 +384,7 @@ property_value: IAO:0000116 "Location as a relation between instances: The primi
 property_value: IAO:0000116 "Most location relations will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/" xsd:string
 property_value: IAO:0000118 "located_in" xsd:string
 property_value: RO:0001900 RO:0001901
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
 domain: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
 range: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."} ! independent continuant
 is_transitive: true
