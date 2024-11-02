@@ -17,14 +17,15 @@
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2024-04-24/ro.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2024-08-14/ro.owl"/>
         <terms:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <terms:title xml:lang="en">OBO Relations Ontology</terms:title>
-        <owl:versionInfo>2024-04-24</owl:versionInfo>
+        <owl:versionInfo>2024-08-14</owl:versionInfo>
         <foaf:homepage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"> https://github.com/oborel/obo-relations/</foaf:homepage>
     </owl:Ontology>
     
@@ -38,6 +39,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://protege.stanford.edu/plugins/owl/protege#defaultLanguage -->
+
+    <owl:AnnotationProperty rdf:about="http://protege.stanford.edu/plugins/owl/protege#defaultLanguage"/>
     
 
 
@@ -105,7 +112,7 @@ We don&apos;t have definitions of &apos;meaning&apos; or &apos;expression&apos; 
 
 Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
 
-We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  </obo:IAO_0000116>
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.</obo:IAO_0000116>
         <obo:IAO_0000117 xml:lang="en">PERSON:Daniel Schober</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
         <rdfs:label>definition</rdfs:label>
@@ -624,7 +631,7 @@ WHERE {
     <!-- http://purl.obolibrary.org/obo/RO_0002535 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002535">
-        <obo:IAO_0000232>This properties were created originally for the annotation of developmental or life cycle stages, such as for example Carnegie Stage 20 in humans. </obo:IAO_0000232>
+        <obo:IAO_0000232>This property was originally created for the annotation of developmental or life cycle stages, such as for example Carnegie Stage 20 in humans. </obo:IAO_0000232>
         <rdfs:label>temporal logical macro assertion on a class</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002420"/>
     </owl:AnnotationProperty>
@@ -1179,9 +1186,27 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/format -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
     
 
 
@@ -1194,6 +1219,12 @@ Where we have an annotation assertion
     <!-- http://purl.org/dc/elements/1.1/source -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/subject"/>
     
 
 
@@ -1494,6 +1525,23 @@ Where we have an annotation assertion
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -1720,6 +1768,18 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/ENVO_02000200 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/ENVO_02000200">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002180"/>
+        <obo:IAO_0000115>A has part relationship between a whole and a part, where the number of parts present in the whole is higher than in comparable entities.</obo:IAO_0000115>
+        <rdfs:comment>This relation is present in ENVO to support compositional classes such as &quot;X-enriched soil&quot;. These will later be formalized, and a different relation from RO may be chosen.</rdfs:comment>
+        <rdfs:label>has increased levels of</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/EnvironmentOntology/envo/issues/1380"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0000052 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000052">
@@ -1805,10 +1865,17 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000058">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">is concretized as</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1817,11 +1884,18 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/RO_0000059 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000059">
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">concretizes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -6173,6 +6247,10 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002501"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002427"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002418"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <obo:IAO_0000115>p is &apos;causally upstream or within&apos; q iff p is causally related to q, and the end of p precedes, or is coincident with, the end of q.</obo:IAO_0000115>
         <obo:IAO_0000116>We would like to make this disjoint with &apos;preceded by&apos;, but this is prohibited in OWL2</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
@@ -6434,6 +6512,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002438">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000112>lions trophically interact with the zebras that they eat</obo:IAO_0000112>
         <obo:IAO_0000115>An interaction relationship in which the partners are related via a feeding relationship.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -6476,6 +6555,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
                 <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002461"/>
             </rdf:Description>
         </owl:propertyChainAxiom>
+        <obo:IAO_0000112>whales symbiotically interact with the barnacles that attach to them</obo:IAO_0000112>
         <obo:IAO_0000115>A biotic interaction in which the two organisms live together in more or less intimate association.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
@@ -9702,6 +9782,34 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0008510 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008510">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <obo:IAO_0000112>frog symbiotrophically interacts with the pitcher plant it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:39:56Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">symbiotrophically interacts with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0008511 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008511">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0008510"/>
+        <obo:IAO_0000112>tapeworm is trophic parasite of the cow it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:41:07Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">trophic parasite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0009001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009001">
@@ -10772,6 +10880,21 @@ For example, protein A (transcription factor) indirectly increases by expression
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-29T17:06:06Z</oboInOwl:creation_date>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
         <rdfs:label xml:lang="en">is owned by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017502">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <obo:IAO_0000112 xml:lang="en">A thorax specimen was collected during the larval stage.</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">An oyster was collected during low tide.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation between a material entity and an occurrent in which the material entity is collected during the existence of the occurrent.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-09-13T04:12:32Z</terms:date>
+        <rdfs:label xml:lang="en">collected during</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -12853,12 +12976,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
-    <!-- http://purl.obolibrary.org/obo/envo#has_increased_levels_of -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/envo#has_increased_levels_of"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -13166,7 +13283,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <obo:IAO_0000115>A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.</obo:IAO_0000115>
         <obo:IAO_0000115>A material entity that has a plasma membrane and results from cellular division.</obo:IAO_0000115>
         <oboInOwl:hasDbXref>CALOHA:TS-2035</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00007002</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:68646</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>GO:0005623</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>KUPO:0000002</oboInOwl:hasDbXref>
@@ -13194,8 +13310,8 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000101">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CL_0000540"/>
         <obo:IAO_0000115>Any neuron having a sensory function; an afferent neuron conveying sensory impulses.</obo:IAO_0000115>
+        <obo:RO_0002175 rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
         <oboInOwl:hasDbXref>BTO:0001037</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00005124</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:84649</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>MESH:D011984</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>WBbt:0005759</oboInOwl:hasDbXref>
@@ -13218,7 +13334,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <obo:RO_0002175 rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
         <oboInOwl:hasDbXref>BTO:0000938</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>CALOHA:TS-0683</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>FBbt:00005106</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>FMA:54527</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>VHOG:0001483</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>WBbt:0003679</oboInOwl:hasDbXref>
@@ -13303,7 +13418,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <obo:IAO_0000115>A molecular process that can be carried out by the action of a single macromolecular machine, usually via direct physical interactions with other molecular entities. Function in this sense denotes an action, or activity, that a gene product (or a complex) performs.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>molecular function</oboInOwl:hasExactSynonym>
         <oboInOwl:id>GO:0003674</oboInOwl:id>
-        <rdfs:comment>Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this. Despite its name, this is not a type of &apos;function&apos; in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.</rdfs:comment>
+        <rdfs:comment>Note that, in addition to forming the root of the molecular function ontology, this term is recommended for the annotation of gene products whose molecular function is unknown. When this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this. Despite its name, this is not a type of &apos;function&apos; in the sense typically defined by upper ontologies such as Basic Formal Ontology (BFO). It is instead a BFO:process carried out by a single gene product or complex.</rdfs:comment>
         <rdfs:comment>This is the same as GO molecular function</rdfs:comment>
         <rdfs:label xml:lang="en">gene product or complex activity</rdfs:label>
         <rdfs:label>molecular_function</rdfs:label>
@@ -13359,7 +13474,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <oboInOwl:hasDbXref>Reactome:R-HSA-180597</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-182986</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-182993</oboInOwl:hasDbXref>
-        <oboInOwl:hasDbXref>Reactome:R-HSA-183036</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-183051</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-183084</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-183089</oboInOwl:hasDbXref>
@@ -13460,6 +13574,8 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <oboInOwl:hasDbXref>Reactome:R-HSA-983140</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-983153</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>Reactome:R-HSA-983156</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Reactome:R-HSA-9833155</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>Reactome:R-HSA-9833973</oboInOwl:hasDbXref>
         <oboInOwl:hasNarrowSynonym>ubiquitin conjugating enzyme activity</oboInOwl:hasNarrowSynonym>
         <oboInOwl:hasNarrowSynonym>ubiquitin ligase activity</oboInOwl:hasNarrowSynonym>
         <oboInOwl:hasNarrowSynonym>ubiquitin protein ligase activity</oboInOwl:hasNarrowSynonym>
@@ -13643,12 +13759,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
         <owl:annotatedTarget>Reactome:R-HSA-182993</owl:annotatedTarget>
         <rdfs:label>Ubiquitination of stimulated EGFR (CBL)</rdfs:label>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/GO_0004842"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
-        <owl:annotatedTarget>Reactome:R-HSA-183036</owl:annotatedTarget>
-        <rdfs:label>Ubiquitination of stimulated EGFR (CBL:GRB2)</rdfs:label>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/GO_0004842"/>
@@ -14250,6 +14360,18 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <owl:annotatedTarget>Reactome:R-HSA-983156</owl:annotatedTarget>
         <rdfs:label>Polyubiquitination of substrate</rdfs:label>
     </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/GO_0004842"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>Reactome:R-HSA-9833155</owl:annotatedTarget>
+        <rdfs:label>Ubiquitination of STAT2</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/GO_0004842"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>Reactome:R-HSA-9833973</owl:annotatedTarget>
+        <rdfs:label>ISGylation of PKR</rdfs:label>
+    </owl:Axiom>
     
 
 
@@ -14300,7 +14422,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <oboInOwl:hasRelatedSynonym>single-organism process</oboInOwl:hasRelatedSynonym>
         <oboInOwl:id>GO:0008150</oboInOwl:id>
         <rdfs:comment>A biological process is an evolved process</rdfs:comment>
-        <rdfs:comment>Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this.</rdfs:comment>
+        <rdfs:comment>Note that, in addition to forming the root of the biological process ontology, this term is recommended for the annotation of gene products whose biological process is unknown. When this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code &apos;no data&apos; (ND), is used to indicate this.</rdfs:comment>
         <rdfs:label xml:lang="en">biological process</rdfs:label>
         <rdfs:label>biological_process</rdfs:label>
     </owl:Class>
@@ -14434,7 +14556,6 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
         <obo:IAO_0000111>planned process</obo:IAO_0000111>
-        <obo:IAO_0000111 xml:lang="en">planned process</obo:IAO_0000111>
         <obo:IAO_0000112>Injecting mice with a vaccine in order to test its efficacy</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000115 xml:lang="en">A process that realizes a plan which is the concretization of a plan specification.</obo:IAO_0000115>
@@ -14443,6 +14564,8 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 objectives is a planned process.</obo:IAO_0000116>
         <obo:IAO_0000117>Bjoern Peters</obo:IAO_0000117>
         <obo:IAO_0000119>branch derived</obo:IAO_0000119>
+        <obo:IAO_0000232>6/11/9: Edited at workshop. Used to include: is initiated by an agent</obo:IAO_0000232>
+        <obo:IAO_0000232 xml:lang="en">This class merges the previously separated objective driven process and planned process, as they the separation proved hard to maintain. (1/22/09, branch call)</obo:IAO_0000232>
         <rdfs:label xml:lang="en">planned process</rdfs:label>
     </owl:Class>
     
@@ -14469,8 +14592,9 @@ objectives is a planned process.</obo:IAO_0000116>
         <obo:IAO_0000111 xml:lang="en">assay</obo:IAO_0000111>
         <obo:IAO_0000112>Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house.</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
-        <obo:IAO_0000115 xml:lang="en">A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A planned process that has the objective to produce information about a material entity (the evaluant) by examining it.</obo:IAO_0000115>
         <obo:IAO_0000116>12/3/12: BP: the reference to the &apos;physical examination&apos; is included to point out that a prediction is not an assay, as that does not require physical examiniation.</obo:IAO_0000116>
+        <obo:IAO_0000116>Discussion on OBI call 2023-05-01 resulted in an agreement to revise the textual definition of &apos;assay&apos;.  https://github.com/obi-ontology/obi/issues/1683.</obo:IAO_0000116>
         <obo:IAO_0000117 xml:lang="en">PlanAndPlannedProcess Branch</obo:IAO_0000117>
         <obo:IAO_0000118 xml:lang="en">measuring</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">scientific observation</obo:IAO_0000118>
@@ -14612,21 +14736,27 @@ This issue is outside the scope of OBI.</obo:IAO_0000116>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/PATO_0001470">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PATO_0000001"/>
-        <obo:IAO_0000115>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in respect to a related entity.</obo:IAO_0000115>
+        <obo:IAO_0000115>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in proportion to the magnitude of another entity.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>proportion</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>proportionality</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>proportionality to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>quotient</oboInOwl:hasExactSynonym>
-        <oboInOwl:hasExactSynonym>ratio</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>rate</oboInOwl:hasRelatedSynonym>
         <oboInOwl:id>PATO:0001470</oboInOwl:id>
-        <rdfs:comment>Examples: height to weight; brain size to body size. These could all be children of proportionality. Proportions can be measured as ratios. Some measures may be dimensionless. Not all ratios measure proportionality, eg m/s measures velocity which is not a proportion in the sense defined above, it is a quality in its own right.</rdfs:comment>
-        <rdfs:label>proportionality to</rdfs:label>
+        <rdfs:comment>Examples: height to weight; brain size to body size; root to shoot ratio; urinary sodium to potassium ratio. waist-hip ratio.</rdfs:comment>
+        <rdfs:label>ratio</rdfs:label>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/PATO_0001470"/>
         <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
-        <owl:annotatedTarget>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in respect to a related entity.</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>PATOC:nw</oboInOwl:hasDbXref>
+        <owl:annotatedTarget>A quality inhering in a bearer by virtue of the bearer&apos;s magnitude in proportion to the magnitude of another entity.</owl:annotatedTarget>
+        <terms:contributor>https://orcid.org/0000-0001-8314-2140</terms:contributor>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/PATO_0001470"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+        <owl:annotatedTarget>Examples: height to weight; brain size to body size; root to shoot ratio; urinary sodium to potassium ratio. waist-hip ratio.</owl:annotatedTarget>
+        <terms:contributor>https://orcid.org/0000-0001-8314-2140</terms:contributor>
     </owl:Axiom>
     
 
@@ -15572,13 +15702,13 @@ binary, and takes no temporal argument.
     <!-- https://orcid.org/0000-0002-8844-9165 -->
 
     <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-8844-9165">
-        <terms:description>researcher (ORCID 0000-0002-8844-9165)</terms:description>
+        <terms:description>researcher</terms:description>
         <rdfs:label>Damion M Dooley</rdfs:label>
     </owl:NamedIndividual>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
         <owl:annotatedProperty rdf:resource="http://purl.org/dc/terms/description"/>
-        <owl:annotatedTarget>researcher (ORCID 0000-0002-8844-9165)</owl:annotatedTarget>
+        <owl:annotatedTarget>researcher</owl:annotatedTarget>
         <terms:source rdf:resource="http://www.wikidata.org/entity/Q91868864"/>
     </owl:Axiom>
     <owl:Axiom>
@@ -16124,6 +16254,12 @@ No imports</obo:IAO_0000115>
         <oboInOwl:created_by rdf:resource="http://orcid.org/0000-0001-5208-3432"/>
         <rdfs:label>logical characteristic of object property</rdfs:label>
     </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OMO_0001002">
+        <obo:IAO_0000115 xml:lang="en">The term was added to the ontology on the assumption it was a valid domain entity, but it turns out the entity does not exist in reality.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">This obsolesence reason should be used conservatively. For example: Obsoleting class that describes a breed of cow based on a record in an existing database, that was later retracted as faulty (breed does not exist). Do not use this term to obsolete a historic concept (that was once valid, but not anymore). </obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:resource="http://orcid.org/0000-0002-4142-7153"/>
+        <rdfs:label>domain entity does not exist</rdfs:label>
+    </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OMO_0003000">
         <obo:IAO_0000112>CHEBI:26523 (reactive oxygen species) has an exact synonym (ROS), which is of type OMO:0003000 (abbreviation)</obo:IAO_0000112>
         <obo:IAO_0000115>A synonym type for describing abbreviations or initalisms</obo:IAO_0000115>
@@ -16179,6 +16315,25 @@ No imports</obo:IAO_0000115>
         <obo:IAO_0000115>A synonym type for the legal entity name</obo:IAO_0000115>
         <terms:contributor rdf:resource="https://orcid.org/0000-0003-4423-4370"/>
         <rdfs:label>legal name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OMO_0003010">
+        <obo:IAO_0000112>CHEBI:46195 has been assigned the english International Nonproproprietary Name (INN) &quot;paracetamol&quot;. In some cases such as this one, the INN might be the same as the ontology&apos;s primary label</obo:IAO_0000112>
+        <obo:IAO_0000115>The International Nonproprietary Name (INN) is a standardize name for a pharmaceutical drug or active ingredient issued by the World Health Organization (WHO) meant to address the issues with country- or language-specific brand names. These are issued in several languages, including English, Latin, French, Russian, Spanish, Arabic, and Chinese.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-4423-4370"/>
+        <oboInOwl:hasExactSynonym>INN</oboInOwl:hasExactSynonym>
+        <rdfs:label>International Nonproprietary Name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OMO_0003011">
+        <obo:IAO_0000112>nasopharynx (UBERON:0001728) has the latin name &quot;pars nasalis pharyngis</obo:IAO_0000112>
+        <obo:IAO_0000115>A synonym type for describing Latin term synonyms.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-1773-2692"/>
+        <rdfs:label>latin term</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OMO_0003012">
+        <obo:IAO_0000112>NASA is an word acronym for the US National Aeronautics and Space Administration because the acronym is pronounced. FBI is an initialism (also known as alphabetism) for the US Federal Bureau of Investigation since the letters are pronounced one at a time. JPEG is an acronym for Joint Photographic Experts Group but does not count as a word acronym nor an initialism since it is mixed how it is pronounced.</obo:IAO_0000112>
+        <obo:IAO_0000115>A synonym type for describing abbreviations that are a part of the full name&apos;s words, such as initialisms or alphabetisms.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-4423-4370"/>
+        <rdfs:label>acronym</rdfs:label>
     </rdf:Description>
     
 
@@ -16254,10 +16409,10 @@ No imports</obo:IAO_0000115>
     <rdf:Description rdf:about="urn:swrl:var#p">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#e">
+    <rdf:Description rdf:about="urn:swrl:var#e">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#d">
+    <rdf:Description rdf:about="urn:swrl:var#d">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/ro.owl#z">
@@ -16384,8 +16539,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16395,7 +16550,7 @@ No imports</obo:IAO_0000115>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16410,8 +16565,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16427,8 +16582,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16438,7 +16593,7 @@ No imports</obo:IAO_0000115>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16453,8 +16608,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16470,8 +16625,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16481,7 +16636,7 @@ No imports</obo:IAO_0000115>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16496,8 +16651,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16513,8 +16668,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -16524,7 +16679,7 @@ No imports</obo:IAO_0000115>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                                 <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -16539,8 +16694,8 @@ No imports</obo:IAO_0000115>
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -17585,5 +17740,5 @@ e.g.  if GP X enables ATPase coupled transporter activity&apos; and &apos;ATPase
 
 
 
-<!-- Generated by the OWL API (version 4.5.26) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
 

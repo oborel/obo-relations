@@ -17,12 +17,12 @@
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro/ro-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2024-04-24/ro-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2024-08-14/ro-base.owl"/>
         <dc:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <terms:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <terms:title xml:lang="en">OBO Relations Ontology</terms:title>
-        <owl:versionInfo>2024-04-24</owl:versionInfo>
+        <owl:versionInfo>2024-08-14</owl:versionInfo>
         <foaf:homepage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"> https://github.com/oborel/obo-relations/</foaf:homepage>
     </owl:Ontology>
     
@@ -298,6 +298,7 @@ WHERE {
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002259">
         <rdfs:label>defined by inverse</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
     </owl:AnnotationProperty>
     
 
@@ -420,7 +421,7 @@ WHERE {
     <!-- http://purl.obolibrary.org/obo/RO_0002535 -->
 
     <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002535">
-        <obo:IAO_0000232>This properties were created originally for the annotation of developmental or life cycle stages, such as for example Carnegie Stage 20 in humans. </obo:IAO_0000232>
+        <obo:IAO_0000232>This property was originally created for the annotation of developmental or life cycle stages, such as for example Carnegie Stage 20 in humans. </obo:IAO_0000232>
         <rdfs:label>temporal logical macro assertion on a class</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002420"/>
     </owl:AnnotationProperty>
@@ -909,6 +910,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#SubsetProperty -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#SubsetProperty"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#created_by -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#created_by"/>
@@ -1274,10 +1281,17 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000058">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">is concretized as</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1286,11 +1300,18 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/RO_0000059 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000059">
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
         <obo:IAO_0000112 xml:lang="en">A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant).</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process).</obo:IAO_0000112>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">concretizes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -4965,6 +4986,7 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002351">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <obo:IAO_0000115>has member is a mereological relation between a collection and an item.</obo:IAO_0000115>
         <obo:IAO_0000119>SIO</obo:IAO_0000119>
         <obo:RO_0001900 rdf:resource="http://purl.obolibrary.org/obo/RO_0001901"/>
@@ -5641,6 +5663,10 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002501"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002427"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002418"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
         <obo:IAO_0000115>p is &apos;causally upstream or within&apos; q iff p is causally related to q, and the end of p precedes, or is coincident with, the end of q.</obo:IAO_0000115>
         <obo:IAO_0000116>We would like to make this disjoint with &apos;preceded by&apos;, but this is prohibited in OWL2</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
@@ -5902,6 +5928,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002438">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000112>lions trophically interact with the zebras that they eat</obo:IAO_0000112>
         <obo:IAO_0000115>An interaction relationship in which the partners are related via a feeding relationship.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -5944,6 +5971,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
                 <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002461"/>
             </rdf:Description>
         </owl:propertyChainAxiom>
+        <obo:IAO_0000112>whales symbiotically interact with the barnacles that attach to them</obo:IAO_0000112>
         <obo:IAO_0000115>A biotic interaction in which the two organisms live together in more or less intimate association.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
@@ -7300,6 +7328,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002576"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000465"/>
         <obo:IAO_0000112>Forelimb SubClassOf has_skeleton some &apos;Forelimb skeleton&apos;</obo:IAO_0000112>
@@ -8284,6 +8313,7 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0003301">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <obo:IAO_0000115>A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-1048-5019"/>
         <obo:IAO_0000118 xml:lang="en">is used to study</obo:IAO_0000118>
@@ -9168,9 +9198,38 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0008510 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008510">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <obo:IAO_0000112>frog symbiotrophically interacts with the pitcher plant it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:39:56Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">symbiotrophically interacts with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0008511 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008511">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0008510"/>
+        <obo:IAO_0000112>tapeworm is trophic parasite of the cow it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:41:07Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">trophic parasite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0009001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009001">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <obo:IAO_0000112 xml:lang="en">muffin &apos;has substance added&apos; some &apos;baking soda&apos;</obo:IAO_0000112>
@@ -9186,6 +9245,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0009002 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009002">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <obo:IAO_0000112 xml:lang="en">&apos;egg white&apos; &apos;has substance removed&apos; some &apos;egg yolk&apos;</obo:IAO_0000112>
@@ -9200,6 +9260,7 @@ Environmental exposures include those imposed by natural environments, experimen
     <!-- http://purl.obolibrary.org/obo/RO_0009003 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009003">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
         <obo:IAO_0000112 xml:lang="en">sardines &apos;immersed in&apos; some &apos;oil and mustard&apos;</obo:IAO_0000112>
@@ -9229,6 +9290,7 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009005">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0009001"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <obo:IAO_0000112 xml:lang="en">bread &apos;has primary substance added&apos; some &apos;flour&apos;</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115 xml:lang="en">&apos;has primary substance added&apos; indicates that an entity has had the given substance added to it in a proportion greater than any other added substance.</obo:IAO_0000115>
@@ -10169,6 +10231,7 @@ For example, protein A (transcription factor) indirectly increases by expression
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017004">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002610"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <obo:IAO_0000115 xml:lang="en">A relation between entities in which one increases as the other decreases.</obo:IAO_0000115>
         <obo:IAO_0000118 xml:lang="en">inversely correlated with</obo:IAO_0000118>
         <terms:contributor rdf:resource="https://orcid.org/0000-0003-1909-9269"/>
@@ -10233,6 +10296,21 @@ For example, protein A (transcription factor) indirectly increases by expression
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-29T17:06:06Z</oboInOwl:creation_date>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
         <rdfs:label xml:lang="en">is owned by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017502">
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+        <obo:IAO_0000112 xml:lang="en">A thorax specimen was collected during the larval stage.</obo:IAO_0000112>
+        <obo:IAO_0000112 xml:lang="en">An oyster was collected during low tide.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation between a material entity and an occurrent in which the material entity is collected during the existence of the occurrent.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-8844-9165"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-09-13T04:12:32Z</terms:date>
+        <rdfs:label xml:lang="en">collected during</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -12834,5 +12912,5 @@ binary, and takes no temporal argument.
 
 
 
-<!-- Generated by the OWL API (version 4.5.26) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
 
