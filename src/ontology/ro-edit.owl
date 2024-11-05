@@ -612,6 +612,8 @@ Declaration(ObjectProperty(obo:RO_0019501))
 Declaration(ObjectProperty(obo:RO_0020101))
 Declaration(ObjectProperty(obo:RO_0020102))
 Declaration(ObjectProperty(obo:RO_0020103))
+Declaration(ObjectProperty(obo:RO_0020104))
+Declaration(ObjectProperty(obo:RO_0020105))
 Declaration(ObjectProperty(obo:RO_0020202))
 Declaration(ObjectProperty(obo:RO_0020203))
 Declaration(ObjectProperty(obo:RO_0040035))
@@ -3612,7 +3614,9 @@ SubObjectPropertyOf(obo:RO_0002386 obo:RO_0002384)
 AnnotationAssertion(obo:IAO_0000114 obo:RO_0002387 obo:IAO_0000428)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002387 "x has the potential to develop into y iff x develops into y or if x is capable of developing into y"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002387 <https://orcid.org/0000-0002-6601-2165>)
+AnnotationAssertion(rdfs:comment obo:RO_0002387 "This relation has a stronger meaning than merely indicating that X may develop into Y, in that the capability of developing into Y is always present, even if X does not always actually develop into Y. In particular, this means that if Y is restricted to a given taxon T, X is necessarily likewise restricted.")
 AnnotationAssertion(rdfs:label obo:RO_0002387 "has potential to develop into"@en)
+AnnotationAssertion(rdfs:seeAlso obo:RO_0002387 <https://github.com/oborel/obo-relations/issues/810>)
 SubObjectPropertyOf(obo:RO_0002387 obo:RO_0002384)
 
 # Object Property: obo:RO_0002388 (has potential to directly develop into)
@@ -6943,6 +6947,22 @@ SubObjectPropertyOf(obo:RO_0020103 obo:RO_0002179)
 ObjectPropertyDomain(obo:RO_0020103 obo:UBERON_0001982)
 ObjectPropertyRange(obo:RO_0020103 obo:UBERON_0000061)
 
+# Object Property: obo:RO_0020104 (is neuron)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0020104 "This property only applies to neurons")
+AnnotationAssertion(terms:contributor obo:RO_0020104 <https://orcid.org/0000-0001-6677-8489>)
+AnnotationAssertion(terms:date obo:RO_0020104 "2024-10-23T14:34:52Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0020104 "is neuron")
+ObjectPropertyDomain(obo:RO_0020104 obo:CL_0000540)
+
+# Object Property: obo:RO_0020105 (is anatomical entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0020105 "This property only applies to anatomical entities.")
+AnnotationAssertion(terms:contributor obo:RO_0020105 <https://orcid.org/0000-0001-6677-8489>)
+AnnotationAssertion(terms:date obo:RO_0020105 "2024-10-29T09:55:07Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0020105 "is anatomical entity")
+ObjectPropertyDomain(obo:RO_0020105 obo:UBERON_0001062)
+
 # Object Property: obo:RO_0020202 (has numerator)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0020202 "A relationship between a ratio or proportion and its dividend.")
@@ -7030,6 +7050,10 @@ SubClassOf(obo:BFO_0000015 ObjectAllValuesFrom(obo:RO_0002214 obo:BFO_0000015))
 
 SubClassOf(obo:CHEBI_50906 obo:PATO_0000001)
 
+# Class: obo:CL_0000540 (neuron)
+
+EquivalentClasses(obo:CL_0000540 ObjectHasSelf(obo:RO_0020104))
+
 # Class: obo:GO_0004842 (ubiquitin-protein transferase activity)
 
 SubClassOf(obo:GO_0004842 ObjectHasSelf(obo:RO_0002482))
@@ -7086,6 +7110,10 @@ AnnotationAssertion(obo:IAO_0000117 obo:RO_0002577 <https://orcid.org/0000-0002-
 AnnotationAssertion(obo:IAO_0000119 obo:RO_0002577 "http://www.jbiomedsem.com/content/4/1/43")
 AnnotationAssertion(rdfs:label obo:RO_0002577 "system")
 SubClassOf(obo:RO_0002577 obo:BFO_0000040)
+
+# Class: obo:UBERON_0001062 (anatomical entity)
+
+EquivalentClasses(obo:UBERON_0001062 ObjectHasSelf(obo:RO_0020105))
 
 
 ############################
@@ -7178,7 +7206,6 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002130 obo:BFO_0000050) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002131 obo:BFO_0000050) obo:RO_0002131)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002134 obo:BFO_0000050) obo:RO_0002134)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002156 obo:RO_0002157) obo:RO_0002158)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002202 obo:RO_0002162) obo:RO_0002162)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002203 obo:BFO_0000050) obo:RO_0002255)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002206 obo:BFO_0000050) obo:RO_0002206)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002206 obo:RO_0002162) obo:RO_0002162)
@@ -7205,7 +7232,6 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:BFO_0000066) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:RO_0002230) obo:RO_0002087)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:RO_0002233) obo:RO_0002233)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002224 obo:RO_0002400) obo:RO_0002400)
-SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002225 obo:RO_0002162) obo:RO_0002162)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002230 obo:BFO_0000066) obo:RO_0002232)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002230 obo:RO_0002211) obo:RO_0002211)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002230 obo:RO_0002212) obo:RO_0002212)
@@ -7244,6 +7270,7 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002338 obo:BFO_0000050) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002339 obo:BFO_0000050) obo:RO_0002339)
 SubObjectPropertyOf(Annotation(obo:RO_0002582 "true"^^xsd:boolean) ObjectPropertyChain(obo:RO_0002371 obo:BFO_0000050) obo:RO_0002177)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002377 obo:RO_0002381) obo:RO_0002380)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002387 obo:RO_0002162) obo:RO_0002162)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002402 obo:RO_0002400) obo:RO_0002413)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002407 obo:RO_0002629) obo:RO_0002407)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0002409 obo:RO_0002409) obo:RO_0002407)
@@ -7288,6 +7315,7 @@ SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0013003 obo:BFO_0000050) obo:RO_0
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0013007 obo:BFO_0000050) obo:RO_0013007)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0013010 obo:BFO_0000050) obo:RO_0013010)
 SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0015001 obo:RO_0015003) obo:RO_0015001)
+SubObjectPropertyOf(ObjectPropertyChain(obo:RO_0020104 obo:BFO_0000050 obo:RO_0020105) obo:RO_0002100)
 SubObjectPropertyOf(ObjectPropertyChain(ObjectInverseOf(obo:BFO_0000066) obo:RO_0002234) obo:RO_0003000)
 SubObjectPropertyOf(ObjectPropertyChain(ObjectInverseOf(obo:RO_0002176) obo:RO_0002176) obo:RO_0002170)
 DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0002180 Variable(<urn:swrl:var#w>) Variable(<urn:swrl:var#p>)) ClassAtom(obo:BFO_0000015 Variable(<urn:swrl:var#w>)) ClassAtom(obo:BFO_0000015 Variable(<urn:swrl:var#p>)))Head(ObjectPropertyAtom(obo:RO_0002018 Variable(<urn:swrl:var#w>) Variable(<urn:swrl:var#p>))))
