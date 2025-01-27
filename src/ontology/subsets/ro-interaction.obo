@@ -1,4 +1,8 @@
 format-version: 1.2
+idspace: cito http://purl.org/spar/cito/ 
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: skos http://www.w3.org/2004/02/skos/core# 
+idspace: terms http://purl.org/dc/terms/ 
 ontology: ro/subsets/ro-interaction
 
 [Typedef]
@@ -141,13 +145,17 @@ is_a: spatially_disjoint_from ! spatially disjoint from
 [Typedef]
 id: allelopath_of
 name: allelopath of
+def: "A relationship between organisms where one organism is influenced by the biochemicals produced by another." []
+comment: Allelopathy is a phenomenon in which one organism releases chemicals to positively or negatively influence the growth, survival or reproduction of other organisms in its vicinity.
 subset: ro-eco
 xref: RO:0002555
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://en.wikipedia.org/wiki/Allelopathy" xsd:string
 property_value: seeAlso "http://eol.org/schema/terms/allelopathyYes" xsd:string
-property_value: seeAlso "x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
+property_value: seeAlso "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10172429/" xsd:string
+property_value: seeAlso "x is an allelopath of y if x produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
+inverse_of: has_allelopath ! has allelopath
 
 [Typedef]
 id: ameliorates_condition
@@ -199,7 +207,7 @@ id: axon_synapses_in
 name: axon synapses in
 def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
 xref: RO:0002102
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -271,7 +279,7 @@ id: bounds_sequence_of
 name: bounds sequence of
 def: "x bounds the sequence of y iff the upstream-most part of x is upstream of or coincident with the upstream-most part of y, and the downstream-most part of x is downstream of or coincident with the downstream-most part of y" []
 xref: RO:0002522
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "The genomic exons of a transcript bound the sequence of the genomic introns of the same transcript (but the introns are not subsequences of the exons)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
@@ -496,9 +504,9 @@ def: "p is causally upstream of, negative effect q iff p is casually upstream of
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 xref: RO:0002305
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: RO:0004050 RO:0002411
 property_value: seeAlso https://wiki.geneontology.org/Causally_upstream_of,_negative_effect
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: causally_upstream_of ! causally upstream of
 is_a: causally_upstream_of_or_within,_negative_effect ! causally upstream of or within, negative effect
 
@@ -510,9 +518,9 @@ comment: holds between x and y if and only if x is causally upstream of y and th
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
 xref: RO:0002304
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: RO:0004049 RO:0002411
 property_value: seeAlso https://wiki.geneontology.org/Causally_upstream_of,_positive_effect
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: causally_upstream_of ! causally upstream of
 is_a: causally_upstream_of_or_within,_positive_effect ! causally upstream of or within, positive effect
 
@@ -870,7 +878,7 @@ id: dendrite_synapsed_in
 name: dendrite synapsed in
 def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
 xref: RO:0002121
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -903,13 +911,13 @@ name: determined by
 def: "s determined by f if and only if s is a type of system, and f is a material entity that is part of s, such that f exerts a strong causal influence on the functioning of s, and the removal of f would cause the collapse of s." []
 subset: ro-eco
 xref: RO:0002507
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-4366-3088
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000112 "A coral reef environment is determined by a particular coral reef" xsd:string
 property_value: IAO:0000116 "The label for this relation is probably too general for its restricted use, where the domain is a system. It may be relabeled in future" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/24330602
 property_value: IAO:0000589 "determined by (system to material entity)" xsd:string
+property_value: terms:creator https://orcid.org/0000-0002-4366-3088
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 domain: RO:0002577
 range: BFO:0000040
 is_a: causally_influenced_by ! causally influenced by
@@ -1249,9 +1257,9 @@ id: directly_supplies_and_drains
 name: directly supplies and drains
 def: "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y." []
 xref: RO:0020103
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:59Z" xsd:dateTime
 property_value: IAO:0000112 "alveolar capillary directly supplies and drains some alveolus" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:59Z" xsd:dateTime
 domain: UBERON:0001982
 range: UBERON:0000061
 is_a: drains ! drains
@@ -1414,7 +1422,7 @@ id: does_not_overlap_sequence_of
 name: does not overlap sequence of
 def: "x does not overlap the sequence of y if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
 xref: RO:0002527
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "disconnected from" xsd:string
 is_symmetric: true
@@ -1493,7 +1501,7 @@ id: electrically_synapsed_to
 name: electrically_synapsed_to
 def: "A relation that holds between two neurons that are electrically coupled via gap junctions." []
 xref: RO:0002003
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 is_a: connected_to ! connected to
 
@@ -1641,7 +1649,7 @@ id: fasciculates_with
 name: fasciculates with
 def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
 xref: RO:0002101
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "fasciculates with" xsd:string
@@ -1685,10 +1693,10 @@ property_value: IAO:0000232 "This is a grouping relation that collects relations
 id: genetically_interacts_with
 name: genetically interacts with
 xref: RO:0002435
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0208" xsd:anyURI
 property_value: IAO:0000116 "An interaction that holds between two genetic entities (genes, alleles) through some genetic interaction (e.g. epistasis)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso ECO:0000316
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0208" xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -1737,6 +1745,15 @@ domain: BFO:0000040
 range: BFO:0000040
 is_a: has_part ! has part
 inverse_of: active_ingredient_in ! active ingredient in
+
+[Typedef]
+id: has_allelopath
+name: has allelopath
+def: "inverse of allelopath of" []
+xref: RO:0020301
+property_value: IAO:0000117 https://orcid.org/0009-0005-5515-1230
+property_value: seeAlso "https://en.wikipedia.org/wiki/Allelopathy" xsd:string
+is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
 
 [Typedef]
 id: has_allergic_trigger
@@ -1830,8 +1847,8 @@ id: has_component_participant
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
 xref: RO:0002238
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
 is_a: has_participant ! has participant
 
 [Typedef]
@@ -1858,8 +1875,8 @@ is_a: in_branching_relationship_with ! in branching relationship with
 id: has_dendrite_location
 name: has dendrite location
 xref: RO:0002360
-property_value: http://purl.org/dc/terms/source "http://neurolex.org/wiki/Property:DendriteLocation" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
+property_value: terms:source "http://neurolex.org/wiki/Property:DendriteLocation" xsd:anyURI
 is_a: overlaps ! overlaps
 
 [Typedef]
@@ -1868,7 +1885,7 @@ name: has denominator
 def: "A relationship between a ratio or proportion and its divisor." []
 synonym: "has divisor" EXACT []
 xref: RO:0020203
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+property_value: terms:contributor https://orcid.org/0000-0001-8314-2140
 domain: PATO:0001470
 range: PATO:0000001
 is_a: has_part ! has part
@@ -1914,9 +1931,9 @@ id: has_disease
 name: has disease
 def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
 xref: RO:0016002
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:44Z" xsd:dateTime
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-11-05T17:30:44Z" xsd:dateTime
 is_a: has_phenotype_or_disease ! has phenotype or disease
 
 [Typedef]
@@ -1980,7 +1997,7 @@ id: has_end_sequence
 name: has end sequence
 def: "x has end sequence y if the end of x is identical to the end of y, and x has y as a subsequence" []
 xref: RO:0002518
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every CDS has as an end sequence the stop codon for that transcript (note this follows from the SO definition of CDS, in which stop codons are included)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "ended by" xsd:string
@@ -2008,9 +2025,9 @@ id: has_exposure_medium
 name: has exposure medium
 def: "X has exposure medium Y if X is an exposure event (process), Y is a material entity, and the stimulus for X is transmitted or carried in Y." []
 xref: RO:0016004
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-12-14T20:41:45Z" xsd:dateTime
 property_value: IAO:0000119 "ExO:0000083" xsd:string
+property_value: terms:creator https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-12-14T20:41:45Z" xsd:dateTime
 is_a: related_via_exposure_to ! related via exposure to
 
 [Typedef]
@@ -2034,9 +2051,9 @@ id: has_exposure_stimulus
 name: has exposure stimulus
 def: "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." []
 xref: RO:0002309
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6996-0040
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-6601-2165
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8461-9745
+property_value: terms:contributor https://orcid.org/0000-0001-6996-0040
+property_value: terms:contributor https://orcid.org/0000-0002-6601-2165
+property_value: terms:contributor https://orcid.org/0000-0002-8461-9745
 is_a: related_via_exposure_to ! related via exposure to
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-06-05T17:35:04Z
@@ -2062,7 +2079,7 @@ id: has_fasciculating_neuron_projection
 name: has fasciculating neuron projection
 def: "The relation between a neuron projection bundle and a neuron projection that is fasciculated with it." []
 xref: RO:0002132
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "has fasciculating component" xsd:string
@@ -2109,9 +2126,9 @@ id: has_high_plasma_membrane_amount
 name: has high plasma membrane amount
 def: "A relation between a cell and molecule or complex such that every instance of the cell has a high number of instances of that molecule expressed on the cell surface." [PMID:19243617]
 xref: RO:0015015
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1617-8244
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1940-6740
 property_value: IAO:0000112 "'Ly-76 high positive erythrocyte' equivalent to 'enucleate erythrocyte' and (has_high_plasma_membrane_amount some 'lymphocyte antigen 76 (mouse)')" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1617-8244
+property_value: terms:contributor https://orcid.org/0000-0003-1940-6740
 domain: CL:0000000
 is_a: has_plasma_membrane_part ! has plasma membrane part
 
@@ -2124,6 +2141,15 @@ xref: RO:0002454
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso "http://eol.org/schema/terms/hasHost" xsd:string
 is_a: symbiotically_interacts_with ! symbiotically interacts with
+
+[Typedef]
+id: has_increased_levels_of
+name: has increased levels of
+def: "A has part relationship between a whole and a part, where the number of parts present in the whole is higher than in comparable entities." []
+comment: This relation is present in ENVO to support compositional classes such as "X-enriched soil". These will later be formalized, and a different relation from RO may be chosen.
+xref: ENVO:02000200
+property_value: seeAlso https://github.com/EnvironmentOntology/envo/issues/1380
+is_a: has_component ! has component
 
 [Typedef]
 id: has_input
@@ -2183,9 +2209,9 @@ id: has_low_plasma_membrane_amount
 name: has low plasma membrane amount
 def: "A relation between a cell and molecule or complex such that every instance of the cell has a low number of instances of that molecule expressed on the cell surface." [PMID:19243617]
 xref: RO:0015016
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1617-8244
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1940-6740
 property_value: IAO:0000112 "'DN2b thymocyte' equivalent to 'DN2 thymocyte' and (has_low_plasma_membrane_amount some 'mast/stem cell growth factor receptor')" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1617-8244
+property_value: terms:contributor https://orcid.org/0000-0003-1940-6740
 domain: CL:0000000
 is_a: has_plasma_membrane_part ! has plasma membrane part
 
@@ -2315,7 +2341,7 @@ name: has numerator
 def: "A relationship between a ratio or proportion and its dividend." []
 synonym: "has dividend" EXACT []
 xref: RO:0020202
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+property_value: terms:contributor https://orcid.org/0000-0001-8314-2140
 domain: PATO:0001470
 range: PATO:0000001
 is_a: has_part ! has part
@@ -2398,13 +2424,13 @@ id: has_participant
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
 xref: RO:0000057
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 property_value: IAO:0000111 "has participant" xsd:string
 property_value: IAO:0000112 "this blood coagulation has participant this blood clot" xsd:string
 property_value: IAO:0000112 "this investigation has participant this investigator" xsd:string
 property_value: IAO:0000112 "this process has participant this input material (or this output material)" xsd:string
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 domain: BFO:0000003
 range: BFO:0000002
 
@@ -2433,10 +2459,10 @@ inverse_of: phenotype_of ! phenotype of
 id: has_phenotype_or_disease
 name: has phenotype or disease
 xref: RO:0016001
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:14Z" xsd:dateTime
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a set of relations regarding presentation of phenotypes and disease." xsd:string
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-11-05T17:30:14Z" xsd:dateTime
 
 [Typedef]
 id: has_plasma_membrane_part
@@ -2471,7 +2497,7 @@ id: has_postsynaptic_terminal_in
 name: has postsynaptic terminal in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
 xref: RO:0002110
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -2486,9 +2512,11 @@ expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (\n   htt
 id: has_potential_to_develop_into
 name: has potential to develop into
 def: "x has the potential to develop into y iff x develops into y or if x is capable of developing into y" []
+comment: This relation has a stronger meaning than merely indicating that X may develop into Y, in that the capability of developing into Y is always present, even if X does not always actually develop into Y. In particular, this means that if Y is restricted to a given taxon T, X is necessarily likewise restricted.
 xref: RO:0002387
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/810
 is_a: has_developmental_potential_involving ! has developmental potential involving
 
 [Typedef]
@@ -2523,7 +2551,7 @@ id: has_presynaptic_terminal_in
 name: has presynaptic terminal in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
 xref: RO:0002113
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "synapses in" xsd:string
 property_value: RO:0001900 RO:0001901
@@ -2612,9 +2640,9 @@ def: "x 'has roost' y if and only if: x is an organism, y is a habitat, and y ca
 comment: A population of xs will possess adaptations (either evolved naturally or via artifical selection) which permit it to rest in y.
 subset: ro-eco
 xref: RO:0008509
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2908-3327
-property_value: http://purl.org/dc/terms/date "2023-01-18T14:28:21Z" xsd:dateTime
 property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-01-18T14:28:21Z" xsd:dateTime
 domain: OBI:0100026
 range: ENVO:01000739
 is_a: has_habitat ! has habitat
@@ -2708,7 +2736,7 @@ id: has_start_sequence
 name: has start sequence
 def: "x has start sequence y if the start of x is identical to the start of y, and x has y as a subsequence" []
 xref: RO:0002516
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every CDS has as a start sequence the start codon for that transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "started by" xsd:string
@@ -2722,7 +2750,7 @@ id: has_subsequence
 name: has subsequence
 def: "x has subsequence y iff all of the sequence parts of y are sequence parts of x" []
 xref: RO:0002524
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "contains" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -2765,7 +2793,7 @@ id: has_synaptic_terminal_in
 name: has synaptic terminal in
 def: "A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input." []
 xref: RO:0002130
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "has synapse in" xsd:string
@@ -2778,7 +2806,7 @@ expand_expression_to: "RO_0002131 some (GO_0045202 that BFO_0000050 some Y?)" []
 id: has_synaptic_terminal_of
 name: has synaptic terminal of
 xref: RO:0002006
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 is_a: overlaps ! overlaps
 inverse_of: has_synaptic_terminal_in ! has synaptic terminal in
@@ -3083,12 +3111,12 @@ def: "A relationship that holds between two entities in which the processes exec
 subset: ro-eco
 synonym: "in pairwise interaction with" EXACT []
 xref: RO:0002434
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0914" xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
 property_value: seeAlso "http://purl.obolibrary.org/obo/ro/docs/interaction-relations/" xsd:anyURI
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0914" xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_symmetric: true
@@ -3191,9 +3219,9 @@ id: is_agonist_of
 name: is agonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
 xref: RO:0018027
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "mibolerone (CHEBI:34849) is agonist of androgen receptor (PR:P10275)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P3772
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: directly_positively_regulates_activity_of ! directly positively regulates activity of
 
 [Typedef]
@@ -3211,9 +3239,9 @@ id: is_antagonist_of
 name: is antagonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
 xref: RO:0018029
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "tretinoin (CHEBI:15367) is antagonist of Nuclear receptor ROR-beta (PR:Q92753)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P3773
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: directly_negatively_regulates_activity_of ! directly negatively regulates activity of
 
 [Typedef]
@@ -3239,7 +3267,7 @@ name: is bound by sequence of
 def: "inverse of bounds sequence of" []
 subset: RO:0002259
 xref: RO:0002523
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: sequentially_related_to ! sequentially related to
@@ -3312,7 +3340,7 @@ id: is_consecutive_sequence_of
 name: is consecutive sequence of
 def: "x is a consecutive sequence of y iff x has subsequence y, and all the parts of x are made of zero or more repetitions of y or sequences as the same type as y." []
 xref: RO:0002520
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000116 "In the SO paper, this was defined as an instance-type relation" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3323,7 +3351,7 @@ id: is_downstream_of_sequence_of
 name: is downstream of sequence of
 def: "x is downstream of the sequence of y iff either (1) x and y have sequence units, and all units of x are downstream of all units of y, or (2) x and y are sequence units, and x is either immediately downstream of y, or transitively downstream of y." []
 xref: RO:0002529
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: does_not_overlap_sequence_of ! does not overlap sequence of
@@ -3346,7 +3374,7 @@ name: is end sequence of
 def: "inverse of has end sequence" []
 subset: RO:0002259
 xref: RO:0002519
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "ends" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3368,7 +3396,7 @@ id: is_immediately_downstream_of_sequence_of
 name: is immediately downstream of sequence of
 def: "x is immediately downstream of the sequence of y iff either (1) x and y have sequence units, and all units of x are downstream of all units of y, and x is sequentially adjacent to y, or (2) x and y are sequence units, in which case the immediately downstream relation is primitive and defined by context: for DNA bases, y would be adjacent and 5' to y" []
 xref: RO:0002530
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "A 3'UTR is immediately downstream of the sequence of the CDS from the same monocistronic transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: RO:0002575 RO:0002529
@@ -3380,7 +3408,7 @@ id: is_immediately_upstream_of_sequence_of
 name: is immediately upstream of sequence of
 def: "inverse of immediately downstream of" []
 xref: RO:0002531
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "A 5'UTR is immediately upstream of the sequence of the CDS from the same monocistronic transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: is_upstream_of_sequence_of ! is upstream of sequence of
@@ -3391,9 +3419,9 @@ id: is_inverse_agonist_of
 name: is inverse agonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
 xref: RO:0018028
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "pimavanserin (CHEBI:133017) is inverse agonist of HTR2A (PR:P28223)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P9275
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: directly_negatively_regulates_activity_of ! directly negatively regulates activity of
 
 [Typedef]
@@ -3407,7 +3435,7 @@ id: is_sequentially_aligned_with
 name: is sequentially aligned with
 def: "x is sequentially aligned with if a significant portion bases of x and y correspond in terms of their base type and their relative ordering" []
 xref: RO:0002521
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Human Shh and Mouse Shh are sequentially aligned, by cirtue of the fact that they derive from the same ancestral sequence." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_symmetric: true
@@ -3450,7 +3478,7 @@ name: is start sequence of
 def: "inverse of has start sequence" []
 subset: RO:0002259
 xref: RO:0002517
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "starts" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3463,7 +3491,7 @@ name: is subsequence of
 def: "inverse of has subsequence" []
 subset: RO:0002259
 xref: RO:0002525
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "contained by" xsd:string
 is_transitive: true
@@ -3487,7 +3515,7 @@ name: is treated by substance
 def: "Inverse of 'is substance that treats'" []
 subset: RO:0002259
 xref: RO:0002302
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: causally_related_to ! causally related to
 inverse_of: is_substance_that_treats ! is substance that treats
 
@@ -3496,7 +3524,7 @@ id: is_upstream_of_sequence_of
 name: is upstream of sequence of
 def: "inverse of downstream of sequence of" []
 xref: RO:0002528
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: does_not_overlap_sequence_of ! does not overlap sequence of
@@ -3622,11 +3650,11 @@ id: molecularly_interacts_with
 name: molecularly interacts with
 def: "An interaction relationship in which the two partners are molecular entities that directly physically interact with each other for example via a stable binding interaction or a brief interaction during which one modifies the other." []
 xref: RO:0002436
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0915" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "binds" xsd:string
 property_value: IAO:0000118 "molecularly binds with" xsd:string
 property_value: seeAlso ECO:0000353
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0915" xsd:anyURI
 is_symmetric: true
 is_a: interacts_with ! interacts with
 
@@ -3645,15 +3673,15 @@ id: myristoylated_by
 name: myristoylated by
 def: "inverse of myristoylates" []
 xref: RO:0018003
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
 
 [Typedef]
 id: myristoylates
 name: myristoylates
 def: "A molecularly-interacts-with relationship between two entities, where the subject catalyzes a myristoylation activity that takes the object as input" []
 xref: RO:0018002
-property_value: http://purl.org/dc/terms/conformsTo http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+property_value: terms:conformsTo http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
 is_a: molecularly_interacts_with ! molecularly interacts with
 inverse_of: myristoylated_by ! myristoylated by
 
@@ -3687,7 +3715,7 @@ id: negatively_regulates_characteristic
 name: negatively regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) negatively regulates characteristic (C) iff: P results in a decrease in the intensity or magnitude of C." []
 xref: RO:0019002
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 is_a: regulates_characteristic ! regulates characteristic
 
 [Typedef]
@@ -3697,8 +3725,8 @@ def: "x 'negatively regulates in other organism' y if and only if: (x is the rea
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 synonym: "negatively regulates in other organism" EXACT []
 xref: RO:0012014
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
 property_value: RO:0004050 RO:0002010
+property_value: terms:contributor https://orcid.org/0000-0003-1813-6857
 is_a: regulates_in_another_organism ! regulates in another organism
 creation_date: 2023-10-12T10:02:42Z
 
@@ -3758,7 +3786,7 @@ id: overlaps_sequence_of
 name: overlaps sequence of
 def: "x overlaps the sequence of y if and only if x has a subsequence z and z is a subsequence of y." []
 xref: RO:0002526
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_symmetric: true
 is_a: overlaps ! overlaps
@@ -3995,7 +4023,7 @@ id: positively_regulates_characteristic
 name: positively regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) positively regulates characteristic (C) iff: P results in an increase in the intensity or magnitude of C." []
 xref: RO:0019001
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 is_a: regulates_characteristic ! regulates characteristic
 
 [Typedef]
@@ -4005,8 +4033,8 @@ def: "x 'positively regulates in other organism' y if and only if: (x is the rea
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 synonym: "positively regulates in other organism" EXACT []
 xref: RO:0012013
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
 property_value: RO:0004049 RO:0002010
+property_value: terms:contributor https://orcid.org/0000-0003-1813-6857
 is_a: regulates_in_another_organism ! regulates in another organism
 creation_date: 2023-10-12T10:02:28Z
 
@@ -4016,11 +4044,11 @@ name: preceded by
 def: "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." []
 subset: ro-eco
 xref: BFO:0000062
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 property_value: IAO:0000111 "preceded by" xsd:string
 property_value: IAO:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other." xsd:string
 property_value: IAO:0000118 "is preceded by" xsd:string
 property_value: IAO:0000118 "preceded_by" xsd:string
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 domain: BFO:0000003
 range: BFO:0000003
 is_transitive: true
@@ -4149,14 +4177,14 @@ name: realized in response to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
 synonym: "triggered by process" EXACT [https://orcid.org/0000-0002-6601-2165]
 xref: RO:0009501
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6996-0040
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-6601-2165
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7073-9172
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8461-9745
 property_value: IAO:0000112 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions." xsd:string
 property_value: IAO:0000112 "An inflammatory disease that is realized in response to an inflammatory process occurring in the gut (which is itself the realization of a process realized in response to harmful stimuli in the mucosal lining of th gut)" xsd:string
 property_value: IAO:0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph." xsd:string
 property_value: seeAlso "https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit" xsd:anyURI
+property_value: terms:contributor https://orcid.org/0000-0001-6996-0040
+property_value: terms:contributor https://orcid.org/0000-0002-6601-2165
+property_value: terms:contributor https://orcid.org/0000-0002-7073-9172
+property_value: terms:contributor https://orcid.org/0000-0002-8461-9745
 domain: BFO:0000017
 range: BFO:0000015
 is_a: causally_related_to ! causally related to
@@ -4261,7 +4289,7 @@ id: regulates_characteristic
 name: regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
 xref: RO:0019000
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 domain: BFO:0000015
 range: PATO:0000001
 is_a: causally_related_to ! causally related to
@@ -4348,10 +4376,10 @@ name: reservoir host of
 def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
 comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
 xref: RO:0002802
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
 property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
 property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+property_value: terms:contributor https://orcid.org/0000-0002-3120-4802
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
 is_a: host_of ! host of
 inverse_of: has_reservoir_host ! has reservoir host
 
@@ -4727,7 +4755,7 @@ id: sequentially_adjacent_to
 name: sequentially adjacent to
 def: "x is sequentially adjacent to y iff x and y do not overlap and if there are no base units intervening between x and y" []
 xref: RO:0002515
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every UTR is adjacent to a CDS of the same transcript" xsd:string
 property_value: IAO:0000112 "Two consecutive DNA residues are sequentially adjacent" xsd:string
 property_value: IAO:0000112 "Two exons on a processed transcript that were previously connected by an intron are adjacent" xsd:string
@@ -4740,7 +4768,7 @@ id: sequentially_related_to
 name: sequentially related to
 def: "A relation that holds between two entities that have the property of being sequences or having sequences. " []
 xref: RO:0002514
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
@@ -4922,6 +4950,7 @@ name: symbiotically interacts with
 def: "A biotic interaction in which the two organisms live together in more or less intimate association." []
 subset: ro-eco
 xref: RO:0002440
+property_value: IAO:0000112 "whales symbiotically interact with the barnacles that attach to them" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/19278549" xsd:anyURI
 property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
@@ -4929,11 +4958,22 @@ is_symmetric: true
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
 
 [Typedef]
+id: symbiotrophically_interacts_with
+name: symbiotrophically interacts with
+def: "A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism" []
+subset: ro-eco
+xref: RO:0008510
+property_value: IAO:0000112 "frog symbiotrophically interacts with the pitcher plant it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:39:56Z" xsd:dateTime
+is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
 id: synapsed_by
 name: synapsed by
 def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
 xref: RO:0002103
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -4948,7 +4988,7 @@ name: synapsed_by_via_type_III_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton.\n" []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type III terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
 xref: RO:0002115
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: RO:0001900 RO:0001901
 is_a: synapsed_by ! synapsed by
 expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000051 some (GO_0097467 that BFO_0000051 some GO_0045211 that BFO_0000050 some ?Y)))" []
@@ -4959,7 +4999,7 @@ name: synapsed_by_via_type_II_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type II bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type II terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
 xref: RO:0002108
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -4973,7 +5013,7 @@ name: synapsed_by_via_type_Ib_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type Ib bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type Ib terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
 xref: RO:0002109
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -4987,7 +5027,7 @@ name: synapsed_by_via_type_Is_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type Is bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type Is terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
 xref: RO:0002112
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -5001,7 +5041,7 @@ name: synapsed to
 def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n        " []
 comment: N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))
 xref: RO:0002120
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -5015,7 +5055,7 @@ name: synapsed_via_type_III_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type III bouton." []
 comment: Expands to: has_part some ('type III terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
 xref: RO:0002114
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: RO:0001900 RO:0001901
 is_a: synapsed_to ! synapsed to
 inverse_of: synapsed_by_via_type_III_bouton ! synapsed_by_via_type_III_bouton
@@ -5041,7 +5081,7 @@ name: synapsed_via_type_Ib_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type Ib bouton." []
 comment: Expands to: has_part some ('type Ib terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
 xref: RO:0002105
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -5056,7 +5096,7 @@ name: synapsed_via_type_Is_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type Is bouton." []
 comment: Expands to: has_part some ('type Is terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
 xref: RO:0002106
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -5064,6 +5104,18 @@ property_value: RO:0001900 RO:0001901
 is_a: synapsed_to ! synapsed to
 inverse_of: synapsed_by_via_type_Is_bouton ! synapsed_by_via_type_Is_bouton
 expand_expression_to: "BFO_0000051 some (GO_0061177 that BFO_0000051 some (that BFO_0000051 some (GO_0045202 that BFO_0000051 some ( that BFO_0000050 some ?Y))))" []
+
+[Typedef]
+id: synapses_restricted_to_region
+name: synapses restricted to region
+def: "A relationship between a neuron and a region, where all of the functionally relevant input and output synapses are in that region." []
+comment: This relation may still be used if a very small number of synapses fall slightly outside the boundaries of the region, but any class using this relation should not have another restriction using this relation to another non-overlapping region.
+synonym: "intrinsic to" EXACT []
+xref: RO:0013010
+property_value: IAO:0000112 "An optic lobe intrinsic neuron has its synapses restricted to optic lobe neuropil." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-1373-1705
+property_value: terms:date "2023-08-17T12:17:24Z" xsd:dateTime
+is_a: has_synaptic_IO_in_region ! has synaptic IO in region
 
 [Typedef]
 id: target_participant_in
@@ -5079,11 +5131,11 @@ name: temporally related to
 comment: A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.
 subset: ro-eco
 xref: RO:0002222
-property_value: http://purl.org/dc/terms/source "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1" xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 https://en.wikipedia.org/wiki/Allen%27s_interval_algebra
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends." xsd:string
+property_value: terms:source "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1" xsd:anyURI
 domain: BFO:0000003
 range: BFO:0000003
 
@@ -5174,11 +5226,23 @@ is_a: connected_to ! connected to
 is_a: in_branching_relationship_with ! in branching relationship with
 
 [Typedef]
+id: trophic_parasite_of
+name: trophic parasite of
+def: "A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism" []
+subset: ro-eco
+xref: RO:0008511
+property_value: IAO:0000112 "tapeworm is trophic parasite of the cow it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:41:07Z" xsd:dateTime
+is_a: symbiotrophically_interacts_with ! symbiotrophically interacts with
+
+[Typedef]
 id: trophically_interacts_with
 name: trophically interacts with
 def: "An interaction relationship in which the partners are related via a feeding relationship." []
 subset: ro-eco
 xref: RO:0002438
+property_value: IAO:0000112 "lions trophically interact with the zebras that they eat" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
 is_a: participates_in_a_biotic-biotic_interaction_with ! participates in a biotic-biotic interaction with
@@ -5197,9 +5261,9 @@ id: vessel_drains_blood_from
 name: vessel drains blood from
 def: "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y." []
 xref: RO:0020102
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:41Z" xsd:dateTime
 property_value: IAO:0000112 "cystic vein vessel drains blood from gallbladder" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:41Z" xsd:dateTime
 domain: UBERON:0001981
 range: UBERON:0000061
 is_a: drains ! drains
@@ -5209,9 +5273,9 @@ id: vessel_supplies_blood_to
 name: vessel supplies blood to
 def: "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y." []
 xref: RO:0020101
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:22Z" xsd:dateTime
 property_value: IAO:0000112 "brachial artery vessel supplies blood to brachialis muscle" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:22Z" xsd:dateTime
 domain: UBERON:0001981
 range: UBERON:0000061
 is_a: supplies ! supplies
