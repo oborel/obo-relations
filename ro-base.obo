@@ -1,22 +1,31 @@
 format-version: 1.2
-data-version: ro/releases/2024-04-24/ro-base.owl
+data-version: ro/releases/2025-01-27/ro-base.owl
+subsetdef: RO:0002259 ""
+idspace: cito http://purl.org/spar/cito/ 
+idspace: dc http://purl.org/dc/elements/1.1/ 
+idspace: foaf http://xmlns.com/foaf/0.1/ 
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: skos http://www.w3.org/2004/02/skos/core# 
+idspace: swrl http://www.w3.org/2003/11/swrl# 
+idspace: swrla http://swrl.stanford.edu/ontologies/3.3/swrla.owl# 
+idspace: terms http://purl.org/dc/terms/ 
 ontology: ro/ro-base
-property_value: http://purl.org/dc/elements/1.1/type IAO:8000001
-property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
-property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
-property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
-property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2024-04-24" xsd:string
+property_value: dc:type IAO:8000001
+property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
+property_value: owl:versionInfo "2025-01-27" xsd:string
+property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
+property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
+property_value: terms:title "OBO Relations Ontology" xsd:string
 
 [Term]
 id: RO:0002310
 name: obsolete exposure event or process
 def: "OBSOLETE A process occurring within or in the vicinity of an organism that exerts some causal influence on the organism via the interaction between an exposure stimulus and an exposure receptor. The exposure stimulus may be a process, material entity or condition (for example, lack of nutrients). The exposure receptor can be an organism, organism population or a part of an organism." []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000112 "An exposure event in which a human is exposed to particulate matter in the air. Here the exposure stimulus/stress is the particulate matter, the receptor is the airways and lungs of the human," xsd:string
 property_value: IAO:0000112 "An exposure event in which a plant is provided with fertilizer. The exposure receptor is the root system of the plant, the stimulus is the fertilizing chemical, the route is via the soil, possibly mediated by symbotic microbes." xsd:anyURI
 property_value: IAO:0000116 "This class is intended as a grouping for various domain and species-specific exposure classes. The ExO class http://purl.obolibrary.org/obo/ExO_0000002 'exposure event' assumes that all exposures involve stressors, which limits the applicability of this class to 'positive' exposures, e.g. exposing a plant to beneficial growing conditions." xsd:string
 property_value: seeAlso "https://github.com/oborel/obo-relations/pull/173" xsd:anyURI
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_obsolete: true
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-06-05T17:55:39Z
@@ -123,6 +132,7 @@ inverse_of: BFO:0000055 ! realizes
 [Typedef]
 id: BFO:0000055
 name: realizes
+def: "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process" []
 comment: Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process
 property_value: IAO:0000111 "realizes" xsd:string
 property_value: IAO:0000112 "this disease course realizes this disease" xsd:string
@@ -145,11 +155,11 @@ id: BFO:0000062
 name: preceded by
 def: "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." []
 subset: ro-eco
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 property_value: IAO:0000111 "preceded by" xsd:string
 property_value: IAO:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other." xsd:string
 property_value: IAO:0000118 "is preceded by" xsd:string
 property_value: IAO:0000118 "preceded_by" xsd:string
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" xsd:string
 domain: BFO:0000003
 range: BFO:0000003
 holds_over_chain: BFO:0000050 BFO:0000062
@@ -245,13 +255,13 @@ inverse_of: RO:0000057 ! has participant
 id: RO:0000057
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 property_value: IAO:0000111 "has participant" xsd:string
 property_value: IAO:0000112 "this blood coagulation has participant this blood clot" xsd:string
 property_value: IAO:0000112 "this investigation has participant this investigator" xsd:string
 property_value: IAO:0000112 "this process has participant this input material (or this output material)" xsd:string
 property_value: IAO:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time." xsd:string
 property_value: IAO:0000118 "has_participant" xsd:string
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" xsd:string
 domain: BFO:0000003
 range: BFO:0000002
 holds_over_chain: BFO:0000051 RO:0000057
@@ -259,20 +269,18 @@ holds_over_chain: BFO:0000051 RO:0000057
 [Typedef]
 id: RO:0000058
 name: is concretized as
-def: "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants." []
+def: "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The journal article (a generically dependent continuant) is concretized as the quality (a specifically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
 domain: BFO:0000031
-range: BFO:0000020
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
 id: RO:0000059
 name: concretizes
-def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
+def: "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant." []
 property_value: IAO:0000112 "A journal article is an information artifact that inheres in some number of printed journals. For each copy of the printed journal there is some quality that carries the journal article, such as a pattern of ink. The quality (a specifically dependent continuant) concretizes the journal article (a generically dependent continuant), and both depend on that copy of the printed journal (an independent continuant)." xsd:string
 property_value: IAO:0000112 "An investigator reads a protocol and forms a plan to carry out an assay. The plan is a realizable entity (a specifically dependent continuant) that concretizes the protocol (a generically dependent continuant), and both depend on the investigator (an independent continuant). The plan is then realized by the assay (a process)." xsd:string
-domain: BFO:0000020
 range: BFO:0000031
 
 [Typedef]
@@ -366,7 +374,7 @@ id: RO:0000300
 name: obsolete in neural circuit with
 def: "OBSOLETE A relation that holds between two neurons connected directly via a synapse, or indirectly via a series of synaptically connected neurons." []
 comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
@@ -377,7 +385,7 @@ id: RO:0000301
 name: obsolete upstream in neural circuit with
 def: "OBSOLETE A relation that holds between a neuron that is synapsed_to another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_to the next, in which the direction is from the last to the first." []
 comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
@@ -388,7 +396,7 @@ id: RO:0000302
 name: obsolete downstream in neural circuit with
 def: "OBSOLETE A relation that holds between a neuron that is synapsed_by another neuron or a neuron that is connected indirectly to another by a chain of neurons, each synapsed_by the next, in which the direction is from the last to the first." []
 comment: Obsoleted as no longer a useful relationship (all neurons in an organism are in a neural circuit with each other).
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
@@ -485,7 +493,6 @@ id: RO:0001025
 name: located in
 def: "a relation between two independent continuants, the target and the location, in which the target is entirely within the location" []
 subset: http://purl.obolibrary.org/obo/valid_for_go_gp2term
-property_value: http://purl.org/dc/terms/source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
 property_value: IAO:0000111 "located in" xsd:string
 property_value: IAO:0000112 "my brain is located in my head" xsd:string
 property_value: IAO:0000112 "this rat is located in this cage" xsd:string
@@ -494,6 +501,7 @@ property_value: IAO:0000116 "Most location relations will only hold at certain t
 property_value: IAO:0000118 "located_in" xsd:string
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso "https://wiki.geneontology.org/Located_in" xsd:anyURI
+property_value: terms:source "http://www.obofoundry.org/ro/#OBO_REL:located_in" xsd:string
 domain: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
 range: BFO:0000004 {IAO:0000116="This is redundant with the more specific 'independent and not spatial region' constraint. We leave in the redundant axiom for use with reasoners that do not use negation."}
 is_transitive: true
@@ -543,7 +551,7 @@ is_a: RO:0002323 ! mereotopologically related to
 id: RO:0002003
 name: electrically_synapsed_to
 def: "A relation that holds between two neurons that are electrically coupled via gap junctions." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 is_a: RO:0002170 ! connected to
 
@@ -559,7 +567,7 @@ is_a: RO:0001025 ! located in
 [Typedef]
 id: RO:0002005
 name: innervated_by
-property_value: http://purl.org/spar/cito/citesAsAuthority "http://www.ncbi.nlm.nih.gov/pubmed/22402613" xsd:anyURI
+property_value: cito:citesAsAuthority "http://www.ncbi.nlm.nih.gov/pubmed/22402613" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 domain: UBERON:0000061
 range: UBERON:0000122
@@ -568,7 +576,7 @@ inverse_of: RO:0002134 ! innervates
 [Typedef]
 id: RO:0002006
 name: has synaptic terminal of
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 is_a: RO:0002131 ! overlaps
 inverse_of: RO:0002130 ! has synaptic terminal in
@@ -597,8 +605,8 @@ is_a: RO:0002323 ! mereotopologically related to
 id: RO:0002009
 name: cell expresses
 def: "A relation that applies between a cell(c) and a gene(g) , where the process of 'transcription, DNA templated (GO_0006351)' is occuring in in cell c and that process has input gene g." []
-property_value: http://purl.org/dc/terms/description "x 'cell expresses' y iff:\ncell(x)\nAND gene(y)\nAND exists some 'transcription, DNA templated (GO_0006351)'(t)\nAND t occurs_in x\nAND t has_input y" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
+property_value: terms:description "x 'cell expresses' y iff:\ncell(x)\nAND gene(y)\nAND exists some 'transcription, DNA templated (GO_0006351)'(t)\nAND t occurs_in x\nAND t has_input y" xsd:string
 domain: CL:0000000
 is_a: RO:0002292 ! expresses
 
@@ -751,8 +759,8 @@ creation_date: 2017-09-22T14:14:36Z
 id: RO:0002026
 name: in register with
 def: "A relationship that holds between two images, A and B, where:\nA depicts X;\nB depicts Y;\nX and Y are both of type T'\nC is a 2 layer image consiting of layers A and B;\nA and B are aligned in C according to a shared co-ordinate framework so that common features of X and Y are co-incident with each other.\nNote: A and B may be 2D or 3D.\nExamples include: the relationship between two channels collected simultaneously from a confocal microscope; the relationship between an image dpeicting X and a painted annotation layer that delineates regions of X; the relationship between the tracing of a neuron on an EM stack and the co-ordinate space of the stack; the relationship between two separately collected images that have been brought into register via some image registration software." [https://orcid.org/0000-0002-7073-9172]
-domain: http://xmlns.com/foaf/0.1/image
-range: http://xmlns.com/foaf/0.1/image
+domain: foaf:image
+range: foaf:image
 is_a: RO:0002323 ! mereotopologically related to
 created_by: https://orcid.org/0000-0002-7073-9172
 creation_date: 2017-12-07T12:58:06Z
@@ -911,7 +919,7 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0043025 and   BFO_0000050 some 
 id: RO:0002101
 name: fasciculates with
 def: "relationship between a neuron and a neuron projection bundle (e.g.- tract or nerve bundle) that one or more of its projections travels through.\n" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "fasciculates with" xsd:string
@@ -926,7 +934,7 @@ inverse_of: RO:0002132 ! has fasciculating neuron projection
 id: RO:0002102
 name: axon synapses in
 def: "Relation between a neuron and some structure its axon forms (chemical) synapses in." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -940,7 +948,7 @@ expand_expression_to: "BFO_0000051 some (\n   GO_0030424 and BFO_0000051 some (\
 id: RO:0002103
 name: synapsed by
 def: "Relation between an anatomical structure (including cells) and a neuron that chemically synapses to it. " []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -970,7 +978,7 @@ id: RO:0002105
 name: synapsed_via_type_Ib_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type Ib bouton." []
 comment: Expands to: has_part some ('type Ib terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -984,7 +992,7 @@ id: RO:0002106
 name: synapsed_via_type_Is_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type Is bouton." []
 comment: Expands to: has_part some ('type Is terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1011,7 +1019,7 @@ id: RO:0002108
 name: synapsed_by_via_type_II_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type II bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type II terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1024,7 +1032,7 @@ id: RO:0002109
 name: synapsed_by_via_type_Ib_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type Ib bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type Ib terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1036,7 +1044,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_00
 id: RO:0002110
 name: has postsynaptic terminal in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input. " []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1061,7 +1069,7 @@ id: RO:0002112
 name: synapsed_by_via_type_Is_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type Is bouton." []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type Is terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-5948-3092
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1073,7 +1081,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_00
 id: RO:0002113
 name: has presynaptic terminal in
 def: "Relation between a neuron and some structure (e.g.- a brain region) in which it receives (chemical) synaptic input." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000118 "synapses in" xsd:string
 property_value: RO:0001900 RO:0001901
@@ -1087,7 +1095,7 @@ id: RO:0002114
 name: synapsed_via_type_III_bouton_to
 def: "A relation between a motor neuron and a muscle that it synapses to via a type III bouton." []
 comment: Expands to: has_part some ('type III terminal button' that has_part some ('pre-synaptic membrane' that part_of some ('synapse' that has_part some ('post-synaptic membrane' that part_of some ?Y))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002120 ! synapsed to
 inverse_of: RO:0002115 ! synapsed_by_via_type_III_bouton
@@ -1098,7 +1106,7 @@ id: RO:0002115
 name: synapsed_by_via_type_III_bouton
 def: "Relation between a muscle and a motor neuron that synapses to it via a type III bouton.\n" []
 comment: Expands to: has_part some ('presynaptic membrane' that part_of some ('synapse' that has_part some ('type III terminal button' that has_part some 'postsynaptic membrane' that part_of some ?Y)))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: RO:0001900 RO:0001901
 is_a: RO:0002103 ! synapsed by
 expand_expression_to: "BFO_0000051 some (GO_0042734 that BFO_0000050 some (GO_0045202 that BFO_0000051 some (GO_0097467 that BFO_0000051 some GO_0045211 that BFO_0000050 some ?Y)))" []
@@ -1108,7 +1116,7 @@ id: RO:0002120
 name: synapsed to
 def: " Relation between a neuron and an anatomical structure (including cells) that it chemically synapses to.\n        " []
 comment: N1 synapsed_to some N2 \nExpands to:\nN1 SubclassOf ( \n   has_part some (\n      ‘pre-synaptic membrane ; GO:0042734’ that part_of some ( \n	‘synapse ; GO:0045202’ that has_part some (\n	   ‘post-synaptic membrane ; GO:0045211’ that part_of some N2))))
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1120,7 +1128,7 @@ expand_expression_to: "BFO_0000051 some (GO_0042734 that part_of some (GO_004520
 id: RO:0002121
 name: dendrite synapsed in
 def: "Relation between a neuron and some structure  (e.g.- a brain region) in which its dendrite receives synaptic input.\n\n	" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
@@ -1134,7 +1142,7 @@ expand_expression_to: "BFO_0000051 some (\n	GO_0030425 and BFO_0000051 some (\n	
 id: RO:0002130
 name: has synaptic terminal in
 def: "A general relation between a neuron and some structure in which it either chemically synapses to some target or in which it receives (chemical) synaptic input." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "has synapse in" xsd:string
@@ -1165,7 +1173,7 @@ expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 some (http://p
 id: RO:0002132
 name: has fasciculating neuron projection
 def: "The relation between a neuron projection bundle and a neuron projection that is fasciculated with it." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: IAO:0000118 "has fasciculating component" xsd:string
@@ -1178,7 +1186,7 @@ is_a: RO:0002131 ! overlaps
 id: RO:0002134
 name: innervates
 def: "Relation between a 'neuron projection bundle' and a region in which one or more of its component neuron projections either synapses to targets or receives synaptic input.\nT innervates some R\nExpands_to: T has_fasciculating_neuron_projection that synapse_in some R." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
+property_value: cito:citesAsAuthority http://www.ncbi.nlm.nih.gov/pubmed/22402613
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-7073-9172
 property_value: RO:0001900 RO:0001901
@@ -1272,6 +1280,7 @@ name: in taxon
 def: "x is in taxon y if an only if y is an organism, and the relationship between x and y is one of: part of (reflexive), developmentally preceded by, derives from, secreted by, expressed." []
 comment: Connects a biological entity to its taxon of origin.
 subset: ro-eco
+synonym: "life cycle stage of" NARROW []
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0001-9227-417X
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
@@ -1281,13 +1290,13 @@ property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Taxon-constr
 range: OBI:0100026
 holds_over_chain: BFO:0000050 RO:0002162
 holds_over_chain: BFO:0000051 RO:0002162
-holds_over_chain: RO:0002202 RO:0002162
 holds_over_chain: RO:0002206 RO:0002162
+holds_over_chain: RO:0002211 RO:0002162
 holds_over_chain: RO:0002214 RO:0002162
 holds_over_chain: RO:0002215 RO:0002162
-holds_over_chain: RO:0002225 RO:0002162
 holds_over_chain: RO:0002254 RO:0002162
 holds_over_chain: RO:0002295 RO:0002162
+holds_over_chain: RO:0002387 RO:0002162
 is_a: RO:0002320 ! evolutionarily related to
 
 [Typedef]
@@ -1654,11 +1663,11 @@ id: RO:0002222
 name: temporally related to
 comment: A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations.
 subset: ro-eco
-property_value: http://purl.org/dc/terms/source "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1" xsd:anyURI
 property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 https://en.wikipedia.org/wiki/Allen%27s_interval_algebra
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends." xsd:string
+property_value: terms:source "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1" xsd:anyURI
 domain: BFO:0000003
 range: BFO:0000003
 
@@ -1828,8 +1837,8 @@ is_a: RO:0002444 ! parasite of
 id: RO:0002238
 name: has component participant
 def: "X 'has component participant' Y means X 'has participant' Y and there is a cardinality constraint that specifies the numbers of Ys." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
 property_value: IAO:0000232 "This object property is needed for axioms using has_participant with a cardinality contrainsts; e.g., has_particpant min 2 object. However, OWL does not permit cardinality constrains with object properties that have property chains (like has_particant) or are transitive (like has_part).\n\nIf you need an axiom that says 'has_participant min 2 object', you should instead say 'has_component_participant min 2 object'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
 is_a: RO:0000057 ! has participant
 
 [Typedef]
@@ -1927,7 +1936,7 @@ property_value: IAO:0000114 IAO:0000125
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: UBERON:0001062
 range: UBERON:0001062
-holds_over_chain: BFO:0000051 RO:0002202
+holds_over_chain: BFO:0000051 RO:0002254
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002255 ! developmentally contributes to
 
@@ -2170,7 +2179,7 @@ id: RO:0002302
 name: is treated by substance
 def: "Inverse of 'is substance that treats'" []
 subset: RO:0002259
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002410 ! causally related to
 inverse_of: RO:0002606 ! is substance that treats
 
@@ -2195,9 +2204,9 @@ def: "p is causally upstream of, positive effect q iff p is casually upstream of
 comment: holds between x and y if and only if x is causally upstream of y and the progression of x increases the frequency, rate or extent of y
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: RO:0004049 RO:0002411
 property_value: seeAlso https://wiki.geneontology.org/Causally_upstream_of,_positive_effect
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002411 ! causally upstream of
 is_a: RO:0004047 ! causally upstream of or within, positive effect
 
@@ -2207,9 +2216,9 @@ name: causally upstream of, negative effect
 def: "p is causally upstream of, negative effect q iff p is casually upstream of q, and the execution of p decreases the execution of q." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension
 subset: http://purl.obolibrary.org/obo/valid_for_gocam
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: RO:0004050 RO:0002411
 property_value: seeAlso https://wiki.geneontology.org/Causally_upstream_of,_negative_effect
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002411 ! causally upstream of
 is_a: RO:0004046 ! causally upstream of or within, negative effect
 
@@ -2217,9 +2226,9 @@ is_a: RO:0004046 ! causally upstream of or within, negative effect
 id: RO:0002309
 name: has exposure stimulus
 def: "A relationship between an exposure event or process and any agent, stimulus, activity, or event that causally effects an organism and interacts with an exposure receptor during an exposure event." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6996-0040
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-6601-2165
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8461-9745
+property_value: terms:contributor https://orcid.org/0000-0001-6996-0040
+property_value: terms:contributor https://orcid.org/0000-0002-6601-2165
+property_value: terms:contributor https://orcid.org/0000-0002-8461-9745
 is_a: RO:0002244 ! related via exposure to
 created_by: https://orcid.org/0000-0002-6601-2165
 creation_date: 2017-06-05T17:35:04Z
@@ -2620,8 +2629,8 @@ is_a: RO:0002295 ! results in developmental progression of
 [Typedef]
 id: RO:0002360
 name: has dendrite location
-property_value: http://purl.org/dc/terms/source "http://neurolex.org/wiki/Property:DendriteLocation" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
+property_value: terms:source "http://neurolex.org/wiki/Property:DendriteLocation" xsd:anyURI
 is_a: RO:0002131 ! overlaps
 
 [Typedef]
@@ -2814,8 +2823,10 @@ is_a: RO:0002384 ! has developmental potential involving
 id: RO:0002387
 name: has potential to develop into
 def: "x has the potential to develop into y iff x develops into y or if x is capable of developing into y" []
+comment: This relation has a stronger meaning than merely indicating that X may develop into Y, in that the capability of developing into Y is always present, even if X does not always actually develop into Y. In particular, this means that if Y is restricted to a given taxon T, X is necessarily likewise restricted.
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
+property_value: seeAlso https://github.com/oborel/obo-relations/issues/810
 is_a: RO:0002384 ! has developmental potential involving
 
 [Typedef]
@@ -2994,6 +3005,7 @@ property_value: IAO:0000118 "influences (processual)" xsd:string
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
 inverse_of: RO:0002427 ! causally downstream of or within
+transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002424
@@ -3093,12 +3105,12 @@ name: interacts with
 def: "A relationship that holds between two entities in which the processes executed by the two entities are causally connected." []
 subset: ro-eco
 synonym: "in pairwise interaction with" EXACT []
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0914" xsd:anyURI
 property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
 property_value: seeAlso "http://purl.obolibrary.org/obo/ro/docs/interaction-relations/" xsd:anyURI
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0914" xsd:anyURI
 domain: BFO:0000040
 range: BFO:0000040
 is_symmetric: true
@@ -3106,10 +3118,10 @@ is_symmetric: true
 [Typedef]
 id: RO:0002435
 name: genetically interacts with
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0208" xsd:anyURI
 property_value: IAO:0000116 "An interaction that holds between two genetic entities (genes, alleles) through some genetic interaction (e.g. epistasis)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso ECO:0000316
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0208" xsd:anyURI
 is_symmetric: true
 is_a: RO:0002434 ! interacts with
 
@@ -3117,11 +3129,11 @@ is_a: RO:0002434 ! interacts with
 id: RO:0002436
 name: molecularly interacts with
 def: "An interaction relationship in which the two partners are molecular entities that directly physically interact with each other for example via a stable binding interaction or a brief interaction during which one modifies the other." []
-property_value: closeMatch "http://purl.obolibrary.org/obo/MI_0915" xsd:anyURI
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "binds" xsd:string
 property_value: IAO:0000118 "molecularly binds with" xsd:string
 property_value: seeAlso ECO:0000353
+property_value: skos:closeMatch "http://purl.obolibrary.org/obo/MI_0915" xsd:anyURI
 is_symmetric: true
 is_a: RO:0002434 ! interacts with
 
@@ -3145,6 +3157,7 @@ id: RO:0002438
 name: trophically interacts with
 def: "An interaction relationship in which the partners are related via a feeding relationship." []
 subset: ro-eco
+property_value: IAO:0000112 "lions trophically interact with the zebras that they eat" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
@@ -3171,6 +3184,7 @@ id: RO:0002440
 name: symbiotically interacts with
 def: "A biotic interaction in which the two organisms live together in more or less intimate association." []
 subset: ro-eco
+property_value: IAO:0000112 "whales symbiotically interact with the barnacles that attach to them" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/19278549" xsd:anyURI
 property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
@@ -3718,13 +3732,13 @@ id: RO:0002507
 name: determined by
 def: "s determined by f if and only if s is a type of system, and f is a material entity that is part of s, such that f exerts a strong causal influence on the functioning of s, and the removal of f would cause the collapse of s." []
 subset: ro-eco
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-4366-3088
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000112 "A coral reef environment is determined by a particular coral reef" xsd:string
 property_value: IAO:0000116 "The label for this relation is probably too general for its restricted use, where the domain is a system. It may be relabeled in future" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/24330602
 property_value: IAO:0000589 "determined by (system to material entity)" xsd:string
+property_value: terms:creator https://orcid.org/0000-0002-4366-3088
+property_value: terms:creator https://orcid.org/0000-0002-6601-2165
 domain: RO:0002577 ! system
 range: BFO:0000040
 is_a: BFO:0000050 ! part of
@@ -3793,7 +3807,7 @@ is_a: RO:0002330 ! genomically related to
 id: RO:0002514
 name: sequentially related to
 def: "A relation that holds between two entities that have the property of being sequences or having sequences. " []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
 property_value: IAO:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving cause and effect." xsd:string
@@ -3805,7 +3819,7 @@ range: RO:0002532 ! sequentially ordered entity
 id: RO:0002515
 name: sequentially adjacent to
 def: "x is sequentially adjacent to y iff x and y do not overlap and if there are no base units intervening between x and y" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every UTR is adjacent to a CDS of the same transcript" xsd:string
 property_value: IAO:0000112 "Two consecutive DNA residues are sequentially adjacent" xsd:string
 property_value: IAO:0000112 "Two exons on a processed transcript that were previously connected by an intron are adjacent" xsd:string
@@ -3817,7 +3831,7 @@ is_a: RO:0002527 ! does not overlap sequence of
 id: RO:0002516
 name: has start sequence
 def: "x has start sequence y if the start of x is identical to the start of y, and x has y as a subsequence" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every CDS has as a start sequence the start codon for that transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "started by" xsd:string
@@ -3831,7 +3845,7 @@ id: RO:0002517
 name: is start sequence of
 def: "inverse of has start sequence" []
 subset: RO:0002259
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "starts" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3842,7 +3856,7 @@ is_a: RO:0002525 ! is subsequence of
 id: RO:0002518
 name: has end sequence
 def: "x has end sequence y if the end of x is identical to the end of y, and x has y as a subsequence" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Every CDS has as an end sequence the stop codon for that transcript (note this follows from the SO definition of CDS, in which stop codons are included)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "ended by" xsd:string
@@ -3856,7 +3870,7 @@ id: RO:0002519
 name: is end sequence of
 def: "inverse of has end sequence" []
 subset: RO:0002259
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "ends" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3867,7 +3881,7 @@ is_a: RO:0002525 ! is subsequence of
 id: RO:0002520
 name: is consecutive sequence of
 def: "x is a consecutive sequence of y iff x has subsequence y, and all the parts of x are made of zero or more repetitions of y or sequences as the same type as y." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000116 "In the SO paper, this was defined as an instance-type relation" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3877,7 +3891,7 @@ is_a: RO:0002524 ! has subsequence
 id: RO:0002521
 name: is sequentially aligned with
 def: "x is sequentially aligned with if a significant portion bases of x and y correspond in terms of their base type and their relative ordering" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "Human Shh and Mouse Shh are sequentially aligned, by cirtue of the fact that they derive from the same ancestral sequence." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_symmetric: true
@@ -3887,7 +3901,7 @@ is_a: RO:0002514 ! sequentially related to
 id: RO:0002522
 name: bounds sequence of
 def: "x bounds the sequence of y iff the upstream-most part of x is upstream of or coincident with the upstream-most part of y, and the downstream-most part of x is downstream of or coincident with the downstream-most part of y" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "The genomic exons of a transcript bound the sequence of the genomic introns of the same transcript (but the introns are not subsequences of the exons)" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
@@ -3899,7 +3913,7 @@ id: RO:0002523
 name: is bound by sequence of
 def: "inverse of bounds sequence of" []
 subset: RO:0002259
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: RO:0002514 ! sequentially related to
@@ -3908,7 +3922,7 @@ is_a: RO:0002514 ! sequentially related to
 id: RO:0002524
 name: has subsequence
 def: "x has subsequence y iff all of the sequence parts of y are sequence parts of x" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "contains" xsd:string
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/20226267" xsd:anyURI
@@ -3923,7 +3937,7 @@ id: RO:0002525
 name: is subsequence of
 def: "inverse of has subsequence" []
 subset: RO:0002259
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "contained by" xsd:string
 is_transitive: true
@@ -3935,7 +3949,7 @@ is_a: RO:0002526 ! overlaps sequence of
 id: RO:0002526
 name: overlaps sequence of
 def: "x overlaps the sequence of y if and only if x has a subsequence z and z is a subsequence of y." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 holds_over_chain: RO:0002524 RO:0002525
 is_symmetric: true
@@ -3946,7 +3960,7 @@ is_a: RO:0002514 ! sequentially related to
 id: RO:0002527
 name: does not overlap sequence of
 def: "x does not overlap the sequence of y if and only if there is no z such that x has a subsequence z and z is a subsequence of y." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "disconnected from" xsd:string
 is_symmetric: true
@@ -3956,7 +3970,7 @@ is_a: RO:0002514 ! sequentially related to
 id: RO:0002528
 name: is upstream of sequence of
 def: "inverse of downstream of sequence of" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: RO:0002527 ! does not overlap sequence of
@@ -3965,7 +3979,7 @@ is_a: RO:0002527 ! does not overlap sequence of
 id: RO:0002529
 name: is downstream of sequence of
 def: "x is downstream of the sequence of y iff either (1) x and y have sequence units, and all units of x are downstream of all units of y, or (2) x and y are sequence units, and x is either immediately downstream of y, or transitively downstream of y." []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_transitive: true
 is_a: RO:0002527 ! does not overlap sequence of
@@ -3975,7 +3989,7 @@ inverse_of: RO:0002529 ! is downstream of sequence of
 id: RO:0002530
 name: is immediately downstream of sequence of
 def: "x is immediately downstream of the sequence of y iff either (1) x and y have sequence units, and all units of x are downstream of all units of y, and x is sequentially adjacent to y, or (2) x and y are sequence units, in which case the immediately downstream relation is primitive and defined by context: for DNA bases, y would be adjacent and 5' to y" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "A 3'UTR is immediately downstream of the sequence of the CDS from the same monocistronic transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: RO:0002575 RO:0002529
@@ -3986,7 +4000,7 @@ is_a: RO:0002529 ! is downstream of sequence of
 id: RO:0002531
 name: is immediately upstream of sequence of
 def: "inverse of immediately downstream of" []
-property_value: http://purl.org/spar/cito/citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
+property_value: cito:citesAsAuthority http://biorxiv.org/content/early/2014/06/27/006650.abstract
 property_value: IAO:0000112 "A 5'UTR is immediately upstream of the sequence of the CDS from the same monocistronic transcript" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: RO:0002515 ! sequentially adjacent to
@@ -4045,12 +4059,16 @@ is_a: RO:0002453 ! host of
 [Typedef]
 id: RO:0002555
 name: allelopath of
+def: "A relationship between organisms where one organism is influenced by the biochemicals produced by another." []
+comment: Allelopathy is a phenomenon in which one organism releases chemicals to positively or negatively influence the growth, survival or reproduction of other organisms in its vicinity.
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://en.wikipedia.org/wiki/Allelopathy" xsd:string
 property_value: seeAlso "http://eol.org/schema/terms/allelopathyYes" xsd:string
-property_value: seeAlso "x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
+property_value: seeAlso "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10172429/" xsd:string
+property_value: seeAlso "x is an allelopath of y if x produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+inverse_of: RO:0020301 ! has allelopath
 
 [Typedef]
 id: RO:0002556
@@ -4577,10 +4595,10 @@ id: RO:0002802
 name: reservoir host of
 def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
 comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
 property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
 property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+property_value: terms:contributor https://orcid.org/0000-0002-3120-4802
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
 is_a: RO:0002453 ! host of
 inverse_of: RO:0002803 ! has reservoir host
 
@@ -5094,15 +5112,15 @@ is_obsolete: true
 id: RO:0007000
 name: has driver
 def: "A relation between two entities, in which one of the entities is any natural or human-influenced factor that directly or indirectly causes a change in the other entity." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8910-9851
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/506
+property_value: terms:contributor https://orcid.org/0000-0001-8910-9851
 
 [Typedef]
 id: RO:0007001
 name: has disease driver
 def: "A relation between an entity and a disease of a host, in which the entity is not part of the host itself, and the condition results in pathological processes." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8910-9851
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/506
+property_value: terms:contributor https://orcid.org/0000-0001-8910-9851
 is_a: RO:0007000 ! has driver
 
 [Typedef]
@@ -5171,12 +5189,32 @@ name: has roost
 def: "x 'has roost' y if and only if: x is an organism, y is a habitat, and y can support rest behaviors x." []
 comment: A population of xs will possess adaptations (either evolved naturally or via artifical selection) which permit it to rest in y.
 subset: ro-eco
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2908-3327
-property_value: http://purl.org/dc/terms/date "2023-01-18T14:28:21Z" xsd:dateTime
 property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-01-18T14:28:21Z" xsd:dateTime
 domain: OBI:0100026
 range: ENVO:01000739
 is_a: RO:0002303 ! has habitat
+
+[Typedef]
+id: RO:0008510
+name: symbiotrophically interacts with
+def: "A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism" []
+subset: ro-eco
+property_value: IAO:0000112 "frog symbiotrophically interacts with the pitcher plant it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:39:56Z" xsd:dateTime
+is_a: RO:0002438 ! trophically interacts with
+
+[Typedef]
+id: RO:0008511
+name: trophic parasite of
+def: "A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism" []
+subset: ro-eco
+property_value: IAO:0000112 "tapeworm is trophic parasite of the cow it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:41:07Z" xsd:dateTime
+is_a: RO:0008510 ! symbiotrophically interacts with
 
 [Typedef]
 id: RO:0009001
@@ -5232,9 +5270,9 @@ is_a: RO:0009001 ! has substance added
 id: RO:0009006
 name: assay measures characteristic
 def: "A relation between an assay and a characteristic, in which the assay generates a data item which is a measure of a characteristic." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
-property_value: http://purl.org/dc/terms/date "2023-05-23T15:24:15Z" xsd:dateTime
 property_value: IAO:0000112 "A mass measurement assay measures an material's mass characteristic. A radioactivity detection assay measures the amount of radiation (alpha, beta or gamma ray emmissions) coming from a material." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8844-9165
+property_value: terms:date "2023-05-23T15:24:15Z" xsd:dateTime
 domain: OBI:0000070
 range: BFO:0000020
 inverse_of: RO:0009007 ! characteristic measured by assay
@@ -5243,8 +5281,8 @@ inverse_of: RO:0009007 ! characteristic measured by assay
 id: RO:0009007
 name: characteristic measured by assay
 def: "Inverse of 'assay measures characteristic'" []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8844-9165
-property_value: http://purl.org/dc/terms/date "2023-05-23T15:29:50Z" xsd:dateTime
+property_value: terms:contributor https://orcid.org/0000-0002-8844-9165
+property_value: terms:date "2023-05-23T15:29:50Z" xsd:dateTime
 domain: BFO:0000020
 range: OBI:0000070
 
@@ -5253,14 +5291,14 @@ id: RO:0009501
 name: realized in response to
 def: "r 'realized in response to' s iff, r is a realizable (e.g. a plant trait such as responsivity to drought), s is an environmental stimulus (a process), and s directly causes the realization of r." []
 synonym: "triggered by process" EXACT [https://orcid.org/0000-0002-6601-2165]
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6996-0040
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-6601-2165
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7073-9172
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8461-9745
 property_value: IAO:0000112 "A drought sensitivity trait that inheres in a whole plant is realized in a systemic response process in response to exposure to drought conditions." xsd:string
 property_value: IAO:0000112 "An inflammatory disease that is realized in response to an inflammatory process occurring in the gut (which is itself the realization of a process realized in response to harmful stimuli in the mucosal lining of th gut)" xsd:string
 property_value: IAO:0000112 "Environmental polymorphism in butterflies: These butterflies have a 'responsivity to day length trait' that is realized in response to the duration of the day, and is realized in developmental processes that lead to increased or decreased pigmentation in the adult morph." xsd:string
 property_value: seeAlso "https://docs.google.com/document/d/1KWhZxVBhIPkV6_daHta0h6UyHbjY2eIrnON1WIRGgdY/edit" xsd:anyURI
+property_value: terms:contributor https://orcid.org/0000-0001-6996-0040
+property_value: terms:contributor https://orcid.org/0000-0002-6601-2165
+property_value: terms:contributor https://orcid.org/0000-0002-7073-9172
+property_value: terms:contributor https://orcid.org/0000-0002-8461-9745
 domain: BFO:0000017
 range: BFO:0000015
 holds_over_chain: BFO:0000054 RO:0002404
@@ -5552,8 +5590,8 @@ name: positively regulates in another organism
 def: "x 'positively regulates in other organism' y if and only if: (x is the realization of a function to increase the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 synonym: "positively regulates in other organism" EXACT []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
 property_value: RO:0004049 RO:0002010
+property_value: terms:contributor https://orcid.org/0000-0003-1813-6857
 is_a: RO:0002010 ! regulates in another organism
 creation_date: 2023-10-12T10:02:28Z
 
@@ -5563,8 +5601,8 @@ name: negatively regulates in another organism
 def: "x 'negatively regulates in other organism' y if and only if: (x is the realization of a function to reduce the frequency, rate or extent of y) AND (the agents of x are produced by organism o1 and the agents of y are produced by organism o2)." []
 subset: http://purl.obolibrary.org/obo/valid_for_go_ontology
 synonym: "negatively regulates in other organism" EXACT []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1813-6857
 property_value: RO:0004050 RO:0002010
+property_value: terms:contributor https://orcid.org/0000-0003-1813-6857
 is_a: RO:0002010 ! regulates in another organism
 creation_date: 2023-10-12T10:02:42Z
 
@@ -5656,6 +5694,18 @@ created_by: https://orcid.org/0000-0002-1373-1705
 creation_date: 2021-05-26T08:41:07Z
 
 [Typedef]
+id: RO:0013010
+name: synapses restricted to region
+def: "A relationship between a neuron and a region, where all of the functionally relevant input and output synapses are in that region." []
+comment: This relation may still be used if a very small number of synapses fall slightly outside the boundaries of the region, but any class using this relation should not have another restriction using this relation to another non-overlapping region.
+synonym: "intrinsic to" EXACT []
+property_value: IAO:0000112 "An optic lobe intrinsic neuron has its synapses restricted to optic lobe neuropil." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-1373-1705
+property_value: terms:date "2023-08-17T12:17:24Z" xsd:dateTime
+is_a: RO:0013001 ! has synaptic IO in region
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
 id: RO:0014001
 name: disease has infectious agent
 def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
@@ -5694,11 +5744,11 @@ name: has characterizing marker set
 def: "A relation that applies between a cell type and a set of markers that can be used to uniquely identify that cell type." []
 synonym: "has marker gene combination" EXACT []
 synonym: "has marker signature set" EXACT []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-7258-9596
 property_value: IAO:0000112 "'Lamp5-like Egln3_1 primary motor cortex GABAergic interneuron (Mus musculus)' subClass_of: has_characterizing_marker_set some 'NS forest marker set of Lamp5-like Egln3_1 MOp (Mouse).'; NS forest marker set of Lamp5-like Egln3_1 SubClass_of: ('has part' some 'Mouse Fbn2') and ('has part' some 'Mouse Chrna7') and ('has part' some 'Mouse Fam19a1')." xsd:string
 property_value: IAO:0000112 "transcriptomically defined cell type X subClass_of: (has_characterizing_marker_set some S1); S1 has_part some gene 1, S1 has_part some gene 2, S1 has_part some gene 3." xsd:string
 property_value: IAO:0000116 "C has_characterizing_marker_set y iff: C is a cell type and y is a collection of genes or proteins whose expression is sufficient to distinguish cell type C from most or all other cell types." xsd:string
 property_value: IAO:0000232 "This relation is not meant for cases where set of genes/proteins are only useful as markers in some specific context - e.g. in some specific location. In these cases it is recommended to make a more specific cell class restricted to the relevant context." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-7258-9596
 domain: CL:0000000
 
 [Typedef]
@@ -5751,9 +5801,9 @@ comment: There are frequently two ways to state the same thing: we can say 'sper
 id: RO:0015015
 name: has high plasma membrane amount
 def: "A relation between a cell and molecule or complex such that every instance of the cell has a high number of instances of that molecule expressed on the cell surface." [PMID:19243617]
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1617-8244
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1940-6740
 property_value: IAO:0000112 "'Ly-76 high positive erythrocyte' equivalent to 'enucleate erythrocyte' and (has_high_plasma_membrane_amount some 'lymphocyte antigen 76 (mouse)')" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1617-8244
+property_value: terms:contributor https://orcid.org/0000-0003-1940-6740
 domain: CL:0000000
 is_a: RO:0002104 ! has plasma membrane part
 
@@ -5761,36 +5811,36 @@ is_a: RO:0002104 ! has plasma membrane part
 id: RO:0015016
 name: has low plasma membrane amount
 def: "A relation between a cell and molecule or complex such that every instance of the cell has a low number of instances of that molecule expressed on the cell surface." [PMID:19243617]
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1617-8244
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1940-6740
 property_value: IAO:0000112 "'DN2b thymocyte' equivalent to 'DN2 thymocyte' and (has_low_plasma_membrane_amount some 'mast/stem cell growth factor receptor')" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1617-8244
+property_value: terms:contributor https://orcid.org/0000-0003-1940-6740
 domain: CL:0000000
 is_a: RO:0002104 ! has plasma membrane part
 
 [Typedef]
 id: RO:0016001
 name: has phenotype or disease
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:14Z" xsd:dateTime
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a set of relations regarding presentation of phenotypes and disease." xsd:string
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-11-05T17:30:14Z" xsd:dateTime
 
 [Typedef]
 id: RO:0016002
 name: has disease
 def: "A relationship that holds between an organism and a disease. Here a disease is construed broadly as a disposition to undergo pathological processes that exists in an organism because of one or more disorders in that organism." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-11-05T17:30:44Z" xsd:dateTime
 property_value: seeAlso "https://github.com/oborel/obo-relations/issues/478" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-11-05T17:30:44Z" xsd:dateTime
 is_a: RO:0016001 ! has phenotype or disease
 
 [Typedef]
 id: RO:0016004
 name: has exposure medium
 def: "X has exposure medium Y if X is an exposure event (process), Y is a material entity, and the stimulus for X is transmitted or carried in Y." []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0002-7463-6306
-property_value: http://purl.org/dc/terms/date "2021-12-14T20:41:45Z" xsd:dateTime
 property_value: IAO:0000119 "ExO:0000083" xsd:string
+property_value: terms:creator https://orcid.org/0000-0002-7463-6306
+property_value: terms:date "2021-12-14T20:41:45Z" xsd:dateTime
 is_a: RO:0002244 ! related via exposure to
 
 [Typedef]
@@ -5798,11 +5848,11 @@ id: RO:0017001
 name: device utilizes material
 def: "X device utilizes material Y means X and Y are material entities, and X is capable of some process P that has input Y." []
 synonym: "utilizes" BROAD []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-2620-0345
 property_value: IAO:0000112 "A diagnostic testing device utilizes a specimen." xsd:string
 property_value: IAO:0000232 "A diagnostic testing device utilizes a specimen means that the diagnostic testing device is capable of an assay, and this assay a specimen as its input." xsd:string
 property_value: IAO:0000232 "See github ticket https://github.com/oborel/obo-relations/issues/497" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:contributor https://orcid.org/0000-0003-2620-0345
 holds_over_chain: RO:0002215 RO:0002233
 creation_date: 2021-11-08T12:00:00Z
 
@@ -5810,8 +5860,8 @@ creation_date: 2021-11-08T12:00:00Z
 id: RO:0017003
 name: positively correlated with
 def: "A relation between entities in which one increases or decreases as the other does the same." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
 property_value: IAO:0000118 "directly correlated with" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
 is_symmetric: true
 is_a: RO:0002610 ! correlated with
 
@@ -5819,8 +5869,8 @@ is_a: RO:0002610 ! correlated with
 id: RO:0017004
 name: negatively correlated with
 def: "A relation between entities in which one increases as the other decreases." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
 property_value: IAO:0000118 "inversely correlated with" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
 is_symmetric: true
 is_a: RO:0002610 ! correlated with
 
@@ -5828,9 +5878,9 @@ is_a: RO:0002610 ! correlated with
 id: RO:0017005
 name: contains measured amount
 def: "A relation between a container and measurement datum that specifies the actual amount of material in the container." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2999-0103
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-5714-991X
 property_value: IAO:0000112 "anticoagulant-containing test tube contains measured amount 5 ml of blood specimen." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2999-0103
+property_value: terms:contributor https://orcid.org/0000-0002-5714-991X
 domain: OBI:0000967
 range: COB:0000121
 
@@ -5838,9 +5888,9 @@ range: COB:0000121
 id: RO:0017006
 name: has maximum capacity
 def: "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-2999-0103
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-5714-991X
 property_value: IAO:0000112 "anticoagulant-containing test tube has maximum capacity 10 ml." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2999-0103
+property_value: terms:contributor https://orcid.org/0000-0002-5714-991X
 domain: OBI:0000967
 range: COB:0000121
 
@@ -5848,12 +5898,12 @@ range: COB:0000121
 id: RO:0017008
 name: owns
 def: "A primitive relation that holds between entities x and y in which y is at x's full disposal." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
-property_value: http://purl.org/dc/terms/description "This primitive relation is the foundation of the owner's right to have the owned entity at his/her full disposal." xsd:string
 property_value: IAO:0000112 "biobank organization owns a specimen" xsd:string
 property_value: IAO:0000112 "hospital owns a laboratory facility" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:contributor https://orcid.org/0000-0003-1834-3856
+property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
+property_value: terms:description "This primitive relation is the foundation of the owner's right to have the owned entity at his/her full disposal." xsd:string
 inverse_of: RO:0017009 ! is owned by
 creation_date: 2023-03-29T16:57:03Z
 
@@ -5862,25 +5912,36 @@ id: RO:0017009
 name: is owned by
 def: "Inverse of the owns relation." []
 subset: RO:0002259
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-9625-1899
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1834-3856
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-1909-9269
 property_value: IAO:0000112 "freezer is owned by a biobank organization" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:contributor https://orcid.org/0000-0003-1834-3856
+property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
 creation_date: 2023-03-29T17:06:06Z
+
+[Typedef]
+id: RO:0017502
+name: collected during
+def: "A relation between a material entity and an occurrent in which the material entity is collected during the existence of the occurrent." []
+property_value: IAO:0000112 "A thorax specimen was collected during the larval stage." xsd:string
+property_value: IAO:0000112 "An oyster was collected during low tide." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8844-9165
+property_value: terms:date "2023-09-13T04:12:32Z" xsd:dateTime
+domain: BFO:0000040
+range: BFO:0000003
 
 [Typedef]
 id: RO:0018001
 name: is myristoyltransferase activity
 def: "Helper relation for OWL definition of RO:0018002 myristoylates" []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
 is_a: RO:0002564 ! molecular interaction relation helper property
 
 [Typedef]
 id: RO:0018002
 name: myristoylates
 def: "A molecularly-interacts-with relationship between two entities, where the subject catalyzes a myristoylation activity that takes the object as input" []
-property_value: http://purl.org/dc/terms/conformsTo http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+property_value: terms:conformsTo http://purl.obolibrary.org/obo/ro/ro-metamodel/ObjectPropertyDefinedByInteractionProcess
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
 is_a: RO:0002436 ! molecularly interacts with
 inverse_of: RO:0018003 ! myristoylated by
 
@@ -5888,49 +5949,49 @@ inverse_of: RO:0018003 ! myristoylated by
 id: RO:0018003
 name: myristoylated by
 def: "inverse of myristoylates" []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-4423-4370
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
 
 [Typedef]
 id: RO:0018027
 name: is agonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor activates some activity of the receptor" []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "mibolerone (CHEBI:34849) is agonist of androgen receptor (PR:P10275)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P3772
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: RO:0002450 ! directly positively regulates activity of
 
 [Typedef]
 id: RO:0018028
 name: is inverse agonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor inhibits some activity of the receptor to below basal level" []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "pimavanserin (CHEBI:133017) is inverse agonist of HTR2A (PR:P28223)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P9275
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0018029
 name: is antagonist of
 def: "a relation between a ligand (material entity) and a receptor (material entity) that implies the binding of the ligand to the receptor reduces some activity of the receptor to basal level" []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "tretinoin (CHEBI:15367) is antagonist of Nuclear receptor ROR-beta (PR:Q92753)" xsd:string
 property_value: seeAlso https://www.wikidata.org/wiki/Property:P3773
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: RO:0002449 ! directly negatively regulates activity of
 
 [Typedef]
 id: RO:0018030
 name: chemical relationship
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, in which the subject or object is a chemical." xsd:string
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 
 [Typedef]
 id: RO:0018031
 name: is direct conjugate base of
 def: "A is a direct conjugate base of B if and only if A is chemical entity that is a Brønsted–Lowry Base (i.e., can receive a proton) and by receiving a particular proton transforms it into B." []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "pyruvate anion (CHEBI:15361) is the conjugate base of the neutral pyruvic acid (CHEBI:32816)" xsd:string
 property_value: RO:0002575 RO:0018033
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: RO:0018033 ! is deprotonated form of
 inverse_of: RO:0018032 ! is direct conjugate acid of
 
@@ -5938,10 +5999,10 @@ inverse_of: RO:0018032 ! is direct conjugate acid of
 id: RO:0018032
 name: is direct conjugate acid of
 def: "A is a direct conjugate acid of B if and only if A is chemical entity that is a Brønsted–Lowry Acid (i.e., can give up a proton) and by removing a particular proton transforms it into B." []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "neutral pyruvic acid (CHEBI:32816) is the conjugate acid of the pyruvate anion (CHEBI:15361)" xsd:string
 property_value: RO:0002575 RO:0018034
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_a: RO:0018034 ! is protonated form of
 
 [Typedef]
@@ -5949,9 +6010,9 @@ id: RO:0018033
 name: is deprotonated form of
 def: "A is a deprotonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Base (i.e., can receive a proton) and by adding some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
 xref: obo:chebi#is_conjugate_base_of
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "(E)-cinnamoyl-CoA(4-) (CHEBI:57252) is a deprotonated form (E)-cinnamoyl-CoA (CHEBI:10956), which involves removing four protons." xsd:string
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_transitive: true
 is_a: RO:0018030 ! chemical relationship
 inverse_of: RO:0018034 ! is protonated form of
@@ -5961,21 +6022,21 @@ id: RO:0018034
 name: is protonated form of
 def: "A is a protonated form of B if and only if A is chemical entity that is a Brønsted–Lowry Acid (i.e., can give up a proton) and by removing some nonzero number of protons transforms it into B.\n\nThis is a transitive relationship and follows this design pattern: https://oborel.github.io/obo-relations/direct-and-indirect-relations." []
 xref: obo:chebi#is_conjugate_acid_of
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
 property_value: IAO:0000112 "(E)-cinnamoyl-CoA (CHEBI:10956) is a protonated form of (E)-cinnamoyl-CoA(4-) (CHEBI:57252), which involves adding four protons." xsd:string
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/643
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
 is_transitive: true
 is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
 id: RO:0018035
 name: is matched small molecular pair with
-def: "A and B are a matched small molecular pair (MMP) if their chemical structures define by a single, relatively small, well-defined structural modification.\n\nWhile this is normally called \"matched molecular pair\" in the cheminformatics literaturel, it is labeled as \"matched small molecular pair\" so as to reduce confusion with peptides and other macromolecules, which are also referenced as \"molecules\" in some contexts.\n\nThis relationship is symmetric, meaning if A is a MMP with B iff B is a MMP with A.\n\nThis relationship is not transitive, meaning that A is a MMP with B and B is a MMP with C, then A is not necessarily an MMP with C." [] {http://purl.org/dc/terms/source="https://doi.org/10.1021/jm200452d", http://purl.org/dc/terms/source="https://doi.org/10.1002/ddr.21045", http://purl.org/dc/terms/source="https://en.wikipedia.org/wiki/Matched_molecular_pair_analysis"}
+def: "A and B are a matched small molecular pair (MMP) if their chemical structures define by a single, relatively small, well-defined structural modification.\n\nWhile this is normally called \"matched molecular pair\" in the cheminformatics literaturel, it is labeled as \"matched small molecular pair\" so as to reduce confusion with peptides and other macromolecules, which are also referenced as \"molecules\" in some contexts.\n\nThis relationship is symmetric, meaning if A is a MMP with B iff B is a MMP with A.\n\nThis relationship is not transitive, meaning that A is a MMP with B and B is a MMP with C, then A is not necessarily an MMP with C." [] {terms:source="https://doi.org/10.1021/jm200452d", terms:source="https://doi.org/10.1002/ddr.21045", terms:source="https://en.wikipedia.org/wiki/Matched_molecular_pair_analysis"}
 synonym: "is matched molecular pair with" EXACT []
 synonym: "is MMP with" EXACT []
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-02-28T18:53:32Z" xsd:dateTime
 property_value: IAO:0000112 "phenol (CHEBI:15882) and aniline (CHEBI:17296) are matched molecular pairs because they differ by one chemical transformation i.e., the replacement of aryl primary amine with aryl primary alcohol." xsd:string
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-02-28T18:53:32Z" xsd:dateTime
 is_symmetric: true
 is_a: RO:0018030 ! chemical relationship
 
@@ -5985,10 +6046,10 @@ name: is tautomer of
 def: "Two chemicals are tautomers if they can be readily interconverted.\n\nThis commonly refers to prototropy in which a hydrogen's position is changed, such as between ketones and enols. This is also often observed in heterocyclic rings, e.g., ones containing nitrogens and/or have aryl functional groups containing heteroatoms." []
 synonym: "is desmotrope of" EXACT []
 xref: obo:chebi#is_tautomer_of
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "3-carboxy-3-mercaptopropanoate (CHEBI:38707) is tautomer of 1,2-dicarboxyethanethiolate (CHEBI:38709) because 3-carboxy-3-mercaptopropanoate is deprotonated on the carboxylic acid whereas 1,2-dicarboxyethanethiolate is deprotonated on the secondary thiol." xsd:string {seeAlso="CHEBI:38707", seeAlso="CHEBI:38709"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-03-18T23:49:31Z" xsd:dateTime
 is_symmetric: true
 is_a: RO:0018030 ! chemical relationship
 
@@ -5997,10 +6058,10 @@ id: RO:0018037
 name: is substitutent group from
 def: "Group A is a substituent group from Chemical B if A represents the functional part of A and includes information about where it is connected. A is not itself a chemical with a fully formed chemical graph, but is rather a partial graph with one or more connection points that can be used to attach to another chemical graph, typically as a functionalization." []
 xref: obo:chebi#is_substituent_group_from
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "carboxylatoacetyl group (CHEBI:58957) is substituent group from malonate(1-) (CHEBI:30795)" xsd:string {seeAlso="CHEBI:30795", seeAlso="CHEBI:58957"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-03-18T23:49:31Z" xsd:dateTime
 is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
@@ -6008,10 +6069,10 @@ id: RO:0018038
 name: has functional parent
 def: "Chemical A has functional parent Chemical B if there is chemical transformation through which chemical B can be produced from chemical A. \n\nFor example, the relationship between a salt and a freebased compound is a \"has functional parent\" relationship." []
 xref: obo:chebi#has_functional_parent
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "hydrocortamate hydrochloride (CHEBI:50854) has parent hydride hydrocortamate (CHEBI:50851)" xsd:string {seeAlso="CHEBI:50851", seeAlso="CHEBI:50854"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-03-18T23:49:31Z" xsd:dateTime
 is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
@@ -6020,10 +6081,10 @@ name: is enantiomer of
 def: "Chemicals A and B are enantiomers if they share the same molecular graph except the change of the configuration of substituents around exactly one chiral center.\n\nA chemical with no chiral centers can not have an enantiomer. A chemical with multiple chiral centers can have multiple enantiomers, but its enantiomers are not themselves enantiomers (they are diastereomers)." []
 synonym: "is optical isomer of" EXACT []
 xref: obo:chebi#is_enantiomer_of
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "dexmedetomidine hydrochloride (CHEBI:31472) is enantiomer of levomedetomidine hydrochloride (CHEBI:48557) because the stereochemistry of the central chiral carbon is swapped." xsd:string {comment="CHEBI:48557", seeAlso="CHEBI:31472"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-03-18T23:49:31Z" xsd:dateTime
 is_symmetric: true
 is_a: RO:0018030 ! chemical relationship
 
@@ -6032,17 +6093,17 @@ id: RO:0018040
 name: has parent hydride
 def: "Chemical A has parent hydride Chemical B if there exists a molecular graphical transformation where functional groups on A are replaced with hydrogens in order to yield B." []
 xref: obo:chebi#has_parent_hydride
-property_value: http://purl.org/dc/terms/creator https://orcid.org/0000-0003-4423-4370
-property_value: http://purl.org/dc/terms/date "2023-03-18T23:49:31Z" xsd:dateTime
 property_value: IAO:0000112 "pyranine (CHEBI:52083) has parent hydride pyrene (CHEBI:39106). Pyrene is molecule with four fused benzene rings, whereas pyranine has the same core ring structure with additional sulfates." xsd:string {seeAlso="CHEBI:39106", seeAlso="CHEBI:52083"}
 property_value: seeAlso https://github.com/oborel/obo-relations/issues/697
+property_value: terms:creator https://orcid.org/0000-0003-4423-4370
+property_value: terms:date "2023-03-18T23:49:31Z" xsd:dateTime
 is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
 id: RO:0019000
 name: regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 domain: BFO:0000015
 range: PATO:0000001
 holds_over_chain: RO:0002211 RO:0019000
@@ -6052,7 +6113,7 @@ is_a: RO:0002410 ! causally related to
 id: RO:0019001
 name: positively regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) positively regulates characteristic (C) iff: P results in an increase in the intensity or magnitude of C." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 holds_over_chain: RO:0002213 RO:0019001
 is_a: RO:0019000 ! regulates characteristic
 
@@ -6060,7 +6121,7 @@ is_a: RO:0019000 ! regulates characteristic
 id: RO:0019002
 name: negatively regulates characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) negatively regulates characteristic (C) iff: P results in a decrease in the intensity or magnitude of C." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-8688-6599
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
 holds_over_chain: RO:0002212 RO:0019001
 holds_over_chain: RO:0002213 RO:0019002
 is_a: RO:0019000 ! regulates characteristic
@@ -6076,9 +6137,9 @@ created_by: https://orcid.org/0000-0002-4142-7153
 id: RO:0020101
 name: vessel supplies blood to
 def: "x vessel supplies blood to y if and only if x is a vessel that supplies blood directly or indirectly to an anatomical structure y." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:22Z" xsd:dateTime
 property_value: IAO:0000112 "brachial artery vessel supplies blood to brachialis muscle" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:22Z" xsd:dateTime
 domain: UBERON:0001981
 range: UBERON:0000061
 is_a: RO:0002178 ! supplies
@@ -6087,9 +6148,9 @@ is_a: RO:0002178 ! supplies
 id: RO:0020102
 name: vessel drains blood from
 def: "x vessel drains blood from y if and only if x is a vessel that drains blood directly or indirectly from an anatomical structure y." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:41Z" xsd:dateTime
 property_value: IAO:0000112 "cystic vein vessel drains blood from gallbladder" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:41Z" xsd:dateTime
 domain: UBERON:0001981
 range: UBERON:0000061
 is_a: RO:0002179 ! drains
@@ -6098,20 +6159,36 @@ is_a: RO:0002179 ! drains
 id: RO:0020103
 name: directly supplies and drains
 def: "x directly supplies and drains y if and only if x is a capillary, y is an anatomical entity, and x directly supplies and drains y." []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-6677-8489
-property_value: http://purl.org/dc/terms/date "2024-02-01T10:09:59Z" xsd:dateTime
 property_value: IAO:0000112 "alveolar capillary directly supplies and drains some alveolus" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-02-01T10:09:59Z" xsd:dateTime
 domain: UBERON:0001982
 range: UBERON:0000061
 is_a: RO:0002178 ! supplies
 is_a: RO:0002179 ! drains
 
 [Typedef]
+id: RO:0020104
+name: is neuron
+def: "This property only applies to neurons" []
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-10-23T14:34:52Z" xsd:dateTime
+domain: CL:0000540
+
+[Typedef]
+id: RO:0020105
+name: is anatomical entity
+def: "This property only applies to anatomical entities." []
+property_value: terms:contributor https://orcid.org/0000-0001-6677-8489
+property_value: terms:date "2024-10-29T09:55:07Z" xsd:dateTime
+domain: UBERON:0001062
+
+[Typedef]
 id: RO:0020202
 name: has numerator
 def: "A relationship between a ratio or proportion and its dividend." []
 synonym: "has dividend" EXACT []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+property_value: terms:contributor https://orcid.org/0000-0001-8314-2140
 domain: PATO:0001470
 range: PATO:0000001
 is_a: BFO:0000051 ! has part
@@ -6121,10 +6198,18 @@ id: RO:0020203
 name: has denominator
 def: "A relationship between a ratio or proportion and its divisor." []
 synonym: "has divisor" EXACT []
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0001-8314-2140
+property_value: terms:contributor https://orcid.org/0000-0001-8314-2140
 domain: PATO:0001470
 range: PATO:0000001
 is_a: BFO:0000051 ! has part
+
+[Typedef]
+id: RO:0020301
+name: has allelopath
+def: "inverse of allelopath of" []
+property_value: IAO:0000117 https://orcid.org/0009-0005-5515-1230
+property_value: seeAlso "https://en.wikipedia.org/wiki/Allelopathy" xsd:string
+is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 
 [Typedef]
 id: RO:0040035
@@ -6152,12 +6237,12 @@ synonym: "sameness" EXACT []
 synonym: "similar to" EXACT []
 xref: ECO:0000041
 xref: SO:similar_to
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: IAO:0000116 "TODO: Add homeomorphy axiom" xsd:string
 property_value: RO:0040042 BFO:0000002
 property_value: RO:0040042 BFO:0000003
 property_value: seeAlso HOM:0000000
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 
 [Typedef]
@@ -6166,9 +6251,9 @@ name: in homology relationship with
 def: "Similarity that results from common evolutionary origin." [http://dx.doi.org/10.1002/bies.950180611, http://dx.doi.org/10.1002/jmor.1051730307, http://dx.doi.org/10.1007/BF02814480, http://purl.obolibrary.org/obo/HOM_0000001]
 comment: This broad definition encompasses all the working definitions proposed so far in the literature.
 synonym: "homologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000001
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:0002158 ! shares ancestor with
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -6180,9 +6265,9 @@ name: in homoplasy relationship with
 def: "Similarity that results from independent evolution." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000002]
 synonym: "analogy" RELATED []
 synonym: "homoplasous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000002
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
 
@@ -6193,9 +6278,9 @@ def: "Similarity that is characterized by the organization of anatomical structu
 comment: Homology and homocracy are not mutually exclusive. The homology relationships of patterning genes may be unresolved and thus may include orthologues and paralogues.
 synonym: "homocracous to" EXACT []
 xref: ECO:0000075
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000003
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:0002320 ! evolutionarily related to
 is_a: RO:HOM0000000 ! in similarity relationship with
@@ -6206,9 +6291,9 @@ name: in convergence relationship with
 def: "Homoplasy that involves different underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000004]
 comment: Convergence usually implies a notion of adaptation.
 synonym: "analogy" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000004
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -6218,9 +6303,9 @@ name: in parallelism relationship with
 def: "Homoplasy that involves homologous underlying mechanisms or structures." [http://dx.doi.org/10.1016/j.jhevol.2006.11.010, http://purl.obolibrary.org/obo/HOM_0000005]
 comment: Can be applied for features present in closely related organisms but not present continuously in all the members of the lineage.
 synonym: "parallel evolution" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000005
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -6232,9 +6317,9 @@ synonym: "idealistic homology" RELATED []
 synonym: "structural homologous to" EXACT []
 xref: ECO:0000071
 xref: MI:2163
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000006
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -6255,9 +6340,9 @@ xref: SO:0000853
 xref: SO:0000857
 xref: SO:homologous_to
 xref: TAO:homologous_to
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000007
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -6269,9 +6354,9 @@ comment: Applicable only to morphology. A certain degree of ambiguity is accepte
 synonym: "biological homologous to" EXACT []
 synonym: "transformational homology" RELATED []
 xref: ECO:0000067
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000008
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000001 ! in homology relationship with
 
@@ -6282,9 +6367,9 @@ def: "Homoplasy that involves phenotypes similar to those seen in ancestors with
 synonym: "atavism" EXACT []
 synonym: "reversion" RELATED []
 synonym: "rudiment" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000009
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000002 ! in homoplasy relationship with
 
@@ -6297,9 +6382,9 @@ synonym: "synteny" RELATED []
 xref: MeSH:Synteny
 xref: SO:0000860
 xref: SO:0005858
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000010
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -6311,9 +6396,9 @@ synonym: "paralogous to" EXACT []
 xref: SO:0000854
 xref: SO:0000859
 xref: SO:paralogous_to
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000011
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 disjoint_from: RO:HOM0000017 ! in orthology relationship with
@@ -6325,9 +6410,9 @@ def: "Paralogy that involves sets of syntenic blocks." [DOI:10.1002/1097-010X(20
 synonym: "duplicon" RELATED []
 synonym: "paralogon" RELATED []
 synonym: "syntenic paralogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000012
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
 is_a: RO:HOM0000011 ! in paralogy relationship with
@@ -6337,9 +6422,9 @@ id: RO:HOM0000013
 name: in syntenic orthology relationship with
 def: "Syntenic homology that involves chromosomes of different species." [http://dx.doi.org/10.1101/gr.6380007, http://purl.obolibrary.org/obo/HOM_0000013]
 synonym: "syntenic orthologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000013
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000010 ! in syntenic homology relationship with
 
@@ -6354,9 +6439,9 @@ synonym: "partial correspondence" RELATED []
 synonym: "partial homologous to" EXACT []
 synonym: "percent homology" RELATED []
 synonym: "segmental homology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000014
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -6366,9 +6451,9 @@ name: in protein structural homology relationship with
 def: "Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence." [http://dx.doi.org/10.1016/0022-2836(76)90195-9, http://purl.obolibrary.org/obo/HOM_0000015]
 synonym: "protein structural homologous to" EXACT []
 xref: MeSH:Structural_Homology\,_Protein
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000015
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 
@@ -6379,9 +6464,9 @@ def: "Structural homology that involves a pseudogenic feature and its functional
 synonym: "non functional homologous to" EXACT []
 synonym: "pseudogene" BROAD []
 xref: SO:non_functional_homolog_of
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000016
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 disjoint_from: RO:HOM0000062 ! in equivalogy relationship with
@@ -6396,9 +6481,9 @@ xref: ECO:00000060
 xref: SO:0000855
 xref: SO:0000858
 xref: SO:orthologous_to
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000017
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6408,9 +6493,9 @@ name: in xenology relationship with
 def: "Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000018]
 comment: The term is sometimes also used for anatomical structures (e.g. in case of a symbiosis).
 synonym: "xenologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000018
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6421,9 +6506,9 @@ def: "Historical homology that involves two members sharing no other homologs in
 synonym: "1 to 1 homologous to" EXACT []
 synonym: "1:1 homology" EXACT []
 synonym: "one-to-one homology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000019
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6434,9 +6519,9 @@ def: "Orthology that involves two genes that did not experience any duplication 
 synonym: "1 to 1 orthologous to" EXACT []
 synonym: "1:1 orthology" EXACT []
 synonym: "one-to-one orthology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000020
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
@@ -6447,9 +6532,9 @@ name: in ohnology relationship with
 def: "Paralogy that results from a whole genome duplication event." [http://dx.doi.org/10.1038/75560, http://purl.obolibrary.org/obo/HOM_0000022]
 synonym: "homoeology" RELATED []
 synonym: "ohnologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000022
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -6460,9 +6545,9 @@ def: "Paralogy that results from a lineage-specific duplication subsequent to a 
 synonym: "in-paralogous to" EXACT []
 synonym: "inparalogy" EXACT []
 synonym: "symparalogy" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000023
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 disjoint_from: RO:HOM0000024 ! in out-paralogy relationship with
@@ -6474,9 +6559,9 @@ def: "Paralogy that results from a duplication preceding a given speciation even
 synonym: "alloparalogy" EXACT []
 synonym: "out-paralogous to" EXACT []
 synonym: "outparalogy" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000024
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -6485,9 +6570,9 @@ id: RO:HOM0000025
 name: in pro-orthology relationship with
 def: "1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000025]
 synonym: "pro-orthologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000025
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 
@@ -6497,9 +6582,9 @@ name: in semi-orthology relationship with
 def: "1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B." [http://dx.doi.org/10.1006/scdb.1999.0338, http://dx.doi.org/10.1038/nrg2099, http://purl.obolibrary.org/obo/HOM_0000026]
 comment: The converse of pro-orthologous.
 synonym: "semi-orthologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000026
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000034 ! in 1 to many orthology relationship with
 
@@ -6509,9 +6594,9 @@ name: in serial homology relationship with
 def: "Iterative homology that involves structures arranged along the main body axis." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000027]
 synonym: "homonomy" RELATED []
 synonym: "serial homologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000027
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000066 ! in iterative homology relationship with
 
@@ -6521,9 +6606,9 @@ name: in heterochronous homology relationship with
 def: "Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures." [http://purl.obolibrary.org/obo/HOM_0000028, ISBN:978-0674639416]
 synonym: "heterochronous homologous to" EXACT []
 synonym: "heterochrony" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000028
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -6533,9 +6618,9 @@ name: in paedomorphorsis relationship with
 def: "Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000029, ISBN:978-0674639416]
 synonym: "juvenification" EXACT []
 synonym: "pedomorphosis" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000029
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000028 ! in heterochronous homology relationship with
 disjoint_from: RO:HOM0000030 ! in peramorphosis relationship with
@@ -6544,9 +6629,9 @@ disjoint_from: RO:HOM0000030 ! in peramorphosis relationship with
 id: RO:HOM0000030
 name: in peramorphosis relationship with
 def: "Heterochronous homology that is produced by a maturation of individuals of a species past adulthood, which take on hitherto unseen traits." [http://en.wikipedia.org/wiki/Peramorphosis, http://purl.obolibrary.org/obo/HOM_0000030]
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000030
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000028 ! in heterochronous homology relationship with
 
@@ -6554,9 +6639,9 @@ is_a: RO:HOM0000028 ! in heterochronous homology relationship with
 id: RO:HOM0000031
 name: in progenesis relationship with
 def: "Paedomorphosis that is produced by precocious sexual maturation of an organism still in a morphologically juvenile stage." [http://en.wikipedia.org/wiki/Progenesis, http://purl.obolibrary.org/obo/HOM_0000031, ISBN:978-0674639416]
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000031
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 
@@ -6566,9 +6651,9 @@ name: in neoteny relationship with
 def: "Paedomorphosis that is produced by a retardation of somatic development." [http://en.wikipedia.org/wiki/Neoteny, http://purl.obolibrary.org/obo/HOM_0000032, ISBN:978-0674639416]
 synonym: "juvenilization" EXACT []
 synonym: "neotenous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000032
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 
@@ -6577,9 +6662,9 @@ id: RO:HOM0000033
 name: in mimicry relationship with
 def: "Convergence that results from co-evolution usually involving an evolutionary arms race." [http://en.wikipedia.org/wiki/Mimicry, http://purl.obolibrary.org/obo/HOM_0000033]
 synonym: "mimicrous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000033
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000004 ! in convergence relationship with
 
@@ -6592,9 +6677,9 @@ synonym: "1:many orthology" EXACT []
 synonym: "co-orthology" RELATED []
 synonym: "many to 1 orthology" RELATED []
 synonym: "one-to-many orthology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000034
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000037 ! in 1 to many homology relationship with
@@ -6606,9 +6691,9 @@ def: "Historical homology that involves two members of a larger set of homologs.
 synonym: "many to many homologous to" EXACT []
 synonym: "many-to-many homology" EXACT []
 synonym: "many:many homology " EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000036
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6619,9 +6704,9 @@ def: "Historical homology that involves a structure that has no other homologs i
 synonym: "1 to many homologous to" EXACT []
 synonym: "1:many homology" RELATED []
 synonym: "one-to-many homology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000037
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6631,9 +6716,9 @@ name: in apomorphy relationship with
 def: "Historical homology that is based on recent shared ancestry, characterizing a monophyletic group." [http://purl.obolibrary.org/obo/HOM_0000042, ISBN:978-0252068140]
 synonym: "apomorphous to" EXACT []
 synonym: "synapomorphy" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000042
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 disjoint_from: RO:HOM0000043 ! in plesiomorphy relationship with
@@ -6645,9 +6730,9 @@ def: "Historical homology that is based on distant shared ancestry." [http://pur
 comment: This term is usually contrasted to apomorphy.
 synonym: "plesiomorphous to" EXACT []
 synonym: "symplesiomorphy" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000043
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6660,9 +6745,9 @@ synonym: "deep genetic homology" EXACT []
 synonym: "deep homologous to" EXACT []
 synonym: "generative homology" RELATED []
 synonym: "homoiology" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000044
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 is_a: RO:HOM0000005 ! in parallelism relationship with
@@ -6672,9 +6757,9 @@ id: RO:HOM0000045
 name: in hemiplasy relationship with
 def: "Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree." [http://dx.doi.org/10.1073/pnas.0807433105, http://purl.obolibrary.org/obo/HOM_0000045]
 synonym: "hemiplasous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000045
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6683,9 +6768,9 @@ id: RO:HOM0000046
 name: in gametology relationship with
 def: "Historical homology that involves not recombining and subsequently differentiated sex chromosomes." [http://purl.obolibrary.org/obo/HOM_0000046, http://www.ncbi.nlm.nih.gov/pubmed/11110898]
 synonym: "gametologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000046
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000047 ! in chromosomal homology relationship with
 
@@ -6695,9 +6780,9 @@ name: in chromosomal homology relationship with
 def: "Historical homology that involves the chromosomes able to pair (synapse) during meiosis." [http://purl.obolibrary.org/obo/HOM_0000047, ISBN:0195307615]
 synonym: "chromosomal homologous to" EXACT []
 xref: MeSH:Chromosome_Pairing
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000047
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6711,9 +6796,9 @@ synonym: "many-to-many orthology" EXACT []
 synonym: "many:many orthology" EXACT []
 synonym: "trans-homology" RELATED []
 synonym: "trans-orthology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000048
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000036 ! in many to many homology relationship with
@@ -6723,9 +6808,9 @@ id: RO:HOM0000049
 name: in within-species paralogy relationship with
 def: "Paralogy that involves genes from the same species." [http://purl.obolibrary.org/obo/HOM_0000049, http://www.ensembl.org/info/docs/compara/homology_method.html]
 synonym: "within-species paralogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000049
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 disjoint_from: RO:HOM0000050 ! in between-species paralogy relationship with
@@ -6736,9 +6821,9 @@ name: in between-species paralogy relationship with
 def: "Paralogy that involves genes from different species." [http://purl.obolibrary.org/obo/HOM_0000050, http://www.ensembl.org/info/docs/compara/homology_method.html]
 comment: The genes have diverged before a speciation event.
 synonym: "between-species paralogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000050
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -6747,9 +6832,9 @@ id: RO:HOM0000051
 name: in postdisplacement relationship with
 def: "Paedomorphosis that is produced by delayed growth of immature structures into the adult form." [http://en.wikipedia.org/wiki/Pedomorphosis, http://purl.obolibrary.org/obo/HOM_0000051]
 synonym: "post-displacement" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000051
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 
@@ -6757,9 +6842,9 @@ is_a: RO:HOM0000029 ! in paedomorphorsis relationship with
 id: RO:HOM0000052
 name: in hypermorphosis relationship with
 def: "Peramorphosis that is produced by a delay in the offset of development." [http://en.wikipedia.org/wiki/Peramorphosis, http://purl.obolibrary.org/obo/HOM_0000052, ISBN:978-0674639416]
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000052
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000030 ! in peramorphosis relationship with
 
@@ -6768,9 +6853,9 @@ id: RO:HOM0000053
 name: in synology relationship with
 def: "Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species." [http://dx.doi.org/10.1007/BF00173425, http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000053]
 synonym: "synologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000053
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -6780,9 +6865,9 @@ name: in isoorthology relationship with
 def: "Orthology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1016/S0168-9525(00)02005-9, http://purl.obolibrary.org/obo/HOM_0000054]
 synonym: "isoorthologous to" EXACT []
 xref: ECO:0000080
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000054
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000017 ! in orthology relationship with
 is_a: RO:HOM0000062 ! in equivalogy relationship with
@@ -6794,9 +6879,9 @@ def: "Paralogy that is characterized by duplication of adjacent sequences on a c
 synonym: "iterative paralogy" RELATED []
 synonym: "serial paralogy" RELATED []
 synonym: "tandem paralogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000055
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -6812,9 +6897,9 @@ synonym: "homoplastic tendency" RELATED []
 synonym: "latent homologous to" EXACT []
 synonym: "re-awakening" RELATED []
 synonym: "underlying synapomorphy" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000057
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000005 ! in parallelism relationship with
 is_a: RO:HOM0000058 ! in syngeny relationship with
@@ -6826,9 +6911,9 @@ def: "Homocracy that involves recognizably corresponding characters that occurs 
 comment: Cannot be used when orthologous patterning gene are organizing obviously non-homologous structures in different organisms due for example to pleiotropic functions of these genes.
 synonym: "generative homology" EXACT []
 synonym: "syngenous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000058
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 
@@ -6841,9 +6926,9 @@ synonym: "1:1 paralogy" EXACT []
 synonym: "apparent 1:1 orthology" EXACT []
 synonym: "apparent orthologous to" EXACT []
 synonym: "pseudoorthology" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000060
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000019 ! in 1 to 1 homology relationship with
 is_a: RO:HOM0000050 ! in between-species paralogy relationship with
@@ -6854,9 +6939,9 @@ name: in pseudoparalogy relationship with
 def: "Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer." [http://dx.doi.org/10.1146/annurev.genet.39.073003.114725, http://purl.obolibrary.org/obo/HOM_0000061]
 comment: These genes may come out as paralogs in a single-genome analysis.
 synonym: "pseudoparalogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000061
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -6866,9 +6951,9 @@ name: in equivalogy relationship with
 def: "Historical homology that involves functional equivalent genes with retention of the ancestral function." [http://dx.doi.org/10.1093/nar/gkl1043, http://purl.obolibrary.org/obo/HOM_0000062]
 comment: This may include examples of orthology, paralogy and xenology.
 synonym: "equivalogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000062
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 is_a: RO:HOM0000065 ! in functional equivalence relationship with
@@ -6878,9 +6963,9 @@ id: RO:HOM0000063
 name: in interology relationship with
 def: "Historical homology that involves orthologous pairs of interacting molecules in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://dx.doi.org/10.1126/science.287.5450.116, http://purl.obolibrary.org/obo/HOM_0000063]
 synonym: "interologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000063
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
@@ -6889,9 +6974,9 @@ id: RO:HOM0000065
 name: in functional equivalence relationship with
 def: "Similarity that is characterized by interchangeability in function." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1038/415741a, http://purl.obolibrary.org/obo/HOM_0000065]
 synonym: "functional similarity" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000065
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000000 ! in similarity relationship with
 
@@ -6900,9 +6985,9 @@ id: RO:HOM0000066
 name: in iterative homology relationship with
 def: "Biological homology that involves parts of the same organism." [http://dx.doi.org/10.1146/annurev.es.20.110189.000411, http://purl.obolibrary.org/obo/HOM_0000066]
 synonym: "iterative homologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000066
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -6913,9 +6998,9 @@ def: "Xenology that is characterized by multiple horizontal transfer events, res
 synonym: "duplicate xenology" EXACT []
 synonym: "multiple xenology" EXACT []
 synonym: "paraxenologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000068
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000018 ! in xenology relationship with
 
@@ -6925,9 +7010,9 @@ name: in plerology relationship with
 def: "Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution." [http://purl.obolibrary.org/obo/HOM_0000069, http://www.ncbi.nlm.nih.gov/pubmed/3065587]
 comment: This phenomenon is usually due to gene conversion process.
 synonym: "plerologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000069
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000011 ! in paralogy relationship with
 
@@ -6937,9 +7022,9 @@ name: in homotopy relationship with
 def: "Structural homology that involves structures with the same or similar relative positions." [http://dx.doi.org/10.1007/BF02814484, http://dx.doi.org/10.1007/BF02814485, http://purl.obolibrary.org/obo/HOM_0000071, ISBN:0123195837]
 comment: Theissen (2005) mentions that some authors may consider homotopy to be distinct from homology, but this is not the standard use.
 synonym: "homotopous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000071
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000006 ! in structural homology relationship with
 disjoint_from: RO:HOM0000072 ! in homeosis relationship with
@@ -6949,9 +7034,9 @@ id: RO:HOM0000072
 name: in homeosis relationship with
 def: "Biological homology that involves an ectopic structure and the normally positioned structure." [http://dx.doi.org/10.1007/BF02814485, http://dx.doi.org/10.1016/j.cell.2008.06.030, http://purl.obolibrary.org/obo/HOM_0000072]
 synonym: "heterotopy" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000072
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000008 ! in biological homology relationship with
 
@@ -6961,9 +7046,9 @@ name: in homoeology relationship with
 def: "Synology that results from allopolyploidy." [http://dx.doi.org/10.1073/pnas.0505156102, http://purl.obolibrary.org/obo/HOM_0000073]
 comment: On a long term, it is hard to distinguish allopolyploidy from whole genome duplication.
 synonym: "homoeologous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000073
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000022 ! in ohnology relationship with
 is_a: RO:HOM0000053 ! in synology relationship with
@@ -6973,9 +7058,9 @@ id: RO:HOM0000074
 name: in paramorphism relationship with
 def: "Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure." [http://dx.doi.org/10.1007/s10441-007-9023-8, http://dx.doi.org/10.1046/j.1525-142x.2000.00054.x, http://purl.obolibrary.org/obo/HOM_0000074]
 synonym: "axis paramorphism" RELATED []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000074
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000003 ! in homocracy relationship with
 is_a: RO:HOM0000066 ! in iterative homology relationship with
@@ -6985,9 +7070,9 @@ id: RO:HOM0000075
 name: in regulogy relationship with
 def: "Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms." [http://dx.doi.org/10.1101/gr.1774904, http://purl.obolibrary.org/obo/HOM_0000075]
 synonym: "regulogous to" EXACT []
-property_value: http://purl.org/dc/terms/creator http://bgee.unil.ch
-property_value: http://purl.org/dc/terms/source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 property_value: seeAlso HOM:0000075
+property_value: terms:creator http://bgee.unil.ch
+property_value: terms:source http://www.ncbi.nlm.nih.gov/pubmed/20116127
 is_symmetric: true
 is_a: RO:HOM0000007 ! in historical homology relationship with
 
