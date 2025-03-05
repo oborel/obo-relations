@@ -1,4 +1,6 @@
 format-version: 1.2
+idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
+idspace: terms http://purl.org/dc/terms/ 
 ontology: ro
 
 [Typedef]
@@ -61,6 +63,7 @@ id: RO:0002438
 name: trophically interacts with
 def: "An interaction relationship in which the partners are related via a feeding relationship." []
 subset: ro-eco
+property_value: IAO:0000112 "lions trophically interact with the zebras that they eat" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
@@ -87,6 +90,7 @@ id: RO:0002440
 name: symbiotically interacts with
 def: "A biotic interaction in which the two organisms live together in more or less intimate association." []
 subset: ro-eco
+property_value: IAO:0000112 "whales symbiotically interact with the barnacles that attach to them" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/19278549" xsd:anyURI
 property_value: IAO:0000232 "We follow GO and PAMGO in using 'symbiosis' as the broad term encompassing mutualism through parasitism" xsd:string
@@ -296,12 +300,16 @@ is_a: RO:0002453 ! host of
 [Typedef]
 id: RO:0002555
 name: allelopath of
+def: "A relationship between organisms where one organism is influenced by the biochemicals produced by another." []
+comment: Allelopathy is a phenomenon in which one organism releases chemicals to positively or negatively influence the growth, survival or reproduction of other organisms in its vicinity.
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 "http://en.wikipedia.org/wiki/Allelopathy" xsd:string
 property_value: seeAlso "http://eol.org/schema/terms/allelopathyYes" xsd:string
-property_value: seeAlso "x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
+property_value: seeAlso "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10172429/" xsd:string
+property_value: seeAlso "x is an allelopath of y if x produces one or more biochemicals that influence the growth, survival, and reproduction of y" xsd:string
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+inverse_of: RO:0020301 ! has allelopath
 
 [Typedef]
 id: RO:0002556
@@ -454,10 +462,10 @@ id: RO:0002802
 name: reservoir host of
 def: "A relation between a host organism and a hosted organism in which the hosted organism naturally occurs in an indefinitely maintained reservoir provided by the host." []
 comment: A reservoir is a population, species or community (assemblage of different species in a given geographic area) in which a microorganism naturally occurs and is indefinitely maintained. Some zoonotic pathogens, particularly bacterial pathogens, may also have environmental reservoirs. Microorganisms with multiple reservoir species may be indefinitely maintained across the community of species even if they are not always present in each individual reservoir species. In the reservoir species or community, the microorganism may cause either asymptomatic infection or disease and this may vary among individuals. A pathogen may also be more genetically diverse in its reservoir host than in other taxa, in part because the pathogen is endemic to reservoir hosts.
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0002-3120-4802
-property_value: http://purl.org/dc/terms/contributor https://orcid.org/0000-0003-3138-4118
 property_value: IAO:0000112 "An individual of species Camelus dromedarius (commonly known as dromedary camels) is a reservoir host of an individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) since at least the 1980s." xsd:string
 property_value: IAO:0000119 https://doi.org/10.3390/v13071356
+property_value: terms:contributor https://orcid.org/0000-0002-3120-4802
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
 is_a: RO:0002453 ! host of
 inverse_of: RO:0002803 ! has reservoir host
 
@@ -511,4 +519,32 @@ id: RO:0008508
 name: has eggs laid on by
 def: "inverse of lays eggs on" []
 is_a: RO:0002619 ! visited by
+
+[Typedef]
+id: RO:0008510
+name: symbiotrophically interacts with
+def: "A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism" []
+subset: ro-eco
+property_value: IAO:0000112 "frog symbiotrophically interacts with the pitcher plant it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:39:56Z" xsd:dateTime
+is_a: RO:0002438 ! trophically interacts with
+
+[Typedef]
+id: RO:0008511
+name: trophic parasite of
+def: "A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism" []
+subset: ro-eco
+property_value: IAO:0000112 "tapeworm is trophic parasite of the cow it lives inside of" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
+property_value: terms:date "2023-07-17T14:41:07Z" xsd:dateTime
+is_a: RO:0008510 ! symbiotrophically interacts with
+
+[Typedef]
+id: RO:0020301
+name: has allelopath
+def: "inverse of allelopath of" []
+property_value: IAO:0000117 https://orcid.org/0009-0005-5515-1230
+property_value: seeAlso "https://en.wikipedia.org/wiki/Allelopathy" xsd:string
+is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 
