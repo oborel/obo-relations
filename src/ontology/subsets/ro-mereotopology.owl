@@ -353,6 +353,20 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/ENVO_02000200 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/ENVO_02000200">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002180"/>
+        <obo:IAO_0000115>A has part relationship between a whole and a part, where the number of parts present in the whole is higher than in comparable entities.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ENVO:02000200</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_increased_levels_of</oboInOwl:shorthand>
+        <rdfs:comment>This relation is present in ENVO to support compositional classes such as &quot;X-enriched soil&quot;. These will later be formalized, and a different relation from RO may be chosen.</rdfs:comment>
+        <rdfs:label>has increased levels of</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/EnvironmentOntology/envo/issues/1380"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0000052 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000052">
@@ -3992,7 +4006,9 @@ However, this is not possible in OWL. We instead make this relation a sub-relati
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002387</oboInOwl:hasDbXref>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_potential_to_develop_into</oboInOwl:shorthand>
+        <rdfs:comment>This relation has a stronger meaning than merely indicating that X may develop into Y, in that the capability of developing into Y is always present, even if X does not always actually develop into Y. In particular, this means that if Y is restricted to a given taxon T, X is necessarily likewise restricted.</rdfs:comment>
         <rdfs:label xml:lang="en">has potential to develop into</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/oborel/obo-relations/issues/810"/>
     </owl:ObjectProperty>
     
 
@@ -4303,7 +4319,6 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002432</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>enables activity in</oboInOwl:hasExactSynonym>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_active_in</oboInOwl:shorthand>
-        <rdfs:comment></rdfs:comment>
         <rdfs:label>is active in</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://wiki.geneontology.org/Is_active_in</rdfs:seeAlso>
     </owl:ObjectProperty>
@@ -4411,6 +4426,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002438">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000112>lions trophically interact with the zebras that they eat</obo:IAO_0000112>
         <obo:IAO_0000115>An interaction relationship in which the partners are related via a feeding relationship.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002438</oboInOwl:hasDbXref>
@@ -4450,6 +4466,7 @@ Each of these 3 primitives can be composed to yield a cross-product of different
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002440">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <obo:IAO_0000112>whales symbiotically interact with the barnacles that attach to them</obo:IAO_0000112>
         <obo:IAO_0000115>A biotic interaction in which the two organisms live together in more or less intimate association.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
@@ -5565,14 +5582,18 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002555">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020301"/>
+        <obo:IAO_0000115>A relationship between organisms where one organism is influenced by the biochemicals produced by another.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119>http://en.wikipedia.org/wiki/Allelopathy</obo:IAO_0000119>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002555</oboInOwl:hasDbXref>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">allelopath_of</oboInOwl:shorthand>
+        <rdfs:comment>Allelopathy is a phenomenon in which one organism releases chemicals to positively or negatively influence the growth, survival or reproduction of other organisms in its vicinity.</rdfs:comment>
         <rdfs:label>allelopath of</rdfs:label>
         <rdfs:seeAlso>http://eol.org/schema/terms/allelopathyYes</rdfs:seeAlso>
-        <rdfs:seeAlso>x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y</rdfs:seeAlso>
+        <rdfs:seeAlso>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10172429/</rdfs:seeAlso>
+        <rdfs:seeAlso>x is an allelopath of y if x produces one or more biochemicals that influence the growth, survival, and reproduction of y</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -5627,7 +5648,6 @@ For example, A and B may be gene products and binding of B by A positively regul
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0040036"/>
         <obo:IAO_0000115>Holds between p and c when p is locomotion process and the outcome of this process is the change of location of c</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
-        <obo:IAO_0000232></obo:IAO_0000232>
         <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0002565</oboInOwl:hasDbXref>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_annotation_extension"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_ontology"/>
@@ -7285,6 +7305,38 @@ Environmental exposures include those imposed by natural environments, experimen
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0008510 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008510">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <obo:IAO_0000112>frog symbiotrophically interacts with the pitcher plant it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:39:56Z</terms:date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0008510</oboInOwl:hasDbXref>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbiotrophically_interacts_with</oboInOwl:shorthand>
+        <rdfs:label xml:lang="en">symbiotrophically interacts with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0008511 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008511">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0008510"/>
+        <obo:IAO_0000112>tapeworm is trophic parasite of the cow it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:41:07Z</terms:date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0008511</oboInOwl:hasDbXref>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trophic_parasite_of</oboInOwl:shorthand>
+        <rdfs:label xml:lang="en">trophic parasite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0009501 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009501">
@@ -7909,6 +7961,23 @@ For example, protein A (transcription factor) indirectly increases by expression
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0013010 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0013010">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0013001"/>
+        <obo:IAO_0000112>An optic lobe intrinsic neuron has its synapses restricted to optic lobe neuropil.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a neuron and a region, where all of the functionally relevant input and output synapses are in that region.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-1373-1705"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-08-17T12:17:24Z</terms:date>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0013010</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>intrinsic to</oboInOwl:hasExactSynonym>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synapses_restricted_to_region</oboInOwl:shorthand>
+        <rdfs:comment>This relation may still be used if a very small number of synapses fall slightly outside the boundaries of the region, but any class using this relation should not have another restriction using this relation to another non-overlapping region.</rdfs:comment>
+        <rdfs:label xml:lang="en">synapses restricted to region</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0014001 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0014001">
@@ -8232,6 +8301,20 @@ For example, protein A (transcription factor) indirectly increases by expression
         <oboInOwl:hasExactSynonym>has divisor</oboInOwl:hasExactSynonym>
         <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_denominator</oboInOwl:shorthand>
         <rdfs:label>has denominator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020301 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020301">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000115>inverse of allelopath of</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0005-5515-1230"/>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RO:0020301</oboInOwl:hasDbXref>
+        <oboInOwl:shorthand rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_allelopath</oboInOwl:shorthand>
+        <rdfs:label xml:lang="en">has allelopath</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Allelopathy</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 

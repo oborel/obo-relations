@@ -72,6 +72,12 @@
     
 
 
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/date"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
@@ -198,6 +204,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002438">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000112>lions trophically interact with the zebras that they eat</obo:IAO_0000112>
         <obo:IAO_0000115>An interaction relationship in which the partners are related via a feeding relationship.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -233,6 +240,7 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002440">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <obo:IAO_0000112>whales symbiotically interact with the barnacles that attach to them</obo:IAO_0000112>
         <obo:IAO_0000115>A biotic interaction in which the two organisms live together in more or less intimate association.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119 rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/19278549</obo:IAO_0000119>
@@ -529,12 +537,16 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002555">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020301"/>
+        <obo:IAO_0000115>A relationship between organisms where one organism is influenced by the biochemicals produced by another.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <obo:IAO_0000119>http://en.wikipedia.org/wiki/Allelopathy</obo:IAO_0000119>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:comment>Allelopathy is a phenomenon in which one organism releases chemicals to positively or negatively influence the growth, survival or reproduction of other organisms in its vicinity.</rdfs:comment>
         <rdfs:label>allelopath of</rdfs:label>
         <rdfs:seeAlso>http://eol.org/schema/terms/allelopathyYes</rdfs:seeAlso>
-        <rdfs:seeAlso>x is an allelopath of y iff  xis an organism produces one or more biochemicals that influence the growth, survival, and reproduction of y</rdfs:seeAlso>
+        <rdfs:seeAlso>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10172429/</rdfs:seeAlso>
+        <rdfs:seeAlso>x is an allelopath of y if x produces one or more biochemicals that influence the growth, survival, and reproduction of y</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
@@ -861,9 +873,49 @@
         <obo:IAO_0000115>inverse of lays eggs on</obo:IAO_0000115>
         <rdfs:label>has eggs laid on by</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0008510 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008510">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002438"/>
+        <obo:IAO_0000112>frog symbiotrophically interacts with the pitcher plant it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:39:56Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">symbiotrophically interacts with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0008511 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008511">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0008510"/>
+        <obo:IAO_0000112>tapeworm is trophic parasite of the cow it lives inside of</obo:IAO_0000112>
+        <obo:IAO_0000115>A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0002-2908-3327"/>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-17T14:41:07Z</terms:date>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
+        <rdfs:label xml:lang="en">trophic parasite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020301 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020301">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002574"/>
+        <obo:IAO_0000115>inverse of allelopath of</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0005-5515-1230"/>
+        <rdfs:label xml:lang="en">has allelopath</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Allelopathy</rdfs:seeAlso>
+    </owl:ObjectProperty>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.26) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
 
