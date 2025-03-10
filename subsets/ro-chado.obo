@@ -6,6 +6,8 @@ subsetdef: http://purl.obolibrary.org/obo/valid_for_go_gp2term ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_ontology ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_gocam ""
 subsetdef: human_reference_atlas ""
+subsetdef: human_subset ""
+subsetdef: mouse_subset ""
 subsetdef: pheno_slim ""
 subsetdef: ro-eco ""
 subsetdef: RO:0002259 ""
@@ -14,11 +16,11 @@ subsetdef: upper_level ""
 subsetdef: vertebrate_core ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
-property_value: http://purl.org/dc/terms/description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
-property_value: http://purl.org/dc/terms/license https://creativecommons.org/publicdomain/zero/1.0/
-property_value: http://purl.org/dc/terms/title "OBO Relations Ontology" xsd:string
-property_value: http://xmlns.com/foaf/0.1/homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2024-04-24" xsd:string
+property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
+property_value: owl:versionInfo "2025-03-05" xsd:string
+property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
+property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
+property_value: terms:title "OBO Relations Ontology" xsd:string
 
 [Typedef]
 id: BFO:0000050
@@ -43,6 +45,7 @@ inverse_of: BFO:0000055 ! realizes
 [Typedef]
 id: BFO:0000055
 name: realizes
+def: "Paraphrase of elucidation: a relation between a process and a realizable entity, where there is some material entity that is bearer of the realizable entity and participates in the process, and the realizable entity comes to be realized in the course of the process" []
 
 [Typedef]
 id: BFO:0000060
@@ -89,6 +92,12 @@ name: derives_from_part_of
 def: "A relation between two distinct material entities, the new entity and the old entity, in which the new entity begins to exist through the separation or transformation of a part of the old entity, and the new entity inherits a significant portion of the matter belonging to that part of the old entity." []
 
 [Typedef]
+id: ENVO:02000200
+name: has_increased_levels_of
+def: "A has part relationship between a whole and a part, where the number of parts present in the whole is higher than in comparable entities." []
+is_a: RO:0002180 ! has component
+
+[Typedef]
 id: RO:0000052
 name: characteristic_of
 def: "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence." []
@@ -117,13 +126,13 @@ holds_over_chain: BFO:0000051 RO:0000057
 [Typedef]
 id: RO:0000058
 name: is_concretized_as
-def: "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants." []
+def: "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes." []
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
 id: RO:0000059
 name: concretizes
-def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
+def: "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant." []
 
 [Typedef]
 id: RO:0000079
@@ -708,15 +717,16 @@ is_a: RO:0002162 ! in taxon
 id: RO:0002162
 name: in_taxon
 def: "x is in taxon y if an only if y is an organism, and the relationship between x and y is one of: part of (reflexive), developmentally preceded by, derives from, secreted by, expressed." []
+synonym: "life cycle stage of" NARROW []
 holds_over_chain: BFO:0000050 RO:0002162
 holds_over_chain: BFO:0000051 RO:0002162
-holds_over_chain: RO:0002202 RO:0002162
 holds_over_chain: RO:0002206 RO:0002162
+holds_over_chain: RO:0002211 RO:0002162
 holds_over_chain: RO:0002214 RO:0002162
 holds_over_chain: RO:0002215 RO:0002162
-holds_over_chain: RO:0002225 RO:0002162
 holds_over_chain: RO:0002254 RO:0002162
 holds_over_chain: RO:0002295 RO:0002162
+holds_over_chain: RO:0002387 RO:0002162
 is_a: RO:0002320 ! evolutionarily related to
 
 [Typedef]
@@ -1118,7 +1128,7 @@ is_a: RO:0002375 ! in branching relationship with
 id: RO:0002254
 name: has_developmental_contribution_from
 def: "x has developmental contribution from y iff x has some part z such that z develops from y" []
-holds_over_chain: BFO:0000051 RO:0002202
+holds_over_chain: BFO:0000051 RO:0002254
 is_a: RO:0002258 ! developmentally preceded by
 inverse_of: RO:0002255 ! developmentally contributes to
 
@@ -1790,6 +1800,7 @@ synonym: "affects" RELATED []
 is_transitive: true
 is_a: RO:0002501 ! causal relation between processes
 inverse_of: RO:0002427 ! causally downstream of or within
+transitive_over: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0002424
@@ -2494,7 +2505,9 @@ is_a: RO:0002453 ! host of
 [Typedef]
 id: RO:0002555
 name: allelopath_of
+def: "A relationship between organisms where one organism is influenced by the biochemicals produced by another." []
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+inverse_of: RO:0020301 ! has allelopath
 
 [Typedef]
 id: RO:0002556
@@ -3306,6 +3319,18 @@ def: "x 'has roost' y if and only if: x is an organism, y is a habitat, and y ca
 is_a: RO:0002303 ! has habitat
 
 [Typedef]
+id: RO:0008510
+name: symbiotrophically_interacts_with
+def: "A trophic interaction in which one organism acquires nutrients through a symbiotic relationship with another organism" []
+is_a: RO:0002438 ! trophically interacts with
+
+[Typedef]
+id: RO:0008511
+name: trophic_parasite_of
+def: "A symbiotrophic interaction in which one organism acquires nutrients through a parasitic relationship with another organism" []
+is_a: RO:0008510 ! symbiotrophically interacts with
+
+[Typedef]
 id: RO:0009001
 name: has_substance_added
 def: "\"has substance added\" is a relation existing between a (physical) entity and a substance in which the entity has had the substance added to it at some point in time." []
@@ -3619,6 +3644,14 @@ def: "A relationship between a neuron and a cell that it has a functionally rele
 is_a: RO:0002120 ! synapsed to
 
 [Typedef]
+id: RO:0013010
+name: synapses_restricted_to_region
+def: "A relationship between a neuron and a region, where all of the functionally relevant input and output synapses are in that region." []
+synonym: "intrinsic to" EXACT []
+is_a: RO:0013001 ! has synaptic IO in region
+transitive_over: BFO:0000050 ! part of
+
+[Typedef]
 id: RO:0014001
 name: disease_has_infectious_agent
 def: "A relationship between a disease and an infectious agent where the material basis of the disease is an infection with some infectious agent." []
@@ -3756,6 +3789,11 @@ name: is_owned_by
 def: "Inverse of the owns relation." []
 
 [Typedef]
+id: RO:0017502
+name: collected_during
+def: "A relation between a material entity and an occurrent in which the material entity is collected during the existence of the occurrent." []
+
+[Typedef]
 id: RO:0018001
 name: is_myristoyltransferase_activity
 def: "Helper relation for OWL definition of RO:0018002 myristoylates" []
@@ -3826,7 +3864,7 @@ is_a: RO:0018030 ! chemical relationship
 [Typedef]
 id: RO:0018035
 name: is_matched_small_molecular_pair_with
-def: "A and B are a matched small molecular pair (MMP) if their chemical structures define by a single, relatively small, well-defined structural modification.\n\nWhile this is normally called \"matched molecular pair\" in the cheminformatics literaturel, it is labeled as \"matched small molecular pair\" so as to reduce confusion with peptides and other macromolecules, which are also referenced as \"molecules\" in some contexts.\n\nThis relationship is symmetric, meaning if A is a MMP with B iff B is a MMP with A.\n\nThis relationship is not transitive, meaning that A is a MMP with B and B is a MMP with C, then A is not necessarily an MMP with C." [] {http://purl.org/dc/terms/source="https://en.wikipedia.org/wiki/Matched_molecular_pair_analysis", http://purl.org/dc/terms/source="https://doi.org/10.1002/ddr.21045", http://purl.org/dc/terms/source="https://doi.org/10.1021/jm200452d"}
+def: "A and B are a matched small molecular pair (MMP) if their chemical structures define by a single, relatively small, well-defined structural modification.\n\nWhile this is normally called \"matched molecular pair\" in the cheminformatics literaturel, it is labeled as \"matched small molecular pair\" so as to reduce confusion with peptides and other macromolecules, which are also referenced as \"molecules\" in some contexts.\n\nThis relationship is symmetric, meaning if A is a MMP with B iff B is a MMP with A.\n\nThis relationship is not transitive, meaning that A is a MMP with B and B is a MMP with C, then A is not necessarily an MMP with C." [] {terms:source="https://doi.org/10.1021/jm200452d", terms:source="https://en.wikipedia.org/wiki/Matched_molecular_pair_analysis", terms:source="https://doi.org/10.1002/ddr.21045"}
 synonym: "is matched molecular pair with" EXACT []
 synonym: "is MMP with" EXACT []
 is_symmetric: true
@@ -3914,6 +3952,16 @@ is_a: RO:0002178 ! supplies
 is_a: RO:0002179 ! drains
 
 [Typedef]
+id: RO:0020104
+name: is_neuron
+def: "This property only applies to neurons" []
+
+[Typedef]
+id: RO:0020105
+name: is_anatomical_entity
+def: "This property only applies to anatomical entities." []
+
+[Typedef]
 id: RO:0020202
 name: has_numerator
 def: "A relationship between a ratio or proportion and its dividend." []
@@ -3926,6 +3974,12 @@ name: has_denominator
 def: "A relationship between a ratio or proportion and its divisor." []
 synonym: "has divisor" EXACT []
 is_a: BFO:0000051 ! has part
+
+[Typedef]
+id: RO:0020301
+name: has_allelopath
+def: "inverse of allelopath of" []
+is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 
 [Typedef]
 id: RO:0040035
