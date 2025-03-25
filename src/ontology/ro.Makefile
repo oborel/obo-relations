@@ -68,20 +68,6 @@ tmp/missing-base.owl: $(EDIT_PREPROCESSED) $(ONTOLOGYTERMS)
 		filter -T $(ONTOLOGYTERMS) --trim false --axioms "AsymmetricObjectProperty FunctionalObjectProperty FunctionalDataProperty InverseFunctionalObjectProperty SymmetricObjectProperty TransitiveObjectProperty InverseObjectProperties ObjectPropertyDomain DataPropertyDomain DataPropertyRange ObjectPropertyRange" \
  -o $@.tmp.owl && mv $@.tmp.owl $@
 
-# TODO: This goal (and tmp/missing-base.owl) can be removed once https://github.com/ontodev/robot/issues/1108 is resolved
-$(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES) tmp/missing-base.owl
-	$(ROBOT_RELEASE_IMPORT_MODE) \
-	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
-	relax \
-	reduce -r ELK \
-	remove --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --axioms external --preserve-structure false --trim false \
-	merge -i tmp/missing-base.owl \
-	$(SHARED_ROBOT_COMMANDS) \
-	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
-		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-		--output $@.tmp.owl && mv $@.tmp.owl $@
-
-
 # ========================================
 # DOCUMENTATION
 # ========================================
