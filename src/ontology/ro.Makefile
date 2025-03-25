@@ -58,17 +58,6 @@ $(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms_combine
 	$(ANNOTATE_CONVERT_FILE); fi
 
 # ========================================
-# Custom imports
-# ========================================
-
-# This filter contains all property characteristic related to RO entities
-# Note: For some reason, IrreflexiveObjectProperty is not supported
-tmp/missing-base.owl: $(EDIT_PREPROCESSED) $(ONTOLOGYTERMS)
-	$(ROBOT) merge -i $(EDIT_PREPROCESSED) \
-		filter -T $(ONTOLOGYTERMS) --trim false --axioms "AsymmetricObjectProperty FunctionalObjectProperty FunctionalDataProperty InverseFunctionalObjectProperty SymmetricObjectProperty TransitiveObjectProperty InverseObjectProperties ObjectPropertyDomain DataPropertyDomain DataPropertyRange ObjectPropertyRange" \
- -o $@.tmp.owl && mv $@.tmp.owl $@
-
-# ========================================
 # DOCUMENTATION
 # ========================================
 # requires mkdocs: `pip install mkdocs`
