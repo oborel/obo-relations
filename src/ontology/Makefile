@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                588250e774e87a3e6a0a9c0b9d6ab16d03d868347adcc83af4d329851fe92cfc
+CONFIG_HASH=                a501f2058bc50344d330f024a5e117c886498a08204b63660ebf0e6bdda50bfb
 
 
 # ----------------------------------------
@@ -54,7 +54,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl 
+OTHER_SRC =                 $(COMPONENTSDIR)/core.owl $(COMPONENTSDIR)/el-constraints.owl $(COMPONENTSDIR)/generated-axioms.owl $(COMPONENTSDIR)/temporal-intervals.owl $(COMPONENTSDIR)/bfo-axioms.owl $(COMPONENTSDIR)/bfo-classes-minimal.owl $(COMPONENTSDIR)/rohom.owl $(COMPONENTSDIR)/rollification-axioms.owl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -502,6 +502,7 @@ no-mirror-recreate-%:
 $(COMPONENTSDIR)/%.owl: | $(COMPONENTSDIR)
 	test -f $@ || touch $@
 .PRECIOUS: $(COMPONENTSDIR)/%.owl
+
 
 
 
