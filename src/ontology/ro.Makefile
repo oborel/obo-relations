@@ -35,11 +35,12 @@ BFO_TERMS_IN_BASE = BFO_0000050 BFO_0000051 BFO_0000060 BFO_0000062 BFO_0000063 
 
 # base: A version of the ontology that does not include any externally imported axioms.
 # It is customised here because RO has to _inject_ certain axioms that formally belong to BFO.
-# bfo-axioms.owl: 7 disjointness axioms that are not in BFO
-# el-constraints.owl: 2 disjointness axioms that are not in BFO
-# temporal-intervals.owl: 45 RBOX axioms that are not in BFO (many of which have BFO IDs)
-# bfo-classes-minimal.owl: 12 subclass axioms from BFO needed for RO to function (NOT INCLUDED IN BASE)
-# generated-axioms.owl: 9 universal restrictions involving RO
+# Counts below are approximate, reflecting the state of RO on 4th June 2025.
+# bfo-axioms.owl: ~7 disjointness axioms that are not in BFO
+# el-constraints.owl: ~2 disjointness axioms that are not in BFO
+# temporal-intervals.owl: ~45 RBOX axioms that are not in BFO (many of which have BFO IDs)
+# bfo-classes-minimal.owl: ~12 subclass axioms from BFO needed for RO to function (NOT INCLUDED IN BASE)
+# generated-axioms.owl: ~9 universal restrictions involving RO
 $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	$(ROBOT_RELEASE_IMPORT_MODE) \
 	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
