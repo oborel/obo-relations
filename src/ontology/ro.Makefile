@@ -69,10 +69,8 @@ $(IMPORTDIR)/other_import.owl:
 	echo "$@ is manually maintained." && touch $@
 
 # Needed because of https://github.com/INCATools/ontology-development-kit/issues/841
-$(IMPORTDIR)/omo_import.owl: $(IMPORTDIR)/omo_terms_combined.txt
-	if [ $(IMP) = true ]; then \
-	$(MAKE) $(MIRRORDIR)/omo.owl &&\
-	$(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+$(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
     	filter -T $(IMPORTDIR)/omo_terms_combined.txt --preserve-structure false --trim false \
 		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
 		$(ANNOTATE_CONVERT_FILE); fi
@@ -81,10 +79,8 @@ $(IMPORTDIR)/orcidio_terms_combined.txt: $(SRCMERGED)
 	$(ROBOT) query -f csv -i $< --query ../sparql/orcids.sparql $@.tmp &&\
 	cat $@.tmp | sort | uniq >  $@
 
-$(IMPORTDIR)/cob_import.owl: $(IMPORTDIR)/cob_terms_combined.txt
-	if [ $(IMP) = true ]; then \
-	$(MAKE) $(MIRRORDIR)/cob.owl &&\
-	$(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+$(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms_combined.txt
+	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
     extract -T $(IMPORTDIR)/cob_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
 	remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cob_terms_combined.txt --select complement \
 	remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060* BFO:0000066*" --axioms "annotation logical" \
