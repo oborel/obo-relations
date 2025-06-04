@@ -39,8 +39,10 @@ $(IMPORTDIR)/other_import.owl:
 	echo "$@ is manually maintained." && touch $@
 
 # Needed because of https://github.com/INCATools/ontology-development-kit/issues/841
-$(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms_combined.txt
-	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+$(IMPORTDIR)/omo_import.owl: $(IMPORTDIR)/omo_terms_combined.txt
+	if [ $(IMP) = true ]; then \
+	$(MAKE) $(MIRRORDIR)/omo.owl &&\
+	$(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
     	filter -T $(IMPORTDIR)/omo_terms_combined.txt --preserve-structure false --trim false \
 		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
 		$(ANNOTATE_CONVERT_FILE); fi
@@ -51,7 +53,9 @@ $(IMPORTDIR)/orcidio_terms_combined.txt: $(SRCMERGED)
 
 ## Module for ontology: orcidio (filter)
 ## The overwrite is needed because https://github.com/INCATools/ontology-development-kit/issues/1266
-$(IMPORTDIR)/orcidio_import.owl: $(MIRRORDIR)/orcidio.owl $(IMPORTDIR)/orcidio_terms.txt $(IMPORTSEED) | all_robot_plugins
+$(IMPORTDIR)/orcidio_import.owl: $(IMPORTDIR)/orcidio_terms.txt $(IMPORTSEED) | all_robot_plugins
+	if [ $(IMP) = true ]; then \
+	$(MAKE) $(MIRRORDIR)/orcidio.owl &&\
 	$(ROBOT) annotate --input $< --remove-annotations \
 		 extract --term-file $(IMPORTDIR)/orcidio_terms.txt $(T_IMPORTSEED) \
 		         --copy-ontology-annotations true --force true --method BOT \
@@ -66,10 +70,12 @@ $(IMPORTDIR)/orcidio_import.owl: $(MIRRORDIR)/orcidio.owl $(IMPORTDIR)/orcidio_t
 		 odk:normalize --base-iri http://purl.obolibrary.org/obo \
 		               --subset-decls true --synonym-decls true \
 		 repair --merge-axiom-annotations true \
-		 $(ANNOTATE_CONVERT_FILE)
+		 $(ANNOTATE_CONVERT_FILE); fi
 
-$(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms_combined.txt
-	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
+$(IMPORTDIR)/cob_import.owl: $(IMPORTDIR)/cob_terms_combined.txt
+	if [ $(IMP) = true ]; then \
+	$(MAKE) $(MIRRORDIR)/cob.owl &&\
+	$(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
     extract -T $(IMPORTDIR)/cob_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
 	remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cob_terms_combined.txt --select complement \
 	remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060* BFO:0000066*" --axioms "annotation logical" \
