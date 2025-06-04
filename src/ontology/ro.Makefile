@@ -31,6 +31,8 @@ validate-using-oort: ro-edit.owl
 core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-minimal.owl
 	$(ROBOT) merge -i components/core.owl -i components/bfo-axioms.owl -i components/bfo-classes-minimal.owl annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
+BFO_TERMS_IN_BASE = BFO_0000050 BFO_0000051 BFO_0000060 BFO_0000062 BFO_0000063 BFO_0000066 BFO_0000067 BFO_0000054 BFO_0000054
+
 # base: A version of the ontology that does not include any externally imported axioms.
 # It is customised here because RO has to _inject_ certain axioms that formally belong to BFO.
 # bfo-axioms.owl: 7 disjointness axioms that are not in BFO
@@ -43,7 +45,10 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
 	relax \
 	reduce -r ELK \
-	remove --base-iri http://purl.obolibrary.org/obo/RO_ --base-iri http://purl.obolibrary.org/obo/BFO_0000050 --base-iri http://purl.obolibrary.org/obo/BFO_0000051 --base-iri http://purl.obolibrary.org/obo/BFO_0000060 --base-iri http://purl.obolibrary.org/obo/BFO_0000062 --base-iri http://purl.obolibrary.org/obo/BFO_0000063 --base-iri http://purl.obolibrary.org/obo/BFO_0000066 --base-iri http://purl.obolibrary.org/obo/BFO_0000067 --base-iri http://purl.obolibrary.org/obo/BFO_0000054 --base-iri http://purl.obolibrary.org/obo/BFO_0000055 --axioms external --preserve-structure false --trim false \
+	remove \
+		--base-iri http://purl.obolibrary.org/obo/RO_ \
+		$(foreach t, $(BFO_TERMS_IN_BASE), --base-iri http://purl.obolibrary.org/obo/$t) \
+	 	--axioms external --preserve-structure false --trim false \
 	merge \
 		-i $(COMPONENTSDIR)/el-constraints.owl \
 		-i $(COMPONENTSDIR)/temporal-intervals.owl \
