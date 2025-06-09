@@ -52,25 +52,6 @@ $(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms.txt $(I
 		repair --merge-axiom-annotations true \
 		$(ANNOTATE_CONVERT_FILE)
 
-## Module for ontology: orcidio (filter)
-## The overwrite is needed because https://github.com/INCATools/ontology-development-kit/issues/1266
-$(IMPORTDIR)/orcidio_import.owl: | all_robot_plugins
-	$(MAKE) $(MIRRORDIR)/orcidio.owl $(IMPORTDIR)/orcidio_terms.txt $(IMPORTSEED) &&\
-	$(ROBOT) annotate --input $< --remove-annotations \
-		 extract --term-file $(IMPORTDIR)/orcidio_terms.txt $(T_IMPORTSEED) \
-		         --copy-ontology-annotations true --force true --method BOT \
-		 remove --axioms external --preserve-structure false --trim false \
-		        --base-iri https://orcid.org/ \
-		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
-		        --term rdfs:label \
-		        --term IAO:0000115 \
-		        --term OMO:0002000 \
-		        --term-file $(IMPORTDIR)/orcidio_terms.txt $(T_IMPORTSEED) \
-		        --select complement \
-		 odk:normalize --base-iri http://purl.obolibrary.org/obo \
-		               --subset-decls true --synonym-decls true \
-		 repair --merge-axiom-annotations true \
-		 $(ANNOTATE_CONVERT_FILE)
 
 $(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms.txt $(IMPORTSEED) | all_robot_plugins
 	$(ROBOT) merge --input $< \
