@@ -59,7 +59,7 @@ $(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
 	$(SHARED_ROBOT_COMMANDS) \
 	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
 		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
-		--output $@.tmp.owl && mv $@.tmp.owl $@
+		--output $@
 
 # ========================================
 # Custom imports
@@ -142,7 +142,7 @@ bfo2-classes.owl:
 # ========================================
 
 subsets/ro-biotic-interaction.owl: ro.owl
-	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@
 
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
