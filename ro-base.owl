@@ -17,12 +17,12 @@
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro/ro-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2025-03-05/ro-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2025-06-24/ro-base.owl"/>
         <dc:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <terms:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <terms:title xml:lang="en">OBO Relations Ontology</terms:title>
-        <owl:versionInfo>2025-03-05</owl:versionInfo>
+        <owl:versionInfo>2025-06-24</owl:versionInfo>
         <foaf:homepage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"> https://github.com/oborel/obo-relations/</foaf:homepage>
     </owl:Ontology>
     
@@ -1091,7 +1091,6 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
     <!-- http://purl.obolibrary.org/obo/BFO_0000060 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000060">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:comment xml:lang="en">accidentally included in BFO 1.2 proposal
         - should have been BFO_0000062</rdfs:comment>
         <rdfs:label xml:lang="en">obsolete preceded by</rdfs:label>
@@ -1744,9 +1743,14 @@ A continuant cannot have an occurrent as part: use &apos;participates in&apos;. 
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002134"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000061"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UBERON_0000122"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002005"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002380"/>
+        </owl:propertyChainAxiom>
+        <obo:IAO_0000115>relation between an anatomical structure and a neuron projection bundle that has synaptic terminals in the structure.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <cito:citesAsAuthority rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.ncbi.nlm.nih.gov/pubmed/22402613</cito:citesAsAuthority>
-        <rdfs:label xml:lang="en">innervated_by</rdfs:label>
+        <rdfs:label xml:lang="en">innervated by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -2124,7 +2128,7 @@ Examples include: the relationship between two channels collected simultaneously
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002081">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <obo:IAO_0000118 xml:lang="en">&lt;=</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment>Primitive instance level timing relation between events</rdfs:comment>
@@ -2141,7 +2145,6 @@ Examples include: the relationship between two channels collected simultaneously
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <obo:IAO_0000115>x simultaneous with y iff ω(x) = ω(y) and ω(α ) = ω(α), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point and &apos;=&apos; indicates the same instance in time.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment xml:lang="en">t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and not (t1 before t2)</rdfs:comment>
         <rdfs:label xml:lang="en">simultaneous with</rdfs:label>
@@ -2154,7 +2157,7 @@ Examples include: the relationship between two channels collected simultaneously
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002083">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002081"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment xml:lang="en">t1 before t2 iff:=  t1 before_or_simulataneous_with t2  and not (t1 simultaeous_with t2)</rdfs:comment>
         <rdfs:label xml:lang="en">before</rdfs:label>
@@ -2167,7 +2170,7 @@ Examples include: the relationship between two channels collected simultaneously
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002084">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002093"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment>Previously had ID  http://purl.obolibrary.org/obo/RO_0002122 in test files in sandpit - but this seems to have been dropped from ro-edit.owl at some point.  No re-use under this ID AFAIK, but leaving note here in case we run in to clashes down the line.  Official ID now chosen from DOS ID range.</rdfs:comment>
         <rdfs:label xml:lang="en">during which ends</rdfs:label>
@@ -2198,7 +2201,7 @@ Examples include: the relationship between two channels collected simultaneously
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002093"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000062"/>
         </owl:propertyChainAxiom>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment xml:lang="en">X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)</rdfs:comment>
         <rdfs:label xml:lang="en">ends after</rdfs:label>
@@ -2215,7 +2218,7 @@ Examples include: the relationship between two channels collected simultaneously
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002224"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002230"/>
         </owl:propertyChainAxiom>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <obo:IAO_0000118>starts_at_end_of</obo:IAO_0000118>
         <rdfs:comment xml:lang="en">X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)</rdfs:comment>
         <rdfs:label xml:lang="en">immediately preceded by</rdfs:label>
@@ -2228,7 +2231,7 @@ Examples include: the relationship between two channels collected simultaneously
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002088">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002091"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment>Previously had ID  http://purl.obolibrary.org/obo/RO_0002123 in test files in sandpit - but this seems to have been dropped from ro-edit.owl at some point.  No re-use under this ID AFAIK, but leaving note here in case we run in to clashes down the line.  Official ID now chosen from DOS ID range.</rdfs:comment>
         <rdfs:label xml:lang="en">during which starts</rdfs:label>
@@ -2245,7 +2248,7 @@ Examples include: the relationship between two channels collected simultaneously
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002091"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000060"/>
         </owl:propertyChainAxiom>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">starts before</rdfs:label>
     </owl:ObjectProperty>
@@ -2261,7 +2264,6 @@ Examples include: the relationship between two channels collected simultaneously
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002224"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
         <obo:IAO_0000118>ends_at_start_of</obo:IAO_0000118>
         <obo:IAO_0000118>meets</obo:IAO_0000118>
         <obo:RO_0002575 rdf:resource="http://purl.obolibrary.org/obo/BFO_0000063"/>
@@ -2278,7 +2280,7 @@ Examples include: the relationship between two channels collected simultaneously
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <obo:IAO_0000118>io</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:comment xml:lang="en">X starts_during Y iff: (start(Y) before_or_simultaneous_with start(X)) AND (start(X) before_or_simultaneous_with end(Y))</rdfs:comment>
@@ -2293,7 +2295,7 @@ Examples include: the relationship between two channels collected simultaneously
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002091"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002093"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <obo:IAO_0000118>d</obo:IAO_0000118>
         <obo:IAO_0000118>during</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_go_annotation_extension"/>
@@ -2311,7 +2313,7 @@ Examples include: the relationship between two channels collected simultaneously
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002093">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002222"/>
-        <obo:IAO_0000117>David Osumi-Sutherland</obo:IAO_0000117>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7073-9172"/>
         <obo:IAO_0000118>o</obo:IAO_0000118>
         <obo:IAO_0000118>overlaps</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
@@ -2970,11 +2972,27 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002320"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002005"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002131"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002134"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002150"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002170"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002176"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -2998,11 +3016,27 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002256"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002295"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002387"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002490"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0003000"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0003001"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
@@ -3659,7 +3693,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000115>inverse of starts with</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
-        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000119>Allen</obo:IAO_0000119>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">starts</rdfs:label>
@@ -3677,7 +3710,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000115>x starts with y if and only if x has part y and the time point at which x starts is equivalent to the time point at which y starts. Formally: α(y) = α(x) ∧ ω(y) &lt; ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
-        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>started by</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">starts with</rdfs:label>
@@ -3749,7 +3781,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000115>inverse of ends with</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
-        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">ends</rdfs:label>
     </owl:ObjectProperty>
@@ -3765,7 +3796,6 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000115>x ends with y if and only if x has part y and the time point at which x ends is equivalent to the time point at which y ends. Formally: α(y) &gt; α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
-        <obo:IAO_0000117>Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000118>finished by</obo:IAO_0000118>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label xml:lang="en">ends with</rdfs:label>
@@ -5635,8 +5665,8 @@ Each of these 3 primitives can be composed to yield a cross-product of different
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002412"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002414"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002402"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002400"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002234"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002233"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000115>p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
@@ -10825,6 +10855,199 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0020326 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020326">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002607"/>
+        <obo:IAO_0000112>A cancer biomarker provides_clinical_information_for some cancer, which is to say that the presence of or features of the biomarker is clinically informative for the presence of or features of the cancer.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and a disease or condition of clinical interest &apos;d&apos;, where the presence or occurrence of &apos;b&apos; provides clinical information about &apos;d&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Usage note: This does not imply that &apos;b&apos; and &apos;d&apos; are in a direct causal relationship, as it may be the case that there is a third entity &apos;a&apos; that stands in a direct causal relationship with &apos;b&apos; and &apos;d&apos;.
+
+Basis: This relation is an umbrella for a set of relations that are based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>provides clinical information for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020327 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020327">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020326"/>
+        <obo:IAO_0000112>A below-normal level of creatine in cerebrospinal fluid is diagnostic_for guanidinoacetate methyltransferase deficiency, which is to say that such levels indicate that the patient has the indicated clinical issue.</obo:IAO_0000112>
+        <obo:IAO_0000112>An above-normal level of succinylacetone in urine is diagnostic_for type 1 tyrosinemia, while an above-normal level of 4-hydroxyphenylpyruvate is diagnostic_for either type 2 or type 3 tyrosinemia.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and a disease or condition of clinical interest &apos;d&apos;, where the presence or occurrence of &apos;b&apos; is used to infer the presence or occurrence of &apos;d&apos; or determine its subtype.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>diagnostic for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020328 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020328">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020326"/>
+        <obo:IAO_0000112>Hemoglobin A1c (HbA1c) level in blood monitors_status_of diabetes since HbA1c levels reflect a three-month average of blood glucose levels, and can thus be used to monitor the disease progression.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a serially-measured biomarker &apos;b&apos; and a disease or condition of clinical interest &apos;d&apos;, where &apos;b&apos; is used to infer the status of &apos;d&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Usage note: The status of &apos;d&apos; refers to disease progression/remission or treatment response.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>monitors status of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020329 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020329">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020334"/>
+        <obo:IAO_0000112>The level of urinary glycosaminoglycans indicates_response_to enzyme replacement therapy for patients with mucopolysaccharidosis type 1.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where &apos;b&apos; is used to show that a biological response to &apos;e&apos; has occurred.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>indicates response to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020330 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020330">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020334"/>
+        <obo:IAO_0000112>The incidence of squamous cell differentiation (indicated, for example, by keratinization) in non-small cell lung cancer patients predicts_effect_of the drug pemetrexed, where the prediction is that such patients will have a poor outcome with use of the drug.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where &apos;b&apos; is used to identify individuals who are likely to experience a favorable or unfavorable effect from exposure to &apos;e&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment. In the context of predictive biomarkers, &apos;e&apos; is typically a medical product such as a drug.
+
+Usage note: The relations &apos;indicates risk of developing&apos; (RO:0020333), &apos;prognostic for&apos; (RO:0020331), and &apos;predicts effect of&apos; (this relation) are each used to relate biomarkers to possible future clinical outcomes:
+	- &apos;indicates risk of developing&apos; pertains to cases where the biomarker indicates a potential clinical issue in a patient that does not currently exhibit the issue;
+	- &apos;prognostic for&apos; is used for cases where the biomarker indicates the likelihood of a specified clinical event (including disease recurrence or progression) in a patient that has or had the clinical issue of interest;
+	- &apos;predicts effect of&apos; is used to indicate the likely outcome of an intervention/treatment.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>predicts effect of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020331 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020331">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020326"/>
+        <obo:IAO_0000112>A high number of tumor cells expressing the nuclear protein Ki-67 is prognostic_for an aggressive cancer.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and a disease or condition of clinical interest &apos;d&apos;, where the presence or occurrence of &apos;b&apos; is used to infer the likelihood of a clinical event, disease recurrence or progression in patients who have &apos;d&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Usage note: The relations &apos;indicates risk of developing&apos; (RO:0020333), &apos;prognostic for&apos; (this relation), and &apos;predicts effect of&apos; (RO:0020330) are each used to relate biomarkers to possible future clinical outcomes:
+	- &apos;indicates risk of developing&apos; pertains to cases where the biomarker indicates a potential clinical issue in a patient that does not currently exhibit the issue;
+	- &apos;prognostic for&apos; is used for cases where the biomarker indicates the likelihood of a specified clinical event (including disease recurrence or progression) in a patient that has or had the clinical issue of interest;
+	- &apos;predicts effect of&apos; is used to indicate the likely outcome of an intervention/treatment.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>prognostic for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020332 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020332">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020334"/>
+        <obo:IAO_0000112>As an indicator of kidney issues, reduced creatinine clearance capability assesses_toxicity_of certain drugs (such as antibiotics or chemotherapy agents) to the kidneys.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where &apos;b&apos; is used to indicate the likelihood, presence, or extent of toxicity as an adverse effect of exposure to &apos;e&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>assesses toxicity of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020333 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020333">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020326"/>
+        <obo:IAO_0000112>The presence of a certain BRCA1 mutation indicates_risk_of_developing breast cancer in those who don&apos;t currently have the cancer.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and a disease or condition of clinical interest &apos;d&apos;, where the presence or occurrence of &apos;b&apos; is used to infer the potential for developing &apos;d&apos; in an individual that currently does not have &apos;d&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Usage note: The relations &apos;indicates risk of developing&apos; (this relation), &apos;prognostic for&apos; (RO:0020331), and &apos;predicts effect of&apos; (RO:0020330) are each used to relate biomarkers to possible future clinical outcomes:
+	- &apos;indicates risk of developing&apos; pertains to cases where the biomarker indicates a potential clinical issue in a patient that does not currently exhibit the issue;
+	- &apos;prognostic for&apos; is used for cases where the biomarker indicates the likelihood of a specified clinical event (including disease recurrence or progression) in a patient that has or had the clinical issue of interest;
+	- &apos;predicts effect of&apos; is used to indicate the likely outcome of an intervention/treatment.
+
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>indicates risk of developing</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020334 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020334">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002607"/>
+        <obo:IAO_0000112>An image biomarker showing tumor size indicates_clinical_effect_of some radiotherapy.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where the effect of exposure to &apos;e&apos; is correlated with the presence or occurrence of &apos;b&apos;, and the observation of &apos;b&apos; is used to infer exposure to &apos;e&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment.
+
+Usage note: This does not imply that &apos;b&apos; and exposure to &apos;e&apos; are in a direct causal relationship, as it may be the case that there is a third entity &apos;a&apos; that stands in a direct causal relationship with &apos;b&apos; and exposure to &apos;e&apos;.
+
+Basis: This relation is an umbrella for a set of relations that are based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>indicates clinical effect of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020335 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020335">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020334"/>
+        <obo:IAO_0000112>The level of prostate-specific antigen (PSA) monitors_effect_of therapies applied for the treatment of prostate cancers.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a serially-measured biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where &apos;b&apos; is used to provide evidence of a biological effect of &apos;e&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment.
+		
+Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>monitors effect of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020336 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020336">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0020334"/>
+        <obo:IAO_0000112>The concentration of tobacco specific nitrosamines in urine monitors_exposure_to tobacco/tobacco smoke.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relationship between a serially-measured biomarker &apos;b&apos; and an exposure agent &apos;e&apos;, where &apos;b&apos; is used to provide evidence of exposure to &apos;e&apos;.</obo:IAO_0000115>
+        <obo:IAO_0000117>https://orcid.org/0000-0001-5809-9523</obo:IAO_0000117>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Clarification: An &apos;exposure agent&apos; can be either a medical product or some substance (e.g., pesticide) , physical factor (e.g., radiation), or organism (e.g., virus) that originates from the environment.
+		
+Usage note: The relations &apos;monitors status of&apos; (RO:0020328), &apos;monitors exposure to&apos; (this relation), and &apos;monitors effect of&apos; (RO:0020335) are each used for serially-measured biomarkers:
+	- &apos;monitors status of&apos; pertains to cases where the biomarker is used to assess the progression/remission of a disease or condition of clinical interest;
+	- &apos;monitors exposure to&apos; pertains to cases where the biomarker is used to assess the occurrence of or amount of exposure to some exposure agent;
+	- &apos;monitors effect of&apos; pertains to cases where the biomarker is used to assess any possible biological effect arising from exposure to some exposure agent.  
+	
+	Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
+        <rdfs:label>monitors exposure to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0040035 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0040035">
@@ -10857,7 +11080,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <obo:IAO_0000116>TODO: Add homeomorphy axiom</obo:IAO_0000116>
         <obo:RO_0040042 rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
         <obo:RO_0040042 rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:0000041</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SO:similar_to</oboInOwl:hasDbXref>
@@ -10892,7 +11115,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000002"/>
         <obo:IAO_0000115>Similarity that results from common evolutionary origin.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>homologous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>This broad definition encompasses all the working definitions proposed so far in the literature.</rdfs:comment>
@@ -10917,7 +11140,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000000"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Similarity that results from independent evolution.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>homoplasous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>analogy</oboInOwl:hasRelatedSynonym>
@@ -10941,7 +11164,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000000"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Similarity that is characterized by the organization of anatomical structures through the expression of homologous or identical patterning genes.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:0000075</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>homocracous to</oboInOwl:hasExactSynonym>
@@ -10967,7 +11190,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000002"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homoplasy that involves different underlying mechanisms or structures.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasRelatedSynonym>analogy</oboInOwl:hasRelatedSynonym>
         <rdfs:comment>Convergence usually implies a notion of adaptation.</rdfs:comment>
@@ -10990,7 +11213,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000002"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homoplasy that involves homologous underlying mechanisms or structures.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>parallel evolution</oboInOwl:hasExactSynonym>
         <rdfs:comment>Can be applied for features present in closely related organisms but not present continuously in all the members of the lineage.</rdfs:comment>
@@ -11013,7 +11236,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000001"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homology that is defined by similarity with regard to selected structural parameters.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:0000071</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>MI:2163</oboInOwl:hasDbXref>
@@ -11040,7 +11263,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000001"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homology that is defined by common descent.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasBroadSynonym>homology</oboInOwl:hasBroadSynonym>
         <oboInOwl:hasDbXref>ECO:0000080</oboInOwl:hasDbXref>
@@ -11075,7 +11298,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000001"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homology that is defined by sharing of a set of developmental constraints, caused by locally acting self-regulatory mechanisms of differentiation, between individualized parts of the phenotype.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:0000067</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>biological homologous to</oboInOwl:hasExactSynonym>
@@ -11101,7 +11324,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000002"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homoplasy that involves phenotypes similar to those seen in ancestors within the lineage.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>atavism</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>rudiment</oboInOwl:hasExactSynonym>
@@ -11125,7 +11348,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000006"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Structural homology that is detected by similarity in content and organization between chromosomes.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>MeSH:Synteny</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SO:0000860</oboInOwl:hasDbXref>
@@ -11152,7 +11375,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000017"/>
         <obo:IAO_0000115>Historical homology that involves genes that diverged after a duplication event.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>SO:0000854</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SO:0000859</oboInOwl:hasDbXref>
@@ -11180,7 +11403,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that involves sets of syntenic blocks.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>syntenic paralogous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>duplicon</oboInOwl:hasRelatedSynonym>
@@ -11205,7 +11428,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000010"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Syntenic homology that involves chromosomes of different species.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>syntenic orthologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in syntenic orthology relationship with</rdfs:label>
@@ -11227,7 +11450,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000006"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Structural homology that involves complex structures from which only a fraction of the elements that can be isolated are separately homologous.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>fractional homology</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>partial homologous to</oboInOwl:hasExactSynonym>
@@ -11256,7 +11479,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000006"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Structural homology that is detected at the level of the 3D protein structure, but maybe not at the level of the amino acid sequence.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>MeSH:Structural_Homology,_Protein</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>protein structural homologous to</oboInOwl:hasExactSynonym>
@@ -11280,7 +11503,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000062"/>
         <obo:IAO_0000115>Structural homology that involves a pseudogenic feature and its functional ancestor.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasBroadSynonym>pseudogene</oboInOwl:hasBroadSynonym>
         <oboInOwl:hasDbXref>SO:non_functional_homolog_of</oboInOwl:hasDbXref>
@@ -11304,7 +11527,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves genes that diverged after a speciation event.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:00000060</oboInOwl:hasDbXref>
         <oboInOwl:hasDbXref>SO:0000855</oboInOwl:hasDbXref>
@@ -11334,7 +11557,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that is characterized by an interspecies (horizontal) transfer since the common ancestor.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>xenologous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>The term is sometimes also used for anatomical structures (e.g. in case of a symbiosis).</rdfs:comment>
@@ -11358,7 +11581,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves two members sharing no other homologs in the lineages considered.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>1 to 1 homologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>1:1 homology</oboInOwl:hasExactSynonym>
@@ -11383,7 +11606,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000019"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Orthology that involves two genes that did not experience any duplication after the speciation event that created them.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>1 to 1 orthologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>1:1 orthology</oboInOwl:hasExactSynonym>
@@ -11408,7 +11631,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that results from a whole genome duplication event.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>ohnologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>homoeology</oboInOwl:hasRelatedSynonym>
@@ -11432,7 +11655,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000024"/>
         <obo:IAO_0000115>Paralogy that results from a lineage-specific duplication subsequent to a given speciation event.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>in-paralogous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>inparalogy</oboInOwl:hasExactSynonym>
@@ -11456,7 +11679,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that results from a duplication preceding a given speciation event.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>alloparalogy</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>out-paralogous to</oboInOwl:hasExactSynonym>
@@ -11480,7 +11703,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000034"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>1:many orthology that involves a gene in species A and one of its ortholog in species B, when duplications more recent than the species split have occurred in species B but not in species A.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>pro-orthologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in pro-orthology relationship with</rdfs:label>
@@ -11503,7 +11726,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000034"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>1:many orthology that involves a gene in species A and its ortholog in species B, when duplications more recent than the species split have occurred in species A but not in species B.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>semi-orthologous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>The converse of pro-orthologous.</rdfs:comment>
@@ -11527,7 +11750,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000066"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Iterative homology that involves structures arranged along the main body axis.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>serial homologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>homonomy</oboInOwl:hasRelatedSynonym>
@@ -11550,7 +11773,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000008"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Biological homology that is characterized by changes, over evolutionary time, in the rate or timing of developmental events of homologous structures.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>heterochronous homologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>heterochrony</oboInOwl:hasExactSynonym>
@@ -11574,7 +11797,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000030"/>
         <obo:IAO_0000115>Heterochronous homology that is produced by a retention in adults of a species of traits previously seen only in juveniles.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>juvenification</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>pedomorphosis</oboInOwl:hasExactSynonym>
@@ -11598,7 +11821,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000028"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Heterochronous homology that is produced by a maturation of individuals of a species past adulthood, which take on hitherto unseen traits.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <rdfs:label>in peramorphosis relationship with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/HOM_0000030"/>
@@ -11619,7 +11842,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000029"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paedomorphosis that is produced by precocious sexual maturation of an organism still in a morphologically juvenile stage.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <rdfs:label>in progenesis relationship with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/HOM_0000031"/>
@@ -11641,7 +11864,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000029"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paedomorphosis that is produced by a retardation of somatic development.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>juvenilization</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>neotenous to</oboInOwl:hasExactSynonym>
@@ -11665,7 +11888,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000004"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Convergence that results from co-evolution usually involving an evolutionary arms race.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>mimicrous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in mimicry relationship with</rdfs:label>
@@ -11688,7 +11911,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000037"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Orthology that involves two genes when duplications more recent than the species split have occurred in one species but not the other.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>1 to many orthologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>1:many orthology</oboInOwl:hasExactSynonym>
@@ -11715,7 +11938,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves two members of a larger set of homologs.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>many to many homologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>many-to-many homology</oboInOwl:hasExactSynonym>
@@ -11739,7 +11962,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves a structure that has no other homologs in the species in which it is defined, and several homologous structures in another species.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>1 to many homologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>one-to-many homology</oboInOwl:hasExactSynonym>
@@ -11764,7 +11987,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000043"/>
         <obo:IAO_0000115>Historical homology that is based on recent shared ancestry, characterizing a monophyletic group.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>apomorphous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>synapomorphy</oboInOwl:hasRelatedSynonym>
@@ -11787,7 +12010,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that is based on distant shared ancestry.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>plesiomorphous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>symplesiomorphy</oboInOwl:hasRelatedSynonym>
@@ -11812,7 +12035,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000005"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homocracy that involves morphologically and phylogenetically disparate structures that are the result of parallel evolution.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>deep genetic homology</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>deep homologous to</oboInOwl:hasExactSynonym>
@@ -11839,7 +12062,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that is characterized by topological discordance between a gene tree and a species tree attributable to the phylogenetic sorting of genetic polymorphisms across successive nodes in a species tree.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>hemiplasous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in hemiplasy relationship with</rdfs:label>
@@ -11861,7 +12084,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000047"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves not recombining and subsequently differentiated sex chromosomes.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>gametologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in gametology relationship with</rdfs:label>
@@ -11883,7 +12106,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves the chromosomes able to pair (synapse) during meiosis.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>MeSH:Chromosome_Pairing</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>chromosomal homologous to</oboInOwl:hasExactSynonym>
@@ -11907,7 +12130,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000036"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Orthology that involves two genes that experienced duplications more recent than the species split that created them.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>many to many orthologous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>many-to-many orthology</oboInOwl:hasExactSynonym>
@@ -11936,7 +12159,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000050"/>
         <obo:IAO_0000115>Paralogy that involves genes from the same species.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>within-species paralogous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in within-species paralogy relationship with</rdfs:label>
@@ -11958,7 +12181,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that involves genes from different species.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>between-species paralogous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>The genes have diverged before a speciation event.</rdfs:comment>
@@ -11981,7 +12204,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000029"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paedomorphosis that is produced by delayed growth of immature structures into the adult form.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>post-displacement</oboInOwl:hasExactSynonym>
         <rdfs:label>in postdisplacement relationship with</rdfs:label>
@@ -12003,7 +12226,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000030"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Peramorphosis that is produced by a delay in the offset of development.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <rdfs:label>in hypermorphosis relationship with</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/HOM_0000052"/>
@@ -12025,7 +12248,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000018"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Xenology that results, not from the transfer of a gene between two species, but from a hybridization of two species.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>synologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in synology relationship with</rdfs:label>
@@ -12049,7 +12272,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000062"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Orthology that involves functional equivalent genes with retention of the ancestral function.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasDbXref>ECO:0000080</oboInOwl:hasDbXref>
         <oboInOwl:hasExactSynonym>isoorthologous to</oboInOwl:hasExactSynonym>
@@ -12072,7 +12295,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that is characterized by duplication of adjacent sequences on a chromosome segment.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>tandem paralogous to</oboInOwl:hasExactSynonym>
         <oboInOwl:hasRelatedSynonym>iterative paralogy</oboInOwl:hasRelatedSynonym>
@@ -12098,7 +12321,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000058"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Parallelism that involves morphologically very similar structures, occurring only within some members of a taxon and absent in the common ancestor (which possessed the developmental basis to develop this character).</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>apomorphic tendency</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>cryptic homology</oboInOwl:hasExactSynonym>
@@ -12130,7 +12353,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000003"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Homocracy that involves recognizably corresponding characters that occurs in two or more taxa, or as a repeated unit within an individual.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>generative homology</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>syngenous to</oboInOwl:hasExactSynonym>
@@ -12156,7 +12379,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000050"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Between-species paralogy that involves single copy paralogs resulting from reciprocal gene loss.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>1:1 paralogy</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>apparent 1:1 orthology</oboInOwl:hasExactSynonym>
@@ -12183,7 +12406,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000018"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Xenology that involves genes that ended up in a given genome as a result of a combination of vertical inheritance and horizontal gene transfer.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>pseudoparalogous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>These genes may come out as paralogs in a single-genome analysis.</rdfs:comment>
@@ -12207,7 +12430,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000065"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves functional equivalent genes with retention of the ancestral function.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>equivalogous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>This may include examples of orthology, paralogy and xenology.</rdfs:comment>
@@ -12230,7 +12453,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves orthologous pairs of interacting molecules in different organisms.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>interologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in interology relationship with</rdfs:label>
@@ -12253,7 +12476,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000000"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Similarity that is characterized by interchangeability in function.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasRelatedSynonym>functional similarity</oboInOwl:hasRelatedSynonym>
         <rdfs:label>in functional equivalence relationship with</rdfs:label>
@@ -12276,7 +12499,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000008"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Biological homology that involves parts of the same organism.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>iterative homologous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in iterative homology relationship with</rdfs:label>
@@ -12298,7 +12521,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000018"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Xenology that is characterized by multiple horizontal transfer events, resulting in the presence of two or more copies of the foreign gene in the host genome.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>duplicate xenology</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>multiple xenology</oboInOwl:hasExactSynonym>
@@ -12322,7 +12545,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000011"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Paralogy that is characterized by extra similarity between paralogous sequences resulting from concerted evolution.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>plerologous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>This phenomenon is usually due to gene conversion process.</rdfs:comment>
@@ -12346,7 +12569,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <owl:propertyDisjointWith rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000072"/>
         <obo:IAO_0000115>Structural homology that involves structures with the same or similar relative positions.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>homotopous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>Theissen (2005) mentions that some authors may consider homotopy to be distinct from homology, but this is not the standard use.</rdfs:comment>
@@ -12371,7 +12594,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000008"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Biological homology that involves an ectopic structure and the normally positioned structure.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasRelatedSynonym>heterotopy</oboInOwl:hasRelatedSynonym>
         <rdfs:label>in homeosis relationship with</rdfs:label>
@@ -12395,7 +12618,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000053"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Synology that results from allopolyploidy.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>homoeologous to</oboInOwl:hasExactSynonym>
         <rdfs:comment>On a long term, it is hard to distinguish allopolyploidy from whole genome duplication.</rdfs:comment>
@@ -12419,7 +12642,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000066"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Iterative homology that involves two structures, one of which originated as a duplicate of the other and co-opted the expression of patterning genes of the ancestral structure.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasRelatedSynonym>axis paramorphism</oboInOwl:hasRelatedSynonym>
         <rdfs:label>in paramorphism relationship with</rdfs:label>
@@ -12442,7 +12665,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000007"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <obo:IAO_0000115>Historical homology that involves orthologous pairs of transcription factors and downstream regulated genes in different organisms.</obo:IAO_0000115>
-        <terms:creator rdf:resource="http://bgee.unil.ch"/>
+        <terms:creator rdf:resource="https://www.wikidata.org/wiki/Q54985720"/>
         <terms:source rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/20116127"/>
         <oboInOwl:hasExactSynonym>regulogous to</oboInOwl:hasExactSynonym>
         <rdfs:label>in regulogy relationship with</rdfs:label>
@@ -12515,6 +12738,19 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/BFO_0000002 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000002">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000000"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
         <owl:disjointWith>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -12528,6 +12764,18 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/BFO_0000003 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000003">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_HOM0000000"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -12540,7 +12788,16 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000004"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000004">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    </owl:Class>
     
 
 
@@ -12558,25 +12815,50 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000016 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000016"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000016">
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+    </owl:Class>
     
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000017 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000017"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000017">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000017"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    </owl:Class>
     
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000019 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000019"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000019">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000020 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000020">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    </owl:Class>
     
 
 
@@ -12588,7 +12870,14 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000031">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -12601,6 +12890,7 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/BFO_0000040 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000040">
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000141"/>
         <owl:disjointWith>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
@@ -12638,7 +12928,14 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 
     <!-- http://purl.obolibrary.org/obo/CL_0000540 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000540"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CL_0000540">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0020104"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 
@@ -12666,6 +12963,19 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
+    <!-- http://purl.obolibrary.org/obo/GO_0004842 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0004842">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002482"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/GO_0005634 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0005634"/>
@@ -12675,6 +12985,32 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     <!-- http://purl.obolibrary.org/obo/GO_0008150 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0008150"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0016301 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0016301">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002481"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/GO_0019107 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0019107">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0018001"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -12828,7 +13164,14 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
 
     <!-- http://purl.obolibrary.org/obo/UBERON_0001062 -->
 
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0001062"/>
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UBERON_0001062">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0020105"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
     
 
 

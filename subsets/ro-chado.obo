@@ -17,7 +17,7 @@ subsetdef: vertebrate_core ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2025-03-05" xsd:string
+property_value: owl:versionInfo "2025-06-24" xsd:string
 property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: terms:title "OBO Relations Ontology" xsd:string
@@ -50,7 +50,6 @@ def: "Paraphrase of elucidation: a relation between a process and a realizable e
 [Typedef]
 id: BFO:0000060
 name: obsolete_preceded_by
-is_transitive: true
 is_obsolete: true
 
 [Typedef]
@@ -298,7 +297,9 @@ is_a: RO:0001025 ! located in
 [Typedef]
 id: RO:0002005
 name: innervated_by
+def: "relation between an anatomical structure and a neuron projection bundle that has synaptic terminals in the structure." []
 inverse_of: RO:0002134 ! innervates
+transitive_over: RO:0002380 ! branching part of
 
 [Typedef]
 id: RO:0002006
@@ -718,15 +719,23 @@ id: RO:0002162
 name: in_taxon
 def: "x is in taxon y if an only if y is an organism, and the relationship between x and y is one of: part of (reflexive), developmentally preceded by, derives from, secreted by, expressed." []
 synonym: "life cycle stage of" NARROW []
-holds_over_chain: BFO:0000050 RO:0002162
-holds_over_chain: BFO:0000051 RO:0002162
+holds_over_chain: RO:0002005 RO:0002162
+holds_over_chain: RO:0002131 RO:0002162
+holds_over_chain: RO:0002134 RO:0002162
+holds_over_chain: RO:0002150 RO:0002162
+holds_over_chain: RO:0002170 RO:0002162
+holds_over_chain: RO:0002176 RO:0002162
 holds_over_chain: RO:0002206 RO:0002162
 holds_over_chain: RO:0002211 RO:0002162
 holds_over_chain: RO:0002214 RO:0002162
 holds_over_chain: RO:0002215 RO:0002162
 holds_over_chain: RO:0002254 RO:0002162
+holds_over_chain: RO:0002256 RO:0002162
 holds_over_chain: RO:0002295 RO:0002162
 holds_over_chain: RO:0002387 RO:0002162
+holds_over_chain: RO:0002490 RO:0002162
+holds_over_chain: RO:0003000 RO:0002162
+holds_over_chain: RO:0003001 RO:0002162
 is_a: RO:0002320 ! evolutionarily related to
 
 [Typedef]
@@ -1781,7 +1790,7 @@ is_a: RO:0002411 ! causally upstream of
 id: RO:0002413
 name: provides_input_for
 def: "p provides input for q iff p is immediately causally upstream of q, and there exists some c such that p has_output c and q has_input c." []
-holds_over_chain: RO:0002402 RO:0002400
+holds_over_chain: RO:0002234 RO:0002233
 is_a: RO:0002412 ! immediately causally upstream of
 is_a: RO:0002414 ! transitively provides input for
 
@@ -3980,6 +3989,72 @@ id: RO:0020301
 name: has_allelopath
 def: "inverse of allelopath of" []
 is_a: RO:0002574 ! participates in a biotic-biotic interaction with
+
+[Typedef]
+id: RO:0020326
+name: provides_clinical_information_for
+def: "A relationship between a biomarker 'b' and a disease or condition of clinical interest 'd', where the presence or occurrence of 'b' provides clinical information about 'd'." []
+is_a: RO:0002607 ! is marker for
+
+[Typedef]
+id: RO:0020327
+name: diagnostic_for
+def: "A relationship between a biomarker 'b' and a disease or condition of clinical interest 'd', where the presence or occurrence of 'b' is used to infer the presence or occurrence of 'd' or determine its subtype." []
+is_a: RO:0020326 ! provides clinical information for
+
+[Typedef]
+id: RO:0020328
+name: monitors_status_of
+def: "A relationship between a serially-measured biomarker 'b' and a disease or condition of clinical interest 'd', where 'b' is used to infer the status of 'd'." []
+is_a: RO:0020326 ! provides clinical information for
+
+[Typedef]
+id: RO:0020329
+name: indicates_response_to
+def: "A relationship between a biomarker 'b' and an exposure agent 'e', where 'b' is used to show that a biological response to 'e' has occurred." []
+is_a: RO:0020334 ! indicates clinical effect of
+
+[Typedef]
+id: RO:0020330
+name: predicts_effect_of
+def: "A relationship between a biomarker 'b' and an exposure agent 'e', where 'b' is used to identify individuals who are likely to experience a favorable or unfavorable effect from exposure to 'e'." []
+is_a: RO:0020334 ! indicates clinical effect of
+
+[Typedef]
+id: RO:0020331
+name: prognostic_for
+def: "A relationship between a biomarker 'b' and a disease or condition of clinical interest 'd', where the presence or occurrence of 'b' is used to infer the likelihood of a clinical event, disease recurrence or progression in patients who have 'd'." []
+is_a: RO:0020326 ! provides clinical information for
+
+[Typedef]
+id: RO:0020332
+name: assesses_toxicity_of
+def: "A relationship between a biomarker 'b' and an exposure agent 'e', where 'b' is used to indicate the likelihood, presence, or extent of toxicity as an adverse effect of exposure to 'e'." []
+is_a: RO:0020334 ! indicates clinical effect of
+
+[Typedef]
+id: RO:0020333
+name: indicates_risk_of_developing
+def: "A relationship between a biomarker 'b' and a disease or condition of clinical interest 'd', where the presence or occurrence of 'b' is used to infer the potential for developing 'd' in an individual that currently does not have 'd'." []
+is_a: RO:0020326 ! provides clinical information for
+
+[Typedef]
+id: RO:0020334
+name: indicates_clinical_effect_of
+def: "A relationship between a biomarker 'b' and an exposure agent 'e', where the effect of exposure to 'e' is correlated with the presence or occurrence of 'b', and the observation of 'b' is used to infer exposure to 'e'." []
+is_a: RO:0002607 ! is marker for
+
+[Typedef]
+id: RO:0020335
+name: monitors_effect_of
+def: "A relationship between a serially-measured biomarker 'b' and an exposure agent 'e', where 'b' is used to provide evidence of a biological effect of 'e'." []
+is_a: RO:0020334 ! indicates clinical effect of
+
+[Typedef]
+id: RO:0020336
+name: monitors_exposure_to
+def: "A relationship between a serially-measured biomarker 'b' and an exposure agent 'e', where 'b' is used to provide evidence of exposure to 'e'." []
+is_a: RO:0020334 ! indicates clinical effect of
 
 [Typedef]
 id: RO:0040035
