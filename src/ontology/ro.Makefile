@@ -25,37 +25,77 @@ validate-using-oort: ro-edit.owl
 	touch $@
 
 # ========================================
-# Custom components
+# Custom components and release files
 # ========================================
 
 core.owl: components/core.owl components/bfo-axioms.owl components/bfo-classes-minimal.owl
 	$(ROBOT) merge -i components/core.owl -i components/bfo-axioms.owl -i components/bfo-classes-minimal.owl annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
+BFO_TERMS_IN_BASE = BFO_0000050 BFO_0000051 BFO_0000060 BFO_0000062 BFO_0000063 BFO_0000066 BFO_0000067 BFO_0000054 BFO_0000055
+
+# base: A version of the ontology that does not include any externally imported axioms.
+# It is customised here because RO has to _inject_ certain axioms that formally belong to BFO.
+# Counts below are approximate, reflecting the state of RO on 4th June 2025.
+# bfo-axioms.owl: ~7 disjointness axioms that are not in BFO
+# el-constraints.owl: ~2 disjointness axioms that are not in BFO
+# temporal-intervals.owl: ~45 RBOX axioms that are not in BFO (many of which have BFO IDs)
+# bfo-classes-minimal.owl: ~12 subclass axioms from BFO needed for RO to function (NOT INCLUDED IN BASE)
+# generated-axioms.owl: ~9 universal restrictions involving RO
+$(ONT)-base.owl: $(EDIT_PREPROCESSED) $(OTHER_SRC) $(IMPORT_FILES)
+	$(ROBOT_RELEASE_IMPORT_MODE) \
+	reason --reasoner ELK --equivalent-classes-allowed asserted-only --exclude-tautologies structural --annotate-inferred-axioms False \
+	relax \
+	reduce -r ELK \
+	remove \
+		--base-iri http://purl.obolibrary.org/obo/RO_ \
+		$(foreach t, $(BFO_TERMS_IN_BASE), --base-iri http://purl.obolibrary.org/obo/$t) \
+	 	--axioms external --preserve-structure false --trim false \
+	merge \
+		-i $(COMPONENTSDIR)/el-constraints.owl \
+		-i $(COMPONENTSDIR)/temporal-intervals.owl \
+		-i $(COMPONENTSDIR)/bfo-axioms.owl \
+		-i $(COMPONENTSDIR)/generated-axioms.owl \
+		-i $(COMPONENTSDIR)/rolification-axioms.owl \
+	$(SHARED_ROBOT_COMMANDS) \
+	annotate --link-annotation http://purl.org/dc/elements/1.1/type http://purl.obolibrary.org/obo/IAO_8000001 \
+		--ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) \
+		--output $@
+
 # ========================================
 # Custom imports
 # ========================================
+
+ifeq ($(IMP),true)
 
 $(IMPORTDIR)/other_import.owl: 
 	echo "$@ is manually maintained." && touch $@
 
 # Needed because of https://github.com/INCATools/ontology-development-kit/issues/841
-$(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms_combined.txt
-	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
-    	filter -T $(IMPORTDIR)/omo_terms_combined.txt --preserve-structure false --trim false \
-		query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
-		$(ANNOTATE_CONVERT_FILE); fi
+$(IMPORTDIR)/omo_import.owl: $(MIRRORDIR)/omo.owl $(IMPORTDIR)/omo_terms.txt $(IMPORTSEED) | all_robot_plugins
+	$(ROBOT) merge --input $< \
+		annotate --remove-annotations \
+		odk:normalize --add-source true \
+		filter --term-file $(IMPORTDIR)/omo_terms.txt $(T_IMPORTSEED) \
+			--preserve-structure false --trim false \
+		odk:normalize --base-iri http://purl.obolibrary.org/obo \
+					--subset-decls true --synonym-decls true \
+		repair --merge-axiom-annotations true \
+		$(ANNOTATE_CONVERT_FILE)
 
-$(IMPORTDIR)/orcidio_terms_combined.txt: $(SRCMERGED)
-	$(ROBOT) query -f csv -i $< --query ../sparql/orcids.sparql $@.tmp &&\
-	cat $@.tmp | sort | uniq >  $@
 
-$(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms_combined.txt
-	if [ $(IMP) = true ]; then $(ROBOT) query -i $< --update ../sparql/preprocess-module.ru \
-    extract -T $(IMPORTDIR)/cob_terms_combined.txt --copy-ontology-annotations true --force true --method BOT \
-	remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cob_terms_combined.txt --select complement \
-	remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060* BFO:0000066*" --axioms "annotation logical" \
-	query --update ../sparql/inject-subset-declaration.ru --update ../sparql/inject-synonymtype-declaration.ru --update ../sparql/postprocess-module.ru \
-	$(ANNOTATE_CONVERT_FILE); fi
+$(IMPORTDIR)/cob_import.owl: $(MIRRORDIR)/cob.owl $(IMPORTDIR)/cob_terms.txt $(IMPORTSEED) | all_robot_plugins
+	$(ROBOT) merge --input $< \
+		annotate --remove-annotations \
+		odk:normalize --add-source true \
+		extract -T $(IMPORTDIR)/cob_terms.txt -T $(IMPORTSEED) --copy-ontology-annotations true --force true --method BOT \
+		remove $(patsubst %, --term %, $(ANNOTATION_PROPERTIES)) -T $(IMPORTDIR)/cob_terms.txt -T $(IMPORTSEED) --select complement \
+		remove --select "RO:* BFO:0000050* BFO:0000051* BFO:0000060* BFO:0000066*" --axioms "annotation logical" \
+		odk:normalize --base-iri http://purl.obolibrary.org/obo/COB_ \
+					--subset-decls true --synonym-decls true \
+		repair --merge-axiom-annotations true \
+		$(ANNOTATE_CONVERT_FILE)
+
+endif
 
 # ========================================
 # DOCUMENTATION
@@ -102,7 +142,7 @@ bfo2-classes.owl:
 # ========================================
 
 subsets/ro-biotic-interaction.owl: ro.owl
-	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@.tmp.owl && mv $@.tmp.owl $@
+	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@
 
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
