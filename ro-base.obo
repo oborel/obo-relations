@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: ro/releases/2025-06-24/ro-base.owl
+data-version: ro/releases/2025-12-17/ro-base.owl
 subsetdef: RO:0002259 ""
 idspace: cito http://purl.org/spar/cito/ 
 idspace: dc http://purl.org/dc/elements/1.1/ 
@@ -12,7 +12,7 @@ idspace: terms http://purl.org/dc/terms/
 ontology: ro/ro-base
 property_value: dc:type IAO:8000001
 property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2025-06-24" xsd:string
+property_value: owl:versionInfo "2025-12-17" xsd:string
 property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: terms:title "OBO Relations Ontology" xsd:string
@@ -1344,7 +1344,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/17921072
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20973947
 property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Taxon-constraints
-range: OBI:0100026
+range: COB:0000022
 holds_over_chain: RO:0002005 RO:0002162
 holds_over_chain: RO:0002131 RO:0002162
 holds_over_chain: RO:0002134 RO:0002162
@@ -2254,7 +2254,7 @@ property_value: IAO:0000112 "Hydrozoa (NCBITaxon_6074) SubClassOf 'has habitat' 
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-4366-3088
 property_value: IAO:0000118 "adapted for living in" xsd:string
-domain: OBI:0100026
+domain: COB:0000022
 range: ENVO:01000254
 is_a: RO:0002321 ! ecologically related to
 
@@ -3378,6 +3378,7 @@ def: "A relation that holds between a disease or an organism and a phenotype" []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: OGMS:0000031
 is_a: RO:0002200 ! has phenotype
+inverse_of: RO:0017007 ! symptom of
 
 [Typedef]
 id: RO:0002453
@@ -4281,8 +4282,8 @@ name: participates in a biotic-biotic interaction with
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
@@ -4451,8 +4452,10 @@ is_a: RO:0002599 ! capable of inhibiting or preventing pathological process
 id: RO:0002607
 name: is marker for
 def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
+synonym: "indicates" RELATED []
 property_value: IAO:0000116 "May be ceded to OBI" xsd:string
 is_a: RO:0002610 ! correlated with
+inverse_of: RO:0017011 ! has marker
 
 [Typedef]
 id: RO:0002608
@@ -4668,6 +4671,51 @@ name: has reservoir host
 def: "inverse of reservoir host of" []
 subset: RO:0002259
 property_value: IAO:0000112 "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s." xsd:string
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002804
+name: ectomycorrhizal host of
+def: "x is an ectomycorrhizal host of y if and only if x is a plant (Plantae) whose roots form an intercellular interface (aka Hartig net) with fungus (Fungi) y. This interface consists of highly branched hyphae forming a latticework between epidermal and cortical root cells." []
+comment: An ectomycorrhiza is a form of symbiotic relationship that occurs between a fungal symbiont, or mycobiont, and the roots of various plant species. The mycobiont is often from the phyla Basidiomycota and Ascomycota, and more rarely from the Zygomycota. Ectomycorrhizae form on the roots of around 2% of plant species, usually woody plants, including species from the birch, dipterocarp, myrtle, beech, willow, pine and rose families. Research on ectomycorrhizae is increasingly important in areas such as ecosystem management and restoration, forestry, and agriculture. Unlike other mycorrhizal relationships, such as arbuscular mycorrhiza and ericoid mycorrhiza, ectomycorrhizal fungi do not penetrate their host's cell wall. Instead they form an entirely intercellular interfaces known as the Hartig net, consisting of highly branched hyphae forming a latticework between epidermal and cortical root cells. 
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1128/AEM.01558-12
+property_value: IAO:0000119 https://en.wikipedia.org/wiki/Ectomycorrhiza
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002805 ! has ectomycorrhizal host
+
+[Typedef]
+id: RO:0002805
+name: has ectomycorrhizal host
+def: "inverse of ectomycorrhizal host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002806
+name: arbuscular mycorrhizal host of
+def: "x is an arbuscular mycorrhizal host of y if and only if x is a vascular plant (Plantae) whose cortical cells of the roots are penetrated by fungus (Fungi) y and form arbuscules." []
+comment: An arbuscular mycorrhiza (AM) (plural mycorrhizae) is a type of mycorrhiza in which the symbiont fungus (Arbuscular mycorrhizal fungi, or AMF) penetrates the cortical cells of the roots of a vascular plant forming arbuscules. Arbuscular mycorrhiza is a type of endomycorrhiza along with ericoid mycorrhiza and orchid mycorrhiza (not to be confused with ectomycorrhiza). They are characterized by the formation of unique tree-like structures, the arbuscules. In addition, globular storage structures called vesicles are often encountered. Arbuscular mycorrhizae are formed by fungi in the subphylum Glomeromycotina and some fungi from the Mucoromycotina. These subphyla, along with the Mortierellomycotina, form the phylum Mucoromycota, a sister clade of the more well-known and diverse dikaryan fungi. AM fungi help plants to capture nutrients such as phosphorus, sulfur, nitrogen and micronutrients from the soil. It is believed that the development of the arbuscular mycorrhizal symbiosis played a crucial role in the initial colonisation of land by plants and in the evolution of the vascular plants. It has been said that it is quicker to list the plants that do not form endomycorrhizae than those that do. This symbiosis is a highly evolved mutualistic relationship found between fungi and plants, the most prevalent plant symbiosis known, and AMF is found in 80% of vascular plant families in existence today.
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 Arbuscular:mycorrhiza
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002807 ! has arbuscular mycorrhizal host
+
+[Typedef]
+id: RO:0002807
+name: has arbuscular mycorrhizal host
+def: "inverse of arbuscular mycorrhizal host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
 is_a: RO:0002454 ! has host
 
 [Typedef]
@@ -5217,16 +5265,16 @@ is_a: RO:0002445 ! parasitized by
 id: RO:0008505
 name: creates habitat for
 def: "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism." []
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_a: RO:0002321 ! ecologically related to
 
 [Typedef]
 id: RO:0008506
 name: ecologically co-occurs with
 def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_symmetric: true
 is_a: RO:0002321 ! ecologically related to
 
@@ -5252,7 +5300,7 @@ subset: ro-eco
 property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
 property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
 property_value: terms:date "2023-01-18T14:28:21Z" xsd:dateTime
-domain: OBI:0100026
+domain: COB:0000022
 range: ENVO:01000739
 is_a: RO:0002303 ! has habitat
 
@@ -5315,7 +5363,7 @@ property_value: IAO:0000112 "sardine has consumer some homo sapiens" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
 domain: BFO:0000040
-range: OBI:0100026
+range: COB:0000022
 
 [Typedef]
 id: RO:0009005
@@ -5917,6 +5965,20 @@ holds_over_chain: RO:0002215 RO:0002233
 creation_date: 2021-11-08T12:00:00Z
 
 [Typedef]
+id: RO:0017002
+name: information specifies
+def: "A relation between information and an entity such that the information serves as a rule or guide if the entity is an occurrent, or the information serves as a model if the entity is a continuant." []
+synonym: "prescribes" EXACT []
+synonym: "specifies" EXACT []
+property_value: IAO:0000112 "The information in a blueprint specifies the dimensions of a building." xsd:string
+property_value: IAO:0000112 "The information in a recipe specifies what interredients to use and the steps needed to prepare a meal." xsd:string
+property_value: IAO:0000112 "The information in a software program specifies the order of computations." xsd:string
+property_value: skos:exactMatch "https://www.ontologyrepository.com/CommonCoreOntologies/prescribes" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-06-16T17:08:04Z" xsd:dateTime
+inverse_of: RO:0017010 ! specified by information
+
+[Typedef]
 id: RO:0017003
 name: positively correlated with
 def: "A relation between entities in which one increases or decreases as the other does the same." []
@@ -5955,6 +6017,13 @@ domain: OBI:0000967
 range: COB:0000121
 
 [Typedef]
+id: RO:0017007
+name: symptom of
+def: "inverse of 'has symptom'" []
+property_value: terms:contributor https://orcid.org/0009-0002-7282-0836
+property_value: terms:created "2025-06-16T17:42:05Z" xsd:dateTime
+
+[Typedef]
 id: RO:0017008
 name: owns
 def: "A primitive relation that holds between entities x and y in which y is at x's full disposal." []
@@ -5977,6 +6046,21 @@ property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
 property_value: terms:contributor https://orcid.org/0000-0003-1834-3856
 property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
 creation_date: 2023-03-29T17:06:06Z
+
+[Typedef]
+id: RO:0017010
+name: specified by information
+def: "Inverse of information specifies." []
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-06-16T17:13:17Z" xsd:dateTime
+
+[Typedef]
+id: RO:0017011
+name: has marker
+def: "Inverse relation of 'is marker for'." []
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-07-14T20:57:25Z" xsd:dateTime
+is_a: RO:0002610 ! correlated with
 
 [Typedef]
 id: RO:0017502
@@ -6187,6 +6271,14 @@ holds_over_chain: RO:0002213 RO:0019002
 is_a: RO:0019000 ! regulates characteristic
 
 [Typedef]
+id: RO:0019003
+name: has substitutable entity
+def: "Relates one individual to another which is capable of standing in for the first individual in its other relations to other individuals." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+property_value: IAO:0000112 "Given individuals f, i, x, and y, where f is a 'molecular function', i is an 'information biomacromolecule', and x and y are instances of different types of gene products, if f 'enabled by' i within an OWL model of a biological pathway, and i 'has substitutable entity' both x and y, then either x or y are valid enablers of function f within the modeled biological context." xsd:string
+property_value: IAO:0000117 https://orcid.org/0000-0002-8688-6599
+
+[Typedef]
 id: RO:0019501
 name: confers susceptibility to condition
 def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
@@ -6380,6 +6472,36 @@ comment: Clarification: An 'exposure agent' can be either a medical product or s
 property_value: IAO:0000112 "The concentration of tobacco specific nitrosamines in urine monitors_exposure_to tobacco/tobacco smoke." xsd:string
 property_value: IAO:0000117 "https://orcid.org/0000-0001-5809-9523" xsd:string
 is_a: RO:0020334 ! indicates clinical effect of
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020337
+name: has constituent monomer
+def: "A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer 'm' if and only if P has_component multiple instances of 'm' and each instance of 'm' is covalently attached to another instance of 'm'." []
+comment: Usage note: The constituent monomers need not be covalently attached in an end-to-end manner; that is, polymers with internal connections (e.g., polyubiquitin) can use this relation, as can circular polymers (e.g., plasmids) and multi-branched polymers (e.g., glycans). This relation, as non-transitive, allows the number of instances of 'm' to be indicated.
+property_value: IAO:0000112 "A polyubiquitin has_constituent_monomer some ubiquitin." xsd:string
+property_value: IAO:0000112 "An amino acid chain has_constituent_monomer at least two amino acid residues." xsd:string
+is_a: RO:0002180 ! has component
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020338
+name: covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+property_value: IAO:0000112 "Charged tRNA (i.e., aminoacyl-tRNA) is a tRNA that is covalently_bound_to some amino acid." xsd:string
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020339
+name: non-covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of non-covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+property_value: IAO:0000112 "Holo-calmodulin is a calmodulin that is non-covalently_bound_to calcium." xsd:string
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
 created_by: https://orcid.org/0000-0001-5809-9523
 
 [Typedef]
