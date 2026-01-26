@@ -17,12 +17,12 @@
      xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/ro/ro-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2025-06-24/ro-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2025-12-17/ro-base.owl"/>
         <dc:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <terms:description xml:lang="en">The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies.</terms:description>
         <terms:license rdf:resource="https://creativecommons.org/publicdomain/zero/1.0/"/>
         <terms:title xml:lang="en">OBO Relations Ontology</terms:title>
-        <owl:versionInfo>2025-06-24</owl:versionInfo>
+        <owl:versionInfo>2025-12-17</owl:versionInfo>
         <foaf:homepage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"> https://github.com/oborel/obo-relations/</foaf:homepage>
     </owl:Ontology>
     
@@ -868,6 +868,12 @@ Where we have an annotation assertion
     
 
 
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
@@ -967,6 +973,12 @@ Where we have an annotation assertion
     <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
     
 
 
@@ -2970,7 +2982,7 @@ Expands_to: T has_fasciculating_neuron_projection that synapse_in some R.</obo:I
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002162">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002320"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002005"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/RO_0002162"/>
@@ -4435,7 +4447,7 @@ If you need an axiom that says &apos;has_participant min 2 object&apos;, you sho
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002303">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/ENVO_01000254"/>
         <obo:IAO_0000112>Hydrozoa (NCBITaxon_6074) SubClassOf &apos;has habitat&apos; some &apos;Hydrozoa habitat&apos;
 where
@@ -6239,6 +6251,7 @@ For example, A and B may be gene products and binding of B by A positively regul
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002452">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002200"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0017007"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
         <obo:IAO_0000115>A relation that holds between a disease or an organism and a phenotype</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
@@ -7675,8 +7688,8 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002574">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002437"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-6601-2165"/>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/ro/subsets#ro-eco"/>
         <rdfs:label>participates in a biotic-biotic interaction with</rdfs:label>
@@ -7949,8 +7962,10 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002607">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002610"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0017011"/>
         <obo:IAO_0000115>c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d.</obo:IAO_0000115>
         <obo:IAO_0000116>May be ceded to OBI</obo:IAO_0000116>
+        <oboInOwl:hasRelatedSynonym>indicates</oboInOwl:hasRelatedSynonym>
         <rdfs:label>is marker for</rdfs:label>
     </owl:ObjectProperty>
     
@@ -8284,6 +8299,67 @@ the a supports either the existence of b, or the truth value of b.</obo:IAO_0000
         <obo:IAO_0000115>inverse of reservoir host of</obo:IAO_0000115>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
         <rdfs:label>has reservoir host</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002804 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002804">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002805"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_33090"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
+        <obo:IAO_0000112>According to Linde &amp; Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle).</obo:IAO_0000112>
+        <obo:IAO_0000115>x is an ectomycorrhizal host of y if and only if x is a plant (Plantae) whose roots form an intercellular interface (aka Hartig net) with fungus (Fungi) y. This interface consists of highly branched hyphae forming a latticework between epidermal and cortical root cells.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:resource="https://doi.org/10.1128/AEM.01558-12"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Ectomycorrhiza"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-3138-4118"/>
+        <rdfs:comment>An ectomycorrhiza is a form of symbiotic relationship that occurs between a fungal symbiont, or mycobiont, and the roots of various plant species. The mycobiont is often from the phyla Basidiomycota and Ascomycota, and more rarely from the Zygomycota. Ectomycorrhizae form on the roots of around 2% of plant species, usually woody plants, including species from the birch, dipterocarp, myrtle, beech, willow, pine and rose families. Research on ectomycorrhizae is increasingly important in areas such as ecosystem management and restoration, forestry, and agriculture. Unlike other mycorrhizal relationships, such as arbuscular mycorrhiza and ericoid mycorrhiza, ectomycorrhizal fungi do not penetrate their host&apos;s cell wall. Instead they form an entirely intercellular interfaces known as the Hartig net, consisting of highly branched hyphae forming a latticework between epidermal and cortical root cells. </rdfs:comment>
+        <rdfs:label>ectomycorrhizal host of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002805 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002805">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
+        <obo:IAO_0000112>According to Linde &amp; Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle).</obo:IAO_0000112>
+        <obo:IAO_0000115>inverse of ectomycorrhizal host of</obo:IAO_0000115>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
+        <rdfs:label>has ectomycorrhizal host</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002806 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002806">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002453"/>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002807"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_33090"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
+        <obo:IAO_0000112>According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae).</obo:IAO_0000112>
+        <obo:IAO_0000115>x is an arbuscular mycorrhizal host of y if and only if x is a vascular plant (Plantae) whose cortical cells of the roots are penetrated by fungus (Fungi) y and form arbuscules.</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:resource="https://doi.org/10.1016/S0929-1393(02)00112-9"/>
+        <obo:IAO_0000119 rdf:resource="https://en.wikipedia.org/wiki/Arbuscular_mycorrhiza"/>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-3138-4118"/>
+        <rdfs:comment>An arbuscular mycorrhiza (AM) (plural mycorrhizae) is a type of mycorrhiza in which the symbiont fungus (Arbuscular mycorrhizal fungi, or AMF) penetrates the cortical cells of the roots of a vascular plant forming arbuscules. Arbuscular mycorrhiza is a type of endomycorrhiza along with ericoid mycorrhiza and orchid mycorrhiza (not to be confused with ectomycorrhiza). They are characterized by the formation of unique tree-like structures, the arbuscules. In addition, globular storage structures called vesicles are often encountered. Arbuscular mycorrhizae are formed by fungi in the subphylum Glomeromycotina and some fungi from the Mucoromycotina. These subphyla, along with the Mortierellomycotina, form the phylum Mucoromycota, a sister clade of the more well-known and diverse dikaryan fungi. AM fungi help plants to capture nutrients such as phosphorus, sulfur, nitrogen and micronutrients from the soil. It is believed that the development of the arbuscular mycorrhizal symbiosis played a crucial role in the initial colonisation of land by plants and in the evolution of the vascular plants. It has been said that it is quicker to list the plants that do not form endomycorrhizae than those that do. This symbiosis is a highly evolved mutualistic relationship found between fungi and plants, the most prevalent plant symbiosis known, and AMF is found in 80% of vascular plant families in existence today.</rdfs:comment>
+        <rdfs:label>arbuscular mycorrhizal host of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002807 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002807">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002454"/>
+        <obo:IAO_0000112>According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae).</obo:IAO_0000112>
+        <obo:IAO_0000115>inverse of arbuscular mycorrhizal host of</obo:IAO_0000115>
+        <obo:IAO_0000119 rdf:resource="https://doi.org/10.1016/S0929-1393(02)00112-9"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
+        <rdfs:label>has arbuscular mycorrhizal host</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -9180,8 +9256,8 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008505">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <obo:IAO_0000115>An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism.</obo:IAO_0000115>
         <rdfs:label>creates habitat for</rdfs:label>
     </owl:ObjectProperty>
@@ -9193,8 +9269,8 @@ Environmental exposures include those imposed by natural environments, experimen
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008506">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002321"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <obo:IAO_0000115>An interaction relationship describing organisms that often occur together at the same time and space or in the same environment.</obo:IAO_0000115>
         <rdfs:label>ecologically co-occurs with</rdfs:label>
     </owl:ObjectProperty>
@@ -9226,7 +9302,7 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0008509">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002303"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/ENVO_01000739"/>
         <obo:IAO_0000112>Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)</obo:IAO_0000112>
         <obo:IAO_0000115>x &apos;has roost&apos; y if and only if: x is an organism, y is a habitat, and y can support rest behaviors x.</obo:IAO_0000115>
@@ -9317,7 +9393,7 @@ Environmental exposures include those imposed by natural environments, experimen
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0009004">
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0100026"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000022"/>
         <obo:IAO_0000112 xml:lang="en">sardine has consumer some homo sapiens</obo:IAO_0000112>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000428"/>
         <obo:IAO_0000115 xml:lang="en">&apos;has consumer&apos; is a relation between a material entity and an organism in which the former can normally be digested or otherwise absorbed by the latter without immediate or persistent ill effect.</obo:IAO_0000115>
@@ -10273,6 +10349,24 @@ For example, protein A (transcription factor) indirectly increases by expression
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0017002 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017002">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0017010"/>
+        <obo:IAO_0000112>The information in a blueprint specifies the dimensions of a building.</obo:IAO_0000112>
+        <obo:IAO_0000112>The information in a recipe specifies what interredients to use and the steps needed to prepare a meal.</obo:IAO_0000112>
+        <obo:IAO_0000112>The information in a software program specifies the order of computations.</obo:IAO_0000112>
+        <obo:IAO_0000115>A relation between information and an entity such that the information serves as a rule or guide if the entity is an occurrent, or the information serves as a model if the entity is a continuant.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-16T17:08:04Z</terms:created>
+        <oboInOwl:hasExactSynonym>prescribes</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>specifies</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">information specifies</rdfs:label>
+        <skos:exactMatch>https://www.ontologyrepository.com/CommonCoreOntologies/prescribes</skos:exactMatch>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0017003 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017003">
@@ -10328,6 +10422,17 @@ For example, protein A (transcription factor) indirectly increases by expression
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0017007 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017007">
+        <obo:IAO_0000115 xml:lang="en">inverse of &apos;has symptom&apos;</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0009-0002-7282-0836"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-16T17:42:05Z</terms:created>
+        <rdfs:label xml:lang="en">symptom of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0017008 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017008">
@@ -10356,6 +10461,29 @@ For example, protein A (transcription factor) indirectly increases by expression
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-29T17:06:06Z</oboInOwl:creation_date>
         <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/RO_0002259"/>
         <rdfs:label xml:lang="en">is owned by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017010 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017010">
+        <obo:IAO_0000115>Inverse of information specifies.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-06-16T17:13:17Z</terms:created>
+        <rdfs:label xml:lang="en">specified by information</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0017011 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0017011">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002610"/>
+        <obo:IAO_0000115>Inverse relation of &apos;is marker for&apos;.</obo:IAO_0000115>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0001-9625-1899"/>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-07-14T20:57:25Z</terms:created>
+        <rdfs:label xml:lang="en">has marker</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -10734,6 +10862,19 @@ A chemical with no chiral centers can not have an enantiomer. A chemical with mu
     
 
 
+    <!-- http://purl.obolibrary.org/obo/RO_0019003 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0019003">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <obo:IAO_0000112>Given individuals f, i, x, and y, where f is a &apos;molecular function&apos;, i is an &apos;information biomacromolecule&apos;, and x and y are instances of different types of gene products, if f &apos;enabled by&apos; i within an OWL model of a biological pathway, and i &apos;has substitutable entity&apos; both x and y, then either x or y are valid enablers of function f within the modeled biological context.</obo:IAO_0000112>
+        <obo:IAO_0000115>Relates one individual to another which is capable of standing in for the first individual in its other relations to other individuals.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-8688-6599"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/valid_for_gocam"/>
+        <rdfs:label xml:lang="en">has substitutable entity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/RO_0019501 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0019501">
@@ -11044,6 +11185,48 @@ Usage note: The relations &apos;monitors status of&apos; (RO:0020328), &apos;mon
 	
 	Basis: This relation is based on the &apos;BEST&apos; classification of and definition for &apos;biomarker&apos;, as given by the FDA-NIH Biomarker Working Group: A defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions. The BEST classification includes diagnostic, prognostic, susceptibility/risk, monitoring, predictive, safety, and pharmacodynamic/response biomarkers. See PMID:29405771 for details. Note that any given biomarker can be of a different type in different contexts.</rdfs:comment>
         <rdfs:label>monitors exposure to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020337 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020337">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002180"/>
+        <obo:IAO_0000112>A polyubiquitin has_constituent_monomer some ubiquitin.</obo:IAO_0000112>
+        <obo:IAO_0000112>An amino acid chain has_constituent_monomer at least two amino acid residues.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer &apos;m&apos; if and only if P has_component multiple instances of &apos;m&apos; and each instance of &apos;m&apos; is covalently attached to another instance of &apos;m&apos;.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Usage note: The constituent monomers need not be covalently attached in an end-to-end manner; that is, polymers with internal connections (e.g., polyubiquitin) can use this relation, as can circular polymers (e.g., plasmids) and multi-branched polymers (e.g., glycans). This relation, as non-transitive, allows the number of instances of &apos;m&apos; to be indicated.</rdfs:comment>
+        <rdfs:label>has constituent monomer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020338 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020338">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002436"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <obo:IAO_0000112>Charged tRNA (i.e., aminoacyl-tRNA) is a tRNA that is covalently_bound_to some amino acid.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of covalent interactions.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Such entities will colocalize at all times of the interaction.</rdfs:comment>
+        <rdfs:label>covalently bound to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0020339 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0020339">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0002436"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <obo:IAO_0000112>Holo-calmodulin is a calmodulin that is non-covalently_bound_to calcium.</obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of non-covalent interactions.</obo:IAO_0000115>
+        <oboInOwl:created_by rdf:resource="https://orcid.org/0000-0001-5809-9523"/>
+        <rdfs:comment>Such entities will colocalize at all times of the interaction.</rdfs:comment>
+        <rdfs:label>non-covalently bound to</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -12939,6 +13122,12 @@ Usage note: The relations &apos;monitors status of&apos; (RO:0020328), &apos;mon
     
 
 
+    <!-- http://purl.obolibrary.org/obo/COB_0000022 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0000022"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/COB_0000121 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0000121"/>
@@ -13014,6 +13203,18 @@ Usage note: The relations &apos;monitors status of&apos; (RO:0020328), &apos;mon
     
 
 
+    <!-- http://purl.obolibrary.org/obo/NCBITaxon_33090 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_33090"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCBITaxon_4751 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/NCBITaxon_4751"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OBI_0000070 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000070"/>
@@ -13023,12 +13224,6 @@ Usage note: The relations &apos;monitors status of&apos; (RO:0020328), &apos;mon
     <!-- http://purl.obolibrary.org/obo/OBI_0000967 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000967"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/OBI_0100026 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0100026"/>
     
 
 

@@ -17,7 +17,7 @@ subsetdef: vertebrate_core ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2025-06-24" xsd:string
+property_value: owl:versionInfo "2025-12-17" xsd:string
 property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: terms:title "OBO Relations Ontology" xsd:string
@@ -84,6 +84,14 @@ transitive_over: BFO:0000050 ! part of
 id: BFO:0000067
 name: contains_process
 def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a process and c is a material entity or immaterial entity& there exists a spatiotemporal region r and b occupies_spatiotemporal_region r.& forall(t) if b exists_at t then c exists_at t & there exist spatial regions s and s’ where & b spatially_projects_onto s at t& c is occupies_spatial_region s’ at t& s is a proper_continuant_part_of s’ at t" []
+
+[Typedef]
+id: CL:4030045
+name: lacks_part
+
+[Typedef]
+id: CL:4030046
+name: lacks_plasma_membrane_part
 
 [Typedef]
 id: ENVO:01003004
@@ -2008,6 +2016,7 @@ id: RO:0002452
 name: has_symptom
 def: "A relation that holds between a disease or an organism and a phenotype" []
 is_a: RO:0002200 ! has phenotype
+inverse_of: RO:0017007 ! symptom of
 
 [Typedef]
 id: RO:0002453
@@ -2742,7 +2751,9 @@ is_a: RO:0002599 ! capable of inhibiting or preventing pathological process
 id: RO:0002607
 name: is_marker_for
 def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
+synonym: "indicates" RELATED []
 is_a: RO:0002610 ! correlated with
+inverse_of: RO:0017011 ! has marker
 
 [Typedef]
 id: RO:0002608
@@ -2919,6 +2930,32 @@ inverse_of: RO:0002803 ! has reservoir host
 id: RO:0002803
 name: has_reservoir_host
 def: "inverse of reservoir host of" []
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002804
+name: ectomycorrhizal_host_of
+def: "x is an ectomycorrhizal host of y if and only if x is a plant (Plantae) whose roots form an intercellular interface (aka Hartig net) with fungus (Fungi) y. This interface consists of highly branched hyphae forming a latticework between epidermal and cortical root cells." []
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002805 ! has ectomycorrhizal host
+
+[Typedef]
+id: RO:0002805
+name: has_ectomycorrhizal_host
+def: "inverse of ectomycorrhizal host of" []
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002806
+name: arbuscular_mycorrhizal_host_of
+def: "x is an arbuscular mycorrhizal host of y if and only if x is a vascular plant (Plantae) whose cortical cells of the roots are penetrated by fungus (Fungi) y and form arbuscules." []
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002807 ! has arbuscular mycorrhizal host
+
+[Typedef]
+id: RO:0002807
+name: has_arbuscular_mycorrhizal_host
+def: "inverse of arbuscular mycorrhizal host of" []
 is_a: RO:0002454 ! has host
 
 [Typedef]
@@ -3763,6 +3800,14 @@ synonym: "utilizes" BROAD []
 holds_over_chain: RO:0002215 RO:0002233
 
 [Typedef]
+id: RO:0017002
+name: information_specifies
+def: "A relation between information and an entity such that the information serves as a rule or guide if the entity is an occurrent, or the information serves as a model if the entity is a continuant." []
+synonym: "prescribes" EXACT []
+synonym: "specifies" EXACT []
+inverse_of: RO:0017010 ! specified by information
+
+[Typedef]
 id: RO:0017003
 name: positively_correlated_with
 def: "A relation between entities in which one increases or decreases as the other does the same." []
@@ -3787,6 +3832,11 @@ name: has_maximum_capacity
 def: "A relation that relates a container to a measurement datum that specifies the maximum capacity of the container. Capacity can refer to either weight or volume." []
 
 [Typedef]
+id: RO:0017007
+name: symptom_of
+def: "inverse of 'has symptom'" []
+
+[Typedef]
 id: RO:0017008
 name: owns
 def: "A primitive relation that holds between entities x and y in which y is at x's full disposal." []
@@ -3796,6 +3846,17 @@ inverse_of: RO:0017009 ! is owned by
 id: RO:0017009
 name: is_owned_by
 def: "Inverse of the owns relation." []
+
+[Typedef]
+id: RO:0017010
+name: specified_by_information
+def: "Inverse of information specifies." []
+
+[Typedef]
+id: RO:0017011
+name: has_marker
+def: "Inverse relation of 'is marker for'." []
+is_a: RO:0002610 ! correlated with
 
 [Typedef]
 id: RO:0017502
@@ -3936,6 +3997,11 @@ holds_over_chain: RO:0002213 RO:0019002
 is_a: RO:0019000 ! regulates characteristic
 
 [Typedef]
+id: RO:0019003
+name: has_substitutable_entity
+def: "Relates one individual to another which is capable of standing in for the first individual in its other relations to other individuals." []
+
+[Typedef]
 id: RO:0019501
 name: confers_susceptibility_to_condition
 def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
@@ -4055,6 +4121,26 @@ id: RO:0020336
 name: monitors_exposure_to
 def: "A relationship between a serially-measured biomarker 'b' and an exposure agent 'e', where 'b' is used to provide evidence of exposure to 'e'." []
 is_a: RO:0020334 ! indicates clinical effect of
+
+[Typedef]
+id: RO:0020337
+name: has_constituent_monomer
+def: "A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer 'm' if and only if P has_component multiple instances of 'm' and each instance of 'm' is covalently attached to another instance of 'm'." []
+is_a: RO:0002180 ! has component
+
+[Typedef]
+id: RO:0020338
+name: covalently_bound_to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of covalent interactions." []
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
+
+[Typedef]
+id: RO:0020339
+name: non-covalently_bound_to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of non-covalent interactions." []
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
 
 [Typedef]
 id: RO:0040035

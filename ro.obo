@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2025-06-24
+data-version: releases/2025-12-17
 subsetdef: common_anatomy ""
 subsetdef: efo_slim ""
 subsetdef: http://purl.obolibrary.org/obo/valid_for_go_annotation_extension ""
@@ -26,7 +26,7 @@ idspace: swrlb http://www.w3.org/2003/11/swrlb#
 idspace: terms http://purl.org/dc/terms/ 
 ontology: ro
 property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2025-06-24" xsd:string
+property_value: owl:versionInfo "2025-12-17" xsd:string
 property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: terms:title "OBO Relations Ontology" xsd:string
@@ -178,10 +178,36 @@ is_a: CL:0000000 ! cell
 property_value: RO:0002175 NCBITaxon:9606
 
 [Term]
+id: COB:0000022
+name: organism
+def: "A material entity that is a maximal functionally integrated unit that develops from a program encoded in a genome" []
+is_a: UBERON:0000465 ! material anatomical entity
+property_value: IAO:0000116 "'Maximal functionally integrated unit' is intended to express unity, which Barry considers synonymous with BFO 'object'." xsd:string
+property_value: IAO:0000116 "Includes virus - we will later have a class for cellular organisms." xsd:string
+
+[Term]
+id: COB:0000026
+name: processed material entity
+def: "A material entity processed by human activity with an intent to produce it." []
+is_a: BFO:0000040 ! material entity
+property_value: IAO:0000116 "In the COB 2024 workshop there was much disagreement about this label." xsd:string
+
+[Term]
+id: COB:0000035
+name: completely executed planned process
+is_a: BFO:0000015 ! process
+
+[Term]
 id: COB:0001000
 name: exposure of organism
 def: "A process during which an organism comes into contact with another entity." []
 is_a: BFO:0000015 ! process
+
+[Term]
+id: COB:0001300
+name: device
+def: "A processed material entity which is designed to be capable of a process." []
+is_a: COB:0000026 ! processed material entity
 
 [Term]
 id: ENVO:01000254
@@ -196,11 +222,10 @@ creation_date: 2013-09-23T16:04:08Z
 [Term]
 id: ENVO:01000739
 name: habitat
-def: "An environmental system which can sustain and allow the growth of an ecological population." []
-comment: A habitat's specificity to an ecological population differentiates it from other environment classes. See Buttigieg et al. (2016; https://doi.org/10.1186/s13326-016-0097-6) for an explanation of ENVO's treatement of habitats. 3,849 of such habitat classes are available here: https://github.com/EnvironmentOntology/envo-habitats
+def: "An environmental system which can sustain and allow the growth of an ecological population." [EnvO:EnvO]
+comment: A habitat's specificity to an ecological population differentiates it from other environment classes.
 xref: EcoLexicon:habitat
 xref: https://en.wikipedia.org/wiki/Habitat
-xref: https://github.com/EnvironmentOntology/envo-habitats
 xref: LTER:238
 xref: SWEETRealm:Habitat
 is_a: ENVO:01000254 ! environmental system
@@ -319,7 +344,7 @@ xref: Reactome:R-HSA-5684250 "SCF betaTrCP ubiquitinates NFKB p105 within p-S927
 xref: Reactome:R-HSA-5691108 "SKP1:FBXL5:CUL1:NEDD8 ubiquitinylates IREB2"
 xref: Reactome:R-HSA-5693108 "TNFAIP3 (A20) ubiquitinates RIPK1 with K48-linked Ub chains"
 xref: Reactome:R-HSA-68712 "The geminin component of geminin:Cdt1 complexes is ubiquitinated, releasing Cdt1"
-xref: Reactome:R-HSA-69598 "Ubiquitination of phosphorylated Cdc25A"
+xref: Reactome:R-HSA-69598 "Ubiquitination of phosphorylated CDC25A"
 xref: Reactome:R-HSA-741386 "RIP2 induces K63-linked ubiquitination of NEMO"
 xref: Reactome:R-HSA-75824 "Ubiquitination of Cyclin D1"
 xref: Reactome:R-HSA-870449 "TRIM33 monoubiquitinates SMAD4"
@@ -341,6 +366,7 @@ xref: Reactome:R-HSA-9750946 "TRAF2,6 ubiquitinates NLRC5"
 xref: Reactome:R-HSA-975118 "TRAF6 ubiquitinqtes IRF7 within the activated TLR7/8 or 9 complex"
 xref: Reactome:R-HSA-975147 "Auto ubiquitination of oligo-TRAF6 bound to p-IRAK2 at endosome membrane"
 xref: Reactome:R-HSA-9758604 "Ubiquitination of IKBKG by TRAF6"
+xref: Reactome:R-HSA-9766227 "MDM2 mediates CDH1 ubiquitination"
 xref: Reactome:R-HSA-9793444 "ITCH polyubiquitinates MLKL at K50"
 xref: Reactome:R-HSA-9793485 "PRKN polyubiquitinates RIPK3"
 xref: Reactome:R-HSA-9793679 "LUBAC ubiquitinates RIPK1 at K627"
@@ -357,6 +383,10 @@ xref: Reactome:R-HSA-9833973 "ISGylation of PKR"
 xref: Reactome:R-HSA-9834070 "PRKN ubiquitinates MOM substrates"
 xref: Reactome:R-HSA-9861563 "CTLH E3 ligase ubiquitinates LDHA"
 xref: Reactome:R-HSA-9861640 "CTLH E3 ligase ubiquitinates PKM-1"
+xref: Reactome:R-HSA-9929350 "Ubiquitination of CD274 by BTRC-SCF E3-ligase complex"
+xref: Reactome:R-HSA-9934753 "CBLL1 ubiquitinates CDH1"
+xref: Reactome:R-HSA-9948301 "ZNF598 K63 polyubiquitinates RPS10 (eS10) and RPS20 (uS10) of the 40S ribosomal subunit"
+xref: Reactome:R-HSA-9954721 "NEDD8-K699-CUL2:ELOB:ELOC:RBX1:KLHDC10 K48 polyubiquitinates alanine-tailed nascent peptide"
 is_a: GO:0003674 ! molecular_function
 
 [Term]
@@ -379,7 +409,6 @@ synonym: "single organism process" RELATED []
 synonym: "single-organism process" RELATED []
 xref: Wikipedia:Biological_process
 is_a: BFO:0000015 ! process
-disjoint_from: OBI:0000011 ! planned process
 created_by: jl
 creation_date: 2012-09-19T15:05:24Z
 
@@ -413,35 +442,10 @@ property_value: IAO:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>" xsd
 property_value: IAO:0000119 "OBI_0000266" xsd:string
 
 [Term]
-id: OBI:0000011
-name: planned process
-def: "A process that realizes a plan which is the concretization of a plan specification." []
-is_a: BFO:0000015 ! process
-property_value: IAO:0000111 "planned process" xsd:string
-property_value: IAO:0000112 "Injecting mice with a vaccine in order to test its efficacy" xsd:string
-property_value: IAO:0000114 IAO:0000122
-property_value: IAO:0000116 "'Plan' includes a future direction sense. That can be problematic if plans are changed during their execution. There are however implicit contingencies for protocols that an agent has in his mind that can be considered part of the plan, even if the agent didn't have them in mind before. Therefore, a planned process can diverge from what the agent would have said the plan was before executing it, by adjusting to problems encountered during execution (e.g. choosing another reagent with equivalent properties, if the originally planned one has run out.)" xsd:string
-property_value: IAO:0000116 "We are only considering successfully completed planned processes. A plan may be modified, and details added during execution. For a given planned process, the associated realized plan specification is the one encompassing all changes made during execution. This means that all processes in which an agent acts towards achieving some \nobjectives is a planned process." xsd:string
-property_value: IAO:0000117 "Bjoern Peters" xsd:string
-property_value: IAO:0000119 "branch derived" xsd:string
-property_value: IAO:0000232 "6/11/9: Edited at workshop. Used to include: is initiated by an agent" xsd:string
-property_value: IAO:0000232 "This class merges the previously separated objective driven process and planned process, as they the separation proved hard to maintain. (1/22/09, branch call)" xsd:string
-
-[Term]
-id: OBI:0000047
-name: processed material
-def: "Is a material entity that is created or changed during material processing." []
-is_a: BFO:0000040 ! material entity
-property_value: IAO:0000111 "processed material" xsd:string
-property_value: IAO:0000112 "Examples include gel matrices, filter paper, parafilm and buffer solutions, mass spectrometer, tissue samples" xsd:string
-property_value: IAO:0000114 IAO:0000122
-property_value: IAO:0000117 "PERSON: Alan Ruttenberg" xsd:string
-
-[Term]
 id: OBI:0000070
 name: assay
 def: "A planned process that has the objective to produce information about a material entity (the evaluant) by examining it." []
-is_a: OBI:0000011 ! planned process
+is_a: COB:0000035 ! completely executed planned process
 property_value: IAO:0000111 "assay" xsd:string
 property_value: IAO:0000112 "Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house." xsd:string
 property_value: IAO:0000114 IAO:0000122
@@ -456,41 +460,10 @@ property_value: IAO:0000119 "OBI branch derived" xsd:string
 id: OBI:0000967
 name: container
 def: "A device that can be used to restrict the location of material entities over time" []
-is_a: OBI:0000968 ! device
 property_value: IAO:0000111 "container" xsd:string
 property_value: IAO:0000114 IAO:0000123
 property_value: IAO:0000116 "03/21/2010: Added to allow classification of children (similar to what we want to do for 'measurement device'. Lookint at what classifies here, we may want to reconsider a contain function assigned to a part of an entity is necessarily also a function of the whole (e.g. is a centrifuge a container because it has test tubes as parts?)" xsd:string
 property_value: IAO:0000117 "PERSON: Bjoern Peters" xsd:string
-
-[Term]
-id: OBI:0000968
-name: device
-def: "A material entity that is designed to perform a function in a scientific investigation, but is not a reagent." []
-is_a: OBI:0000047 ! processed material
-property_value: IAO:0000111 "device" xsd:string
-property_value: IAO:0000112 "A voltmeter is a measurement device which is intended to perform some measure function." xsd:string
-property_value: IAO:0000112 "An autoclave is a device that sterlizes instruments or contaminated waste by applying high temperature and pressure." xsd:string
-property_value: IAO:0000114 IAO:0000122
-property_value: IAO:0000116 "2012-12-17 JAO: In common lab usage, there is a distinction made between devices and reagents that is difficult to model. Therefore we have chosen to specifically exclude reagents from the definition of \"device\", and are enumerating the types of roles that a reagent can perform.\n\n2013-6-5 MHB: The following clarifications are outcomes of the May 2013 Philly Workshop. Reagents are distinguished from devices that also participate in scientific techniques by the fact that reagents are chemical or biological in nature and necessarily participate in some chemical interaction or reaction during the realization of their experimental role. By contrast, devices do not participate in such chemical reactions/interactions.  Note that there are cases where devices use reagent components during their operation, where the reagent-device distinction is less clear.  For example:\n\n(1) An HPLC machine is considered a device, but has a column that holds a stationary phase resin as an operational component.  This resin qualifies as a device if it participates purely in size exclusion, but bears a reagent role that is realized in the running of a column if it interacts electrostatically or chemically with the evaluant. The container the resin is in (“the column”) considered alone is a device. So the entire column as well as the entire HPLC machine are devices that have a reagent as an operating part.\n\n(2) A pH meter is a device, but its electrode component bears a reagent role in virtue of its interacting directly with the evaluant in execution of an assay.\n\n(3) A gel running  box  is a device that has a metallic lead as a component that participates in a chemical reaction with the running buffer when a charge is passed through it.  This metallic lead is considered to have a reagent role as a component of this device realized in the running of a gel.\n\nIn the examples above, a reagent is an operational component of a device, but the device itself does not realize a reagent role (as bearing a reagent role is not transitive across the part_of relation).  In this way, the asserted disjointness between a reagent and device holds, as both roles are never realized in the same bearer during execution of an assay." xsd:string
-property_value: IAO:0000117 "PERSON: Helen Parkinson" xsd:string
-property_value: IAO:0000118 "instrument" xsd:string
-property_value: IAO:0000119 "OBI development call 2012-12-17." xsd:string
-
-[Term]
-id: OBI:0100026
-name: organism
-def: "A material entity that is an individual living system, such as animal, plant, bacteria or virus, that is capable of replicating or reproducing, growth and maintenance in the right environment. An organism may be unicellular or made up, like humans, of many billions of cells divided into specialized tissues and organs." []
-is_a: BFO:0000040 ! material entity
-property_value: IAO:0000111 "organism" xsd:string
-property_value: IAO:0000112 "animal" xsd:string
-property_value: IAO:0000112 "fungus" xsd:string
-property_value: IAO:0000112 "plant" xsd:string
-property_value: IAO:0000112 "virus" xsd:string
-property_value: IAO:0000114 IAO:0000122
-property_value: IAO:0000116 "10/21/09: This is a placeholder term, that should ideally be imported from the NCBI taxonomy, but the high level hierarchy there does not suit our needs (includes plasmids and 'other organisms')" xsd:string
-property_value: IAO:0000116 "13-02-2009:\nOBI doesn't take position as to  when an organism starts or ends being an organism - e.g. sperm, foetus.\nThis issue is outside the scope of OBI." xsd:string
-property_value: IAO:0000117 "GROUP: OBI Biomaterial Branch" xsd:string
-property_value: IAO:0000119 "WEB: http://en.wikipedia.org/wiki/Organism" xsd:string
 
 [Term]
 id: OGMS:0000031
@@ -601,6 +574,7 @@ xref: BILA:0000003
 xref: CARO:0000003
 xref: EHDAA2:0003003
 xref: EMAPA:0
+xref: FAO:0000001
 xref: FMA:305751
 xref: FMA:67135
 xref: GAID:781
@@ -948,6 +922,16 @@ def: "[copied from inverse property 'occurs in'] b occurs_in c =def b is a proce
 comment: Paraphrase of definition: a relation between an independent continuant and a process, in which the process takes place entirely within the independent continuant
 property_value: IAO:0000111 "site of" xsd:string
 property_value: isDefinedBy http://purl.obolibrary.org/obo/bfo.owl
+
+[Typedef]
+id: CL:4030045
+name: lacks_part
+expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 exactly 0 ?Y" []
+
+[Typedef]
+id: CL:4030046
+name: lacks_plasma_membrane_part
+expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 exactly 0 (http://purl.obolibrary.org/obo/GO_0005886 and http://purl.obolibrary.org/obo/BFO_0000051 some ?Y)" []
 
 [Typedef]
 id: ENVO:01003004
@@ -2039,7 +2023,7 @@ property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/17921072
 property_value: IAO:0000119 http://www.ncbi.nlm.nih.gov/pubmed/20973947
 property_value: seeAlso https://github.com/obophenotype/uberon/wiki/Taxon-constraints
-range: OBI:0100026 ! organism
+range: COB:0000022 ! organism
 holds_over_chain: RO:0002005 RO:0002162
 holds_over_chain: RO:0002131 RO:0002162
 holds_over_chain: RO:0002134 RO:0002162
@@ -2949,7 +2933,7 @@ property_value: IAO:0000112 "Hydrozoa (NCBITaxon_6074) SubClassOf 'has habitat' 
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-4366-3088
 property_value: IAO:0000118 "adapted for living in" xsd:string
-domain: OBI:0100026 ! organism
+domain: COB:0000022 ! organism
 range: ENVO:01000254 ! environmental system
 is_a: RO:0002321 ! ecologically related to
 
@@ -4073,6 +4057,7 @@ def: "A relation that holds between a disease or an organism and a phenotype" []
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: OGMS:0000031 ! disease
 is_a: RO:0002200 ! has phenotype
+inverse_of: RO:0017007 ! symptom of
 
 [Typedef]
 id: RO:0002453
@@ -4976,8 +4961,8 @@ name: participates in a biotic-biotic interaction with
 subset: ro-eco
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
-domain: OBI:0100026 ! organism
-range: OBI:0100026 ! organism
+domain: COB:0000022 ! organism
+range: COB:0000022 ! organism
 is_a: RO:0002437 ! biotically interacts with
 
 [Typedef]
@@ -5146,8 +5131,10 @@ is_a: RO:0002599 ! capable of inhibiting or preventing pathological process
 id: RO:0002607
 name: is marker for
 def: "c is marker for d iff the presence or occurrence of d is correlated with the presence of occurrence of c, and the observation of c is used to infer the presence or occurrence of d. Note that this does not imply that c and d are in a direct causal relationship, as it may be the case that there is a third entity e that stands in a direct causal relationship with c and d." []
+synonym: "indicates" RELATED []
 property_value: IAO:0000116 "May be ceded to OBI" xsd:string
 is_a: RO:0002610 ! correlated with
+inverse_of: RO:0017011 ! has marker
 
 [Typedef]
 id: RO:0002608
@@ -5363,6 +5350,51 @@ name: has reservoir host
 def: "inverse of reservoir host of" []
 subset: RO:0002259
 property_value: IAO:0000112 "An individual of Middle East respiratory syndrome–related coronavirus (MERS-CoV) has an individual of species Camelus dromedarius (commonly known as dromedary camels) as their reservoir host since at least the 1980s." xsd:string
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002804
+name: ectomycorrhizal host of
+def: "x is an ectomycorrhizal host of y if and only if x is a plant (Plantae) whose roots form an intercellular interface (aka Hartig net) with fungus (Fungi) y. This interface consists of highly branched hyphae forming a latticework between epidermal and cortical root cells." []
+comment: An ectomycorrhiza is a form of symbiotic relationship that occurs between a fungal symbiont, or mycobiont, and the roots of various plant species. The mycobiont is often from the phyla Basidiomycota and Ascomycota, and more rarely from the Zygomycota. Ectomycorrhizae form on the roots of around 2% of plant species, usually woody plants, including species from the birch, dipterocarp, myrtle, beech, willow, pine and rose families. Research on ectomycorrhizae is increasingly important in areas such as ecosystem management and restoration, forestry, and agriculture. Unlike other mycorrhizal relationships, such as arbuscular mycorrhiza and ericoid mycorrhiza, ectomycorrhizal fungi do not penetrate their host's cell wall. Instead they form an entirely intercellular interfaces known as the Hartig net, consisting of highly branched hyphae forming a latticework between epidermal and cortical root cells. 
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1128/AEM.01558-12
+property_value: IAO:0000119 https://en.wikipedia.org/wiki/Ectomycorrhiza
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002805 ! has ectomycorrhizal host
+
+[Typedef]
+id: RO:0002805
+name: has ectomycorrhizal host
+def: "inverse of ectomycorrhizal host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+is_a: RO:0002454 ! has host
+
+[Typedef]
+id: RO:0002806
+name: arbuscular mycorrhizal host of
+def: "x is an arbuscular mycorrhizal host of y if and only if x is a vascular plant (Plantae) whose cortical cells of the roots are penetrated by fungus (Fungi) y and form arbuscules." []
+comment: An arbuscular mycorrhiza (AM) (plural mycorrhizae) is a type of mycorrhiza in which the symbiont fungus (Arbuscular mycorrhizal fungi, or AMF) penetrates the cortical cells of the roots of a vascular plant forming arbuscules. Arbuscular mycorrhiza is a type of endomycorrhiza along with ericoid mycorrhiza and orchid mycorrhiza (not to be confused with ectomycorrhiza). They are characterized by the formation of unique tree-like structures, the arbuscules. In addition, globular storage structures called vesicles are often encountered. Arbuscular mycorrhizae are formed by fungi in the subphylum Glomeromycotina and some fungi from the Mucoromycotina. These subphyla, along with the Mortierellomycotina, form the phylum Mucoromycota, a sister clade of the more well-known and diverse dikaryan fungi. AM fungi help plants to capture nutrients such as phosphorus, sulfur, nitrogen and micronutrients from the soil. It is believed that the development of the arbuscular mycorrhizal symbiosis played a crucial role in the initial colonisation of land by plants and in the evolution of the vascular plants. It has been said that it is quicker to list the plants that do not form endomycorrhizae than those that do. This symbiosis is a highly evolved mutualistic relationship found between fungi and plants, the most prevalent plant symbiosis known, and AMF is found in 80% of vascular plant families in existence today.
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 Arbuscular:mycorrhiza
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: RO:0002453 ! host of
+inverse_of: RO:0002807 ! has arbuscular mycorrhizal host
+
+[Typedef]
+id: RO:0002807
+name: has arbuscular mycorrhizal host
+def: "inverse of arbuscular mycorrhizal host of" []
+subset: RO:0002259
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
 is_a: RO:0002454 ! has host
 
 [Typedef]
@@ -5912,16 +5944,16 @@ is_a: RO:0002445 ! parasitized by
 id: RO:0008505
 name: creates habitat for
 def: "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism." []
-domain: OBI:0100026 ! organism
-range: OBI:0100026 ! organism
+domain: COB:0000022 ! organism
+range: COB:0000022 ! organism
 is_a: RO:0002321 ! ecologically related to
 
 [Typedef]
 id: RO:0008506
 name: ecologically co-occurs with
 def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
-domain: OBI:0100026 ! organism
-range: OBI:0100026 ! organism
+domain: COB:0000022 ! organism
+range: COB:0000022 ! organism
 is_symmetric: true
 is_a: RO:0002321 ! ecologically related to
 
@@ -5947,7 +5979,7 @@ subset: ro-eco
 property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
 property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
 property_value: terms:date "2023-01-18T14:28:21Z" xsd:dateTime
-domain: OBI:0100026 ! organism
+domain: COB:0000022 ! organism
 range: ENVO:01000739 ! habitat
 is_a: RO:0002303 ! has habitat
 
@@ -6010,7 +6042,7 @@ property_value: IAO:0000112 "sardine has consumer some homo sapiens" xsd:string
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-8844-9165
 domain: BFO:0000040 ! material entity
-range: OBI:0100026 ! organism
+range: COB:0000022 ! organism
 
 [Typedef]
 id: RO:0009005
@@ -6612,6 +6644,20 @@ holds_over_chain: RO:0002215 RO:0002233
 creation_date: 2021-11-08T12:00:00Z
 
 [Typedef]
+id: RO:0017002
+name: information specifies
+def: "A relation between information and an entity such that the information serves as a rule or guide if the entity is an occurrent, or the information serves as a model if the entity is a continuant." []
+synonym: "prescribes" EXACT []
+synonym: "specifies" EXACT []
+property_value: IAO:0000112 "The information in a blueprint specifies the dimensions of a building." xsd:string
+property_value: IAO:0000112 "The information in a recipe specifies what interredients to use and the steps needed to prepare a meal." xsd:string
+property_value: IAO:0000112 "The information in a software program specifies the order of computations." xsd:string
+property_value: skos:exactMatch "https://www.ontologyrepository.com/CommonCoreOntologies/prescribes" xsd:string
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-06-16T17:08:04Z" xsd:dateTime
+inverse_of: RO:0017010 ! specified by information
+
+[Typedef]
 id: RO:0017003
 name: positively correlated with
 def: "A relation between entities in which one increases or decreases as the other does the same." []
@@ -6650,6 +6696,13 @@ domain: OBI:0000967 ! container
 range: COB:0000121
 
 [Typedef]
+id: RO:0017007
+name: symptom of
+def: "inverse of 'has symptom'" []
+property_value: terms:contributor https://orcid.org/0009-0002-7282-0836
+property_value: terms:created "2025-06-16T17:42:05Z" xsd:dateTime
+
+[Typedef]
 id: RO:0017008
 name: owns
 def: "A primitive relation that holds between entities x and y in which y is at x's full disposal." []
@@ -6672,6 +6725,21 @@ property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
 property_value: terms:contributor https://orcid.org/0000-0003-1834-3856
 property_value: terms:contributor https://orcid.org/0000-0003-1909-9269
 creation_date: 2023-03-29T17:06:06Z
+
+[Typedef]
+id: RO:0017010
+name: specified by information
+def: "Inverse of information specifies." []
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-06-16T17:13:17Z" xsd:dateTime
+
+[Typedef]
+id: RO:0017011
+name: has marker
+def: "Inverse relation of 'is marker for'." []
+property_value: terms:contributor https://orcid.org/0000-0001-9625-1899
+property_value: terms:created "2025-07-14T20:57:25Z" xsd:dateTime
+is_a: RO:0002610 ! correlated with
 
 [Typedef]
 id: RO:0017502
@@ -6882,6 +6950,14 @@ holds_over_chain: RO:0002213 RO:0019002
 is_a: RO:0019000 ! regulates characteristic
 
 [Typedef]
+id: RO:0019003
+name: has substitutable entity
+def: "Relates one individual to another which is capable of standing in for the first individual in its other relations to other individuals." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+property_value: IAO:0000112 "Given individuals f, i, x, and y, where f is a 'molecular function', i is an 'information biomacromolecule', and x and y are instances of different types of gene products, if f 'enabled by' i within an OWL model of a biological pathway, and i 'has substitutable entity' both x and y, then either x or y are valid enablers of function f within the modeled biological context." xsd:string
+property_value: IAO:0000117 https://orcid.org/0000-0002-8688-6599
+
+[Typedef]
 id: RO:0019501
 name: confers susceptibility to condition
 def: "Relates a gene to condition, such that a variation in this gene predisposes to the development of a condition." []
@@ -7075,6 +7151,36 @@ comment: Clarification: An 'exposure agent' can be either a medical product or s
 property_value: IAO:0000112 "The concentration of tobacco specific nitrosamines in urine monitors_exposure_to tobacco/tobacco smoke." xsd:string
 property_value: IAO:0000117 "https://orcid.org/0000-0001-5809-9523" xsd:string
 is_a: RO:0020334 ! indicates clinical effect of
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020337
+name: has constituent monomer
+def: "A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer 'm' if and only if P has_component multiple instances of 'm' and each instance of 'm' is covalently attached to another instance of 'm'." []
+comment: Usage note: The constituent monomers need not be covalently attached in an end-to-end manner; that is, polymers with internal connections (e.g., polyubiquitin) can use this relation, as can circular polymers (e.g., plasmids) and multi-branched polymers (e.g., glycans). This relation, as non-transitive, allows the number of instances of 'm' to be indicated.
+property_value: IAO:0000112 "A polyubiquitin has_constituent_monomer some ubiquitin." xsd:string
+property_value: IAO:0000112 "An amino acid chain has_constituent_monomer at least two amino acid residues." xsd:string
+is_a: RO:0002180 ! has component
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020338
+name: covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+property_value: IAO:0000112 "Charged tRNA (i.e., aminoacyl-tRNA) is a tRNA that is covalently_bound_to some amino acid." xsd:string
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
+id: RO:0020339
+name: non-covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of non-covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+property_value: IAO:0000112 "Holo-calmodulin is a calmodulin that is non-covalently_bound_to calcium." xsd:string
+is_symmetric: true
+is_a: RO:0002436 ! molecularly interacts with
 created_by: https://orcid.org/0000-0001-5809-9523
 
 [Typedef]
