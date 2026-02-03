@@ -180,6 +180,21 @@ disjoint_from: proper_distributary_of ! proper distributary of
 disjoint_from: proper_tributary_of ! proper tributary of
 
 [Typedef]
+id: arbuscular_mycorrhizal_host_of
+name: arbuscular mycorrhizal host of
+def: "x is an arbuscular mycorrhizal host of y if and only if x is a vascular plant (Plantae) whose cortical cells of the roots are penetrated by fungus (Fungi) y and form arbuscules." []
+comment: An arbuscular mycorrhiza (AM) (plural mycorrhizae) is a type of mycorrhiza in which the symbiont fungus (Arbuscular mycorrhizal fungi, or AMF) penetrates the cortical cells of the roots of a vascular plant forming arbuscules. Arbuscular mycorrhiza is a type of endomycorrhiza along with ericoid mycorrhiza and orchid mycorrhiza (not to be confused with ectomycorrhiza). They are characterized by the formation of unique tree-like structures, the arbuscules. In addition, globular storage structures called vesicles are often encountered. Arbuscular mycorrhizae are formed by fungi in the subphylum Glomeromycotina and some fungi from the Mucoromycotina. These subphyla, along with the Mortierellomycotina, form the phylum Mucoromycota, a sister clade of the more well-known and diverse dikaryan fungi. AM fungi help plants to capture nutrients such as phosphorus, sulfur, nitrogen and micronutrients from the soil. It is believed that the development of the arbuscular mycorrhizal symbiosis played a crucial role in the initial colonisation of land by plants and in the evolution of the vascular plants. It has been said that it is quicker to list the plants that do not form endomycorrhizae than those that do. This symbiosis is a highly evolved mutualistic relationship found between fungi and plants, the most prevalent plant symbiosis known, and AMF is found in 80% of vascular plant families in existence today.
+xref: RO:0002806
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 Arbuscular:mycorrhiza
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: host_of ! host of
+inverse_of: has_arbuscular_mycorrhizal_host ! has arbuscular mycorrhizal host
+
+[Typedef]
 id: attached_to
 name: attached to
 def: "a is attached to b if and only if a and b are discrete objects or object parts, and there are physical connections between a and b such that a force pulling a will move b, or a force pulling b will move a" []
@@ -855,12 +870,23 @@ property_value: IAO:0000118 "contributes to expressivity of condition" xsd:strin
 is_a: contributes_to_condition ! contributes to condition
 
 [Typedef]
+id: covalently_bound_to
+name: covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+xref: RO:0020338
+property_value: IAO:0000112 "Charged tRNA (i.e., aminoacyl-tRNA) is a tRNA that is covalently_bound_to some amino acid." xsd:string
+is_symmetric: true
+is_a: molecularly_interacts_with ! molecularly interacts with
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
 id: creates_habitat_for
 name: creates habitat for
 def: "An interaction relationship wherein one organism creates a structure or environment that is lived in by another organism." []
 xref: RO:0008505
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_a: ecologically_related_to ! ecologically related to
 
 [Typedef]
@@ -1472,8 +1498,8 @@ id: ecologically_co-occurs_with
 name: ecologically co-occurs with
 def: "An interaction relationship describing organisms that often occur together at the same time and space or in the same environment." []
 xref: RO:0008506
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_symmetric: true
 is_a: ecologically_related_to ! ecologically related to
 
@@ -1486,6 +1512,21 @@ xref: RO:0002321
 property_value: IAO:0000116 "Awaiting class for domain/range constraint, see: https://github.com/OBOFoundry/Experimental-OBO-Core/issues/6" xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving ecological interactions" xsd:string
+
+[Typedef]
+id: ectomycorrhizal_host_of
+name: ectomycorrhizal host of
+def: "x is an ectomycorrhizal host of y if and only if x is a plant (Plantae) whose roots form an intercellular interface (aka Hartig net) with fungus (Fungi) y. This interface consists of highly branched hyphae forming a latticework between epidermal and cortical root cells." []
+comment: An ectomycorrhiza is a form of symbiotic relationship that occurs between a fungal symbiont, or mycobiont, and the roots of various plant species. The mycobiont is often from the phyla Basidiomycota and Ascomycota, and more rarely from the Zygomycota. Ectomycorrhizae form on the roots of around 2% of plant species, usually woody plants, including species from the birch, dipterocarp, myrtle, beech, willow, pine and rose families. Research on ectomycorrhizae is increasingly important in areas such as ecosystem management and restoration, forestry, and agriculture. Unlike other mycorrhizal relationships, such as arbuscular mycorrhiza and ericoid mycorrhiza, ectomycorrhizal fungi do not penetrate their host's cell wall. Instead they form an entirely intercellular interfaces known as the Hartig net, consisting of highly branched hyphae forming a latticework between epidermal and cortical root cells. 
+xref: RO:0002804
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1128/AEM.01558-12
+property_value: IAO:0000119 https://en.wikipedia.org/wiki/Ectomycorrhiza
+property_value: terms:contributor https://orcid.org/0000-0003-3138-4118
+domain: NCBITaxon:33090
+range: NCBITaxon:4751
+is_a: host_of ! host of
+inverse_of: has_ectomycorrhizal_host ! has ectomycorrhizal host
 
 [Typedef]
 id: ectoparasite_of
@@ -1770,6 +1811,16 @@ xref: RO:0002261
 is_a: has_role ! has role
 
 [Typedef]
+id: has_arbuscular_mycorrhizal_host
+name: has arbuscular mycorrhizal host
+def: "inverse of arbuscular mycorrhizal host of" []
+subset: RO:0002259
+xref: RO:0002807
+property_value: IAO:0000112 "According to Medina et al. 2003, an individual of a plant species Medicago sativa (commonly known as alfalfa or lucerne) is an arbuscular mycorrhizal host of an individual of a fungal species Funneliformis mosseae (formerly Glomus mosseae)." xsd:string
+property_value: IAO:0000119 https://doi.org/10.1016/S0929-1393(02)00112-9
+is_a: has_host ! has host
+
+[Typedef]
 id: has_autoimmune_trigger
 name: has autoimmune trigger
 def: "A relation between a condition (a phenotype or disease) of a host and a material entity, in which the material entity is part of the host itself, and the condition results in pathological processes that include an abnormally strong immune response against the material entity." []
@@ -1870,6 +1921,17 @@ property_value: RO:0004036 BFO:0000051
 is_a: in_branching_relationship_with ! in branching relationship with
 
 [Typedef]
+id: has_constituent_monomer
+name: has constituent monomer
+def: "A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer 'm' if and only if P has_component multiple instances of 'm' and each instance of 'm' is covalently attached to another instance of 'm'." []
+comment: Usage note: The constituent monomers need not be covalently attached in an end-to-end manner; that is, polymers with internal connections (e.g., polyubiquitin) can use this relation, as can circular polymers (e.g., plasmids) and multi-branched polymers (e.g., glycans). This relation, as non-transitive, allows the number of instances of 'm' to be indicated.
+xref: RO:0020337
+property_value: IAO:0000112 "A polyubiquitin has_constituent_monomer some ubiquitin." xsd:string
+property_value: IAO:0000112 "An amino acid chain has_constituent_monomer at least two amino acid residues." xsd:string
+is_a: has_component ! has component
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
 id: has_dendrite_location
 name: has dendrite location
 xref: RO:0002360
@@ -1943,6 +2005,15 @@ domain: BFO:0000004
 range: BFO:0000016
 is_a: has_characteristic ! has characteristic
 inverse_of: disposition_of ! disposition of
+
+[Typedef]
+id: has_ectomycorrhizal_host
+name: has ectomycorrhizal host
+def: "inverse of ectomycorrhizal host of" []
+subset: RO:0002259
+xref: RO:0002805
+property_value: IAO:0000112 "According to Linde & Selmes 2012, an individual of species Quercus robur (French oak) is an ectomycorrhizal host of an individual of Tuber melanosporum (black truffle)." xsd:string
+is_a: has_host ! has host
 
 [Typedef]
 id: has_ectoparasite
@@ -2115,7 +2186,7 @@ property_value: IAO:0000112 "Hydrozoa (NCBITaxon_6074) SubClassOf 'has habitat' 
 property_value: IAO:0000114 IAO:0000428
 property_value: IAO:0000117 https://orcid.org/0000-0002-4366-3088
 property_value: IAO:0000118 "adapted for living in" xsd:string
-domain: OBI:0100026
+domain: COB:0000022
 range: ENVO:01000254
 is_a: ecologically_related_to ! ecologically related to
 
@@ -2641,7 +2712,7 @@ xref: RO:0008509
 property_value: IAO:0000112 "Flying foxes (Pteropus giganteus) has_roost banyan tree (Ficus benghalensis)" xsd:string
 property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
 property_value: terms:date "2023-01-18T14:28:21Z" xsd:dateTime
-domain: OBI:0100026
+domain: COB:0000022
 range: ENVO:01000739
 is_a: has_habitat ! has habitat
 
@@ -2766,6 +2837,7 @@ xref: RO:0002452
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 domain: OGMS:0000031
 is_a: has_phenotype ! has phenotype
+inverse_of: symptom_of ! symptom of
 
 [Typedef]
 id: has_synaptic_IO_in_region
@@ -3728,6 +3800,17 @@ is_a: regulates_in_another_organism ! regulates in another organism
 creation_date: 2023-10-12T10:02:42Z
 
 [Typedef]
+id: non-covalently_bound_to
+name: non-covalently bound to
+def: "A relation that holds between two distinct chemical entities that are held in close proximity to each other specifically via the force of non-covalent interactions." []
+comment: Such entities will colocalize at all times of the interaction.
+xref: RO:0020339
+property_value: IAO:0000112 "Holo-calmodulin is a calmodulin that is non-covalently_bound_to calcium." xsd:string
+is_symmetric: true
+is_a: molecularly_interacts_with ! molecularly interacts with
+created_by: https://orcid.org/0000-0001-5809-9523
+
+[Typedef]
 id: obligate_parasite_of
 name: obligate parasite of
 def: "A sub-relation of parasite-of in which the parasite that cannot complete its life cycle without a host." []
@@ -3923,8 +4006,8 @@ subset: ro-eco
 xref: RO:0002574
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: seeAlso http://dx.doi.org/10.1016/j.ecoinf.2014.08.005
-domain: OBI:0100026
-range: OBI:0100026
+domain: COB:0000022
+range: COB:0000022
 is_a: biotically_interacts_with ! biotically interacts with
 
 [Typedef]
@@ -4960,6 +5043,14 @@ property_value: IAO:0000112 "frog symbiotrophically interacts with the pitcher p
 property_value: terms:contributor https://orcid.org/0000-0002-2908-3327
 property_value: terms:date "2023-07-17T14:39:56Z" xsd:dateTime
 is_a: trophically_interacts_with ! trophically interacts with
+
+[Typedef]
+id: symptom_of
+name: symptom of
+def: "inverse of 'has symptom'" []
+xref: RO:0017007
+property_value: terms:contributor https://orcid.org/0009-0002-7282-0836
+property_value: terms:created "2025-06-16T17:42:05Z" xsd:dateTime
 
 [Typedef]
 id: synapsed_by
