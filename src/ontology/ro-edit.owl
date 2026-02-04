@@ -34,6 +34,7 @@ Import(<http://purl.obolibrary.org/obo/ro/imports/omo_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/orcidio_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/other_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/pato_import.owl>)
+Import(<http://purl.obolibrary.org/obo/ro/imports/so_import.owl>)
 Import(<http://purl.obolibrary.org/obo/ro/imports/uberon_import.owl>)
 Annotation(terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies."@en)
 Annotation(terms:license <https://creativecommons.org/publicdomain/zero/1.0/>)
@@ -595,8 +596,8 @@ Declaration(ObjectProperty(obo:RO_0017006))
 Declaration(ObjectProperty(obo:RO_0017007))
 Declaration(ObjectProperty(obo:RO_0017008))
 Declaration(ObjectProperty(obo:RO_0017009))
-Declaration(ObjectProperty(obo:RO_0017011))
 Declaration(ObjectProperty(obo:RO_0017010))
+Declaration(ObjectProperty(obo:RO_0017011))
 Declaration(ObjectProperty(obo:RO_0017502))
 Declaration(ObjectProperty(obo:RO_0018001))
 Declaration(ObjectProperty(obo:RO_0018002))
@@ -3920,8 +3921,8 @@ SubObjectPropertyOf(obo:RO_0002433 obo:RO_0002131)
 # Object Property: obo:RO_0002434 (interacts with)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0002434 "A relationship that holds between two entities in which the processes executed by the two entities are causally connected.")
-AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "Considering relabeling as 'pairwise interacts with'"^^xsd:anyURI)
 AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact.")
+AnnotationAssertion(obo:IAO_0000116 obo:RO_0002434 "Considering relabeling as 'pairwise interacts with'"^^xsd:anyURI)
 AnnotationAssertion(obo:IAO_0000117 obo:RO_0002434 <https://orcid.org/0000-0002-6601-2165>)
 AnnotationAssertion(obo:IAO_0000232 obo:RO_0002434 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules.")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0002434 "in pairwise interaction with")
@@ -6597,6 +6598,7 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0015004 "has marker gene com
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:RO_0015004 "has marker signature set")
 AnnotationAssertion(rdfs:label obo:RO_0015004 "has characterizing marker set")
 ObjectPropertyDomain(obo:RO_0015004 obo:CL_0000000)
+ObjectPropertyRange(obo:RO_0015004 obo:SO_0001260)
 
 # Object Property: obo:RO_0015006 (different in magnitude relative to)
 
@@ -6786,6 +6788,12 @@ AnnotationAssertion(oboInOwl:creation_date obo:RO_0017009 "2023-03-29T17:06:06Z"
 AnnotationAssertion(oboInOwl:inSubset obo:RO_0017009 obo:RO_0002259)
 AnnotationAssertion(rdfs:label obo:RO_0017009 "is owned by"@en)
 
+# Object Property: obo:RO_0017010 (specified by information)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0017010 "Inverse of information specifies.")
+AnnotationAssertion(terms:contributor obo:RO_0017010 <https://orcid.org/0000-0001-9625-1899>)
+AnnotationAssertion(terms:created obo:RO_0017010 "2025-06-16T17:13:17Z"^^xsd:dateTime)
+AnnotationAssertion(rdfs:label obo:RO_0017010 "specified by information"@en)
 
 # Object Property: obo:RO_0017011 (has marker)
 
@@ -6794,12 +6802,6 @@ AnnotationAssertion(terms:contributor obo:RO_0017011 <https://orcid.org/0000-000
 AnnotationAssertion(terms:created obo:RO_0017011 "2025-07-14T20:57:25Z"^^xsd:dateTime)
 AnnotationAssertion(rdfs:label obo:RO_0017011 "has marker"@en)
 SubObjectPropertyOf(obo:RO_0017011 obo:RO_0002610)
-# Object Property: obo:RO_0017010 (specified by information)
-
-AnnotationAssertion(obo:IAO_0000115 obo:RO_0017010 "Inverse of information specifies.")
-AnnotationAssertion(terms:contributor obo:RO_0017010 <https://orcid.org/0000-0001-9625-1899>)
-AnnotationAssertion(terms:created obo:RO_0017010 "2025-06-16T17:13:17Z"^^xsd:dateTime)
-AnnotationAssertion(rdfs:label obo:RO_0017010 "specified by information"@en)
 
 # Object Property: obo:RO_0017502 (collected during)
 
@@ -7275,8 +7277,8 @@ SubObjectPropertyOf(obo:RO_0020336 obo:RO_0020334)
 
 # Object Property: obo:RO_0020337 (has constituent monomer)
 
-AnnotationAssertion(obo:IAO_0000112 obo:RO_0020337 "An amino acid chain has_constituent_monomer at least two amino acid residues.")
 AnnotationAssertion(obo:IAO_0000112 obo:RO_0020337 "A polyubiquitin has_constituent_monomer some ubiquitin.")
+AnnotationAssertion(obo:IAO_0000112 obo:RO_0020337 "An amino acid chain has_constituent_monomer at least two amino acid residues.")
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0020337 "A relation that holds between a polymer and its constituent monomers. P has_constituent_monomer 'm' if and only if P has_component multiple instances of 'm' and each instance of 'm' is covalently attached to another instance of 'm'."@en)
 AnnotationAssertion(oboInOwl:created_by obo:RO_0020337 <https://orcid.org/0000-0001-5809-9523>)
 AnnotationAssertion(rdfs:comment obo:RO_0020337 "Usage note: The constituent monomers need not be covalently attached in an end-to-end manner; that is, polymers with internal connections (e.g., polyubiquitin) can use this relation, as can circular polymers (e.g., plasmids) and multi-branched polymers (e.g., glycans). This relation, as non-transitive, allows the number of instances of 'm' to be indicated.")
