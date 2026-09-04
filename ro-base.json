@@ -16,12 +16,12 @@
         "val" : "OBO Relations Ontology"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2025-12-17"
+        "val" : "2026-09-04"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : " https://github.com/oborel/obo-relations/"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/ro/releases/2025-12-17/ro-base.json"
+      "version" : "http://purl.obolibrary.org/obo/ro/releases/2026-09-04/ro-base.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000002",
@@ -2540,20 +2540,15 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002160",
-      "lbl" : "only in taxon",
+      "lbl" : "obsolete only in taxon",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "x only in taxon y if and only if x is in taxon y, and there is no other organism z such that y!=z a and x is in taxon z."
+          "val" : "OBSOLETE. x only in taxon y if and only if x is in taxon y, and there is no other organism z such that y!=z and x is in taxon z."
         },
+        "comments" : [ "This relation is redundant with 'in taxon' (RO:0002162). 'in taxon' should be used with OWL features such as universal restrictions and negations to achieve desired taxon constraints." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
-          "val" : "lactation SubClassOf 'only in taxon' some 'Mammalia'"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "The original intent was to treat this as a macro that expands to 'in taxon' only ?Y - however, this is not necessary if we instead have supplemental axioms that state that each pair of sibling tax have a disjointness axiom using the 'in taxon' property - e.g.\n\n 'in taxon' some Eukaryota DisjointWith 'in taxon' some Eubacteria"
         }, {
@@ -2566,9 +2561,13 @@
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "http://www.ncbi.nlm.nih.gov/pubmed/20973947"
         }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/RO_0002162"
+        }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
           "val" : "https://github.com/obophenotype/uberon/wiki/Taxon-constraints"
-        } ]
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0002162",
@@ -2586,9 +2585,6 @@
           "val" : "life cycle stage of"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
-          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
-        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0001-9227-417X"
         }, {
@@ -2603,6 +2599,9 @@
         }, {
           "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
           "val" : "https://github.com/obophenotype/uberon/wiki/Taxon-constraints"
+        }, {
+          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+          "val" : "https://oboacademy.github.io/obook/explanation/taxon-constraints-explainer/"
         } ]
       }
     }, {
@@ -4557,9 +4556,6 @@
           "val" : "executes"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
-          "val" : "has"
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
           "val" : "is catalyzing"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
@@ -5949,10 +5945,10 @@
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact."
+          "val" : "Considering relabeling as 'pairwise interacts with'"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Considering relabeling as 'pairwise interacts with'"
+          "val" : "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-6601-2165"
@@ -11745,6 +11741,26 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0018042",
+      "lbl" : "has gene product that enables",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "a relationship between a gene and the molecular function or activity enabled by the gene product (e.g., protein) that it encodes"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "AKT1 (HGNC:391) has gene product RAC-alpha serine/threonine-protein kinase (uniprot:P31749) which enables non-specific serine/threonine protein kinase (EC:2.7.11.1). This relation can be used as a shortcut HGNC:391 has gene product that enables EC:2.7.11.1."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
+          "val" : "https://github.com/oborel/obo-relations/issues/873"
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0003-4423-4370"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0019000",
       "lbl" : "regulates characteristic",
       "type" : "PROPERTY",
@@ -11801,6 +11817,110 @@
           "val" : "Given individuals f, i, x, and y, where f is a 'molecular function', i is an 'information biomacromolecule', and x and y are instances of different types of gene products, if f 'enabled by' i within an OWL model of a biological pathway, and i 'has substitutable entity' both x and y, then either x or y are valid enablers of function f within the modeled biological context."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019004",
+      "lbl" : "immediately constitutively upstream of",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "p is immediately constitutively upstream of q iff p is immediately causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "An 'acyl carrier activity' is 'immediately constitutively upstream of' some '[acyl-carrier-protein] S-acetyltransferase activity'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019005",
+      "lbl" : "has active component",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between a collection of items, x, and one of its constituent members, y, such that execution of the primary activity associated with x is attributable to the activity of y."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A 'proteasome core complex' 'has active component' some 'PSMB5 protein'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019006",
+      "lbl" : "has accessory component",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between a collection of items, x, and one of its constituent members, y, such that the activity of y is necessary for execution of the primary activity associated with x but y does not execute the primary activity itself."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A 'proteasome core complex' 'has accessory component' some 'PSMA7 protein'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019007",
+      "lbl" : "is active component of",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is responsible for execution of the primary activity attributed to x."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A 'PSMB5 protein' 'is active component of' some 'proteasome core complex'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019008",
+      "lbl" : "is accessory component of",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is necessary for the primary activity attributed to x but y does not execute the primary activity itself."
+        },
+        "subsets" : [ "http://purl.obolibrary.org/obo/valid_for_gocam" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "A 'PSMA7 protein' 'is active component of' some 'proteasome core complex'."
+        }, {
+          "pred" : "http://purl.org/dc/terms/contributor",
+          "val" : "https://orcid.org/0000-0002-8688-6599"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/RO_0019009",
+      "lbl" : "component of",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "Inverse of 'has component'."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/contributor",
           "val" : "https://orcid.org/0000-0002-8688-6599"
         } ]
       }
@@ -14279,6 +14399,10 @@
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000233",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000424",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
@@ -15563,10 +15687,6 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0002159",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002320"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002160",
-      "pred" : "subPropertyOf",
-      "obj" : "http://purl.obolibrary.org/obo/RO_0002162"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002162",
       "pred" : "subPropertyOf",
@@ -17704,6 +17824,10 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0018030"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0018042",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002328"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0019000",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002410"
@@ -17715,6 +17839,34 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0019002",
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0019000"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019004",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002412"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019004",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0012009"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019005",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002180"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019006",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0002180"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019007",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0019009"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019008",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0019009"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019009",
+      "pred" : "subPropertyOf",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000050"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0019501",
       "pred" : "subPropertyOf",
@@ -18248,6 +18400,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002157"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0002180",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0019009"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0002200",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002201"
@@ -18599,6 +18755,14 @@
       "sub" : "http://purl.obolibrary.org/obo/RO_0018033",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0018034"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019005",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0019007"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/RO_0019006",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/RO_0019008"
     } ],
     "domainRangeAxioms" : [ {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -19387,6 +19551,9 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002255",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002203", "http://purl.obolibrary.org/obo/BFO_0000050" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0018042",
+      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002205", "http://purl.obolibrary.org/obo/RO_0002327" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002206",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002206", "http://purl.obolibrary.org/obo/BFO_0000050" ]
     }, {
@@ -19485,6 +19652,15 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002413",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002234", "http://purl.obolibrary.org/obo/RO_0002233" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002578",
+      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002234", "http://purl.obolibrary.org/obo/RO_0012004" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002629",
+      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002234", "http://purl.obolibrary.org/obo/RO_0012005" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0002630",
+      "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002234", "http://purl.obolibrary.org/obo/RO_0012006" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0002162",
       "chainPredicateIds" : [ "http://purl.obolibrary.org/obo/RO_0002254", "http://purl.obolibrary.org/obo/RO_0002162" ]
