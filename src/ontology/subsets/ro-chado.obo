@@ -17,7 +17,7 @@ subsetdef: vertebrate_core ""
 default-namespace: relationship
 ontology: ro/subsets/ro-chado.obo
 property_value: foaf:homepage " https://github.com/oborel/obo-relations/" xsd:anyURI
-property_value: owl:versionInfo "2025-12-17" xsd:string
+property_value: owl:versionInfo "2026-09-04" xsd:string
 property_value: terms:description "The OBO Relations Ontology (RO) is a collection of OWL relations (ObjectProperties) intended for use across a wide variety of biological ontologies." xsd:string
 property_value: terms:license https://creativecommons.org/publicdomain/zero/1.0/
 property_value: terms:title "OBO Relations Ontology" xsd:string
@@ -718,9 +718,10 @@ is_a: RO:0002320 ! evolutionarily related to
 
 [Typedef]
 id: RO:0002160
-name: only_in_taxon
-def: "x only in taxon y if and only if x is in taxon y, and there is no other organism z such that y!=z a and x is in taxon z." []
-is_a: RO:0002162 ! in taxon
+name: obsolete_only_in_taxon
+def: "OBSOLETE. x only in taxon y if and only if x is in taxon y, and there is no other organism z such that y!=z and x is in taxon z." []
+is_obsolete: true
+replaced_by: RO:0002162
 
 [Typedef]
 id: RO:0002162
@@ -789,6 +790,7 @@ id: RO:0002180
 name: has_component
 def: "w 'has component' p if w 'has part' p and w is such that it can be directly disassembled into into n parts p, p2, p3, ..., pn, where these parts are of similar type." []
 is_a: BFO:0000051 ! has part
+inverse_of: RO:0019009 ! component of
 
 [Typedef]
 id: RO:0002200
@@ -2632,6 +2634,7 @@ is_a: BFO:0000050 ! part of
 id: RO:0002578
 name: directly_regulates
 def: "p directly regulates q iff p is immediately causally upstream of q and p regulates q." []
+holds_over_chain: RO:0002234 RO:0012004
 is_a: RO:0002211 ! regulates
 is_a: RO:0002412 ! immediately causally upstream of
 
@@ -2838,6 +2841,7 @@ is_a: RO:0002574 ! participates in a biotic-biotic interaction with
 id: RO:0002629
 name: directly_positively_regulates
 def: "p directly positively regulates q iff p is immediately causally upstream of q, and p positively regulates q." []
+holds_over_chain: RO:0002234 RO:0012005
 is_a: RO:0002213 ! positively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -2845,6 +2849,7 @@ is_a: RO:0002578 ! directly regulates
 id: RO:0002630
 name: directly_negatively_regulates
 def: "p directly negatively regulates q iff p is immediately causally upstream of q, and p negatively regulates q." []
+holds_over_chain: RO:0002234 RO:0012006
 is_a: RO:0002212 ! negatively regulates
 is_a: RO:0002578 ! directly regulates
 
@@ -3975,6 +3980,13 @@ def: "Chemical A has parent hydride Chemical B if there exists a molecular graph
 is_a: RO:0018030 ! chemical relationship
 
 [Typedef]
+id: RO:0018042
+name: has_gene_product_that_enables
+def: "a relationship between a gene and the molecular function or activity enabled by the gene product (e.g., protein) that it encodes" []
+holds_over_chain: RO:0002205 RO:0002327
+is_a: RO:0002328 ! functionally related to
+
+[Typedef]
 id: RO:0019000
 name: regulates_characteristic
 def: "A relationship that holds between a process and a characteristic in which process (P) regulates characteristic (C) iff: P results in the existence of C OR affects the intensity or magnitude of C." []
@@ -4000,6 +4012,45 @@ is_a: RO:0019000 ! regulates characteristic
 id: RO:0019003
 name: has_substitutable_entity
 def: "Relates one individual to another which is capable of standing in for the first individual in its other relations to other individuals." []
+
+[Typedef]
+id: RO:0019004
+name: immediately_constitutively_upstream_of
+def: "p is immediately constitutively upstream of q iff p is immediately causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant." []
+is_a: RO:0002412 ! immediately causally upstream of
+is_a: RO:0012009 ! constitutively upstream of
+
+[Typedef]
+id: RO:0019005
+name: has_active_component
+def: "A relation that holds between a collection of items, x, and one of its constituent members, y, such that execution of the primary activity associated with x is attributable to the activity of y." []
+is_a: RO:0002180 ! has component
+inverse_of: RO:0019007 ! is active component of
+
+[Typedef]
+id: RO:0019006
+name: has_accessory_component
+def: "A relation that holds between a collection of items, x, and one of its constituent members, y, such that the activity of y is necessary for execution of the primary activity associated with x but y does not execute the primary activity itself." []
+is_a: RO:0002180 ! has component
+inverse_of: RO:0019008 ! is accessory component of
+
+[Typedef]
+id: RO:0019007
+name: is_active_component_of
+def: "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is responsible for execution of the primary activity attributed to x." []
+is_a: RO:0019009 ! component of
+
+[Typedef]
+id: RO:0019008
+name: is_accessory_component_of
+def: "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is necessary for the primary activity attributed to x but y does not execute the primary activity itself." []
+is_a: RO:0019009 ! component of
+
+[Typedef]
+id: RO:0019009
+name: component_of
+def: "Inverse of 'has component'." []
+is_a: BFO:0000050 ! part of
 
 [Typedef]
 id: RO:0019501

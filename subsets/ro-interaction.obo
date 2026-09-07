@@ -689,6 +689,14 @@ property_value: IAO:0000119 "http://www.ncbi.nlm.nih.gov/pubmed/19278549" xsd:an
 is_a: symbiotically_interacts_with ! symbiotically interacts with
 
 [Typedef]
+id: component_of
+name: component of
+def: "Inverse of 'has component'." []
+xref: RO:0019009
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: part_of ! part of
+
+[Typedef]
 id: composed_primarily_of
 name: composed primarily of
 def: "x composed_primarily_of y if and only if more than half of the mass of x is made from y or units of the same type as y." []
@@ -1567,7 +1575,6 @@ property_value: IAO:0000112 "a particular instances of akt-2 enables some instan
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000118 "catalyzes" xsd:string
 property_value: IAO:0000118 "executes" xsd:string
-property_value: IAO:0000118 "has" xsd:string
 property_value: IAO:0000118 "is catalyzing" xsd:string
 property_value: IAO:0000118 "is executing" xsd:string
 property_value: IAO:0000232 "This relation differs from the parent relation 'capable of' in that the parent is weaker and only expresses a capability that may not be actually realized, whereas this relation is always realized." xsd:string
@@ -1773,6 +1780,28 @@ range: BFO:0000141
 is_a: mereotopologically_related_to ! mereotopologically related to
 
 [Typedef]
+id: has_accessory_component
+name: has accessory component
+def: "A relation that holds between a collection of items, x, and one of its constituent members, y, such that the activity of y is necessary for execution of the primary activity associated with x but y does not execute the primary activity itself." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+xref: RO:0019006
+property_value: IAO:0000112 "A 'proteasome core complex' 'has accessory component' some 'PSMA7 protein'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: has_component ! has component
+inverse_of: is_accessory_component_of ! is accessory component of
+
+[Typedef]
+id: has_active_component
+name: has active component
+def: "A relation that holds between a collection of items, x, and one of its constituent members, y, such that execution of the primary activity associated with x is attributable to the activity of y." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+xref: RO:0019005
+property_value: IAO:0000112 "A 'proteasome core complex' 'has active component' some 'PSMB5 protein'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: has_component ! has component
+inverse_of: is_active_component_of ! is active component of
+
+[Typedef]
 id: has_active_ingredient
 name: has active ingredient
 def: "A relationship that holds between a substance and a chemical entity, if the chemical entity is part of the substance, and the chemical entity forms the biologically active component of the substance." []
@@ -1881,6 +1910,7 @@ property_value: IAO:0000232 "For use in recording has_part with a cardinality co
 property_value: RO:0001900 RO:0001901
 property_value: seeAlso http://ontologydesignpatterns.org/wiki/Submissions:Componency
 is_a: has_part ! has part
+inverse_of: component_of ! component of
 
 [Typedef]
 id: has_component_activity
@@ -2174,6 +2204,16 @@ property_value: IAO:0000118 "has_function" xsd:string
 domain: BFO:0000004
 range: BFO:0000034
 is_a: has_characteristic ! has characteristic
+
+[Typedef]
+id: has_gene_product_that_enables
+name: has gene product that enables
+def: "a relationship between a gene and the molecular function or activity enabled by the gene product (e.g., protein) that it encodes" []
+xref: RO:0018042
+property_value: IAO:0000112 "AKT1 (HGNC:391) has gene product RAC-alpha serine/threonine-protein kinase (uniprot:P31749) which enables non-specific serine/threonine protein kinase (EC:2.7.11.1). This relation can be used as a shortcut HGNC:391 has gene product that enables EC:2.7.11.1." xsd:string
+property_value: IAO:0000233 "https://github.com/oborel/obo-relations/issues/873" xsd:anyURI
+property_value: terms:contributor https://orcid.org/0000-0003-4423-4370
+is_a: functionally_related_to ! functionally related to
 
 [Typedef]
 id: has_habitat
@@ -2986,6 +3026,17 @@ is_a: causally_upstream_of ! causally upstream of
 is_a: immediately_precedes ! immediately precedes
 
 [Typedef]
+id: immediately_constitutively_upstream_of
+name: immediately constitutively upstream of
+def: "p is immediately constitutively upstream of q iff p is immediately causally upstream of q, p is required for execution of q or a part of q, and the execution of p is approximately constant." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+xref: RO:0019004
+property_value: IAO:0000112 "An 'acyl carrier activity' is 'immediately constitutively upstream of' some '[acyl-carrier-protein] S-acetyltransferase activity'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: constitutively_upstream_of ! constitutively upstream of
+is_a: immediately_causally_upstream_of ! immediately causally upstream of
+
+[Typedef]
 id: immediately_preceded_by
 name: immediately preceded by
 comment: X immediately_preceded_by Y iff: end(X) simultaneous_with start(Y)
@@ -3180,7 +3231,7 @@ def: "A relationship that holds between two entities in which the processes exec
 subset: ro-eco
 synonym: "in pairwise interaction with" EXACT []
 xref: RO:0002434
-property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:anyURI
+property_value: IAO:0000116 "Considering relabeling as 'pairwise interacts with'" xsd:string
 property_value: IAO:0000116 "This relation and all sub-relations can be applied to either (1) pairs of entities that are interacting at any moment of time (2) populations or species of entity whose members have the disposition to interact (3) classes whose members have the disposition to interact." xsd:string
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 property_value: IAO:0000232 "Note that this relationship type, and sub-relationship types may be redundant with process terms from other ontologies. For example, the symbiotic relationship hierarchy parallels GO. The relations are provided as a convenient shortcut. Consider using the more expressive processual form to capture your data. In the future, these relations will be linked to their cognate processes through rules." xsd:string
@@ -3269,6 +3320,26 @@ xref: RO:0002428
 property_value: IAO:0000117 https://orcid.org/0000-0002-6601-2165
 is_a: acts_upstream_of ! acts upstream of
 is_a: involved_in_or_involved_in_regulation_of ! involved in or involved in regulation of
+
+[Typedef]
+id: is_accessory_component_of
+name: is accessory component of
+def: "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is necessary for the primary activity attributed to x but y does not execute the primary activity itself." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+xref: RO:0019008
+property_value: IAO:0000112 "A 'PSMA7 protein' 'is active component of' some 'proteasome core complex'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: component_of ! component of
+
+[Typedef]
+id: is_active_component_of
+name: is active component of
+def: "A relation that holds between y, a constituent member of a collection of items, x, such that the activity of y is responsible for execution of the primary activity attributed to x." []
+subset: http://purl.obolibrary.org/obo/valid_for_gocam
+xref: RO:0019007
+property_value: IAO:0000112 "A 'PSMB5 protein' 'is active component of' some 'proteasome core complex'." xsd:string
+property_value: terms:contributor https://orcid.org/0000-0002-8688-6599
+is_a: component_of ! component of
 
 [Typedef]
 id: is_active_in
