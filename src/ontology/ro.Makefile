@@ -142,7 +142,8 @@ bfo2-classes.owl:
 # ========================================
 
 subsets/ro-biotic-interaction.owl: ro.owl
-	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" -o $@
+	$(ROBOT) filter -i $< --term RO:0002437 --select "annotations self descendants" \
+		annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) -o $@
 
 # the following subsets are generated purely by hierarchy:
 subsets/ro-interaction.owl: ro.owl
